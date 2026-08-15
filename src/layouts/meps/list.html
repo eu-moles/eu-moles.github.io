@@ -20,43 +20,43 @@
 
   <section class="ph3 ph5-l pb5">
     <form id="mep-filters" class="pa3 mb3 ba b--black-10 bg-near-white" aria-label="Filter MEP directory">
-      <div class="flex flex-wrap items-end nl2 nr2">
-        <label class="db ph2 mb2 flex-auto">
-          <span class="db f6 b mb1">Country</span>
+      <div class="mep-filter-controls">
+        <label class="mep-filter-field">
+          <span class="db f6 b">Country</span>
           <select id="mep-country" class="pa2 w-100">
             <option value="">All countries</option>
             {{ range $countries }}<option value="{{ . }}">{{ partial "country-flag.html" . }} {{ . }}</option>{{ end }}
           </select>
         </label>
-        <label class="db ph2 mb2 flex-auto">
-          <span class="db f6 b mb1">First letter</span>
+        <label class="mep-filter-field">
+          <span class="db f6 b">First letter</span>
           <select id="mep-letter" class="pa2 w-100">
             <option value="">All letters</option>
           </select>
         </label>
-        <label class="db ph2 mb2 flex-auto">
-          <span class="db f6 b mb1">Political group</span>
+        <label class="mep-filter-field">
+          <span class="db f6 b">Political group</span>
           <select id="mep-group" class="pa2 w-100">
             <option value="">All political groups</option>
             {{ range $groups }}<option value="{{ . }}">{{ . }}</option>{{ end }}
           </select>
         </label>
-        <label class="db ph2 mb2 flex-auto">
-          <span class="db f6 b mb1">National party</span>
+        <label class="mep-filter-field">
+          <span class="db f6 b">National party</span>
           <select id="mep-party" class="pa2 w-100">
             <option value="">All national parties</option>
             {{ range $parties }}<option value="{{ . }}">{{ . }}</option>{{ end }}
           </select>
         </label>
-        <label class="db ph2 mb2">
-          <span class="db f6 b mb1">Rows per page</span>
-          <select id="mep-page-size" class="pa2">
+        <label class="mep-filter-field">
+          <span class="db f6 b">Rows per page</span>
+          <select id="mep-page-size" class="pa2 w-100">
             <option value="25">25</option>
             <option value="50">50</option>
             <option value="100">100</option>
           </select>
         </label>
-        <div class="ph2 mb2">
+        <div class="mep-filter-action">
           <button id="mep-clear-filters" class="pv2 ph3 ba b--dark-blue bg-white dark-blue pointer" type="button">Clear filters</button>
         </div>
       </div>
@@ -92,7 +92,7 @@
                     height="48"
                     style="width: 48px; height: 48px; object-fit: cover; object-position: center;"
                     loading="lazy">
-                  <a class="link dark-blue underline-hover" href="https://www.europarl.europa.eu/meps/en/{{ .id }}" rel="external">{{ .fullName }}</a>
+                  <a class="link dark-blue underline-hover" href="https://www.europarl.europa.eu/meps/en/{{ .id }}" target="_blank" rel="external noopener noreferrer">{{ .fullName }}</a>
                 </div>
               </td>
               <td class="pa2">{{ partial "country-flag.html" .country }} {{ .country }}</td>

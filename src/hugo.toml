@@ -5,10 +5,6 @@ locale = 'en-us'
 title = 'EU Moles'
 disableKinds = ['taxonomy', 'term']
 
-[HTTPCache.cache.for]
-  excludes = []
-  includes = ['**/meps/en/full-list/xml']
-
 [params]
   description = 'A source-first research directory for examining pro-Kremlin positions in the European Parliament.'
   featured_image_class = 'cover bg-bottom'

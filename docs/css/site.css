@@ -89,6 +89,41 @@ textarea {
   }
 }
 
+/* Compact MEP filters: one desktop row, then fluidly collapse for smaller screens. */
+.mep-filter-controls {
+  display: grid;
+  grid-template-columns: minmax(8.5rem, 0.85fr) minmax(7.5rem, 0.7fr) minmax(12rem, 1.15fr) minmax(15rem, 1.7fr) minmax(6.25rem, 0.55fr) auto;
+  gap: 0.65rem;
+  align-items: end;
+}
+
+.mep-filter-field span {
+  margin-bottom: 0.25rem;
+}
+
+.mep-filter-field select {
+  padding: 0.45rem 0.55rem;
+  font-size: 0.95rem;
+}
+
+.mep-filter-action button {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 60em) {
+  .mep-filter-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 32em) {
+  .mep-filter-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Give the Home page room for data cards without making prose hard to read. */
 body.is-home main > article {
   width: min(100%, 92rem);
