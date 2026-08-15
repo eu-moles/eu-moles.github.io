@@ -10,6 +10,7 @@ title = 'EU MEPs & Russian Moles'
 
 [params.ananke]
   show_recent_posts = false
+  custom_css = ['css/site.css']
 
 [taxonomies]
   category = 'categories'

@@ -1,0 +1,4 @@
+/* The directory already provides its own spacing below the table. */
+.mep-directory main {
+  padding-bottom: 0;
+}

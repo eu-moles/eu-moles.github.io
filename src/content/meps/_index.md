@@ -2,6 +2,7 @@
 title: "MEPs"
 description: "Current Members of the European Parliament in the project dataset."
 featured_image: "/images/header-hero.png"
+body_classes: "mep-directory"
 ---
 
 This directory lists the MEP records currently included in the project's data

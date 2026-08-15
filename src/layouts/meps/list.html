@@ -1,30 +1,107 @@
 {{ define "main" }}
-  <article class="ph3 ph5-l pv3 pv4-l f4 center measure-wide lh-copy nested-links mid-gray">
+  <article class="ph3 ph5-l pv3 f4 lh-copy nested-links mid-gray">
     {{ .Content }}
   </article>
 
   {{ $meps := sort hugo.Data.meps.mep "fullName" }}
-  <section class="ph3 ph5-l pb5 overflow-auto">
-    <p class="f5 gray">{{ len $meps }} MEP records</p>
-    <table class="collapse w-100 ba b--black-10 f6" cellspacing="0">
-      <thead>
-        <tr class="bg-near-white tl">
-          <th class="pa2">MEP</th>
-          <th class="pa2">Country</th>
-          <th class="pa2">Political group</th>
-          <th class="pa2">National party</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{ range $meps }}
-          <tr class="bb b--black-10">
-            <td class="pa2"><a class="link dark-blue underline-hover" href="https://www.europarl.europa.eu/meps/en/{{ .id }}" rel="external">{{ .fullName }}</a></td>
-            <td class="pa2">{{ .country }}</td>
-            <td class="pa2">{{ .politicalGroup }}</td>
-            <td class="pa2">{{ .nationalPoliticalGroup }}</td>
+  {{ $countries := slice }}
+  {{ $groups := slice }}
+  {{ $parties := slice }}
+  {{ range $meps }}
+    {{ $countries = $countries | append .country }}
+    {{ $groups = $groups | append .politicalGroup }}
+    {{ $parties = $parties | append .nationalPoliticalGroup }}
+  {{ end }}
+  {{ $countries = sort (collections.Uniq $countries) }}
+  {{ $groups = sort (collections.Uniq $groups) }}
+  {{ $parties = sort (collections.Uniq $parties) }}
+
+  <section class="ph3 ph5-l pb5">
+    <form id="mep-filters" class="pa3 mb3 ba b--black-10 bg-near-white" aria-label="Filter MEP directory">
+      <div class="flex flex-wrap items-end nl2 nr2">
+        <label class="db ph2 mb2 flex-auto">
+          <span class="db f6 b mb1">Country</span>
+          <select id="mep-country" class="pa2 w-100">
+            <option value="">All countries</option>
+            {{ range $countries }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+          </select>
+        </label>
+        <label class="db ph2 mb2 flex-auto">
+          <span class="db f6 b mb1">First letter</span>
+          <select id="mep-letter" class="pa2 w-100">
+            <option value="">All letters</option>
+          </select>
+        </label>
+        <label class="db ph2 mb2 flex-auto">
+          <span class="db f6 b mb1">Political group</span>
+          <select id="mep-group" class="pa2 w-100">
+            <option value="">All political groups</option>
+            {{ range $groups }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+          </select>
+        </label>
+        <label class="db ph2 mb2 flex-auto">
+          <span class="db f6 b mb1">National party</span>
+          <select id="mep-party" class="pa2 w-100">
+            <option value="">All national parties</option>
+            {{ range $parties }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+          </select>
+        </label>
+        <label class="db ph2 mb2">
+          <span class="db f6 b mb1">Rows per page</span>
+          <select id="mep-page-size" class="pa2">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </label>
+        <div class="ph2 mb2">
+          <button id="mep-clear-filters" class="pv2 ph3 ba b--dark-blue bg-white dark-blue pointer" type="button">Clear filters</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="flex flex-wrap items-center justify-between mb2">
+      <p id="mep-results-summary" class="f5 gray mv2" aria-live="polite">{{ len $meps }} MEP records</p>
+      <nav id="mep-pagination" class="mv2" aria-label="MEP directory pages"></nav>
+    </div>
+
+    <noscript><p class="pa3 bg-washed-yellow">Filtering and pagination require JavaScript. All MEP records are shown below.</p></noscript>
+
+    <div class="overflow-auto">
+      <table class="collapse w-100 ba b--black-10 f6" cellspacing="0">
+        <thead>
+          <tr class="bg-near-white tl">
+            <th class="pa2">MEP</th>
+            <th class="pa2">Country</th>
+            <th class="pa2">Political group</th>
+            <th class="pa2">National party</th>
           </tr>
-        {{ end }}
-      </tbody>
-    </table>
+        </thead>
+        <tbody id="mep-directory-rows">
+          {{ range $meps }}
+            <tr class="bb b--black-10" data-mep-row data-country="{{ .country }}" data-group="{{ .politicalGroup }}" data-party="{{ .nationalPoliticalGroup }}" data-full-name="{{ .fullName }}">
+              <td class="pa2">
+                <div class="flex items-center">
+                  <img
+                    class="br-100 mr2 flex-none"
+                    src="https://www.europarl.europa.eu/mepphoto/{{ .id }}.jpg"
+                    alt="Portrait of {{ .fullName }}"
+                    width="48"
+                    height="48"
+                    style="width: 48px; height: 48px; object-fit: cover; object-position: center;"
+                    loading="lazy">
+                  <a class="link dark-blue underline-hover" href="https://www.europarl.europa.eu/meps/en/{{ .id }}" rel="external">{{ .fullName }}</a>
+                </div>
+              </td>
+              <td class="pa2">{{ .country }}</td>
+              <td class="pa2">{{ .politicalGroup }}</td>
+              <td class="pa2">{{ .nationalPoliticalGroup }}</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
   </section>
+
+  <script defer src="{{ "js/meps-directory.js" | relURL }}"></script>
 {{ end }}
