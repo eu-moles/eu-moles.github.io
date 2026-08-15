@@ -1,7 +1,9 @@
 {{ define "main" }}
-  <article class="ph3 ph5-l pv3 f4 lh-copy nested-links mid-gray">
-    {{ .Content }}
-  </article>
+  {{ with .Content }}
+    <article class="ph3 ph5-l pv3 f4 lh-copy nested-links mid-gray">
+      {{ . }}
+    </article>
+  {{ end }}
 
   {{ $meps := sort (partials.IncludeCached "meps-data.html" site) "fullName" }}
   {{ $countries := slice }}

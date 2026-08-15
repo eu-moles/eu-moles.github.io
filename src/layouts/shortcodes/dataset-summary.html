@@ -1,16 +1,20 @@
 {{ $meps := partials.IncludeCached "meps-data.html" site }}
 {{ $countries := slice }}
 {{ $groups := slice }}
+{{ $parties := slice }}
 {{ range $meps }}
   {{ $countries = $countries | append .country }}
   {{ $groups = $groups | append .politicalGroup }}
+  {{ $parties = $parties | append (printf "%s|%s" .country .nationalPoliticalGroup) }}
 {{ end }}
 {{ $countries = collections.Uniq $countries }}
 {{ $groups = collections.Uniq $groups }}
-<section class="ph3 ph5-l pb4">
+{{ $parties = collections.Uniq $parties }}
+<section class="dataset-summary ph3 ph5-l pb4">
   <div class="flex flex-wrap nl2 nr2">
-    <div class="w-100 w-third-l pa2"><div class="bg-white ba b--black-10 pa3"><strong class="db f2">{{ len $meps }}</strong><span class="gray">MEP records</span></div></div>
-    <div class="w-100 w-third-l pa2"><div class="bg-white ba b--black-10 pa3"><strong class="db f2">{{ len $countries }}</strong><span class="gray">countries</span></div></div>
-    <div class="w-100 w-third-l pa2"><div class="bg-white ba b--black-10 pa3"><strong class="db f2">{{ len $groups }}</strong><span class="gray">political-group classifications</span></div></div>
+    <div class="w-100 w-50-m w-25-l pa2"><div class="dataset-card dataset-card--meps"><strong class="db f2"><i class="fa-solid fa-users mr2" aria-hidden="true"></i>{{ len $meps }}</strong><span>MEP records</span></div></div>
+    <div class="w-100 w-50-m w-25-l pa2"><div class="dataset-card dataset-card--countries"><strong class="db f2"><i class="fa-solid fa-flag mr2" aria-hidden="true"></i>{{ len $countries }}</strong><span>countries</span></div></div>
+    <div class="w-100 w-50-m w-25-l pa2"><div class="dataset-card dataset-card--groups"><strong class="db f2"><i class="fa-solid fa-landmark mr2" aria-hidden="true"></i>{{ len $groups }}</strong><span>political groups</span></div></div>
+    <div class="w-100 w-50-m w-25-l pa2"><div class="dataset-card dataset-card--parties"><strong class="db f2"><i class="fa-solid fa-building-columns mr2" aria-hidden="true"></i>{{ len $parties }}</strong><span>national-party affiliations</span></div></div>
   </div>
 </section>

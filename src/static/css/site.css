@@ -1,4 +1,168 @@
-/* The directory already provides its own spacing below the table. */
-.mep-directory main {
-  padding-bottom: 0;
+/* Shared spacing between every hero and its page content. */
+main.pb7 {
+  padding-top: 2rem !important;
+  padding-bottom: 0 !important;
+}
+
+main > article.pv3 {
+  padding-top: 0;
+}
+
+/* Use one typography system across every page and control. */
+body,
+body.avenir,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* The approved wordmark carries both the emblem and the site title. */
+.site-brand {
+  display: inline-block;
+  line-height: 0;
+}
+
+.site-brand > img {
+  display: block;
+  width: auto;
+  max-width: min(52vw, 15rem);
+  height: 4rem;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 30em) {
+  .site-brand > img {
+    height: 3rem;
+  }
+}
+
+/* Give the Home page room for data cards without making prose hard to read. */
+body.is-home main > article {
+  width: min(100%, 92rem);
+  max-width: none;
+}
+
+body.is-home main > article > :not(.dataset-summary) {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Home-page data cards echo the EU-blue, gold, and investigative-red palette. */
+.dataset-card {
+  min-height: 8.75rem;
+  padding: 1.35rem;
+  border: 1px solid var(--summary-border);
+  border-top: 0.35rem solid var(--summary-accent);
+  background: var(--summary-background);
+  box-shadow: 0 0.35rem 1rem rgb(7 11 18 / 8%);
+}
+
+.dataset-card strong {
+  color: var(--summary-figure);
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  line-height: 1.1;
+}
+
+.dataset-card i {
+  color: var(--summary-accent);
+}
+
+.dataset-card span {
+  display: block;
+  margin-top: 0.55rem;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.dataset-card--meps {
+  --summary-accent: #174f91;
+  --summary-figure: #0b376f;
+  --summary-border: #c7d7eb;
+  --summary-background: #f3f7fc;
+}
+
+.dataset-card--countries {
+  --summary-accent: #d6a62e;
+  --summary-figure: #8a6510;
+  --summary-border: #ead9a5;
+  --summary-background: #fffaf0;
+}
+
+.dataset-card--groups {
+  --summary-accent: #a22a2a;
+  --summary-figure: #7e1f1f;
+  --summary-border: #e9c5c5;
+  --summary-background: #fdf4f4;
+}
+
+.dataset-card--parties {
+  --summary-accent: #485d73;
+  --summary-figure: #263b51;
+  --summary-border: #cbd4dd;
+  --summary-background: #f4f7f9;
+}
+
+h2#what-this-project-is::after {
+  content: "\f059";
+  margin-left: 0.28em;
+  color: #d6a62e;
+  font-size: 0.8em;
+  vertical-align: 0.08em;
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+}
+
+/* Let hero descriptions use the available viewport width on every page. */
+header h2.measure-wide-l {
+  max-width: min(90vw, 100rem);
+}
+
+/* Normalize hero typography across every page. */
+header.cover h1.f2.f-subheadline-l {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+header.cover h2.fw1 {
+  font-family: inherit;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+/* A restrained editorial marker for the key term in the home hero. */
+.red-marker {
+  padding: 0.04em 0.24em 0.08em;
+  border-radius: 0.08em;
+  background: #aa2629;
+  color: #fff8f1;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Keep image heroes at one consistent desktop height, so cover cropping does
+   not change with the amount of page-title text. */
+@media screen and (min-width: 60em) {
+  main.pb7 {
+    padding-top: 4rem !important;
+  }
+
+  main > article.pv4-l {
+    padding-top: 0;
+  }
+
+  header.cover,
+  header.cover > div {
+    height: clamp(30rem, 35vw, 38rem);
+  }
 }

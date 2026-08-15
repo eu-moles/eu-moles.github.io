@@ -3,6 +3,7 @@ publishDir = '../docs'
 cleanDestinationDir = true
 locale = 'en-us'
 title = 'EU Moles'
+disableKinds = ['taxonomy', 'term']
 
 [HTTPCache.cache.for]
   excludes = []
@@ -11,14 +12,12 @@ title = 'EU Moles'
 [params]
   description = 'A source-first research directory for examining pro-Kremlin positions in the European Parliament.'
   featured_image_class = 'cover bg-bottom'
+  site_logo = '/images/eu-moles-wordmark.png'
+  favicon = '/favicon.ico'
 
 [params.ananke]
   show_recent_posts = false
   custom_css = ['css/site.css']
-
-[taxonomies]
-  category = 'categories'
-  tag = 'tags'
 
 [[menus.main]]
   name = 'Home'
@@ -29,26 +28,6 @@ title = 'EU Moles'
   name = 'MEPs'
   pageRef = '/meps'
   weight = 20
-
-[[menus.main]]
-  name = 'Countries'
-  pageRef = '/countries'
-  weight = 30
-
-[[menus.main]]
-  name = 'Political Groups'
-  pageRef = '/groups'
-  weight = 40
-
-[[menus.main]]
-  name = 'National Parties'
-  pageRef = '/national-parties'
-  weight = 50
-
-[[menus.main]]
-  name = 'Methodology'
-  pageRef = '/methodology'
-  weight = 60
 
 [module]
 
