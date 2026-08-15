@@ -1,4 +1,5 @@
 baseURL = 'https://example.org/'
+publishDir = '../docs'
 locale = 'en-us'
 title = 'Lorem Atlas'
 
