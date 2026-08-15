@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Data on Lorem Atlas</title>
+		<link>http://localhost:1313/tags/data/</link>
+		<description>Recent content in Data on Lorem Atlas</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 03 Aug 2026 14:15:00 +0300</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/data/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>A Garden for Data</title>
+				<link>http://localhost:1313/posts/a-garden-for-data/</link>
+				<pubDate>Mon, 03 Aug 2026 14:15:00 +0300</pubDate>
+				<guid>http://localhost:1313/posts/a-garden-for-data/</guid>
+				<description>&lt;p&gt;Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Information&#xA;need not be a dashboard of blinking numbers. It can be a path, a label, a&#xA;bench, and an invitation to return.&lt;/p&gt;&#xA;&lt;h3 id=&#34;a-modest-proposal&#34;&gt;A modest proposal&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;&#x9;&lt;thead&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Element&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Purpose&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/thead&gt;&#xA;&#x9;&lt;tbody&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Paths&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Help visitors find a question.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Labels&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Explain what has changed.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Benches&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Leave space to think.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus&#xA;porttitor.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

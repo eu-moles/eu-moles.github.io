@@ -1,3 +1,33 @@
 baseURL = 'https://example.org/'
 locale = 'en-us'
-title = 'My New Hugo Project'
+title = 'Lorem Atlas'
+
+[params]
+  description = 'A small imaginary journal for exploring Hugo themes.'
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'Journal'
+  pageRef = '/posts'
+  weight = 20
+
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 30
+
+[module]
+
+[[module.imports]]
+  disable = false
+  ignoreConfig = false
+  ignoreImports = false
+  path = 'github.com/gohugo-ananke/ananke/v2'

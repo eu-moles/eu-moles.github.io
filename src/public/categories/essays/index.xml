@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>A place for unhurried ideas on Lorem Atlas</title>
-		<link>http://localhost:1313/</link>
-		<description>Recent content in A place for unhurried ideas on Lorem Atlas</description>
+		<title>Essays on Lorem Atlas</title>
+		<link>http://localhost:1313/categories/essays/</link>
+		<description>Recent content in Essays on Lorem Atlas</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
 		
 		
 		
-			<lastBuildDate>Sat, 15 Aug 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Mon, 10 Aug 2026 08:30:00 +0300</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>About Lorem Atlas</title>
-				<link>http://localhost:1313/about/</link>
-				<pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/about/</guid>
-				<description>&lt;p&gt;Lorem Atlas is a fictional publication about ordinary places, quiet&#xA;technologies, and the useful habit of looking twice. Its purpose is simply to&#xA;give a theme something pleasant and varied to render.&lt;/p&gt;&#xA;&lt;h2 id=&#34;editorial-note&#34;&gt;Editorial note&lt;/h2&gt;&#xA;&lt;p&gt;Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Integer&#xA;posuere erat a ante venenatis dapibus posuere velit aliquet.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;“The map is not the place, but it can make a fine companion.”&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;For correspondence, write to &lt;code&gt;hello@example.org&lt;/code&gt;.&lt;/p&gt;</description>
-			</item>
+			<atom:link href="http://localhost:1313/categories/essays/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>The Blue Hour</title>
 				<link>http://localhost:1313/posts/the-blue-hour/</link>
@@ -33,20 +26,6 @@
 				<pubDate>Mon, 03 Aug 2026 14:15:00 +0300</pubDate>
 				<guid>http://localhost:1313/posts/a-garden-for-data/</guid>
 				<description>&lt;p&gt;Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Information&#xA;need not be a dashboard of blinking numbers. It can be a path, a label, a&#xA;bench, and an invitation to return.&lt;/p&gt;&#xA;&lt;h3 id=&#34;a-modest-proposal&#34;&gt;A modest proposal&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;&#x9;&lt;thead&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Element&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Purpose&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/thead&gt;&#xA;&#x9;&lt;tbody&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Paths&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Help visitors find a question.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Labels&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Explain what has changed.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Benches&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Leave space to think.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus&#xA;porttitor.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>Notes from Platform Seven</title>
-				<link>http://localhost:1313/posts/notes-from-platform-seven/</link>
-				<pubDate>Fri, 24 Jul 2026 17:40:00 +0300</pubDate>
-				<guid>http://localhost:1313/posts/notes-from-platform-seven/</guid>
-				<description>&lt;p&gt;Vestibulum id ligula porta felis euismod semper. A train station is a useful&#xA;place to remember that everyone is carrying a different version of urgency.&lt;/p&gt;&#xA;&lt;p&gt;An elderly traveller asks for the right platform. Someone points, then walks&#xA;with her anyway. The departure board changes. Nobody is surprised.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>The Case for Small Maps</title>
-				<link>http://localhost:1313/posts/the-case-for-small-maps/</link>
-				<pubDate>Sat, 11 Jul 2026 09:00:00 +0300</pubDate>
-				<guid>http://localhost:1313/posts/the-case-for-small-maps/</guid>
-				<description>&lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. The best&#xA;map for a morning walk may contain only three streets, a bakery, and the river.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://placehold.co/1200x600/png?text=Lorem+Atlas&#34; alt=&#34;An abstract map made from three coloured lines.&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut&#xA;fermentum massa justo sit amet risus. A small map does not know everything; it&#xA;knows where you are going.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

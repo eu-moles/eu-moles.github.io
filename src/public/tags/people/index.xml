@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>People on Lorem Atlas</title>
+		<link>http://localhost:1313/tags/people/</link>
+		<description>Recent content in People on Lorem Atlas</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 24 Jul 2026 17:40:00 +0300</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/people/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Notes from Platform Seven</title>
+				<link>http://localhost:1313/posts/notes-from-platform-seven/</link>
+				<pubDate>Fri, 24 Jul 2026 17:40:00 +0300</pubDate>
+				<guid>http://localhost:1313/posts/notes-from-platform-seven/</guid>
+				<description>&lt;p&gt;Vestibulum id ligula porta felis euismod semper. A train station is a useful&#xA;place to remember that everyone is carrying a different version of urgency.&lt;/p&gt;&#xA;&lt;p&gt;An elderly traveller asks for the right platform. Someone points, then walks&#xA;with her anyway. The departure board changes. Nobody is surprised.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
