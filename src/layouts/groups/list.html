@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <article class="ph3 ph5-l pv3 pv4-l f4 center measure-wide lh-copy nested-links mid-gray">
+    {{ .Content }}
+  </article>
+
+  {{ $meps := hugo.Data.meps.mep }}
+  {{ $groups := slice }}
+  {{ range $meps }}
+    {{ $groups = $groups | append .politicalGroup }}
+  {{ end }}
+  {{ $groups = collections.Uniq $groups }}
+  <section class="ph3 ph5-l pb5">
+    <div class="flex flex-wrap nl2 nr2">
+      {{ range sort $groups }}
+        {{ $group := . }}
+        {{ $members := where $meps "politicalGroup" $group }}
+        <div class="w-100 w-50-l pa2">
+          <div class="ba b--black-10 bg-white pa3 h-100">
+            <h2 class="f4 mt0 mb2">{{ $group }}</h2>
+            <p class="ma0 gray">{{ len $members }} MEP records</p>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

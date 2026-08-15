@@ -34,3 +34,10 @@ attributed, linked, and clearly distinguished from verified findings.
 If a page contains an error, missing context, or an outdated record, submit the
 primary evidence required to correct it. Corrections should note what changed,
 why, and when.
+
+## Core sources
+
+Use the [European Parliament full list of Members](https://www.europarl.europa.eu/meps/en/full-list/all)
+as the primary reference for membership, national-party affiliation, and recent
+activity. The directory's source dataset is a starting point; every case-level
+claim requires its own directly linked evidence.

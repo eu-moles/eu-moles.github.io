@@ -1,0 +1,38 @@
+{{ define "main" }}
+  <article class="ph3 ph5-l pv3 pv4-l f4 center measure-wide lh-copy nested-links mid-gray">
+    {{ .Content }}
+  </article>
+
+  {{ $meps := hugo.Data.meps.mep }}
+  {{ $parties := slice }}
+  {{ range $meps }}
+    {{ $key := printf "%s|%s" .country .nationalPoliticalGroup }}
+    {{ $parties = $parties | append $key }}
+  {{ end }}
+  {{ $parties = collections.Uniq $parties }}
+  <section class="ph3 ph5-l pb5 overflow-auto">
+    <p class="f5 gray">{{ len $parties }} country-party affiliations</p>
+    <table class="collapse w-100 ba b--black-10 f6" cellspacing="0">
+      <thead>
+        <tr class="bg-near-white tl">
+          <th class="pa2">Country</th>
+          <th class="pa2">National party</th>
+          <th class="pa2">MEP records</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range sort $parties }}
+          {{ $parts := strings.Split . "|" }}
+          {{ $country := index $parts 0 }}
+          {{ $party := index $parts 1 }}
+          {{ $members := where (where $meps "country" $country) "nationalPoliticalGroup" $party }}
+          <tr class="bb b--black-10">
+            <td class="pa2">{{ $country }}</td>
+            <td class="pa2">{{ $party }}</td>
+            <td class="pa2">{{ len $members }}</td>
+          </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </section>
+{{ end }}

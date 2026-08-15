@@ -1,0 +1,16 @@
+{{ $meps := hugo.Data.meps.mep }}
+{{ $countries := slice }}
+{{ $groups := slice }}
+{{ range $meps }}
+  {{ $countries = $countries | append .country }}
+  {{ $groups = $groups | append .politicalGroup }}
+{{ end }}
+{{ $countries = collections.Uniq $countries }}
+{{ $groups = collections.Uniq $groups }}
+<section class="ph3 ph5-l pb4">
+  <div class="flex flex-wrap nl2 nr2">
+    <div class="w-100 w-third-l pa2"><div class="bg-white ba b--black-10 pa3"><strong class="db f2">{{ len $meps }}</strong><span class="gray">MEP records</span></div></div>
+    <div class="w-100 w-third-l pa2"><div class="bg-white ba b--black-10 pa3"><strong class="db f2">{{ len $countries }}</strong><span class="gray">countries</span></div></div>
+    <div class="w-100 w-third-l pa2"><div class="bg-white ba b--black-10 pa3"><strong class="db f2">{{ len $groups }}</strong><span class="gray">political-group classifications</span></div></div>
+  </div>
+</section>

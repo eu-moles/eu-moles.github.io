@@ -14,11 +14,16 @@ The term “moles” is the project name, not a finding about any individual. A
 listing must never be treated as proof of covert activity. Every substantive
 claim should link to a primary record or a reputable published investigation.
 
-## Start with the directory
+{{< dataset-summary >}}
 
-Browse the [country directory](/countries/) to see the current national-party
-and seat-count dataset. It is a starting point for research—not a list of
-accusations.
+## Explore the directory
+
+- [Countries](/countries/) — the 27 EU member states in the MEP dataset.
+- [Political Groups](/groups/) — parliamentary groups, including the European
+  Conservatives and Reformists Group.
+- [National Parties](/national-parties/) — the current national-party and
+  seat-count dataset, organised by country.
+- [MEPs](/meps/) — the current roster of Members of the European Parliament.
 
 ## Research standard
 

@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <article class="ph3 ph5-l pv3 pv4-l f4 center measure-wide lh-copy nested-links mid-gray">
+    {{ .Content }}
+  </article>
+
+  {{ $meps := sort hugo.Data.meps.mep "fullName" }}
+  <section class="ph3 ph5-l pb5 overflow-auto">
+    <p class="f5 gray">{{ len $meps }} MEP records</p>
+    <table class="collapse w-100 ba b--black-10 f6" cellspacing="0">
+      <thead>
+        <tr class="bg-near-white tl">
+          <th class="pa2">MEP</th>
+          <th class="pa2">Country</th>
+          <th class="pa2">Political group</th>
+          <th class="pa2">National party</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $meps }}
+          <tr class="bb b--black-10">
+            <td class="pa2"><a class="link dark-blue underline-hover" href="https://www.europarl.europa.eu/meps/en/{{ .id }}" rel="external">{{ .fullName }}</a></td>
+            <td class="pa2">{{ .country }}</td>
+            <td class="pa2">{{ .politicalGroup }}</td>
+            <td class="pa2">{{ .nationalPoliticalGroup }}</td>
+          </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </section>
+{{ end }}

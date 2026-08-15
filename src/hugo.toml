@@ -21,19 +21,29 @@ title = 'EU MEPs & Russian Moles'
   weight = 10
 
 [[menus.main]]
-  name = 'Directory'
+  name = 'Countries'
   pageRef = '/countries'
   weight = 20
 
 [[menus.main]]
-  name = 'Methodology'
-  pageRef = '/methodology'
+  name = 'Political Groups'
+  pageRef = '/groups'
   weight = 30
 
 [[menus.main]]
-  name = 'Sources'
-  pageRef = '/sources'
+  name = 'National Parties'
+  pageRef = '/national-parties'
   weight = 40
+
+[[menus.main]]
+  name = 'MEPs'
+  pageRef = '/meps'
+  weight = 50
+
+[[menus.main]]
+  name = 'Methodology'
+  pageRef = '/methodology'
+  weight = 60
 
 [module]
 
