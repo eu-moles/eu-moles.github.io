@@ -2,7 +2,11 @@ baseURL = 'https://eu-moles.github.io/'
 publishDir = '../docs'
 cleanDestinationDir = true
 locale = 'en-us'
-title = 'EU MEPs & Russian Moles'
+title = 'EU Moles'
+
+[HTTPCache.cache.for]
+  excludes = []
+  includes = ['**/meps/en/full-list/xml']
 
 [params]
   description = 'A source-first research directory for examining pro-Kremlin positions in the European Parliament.'
@@ -22,23 +26,23 @@ title = 'EU MEPs & Russian Moles'
   weight = 10
 
 [[menus.main]]
+  name = 'MEPs'
+  pageRef = '/meps'
+  weight = 20
+
+[[menus.main]]
   name = 'Countries'
   pageRef = '/countries'
-  weight = 20
+  weight = 30
 
 [[menus.main]]
   name = 'Political Groups'
   pageRef = '/groups'
-  weight = 30
+  weight = 40
 
 [[menus.main]]
   name = 'National Parties'
   pageRef = '/national-parties'
-  weight = 40
-
-[[menus.main]]
-  name = 'MEPs'
-  pageRef = '/meps'
   weight = 50
 
 [[menus.main]]

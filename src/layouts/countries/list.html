@@ -3,7 +3,7 @@
     {{ .Content }}
   </article>
 
-  {{ $meps := hugo.Data.meps.mep }}
+  {{ $meps := partials.IncludeCached "meps-data.html" site }}
   {{ $countries := slice }}
   {{ range $meps }}
     {{ $countries = $countries | append .country }}

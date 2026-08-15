@@ -3,7 +3,7 @@
     {{ .Content }}
   </article>
 
-  {{ $meps := sort hugo.Data.meps.mep "fullName" }}
+  {{ $meps := sort (partials.IncludeCached "meps-data.html" site) "fullName" }}
   {{ $countries := slice }}
   {{ $groups := slice }}
   {{ $parties := slice }}
@@ -23,7 +23,7 @@
           <span class="db f6 b mb1">Country</span>
           <select id="mep-country" class="pa2 w-100">
             <option value="">All countries</option>
-            {{ range $countries }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+            {{ range $countries }}<option value="{{ . }}">{{ partial "country-flag.html" . }} {{ . }}</option>{{ end }}
           </select>
         </label>
         <label class="db ph2 mb2 flex-auto">
@@ -71,7 +71,7 @@
       <table class="collapse w-100 ba b--black-10 f6" cellspacing="0">
         <thead>
           <tr class="bg-near-white tl">
-            <th class="pa2">MEP</th>
+            <th class="pa2">Name</th>
             <th class="pa2">Country</th>
             <th class="pa2">Political group</th>
             <th class="pa2">National party</th>
@@ -83,7 +83,7 @@
               <td class="pa2">
                 <div class="flex items-center">
                   <img
-                    class="br-100 mr2 flex-none"
+                    class="br-100 ba b--black-20 mr2 flex-none"
                     src="https://www.europarl.europa.eu/mepphoto/{{ .id }}.jpg"
                     alt="Portrait of {{ .fullName }}"
                     width="48"
@@ -93,7 +93,7 @@
                   <a class="link dark-blue underline-hover" href="https://www.europarl.europa.eu/meps/en/{{ .id }}" rel="external">{{ .fullName }}</a>
                 </div>
               </td>
-              <td class="pa2">{{ .country }}</td>
+              <td class="pa2">{{ partial "country-flag.html" .country }} {{ .country }}</td>
               <td class="pa2">{{ .politicalGroup }}</td>
               <td class="pa2">{{ .nationalPoliticalGroup }}</td>
             </tr>
@@ -101,7 +101,10 @@
         </tbody>
       </table>
     </div>
+    <div class="flex justify-end mt3">
+      <nav id="mep-pagination-bottom" aria-label="MEP directory pages"></nav>
+    </div>
   </section>
 
-  <script defer src="{{ "js/meps-directory.js" | relURL }}"></script>
+  <script defer src="{{ "js/meps-directory.js" | relURL }}?v=2"></script>
 {{ end }}

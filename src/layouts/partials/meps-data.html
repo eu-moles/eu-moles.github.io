@@ -1,0 +1,17 @@
+{{- $url := "https://www.europarl.europa.eu/meps/en/full-list/xml" -}}
+{{- $options := dict
+  "headers" (dict "User-Agent" "Mozilla/5.0 (compatible; EU-Moles/1.0; +https://eu-moles.github.io/)")
+  "key" (printf "european-parliament-meps-v2-%s" (now.Format "2006-01-02"))
+  "timeout" "30s"
+-}}
+{{- $data := dict -}}
+{{- with try (resources.GetRemote $url $options) -}}
+  {{- with .Err -}}
+    {{- errorf "Unable to retrieve the European Parliament MEP list: %s" . -}}
+  {{- else with .Value -}}
+    {{- $data = transform.Unmarshal (dict "format" "xml") . -}}
+  {{- else -}}
+    {{- errorf "The European Parliament MEP list was unavailable: %s" $url -}}
+  {{- end -}}
+{{- end -}}
+{{- return $data.mep -}}

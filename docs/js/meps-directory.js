@@ -12,6 +12,7 @@
   };
   const summary = document.querySelector('#mep-results-summary');
   const pagination = document.querySelector('#mep-pagination');
+  const paginationBottom = document.querySelector('#mep-pagination-bottom');
   const clear = document.querySelector('#mep-clear-filters');
   const pageSizeOptions = [25, 50, 100];
   let page = 1;
@@ -44,7 +45,7 @@
     window.history.replaceState(null, '', `${window.location.pathname}${suffix ? `?${suffix}` : ''}`);
   };
 
-  const makePageButton = (label, target, current = false) => {
+  const makePageButton = (label, target, container, current = false) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = label;
@@ -54,16 +55,16 @@
     button.addEventListener('click', () => {
       page = target;
       render();
-      pagination.scrollIntoView({ block: 'nearest' });
+      container.scrollIntoView({ block: 'nearest' });
     });
     return button;
   };
 
-  const renderPagination = (pages) => {
-    pagination.replaceChildren();
+  const renderPagination = (container, pages) => {
+    container.replaceChildren();
     if (pages <= 1) return;
 
-    pagination.append(makePageButton('Previous', Math.max(1, page - 1), page === 1));
+    container.append(makePageButton('Previous', Math.max(1, page - 1), container, page === 1));
     const candidates = new Set([1, pages, page - 1, page, page + 1]);
     let previous = 0;
     [...candidates]
@@ -74,12 +75,12 @@
           const gap = document.createElement('span');
           gap.className = 'mh1';
           gap.textContent = '…';
-          pagination.append(gap);
+          container.append(gap);
         }
-        pagination.append(makePageButton(String(value), value, value === page));
+        container.append(makePageButton(String(value), value, container, value === page));
         previous = value;
       });
-    pagination.append(makePageButton('Next', Math.min(pages, page + 1), page === pages));
+    container.append(makePageButton('Next', Math.min(pages, page + 1), container, page === pages));
   };
 
   const render = () => {
@@ -103,7 +104,8 @@
     } else {
       summary.textContent = 'No MEP records match these filters.';
     }
-    renderPagination(pages);
+    renderPagination(pagination, pages);
+    renderPagination(paginationBottom, pages);
     updateUrl();
   };
 

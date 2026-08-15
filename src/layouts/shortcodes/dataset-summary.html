@@ -1,4 +1,4 @@
-{{ $meps := hugo.Data.meps.mep }}
+{{ $meps := partials.IncludeCached "meps-data.html" site }}
 {{ $countries := slice }}
 {{ $groups := slice }}
 {{ range $meps }}
