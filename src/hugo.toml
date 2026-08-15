@@ -1,10 +1,15 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://eu-moles.github.io/'
 publishDir = '../docs'
+cleanDestinationDir = true
 locale = 'en-us'
-title = 'Lorem Atlas'
+title = 'EU MEPs & Russian Moles'
 
 [params]
-  description = 'A small imaginary journal for exploring Hugo themes.'
+  description = 'A source-first research directory for examining pro-Kremlin positions in the European Parliament.'
+  featured_image_class = 'cover bg-bottom'
+
+[params.ananke]
+  show_recent_posts = false
 
 [taxonomies]
   category = 'categories'
@@ -16,14 +21,19 @@ title = 'Lorem Atlas'
   weight = 10
 
 [[menus.main]]
-  name = 'Journal'
-  pageRef = '/posts'
+  name = 'Directory'
+  pageRef = '/countries'
   weight = 20
 
 [[menus.main]]
-  name = 'About'
-  pageRef = '/about'
+  name = 'Methodology'
+  pageRef = '/methodology'
   weight = 30
+
+[[menus.main]]
+  name = 'Sources'
+  pageRef = '/sources'
+  weight = 40
 
 [module]
 

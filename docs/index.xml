@@ -1,52 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>A place for unhurried ideas on Lorem Atlas</title>
-		<link>http://localhost:1313/</link>
-		<description>Recent content in A place for unhurried ideas on Lorem Atlas</description>
+		<title>EU MEPs &amp; Russian Moles</title>
+		<link>https://eu-moles.github.io/</link>
+		<description>Recent content on EU MEPs &amp; Russian Moles</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
 		
 		
 		
-			<lastBuildDate>Sat, 15 Aug 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://eu-moles.github.io/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>About Lorem Atlas</title>
-				<link>http://localhost:1313/about/</link>
-				<pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/about/</guid>
-				<description>&lt;p&gt;Lorem Atlas is a fictional publication about ordinary places, quiet&#xA;technologies, and the useful habit of looking twice. Its purpose is simply to&#xA;give a theme something pleasant and varied to render.&lt;/p&gt;&#xA;&lt;h2 id=&#34;editorial-note&#34;&gt;Editorial note&lt;/h2&gt;&#xA;&lt;p&gt;Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Integer&#xA;posuere erat a ante venenatis dapibus posuere velit aliquet.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;“The map is not the place, but it can make a fine companion.”&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;For correspondence, write to &lt;code&gt;hello@example.org&lt;/code&gt;.&lt;/p&gt;</description>
+				<title>Methodology</title>
+				<link>https://eu-moles.github.io/methodology/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://eu-moles.github.io/methodology/</guid>
+				<description>&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;&#xA;&lt;p&gt;This project examines documented pro-Kremlin positions and possible influence&#xA;pathways in the European Parliament. It is not a substitute for journalism,&#xA;legal process, or the official register of Members of the European Parliament.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-qualifies-for-inclusion&#34;&gt;What qualifies for inclusion&lt;/h2&gt;&#xA;&lt;p&gt;Each future profile or case entry should identify the subject, the exact claim,&#xA;the date, and one or more supporting sources. Prefer, in this order:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Official parliamentary records, voting records, declarations, and speeches.&lt;/li&gt;&#xA;&lt;li&gt;Direct public statements, interviews, or publications by the subject.&lt;/li&gt;&#xA;&lt;li&gt;Court records, regulator findings, or official investigations.&lt;/li&gt;&#xA;&lt;li&gt;Reporting from established outlets that names its evidence and methodology.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Party affiliation, country of origin, and online association are context only;&#xA;none independently establish a pro-Kremlin position or covert relationship.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title>The Blue Hour</title>
-				<link>http://localhost:1313/posts/the-blue-hour/</link>
-				<pubDate>Mon, 10 Aug 2026 08:30:00 +0300</pubDate>
-				<guid>http://localhost:1313/posts/the-blue-hour/</guid>
-				<description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui.&#xA;Maecenas faucibus mollis interdum. The first buses have not yet arrived, and&#xA;the windows hold a colour somewhere between smoke and rain.&lt;/p&gt;&#xA;&lt;h2 id=&#34;before-the-noise&#34;&gt;Before the noise&lt;/h2&gt;&#xA;&lt;p&gt;Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur&#xA;purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia&#xA;quam venenatis vestibulum.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Find a quiet street.&lt;/li&gt;&#xA;&lt;li&gt;Notice the lit windows.&lt;/li&gt;&#xA;&lt;li&gt;Keep walking until the day catches up.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur&#xA;ac, vestibulum at eros.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>A Garden for Data</title>
-				<link>http://localhost:1313/posts/a-garden-for-data/</link>
-				<pubDate>Mon, 03 Aug 2026 14:15:00 +0300</pubDate>
-				<guid>http://localhost:1313/posts/a-garden-for-data/</guid>
-				<description>&lt;p&gt;Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Information&#xA;need not be a dashboard of blinking numbers. It can be a path, a label, a&#xA;bench, and an invitation to return.&lt;/p&gt;&#xA;&lt;h3 id=&#34;a-modest-proposal&#34;&gt;A modest proposal&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;&#x9;&lt;thead&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Element&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Purpose&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/thead&gt;&#xA;&#x9;&lt;tbody&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Paths&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Help visitors find a question.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Labels&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Explain what has changed.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Benches&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Leave space to think.&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;Etiam porta sem malesuada magna mollis euismod. Curabitur blandit tempus&#xA;porttitor.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>Notes from Platform Seven</title>
-				<link>http://localhost:1313/posts/notes-from-platform-seven/</link>
-				<pubDate>Fri, 24 Jul 2026 17:40:00 +0300</pubDate>
-				<guid>http://localhost:1313/posts/notes-from-platform-seven/</guid>
-				<description>&lt;p&gt;Vestibulum id ligula porta felis euismod semper. A train station is a useful&#xA;place to remember that everyone is carrying a different version of urgency.&lt;/p&gt;&#xA;&lt;p&gt;An elderly traveller asks for the right platform. Someone points, then walks&#xA;with her anyway. The departure board changes. Nobody is surprised.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>The Case for Small Maps</title>
-				<link>http://localhost:1313/posts/the-case-for-small-maps/</link>
-				<pubDate>Sat, 11 Jul 2026 09:00:00 +0300</pubDate>
-				<guid>http://localhost:1313/posts/the-case-for-small-maps/</guid>
-				<description>&lt;p&gt;Integer posuere erat a ante venenatis dapibus posuere velit aliquet. The best&#xA;map for a morning walk may contain only three streets, a bakery, and the river.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://placehold.co/1200x600/png?text=Lorem+Atlas&#34; alt=&#34;An abstract map made from three coloured lines.&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut&#xA;fermentum massa justo sit amet risus. A small map does not know everything; it&#xA;knows where you are going.&lt;/p&gt;</description>
+				<title>Sources and research notes</title>
+				<link>https://eu-moles.github.io/sources/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://eu-moles.github.io/sources/</guid>
+				<description>&lt;h2 id=&#34;core-reference&#34;&gt;Core reference&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://www.europarl.europa.eu/meps/en/full-list/all&#34;&gt;European Parliament full list of Members&lt;/a&gt;&#xA;is the primary reference for current MEPs, their national parties, and recent&#xA;activity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;evidence-register&#34;&gt;Evidence register&lt;/h2&gt;&#xA;&lt;p&gt;No individual or party case files have been added to this demonstration site&#xA;yet. Before publishing one, record:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the claim and the date it concerns;&lt;/li&gt;&#xA;&lt;li&gt;a direct link to each primary source or published investigation;&lt;/li&gt;&#xA;&lt;li&gt;the publication date and publisher;&lt;/li&gt;&#xA;&lt;li&gt;relevant response, correction, or contrary evidence; and&lt;/li&gt;&#xA;&lt;li&gt;the date the entry was last reviewed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The country directory is an organisational dataset. It does not itself support&#xA;an allegation about a party or individual.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
