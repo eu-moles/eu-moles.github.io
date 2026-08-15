@@ -92,7 +92,7 @@
                     height="48"
                     style="width: 48px; height: 48px; object-fit: cover; object-position: center;"
                     loading="lazy">
-                  <a class="link dark-blue underline-hover" href="https://www.europarl.europa.eu/meps/en/{{ .id }}" target="_blank" rel="external noopener noreferrer">{{ .fullName }}</a>
+                  <a class="link dark-blue underline-hover" href="{{ "mep/" | relURL }}?id={{ .id }}">{{ .fullName }}</a>
                 </div>
               </td>
               <td class="pa2">{{ partial "country-flag.html" .country }} {{ .country }}</td>

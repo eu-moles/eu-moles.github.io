@@ -1,0 +1,65 @@
+{{ define "main" }}
+  <section class="mep-profile-page ph3 ph5-l pb5">
+    <div class="mep-profile-frame">
+      <div class="mep-profile-toolbar">
+        <button id="mep-profile-back" class="mep-profile-back" type="button" data-fallback="{{ "meps/" | relURL }}">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          <span>Back to MEP directory</span>
+        </button>
+        <span class="mep-profile-toolbar-label">Member profile</span>
+      </div>
+
+      <p id="mep-profile-status" class="mep-profile-status" aria-live="polite">Loading MEP profile…</p>
+
+      <article id="mep-profile" class="mep-profile-card" data-directory-url="{{ "meps/index.json" | relURL }}" aria-busy="true" hidden>
+        <header class="mep-profile-identity">
+          <div class="mep-profile-portrait-frame">
+            <img id="mep-profile-photo" class="mep-profile-photo" alt="" width="224" height="224">
+          </div>
+          <div class="mep-profile-intro">
+            <p class="mep-profile-kicker">European Parliament</p>
+            <p id="mep-profile-country" class="mep-profile-country"></p>
+            <h2 id="mep-profile-name" class="mep-profile-name"></h2>
+          </div>
+        </header>
+
+        <section class="mep-profile-record" aria-labelledby="mep-profile-record-title">
+          <div class="mep-profile-record-heading">
+            <p>Directory record</p>
+            <h3 id="mep-profile-record-title">Parliamentary affiliation</h3>
+          </div>
+          <dl class="mep-profile-details">
+            <div class="mep-profile-fact">
+              <dt>Member State</dt>
+              <dd id="mep-profile-member-state"></dd>
+            </div>
+            <div class="mep-profile-fact">
+              <dt>Political group</dt>
+              <dd id="mep-profile-group"></dd>
+            </div>
+            <div class="mep-profile-fact">
+              <dt>National party</dt>
+              <dd id="mep-profile-party"></dd>
+            </div>
+            <div class="mep-profile-fact">
+              <dt>European Parliament ID</dt>
+              <dd id="mep-profile-id"></dd>
+            </div>
+          </dl>
+        </section>
+
+        <footer class="mep-profile-actions">
+          <p>For biographies, mandates, and official records, consult the European Parliament directory.</p>
+          <a id="mep-profile-official" class="mep-profile-official" href="#" target="_blank" rel="external noopener noreferrer">
+            View official profile <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </footer>
+      </article>
+
+      <p id="mep-profile-error" class="mep-profile-error" role="alert" hidden></p>
+      <noscript><p class="mep-profile-error">This profile page needs JavaScript. Please return to the <a href="{{ "meps/" | relURL }}">MEP directory</a>.</p></noscript>
+    </div>
+  </section>
+
+  <script defer src="{{ "js/mep-profile.js" | relURL }}"></script>
+{{ end }}
