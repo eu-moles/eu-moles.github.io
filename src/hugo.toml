@@ -12,7 +12,7 @@ disableKinds = ['taxonomy', 'term']
 [params]
   description = 'A source-first research directory for examining pro-Kremlin positions in the European Parliament.'
   featured_image_class = 'cover bg-bottom'
-  site_logo = '/images/eu-moles-wordmark.png'
+  site_logo = '/images/eu-moles-emblem.svg'
   favicon = '/favicon.ico'
 
 [params.ananke]

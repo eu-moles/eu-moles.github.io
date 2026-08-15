@@ -1,17 +1,23 @@
-<nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l center items-center justify-between">
-    <a href="{{ .Site.Home.RelPermalink }}" class="site-brand hover-white white-90 no-underline">
+<nav class="site-navigation pv2 ph3 ph4-ns" role="navigation">
+  <div class="flex center items-center justify-between">
+    <a href="{{ .Site.Home.RelPermalink }}" class="site-brand no-underline">
       {{ with .Site.Params.site_logo }}
-        <img src="{{ urls.RelURL . }}" alt="{{ $.Site.Title }}" />
+        <img src="{{ urls.RelURL . }}" alt="" />
       {{ end }}
+      <span>{{ .Site.Title }}</span>
     </a>
-    <div class="flex-l items-center">
+    <div class="flex items-center">
       {{ partials.Include "i18nlist.html" . }}
       {{ if .Site.Menus.main }}
-        <ul class="{{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pr0 ml3" "pl0 mr3" }}">
+        <ul class="site-nav-links {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pr0 ml3" "pl0 mr3" }}">
           {{ range .Site.Menus.main }}
-          <li class="list f5 f4-ns fw4 dib {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pl3" "pr3" }}">
-            <a class="hover-white white-90 no-underline" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}">
+          <li class="list f6 fw5 dib {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pl3" "pr3" }}">
+            <a class="site-nav-link{{ if eq $.RelPermalink .URL }} is-active{{ end }}" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}">
+              {{ if eq .Name "Home" }}
+                <i class="fa-solid fa-house" aria-hidden="true"></i>
+              {{ else if eq .Name "MEPs" }}
+                <i class="fa-solid fa-users" aria-hidden="true"></i>
+              {{ end }}
               {{ .Name }}
             </a>
           </li>

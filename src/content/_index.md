@@ -4,14 +4,10 @@ description: "A source-first research directory for examining pro-Kremlin positi
 featured_image: "/images/header-hero.png"
 ---
 
-## What this project is
+## What this project is all about
 
 EU Moles is a research-oriented directory for documenting
 verifiable public positions, votes, affiliations, and reporting relevant to
 pro-Kremlin influence in the European Parliament.
 
 {{< dataset-summary >}}
-
-## Explore the directory
-
-- [MEPs](/meps/) — the current roster of Members of the European Parliament.
