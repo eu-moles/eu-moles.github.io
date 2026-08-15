@@ -27,4 +27,8 @@
   "Spain" "🇪🇸"
   "Sweden" "🇸🇪"
 -}}
-{{- with index $flags . -}}{{ . }}{{- end -}}
+{{- $flag := index $flags . -}}
+{{- if not $flag -}}
+  {{- errorf "No country-flag mapping exists for %q. Add its ISO flag to layouts/partials/country-flag.html." . -}}
+{{- end -}}
+{{- $flag -}}

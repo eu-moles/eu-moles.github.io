@@ -1,0 +1,26 @@
+{{- $node := . -}}
+{{- $annexVote := "" -}}
+{{- if reflect.IsMap $node -}}
+  {{- $referenceList := index $node "Pv.Reference.List.Text" -}}
+  {{- if $referenceList -}}
+    {{- $reference := index $referenceList "Pv.Reference.Text" -}}
+    {{- if reflect.IsMap $reference -}}
+      {{- $annexVote = index $reference "-Pv.AnnexVote" -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq $annexVote "" -}}
+    {{- range $_, $value := $node -}}
+      {{- if and (eq $annexVote "") (or (reflect.IsMap $value) (reflect.IsSlice $value)) -}}
+        {{- $annexVote = partials.Include "motions-annex-vote.html" $value -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else if reflect.IsSlice $node -}}
+  {{- range $node -}}
+    {{- if eq $annexVote "" -}}
+      {{- $annexVote = partials.Include "motions-annex-vote.html" . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $result := dict "annexVote" $annexVote -}}
+{{- return $result.annexVote -}}

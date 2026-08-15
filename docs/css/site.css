@@ -83,6 +83,70 @@ textarea {
   color: #fff8f1;
 }
 
+/* Motion outcomes are readable at a glance without overpowering the table. */
+.motion-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.15rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.motion-result--adopted {
+  background: #e6f3eb;
+  color: #18613a;
+}
+
+.motion-result--rejected {
+  background: #f9e7e7;
+  color: #8e2525;
+}
+
+.motion-context-link,
+.motion-context-link:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin-left: 0.45rem;
+  padding: 0.2rem 0.46rem;
+  border: 1px solid #b8cbe0;
+  border-radius: 999px;
+  background: #f1f6fb;
+  color: #174f91;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: 0.1em;
+}
+
+.motion-context-link:hover,
+.motion-context-link:focus-visible {
+  border-color: #174f91;
+  background: #e4eff9;
+  color: #0b376f;
+}
+
+.motion-source-link,
+.motion-source-link:visited {
+  color: #1c5e9f;
+  text-decoration-color: rgb(28 94 159 / 45%);
+}
+
+.motion-source-link:hover,
+.motion-source-link:focus-visible {
+  color: #0b376f;
+  text-decoration-color: currentColor;
+}
+
 @media screen and (min-width: 30em) {
   .site-nav-links {
     margin-left: 1rem;

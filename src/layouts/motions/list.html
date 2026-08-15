@@ -1,0 +1,65 @@
+{{ define "main" }}
+  {{ with .Content }}
+    <article class="ph3 ph5-l pv3 f4 lh-copy nested-links mid-gray">
+      {{ . }}
+    </article>
+  {{ end }}
+
+  {{ $motions := partials.IncludeCached "motions-data.html" site }}
+  <section class="ph3 ph5-l pb5">
+    {{ if $motions }}
+      <p class="f5 gray mt0 mb3">{{ len $motions }} recorded {{ if eq (len $motions) 1 }}motion{{ else }}motions{{ end }}</p>
+      <div class="overflow-auto">
+        <table class="motions-table collapse w-100 ba b--black-10 f6" cellspacing="0">
+          <thead>
+            <tr class="bg-near-white tl">
+              <th class="pa2">Date</th>
+              <th class="pa2">Motion</th>
+              <th class="pa2">Outcome</th>
+              <th class="pa2 tr">For</th>
+              <th class="pa2 tr">Against</th>
+              <th class="pa2 tr">Abstentions</th>
+              <th class="pa2 tr">Votes cast</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range $motions }}
+              <tr class="bb b--black-10">
+                <td class="pa2 nowrap">{{ strings.Substr .date 0 10 }}</td>
+                <td class="pa2">
+                  <span class="db">
+                    {{ .title }}
+                    {{ with .contextURL }}
+                      <a class="motion-context-link" href="{{ . }}" target="_blank" rel="external noopener noreferrer"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Context</span></a>
+                    {{ end }}
+                  </span>
+                  {{ if ne .sourceTitle .title }}
+                    <span class="db mt1 f7 gray">
+                      Source: <a class="motion-source-link link underline-hover" href="{{ .sourceURL }}" target="_blank" rel="external noopener noreferrer">{{ .sourceTitle }}</a>
+                    </span>
+                  {{ end }}
+                </td>
+                <td class="pa2">
+                  <span class="motion-result motion-result--{{ lower .result }}">
+                    {{ if eq .result "ADOPTED" }}
+                      <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
+                    {{ else if eq .result "REJECTED" }}
+                      <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
+                    {{ end }}
+                    {{ .result | humanize }}
+                  </span>
+                </td>
+                <td class="pa2 tr">{{ .for }}</td>
+                <td class="pa2 tr">{{ .against }}</td>
+                <td class="pa2 tr">{{ .abstentions }}</td>
+                <td class="pa2 tr">{{ .voters }}</td>
+              </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    {{ else }}
+      <p class="pa3 bg-washed-yellow">No voting-result files were found in <code>data/votes/</code>.</p>
+    {{ end }}
+  </section>
+{{ end }}

@@ -1,0 +1,20 @@
+{{- $file := . -}}
+{{- $titles := dict -}}
+{{- if os.FileExists $file -}}
+  {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
+  {{- $results := index $data "RollCallVote.Result" -}}
+  {{- if $results -}}
+    {{- if not (reflect.IsSlice $results) -}}
+      {{- $results = slice $results -}}
+    {{- end -}}
+    {{- range $results -}}
+      {{- $votingID := index . "-Identifier" -}}
+      {{- $description := index . "RollCallVote.Description.Text" -}}
+      {{- if and $votingID $description -}}
+        {{- $titles = merge $titles (dict $votingID $description) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $result := dict "titles" $titles -}}
+{{- return $result.titles -}}

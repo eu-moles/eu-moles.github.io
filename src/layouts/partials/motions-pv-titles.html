@@ -1,0 +1,38 @@
+{{- $file := . -}}
+{{- $titles := dict -}}
+{{- if os.FileExists $file -}}
+  {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
+  {{- $sections := index $data "PV.Other.Text" -}}
+  {{- if $sections -}}
+    {{- if not (reflect.IsSlice $sections) -}}
+      {{- $sections = slice $sections -}}
+    {{- end -}}
+    {{- range $sections -}}
+      {{- $paragraphs := index . "p" -}}
+      {{- if $paragraphs -}}
+        {{- if not (reflect.IsSlice $paragraphs) -}}
+          {{- $paragraphs = slice $paragraphs -}}
+        {{- end -}}
+        {{- $candidateTitle := "" -}}
+        {{- $candidateDistance := 0 -}}
+        {{- range $paragraphs -}}
+          {{- $reportTitle := partials.Include "motions-report-short-title.html" . -}}
+          {{- $annexVote := partials.Include "motions-annex-vote.html" . -}}
+          {{- if ne $reportTitle "" -}}
+            {{- $candidateTitle = $reportTitle -}}
+            {{- $candidateDistance = 0 -}}
+          {{- end -}}
+          {{- if and (ne $annexVote "") (ne $candidateTitle "") (le $candidateDistance 3) -}}
+            {{- $titles = merge $titles (dict $annexVote $candidateTitle) -}}
+            {{- $candidateTitle = "" -}}
+            {{- $candidateDistance = 0 -}}
+          {{- else if and (eq $reportTitle "") (ne $candidateTitle "") -}}
+            {{- $candidateDistance = add $candidateDistance 1 -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $result := dict "titles" $titles -}}
+{{- return $result.titles -}}

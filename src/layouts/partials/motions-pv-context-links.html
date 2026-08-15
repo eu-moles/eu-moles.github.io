@@ -1,0 +1,24 @@
+{{- $file := . -}}
+{{- $links := dict -}}
+{{- if os.FileExists $file -}}
+  {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
+  {{- $sections := index $data "PV.Other.Text" -}}
+  {{- if $sections -}}
+    {{- if not (reflect.IsSlice $sections) -}}
+      {{- $sections = slice $sections -}}
+    {{- end -}}
+    {{- $document := replace (path.Base $file) "_EN.xml" "" -}}
+    {{- range $sections -}}
+      {{- $heading := index . "h" -}}
+      {{- $title := partials.Include "motions-report-short-title.html" $heading -}}
+      {{- $chapter := index $heading "chapter-number" -}}
+      {{- if and $title $chapter -}}
+        {{- $item := printf "%03d" (int $chapter) -}}
+        {{- $url := printf "https://www.europarl.europa.eu/doceo/document/%s-ITM-%s_EN.html" $document $item -}}
+        {{- $links = merge $links (dict $title $url) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $result := dict "links" $links -}}
+{{- return $result.links -}}

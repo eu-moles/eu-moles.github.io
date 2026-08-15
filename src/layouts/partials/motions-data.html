@@ -1,0 +1,62 @@
+{{- $motions := slice -}}
+{{- $directory := "data/votes" -}}
+{{- if os.FileExists $directory -}}
+  {{- range os.ReadDir $directory -}}
+    {{- if and (not .IsDir) (hasSuffix .Name "-VOT_EN.xml") -}}
+      {{- $file := path.Join $directory .Name -}}
+      {{- $source := .Name -}}
+      {{- $sourceDocument := replace $source "-VOT_EN.xml" "-TOC_EN.html" -}}
+      {{- $sourceURL := printf "https://www.europarl.europa.eu/doceo/document/%s" $sourceDocument -}}
+      {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
+      {{- $minutesFile := replace $file "-VOT_EN.xml" "_EN.xml" -}}
+      {{- $pvTitles := partials.IncludeCached "motions-pv-titles.html" $minutesFile -}}
+      {{- $contextLinks := partials.IncludeCached "motions-pv-context-links.html" $minutesFile -}}
+      {{- $rollCallFile := replace $file "-VOT_EN.xml" "-RCV_EN.xml" -}}
+      {{- $rcvTitles := partials.IncludeCached "motions-rcv-titles.html" $rollCallFile -}}
+      {{- $sitting := index $data "sitting" -}}
+      {{- $votes := index (index $sitting "votes") "vote" -}}
+      {{- if not (reflect.IsSlice $votes) -}}
+        {{- $votes = slice $votes -}}
+      {{- end -}}
+      {{- range $votes -}}
+        {{- $vote := . -}}
+        {{- $votingsContainer := index $vote "votings" -}}
+        {{- if reflect.IsMap $votingsContainer -}}
+          {{- $votings := index $votingsContainer "voting" -}}
+          {{- if not (reflect.IsSlice $votings) -}}
+            {{- $votings = slice $votings -}}
+          {{- end -}}
+          {{- range $votings -}}
+            {{- if .title -}}
+              {{- $votingID := index . "-votingId" -}}
+              {{- $annexVote := printf "%d" (add (int (index $vote "-listIndex")) 1) -}}
+              {{- $pvTitle := index $pvTitles $annexVote -}}
+              {{- $rcvTitle := index $rcvTitles $votingID -}}
+              {{- $title := $pvTitle | default .title | default $vote.title | default $rcvTitle -}}
+              {{- $contextURL := index $contextLinks $title -}}
+              {{- $motions = $motions | append (dict
+                "date" (index $sitting "-date")
+                "title" $title
+                "sourceTitle" $vote.title
+                "votingTitle" .title
+                "result" (index . "-result")
+                "resultType" (index . "-resultType")
+                "for" (index . "-numberFavor")
+                "against" (index . "-numberAgainst")
+                "abstentions" (index . "-numberAbstention")
+                "voters" (index . "-votersCount")
+                "votingId" $votingID
+                "source" $source
+                "sourceURL" $sourceURL
+                "contextURL" $contextURL
+              ) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $result := dict "motions" (sort $motions "date" "desc") -}}
+{{- return $result.motions -}}
