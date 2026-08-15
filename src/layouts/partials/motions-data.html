@@ -1,5 +1,6 @@
 {{- $motions := slice -}}
 {{- $directory := "data/votes" -}}
+{{- $totalMEPs := len (partials.IncludeCached "meps-data.html" site) -}}
 {{- if os.FileExists $directory -}}
   {{- range os.ReadDir $directory -}}
     {{- if and (not .IsDir) (hasSuffix .Name "-VOT_EN.xml") -}}
@@ -34,6 +35,11 @@
               {{- $rcvTitle := index $rcvTitles $votingID -}}
               {{- $title := $pvTitle | default .title | default $vote.title | default $rcvTitle -}}
               {{- $contextURL := index $contextLinks $title -}}
+              {{- $voters := index . "-votersCount" -}}
+              {{- if not $voters -}}
+                {{- $voters = add (int (index . "-numberFavor")) (int (index . "-numberAgainst")) (int (index . "-numberAbstention")) -}}
+              {{- end -}}
+              {{- $notRecorded := sub $totalMEPs (int $voters) -}}
               {{- $motions = $motions | append (dict
                 "date" (index $sitting "-date")
                 "title" $title
@@ -44,7 +50,8 @@
                 "for" (index . "-numberFavor")
                 "against" (index . "-numberAgainst")
                 "abstentions" (index . "-numberAbstention")
-                "voters" (index . "-votersCount")
+                "voters" $voters
+                "notRecorded" $notRecorded
                 "votingId" $votingID
                 "source" $source
                 "sourceURL" $sourceURL
