@@ -1,4 +1,5 @@
-{{- $file := . -}}
+{{- $file := index . "file" -}}
+{{- $document := index . "document" -}}
 {{- $links := dict -}}
 {{- if os.FileExists $file -}}
   {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
@@ -7,7 +8,6 @@
     {{- if not (reflect.IsSlice $sections) -}}
       {{- $sections = slice $sections -}}
     {{- end -}}
-    {{- $document := replace (path.Base $file) "_EN.xml" "" -}}
     {{- range $sections -}}
       {{- $heading := index . "h" -}}
       {{- $title := partials.Include "motions-report-short-title.html" $heading -}}
@@ -20,5 +20,4 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- $result := dict "links" $links -}}
-{{- return $result.links -}}
+{{- return $links -}}

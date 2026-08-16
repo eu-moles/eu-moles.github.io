@@ -3,62 +3,113 @@
 {{- $totalMEPs := len (partials.IncludeCached "meps-data.html" site) -}}
 {{- if os.FileExists $directory -}}
   {{- range os.ReadDir $directory -}}
-    {{- if and (not .IsDir) (hasSuffix .Name "-VOT_EN.xml") -}}
-      {{- $file := path.Join $directory .Name -}}
-      {{- $source := .Name -}}
-      {{- $sourceDocument := replace $source "-VOT_EN.xml" "-TOC_EN.html" -}}
-      {{- $sourceURL := printf "https://www.europarl.europa.eu/doceo/document/%s" $sourceDocument -}}
-      {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
-      {{- $minutesFile := replace $file "-VOT_EN.xml" "_EN.xml" -}}
-      {{- $pvTitles := partials.IncludeCached "motions-pv-titles.html" $minutesFile -}}
-      {{- $contextLinks := partials.IncludeCached "motions-pv-context-links.html" $minutesFile -}}
-      {{- $rollCallFile := replace $file "-VOT_EN.xml" "-RCV_EN.xml" -}}
-      {{- $rcvTitles := partials.IncludeCached "motions-rcv-titles.html" $rollCallFile -}}
-      {{- $voterResults := partials.IncludeCached "motions-voter-results.html" $rollCallFile -}}
-      {{- $sitting := index $data "sitting" -}}
-      {{- $votes := index (index $sitting "votes") "vote" -}}
-      {{- if not (reflect.IsSlice $votes) -}}
-        {{- $votes = slice $votes -}}
-      {{- end -}}
-      {{- range $votes -}}
-        {{- $vote := . -}}
-        {{- $votingsContainer := index $vote "votings" -}}
-        {{- if reflect.IsMap $votingsContainer -}}
-          {{- $votings := index $votingsContainer "voting" -}}
-          {{- if not (reflect.IsSlice $votings) -}}
-            {{- $votings = slice $votings -}}
-          {{- end -}}
-          {{- range $votings -}}
-            {{- if .title -}}
-              {{- $votingID := index . "-votingId" -}}
-              {{- $annexVote := printf "%d" (add (int (index $vote "-listIndex")) 1) -}}
-              {{- $pvTitle := index $pvTitles $annexVote -}}
-              {{- $rcvTitle := index $rcvTitles $votingID -}}
-              {{- $title := $pvTitle | default .title | default $vote.title | default $rcvTitle -}}
-              {{- $contextURL := index $contextLinks $title -}}
-              {{- $voters := index . "-votersCount" -}}
-              {{- if not $voters -}}
-                {{- $voters = add (int (index . "-numberFavor")) (int (index . "-numberAgainst")) (int (index . "-numberAbstention")) -}}
+    {{- if .IsDir -}}
+      {{- $dateDirectory := path.Join $directory .Name -}}
+      {{- $votesFile := path.Join $dateDirectory "vote-results.json" -}}
+      {{- $decisionsFile := path.Join $dateDirectory "decisions.json" -}}
+      {{- $minutesFile := path.Join $dateDirectory "minutes_en.xml" -}}
+      {{- $minutesMetadataFile := path.Join $dateDirectory "minutes.json" -}}
+      {{- if and (os.FileExists $votesFile) (os.FileExists $decisionsFile) -}}
+        {{- $votesData := transform.Unmarshal (os.ReadFile $votesFile) -}}
+        {{- $decisionsData := transform.Unmarshal (os.ReadFile $decisionsFile) -}}
+        {{- $minutesDocument := printf "PV-10-%s" .Name -}}
+        {{- if os.FileExists $minutesMetadataFile -}}
+          {{- $minutesMetadata := transform.Unmarshal (os.ReadFile $minutesMetadataFile) -}}
+          {{- with index $minutesMetadata "data" -}}
+            {{- if gt (len .) 0 -}}
+              {{- with index (index . 0) "id" -}}
+                {{- $minutesDocument = path.Base . -}}
               {{- end -}}
-              {{- $notRecorded := sub $totalMEPs (int $voters) -}}
-              {{- $motions = $motions | append (dict
-                "date" (index $sitting "-date")
-                "title" $title
-                "sourceTitle" $vote.title
-                "votingTitle" .title
-                "result" (index . "-result")
-                "resultType" (index . "-resultType")
-                "for" (index . "-numberFavor")
-                "against" (index . "-numberAgainst")
-                "abstentions" (index . "-numberAbstention")
-                "voters" $voters
-                "notRecorded" $notRecorded
-                "votingId" $votingID
-                "positions" (index $voterResults $votingID)
-                "source" $source
-                "sourceURL" $sourceURL
-                "contextURL" $contextURL
-              ) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $minutesTitles := partials.Include "motions-pv-titles.html" $minutesFile -}}
+        {{- $minutesContextLinks := partials.Include "motions-pv-context-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
+        {{- $decisionsByID := dict -}}
+        {{- $decisions := index $decisionsData "data" -}}
+        {{- if $decisions -}}
+          {{- if not (reflect.IsSlice $decisions) -}}
+            {{- $decisions = slice $decisions -}}
+          {{- end -}}
+          {{- range $decisions -}}
+            {{- $decisionRecord := . -}}
+            {{- with index $decisionRecord "activity_id" -}}
+              {{- $decisionsByID = merge $decisionsByID (dict . $decisionRecord) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $votes := index $votesData "data" -}}
+        {{- if $votes -}}
+          {{- if not (reflect.IsSlice $votes) -}}
+            {{- $votes = slice $votes -}}
+          {{- end -}}
+          {{- range $votes -}}
+            {{- $vote := . -}}
+            {{- $sourceTitle := "" -}}
+            {{- with index $vote "activity_label" -}}
+              {{- $sourceTitle = index . "en" | default $sourceTitle -}}
+            {{- end -}}
+            {{- $decisionReferences := index $vote "consists_of" -}}
+            {{- if $decisionReferences -}}
+              {{- if not (reflect.IsSlice $decisionReferences) -}}
+                {{- $decisionReferences = slice $decisionReferences -}}
+              {{- end -}}
+              {{- range $decisionReferences -}}
+                {{- $decisionID := path.Base . -}}
+                {{- $decision := index $decisionsByID $decisionID -}}
+                {{- if $decision -}}
+                  {{- $title := $sourceTitle -}}
+                  {{- $contextURL := "" -}}
+                  {{- with index $decision "referenceText" -}}
+                    {{- $title = index . "en" | default $title -}}
+                  {{- end -}}
+                  {{- $annexVote := int (index $vote "notation_dlvId") -}}
+                  {{- with index $minutesTitles (string $annexVote) -}}
+                    {{- $title = . -}}
+                    {{- $contextURL = index $minutesContextLinks . | default "" -}}
+                  {{- end -}}
+                  {{- $positions := dict -}}
+                  {{- range $entry := slice (dict "key" "had_voter_favor" "value" "for") (dict "key" "had_voter_against" "value" "against") (dict "key" "had_voter_abstention" "value" "abstention") -}}
+                    {{- $people := index $decision (index $entry "key") -}}
+                    {{- if $people -}}
+                      {{- if not (reflect.IsSlice $people) -}}
+                        {{- $people = slice $people -}}
+                      {{- end -}}
+                      {{- range $people -}}
+                        {{- $positions = merge $positions (dict (path.Base .) (index $entry "value")) -}}
+                      {{- end -}}
+                    {{- end -}}
+                  {{- end -}}
+                  {{- $date := index $decision "activity_date" | default (index $vote "activity_date") -}}
+                  {{- $result := path.Base (index $decision "decision_outcome") -}}
+                  {{- $voters := int (index $decision "number_of_attendees") -}}
+                  {{- $sourceURL := "" -}}
+                  {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
+                  {{- if $recordedIn -}}
+                    {{- if not (reflect.IsSlice $recordedIn) -}}
+                      {{- $recordedIn = slice $recordedIn -}}
+                    {{- end -}}
+                    {{- $document := path.Base (index $recordedIn 0) -}}
+                    {{- $tocDocument := replaceRE "-RCV-ITM-[0-9]+$" "-TOC_EN.html" $document -}}
+                    {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
+                  {{- end -}}
+                  {{- $motions = $motions | append (dict
+                    "date" $date
+                    "title" $title
+                    "sourceTitle" $sourceTitle
+                    "result" $result
+                    "for" (index $decision "number_of_votes_favor")
+                    "against" (index $decision "number_of_votes_against")
+                    "abstentions" (index $decision "number_of_votes_abstention")
+                    "voters" $voters
+                    "notRecorded" (sub $totalMEPs $voters)
+                    "votingId" (index $decision "notation_votingId")
+                    "positions" $positions
+                    "sourceURL" $sourceURL
+                    "contextURL" $contextURL
+                  ) -}}
+                {{- end -}}
+              {{- end -}}
             {{- end -}}
           {{- end -}}
         {{- end -}}
