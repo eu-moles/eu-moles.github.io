@@ -14,6 +14,7 @@
       {{- $contextLinks := partials.IncludeCached "motions-pv-context-links.html" $minutesFile -}}
       {{- $rollCallFile := replace $file "-VOT_EN.xml" "-RCV_EN.xml" -}}
       {{- $rcvTitles := partials.IncludeCached "motions-rcv-titles.html" $rollCallFile -}}
+      {{- $voterResults := partials.IncludeCached "motions-voter-results.html" $rollCallFile -}}
       {{- $sitting := index $data "sitting" -}}
       {{- $votes := index (index $sitting "votes") "vote" -}}
       {{- if not (reflect.IsSlice $votes) -}}
@@ -53,6 +54,7 @@
                 "voters" $voters
                 "notRecorded" $notRecorded
                 "votingId" $votingID
+                "positions" (index $voterResults $votingID)
                 "source" $source
                 "sourceURL" $sourceURL
                 "contextURL" $contextURL

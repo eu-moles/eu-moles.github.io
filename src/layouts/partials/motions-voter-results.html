@@ -1,0 +1,46 @@
+{{- $file := . -}}
+{{- $byVotingID := dict -}}
+{{- if os.FileExists $file -}}
+  {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
+  {{- $results := index $data "RollCallVote.Result" -}}
+  {{- if $results -}}
+    {{- if not (reflect.IsSlice $results) -}}
+      {{- $results = slice $results -}}
+    {{- end -}}
+    {{- range $results -}}
+      {{- $votingID := index . "-Identifier" -}}
+      {{- $rollCallResult := . -}}
+      {{- $positions := dict -}}
+      {{- range $entry := (slice (dict "key" "Result.For" "value" "for") (dict "key" "Result.Against" "value" "against") (dict "key" "Result.Abstention" "value" "abstention")) -}}
+        {{- $resultKey := index $entry "key" -}}
+        {{- $position := index $entry "value" -}}
+        {{- $voteResult := index $rollCallResult $resultKey -}}
+        {{- $groups := index $voteResult "Result.PoliticalGroup.List" -}}
+        {{- if $groups -}}
+          {{- if not (reflect.IsSlice $groups) -}}
+            {{- $groups = slice $groups -}}
+          {{- end -}}
+          {{- range $groups -}}
+            {{- $members := index . "PoliticalGroup.Member.Name" -}}
+            {{- if $members -}}
+              {{- if not (reflect.IsSlice $members) -}}
+                {{- $members = slice $members -}}
+              {{- end -}}
+              {{- range $members -}}
+                {{- $personID := index . "-PersId" -}}
+                {{- if $personID -}}
+                  {{- $positions = merge $positions (dict $personID $position) -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if $votingID -}}
+        {{- $byVotingID = merge $byVotingID (dict $votingID $positions) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $result := dict "results" $byVotingID -}}
+{{- return $result.results -}}

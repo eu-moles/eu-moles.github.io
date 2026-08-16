@@ -1,0 +1,14 @@
+{{- $motions := partials.IncludeCached "motions-data.html" site -}}
+{{- $items := slice -}}
+{{- range $motions -}}
+  {{- $items = $items | append (dict
+    "date" .date
+    "title" .title
+    "sourceTitle" .sourceTitle
+    "result" .result
+    "sourceURL" .sourceURL
+    "contextURL" .contextURL
+    "positions" .positions
+  ) -}}
+{{- end -}}
+{{- $items | jsonify -}}
