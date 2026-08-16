@@ -53,7 +53,10 @@ fetch_json() {
 
   temporary=$(mktemp "${destination}.tmp.XXXXXX")
   formatted=$(mktemp "${destination}.formatted.XXXXXX")
-  if curl -fsSL -H 'Accept: application/ld+json' --output "$temporary" "$url" &&
+  if curl -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
+    -H 'Accept: application/ld+json' \
+    -H 'User-Agent: EU-Moles-data-updater-1.0' \
+    --output "$temporary" "$url" &&
     jq -e 'type == "object" and (.data | type == "array")' "$temporary" > /dev/null &&
     jq '.' "$temporary" > "$formatted"; then
     mv "$formatted" "$destination"
@@ -115,6 +118,10 @@ for voting_date in $voting_dates; do
   [[ -s "$dir/vote-results.json" ]] || fetch_json "$api/meetings/$sitting_id/vote-results" "$dir/vote-results.json"
   [[ -s "$dir/meeting.json" ]] || fetch_json "$api/meetings/$sitting_id" "$dir/meeting.json"
   [[ -s "$dir/activities.json" ]] || fetch_json "$api/meetings/$sitting_id/activities" "$dir/activities.json"
+  [[ -s "$dir/speeches.json" ]] || fetch_json \
+    "$api/speeches?sitting-date=$voting_date&activity-type=PLENARY_DEBATE_SPEECH&limit=500&sort-by=video-start-time:asc" \
+    "$dir/speeches.json"
+
   minutes_document=$(jq -er '
     .data[0].recorded_in_a_realization_of[]
     | select(test("/PV-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}$"))

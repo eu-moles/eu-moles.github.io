@@ -13,6 +13,8 @@
 {{- end -}}
 {{- $turns := slice -}}
 {{- if and (gt (len $normalizedQueries) 0) (os.FileExists $file) -}}
+  {{- $speechFile := replace $file "transcript.xml" "speeches.json" -}}
+  {{- $languages := partials.IncludeCached "transcript-language-map.html" $speechFile $speechFile -}}
   {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
   {{- $body := index $data "body" -}}
   {{- $paragraphs := index $body "p" -}}
@@ -25,6 +27,7 @@
     {{- $insideContext := false -}}
     {{- $speaker := "" -}}
     {{- $speakerID := "" -}}
+    {{- $speechNumber := "" -}}
     {{- $paragraphBuffer := slice -}}
     {{- range $paragraphs -}}
       {{- $text := partials.Include "transcript-paragraph-text.html" . -}}
@@ -44,7 +47,8 @@
 
       {{- if and $insideContext $isHeading -}}
         {{- if ne $speaker "" -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" (delimit $paragraphBuffer "\n\n")) -}}
+          {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" $turnText "language" (index $languages $speechNumber)) -}}
         {{- end -}}
         {{- $insideContext = false -}}
         {{- $speaker = "" -}}
@@ -59,6 +63,7 @@
           {{- $waitingForMarker = false -}}
           {{- $speaker = replaceRE "^[0-9]+-[0-9]+-[0-9]+\\s*" "" $bookmark -}}
           {{- $speakerID = "" -}}
+          {{- $speechNumber = $text -}}
           {{- range $meps -}}
             {{- if eq (lower .fullName) (lower $speaker) -}}
               {{- $speakerID = .id -}}
@@ -69,10 +74,12 @@
         {{- end -}}
       {{- else if and $insideContext $isSpeakerMarker -}}
         {{- if ne $speaker "" -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" (delimit $paragraphBuffer "\n\n")) -}}
+          {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" $turnText "language" (index $languages $speechNumber)) -}}
         {{- end -}}
         {{- $speaker = replaceRE "^[0-9]+-[0-9]+-[0-9]+\\s*" "" $bookmark -}}
         {{- $speakerID = "" -}}
+        {{- $speechNumber = $text -}}
         {{- range $meps -}}
           {{- if eq (lower .fullName) (lower $speaker) -}}
             {{- $speakerID = .id -}}
@@ -83,13 +90,19 @@
         {{- /* The first paragraph repeats the speaker name and, sometimes,
               their group. Attribution is already shown above the bubble. */ -}}
         {{- if eq (len $paragraphBuffer) 0 -}}
-          {{- $text = replaceRE "^[^–-]+[–-][[:space:]]*" "" $text -}}
+          {{- $withoutSpeaker := strings.TrimSpace (replace $text $speaker "") -}}
+          {{- if ne $withoutSpeaker $text -}}
+            {{- $text = replaceRE "^[^–]*–[[:space:]]*" "" $withoutSpeaker -}}
+          {{- end -}}
         {{- end -}}
-        {{- $paragraphBuffer = $paragraphBuffer | append $text -}}
+        {{- if ne $text "" -}}
+          {{- $paragraphBuffer = $paragraphBuffer | append $text -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
     {{- if and $insideContext (ne $speaker "") -}}
-      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" (delimit $paragraphBuffer "\n\n")) -}}
+      {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" $turnText "language" (index $languages $speechNumber)) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

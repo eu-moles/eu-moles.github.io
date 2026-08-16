@@ -638,6 +638,19 @@ body.is-home main > article > :not(.dataset-summary) {
   --summary-background: #f4f7f9;
 }
 
+.dataset-card--motions {
+  --summary-accent: #28725b;
+  --summary-figure: #195540;
+  --summary-border: #bddbce;
+  --summary-background: #f1f8f4;
+}
+
+@media screen and (min-width: 60em) {
+  .dataset-summary-item {
+    width: 20%;
+  }
+}
+
 h2#what-this-project-is-all-about::after {
   content: "\f059";
   margin-left: 0.28em;
@@ -878,6 +891,26 @@ a.motion-context-avatar:focus-visible {
 
 .motion-context-bubble p:last-child {
   margin-bottom: 0;
+}
+
+.motion-context-language {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.5rem;
+  padding: 0.18rem 0.34rem;
+  border: 1px solid #b8cbe0;
+  border-radius: 999px;
+  background: #f1f6fb;
+  color: #174f91;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1;
+}
+
+.motion-context-bubble:has(.motion-context-language) {
+  padding-bottom: 1.8rem;
 }
 
 .motion-transcript-reference,

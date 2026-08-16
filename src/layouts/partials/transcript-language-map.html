@@ -1,0 +1,16 @@
+{{- $file := . -}}
+{{- $languages := dict -}}
+{{- $english := "http://publications.europa.eu/resource/authority/language/ENG" -}}
+{{- if os.FileExists $file -}}
+  {{- $data := transform.Unmarshal (os.ReadFile $file) -}}
+  {{- range $data.data -}}
+    {{- range .recorded_in_a_realization_of -}}
+      {{- $sourceLanguages := .originalLanguage | default slice -}}
+      {{- if and .number (gt (len $sourceLanguages) 0) (not (in $sourceLanguages $english)) -}}
+        {{- $code := replaceRE "^.*/" "" (index $sourceLanguages 0) -}}
+        {{- $languages = merge $languages (dict .number (dict "code" $code "name" $code)) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $languages -}}

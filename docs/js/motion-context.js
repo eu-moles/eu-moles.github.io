@@ -134,6 +134,12 @@
         if (index) bubble.append(document.createElement("br"), document.createElement("br"));
         appendProcedureText(bubble, paragraph);
       });
+      if (turn.language && turn.language.code) {
+        const languageLabel = turn.language.code === "non-en" ? "Non-English" : String(turn.language.code).toUpperCase();
+        const language = make("span", "motion-context-language", languageLabel);
+        language.title = `Original language: ${turn.language.name || turn.language.code}`;
+        bubble.append(language);
+      }
       content.append(speaker, bubble);
       turnElement.append(avatar, content);
       transcript.append(turnElement);

@@ -77,7 +77,10 @@
                                     {{ $turn.speaker }}
                                   {{ end }}
                                 </p>
-                                <div class="motion-context-bubble">{{ partial "transcript-rich-text.html" .text | safeHTML }}</div>
+                                <div class="motion-context-bubble">
+                                  {{ partial "transcript-rich-text.html" .text | safeHTML }}
+                                  {{ with .language }}<span class="motion-context-language" title="Original language: {{ .name }}">{{ if eq .code "non-en" }}Non-English{{ else }}{{ upper .code }}{{ end }}</span>{{ end }}
+                                </div>
                               </div>
                             </article>
                           {{ end }}
