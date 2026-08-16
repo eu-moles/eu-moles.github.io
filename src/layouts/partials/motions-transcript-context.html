@@ -38,16 +38,19 @@
       {{- $text = strings.TrimSpace $text -}}
       {{- $bookmark := partials.Include "transcript-bookmark-name.html" . -}}
       {{- $isSpeakerMarker := and (findRE "^[0-9]+-[0-9]+-[0-9]+$" $text) (ne $bookmark "") -}}
-      {{- $isHeading := false -}}
-      {{- if and (ne $text "") (hasPrefix $bookmark "_Toc") -}}
+      {{- $isAgendaHeading := and (ne $text "") (hasPrefix $bookmark "_Toc") -}}
+      {{- $isTargetHeading := false -}}
+      {{- if $isAgendaHeading -}}
         {{- range $normalizedQueries -}}
           {{- if strings.Contains (lower $text) . -}}
-            {{- $isHeading = true -}}
+            {{- $isTargetHeading = true -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}
 
-      {{- if and $insideContext $isHeading -}}
+      {{- /* A new agenda heading ends the current debate, irrespective of its
+            title. The target match is only used to find where a debate begins. */ -}}
+      {{- if and $insideContext $isAgendaHeading -}}
         {{- if ne $speaker "" -}}
           {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
@@ -57,7 +60,7 @@
         {{- $paragraphBuffer = slice -}}
       {{- end -}}
 
-      {{- if and (not $insideContext) $isHeading -}}
+      {{- if and (not $insideContext) $isTargetHeading -}}
         {{- $waitingForMarker = true -}}
       {{- else if $waitingForMarker -}}
         {{- if $isSpeakerMarker -}}

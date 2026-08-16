@@ -182,6 +182,7 @@ cache_discussion_translations() {
   local source_text
   local translated_text
   local translations_temporary
+  local candidates_file
 
   hugo_bin=$(find_hugo) || {
     echo "Hugo was not found; skipping cached discussion translations for $voting_date." >&2
@@ -206,6 +207,36 @@ cache_discussion_translations() {
     jq -n '{version: 1, translations: {}}' > "$translations_temporary"
     mv "$translations_temporary" "$translations_file"
   fi
+
+  candidates_file=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-candidates.XXXXXX")
+  jq -c --arg date "$voting_date" '
+    [ .[]
+      | select(.date == $date)
+      | .discussion[]?
+      | select(.language and .language.code and .speechNumber and .text)
+      | {
+          speechNumber: (.speechNumber | tostring),
+          sourceLanguage: (.language.code | ascii_downcase),
+          sourceText: .text
+        }
+    ]
+    | unique_by(.speechNumber)
+    | .[]
+  ' "$motions_file" > "$candidates_file"
+
+  # The catalogue is the source of truth for which speeches belong to a motion
+  # discussion. Drop cache entries from an earlier, broader context extraction.
+  translations_temporary=$(mktemp "${translations_file}.tmp.XXXXXX")
+  if ! jq --slurpfile candidates "$candidates_file" '
+      .translations |= with_entries(
+        select(.key as $speech_number | $candidates | any(.speechNumber == $speech_number))
+      )
+    ' "$translations_file" > "$translations_temporary"; then
+    rm -f "$translations_temporary" "$candidates_file"
+    rm -rf "$temporary_site"
+    return 1
+  fi
+  mv "$translations_temporary" "$translations_file"
 
   while IFS= read -r candidate; do
     speech_number=$(jq -r '.speechNumber' <<< "$candidate")
@@ -250,23 +281,9 @@ cache_discussion_translations() {
 
     # Avoid rapid bursts to the third-party translation endpoint.
     sleep 0.5
-  done < <(
-    jq -c --arg date "$voting_date" '
-      [ .[]
-        | select(.date == $date)
-        | .discussion[]?
-        | select(.language and .language.code and .speechNumber and .text)
-        | {
-            speechNumber: (.speechNumber | tostring),
-            sourceLanguage: (.language.code | ascii_downcase),
-            sourceText: .text
-          }
-      ]
-      | unique_by(.speechNumber)
-      | .[]
-    ' "$motions_file"
-  )
+  done < "$candidates_file"
 
+  rm -f "$candidates_file"
   rm -rf "$temporary_site"
 }
 
