@@ -38,7 +38,7 @@
     container.append(document.createTextNode(text.slice(lastIndex)));
   };
 
-  const createTranslationButton = (language, text) => {
+  const createTranslationButton = (language, text, translation) => {
     const code = String(language.code).toUpperCase();
     const button = make("button", "motion-context-language", code);
     button.type = "button";
@@ -47,9 +47,19 @@
     button.dataset.translationName = language.name || language.code;
     button.dataset.translationSource = String(language.code).toLowerCase();
     button.dataset.translationText = String(text || "");
-    button.title = `Original language: ${language.name || language.code}. Translate to English`;
-    button.setAttribute("aria-label", `Translate ${language.name || language.code} to English`);
-    button.setAttribute("aria-pressed", "false");
+    const cachedText = String(translation?.englishText || "");
+    if (cachedText) {
+      button.dataset.translationCached = cachedText;
+      button.dataset.translated = "true";
+      button.textContent = `${code} → EN`;
+      button.title = `Machine-translated to English. Show original ${language.name || language.code} text.`;
+      button.setAttribute("aria-label", `Show original ${language.name || language.code} text`);
+      button.setAttribute("aria-pressed", "true");
+    } else {
+      button.title = `Original language: ${language.name || language.code}. Translate to English`;
+      button.setAttribute("aria-label", `Translate ${language.name || language.code} to English`);
+      button.setAttribute("aria-pressed", "false");
+    }
     return button;
   };
 
@@ -77,7 +87,11 @@
 
     const code = button.dataset.translationCode || button.textContent;
     if (button.dataset.translated === "true") {
-      content.innerHTML = button._translationOriginalMarkup || "";
+      if (typeof button._translationOriginalMarkup === "string") {
+        content.innerHTML = button._translationOriginalMarkup;
+      } else {
+        replaceBubbleText(content, button.dataset.translationText || "");
+      }
       button.textContent = code;
       button.title = `Original language: ${button.dataset.translationName || code}. Translate to English`;
       button.setAttribute("aria-label", `Translate ${button.dataset.translationName || code} to English`);
@@ -89,6 +103,19 @@
     const source = button.dataset.translationSource;
     const sourceText = button.dataset.translationText || "";
     if (!source || !sourceText) return;
+
+    const cachedText = button.dataset.translationCached || "";
+    if (cachedText) {
+      button._translationOriginalMarkup = content.innerHTML;
+      replaceBubbleText(content, cachedText);
+      button.textContent = `${code} → EN`;
+      button.title = "Machine-translated to English. Show original text.";
+      button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
+      button.setAttribute("aria-pressed", "true");
+      button.dataset.translated = "true";
+      return;
+    }
+
     if (sourceText.length > translationCharacterLimit) {
       button.title = "Translation unavailable: this contribution is too long.";
       return;
@@ -198,7 +225,7 @@
     const note = make("div", "motion-context-modal__note");
     const languageIcon = make("i", "fa-solid fa-language");
     languageIcon.setAttribute("aria-hidden", "true");
-    note.append(languageIcon, document.createTextNode("Remarks are reproduced in the original language recorded by Parliament."));
+    note.append(languageIcon, document.createTextNode("Where available, remarks are machine-translated into English. Select the language badge to view the original."));
 
     const transcript = make("div", "motion-context-transcript");
     motion.discussion.forEach((turn) => {
@@ -231,13 +258,15 @@
       const bubble = make("div", "motion-context-bubble");
       const bubbleText = make("div", "motion-context-bubble__text");
       bubbleText.setAttribute("aria-live", "polite");
-      String(turn.text || "").split(/\n{2,}/).forEach((paragraph, index) => {
+      const translatedText = String(turn.translation?.englishText || "");
+      const displayedText = translatedText || String(turn.text || "");
+      displayedText.split(/\n{2,}/).forEach((paragraph, index) => {
         if (index) bubbleText.append(document.createElement("br"), document.createElement("br"));
         appendProcedureText(bubbleText, paragraph);
       });
       bubble.append(bubbleText);
       if (turn.language && turn.language.code) {
-        const language = createTranslationButton(turn.language, turn.text);
+        const language = createTranslationButton(turn.language, turn.text, turn.translation);
         bubble.append(language);
         bindTranslationButton(language);
       }

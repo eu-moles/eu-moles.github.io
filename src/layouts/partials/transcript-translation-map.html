@@ -1,0 +1,13 @@
+{{- $file := . -}}
+{{- $translations := dict -}}
+{{- if os.FileExists $file -}}
+  {{- $data := transform.Unmarshal (os.ReadFile $file) -}}
+  {{- with index $data "translations" -}}
+    {{- range $speechNumber, $translation := . -}}
+      {{- if and $translation (ne (index $translation "englishText" | default "") "") -}}
+        {{- $translations = merge $translations (dict $speechNumber $translation) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $translations -}}
