@@ -2,6 +2,8 @@
   "use strict";
 
   const contextParameter = "context";
+  const translationEndpoint = "https://translate.googleapis.com/translate_a/single";
+  const translationCharacterLimit = 15000;
 
   const updateContext = (id) => {
     const url = new URL(window.location.href);
@@ -34,6 +36,103 @@
       lastIndex = expression.lastIndex;
     }
     container.append(document.createTextNode(text.slice(lastIndex)));
+  };
+
+  const createTranslationButton = (language, text) => {
+    const code = String(language.code).toUpperCase();
+    const button = make("button", "motion-context-language", code);
+    button.type = "button";
+    button.dataset.translationButton = "";
+    button.dataset.translationCode = code;
+    button.dataset.translationName = language.name || language.code;
+    button.dataset.translationSource = String(language.code).toLowerCase();
+    button.dataset.translationText = String(text || "");
+    button.title = `Original language: ${language.name || language.code}. Translate to English`;
+    button.setAttribute("aria-label", `Translate ${language.name || language.code} to English`);
+    button.setAttribute("aria-pressed", "false");
+    return button;
+  };
+
+  const translationText = (payload) => {
+    if (!Array.isArray(payload?.[0])) throw new Error("Unexpected translation response");
+    return payload[0]
+      .map((segment) => Array.isArray(segment) ? segment[0] : "")
+      .filter(Boolean)
+      .join("");
+  };
+
+  const replaceBubbleText = (content, text) => {
+    content.replaceChildren();
+    String(text).split(/\n{2,}/).forEach((paragraph, index) => {
+      if (index) content.append(document.createElement("br"), document.createElement("br"));
+      appendProcedureText(content, paragraph);
+    });
+  };
+
+  const translate = async (button) => {
+    const bubble = button.closest(".motion-context-bubble");
+    if (!bubble || button.dataset.translating === "true") return;
+    const content = bubble.querySelector(".motion-context-bubble__text");
+    if (!content) return;
+
+    const code = button.dataset.translationCode || button.textContent;
+    if (button.dataset.translated === "true") {
+      content.innerHTML = button._translationOriginalMarkup || "";
+      button.textContent = code;
+      button.title = `Original language: ${button.dataset.translationName || code}. Translate to English`;
+      button.setAttribute("aria-label", `Translate ${button.dataset.translationName || code} to English`);
+      button.setAttribute("aria-pressed", "false");
+      delete button.dataset.translated;
+      return;
+    }
+
+    const source = button.dataset.translationSource;
+    const sourceText = button.dataset.translationText || "";
+    if (!source || !sourceText) return;
+    if (sourceText.length > translationCharacterLimit) {
+      button.title = "Translation unavailable: this contribution is too long.";
+      return;
+    }
+
+    button.dataset.translating = "true";
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    const originalLabel = button.textContent;
+    let translated = false;
+    button.textContent = "…";
+
+    try {
+      const url = new URL(translationEndpoint);
+      url.searchParams.set("client", "gtx");
+      url.searchParams.set("sl", source);
+      url.searchParams.set("tl", "en");
+      url.searchParams.set("dt", "t");
+      url.searchParams.set("q", sourceText);
+      const response = await fetch(url, { headers: { Accept: "application/json" } });
+      if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
+      button._translationOriginalMarkup = content.innerHTML;
+      replaceBubbleText(content, translationText(await response.json()));
+      button.textContent = `${code} → EN`;
+      button.title = "Machine-translated to English by Google Translate. Show original text.";
+      button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
+      button.setAttribute("aria-pressed", "true");
+      button.dataset.translated = "true";
+      translated = true;
+    } catch (error) {
+      button.title = "English translation is currently unavailable. Please try again later.";
+      console.warn("Discussion translation failed", error);
+    } finally {
+      if (!translated) button.textContent = originalLabel;
+      button.disabled = false;
+      button.removeAttribute("aria-busy");
+      delete button.dataset.translating;
+    }
+  };
+
+  const bindTranslationButton = (button) => {
+    if (button.dataset.translationBound) return;
+    button.dataset.translationBound = "true";
+    button.addEventListener("click", () => translate(button));
   };
 
   const returnURLFor = (contextID) => {
@@ -130,14 +229,17 @@
         speaker.textContent = turn.speaker;
       }
       const bubble = make("div", "motion-context-bubble");
+      const bubbleText = make("div", "motion-context-bubble__text");
+      bubbleText.setAttribute("aria-live", "polite");
       String(turn.text || "").split(/\n{2,}/).forEach((paragraph, index) => {
-        if (index) bubble.append(document.createElement("br"), document.createElement("br"));
-        appendProcedureText(bubble, paragraph);
+        if (index) bubbleText.append(document.createElement("br"), document.createElement("br"));
+        appendProcedureText(bubbleText, paragraph);
       });
+      bubble.append(bubbleText);
       if (turn.language && turn.language.code) {
-        const language = make("span", "motion-context-language", String(turn.language.code).toUpperCase());
-        language.title = `Original language: ${turn.language.name || turn.language.code}`;
+        const language = createTranslationButton(turn.language, turn.text);
         bubble.append(language);
+        bindTranslationButton(language);
       }
       content.append(speaker, bubble);
       turnElement.append(avatar, content);
@@ -179,4 +281,6 @@
       showDialog(dialog, null, false);
     }
   });
+
+  document.querySelectorAll("[data-translation-button]").forEach(bindTranslationButton);
 })();

@@ -1,6 +1,7 @@
+{{ $assetVersion := now.UnixNano }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ "vendor/fontawesome/css/fontawesome.min.css" | relURL }}">
-<link rel="stylesheet" href="{{ "vendor/fontawesome/css/solid.min.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/site.css" | relURL }}?v={{ now.Unix }}">
+<link rel="stylesheet" href="{{ "vendor/fontawesome/css/fontawesome.min.css" | relURL }}?v={{ $assetVersion }}">
+<link rel="stylesheet" href="{{ "vendor/fontawesome/css/solid.min.css" | relURL }}?v={{ $assetVersion }}">
+<link rel="stylesheet" href="{{ "css/site.css" | relURL }}?v={{ $assetVersion }}">

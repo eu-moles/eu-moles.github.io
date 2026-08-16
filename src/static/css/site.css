@@ -897,16 +897,30 @@ a.motion-context-avatar:focus-visible {
   position: absolute;
   right: 0.6rem;
   bottom: 0.5rem;
+  appearance: none;
   padding: 0.18rem 0.34rem;
   border: 1px solid #b8cbe0;
   border-radius: 999px;
   background: #f1f6fb;
   color: #174f91;
+  cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   line-height: 1;
+}
+
+button.motion-context-language:hover,
+button.motion-context-language:focus-visible {
+  border-color: #174f91;
+  background: #dceafa;
+  color: #0b376f;
+}
+
+button.motion-context-language:disabled {
+  cursor: progress;
+  opacity: 0.7;
 }
 
 .motion-context-bubble:has(.motion-context-language) {

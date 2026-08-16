@@ -13,7 +13,6 @@ disableKinds = ['taxonomy', 'term']
 
 [params.ananke]
   show_recent_posts = false
-  custom_css = ['css/site.css']
 
 [[menus.main]]
   name = 'Home'

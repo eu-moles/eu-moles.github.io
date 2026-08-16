@@ -6,7 +6,7 @@
 {{- $language := dict -}}
 {{- if os.FileExists $file -}}
   {{- $xml := os.ReadFile $file -}}
-  {{- $codeMatches := findRE `<skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">[^<]+</skos:notation>` $xml -}}
+  {{- $codeMatches := findRE `<skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">[^<]+</skos:notation>` $xml -}}
   {{- if gt (len $codeMatches) 0 -}}
     {{- $code = index $codeMatches 0 -}}
     {{- $code = replaceRE `^<[^>]+>` "" $code -}}

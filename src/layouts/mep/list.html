@@ -83,6 +83,6 @@
     </div>
   </section>
 
-  <script defer src="{{ "js/motion-context.js" | relURL }}?v=2"></script>
-  <script defer src="{{ "js/mep-profile.js" | relURL }}?v={{ now.Unix }}"></script>
+  <script defer src="{{ "js/motion-context.js" | relURL }}?v={{ now.UnixNano }}"></script>
+  <script defer src="{{ "js/mep-profile.js" | relURL }}?v={{ now.UnixNano }}"></script>
 {{ end }}

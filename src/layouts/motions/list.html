@@ -78,8 +78,8 @@
                                   {{ end }}
                                 </p>
                                 <div class="motion-context-bubble">
-                                  {{ partial "transcript-rich-text.html" .text | safeHTML }}
-                                  {{ with .language }}<span class="motion-context-language" title="Original language: {{ .name }}">{{ upper .code }}</span>{{ end }}
+                                  <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript-rich-text.html" .text | safeHTML }}</div>
+                                  {{ with .language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ lower .code }}" data-translation-text="{{ $turn.text }}" title="Original language: {{ .name }}. Translate to English" aria-label="Translate {{ .name }} to English" aria-pressed="false">{{ upper .code }}</button>{{ end }}
                                 </div>
                               </div>
                             </article>
@@ -120,5 +120,5 @@
       <p class="pa3 bg-washed-yellow">No voting-result files were found in <code>data/votes/</code>.</p>
     {{ end }}
   </section>
-  <script defer src="{{ "js/motion-context.js" | relURL }}?v=1"></script>
+  <script defer src="{{ "js/motion-context.js" | relURL }}?v={{ now.UnixNano }}"></script>
 {{ end }}
