@@ -4,9 +4,40 @@ set -euo pipefail
 
 cd src
 
+format_json() {
+  local file="$1"
+  local temporary
+
+  temporary=$(mktemp "${file}.tmp.XXXXXX")
+  jq '.' "$file" > "$temporary"
+  mv "$temporary" "$file"
+}
+
+format_xml() {
+  local file="$1"
+  local temporary
+
+  temporary=$(mktemp "${file}.tmp.XXXXXX")
+  xmllint --format "$file" > "$temporary"
+  mv "$temporary" "$file"
+}
+
+format_data_sources() {
+  local directory="$1"
+  local file
+
+  while IFS= read -r -d '' file; do
+    case "$file" in
+      *.json) format_json "$file" ;;
+      *.xml) format_xml "$file" ;;
+    esac
+  done < <(find "$directory" -type f \( -name '*.json' -o -name '*.xml' \) -print0)
+}
+
 if [[ ! -f data/meps.xml ]] || (( $(date +%s) - $(stat -c %Y data/meps.xml) > $((24 * 60 * 60)) )); then
   wget -qO data/meps.xml https://www.europarl.europa.eu/meps/en/full-list/xml
 fi
+format_xml data/meps.xml
 
 current_date=$(date +%F)
 voting_dates=$(curl -fsSL "https://data.europarl.europa.eu/distribution/meetings_$(date +%Y)_4_en.csv" |
@@ -18,13 +49,17 @@ fetch_json() {
   local url="$1"
   local destination="$2"
   local temporary
+  local formatted
 
   temporary=$(mktemp "${destination}.tmp.XXXXXX")
+  formatted=$(mktemp "${destination}.formatted.XXXXXX")
   if curl -fsSL -H 'Accept: application/ld+json' --output "$temporary" "$url" &&
-    jq -e 'type == "object" and (.data | type == "array")' "$temporary" > /dev/null; then
-    mv "$temporary" "$destination"
-  else
+    jq -e 'type == "object" and (.data | type == "array")' "$temporary" > /dev/null &&
+    jq '.' "$temporary" > "$formatted"; then
+    mv "$formatted" "$destination"
     rm -f "$temporary"
+  else
+    rm -f "$temporary" "$formatted"
     return 1
   fi
 }
@@ -33,13 +68,17 @@ fetch_xml() {
   local url="$1"
   local destination="$2"
   local temporary
+  local formatted
 
   temporary=$(mktemp "${destination}.tmp.XXXXXX")
+  formatted=$(mktemp "${destination}.formatted.XXXXXX")
   if curl -fsSL --output "$temporary" "$url" &&
-    grep -q '<PV[[:space:]>]' "$temporary"; then
-    mv "$temporary" "$destination"
-  else
+    grep -q '<PV[[:space:]>]' "$temporary" &&
+    xmllint --format "$temporary" > "$formatted"; then
+    mv "$formatted" "$destination"
     rm -f "$temporary"
+  else
+    rm -f "$temporary" "$formatted"
     return 1
   fi
 }
@@ -97,5 +136,6 @@ for voting_date in $voting_dates; do
     jq -s '{data: [.[].data[]]}' "${decision_files[@]}" > "$decisions_temporary"
     mv "$decisions_temporary" "$dir/decisions.json"
   fi
+  format_data_sources "$dir"
   break
 done
