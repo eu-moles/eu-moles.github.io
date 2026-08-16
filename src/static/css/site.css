@@ -126,6 +126,8 @@ textarea {
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: 0.1em;
+  appearance: none;
+  cursor: pointer;
 }
 
 .motion-context-link:hover,
@@ -691,5 +693,279 @@ header.cover h2.fw1 {
   header.cover,
   header.cover > div {
     height: clamp(30rem, 35vw, 38rem);
+  }
+}
+
+/* In-page transcript reader for the context control on voting motions. */
+.motion-context-modal {
+  width: min(92vw, 58rem);
+  max-width: none;
+  max-height: min(86vh, 56rem);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0.45rem;
+  background: #f5f8fb;
+  box-shadow: 0 1.5rem 4rem rgb(5 18 32 / 55%);
+  color: #1e2935;
+}
+
+.motion-context-modal::backdrop {
+  background: rgb(5 15 26 / 72%);
+  backdrop-filter: blur(3px);
+}
+
+.motion-context-modal__shell {
+  display: flex;
+  max-height: min(86vh, 56rem);
+  flex-direction: column;
+}
+
+.motion-context-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.35rem clamp(1.25rem, 3vw, 2.2rem) 1.2rem;
+  border-top: 0.28rem solid #d6a62e;
+  background: #102a45;
+  color: #fff;
+}
+
+.motion-context-modal__eyebrow,
+.motion-context-turn__speaker {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+}
+
+.motion-context-modal__eyebrow {
+  color: #e7c867;
+}
+
+.motion-context-modal__header h2 {
+  max-width: 46rem;
+  margin: 0.38rem 0 0;
+  color: inherit;
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 2.1vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.38;
+}
+
+.motion-context-modal__close {
+  display: inline-grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.motion-context-modal__close:hover,
+.motion-context-modal__close:focus-visible {
+  border-color: #e7c867;
+  background: rgb(255 255 255 / 12%);
+  color: #fff4c8;
+}
+
+.motion-context-modal__note {
+  padding: 0.65rem clamp(1.25rem, 3vw, 2.2rem);
+  border-bottom: 1px solid #d9e2eb;
+  background: #edf3f8;
+  color: #526475;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+}
+
+.motion-context-modal__note i {
+  margin-right: 0.45rem;
+  color: #174f91;
+}
+
+.motion-context-transcript {
+  display: grid;
+  gap: 1.15rem;
+  overflow-y: auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: linear-gradient(135deg, #f6f9fc, #fff);
+}
+
+.motion-context-turn {
+  display: grid;
+  grid-template-columns: 3.1rem minmax(0, 1fr);
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.motion-context-avatar {
+  display: grid;
+  width: 3.1rem;
+  height: 3.1rem;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid #c6d4e2;
+  border-radius: 50%;
+  background: #e4edf6;
+  color: #174f91;
+}
+
+a.motion-context-avatar:hover,
+a.motion-context-avatar:focus-visible {
+  border-color: #174f91;
+  box-shadow: 0 0 0 0.22rem rgb(23 79 145 / 18%);
+}
+
+.motion-context-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.motion-context-turn__speaker {
+  margin-bottom: 0.35rem;
+  color: #174f91;
+}
+
+.motion-context-turn__speaker a,
+.motion-context-turn__speaker a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.motion-context-turn__speaker a:hover,
+.motion-context-turn__speaker a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.motion-context-bubble {
+  position: relative;
+  padding: 0.9rem 1rem;
+  border: 1px solid #d6e0ea;
+  border-radius: 0.15rem 0.75rem 0.75rem;
+  background: #fff;
+  box-shadow: 0 0.3rem 0.8rem rgb(16 42 69 / 8%);
+  color: #263746;
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+.motion-context-bubble::before {
+  position: absolute;
+  top: 0.75rem;
+  left: -0.45rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-bottom: 1px solid #d6e0ea;
+  border-left: 1px solid #d6e0ea;
+  background: #fff;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.motion-context-bubble p {
+  margin: 0 0 0.8rem;
+}
+
+.motion-context-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.motion-transcript-reference,
+.motion-transcript-reference:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  color: #174f91;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.82em;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgb(23 79 145 / 45%);
+  text-underline-offset: 0.14em;
+}
+
+.motion-transcript-reference:hover,
+.motion-transcript-reference:focus-visible {
+  color: #0b376f;
+  text-decoration-color: currentcolor;
+}
+
+.motion-context-turn--chair .motion-context-avatar {
+  border-color: #d6a62e;
+  background: #fff5d8;
+  color: #8a6510;
+}
+
+.motion-context-turn--chair .motion-context-turn__speaker {
+  color: #8a6510;
+}
+
+.motion-context-turn--chair .motion-context-bubble {
+  border-color: #ead9a5;
+  background: #fffaf0;
+}
+
+.motion-context-turn--chair .motion-context-bubble::before {
+  border-color: #ead9a5;
+  background: #fffaf0;
+}
+
+.motion-context-modal__footer {
+  padding: 0.9rem clamp(1.25rem, 3vw, 2.2rem);
+  border-top: 1px solid #d9e2eb;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.motion-context-modal__footer a {
+  color: #174f91;
+  text-decoration: none;
+}
+
+.motion-context-modal__footer a:hover,
+.motion-context-modal__footer a:focus-visible {
+  color: #0b376f;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 36em) {
+  .motion-context-modal {
+    width: 96vw;
+    max-height: 92vh;
+  }
+
+  .motion-context-modal__shell {
+    max-height: 92vh;
+  }
+
+  .motion-context-modal__header {
+    padding: 1.1rem;
+  }
+
+  .motion-context-turn {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .motion-context-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .motion-context-bubble {
+    padding: 0.78rem 0.85rem;
+    font-size: 0.9rem;
   }
 }

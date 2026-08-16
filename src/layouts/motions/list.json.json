@@ -1,6 +1,12 @@
 {{- $motions := partials.IncludeCached "motions-data.html" site -}}
 {{- $items := slice -}}
 {{- range $motions -}}
+  {{- $discussion := slice -}}
+  {{- $transcriptFile := path.Join "data/votes" .date "transcript.xml" -}}
+  {{- if and .contextURL (os.FileExists $transcriptFile) -}}
+    {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
+    {{- $discussion = $context.turns -}}
+  {{- end -}}
   {{- $items = $items | append (dict
     "date" .date
     "title" .title
@@ -8,6 +14,8 @@
     "result" .result
     "sourceURL" .sourceURL
     "contextURL" .contextURL
+    "contextID" (printf "discussion-%s" .votingId)
+    "discussion" $discussion
     "positions" .positions
   ) -}}
 {{- end -}}

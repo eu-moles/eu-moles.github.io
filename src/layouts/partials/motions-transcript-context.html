@@ -1,0 +1,96 @@
+{{- $file := index . "file" -}}
+{{- $queries := index . "titles" -}}
+{{- if not (reflect.IsSlice $queries) -}}
+  {{- $queries = slice $queries -}}
+{{- end -}}
+{{- $normalizedQueries := slice -}}
+{{- range $queries -}}
+  {{- $query := lower (strings.TrimSpace .) -}}
+  {{- $query = replaceRE "^[0-9]+[.[:space:]-]+" "" $query -}}
+  {{- if ne $query "" -}}
+    {{- $normalizedQueries = $normalizedQueries | append $query -}}
+  {{- end -}}
+{{- end -}}
+{{- $turns := slice -}}
+{{- if and (gt (len $normalizedQueries) 0) (os.FileExists $file) -}}
+  {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
+  {{- $body := index $data "body" -}}
+  {{- $paragraphs := index $body "p" -}}
+  {{- if $paragraphs -}}
+    {{- if not (reflect.IsSlice $paragraphs) -}}
+      {{- $paragraphs = slice $paragraphs -}}
+    {{- end -}}
+    {{- $meps := partials.IncludeCached "meps-data.html" site -}}
+    {{- $waitingForMarker := false -}}
+    {{- $insideContext := false -}}
+    {{- $speaker := "" -}}
+    {{- $speakerID := "" -}}
+    {{- $paragraphBuffer := slice -}}
+    {{- range $paragraphs -}}
+      {{- $text := partials.Include "transcript-paragraph-text.html" . -}}
+      {{- $text = replaceRE "\\s+" " " $text -}}
+      {{- $text = replaceRE "\\s+([,.;:!?])" "$1" $text -}}
+      {{- $text = strings.TrimSpace $text -}}
+      {{- $bookmark := partials.Include "transcript-bookmark-name.html" . -}}
+      {{- $isSpeakerMarker := and (findRE "^[0-9]+-[0-9]+-[0-9]+$" $text) (ne $bookmark "") -}}
+      {{- $isHeading := false -}}
+      {{- if and (ne $text "") (hasPrefix $bookmark "_Toc") -}}
+        {{- range $normalizedQueries -}}
+          {{- if strings.Contains (lower $text) . -}}
+            {{- $isHeading = true -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- if and $insideContext $isHeading -}}
+        {{- if ne $speaker "" -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" (delimit $paragraphBuffer "\n\n")) -}}
+        {{- end -}}
+        {{- $insideContext = false -}}
+        {{- $speaker = "" -}}
+        {{- $paragraphBuffer = slice -}}
+      {{- end -}}
+
+      {{- if and (not $insideContext) $isHeading -}}
+        {{- $waitingForMarker = true -}}
+      {{- else if $waitingForMarker -}}
+        {{- if $isSpeakerMarker -}}
+          {{- $insideContext = true -}}
+          {{- $waitingForMarker = false -}}
+          {{- $speaker = replaceRE "^[0-9]+-[0-9]+-[0-9]+\\s*" "" $bookmark -}}
+          {{- $speakerID = "" -}}
+          {{- range $meps -}}
+            {{- if eq (lower .fullName) (lower $speaker) -}}
+              {{- $speakerID = .id -}}
+            {{- end -}}
+          {{- end -}}
+        {{- else if ne $text "" -}}
+          {{- $waitingForMarker = false -}}
+        {{- end -}}
+      {{- else if and $insideContext $isSpeakerMarker -}}
+        {{- if ne $speaker "" -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" (delimit $paragraphBuffer "\n\n")) -}}
+        {{- end -}}
+        {{- $speaker = replaceRE "^[0-9]+-[0-9]+-[0-9]+\\s*" "" $bookmark -}}
+        {{- $speakerID = "" -}}
+        {{- range $meps -}}
+          {{- if eq (lower .fullName) (lower $speaker) -}}
+            {{- $speakerID = .id -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $paragraphBuffer = slice -}}
+      {{- else if and $insideContext (ne $text "") -}}
+        {{- /* The first paragraph repeats the speaker name and, sometimes,
+              their group. Attribution is already shown above the bubble. */ -}}
+        {{- if eq (len $paragraphBuffer) 0 -}}
+          {{- $text = replaceRE "^[^–-]+[–-][[:space:]]*" "" $text -}}
+        {{- end -}}
+        {{- $paragraphBuffer = $paragraphBuffer | append $text -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if and $insideContext (ne $speaker "") -}}
+      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "text" (delimit $paragraphBuffer "\n\n")) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "turns" $turns) -}}

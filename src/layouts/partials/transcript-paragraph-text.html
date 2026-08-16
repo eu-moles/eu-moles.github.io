@@ -1,0 +1,44 @@
+{{- /* Return the visible WordprocessingML text in a paragraph.  Deliberately
+      ignore field instructions: those contain table-of-contents metadata,
+      rather than the spoken record. */ -}}
+{{- $node := . -}}
+{{- $text := "" -}}
+{{- if reflect.IsMap $node -}}
+  {{- if isset $node "#text" -}}
+    {{- $text = printf "%v" (index $node "#text") -}}
+    {{- if isset $node "-space" -}}
+      {{- /* The decoder trims a preserved trailing space. Most such runs end
+            a word or punctuation mark; dashes are used with space on both
+            sides in Parliament's transcript. */ -}}
+      {{- $trimmedText := strings.TrimSpace $text -}}
+      {{- if eq $trimmedText "–" -}}
+        {{- $text = " – " -}}
+      {{- else if findRE "^[,.;:!?)]" $trimmedText -}}
+        {{- $text = printf "%s " $trimmedText -}}
+      {{- else -}}
+        {{- $text = printf " %s " $trimmedText -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if isset $node "-space" -}}
+    {{- /* Hugo's XML decoder omits whitespace-only w:t nodes, but keeps the
+          xml:space marker. Restore the explicit inter-word space. */ -}}
+    {{- $text = " " -}}
+  {{- else if isset $node "t" -}}
+    {{- $text = partials.Include "transcript-paragraph-text.html" (index $node "t") -}}
+  {{- else -}}
+    {{- /* A Word paragraph has style, bookmark, and field-instruction nodes as
+          siblings of its runs. Only descend into visible text containers. */ -}}
+    {{- range $key, $value := $node -}}
+      {{- if in (slice "r" "hyperlink" "smartTag" "ins") $key -}}
+        {{- $text = printf "%s%s" $text (partials.Include "transcript-paragraph-text.html" $value) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else if reflect.IsSlice $node -}}
+  {{- range $node -}}
+    {{- $text = printf "%s%s" $text (partials.Include "transcript-paragraph-text.html" .) -}}
+  {{- end -}}
+{{- else if $node -}}
+  {{- $text = printf "%v" $node -}}
+{{- end -}}
+{{- return $text -}}

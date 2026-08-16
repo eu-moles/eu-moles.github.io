@@ -83,6 +83,28 @@ fetch_xml() {
   fi
 }
 
+fetch_docx_document_xml() {
+  local url="$1"
+  local destination="$2"
+  local archive
+  local document_xml
+  local formatted
+
+  archive=$(mktemp "${destination}.docx.XXXXXX")
+  document_xml=$(mktemp "${destination}.xml.XXXXXX")
+  formatted=$(mktemp "${destination}.formatted.XXXXXX")
+  if curl -fsSL --output "$archive" "$url" &&
+    unzip -p "$archive" word/document.xml > "$document_xml" &&
+    grep -q '<w:document[[:space:]>]' "$document_xml" &&
+    xmllint --format "$document_xml" > "$formatted"; then
+    mv "$formatted" "$destination"
+    rm -f "$archive" "$document_xml"
+  else
+    rm -f "$archive" "$document_xml" "$formatted"
+    return 1
+  fi
+}
+
 for voting_date in $voting_dates; do
   [[ "$voting_date" == "2026-07-06" ]] || continue
   [[ "$voting_date" < "$current_date" ]] || continue
@@ -111,6 +133,25 @@ for voting_date in $voting_dates; do
       | .is_exemplified_by
     ' "$dir/minutes.json")
     fetch_xml "https://data.europarl.europa.eu/$minutes_xml_path" "$dir/minutes_en.xml"
+  fi
+
+  transcript_document=$(jq -er '
+    .data[0].recorded_in_a_realization_of[]
+    | select(test("/CRE-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}$"))
+    | split("/")
+    | last
+  ' "$dir/meeting.json")
+  [[ -s "$dir/transcript.json" ]] || fetch_json "$api/plenary-session-documents/$transcript_document" "$dir/transcript.json"
+
+  if [[ ! -s "$dir/transcript.xml" ]]; then
+    transcript_docx_path=$(jq -er '
+      .data[]
+      | .is_realized_by[]
+      | .is_embodied_by[]
+      | select(.media_type == "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+      | .is_exemplified_by
+    ' "$dir/transcript.json")
+    fetch_docx_document_xml "https://data.europarl.europa.eu/$transcript_docx_path" "$dir/transcript.xml"
   fi
 
   if [[ ! -s "$dir/decisions.json" ]]; then

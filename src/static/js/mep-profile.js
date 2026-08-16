@@ -6,7 +6,19 @@
   const error = document.querySelector('#mep-profile-error');
   const back = document.querySelector('#mep-profile-back');
   const motions = document.querySelector('#mep-profile-motions');
-  const id = new URLSearchParams(window.location.search).get('id');
+  const parameters = new URLSearchParams(window.location.search);
+  const id = parameters.get('id');
+  const returnTarget = parameters.get('return');
+
+  const internalReturnURL = () => {
+    if (!returnTarget) return null;
+    try {
+      const target = new URL(returnTarget, window.location.origin);
+      return target.origin === window.location.origin ? target.href : null;
+    } catch (_) {
+      return null;
+    }
+  };
 
   const showError = (message) => {
     profile.hidden = true;
@@ -77,14 +89,16 @@
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.append(make('span', 'mep-profile-motion-title-text', motion.title));
 
-          if (motion.contextURL) {
-            const context = make('a', 'motion-context-link');
-            context.href = motion.contextURL;
-            context.target = '_blank';
-            context.rel = 'external noopener noreferrer';
+          if (Array.isArray(motion.discussion) && motion.discussion.length && window.EUMolesMotionContext) {
+            const context = make('button', 'motion-context-link');
+            context.type = 'button';
+            context.setAttribute('aria-haspopup', 'dialog');
             const marker = make('i', 'fa-solid fa-book-open');
             marker.setAttribute('aria-hidden', 'true');
-            context.append(marker, document.createTextNode('Context'));
+            context.append(marker, document.createTextNode('Discussion'));
+            context.addEventListener('click', () => {
+              window.EUMolesMotionContext.open(motion, context, motions.dataset.profileUrl);
+            });
             motionCell.append(context);
           }
 
@@ -108,6 +122,12 @@
           rows.append(row);
         });
         motions.hidden = false;
+
+        const requestedContext = new URLSearchParams(window.location.search).get('context');
+        const requestedMotion = items.find((motion) => motion.contextID === requestedContext);
+        if (requestedMotion && window.EUMolesMotionContext) {
+          window.EUMolesMotionContext.open(requestedMotion, null, motions.dataset.profileUrl, false);
+        }
       })
       .catch(() => {
         empty.textContent = 'Voting data could not be loaded.';
@@ -117,6 +137,12 @@
   };
 
   back.addEventListener('click', () => {
+    const returnURL = internalReturnURL();
+    if (returnURL) {
+      window.location.assign(returnURL);
+      return;
+    }
+
     try {
       const previous = document.referrer ? new URL(document.referrer) : null;
       if (previous && previous.origin === window.location.origin) {

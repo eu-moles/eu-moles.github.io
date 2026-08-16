@@ -54,7 +54,7 @@
         </footer>
       </article>
 
-      <section id="mep-profile-motions" class="mep-profile-motions" data-motions-url="{{ "motions/index.json" | relURL }}" hidden>
+      <section id="mep-profile-motions" class="mep-profile-motions" data-motions-url="{{ "motions/index.json" | relURL }}" data-profile-url="{{ "mep/" | relURL }}" hidden>
         <header class="mep-profile-motions-heading">
           <div>
             <p>Voting record</p>
@@ -83,5 +83,6 @@
     </div>
   </section>
 
+  <script defer src="{{ "js/motion-context.js" | relURL }}?v=2"></script>
   <script defer src="{{ "js/mep-profile.js" | relURL }}?v={{ now.Unix }}"></script>
 {{ end }}

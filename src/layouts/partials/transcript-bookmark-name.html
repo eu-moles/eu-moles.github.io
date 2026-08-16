@@ -1,0 +1,30 @@
+{{- /* Find the first Word bookmark carried by a paragraph. */ -}}
+{{- $node := . -}}
+{{- $name := "" -}}
+{{- if reflect.IsMap $node -}}
+  {{- with index $node "bookmarkStart" -}}
+    {{- $bookmarks := . -}}
+    {{- if not (reflect.IsSlice $bookmarks) -}}
+      {{- $bookmarks = slice $bookmarks -}}
+    {{- end -}}
+    {{- range $bookmarks -}}
+      {{- with index . "-name" -}}
+        {{- $name = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq $name "" -}}
+    {{- range $value := $node -}}
+      {{- if eq $name "" -}}
+        {{- $name = partials.Include "transcript-bookmark-name.html" $value -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- else if reflect.IsSlice $node -}}
+  {{- range $node -}}
+    {{- if eq $name "" -}}
+      {{- $name = partials.Include "transcript-bookmark-name.html" . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $name -}}

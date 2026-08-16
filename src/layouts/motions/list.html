@@ -24,15 +24,70 @@
           </thead>
           <tbody>
             {{ range $motions }}
+              {{- $motion := . -}}
               <tr class="bb b--black-10">
                 <td class="pa2 nowrap">{{ strings.Substr .date 0 10 }}</td>
                 <td class="pa2">
+                  {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
+                  {{- $context := dict "turns" (slice) -}}
+                  {{- $modalID := "" -}}
+                  {{- if os.FileExists $contextFile -}}
+                    {{- $context = partials.IncludeCached "motions-transcript-context.html" (dict "file" $contextFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
+                    {{- with $context.turns -}}
+                      {{- $modalID = printf "discussion-%s" $motion.votingId -}}
+                    {{- end -}}
+                  {{- end -}}
                   <span class="db">
                     {{ .title }}
-                    {{ with .contextURL }}
-                      <a class="motion-context-link" href="{{ . }}" target="_blank" rel="external noopener noreferrer"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Context</span></a>
-                    {{ end }}
+                    {{- if ne $modalID "" -}}
+                      <button class="motion-context-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion</span></button>
+                    {{- end -}}
                   </span>
+                  {{ with $context.turns }}
+                    <dialog id="{{ $modalID }}" class="motion-context-modal" aria-labelledby="{{ $modalID }}-title">
+                      <div class="motion-context-modal__shell">
+                        <header class="motion-context-modal__header">
+                          <div>
+                            <p class="motion-context-modal__eyebrow">Discussion transcript</p>
+                            <h2 id="{{ $modalID }}-title">{{ $motion.title }}</h2>
+                          </div>
+                          <button class="motion-context-modal__close" type="button" data-motion-context-close aria-label="Close context"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                        </header>
+                        <div class="motion-context-modal__note"><i class="fa-solid fa-language" aria-hidden="true"></i> Remarks are reproduced in the original language recorded by Parliament.</div>
+                        <div class="motion-context-transcript">
+                          {{ range . }}
+                            {{- $turn := . -}}
+                            <article class="motion-context-turn{{ if eq .speaker "President" }} motion-context-turn--chair{{ end }}">
+                              {{ with $turn.mepID }}
+                                {{- $returnURL := printf "%s?context=%s" ("motions/" | relURL) $modalID -}}
+                                <a class="motion-context-avatar" href="{{ "mep/" | relURL }}?id={{ . }}&return={{ $returnURL | urlquery }}" aria-label="View profile for {{ $turn.speaker }}">
+                                  <img src="https://www.europarl.europa.eu/mepphoto/{{ . }}.jpg" alt="Portrait of {{ $turn.speaker }}" loading="lazy">
+                                </a>
+                              {{ else }}
+                                <div class="motion-context-avatar" aria-hidden="true">
+                                  <i class="fa-solid fa-landmark"></i>
+                                </div>
+                              {{ end }}
+                              <div class="motion-context-turn__content">
+                                <p class="motion-context-turn__speaker">
+                                  {{ with $turn.mepID }}
+                                    {{- $returnURL := printf "%s?context=%s" ("motions/" | relURL) $modalID -}}
+                                    <a href="{{ "mep/" | relURL }}?id={{ . }}&return={{ $returnURL | urlquery }}">{{ $turn.speaker }}</a>
+                                  {{ else }}
+                                    {{ $turn.speaker }}
+                                  {{ end }}
+                                </p>
+                                <div class="motion-context-bubble">{{ partial "transcript-rich-text.html" .text | safeHTML }}</div>
+                              </div>
+                            </article>
+                          {{ end }}
+                        </div>
+                        {{ with $motion.contextURL }}
+                          <footer class="motion-context-modal__footer"><a href="{{ . }}" target="_blank" rel="external noopener noreferrer">Open the official sitting record <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></footer>
+                        {{ end }}
+                      </div>
+                    </dialog>
+                  {{ end }}
                   {{ if ne .sourceTitle .title }}
                     <span class="db mt1 f7 gray">
                       Source: <a class="motion-source-link link underline-hover" href="{{ .sourceURL }}" target="_blank" rel="external noopener noreferrer">{{ .sourceTitle }}</a>
@@ -62,4 +117,5 @@
       <p class="pa3 bg-washed-yellow">No voting-result files were found in <code>data/votes/</code>.</p>
     {{ end }}
   </section>
+  <script defer src="{{ "js/motion-context.js" | relURL }}?v=1"></script>
 {{ end }}
