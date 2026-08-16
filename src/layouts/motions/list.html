@@ -38,7 +38,7 @@
                     {{- end -}}
                   {{- end -}}
                   <span class="db">
-                    {{ .title }}
+                    {{ partial "highlight-geopolitical-keywords.html" .title | safeHTML }}
                     {{- if ne $modalID "" -}}
                       <button class="motion-context-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion</span></button>
                     {{- end -}}
@@ -49,7 +49,7 @@
                         <header class="motion-context-modal__header">
                           <div>
                             <p class="motion-context-modal__eyebrow">Discussion transcript</p>
-                            <h2 id="{{ $modalID }}-title">{{ $motion.title }}</h2>
+                            <h2 id="{{ $modalID }}-title">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }}</h2>
                           </div>
                           <button class="motion-context-modal__close" type="button" data-motion-context-close aria-label="Close context"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
                         </header>
@@ -60,6 +60,7 @@
                             {{- $translation := .translation -}}
                             {{- $displayText := $turn.text -}}
                             {{- $isTranslated := and $translation (ne ($translation.englishText | default "") "") -}}
+                            {{- $highlightText := or $isTranslated (not $turn.language) -}}
                             {{- if $isTranslated -}}
                               {{- $displayText = $translation.englishText -}}
                             {{- end -}}
@@ -84,7 +85,7 @@
                                   {{ end }}
                                 </p>
                                 <div class="motion-context-bubble">
-                                  <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript-rich-text.html" $displayText | safeHTML }}</div>
+                                  <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText) | safeHTML }}</div>
                                   {{ with .language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ lower .code }}" data-translation-text="{{ $turn.text }}"{{ if $isTranslated }} data-translation-cached="{{ $translation.englishText }}" data-translated="true"{{ end }} title="{{ if $isTranslated }}Machine-translated to English. Show original {{ .name }} text.{{ else }}Original language: {{ .name }}. Translate to English.{{ end }}" aria-label="{{ if $isTranslated }}Show original {{ .name }} text{{ else }}Translate {{ .name }} to English{{ end }}" aria-pressed="{{ if $isTranslated }}true{{ else }}false{{ end }}">{{ upper .code }}{{ if $isTranslated }} → EN{{ end }}</button>{{ end }}
                                 </div>
                               </div>
@@ -92,7 +93,7 @@
                           {{ end }}
                         </div>
                         {{ with $motion.contextURL }}
-                          <footer class="motion-context-modal__footer"><a href="{{ . }}" target="_blank" rel="external noopener noreferrer">Open the official sitting record <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></footer>
+                          <footer class="motion-context-modal__footer"><a href="{{ . }}" target="_blank" rel="external noopener noreferrer">Open the official transcript <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></footer>
                         {{ end }}
                       </div>
                     </dialog>

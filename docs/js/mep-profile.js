@@ -35,6 +35,14 @@
     return element;
   };
 
+  const appendMotionTitle = (container, text) => {
+    if (window.EUMolesMotionContext && typeof window.EUMolesMotionContext.highlightText === 'function') {
+      window.EUMolesMotionContext.highlightText(container, text);
+      return;
+    }
+    container.textContent = text;
+  };
+
   const voteBadge = (position) => {
     const labels = {
       for: ['In favour', 'fa-thumbs-up'],
@@ -87,7 +95,9 @@
           const row = document.createElement('tr');
           const date = make('td', 'mep-profile-motion-date', String(motion.date).slice(0, 10));
           const motionCell = make('td', 'mep-profile-motion-title');
-          motionCell.append(make('span', 'mep-profile-motion-title-text', motion.title));
+          const title = make('span', 'mep-profile-motion-title-text');
+          appendMotionTitle(title, motion.title);
+          motionCell.append(title);
 
           if (Array.isArray(motion.discussion) && motion.discussion.length && window.EUMolesMotionContext) {
             const context = make('button', 'motion-context-link');

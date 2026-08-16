@@ -1,0 +1,12 @@
+{{- $text := . -}}
+{{- $highlight := true -}}
+{{- if reflect.IsMap . -}}
+  {{- $text = index . "text" -}}
+  {{- $highlight = index . "highlight" | default false -}}
+{{- end -}}
+{{- $html := htmlEscape $text -}}
+{{- if $highlight -}}
+  {{- $keywordPattern := `(?i)\b(russ\p{L}*|ukrain\p{L}*|nato\b|belarus\p{L}*|iran\p{L}*|chin\p{L}*|korea\p{L}*)` -}}
+  {{- $html = replaceRE $keywordPattern `<span class="red-marker">$1</span>` $html -}}
+{{- end -}}
+{{- return $html -}}

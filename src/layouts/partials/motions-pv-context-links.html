@@ -1,5 +1,6 @@
 {{- $file := index . "file" -}}
 {{- $document := index . "document" -}}
+{{- $transcriptDocument := replaceRE "^PV-" "CRE-" $document -}}
 {{- $links := dict -}}
 {{- if os.FileExists $file -}}
   {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
@@ -14,7 +15,7 @@
       {{- $chapter := index $heading "chapter-number" -}}
       {{- if and $title $chapter -}}
         {{- $item := printf "%03d" (int $chapter) -}}
-        {{- $url := printf "https://www.europarl.europa.eu/doceo/document/%s-ITM-%s_EN.html" $document $item -}}
+        {{- $url := printf "https://www.europarl.europa.eu/doceo/document/%s-ITM-%s_EN.html" $transcriptDocument $item -}}
         {{- $links = merge $links (dict $title $url) -}}
       {{- end -}}
     {{- end -}}

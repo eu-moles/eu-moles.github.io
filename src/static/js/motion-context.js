@@ -19,12 +19,26 @@
     return element;
   };
 
-  const appendProcedureText = (container, text) => {
-    const expression = /(\d{4}\/\d{4}\([A-Z]{2,10}\))/g;
+  const appendHighlightedText = (container, text) => {
+    const expression = /\b(russ\p{L}*|ukrain\p{L}*|nato\b|belarus\p{L}*|iran\p{L}*|chin\p{L}*|korea\p{L}*)/giu;
     let lastIndex = 0;
     let match;
     while ((match = expression.exec(text)) !== null) {
       container.append(document.createTextNode(text.slice(lastIndex, match.index)));
+      container.append(make("span", "red-marker", match[0]));
+      lastIndex = expression.lastIndex;
+    }
+    container.append(document.createTextNode(text.slice(lastIndex)));
+  };
+
+  const appendProcedureText = (container, text, highlight = false) => {
+    const expression = /(\d{4}\/\d{4}\([A-Z]{2,10}\))/g;
+    let lastIndex = 0;
+    let match;
+    while ((match = expression.exec(text)) !== null) {
+      const beforeReference = text.slice(lastIndex, match.index);
+      if (highlight) appendHighlightedText(container, beforeReference);
+      else container.append(document.createTextNode(beforeReference));
       const link = make("a", "motion-transcript-reference", match[1]);
       link.href = `https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=${encodeURIComponent(match[1])}`;
       link.target = "_blank";
@@ -35,7 +49,9 @@
       container.append(link);
       lastIndex = expression.lastIndex;
     }
-    container.append(document.createTextNode(text.slice(lastIndex)));
+    const remainingText = text.slice(lastIndex);
+    if (highlight) appendHighlightedText(container, remainingText);
+    else container.append(document.createTextNode(remainingText));
   };
 
   const createTranslationButton = (language, text, translation) => {
@@ -71,11 +87,11 @@
       .join("");
   };
 
-  const replaceBubbleText = (content, text) => {
+  const replaceBubbleText = (content, text, highlight = false) => {
     content.replaceChildren();
     String(text).split(/\n{2,}/).forEach((paragraph, index) => {
       if (index) content.append(document.createElement("br"), document.createElement("br"));
-      appendProcedureText(content, paragraph);
+      appendProcedureText(content, paragraph, highlight);
     });
   };
 
@@ -90,7 +106,7 @@
       if (typeof button._translationOriginalMarkup === "string") {
         content.innerHTML = button._translationOriginalMarkup;
       } else {
-        replaceBubbleText(content, button.dataset.translationText || "");
+        replaceBubbleText(content, button.dataset.translationText || "", false);
       }
       button.textContent = code;
       button.title = `Original language: ${button.dataset.translationName || code}. Translate to English`;
@@ -107,7 +123,7 @@
     const cachedText = button.dataset.translationCached || "";
     if (cachedText) {
       button._translationOriginalMarkup = content.innerHTML;
-      replaceBubbleText(content, cachedText);
+      replaceBubbleText(content, cachedText, true);
       button.textContent = `${code} → EN`;
       button.title = "Machine-translated to English. Show original text.";
       button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
@@ -138,7 +154,7 @@
       const response = await fetch(url, { headers: { Accept: "application/json" } });
       if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
       button._translationOriginalMarkup = content.innerHTML;
-      replaceBubbleText(content, translationText(await response.json()));
+      replaceBubbleText(content, translationText(await response.json()), true);
       button.textContent = `${code} → EN`;
       button.title = "Machine-translated to English by Google Translate. Show original text.";
       button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
@@ -210,7 +226,8 @@
     const header = make("header", "motion-context-modal__header");
     const heading = document.createElement("div");
     heading.append(make("p", "motion-context-modal__eyebrow", "Discussion transcript"));
-    const title = make("h2", "", motion.title);
+    const title = make("h2");
+    appendHighlightedText(title, String(motion.title || ""));
     title.id = `${motion.contextID}-title`;
     heading.append(title);
     const close = make("button", "motion-context-modal__close");
@@ -260,9 +277,10 @@
       bubbleText.setAttribute("aria-live", "polite");
       const translatedText = String(turn.translation?.englishText || "");
       const displayedText = translatedText || String(turn.text || "");
+      const highlightText = Boolean(translatedText) || !(turn.language && turn.language.code);
       displayedText.split(/\n{2,}/).forEach((paragraph, index) => {
         if (index) bubbleText.append(document.createElement("br"), document.createElement("br"));
-        appendProcedureText(bubbleText, paragraph);
+        appendProcedureText(bubbleText, paragraph, highlightText);
       });
       bubble.append(bubbleText);
       if (turn.language && turn.language.code) {
@@ -278,7 +296,7 @@
     shell.append(header, note, transcript);
     if (motion.contextURL) {
       const footer = make("footer", "motion-context-modal__footer");
-      const source = make("a", "", "Open the official sitting record ");
+      const source = make("a", "", "Open the official transcript ");
       source.href = motion.contextURL;
       source.target = "_blank";
       source.rel = "external noopener noreferrer";
@@ -294,6 +312,9 @@
   };
 
   window.EUMolesMotionContext = {
+    highlightText(container, text) {
+      appendHighlightedText(container, String(text || ""));
+    },
     open(motion, opener, profileURL, writeURL = true) {
       if (!motion || !motion.contextID || !Array.isArray(motion.discussion) || !motion.discussion.length) return;
       const dialog = document.getElementById(motion.contextID) || createDiscussionDialog(motion, profileURL);
