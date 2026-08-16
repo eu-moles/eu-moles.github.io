@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/POL"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/POL">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="nl">Pools</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">poljski</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">польский</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">puola</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">polsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">lenkų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Polainnis</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">poļu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">polacco</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">polonais</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">poljščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">polski</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Polnisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">pólšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">polaco</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Pollakk</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">полски</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">пољски</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">lengyel</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">polsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">poola keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">πολωνικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">польська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">poljski</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">polska</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">pólska</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Polish</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">poľština</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">полски</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">polaco</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">lehçe</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">polonă</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">polština</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/11356e3f7d302c7f3f01d1bfdf6478b1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e83dacecf290d103d18f40bfef38f693"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a0a9699c7c2cb089a5d618369b5d7c26"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bccb1b25365a0ce23abdb0f49b50eb5f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/da37a85ecbe674e04e0310c06c81ac61"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/26f37cebb43db89036a44bc250d0cb6a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5e9dd1d0925623a245f6d49c436acbaa"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a77082e7e754db63ad462873fba6b620"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7d16673df2dc14230ba50cbecabb7470"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4d0a84e7632785960627ac46defadf84"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/af17c7dd0a30ef6d1c18a2bb5d98c716"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/876e1436a23451e4dabb3e0ca7821649"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3128d81b57467212994ff872ffc067dc"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2a21b4c7a6a07f8740525120f4be2d02"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a819ceb5f69cc8116673c201361ebb83"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e70b8b4a2d0ea9bf917a13cddc6221da"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3ab1aea2f92137d0993cae451750baea"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fc328480b2d367018d3e9477786e52b5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1b2fa69b176b360cc08accb8ec0be99a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c6e5b410a613c2150f84815c2a6ff6fe"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2e9fd5fb74b0daeead376d266b9434e2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5f63abd222f0cdf9578bfb0631616bca"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/46009674f4a347635981824fa04d27e1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/aef1b63cebdca9d0a896897d5922ffd3"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4edb618d7e34c4229a93253533c4a511"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/70102fe962bda9cb8b73602f271cbc69"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7ab19a38551dd612cb3763d0f916cdea"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/00e3f400411367d375d9fec8f5e42ed1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f4c957c8dc1b03a445b89b80cc0b18cb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c8b39a526c4c507cc2a7d06f4cfb85b1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8b47cebdca37822615ad8acc8adb3ac6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d9590d57bbdb83cfcd308da62bb2e2ba"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/549bc68230c795f710e13d69a008cb1c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3f28804bff78d7178aa60f6c6428b3ed"/>
+    <dc:identifier>POL</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="fr">Le polonais fait partie de la branche léchitique des langues slaves de l’Ouest. Il est parlé principalement en Pologne. Le polonais est la deuxième langue slave la plus utilisée après le russe.</skos:definition>
+    <skos:definition xml:lang="en">Polish is the eastern member of the Lechitic branch of the West Slavic languages. It is spoken primarily in Poland.Polish is the second most widely spoken Slavic language, after Russian.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">PL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">pol</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">PL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">pl</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">PL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">PL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">pol</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">pl</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">PL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">pol</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">PL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">PL</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>POL</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>POL</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6047960"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047961"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047962"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047963"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047964"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047965"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047966"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047958"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047959"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047705"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047228"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>POL</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:order>EU-18</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/a41da92a7de6fe53e2563d5be1488532"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/01e185c8764ef93eaafc3fb2a0fa7825"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/293efbc32a3542d8590ff63d43dfe225"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7309225b4517ad0fe725a5bd968e6dec"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/13c993c5aa3e00d3f2103b8cdf538996"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/470d907640213facfa381802ccf385cf"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/72a5c1b47aea2e763150ab7cbcca0081"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/4d4741968a7b92a52fbd68c868a66f5e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/45d095ca57f1463d5d18db09420ee8b9"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ec567f145663acabf492112b1e17d574"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/efb80db431431e40573ec33536ae6f8c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/21bbaa8eea222ab0f58655bbb52a60fb"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/1ce6e93b061b575b3a9208a3cb49fdac"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/893714a1ba1d68007e7c98475976893b"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/pl"/>
+    <ns9:protocol-order>EU-18</ns9:protocol-order>
+    <ns9:protocol.order>EU-18</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/POL"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/POL"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/EST"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/EST">
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="sk">estónčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">эстонский</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">estonski</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">észt</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">естонски</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Estisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">viro</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">εσθονικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">estonski</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">estonština</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">estų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">eesti keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">estone</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">igauņu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">естонски</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">estoński</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">estniska</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Eastóinis</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Estonian</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">estisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">estonio</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">estonă</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">естонська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">eistneska</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Estnisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">estonca</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">estónio</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">естонски</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">estonščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">estišćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Eston</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">estisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">estonien</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/10bc509d7c8f96dc08e2b08730a7c0a9"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8cdd0e7f2b222dde0f4173a5268126be"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7b93b8291f3283d9cccf8b5e4ee05650"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a682e157fbda88d0b9e3e35cf26c8970"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a405eb89ccb066fb19bda7d602290a8e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c1009f6a6f228764b83b0358a2913db5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/924e45b3963f4ee4c49d116b6eac5e84"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3921ff265ff3af65c1ae7eb9604a15d9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b2780213403622d3169edded77f7b5c4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/79b9244d01917cd74c2345aeabf0d119"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0c882ae15a9c743c0d8f9f989ea606e4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/09f437aef2b5c04ea412c6815d13c11c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2c955c3f1b373ca9e4079ce495a69951"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1037b6505c2c0ac3a23f994793e712a1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e88ef1ca7fc7fd1770a85b9948d4eabe"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/326cccf0b6130d102bbfe81c99bf8e12"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a93233e48670508acf7b60680422e938"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6dcf19d8bce62a27a1b872d4fb52912d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c61786efaa5efafce006855e029ee1b4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2e639b10423652a16ab255f785d6afe0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0f9321e3f7e2a460600beb8f9f69b314"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f9e5db81e40dc90ef40a63a82dd72a05"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/68be3a48d5042164b35942a2acecaf4c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/20fa382c4732bdb5e8dd82e0abce4c82"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3f4590bb2ea425e8d92d5b7da531e418"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5cb41ca5fb05e14c32ae1ee4208560e7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1a942cdf1b1099bd7cc115a2f4562d3f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7e1e659eba78cdde64212e3496dbbc38"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d3f357da759bea4e247605f39cfd266d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0dc053b918f5061e7031a94e6a16ce21"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/07006b319b1fd661458a88b112c16dae"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bf5bf55c022e85d9127646710c7c37ed"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b9d45f735ad6e7502d7e13158e437fe0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4711a3f9ccb26e9a423e06385fe2a69b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d63d1d96a764c610aca91b6a77d8d1af"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e779dc2a5e4e4b1417b9f33ece4d35a6"/>
+    <dc:identifier>EST</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:altLabel xml:lang="nl">Estlands</skos:altLabel>
+    <skos:altLabel xml:lang="nl">Ests</skos:altLabel>
+    <skos:definition xml:lang="fr">L’estonien appartient, avec le finnois, au sous-groupe balto-finnois des langues finno-ougriennes de la famille ouralienne. Il est la langue officielle de l’Estonie.L’estonien représente une forme de transition d’une langue agglutinante à une langue fusionnelle.</skos:definition>
+    <skos:definition xml:lang="en">Estonian belongs (with Finnish) to the Baltic-Finnic subgroup of the Finno-Ugrian languages from the Uralic family. It is the official language of Estonia.Estonian represents a transitional form from an agglutinating language to a fusional language.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">ET</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">et</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">est</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">ET</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">ET</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">ET</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">et</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">est</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">ET</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">ET</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">est</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">ET</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>EST</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>EST</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6049603"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052424"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052420"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052421"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052422"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052423"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052417"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052418"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051245"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052419"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048885"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>EST</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:order>EU-06</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/955bbb8157303d419b12391208c08926"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/24ff2828fcbe08fa487bda20e8167603"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/34cf6b7e3c23bca6cbb6cc1e5dd2fa05"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/a5145fe53fdc208731471c6f0a56a3a2"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f195a54dc6d2633fcb78ea17f9a94c7b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/43f42b342d572a7cc32a48415ad316ff"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/d227adb61ac954d7ffbc0d1bf1702921"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5345f628ae4beb18feea8c08b2797ada"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/020cfc1897c6a5f6fcf2c280c0de4abf"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/0915839124371fc831ae325aad69ad6f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/0c8ee01d75f49a0ff327fb03f993fccd"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/dd9b4ed9b0553897ea059e8d07c480df"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/dc74756e037f64c869a304d23b4711a0"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/1e5d50c526d2a74d2b2c2e95ce4a0165"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/et"/>
+    <ns9:protocol-order>EU-06</ns9:protocol-order>
+    <ns9:protocol.order>EU-06</ns9:protocol.order>
+    <skos:changeNote xml:lang="en">Documentation for ISO 639 identifier ‘EST’: The individual languages within this macrolanguage are: Standard Estonian ekk, Võro vro.</skos:changeNote>
+    <ns6:xlChangeNote rdf:resource="http://publications.europa.eu/resource/authority/language/3a89d1237a2a37ee43f3221974c76418"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/EST"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/EST"/>
+  </rdf:Description>
+</rdf:RDF>

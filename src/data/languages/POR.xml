@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/POR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/POR">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="es">portugués</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">portúgalska</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">portugalski</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Portugees</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">portugalščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">portekizce</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">portugisisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">португалски</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">португальский</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">portugál</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">portugalčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">πορτογαλικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Portugiż</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">portugais</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">portugalski</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">portugisiska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">португалски</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Portaingéilis</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">portugalšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">portugheză</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">portugali keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">portugalski</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">português</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Portugiesisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">portoghese</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">portugalų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">portugisisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">португалски</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">португальська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">portugalština</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">portugāļu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Portuguese</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">portugali</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b06ca12155fc4d7a40368040c5c98036"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1498c231e90731287b652bd031683fbb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8490e0d190b616faff6daf88d3e992c0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ec5abb8465fac170d1c8e33dc6ea8217"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e83044d4e306c2471adb88cb28c472a5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d8e18f49bb1ac33e5d3264c019145a26"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7dfed293bae6fff91c4e8c28601a0f92"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1f3a94e2172764ad3dc91190596b2fe4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4ba2a6ee5e96b66a3aeb2b60e359baec"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/66b3fb86dd11e522b6dcfee187bf5b63"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a4ff0fb2b3504bb937d31624bb0647ef"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5c540805b0a99fbdd3959ac1a4b2260b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6f25dd03bddfe31faf951e4384a0d447"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b9a35a9be79884b9e32203322750237e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ac1bce7701c0b0d96d50d2c749ac4dd2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a00603c33c2f4c8233d7ca0790a31ddd"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ff362d703127ad4441166a429b9e3967"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/534a63b487117f1c1b0e9d8f5ac81707"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/30ad5374bec6f29f62eb978743476265"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9abb3f94090c69a6754eb79ea4600fb1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/efc3da41bc1084eb7a8fa7d9de531622"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/128dc39daaa9da6381a8d8c415b83560"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/12931584c4434521430fb8f04f6030e6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d1609d4463e41b515ad3dc5c37c9510c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f54128a1046b9bdc1939477ed277f3f0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/570995180bb2b2b771c873393416ce73"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3a76484e64fe0de8ae4c4d70054a7aa6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d5b230c00a55aec36eafe8091d023fde"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f17f863f8d29dd7b5d4687fa026c73ef"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8e02bd7f8e5dc34e42f122856de28032"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/dce4acfc972d46d09229de36222bd223"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7e84d696d05e0bd9a6a8acdd7e6f800a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/47931f46a9172ed3728aeb5c18d7782c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/822fb7df25baae800642a5466a561f15"/>
+    <dc:identifier>POR</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="en">Portuguese is a member of the Ibero-Romance subgroup of the Romance languages. It is spoken in Portugal, Brazil, Mozambique, Angola, Cape Verde, Guinea-Bissau, São Tomé and Príncipe, Macau (China), Equatorial Guinea and East Timor.Portuguese is the major language of the southern hemisphere.</skos:definition>
+    <skos:definition xml:lang="fr">Le portugais est une langue appartenant au sous-groupe ibéro-roman des langues romanes. Il est parlé au Portugal, au Brésil, au Mozambique, en Angola, au Cap-Vert, en Guinée-Bissau, à Sao Tomé-et-Principe, à Macao (Chine), en Guinée équatoriale et au Timor-Oriental.Le portugais est la langue la plus parlée de l’hémisphère Sud.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">PT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">PT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">PT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">por</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">pt</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">PT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">PT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">P</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">por</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">PT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">pt</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">PT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">por</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>POR</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>POR</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6050580"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050581"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050582"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050583"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050577"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050578"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050579"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050588"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050584"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050585"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050586"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050587"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>POR</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:order>EU-19</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/c90d1e127e372b8b247d299a21fcc920"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/9725bd103cb328003d6331cb703aea68"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7c5c035ad2945aad3ff74cb852b04cbc"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/166a7edd7e434c1989bfbf26485c6de1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/9929e22bf22947d0fff0a27be73b4c15"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/1c47a148965bb5de11f39ddd74d2ae7c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/8d68da832efbde60cac64ecfaaa0db32"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/92063e27a6228a6b8a23da8de84a6c19"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/36ed696ca6d9a0e7550bbd4caaac28e3"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e54485a71087d10f5a0d34a0a3b40193"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7457b5d2eb30f361921f873b3dd98cd5"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ecf28e49c1a5872cf9a6aa5a7f80f980"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7bd50e5bd7331357aa0db4a4f77bb6fb"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/559db8aabe24c494bb7089a891689346"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/244fb81d8dd7eeb4f8af85cc74672b06"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/pt"/>
+    <ns9:protocol-order>EU-19</ns9:protocol-order>
+    <ns9:protocol.order>EU-19</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/POR"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/POR"/>
+  </rdf:Description>
+</rdf:RDF>

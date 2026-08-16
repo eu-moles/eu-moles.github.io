@@ -135,8 +135,7 @@
         appendProcedureText(bubble, paragraph);
       });
       if (turn.language && turn.language.code) {
-        const languageLabel = turn.language.code === "non-en" ? "Non-English" : String(turn.language.code).toUpperCase();
-        const language = make("span", "motion-context-language", languageLabel);
+        const language = make("span", "motion-context-language", String(turn.language.code).toUpperCase());
         language.title = `Original language: ${turn.language.name || turn.language.code}`;
         bubble.append(language);
       }

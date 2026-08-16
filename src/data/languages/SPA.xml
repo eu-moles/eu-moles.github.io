@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/SPA">
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="ga">Spáinnis</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">ισπανικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">španišćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">español</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">spaniolă</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">hispaania keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">spænska</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Spanish</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">ispanų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">espagnol</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">испански</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">španski</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">spansk</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">španielčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">spagnolo</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">espanja</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">španščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">шпански</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">spanyol</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Spanisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">španjolski</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">spansk</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">іспанська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">ıspanyolca</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">hiszpański</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">spāņu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Spanjol</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">espanhol</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">španělština</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">шпански</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">spanska</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">испанский</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Spaans</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e550a5df0c18092f4f13c69994ba2383"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/77e6952dd462710de4c3d69577a0b7a1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cbe25f6406474a9473983c35c0aa21da"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/154243cef487325a5212bd0d8f1fc03c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6deac45f9f1a35e9b558516ffec9b78c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5ecc192b6621f110c8579c2f80c8d40a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/177733836e54083ce9e782cb50d11b17"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/26ce0ae05f1305079e2c9f281d5758ff"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0632938a46f93f3e773990642cd34832"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a4f930411383ac408937fe9d33c6b140"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4b261fbd26d29e4a0e60ce9d4ccd2d71"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9f9f82de17c0278475c58259ca128c0b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3f761981ddf6ed151b86faa8d3ec2b37"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/15bf3cf5df0c04e1f12be630029a219f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7740eea4a49510ab8981a896e84d2721"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/330152834a54d1c03d7ea2da9934ee5b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5f5b40f705435d6063f7e372c7f5b623"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/383a384a9ede674277c0000ce060c5c4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/15e1d7f396b90de3336e8fb88fc1a8bf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/737aeb5ed242c5c48d8418b4643aaad5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/eab5dbe7738b92e329790d91c3e5d6f6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c517188b31f3326c31e6bf3819552c42"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/33236ca42839943eed7064cb436454c2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/67739b7071c0e5371d3ea6387544976a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4784694621ed34e002cdd6b72373b9f5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b39175e36758ad84c1818f7c04ee886c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a479720dea906a70d8377f463a431d43"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4222bdfdb590cfbd7146581411d17b54"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/96d53076758114722125230f17206df6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cd5a2023deb12f82826cd8a92c29e22a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/27c56f7a4ccc3312b2e4aac2c80bff95"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a626e55b5933c6ec9223e5828a220ccb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3ae032c9f65bd3dcb170522773f22dfb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d9d634faa0ee8b2bf3f665770217fcd2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0d2f7905a492e571e02a60af1327b8cd"/>
+    <dc:identifier>SPA</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:altLabel xml:lang="fr">castillan</skos:altLabel>
+    <skos:definition xml:lang="fr">L’espagnol fait partie de la famille des langues romanes. Il est parlé en Espagne et en Amérique du Nord et du Sud.L’espagnol est la deuxième langue après le mandarin en termes de nombre de locuteurs natifs dans le monde entier. Depuis les dernières décennies du XXe siècle, l’étude de l’espagnol comme langue étrangère a augmenté de façon significative.</skos:definition>
+    <skos:definition xml:lang="en">Spanish is a member of the Romance language family. It is spoken in Spain and in the continents of North and South America.Spanish is second after Mandarin in terms of its number of native speakers worldwide. From the last decades of the 20th century, the study of Spanish as a foreign language has grown significantly.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">ES</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">spa</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">ES</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">es</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">ES</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">spa</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">E</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">ES</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">ES</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">spa</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">ES</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">es</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">ES</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>SPA</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>SPA</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6056490"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055949"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053822"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055014"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056767"/>
+    <ns9:op-mapped-code rdf:nodeID="b6054863"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056961"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056989"/>
+    <ns9:op-mapped-code rdf:nodeID="b6054347"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053406"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056046"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047231"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>SPA</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:order>EU-02</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/e8b55de91aa8702c7686fec1e2c6d4dc"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/3c3d8c31e1dc2387d67366f012b2cfa3"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/4d8b1f14b7393f5c6a5c7db2c940ba23"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/9517195838b2f65e76fa69a61f7e72d7"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5938fecf7903eef060e56464d42248c6"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/6d3f24f734941a81feb92fb8555eafc2"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/0e8886ee1db69af68202c83904b57a7c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5f72f39fca93136f4ffe1dde740c4766"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/0195d59ca7ea8d6d343e2059c82b15a7"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f047d0014ede3c0d64ff9aff33086b32"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/8f001633e8a46f78a8b5e29d91a49502"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/4df2162968939ee58d3054bb38909fb7"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ed88051409fb28c06e9e5d12c419dd17"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5ff83e7cfbf800830e5f5d69d96f7e77"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/66fa6e209533538411a15acd3d99aff2"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/es"/>
+    <ns9:protocol-order>EU-02</ns9:protocol-order>
+    <ns9:protocol.order>EU-02</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+  </rdf:Description>
+</rdf:RDF>

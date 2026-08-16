@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/ITA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/ITA">
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="sl">italijanščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Italienisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">italiano</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">italų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">италијански</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">italiensk</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Iodáilis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">taliančina</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">olasz</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">италиански</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">italiană</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">ιταλικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">итальянский</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">ıtalyanca</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">italijanski</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Italian</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">włoski</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">italia</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">italšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">ítalska</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">italiensk</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Taljan</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">italiano</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">italiano</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">италијански</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">italienska</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Italiaans</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">itaalia keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">talijanski</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">italština</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">itāļu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">italien</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">італійська мова</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/584ef6fb03c5d45d4c257fe2cd6ae722"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f0401495c89cf31816c8818587657bbe"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/028e3ece27cd95174108566f29314a2e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2753baa84fffb84f5b185cec3e0c0ce6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8c83b3d60d20a82420dd54a88cc98a31"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4f6b8408120a6ebdf8e0e14474cc8590"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3930671f988a534167be450166995146"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/45c1d333a8902ecfe608351290e391f1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9ce5f6898c413c42c31209e9a92652bc"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4454f8befc81c086450b0e1d9eaa1dd7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7668a370b56e78b42f9786664b733c82"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b245f0a9372c751c3221a51ff2a9b908"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c20fadc8f9c8c51f089b2359ac563ba3"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c9d0c065ddf033bbceab9f510c579d56"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3674af70f1eb0cc8b215d42990c66003"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e5c0a13f89529386ab95f4e956c8e288"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/81f31f731d340d4dba04f1e806fff7b5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/48bf7ac4a9beb4397f67bed28c9595cf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/af77e4ec49ea41c2e4b81097c863c8f0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f0b7d04a003c870c9119373304388914"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/28b17c5bc815598b9486ddaed7d25524"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4aaedf1fe7c8aa30cdb5c6fc3703b1d6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a11346d353f830752de5d242f37a8969"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/25e4d2e2a2cd5c5a3fbed5222771c219"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/80689a2db089921dacb8d3da3b6a1270"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2c390e32155ebf2801759a70e5c7063b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f1b5730a70e92be2a5ba3167efc51bbf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bfd9fa5f5e442906cfe99f69a2931bb5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/94480e43d3c59dc2c4bb3dabf69f0581"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/66fbfd6da58370c94eb85a4843773fa1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/21826f1e1786ca96f32c7942691984aa"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6c7d118c145b7825a56be8cacb2cc27f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ff0eec111fe403269e7975c6ab9333d5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3b7292cadc115d3fdf50c019c313cac4"/>
+    <dc:identifier>ITA</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="fr">L’italien est une langue appartenant au groupe des langues romanes, parlée principalement en Europe du Sud. Parmi les langues romanes, l’italien est très proche du latin en termes de vocabulaire. La langue italienne adoptée par l’État après l’unification de l’Italie est fondée sur le dialecte de la Toscane.De nombreux locuteurs italiens sont bilingues et parlent aussi bien l’italien standard que les autres variantes régionales.</skos:definition>
+    <skos:definition xml:lang="en">Italian is a member of the Romance language group, spoken mainly in south Europe. Among the Romance languages, Italian is the closest to Latin in terms of vocabulary. The Italian language adopted by the state after the unification of Italy is based on Tuscan.Many Italian speakers are native bilinguals of both standardised Italian and other regional variants.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">ita</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">IT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">IT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">ita</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">IT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">it</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">IT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">I</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">IT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">ita</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">IT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">it</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">IT</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>ITA</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>ITA</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6047759"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056774"/>
+    <ns9:op-mapped-code rdf:nodeID="b6049983"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056831"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055852"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056832"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056833"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053586"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053598"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053309"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055552"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052608"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>ITA</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:order>EU-12</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/2bda863ad8e73781d63ee2ff50a7078b"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/09f738af5e39c1b506876f77939f8628"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/8134b5c803dc78cbd6f5b5c882d18954"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/bbe42d6cb39312e739fc54e7f658ae2b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7705bcdb70d9897b3fb5781113d4740c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ac3d9a7248a8c89baab5a054224ada0f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/2b4082968e0604d584d7585cd0f77991"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/57a58d3bd02a417968d69df19a461b4d"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/3350b0946c9d85ae7aae2f89b0d0c052"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/1c546cb834eb132e8a8bb5a1752b8020"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/3e3c8573a0fc15defa5540b4838b4e30"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c1aeafb4e47f6a524404fc93fab216c7"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/a0ef0cbbc651336ed6240adeae6e6f53"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5f5db46a75a34497369add1107b68704"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/0fd06651cd4c7ad0d3b110259644cbf1"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/it"/>
+    <ns9:protocol-order>EU-12</ns9:protocol-order>
+    <ns9:protocol.order>EU-12</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/ITA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/ITA"/>
+  </rdf:Description>
+</rdf:RDF>

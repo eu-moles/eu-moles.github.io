@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/HRV"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/HRV">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="it">croato</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">croata</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">kroatia</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">chorwacki</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">horvát</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">хорватська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Croatian</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Kroat</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">króatíska</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">chorvatština</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">croate</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">kroatisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">hırvatça</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">chorwatšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">хърватски</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">horvātu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">хрватски</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">chorvátčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Kroatisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">croată</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">kroatisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">хорватский</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">croata</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">hrvaščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">kroatų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Cróitis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">hrvatski</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">hrvatski</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">κροατικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">kroatiska</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Kroatisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">хрватски</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">horvaadi keel</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1608f04632c64bf918744b30d7b68bfe"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/387563d16d79f2ac568bdb09074394ba"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/effb1c52f7810b5f762726577952a31b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cfcb3b42f206ef37f0763c1157977dce"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7d239b38fcee5d3475bc843bd1972161"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/333a6996d994d0be55623f83304175dc"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f86435e957ed9167e311ecca9f0f5930"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b512e6c398a75854869f39be304538fa"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/052def0074728ef04f18c68ce2227152"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f53b2ff105fc07d4bdbbea843cae3c9c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5c08fdb989f70025826af8ab3ed986b1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3ace6c55ed152805b2fa2f67811e151e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/013398aa3bceea01c7a914e6afc01392"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c385160ad562b0865e7b60048de4d477"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a86adf35495e970c7949569939d98bb1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8d1dc91256534dea646006563167be3e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/42e1b4cc9ec56c340af9c40f0bf06376"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/afea4912c28cc3a58a40a7e1ea783a56"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/730404dc87c9b4ca708428fc0154ac11"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4a7fea35a839caa5d1ecb018ed5a3bfd"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8243217a23edd82290bb05b76b4ebb1c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/84107be59c5ecda13c94a29fbcfe0cce"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f18f649ee368cb91006b345cb5673024"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f3a65eacc8a34e4927d8ef1a4be65322"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4dd9e7f0a7501e44ed6381087da00bfb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a6be468f68dfd0ff9c8592cc7a4dc82e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e29952ce2c5235dd3b34b9f8bfe20e6b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e66b7788624bdcd4054a99d2825c2851"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a3c14f74f620f36b835e33a3f08af6dd"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c4299f6b346f354836ad1db8d65d730b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6be239d4d825ececa08bbd062292dc6f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ace9cbd7940b5a73c1d3cca4ffca9769"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b11baf46152fb806fec090d2656d15ac"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8c7aef4be19db3a4b08b18bc6a4adf73"/>
+    <dc:identifier>HRV</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="en">Croatian is the standardised variety of the Serbo-Croatian language used by Croats, principally in Croatia and in Bosnia and Herzegovina. Standard Croatian is based on the Shtokavian dialect of Serbo-Croatian.Croatian uses exclusively the Latin alphabet.</skos:definition>
+    <skos:definition xml:lang="fr">Le croate est la variante standard de la langue serbo-croate utilisée par les Croates, principalement en Croatie et en Bosnie-Herzégovine. Sa norme est basée sur le dialecte chtokavien du serbo-croate.Le croate utilise exclusivement l’alphabet latin.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">HR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">hrv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">HR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">HR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">hrv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">hr</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">HR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">HR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">hrv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">hr</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">HR</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>HRV</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>HRV</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6048134"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048135"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048130"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048131"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048136"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048137"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048138"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048139"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048132"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048133"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>HRV</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:order>EU-11</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/bbc0ac2b3df17be6196346477a1a2987"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/508c5d668f55b8aecc0b8e260cee646f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/afb9e7f93ce534d8d4878246cefadb16"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c5b4b51ff9e687b997e43af9353f4b28"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f26c83a94421214c1b697a3e9dd409c1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/236af0d62777616d1381110843eb9c00"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/65a436e57014cc311d9779ede8a3740f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/1a682ac6ceff4773d13e120d1ab3ec5a"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c8c0ee0cb35e9e1563f1a6f4dc403ec4"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/15a6b551d8dc30ec46a2cfeecb9640cb"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/68336e5f92dc5ac21073cd8e3ff75f86"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/50bbec2fe90297fb3cae2b4016cb8702"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/df9cf935a4fea10319a57d0974ab6c4f"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/hr"/>
+    <ns9:protocol-order>EU-11</ns9:protocol-order>
+    <ns9:protocol.order>EU-11</ns9:protocol.order>
+    <skos:changeNote xml:lang="en">Documentation for ISO 639 identifier ‘HRV’: This individual language is member of a macrolanguage: Serbo-Croatian hbs.</skos:changeNote>
+    <ns6:xlChangeNote rdf:resource="http://publications.europa.eu/resource/authority/language/9f1dbfdfc643814dc5bbde10e8dac740"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/HRV"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/HRV"/>
+  </rdf:Description>
+</rdf:RDF>

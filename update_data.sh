@@ -86,6 +86,28 @@ fetch_xml() {
   fi
 }
 
+fetch_language_xml() {
+  local url="$1"
+  local destination="$2"
+  local temporary
+  local formatted
+
+  temporary=$(mktemp "${destination}.tmp.XXXXXX")
+  formatted=$(mktemp "${destination}.formatted.XXXXXX")
+  if curl -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
+    -H 'Accept: application/rdf+xml' \
+    -H 'User-Agent: EU-Moles-data-updater-1.0' \
+    --output "$temporary" "$url" &&
+    grep -q '<rdf:RDF' "$temporary" &&
+    xmllint --format "$temporary" > "$formatted"; then
+    mv "$formatted" "$destination"
+    rm -f "$temporary"
+  else
+    rm -f "$temporary" "$formatted"
+    return 1
+  fi
+}
+
 fetch_docx_document_xml() {
   local url="$1"
   local destination="$2"
@@ -121,6 +143,13 @@ for voting_date in $voting_dates; do
   [[ -s "$dir/speeches.json" ]] || fetch_json \
     "$api/speeches?sitting-date=$voting_date&activity-type=PLENARY_DEBATE_SPEECH&limit=500&sort-by=video-start-time:asc" \
     "$dir/speeches.json"
+
+  mkdir -p data/languages
+  while IFS= read -r language_uri; do
+    language_code="${language_uri##*/}"
+    language_file="data/languages/${language_code}.xml"
+    [[ -s "$language_file" ]] || fetch_language_xml "$language_uri" "$language_file"
+  done < <(jq -r '.data[] | .recorded_in_a_realization_of[]? | .originalLanguage[]?' "$dir/speeches.json" | sort -u)
 
   minutes_document=$(jq -er '
     .data[0].recorded_in_a_realization_of[]

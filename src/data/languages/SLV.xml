@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/SLV"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/SLV">
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="lt">slovėnų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Sloveens</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">słoweński</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">slovenski</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">словеначки</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">slóvenska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">slovenska</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">σλοβενικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Slowenisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">slovène</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">словенски</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Slovenian</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">slovenščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">sloveno</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">slovēņu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">slovenă</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">словенська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">esloveno</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">slovinština</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">slovensk</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">sloveenia keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">словенечки</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">szlovén</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">słowjenšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Sloven</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">slovence</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Slóivéinis</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">slovenski</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">словенский</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">slovensk</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">esloveno</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">sloveeni</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">slovinčina</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/56fde66c0ea514fc96b89ac67ba73a07"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/190ab57cfbad51b6e2c7c1ee331f7523"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/dc74163403ea6ef22f85c22a198171a7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e3f7109b94916bc9261888a3d429b74f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4db73e20e9553485fd26c2ed803d5fe8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/394c9095770d6221a0a0bd220da38f4c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/48b65cc00f614f2d8a9ec24402fff38d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3f10bca7ad1307e7b2cb570f0e8e667f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/03f3fa83400c121346c323997516bd89"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e04b06f448d0e4d534da656b14095174"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/328f4399e6ece27c2621312aad53f3d5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5cd38215dcb7f0a118ebd054fc68d9c7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/528d58adfafc77ab42fa673f5596c0a5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0b952259b030568d2790024b1d3969d4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/103e8b988de45700e670760b0c8b8731"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/52d2180a242c8607b6093e256d553979"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7a81ac159818411c6a85f4e29fdbd132"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/17dbe75562a235afa9667c62ab555324"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/24a6db3f9913d231fc018e5ec08fcfaf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c4ea64aa2a3ff6eadf2dbaf909a92072"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/04aa58ad13a49173a52f5556cf0593e6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fa39155459008e11a2f6bed40310d52b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ed84d73d500bcddf10605d3a773afe71"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a22338f5b6a8480413b4cf07f3edfcbc"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ad1f76ec1a0d7bb813a660b23fe689fc"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/49fbebc566a20f2d1e770c950f44cbff"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/45cbd3645dfeabe977baefd0d9d77b4e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e13cde19c29de1d5a7b808846cac8428"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/dbdbe2dc9de77cb3dbd5b84d54bd289c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/df484bba22b984b1af97006acacce5a7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/858ad552ff68eace0ab1a59e99970c14"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5e1239f807e36894bc412a294bc125e1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a63f66429b910d6f176922da22b52415"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8d41f3b56dd2e6fbf88976f99fe497ff"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/952d9bf610e88386f2ed90595dc44823"/>
+    <dc:identifier>SLV</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:altLabel xml:lang="sl">slovenski</skos:altLabel>
+    <skos:definition xml:lang="fr">Le slovène est une langue appartenant au sous-groupe méridional des langues slaves, parlée principalement en Slovénie.L’une des caractéristiques du slovène est qu’il a conservé l’usage grammatical du duel (qui représente exactement deux unités) en plus du singulier et du pluriel.</skos:definition>
+    <skos:definition xml:lang="en">Slovenian or Slovene is a member of the southern subgroup of the Slavic languages, spoken mainly in Slovenia.The distinctive characteristic of Slovene that it has preserved the use of dual grammatical number in addition to singular and plural.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">SL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">SL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">slv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">SL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">SL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">slv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">sl</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">SL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">SL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">slv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">sl</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">SL</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>SLV</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>SLV</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6053900"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053901"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053902"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047431"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053897"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053898"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053899"/>
+    <ns9:op-mapped-code rdf:nodeID="b6049206"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047893"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048359"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048796"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>SLV</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:order>EU-22</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/733af133553d784d04008ba88b511de4"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/fe5c549871d2955231b873d9deae6681"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/45823c0af86059bb9e5e9bd637409c5f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/8382c153fc5b416039d3f845a10d2a5a"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/894c263f606d3fb9c3ed738ea57f2899"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/feb397814ff7809d35405053eaf28128"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/70b8c06cb017c94b9bdfaf15a82b9748"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/dff7dde13ca3cfc1b1671d7c9650b062"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/432eb56cef59611bac469b5884c4195e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ceb382f99575ee590caeed3843b476cc"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e4ca22c76a2b37838063800dd3e0f50c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/b082be9c05a55913fc231f179d46b9c6"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c727050901018a14ad50aa80c7fa92cd"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c8b3ff93fcc1a9409fac4868dd855511"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/sl"/>
+    <ns9:protocol-order>EU-22</ns9:protocol-order>
+    <ns9:protocol.order>EU-22</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/SLV"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/SLV"/>
+  </rdf:Description>
+</rdf:RDF>

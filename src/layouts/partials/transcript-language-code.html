@@ -1,0 +1,26 @@
+{{- $uri := . -}}
+{{- $sourceCode := replaceRE "^.*/" "" $uri -}}
+{{- $file := printf "data/languages/%s.xml" $sourceCode -}}
+{{- $code := "" -}}
+{{- $name := "" -}}
+{{- $language := dict -}}
+{{- if os.FileExists $file -}}
+  {{- $xml := os.ReadFile $file -}}
+  {{- $codeMatches := findRE `<skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">[^<]+</skos:notation>` $xml -}}
+  {{- if gt (len $codeMatches) 0 -}}
+    {{- $code = index $codeMatches 0 -}}
+    {{- $code = replaceRE `^<[^>]+>` "" $code -}}
+    {{- $code = replaceRE `</[^>]+>$` "" $code -}}
+    {{- $code = upper $code -}}
+  {{- end -}}
+  {{- $nameMatches := findRE `<skos:prefLabel xml:lang="en">[^<]+</skos:prefLabel>` $xml -}}
+  {{- if gt (len $nameMatches) 0 -}}
+    {{- $name = index $nameMatches 0 -}}
+    {{- $name = replaceRE `^<[^>]+>` "" $name -}}
+    {{- $name = replaceRE `</[^>]+>$` "" $name -}}
+  {{- end -}}
+{{- end -}}
+{{- if ne $code "" -}}
+  {{- $language = dict "code" $code "name" (default $code $name) -}}
+{{- end -}}
+{{- return $language -}}

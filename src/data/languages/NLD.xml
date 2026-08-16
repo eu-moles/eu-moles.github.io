@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/NLD"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/NLD">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="lv">holandiešu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">нидерландски</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">hollanti</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Niederländisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">neerlandés</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">hollandi keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">niderlandzki</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Dutch</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">nizozemština</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">nyderlandų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">nederlandsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">hollenska</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">холандски</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">neerlandeză</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Nederlands</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">holland</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">nižozemšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">nederländska</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">nizozemski</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">нідерландська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">hollandaca</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">нидерландский</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">holandski</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Olandiż</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">neerlandese</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">nizozemščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">ολλανδικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">néerlandais</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">neerlandês</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Ollainnis</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">nederlandsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">holandčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">холандски</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/893d90cd8863ae3daf9f9c5290453f45"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/123158557c7879b5fa322ad9a28da77b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fbde7ba367e27410eb73e9833fb77815"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/91b5a2187bf09d51d4e70848b436ecf2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4fd5344b1928260b642c90080c3c9040"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ced23d0f7a8905756f13a6390987831f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/473bb94161f58a791dce5842d85ecd75"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ebf0ee1ffa91b45c0db5c9a13c1c2cea"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b67920fd3a1435713752c7f0f80a329d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2da7e41b92638d0f66d2be04789fe65b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/90ea7753d620490c68a789a95308e559"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bf9d8b7ab238238565a4e49c1efa45be"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6658ed7de884f8e45f56406082f1d502"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e3254d4a27984d19dac33810709f455a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d32b68e3ba2ad6eea72441cc6ce39c6f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/72f05457368df7b9dc270be2ac22714b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3380d7b0f4b6cf2027f72b60720c4c69"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/328d3587fd7cba09cff2dfeab1082154"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/87852f6c849d0e1519ff600059514e75"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7b50b1da4402d4da75cb931aa12c11e0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4e6897a17e3d35a846df32fc0465315e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e723cc4bcbfacb212443847a2dd09fb4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cc6e43209f03f5af9ec220e13768ac24"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5723dc67a40ec52726ebd108393f8698"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9bb4049475601c97e1d61626d48171a7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/82578971fc04ddc8d0b864f6af16dcaf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bad240a57e766327d43819184c3f8130"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/eac19224874318b2c76a75de8a831785"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f83f6970a40f83b869a1299837f8ef2a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4985dcd841e5c85185e5ef8cdee1fa95"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ec4dd7d2f2c1f3e4a4d67bed768e28bc"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/09607792a92b4d222d45695c429c42e2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fb8d8778b46d8768782324921fe6f319"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/80b4fb28f36e20b70142f2ef38ddba8e"/>
+    <dc:identifier>NLD</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="en">Dutch is a West Germanic language whose closest relative is German. It is spoken in the Netherlands, by about 60% of the population of Belgium, in Suriname and in the Caribbean island nations of Aruba, Curaçao, and Sint Maarten. The version of Dutch spoken in Southern Africa has been standardised into Afrikaans.</skos:definition>
+    <skos:definition xml:lang="fr">Le néerlandais est une langue germanique occidentale, dont le plus proche parent est l’allemand. Elle est parlée aux Pays-Bas, en Belgique (par environ 60 % de la population), au Suriname et dans les pays insulaires des Caraïbes (Aruba, Curaçao et Sint-Maarten). La version du néerlandais parlé en Afrique du Sud a été normalisée comme l’afrikaans.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">NL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">nld</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">dut</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">nl</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">NL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">nld</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">NL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">NL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">NL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">nl</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">NL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">NL</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>NLD</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>NLD</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6056462"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050825"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056888"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056558"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053578"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051488"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048488"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051493"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056051"/>
+    <ns9:op-mapped-code rdf:nodeID="b6054735"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056665"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>NLD</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:order>EU-17</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/aeca0039196a62335e1c4f4e2aae8b1b"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/7a21e01117af8aff9520227b4e2b8a05"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/2ec8fea95c2a2c997416c5e6be153f62"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/90a6775a173012c1069fc57619790456"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/fae4a6d2e0902f13741f9a0b10ee5a89"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/3a6ff9acbed70c31d4f570dcbbbf6815"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/fd367e498a638797c9dd02e44b8a1608"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/12b3b00db4aebf5e021f3ae9d6017c0e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/b5c80cdd94379caf255bbaa7a25bea9e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e930edd53350ff6c29ce5f56a1ef25e5"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/3aad97553c5821d610bae5a809d091e2"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/aed90eb1c3a18d9de797d5c016d25c4c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/86553a635ff086ca9bd78458fd8e4f47"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f3c3c34a79ced4a72fc36afcc2a04869"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/nl"/>
+    <ns9:protocol-order>EU-17</ns9:protocol-order>
+    <ns9:protocol.order>EU-17</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/NLD"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/NLD"/>
+  </rdf:Description>
+</rdf:RDF>

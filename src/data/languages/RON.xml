@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/RON"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/RON">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="cs">rumunština</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">rumænsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">румунська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">rumence</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Rumänisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">rumano</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">rumunų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">rumensk</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Rómáinis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">rumunčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">română</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">rumänska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">румунски</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">rumeenia keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">румынский</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">rumunski</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">романски</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Rumen</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">román</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">rumunšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">ρουμανικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">rumeno</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">rumāņu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Romanian</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">румънски</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">romania</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">rumuński</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Roemeens</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">romeno</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">rumunjski</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">rúmenska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">romunščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">roumain</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d282f46e7c01a49ec49429e67d896076"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2b3885f5163b330bd16f0a9894d06c65"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6ddfd16ba0601b88522f75bb58d1ebbd"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/628d8ce33f849a9f2ab86f5106e303df"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/aff178e78217f9793c01bc4d509e3f28"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/671d7702636e509a30feb0a1d1027b33"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e964bf085f6a5a2e8944f9bd8c3c63e9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6f5867985404c5564148e10d5e358b29"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c7bcb86c2450cd8afce412bbfbb21bd3"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/66bb7ed7cc0bd83ed41b597243f2ef97"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a5612f00cee573524b2b9a2f57c731ab"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0f7da050cc15f80e6011562c60f85d49"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fd284fc5e8fe53f8177e6f5526d0ce22"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9413ca0cda0804b17b87446373e619a2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a2470da79fd526e4efa158757cd2102f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/93a87d9b40a64c577690ced73fcd87d8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f9335b01b053b6e16543802a344ad672"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/eb3ec67d1a176baae948c347c195ac45"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/df4a38a79e50c5230dd219768080284f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ed653bdb30296939f828564b86ec5aa9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8154973dc148ef3ad1295d8d08d400b4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cfcd9c68d313edb58b27526acc615350"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7cf4cdb73315a51681f8174c86738cd8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e0a651635f93253f773d73b01aad7bdb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f1dad77302bf96e9786d414b25627a72"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e06cfca50540f64f4733e0741a77df2d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2d3e285153fd3e51e241b758dedfa339"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7082f3686b8676dfa339bc5a926c1e98"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ee12a704ab368d39fd38dce2063dee60"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b5b4a290414f3110f28316f338ba7408"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/21786eb811028b19f8599b4a9bdf5ce6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c234f0492f2c9e7d2564bd01efeaed68"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b0114edd9812b5cbda5457a981951d18"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ea4bdb9a8774557e85d3cb229e6543a3"/>
+    <dc:identifier>RON</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="fr">Le roumain est une langue romane parlée principalement en Roumanie et en Moldavie. Une grande partie du vocabulaire roumain total est dérivée du latin.Le roumain possède quatre dialectes: le daco-roumain, l’istro-roumain, l’aroumain et le mégléno-roumain.</skos:definition>
+    <skos:definition xml:lang="en">Romanian is a Romance language spoken principally in Romania and Moldova. Much of the total Romanian vocabulary is derived from Latin.Romanian has four varieties: Daco-Romanian, Istro-Romanian, Aromanian and Megleno-Romanian.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">RO</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">RO</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">RO</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">ron</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">RO</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">ron</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">ro</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">rum</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">RO</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">RO</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">RO</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">ro</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>RON</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>RON</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6056240"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053473"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055605"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056236"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047723"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056237"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056238"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056239"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055406"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048509"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053224"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>RON</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:order>EU-20</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/0a1e936a547b15e9edac14b98124628c"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/86797c3be5eaa953599f5501f19fb083"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/701b60c4ff11224e41336181c75b3acc"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/fa84eef3620634082992451bf5f78b4a"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/29cae6134066acc278a497d8d3797813"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/bd88117d057bc68cc5189a9f81853183"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/8177e9c961f5ba8569aa342725b81abc"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/47900d55f4237946cb7ed40b3851951d"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/317ce85493542895f328e9880cedd178"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c2775ede9ac16fb837ebb8563cc02ebf"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/45e89faa0df7d77fec64f616e2d27d3f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ea7d0da1c9835eabb1127d8f87aa84df"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/15acb6ec725cb225c1898f226849993b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/b3a99e436a51ae4422830008c90030a2"/>
+    <dcterms:replaces rdf:resource="http://publications.europa.eu/resource/authority/language/MOL"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/ro"/>
+    <ns9:protocol-order>EU-20</ns9:protocol-order>
+    <ns9:protocol.order>EU-20</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/MOL">
+    <dcterms:isReplacedBy rdf:resource="http://publications.europa.eu/resource/authority/language/RON"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/RON"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/RON"/>
+  </rdf:Description>
+</rdf:RDF>

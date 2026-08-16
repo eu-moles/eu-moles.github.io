@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/ELL"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/ELL">
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="sv">grekiska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">gréčtina</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">grec</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">грчки</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">yunanca</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">greco</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">griego</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">kreikka</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">graikų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">grjekšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">гръцки</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">græsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">grego</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Grieks</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">řečtina</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">grščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Griechisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">görög</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">grčki</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">греческий</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Greek</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">gresk</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">gríska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">грчки</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Grieg</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Gréigis</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">grieķu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">greacă</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">grecki</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">ελληνικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">kreeka keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">грецька мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">grčki</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/972f2c6070cc24ca0f106e2a0570eb49"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8932662593a43345b97784a9924a10ac"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/98c9c3fb70795d96bb391e358d7839f5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ed70348e9dc87e85beaaa18dcdd48966"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e91660fe3779e3ee587a51319645f6f8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c10b5d70038bc1e964d03cf4a40226d8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0cd0f885fb844262be4015c9466f51c5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ed2b52126467e741c7d980046cd5afac"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c43406451fa4083bdae1c0ed9263471f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/db5496ae4cae02f07eba65d4a77dba19"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8706d68e77f38ac2efc5f9af0c7d3f88"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/987051759eac8fbfa3f0c637b71a45c9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a32fdff45017a967ec5bf696a274a6b4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8531799574fe73c27dc65c9e82623feb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/17544525c09be1c4965ee1172de68aef"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0110722218ce6db688644cad5eddf176"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/45d8f707d9c104445ce23e6bef2ec642"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cc8c5417ece419f22f319097e84bf36d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e04fffc577333eb059bb5535d9b89bee"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2c512f95b08aef9eb167c3b535bd6110"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ab6cd565d58e46cde012b881c9413357"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e62c610dc9f1297a83cc620454a2466c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7c391e03e0e7f41abdb7fc62d3f439bf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7fc7bf5a5129498b97c8c262ebd3bc86"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9638848a16d8bb6116972c7c000fd64d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/95bfcf1a7ca8ec5a032da9a056a30b7e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7b88663d0428a4767d5fe2855cb3a088"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a6fe40f1b73582887e758183af7f78c2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/292faa7e79eaa65886911f762e7accbf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5e7c6fecb2d455e5e71c67f8920cabf5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2709b52b6129df1591ba9c46771c79c6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6a44b6826370ea8d34754757874f24c0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9e9b5c30a8131133e3b3e0d25188ab15"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/69fa8d7332d9c808b9d02760285d7846"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cfe0d4442d37918ecfcc72e29687c65f"/>
+    <dc:identifier>ELL</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:altLabel xml:lang="el">elliniká</skos:altLabel>
+    <skos:definition xml:lang="en">Greek is an independent branch of the Indo-European family of languages, native to the southern Balkans, the Aegean Islands, western Asia Minor and Cyprus. It has the longest continuous recorded history of any European language.Its writing system has been the Greek alphabet for the majority of its history.Greek roots are often used to coin new words for other languages; Greek and Latin are the predominant sources of international scientific vocabulary.</skos:definition>
+    <skos:definition xml:lang="fr">Le grec fait partie de la branche indépendante de la famille indo-européenne des langues, principalement parlé dans le sud des Balkans, sur les îles de la mer Égée, en Asie Mineure occidentale et à Chypre. Il a la plus longue histoire enregistrée en continu de toutes les langues européennes.Son système d’écriture a été l’alphabet grec pour la majorité de son histoire.Les racines grecques sont souvent utilisées pour créer de nouveaux mots dans d’autres langues; le grec et le latin sont les principales sources de vocabulaire scientifique international.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">el</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">EL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">ell</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">GR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">GR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">EL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">EL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">ell</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">GR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">el</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">GR</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">EL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">gre</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">EL</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>ELL</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>ELL</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6051053"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055347"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056288"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056289"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051643"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055693"/>
+    <ns9:op-mapped-code rdf:nodeID="b6053668"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055805"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052926"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055890"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055984"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051828"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055501"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>ELL</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:order>EU-07</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/c20bad8addc0ee960404ecfe450f361b"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/1af2460feae208d428bd910bcf2a4f65"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/b8436d06b5714e81c5a98b9f53b9ddf6"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/80189974b01cb3c8b0662bc23a5fd3d7"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/56fdd20d677e420db811326d1f6f0fcc"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c068fb5b0f3ac95a1bc2faa3ea347f94"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/0a62d59370dc646053d38fe3f6c2d334"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/821c4d50d6118168a32fd93d2fe6deae"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/1d524a5725a6cd7580d681ec573be4e2"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/4c68f5def96e6d5bb26f79a7826a0303"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e1b3f96a406e22f43e4ffd4b92a60308"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f308404d1cc3354e7af9ba0b97edbcf0"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f6bdbf053544e152df636fea5764cbe5"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/347d67291b0c93b337766d1c5fc1f390"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/6e394e0b2e0890fc7f385d3cce2a349b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ade04c97491095534832355968d131e5"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/el"/>
+    <ns9:protocol-order>EU-07</ns9:protocol-order>
+    <ns9:protocol.order>EU-07</ns9:protocol.order>
+    <skos:changeNote xml:lang="en">Misusing: GR country code instead of language code</skos:changeNote>
+    <ns6:xlChangeNote rdf:resource="http://publications.europa.eu/resource/authority/language/f24318fed4445501e7e589ed043323ce"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/ELL"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/ELL"/>
+  </rdf:Description>
+</rdf:RDF>

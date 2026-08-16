@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/CES"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/CES">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="it">ceco</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">tšehhi keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Tschechisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">checo</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">tékkneska</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">чешки</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Czech</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">čeština</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">tšekki</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Ċek</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Seicis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">tjeckiska</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">çekçe</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">чешки</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">čěšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">checo</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">čekų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">τσεχικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">češki</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Tsjechisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">tjekkisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">tchèque</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">чеська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">чешский</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">cseh</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">čeština</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">čehu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">tsjekkisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">чешки</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">češčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">cehă</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">češki</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">czeski</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b90aef037a1f98ad0d71e492b9a349d8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/79a959772fbf3a5bcba8c0003409acfa"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b53eab797474c38fa18a15b1b6373266"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/58e9b6672c0e936dbc54bb55ff72f914"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5905c2007f58e4b63e7717ff5222d3ac"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8706feeacd7cd44edce399648ce6d147"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cf8800bacb8e7efb09b2b0660a61b1d9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/15b798c3b8ac2e1727366f84a40ceaad"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fa4e6d030d1a60ab6874cea133a34584"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7aca863ea6029d43557720fbacbf5064"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5bb2d7fa20d501a23bf69f5884dd21a0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/20144b7c2be2241918a84deea806aece"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a2f790137f71265e184b04bcb77f3520"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c16200013861dc4c7930007af3702e06"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2127a7b81493be10b38d44aca1cb25de"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/214191c21404c2ae955d634516689510"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c00e3dcc9c0d5f0ebfa05d78cd15cb22"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f984a3eacb7b2b6d2a6daf236c92ff8c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/84704239dc95bba62f098e7fb7730098"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/207ac365b0a93c05abb8b9b0a9acdc25"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/08e5b14f882170ee9acf80e01f801bc6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8a97933c05248bc3b29f582bf9abc9f7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bd1dc31a510829771e9498b0aca0715d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ef41d41f2d772384b750e104ca09f4df"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/294c0acff7fb232fcaf2017b2e1bc75f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4b09e634e24d54e3f2535e9d056c878d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a47d667d484bfb1d5ebb5f324006185e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/70e3ad5d7e86eef00588cc6c64dbe93c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/42d5d2911bba43a4d1a938866d508afa"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fd4679d0338a339ab53e64990adf98e1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/729c84f31081ae29454b38661d8e6dd6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/71239118ad72ad40e6c9ad64148a4926"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fa8fc9e2f86961af0da54f2f3fb57a5e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d841c7d1f1998c92c064402298f09acb"/>
+    <dc:identifier>CES</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="fr">Le tchèque est une langue du sous-groupe occidental des langues slaves, parlée principalement en République tchèque.Le tchèque est une des langues les plus flexionnelles dans le monde.</skos:definition>
+    <skos:definition xml:lang="en">Czech is a member of the Western subgroup of the Slavic languages, spoken mainly in the Czech Republic.Czech is a fusional language and one of the most highly inflected tongues in the world.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">cs</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">CS</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">CS</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">ces</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">cs</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">CS</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">CS</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">cze</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">CS</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">ces</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">CS</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">CS</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <ns9:authority-code>CES</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>CES</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6056807"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055332"/>
+    <ns9:op-mapped-code rdf:nodeID="b6055691"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056482"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056397"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056582"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056751"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056358"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056362"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051932"/>
+    <ns9:op-mapped-code rdf:nodeID="b6056685"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>CES</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:order>EU-03</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/ceeffcbcf8b6227e820977c81d5d2ca9"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/2b1e25bfc4bfd18b651374826f5f6786"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/4d255c70027fd07bfb2f7d661eaa41f9"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e4486068564d86680ef32e2da7463f6e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/db7f26519b2e7759c885d8ef8ad416ef"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/a89935dfbbe8bfab7c55d52533d1cb4c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/3b37b8172a2f571d2ab4796c882854ba"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7209c13c238fdc3f1d920bf5d473b855"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f89e2f82e00f2d391b3cd544049b4b53"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5c20fb5a353e0c12356a917bedc925d1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5c502e55aaf83da759491682d3217000"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/6e41502d3f4e27ad14a96e855950d3fa"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/471fa01c15e99a2d225338bf51541748"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/6e6ba9d0ade4cd6cbd26ceebbf3b9ae9"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/cs"/>
+    <ns9:protocol-order>EU-03</ns9:protocol-order>
+    <ns9:protocol.order>EU-03</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/CES"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/CES"/>
+  </rdf:Description>
+</rdf:RDF>
