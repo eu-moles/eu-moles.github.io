@@ -2,7 +2,10 @@
   <div class="flex center items-center justify-between">
     <a href="{{ .Site.Home.RelPermalink }}" class="site-brand no-underline">
       {{ with .Site.Params.site_logo }}
-        <img src="{{ urls.RelURL . }}" alt="" />
+        {{ with resources.Get (strings.TrimPrefix "/" .) }}
+          {{ $logo := . | resources.Fingerprint }}
+          <img src="{{ $logo.RelPermalink }}" alt="" />
+        {{ end }}
       {{ end }}
       <span>{{ .Site.Title }}</span>
     </a>

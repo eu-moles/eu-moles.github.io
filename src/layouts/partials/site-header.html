@@ -1,4 +1,9 @@
 {{ $featured_image := partials.Include "func/GetFeaturedImage.html" . }}
+{{ with .Params.featured_image }}
+  {{ with resources.Get (strings.TrimPrefix "/" .) }}
+    {{ $featured_image = (.Process "webp q90").RelPermalink }}
+  {{ end }}
+{{ end }}
 {{ if $featured_image }}
   {{ $featured_image_class := site.Params.featured_image_class | compare.Default "cover bg-top" }}
   {{ $header_section_class := .Param "header_section_class" | compare.Default "tc-l pv4 pv6-l ph3 ph4-ns" }}

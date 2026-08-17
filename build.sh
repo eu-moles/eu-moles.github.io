@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-cd src
-hugo build --minify --gc
+cd "$(dirname "$0")/src"
+exec hugo --minify --gc

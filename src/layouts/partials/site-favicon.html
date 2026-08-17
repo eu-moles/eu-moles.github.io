@@ -1,0 +1,6 @@
+{{- with .Site.Params.favicon -}}
+  {{- with resources.Get (strings.TrimPrefix "/" .) -}}
+    {{- $favicon := . | resources.Fingerprint -}}
+    <link rel="shortcut icon" href="{{ $favicon.RelPermalink }}" type="image/x-icon">
+  {{- end -}}
+{{- end -}}

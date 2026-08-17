@@ -4,9 +4,11 @@ cleanDestinationDir = true
 locale = 'en-us'
 title = 'EU Moles'
 disableKinds = ['taxonomy', 'term']
+enableRobotsTXT = true
 
-# Keep Hugo's asset-pipeline cache outside the source tree. The site serves
-# generated assets from publishDir; these directories are only build caches.
+# Keep Hugo's generated asset and image caches outside the source tree. Source
+# CSS, JavaScript, images, SVGs, and the favicon live in assets/ and are
+# minified or fingerprinted when referenced by templates.
 [caches]
   [caches.assets]
     dir = ':cacheDir/:project/assets'
@@ -46,3 +48,24 @@ disableKinds = ['taxonomy', 'term']
   ignoreConfig = false
   ignoreImports = false
   path = 'github.com/gohugo-ananke/ananke/v2'
+
+  # Recreate Ananke's default mounts, intentionally omitting static/. Its only
+  # static file is an unused demonstration hero image.
+  [[module.imports.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+  [[module.imports.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.imports.mounts]]
+    source = 'content'
+    target = 'content'
+  [[module.imports.mounts]]
+    source = 'data'
+    target = 'data'
+  [[module.imports.mounts]]
+    source = 'i18n'
+    target = 'i18n'
+  [[module.imports.mounts]]
+    source = 'layouts'
+    target = 'layouts'
