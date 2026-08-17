@@ -6,7 +6,7 @@
 {{- end -}}
 {{- $html := htmlEscape $text -}}
 {{- if $highlight -}}
-  {{- $keywordPattern := `(?i)\b(russ\p{L}*|ukrain\p{L}*|nato\b|belarus\p{L}*|iran\p{L}*|chin\p{L}*|korea\p{L}*)` -}}
+  {{- $keywordPattern := `(?i)\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)` -}}
   {{- $html = replaceRE $keywordPattern `<span class="red-marker">$1</span>` $html -}}
 {{- end -}}
 {{- return $html -}}

@@ -6,6 +6,7 @@
   const error = document.querySelector('#mep-profile-error');
   const back = document.querySelector('#mep-profile-back');
   const motions = document.querySelector('#mep-profile-motions');
+  const speeches = document.querySelector('#mep-profile-speeches');
   const parameters = new URLSearchParams(window.location.search);
   const id = parameters.get('id');
   const returnTarget = parameters.get('return');
@@ -69,6 +70,102 @@
     }
     badge.append(document.createTextNode(result ? `${result.charAt(0)}${result.slice(1).toLowerCase()}` : 'Not listed'));
     return badge;
+  };
+
+  const containsTrackedKeyword = (text) => {
+    if (window.EUMolesMotionContext && typeof window.EUMolesMotionContext.containsTrackedKeyword === 'function') {
+      return window.EUMolesMotionContext.containsTrackedKeyword(text);
+    }
+    return /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)/iu.test(String(text || ''));
+  };
+
+  const renderSpeechText = (container, text) => {
+    if (window.EUMolesMotionContext && typeof window.EUMolesMotionContext.renderBubbleText === 'function') {
+      window.EUMolesMotionContext.renderBubbleText(container, text, true);
+      return;
+    }
+    container.textContent = text;
+  };
+
+  const appendSpeech = (container, speech) => {
+    const article = make('article', 'mep-profile-speech');
+    const avatar = make('div', 'mep-profile-speech-avatar');
+    const image = document.createElement('img');
+    image.src = `https://www.europarl.europa.eu/mepphoto/${encodeURIComponent(speech.mepID)}.jpg`;
+    image.alt = `Portrait of ${speech.speaker || 'the Member'}`;
+    image.loading = 'lazy';
+    avatar.append(image);
+
+    const content = make('div', 'mep-profile-speech-content');
+    const meta = make('header', 'mep-profile-speech-meta');
+    const date = make('time', 'mep-profile-speech-date', String(speech.date || '').slice(0, 10));
+    date.dateTime = String(speech.date || '').slice(0, 10);
+    const topic = speech.sourceURL
+      ? make('a', 'mep-profile-speech-topic')
+      : make('span', 'mep-profile-speech-topic');
+    if (speech.sourceURL) {
+      topic.href = speech.sourceURL;
+      topic.target = '_blank';
+      topic.rel = 'external noopener noreferrer';
+    }
+    topic.append(document.createTextNode(speech.topic || 'One-minute speech'));
+    if (speech.sourceURL) {
+      const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
+      icon.setAttribute('aria-hidden', 'true');
+      topic.append(document.createTextNode(' '), icon);
+    }
+    meta.append(date, topic);
+
+    const bubble = make('div', 'motion-context-bubble');
+    const text = make('div', 'motion-context-bubble__text');
+    text.setAttribute('aria-live', 'polite');
+    const translation = String(speech.translation?.englishText || '');
+    renderSpeechText(text, translation || String(speech.text || ''));
+    bubble.append(text);
+    if (speech.language && speech.language.code && window.EUMolesMotionContext
+      && typeof window.EUMolesMotionContext.createTranslationButton === 'function') {
+      bubble.append(window.EUMolesMotionContext.createTranslationButton(speech.language, speech.text, speech.translation));
+    }
+    content.append(bubble, meta);
+    article.append(avatar, content);
+    container.append(article);
+  };
+
+  const renderSpeeches = (mepID) => {
+    if (!speeches) return;
+    const list = document.querySelector('#mep-profile-speech-list');
+    const summary = document.querySelector('#mep-profile-speeches-summary');
+    const empty = document.querySelector('#mep-profile-speeches-empty');
+
+    fetch(speeches.dataset.speechesUrl, { credentials: 'same-origin' })
+      .then((response) => {
+        if (!response.ok) throw new Error('Speech data could not be loaded.');
+        return response.json();
+      })
+      .then((items) => {
+        const relevant = items.filter((speech) => {
+          if (String(speech.mepID) !== String(mepID)) return false;
+          const translation = String(speech.translation?.englishText || '');
+          const searchableText = translation || (speech.language && speech.language.code ? '' : String(speech.text || ''));
+          return Boolean(searchableText) && containsTrackedKeyword(searchableText);
+        });
+
+        if (!relevant.length) {
+          empty.textContent = 'No one-minute speeches containing tracked terms are available for this Member.';
+          empty.hidden = false;
+          speeches.hidden = false;
+          return;
+        }
+
+        summary.textContent = `${relevant.length} tracked ${relevant.length === 1 ? 'speech' : 'speeches'}`;
+        relevant.forEach((speech) => appendSpeech(list, speech));
+        speeches.hidden = false;
+      })
+      .catch(() => {
+        empty.textContent = 'Speech data could not be loaded.';
+        empty.hidden = false;
+        speeches.hidden = false;
+      });
   };
 
   const renderMotions = (mepID) => {
@@ -201,6 +298,7 @@
       profile.setAttribute('aria-busy', 'false');
       status.hidden = true;
       renderMotions(mep.id);
+      renderSpeeches(mep.id);
     })
     .catch(() => showError('The MEP directory could not be loaded. Please try again later.'));
 })();

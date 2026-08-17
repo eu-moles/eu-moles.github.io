@@ -1,0 +1,45 @@
+{{- $speeches := slice -}}
+{{- $directory := "data/votes" -}}
+{{- $oneMinutePattern := `(?i)one-minute speeches on matters of political importance` -}}
+{{- if os.FileExists $directory -}}
+  {{- range os.ReadDir $directory -}}
+    {{- if .IsDir -}}
+      {{- $date := .Name -}}
+      {{- $dateDirectory := path.Join $directory $date -}}
+      {{- $activitiesFile := path.Join $dateDirectory "activities.json" -}}
+      {{- $transcriptFile := path.Join $dateDirectory "transcript.xml" -}}
+      {{- if and (os.FileExists $activitiesFile) (os.FileExists $transcriptFile) -}}
+        {{- $activities := transform.Unmarshal (os.ReadFile $activitiesFile) -}}
+        {{- range index $activities "data" -}}
+          {{- $label := index (index . "activity_label") "en" | default "" -}}
+          {{- if findRE $oneMinutePattern $label -}}
+            {{- $sourceURL := "" -}}
+            {{- range index . "recorded_in_a_realization_of" -}}
+              {{- $document := path.Base . -}}
+              {{- if hasPrefix $document "CRE-" -}}
+                {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s_EN.html" $document -}}
+              {{- end -}}
+            {{- end -}}
+            {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $label)) $date $label -}}
+            {{- range $context.turns -}}
+              {{- if and .mepID .text -}}
+                {{- $speeches = $speeches | append (dict
+                  "date" $date
+                  "topic" (replaceRE "^[0-9]+[.[:space:]-]+" "" $label)
+                  "sourceURL" $sourceURL
+                  "mepID" .mepID
+                  "speaker" .speaker
+                  "speechNumber" .speechNumber
+                  "text" .text
+                  "language" .language
+                  "translation" .translation
+                ) -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (sort $speeches "date" "desc") -}}

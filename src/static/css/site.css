@@ -534,6 +534,115 @@ textarea {
   color: #65788c;
 }
 
+.mep-profile-speeches {
+  border-top-color: #a52929;
+}
+
+.mep-profile-speech-list {
+  display: grid;
+}
+
+.mep-profile-speech {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 1.25rem clamp(1.5rem, 3vw, 2.4rem) 1.35rem;
+  border-bottom: 1px solid #e1e7ee;
+  background: linear-gradient(90deg, #fff 0%, #fbfcfe 100%);
+}
+
+.mep-profile-speech:last-child {
+  border-bottom: 0;
+}
+
+.mep-profile-speech-avatar {
+  width: 3.25rem;
+  height: 3.25rem;
+  overflow: hidden;
+  border: 2px solid #c6d4e2;
+  border-radius: 50%;
+  background: #e4edf6;
+  box-shadow: 0 0.18rem 0.5rem rgb(16 42 69 / 12%);
+}
+
+.mep-profile-speech-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mep-profile-speech-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+.mep-profile-speech-date {
+  color: #566778;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.mep-profile-speech-topic,
+.mep-profile-speech-topic:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: #174f91;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none;
+}
+
+.mep-profile-speech-date::after {
+  margin-left: 0.55rem;
+  color: #9aabbc;
+  content: "·";
+}
+
+.mep-profile-speech-topic:hover,
+.mep-profile-speech-topic:focus-visible {
+  color: #0b376f;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.mep-profile-speech .motion-context-bubble {
+  margin-left: 0.45rem;
+}
+
+@media screen and (max-width: 36em) {
+  .mep-profile-speech {
+    grid-template-columns: 2.6rem minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+
+  .mep-profile-speech-avatar {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .mep-profile-speech-meta {
+    align-items: baseline;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4rem;
+  }
+
+  .mep-profile-speech-topic {
+    text-align: left;
+  }
+}
+
 @media screen and (max-width: 52em) {
   .mep-profile-fact {
     grid-template-columns: 1fr;

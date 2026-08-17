@@ -78,6 +78,18 @@
         <p id="mep-profile-motions-empty" class="mep-profile-motions-empty" hidden></p>
       </section>
 
+      <section id="mep-profile-speeches" class="mep-profile-motions mep-profile-speeches" data-speeches-url="{{ "speeches/index.json" | relURL }}" hidden>
+        <header class="mep-profile-motions-heading">
+          <div>
+            <p>Plenary interventions</p>
+            <h2>Tracked speeches</h2>
+          </div>
+          <span id="mep-profile-speeches-summary" class="mep-profile-motions-summary"></span>
+        </header>
+        <div id="mep-profile-speech-list" class="mep-profile-speech-list"></div>
+        <p id="mep-profile-speeches-empty" class="mep-profile-motions-empty" hidden></p>
+      </section>
+
       <p id="mep-profile-error" class="mep-profile-error" role="alert" hidden></p>
       <noscript><p class="mep-profile-error">This profile page needs JavaScript. Please return to the <a href="{{ "meps/" | relURL }}">MEP directory</a>.</p></noscript>
     </div>

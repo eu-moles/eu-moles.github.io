@@ -19,8 +19,11 @@
     return element;
   };
 
+  const trackedKeywordExpression = /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)/giu;
+  const hasTrackedKeyword = (text) => /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)/iu.test(String(text || ""));
+
   const appendHighlightedText = (container, text) => {
-    const expression = /\b(russ\p{L}*|ukrain\p{L}*|nato\b|belarus\p{L}*|iran\p{L}*|chin\p{L}*|korea\p{L}*)/giu;
+    const expression = new RegExp(trackedKeywordExpression.source, trackedKeywordExpression.flags);
     let lastIndex = 0;
     let match;
     while ((match = expression.exec(text)) !== null) {
@@ -312,8 +315,19 @@
   };
 
   window.EUMolesMotionContext = {
+    containsTrackedKeyword(text) {
+      return hasTrackedKeyword(text);
+    },
     highlightText(container, text) {
       appendHighlightedText(container, String(text || ""));
+    },
+    renderBubbleText(container, text, highlight = false) {
+      replaceBubbleText(container, String(text || ""), highlight);
+    },
+    createTranslationButton(language, text, translation) {
+      const button = createTranslationButton(language, text, translation);
+      bindTranslationButton(button);
+      return button;
     },
     open(motion, opener, profileURL, writeURL = true) {
       if (!motion || !motion.contextID || !Array.isArray(motion.discussion) || !motion.discussion.length) return;

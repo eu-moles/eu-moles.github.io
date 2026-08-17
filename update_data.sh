@@ -169,12 +169,13 @@ find_hugo() {
   return 1
 }
 
-cache_discussion_translations() {
+cache_transcript_translations() {
   local voting_date="$1"
   local directory="$2"
   local hugo_bin
   local temporary_site
   local motions_file
+  local speeches_file
   local translations_file="$directory/translations.json"
   local candidate
   local speech_number
@@ -185,20 +186,21 @@ cache_discussion_translations() {
   local candidates_file
 
   hugo_bin=$(find_hugo) || {
-    echo "Hugo was not found; skipping cached discussion translations for $voting_date." >&2
+    echo "Hugo was not found; skipping cached transcript translations for $voting_date." >&2
     return
   }
 
   temporary_site=$(mktemp -d "${TMPDIR:-/tmp}/eu-moles-translations.XXXXXX")
   if ! "$hugo_bin" --destination "$temporary_site" --noBuildLock --quiet; then
     rm -rf "$temporary_site"
-    echo "Could not build the temporary discussion catalogue; skipping cached translations for $voting_date." >&2
+    echo "Could not build the temporary transcript catalogue; skipping cached translations for $voting_date." >&2
     return
   fi
   motions_file="$temporary_site/motions/index.json"
-  if [[ ! -s "$motions_file" ]]; then
+  speeches_file="$temporary_site/speeches/index.json"
+  if [[ ! -s "$motions_file" || ! -s "$speeches_file" ]]; then
     rm -rf "$temporary_site"
-    echo "No discussion catalogue was generated; skipping cached translations for $voting_date." >&2
+    echo "No transcript catalogue was generated; skipping cached translations for $voting_date." >&2
     return
   fi
 
@@ -209,8 +211,9 @@ cache_discussion_translations() {
   fi
 
   candidates_file=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-candidates.XXXXXX")
-  jq -c --arg date "$voting_date" '
-    [ .[]
+  jq -cn --arg date "$voting_date" --slurpfile motions "$motions_file" --slurpfile speeches "$speeches_file" '
+    [
+      $motions[0][]
       | select(.date == $date)
       | .discussion[]?
       | select(.language and .language.code and .speechNumber and .text)
@@ -219,13 +222,22 @@ cache_discussion_translations() {
           sourceLanguage: (.language.code | ascii_downcase),
           sourceText: .text
         }
+    ] + [
+      $speeches[0][]
+      | select(.date == $date and .language and .language.code and .speechNumber and .text)
+      | {
+          speechNumber: (.speechNumber | tostring),
+          sourceLanguage: (.language.code | ascii_downcase),
+          sourceText: .text
+        }
     ]
     | unique_by(.speechNumber)
     | .[]
-  ' "$motions_file" > "$candidates_file"
+  ' > "$candidates_file"
 
-  # The catalogue is the source of truth for which speeches belong to a motion
-  # discussion. Drop cache entries from an earlier, broader context extraction.
+  # The generated catalogues define the speech records we retain: motion
+  # discussions and the one-minute-speeches agenda item. Drop older, broader
+  # context extractions from the translation cache.
   translations_temporary=$(mktemp "${translations_file}.tmp.XXXXXX")
   if ! jq --slurpfile candidates "$candidates_file" '
       .translations |= with_entries(
@@ -370,7 +382,7 @@ for voting_date in $voting_dates; do
     jq -s '{data: [.[].data[]]}' "${decision_files[@]}" > "$decisions_temporary"
     mv "$decisions_temporary" "$dir/decisions.json"
   fi
-  cache_discussion_translations "$voting_date" "$dir"
+  cache_transcript_translations "$voting_date" "$dir"
   format_data_sources "$dir"
   break
 done
