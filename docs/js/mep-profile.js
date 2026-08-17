@@ -95,8 +95,20 @@
           const row = document.createElement('tr');
           const date = make('td', 'mep-profile-motion-date', String(motion.date).slice(0, 10));
           const motionCell = make('td', 'mep-profile-motion-title');
-          const title = make('span', 'mep-profile-motion-title-text');
+          const title = motion.sourceURL
+            ? make('a', 'mep-profile-motion-title-text motion-source-link')
+            : make('span', 'mep-profile-motion-title-text');
+          if (motion.sourceURL) {
+            title.href = motion.sourceURL;
+            title.target = '_blank';
+            title.rel = 'external noopener noreferrer';
+          }
           appendMotionTitle(title, motion.title);
+          if (motion.sourceURL) {
+            const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
+            icon.setAttribute('aria-hidden', 'true');
+            title.append(document.createTextNode(' '), icon);
+          }
           motionCell.append(title);
 
           if (Array.isArray(motion.discussion) && motion.discussion.length && window.EUMolesMotionContext) {
@@ -110,17 +122,6 @@
               window.EUMolesMotionContext.open(motion, context, motions.dataset.profileUrl);
             });
             motionCell.append(context);
-          }
-
-          if (motion.sourceTitle && motion.sourceTitle !== motion.title) {
-            const source = make('span', 'mep-profile-motion-source');
-            source.append(document.createTextNode('Source: '));
-            const sourceLink = make('a', 'motion-source-link', motion.sourceTitle);
-            sourceLink.href = motion.sourceURL;
-            sourceLink.target = '_blank';
-            sourceLink.rel = 'external noopener noreferrer';
-            source.append(sourceLink);
-            motionCell.append(source);
           }
 
           const position = motion.positions && motion.positions[mepID] ? motion.positions[mepID] : 'notRecorded';

@@ -490,15 +490,8 @@ textarea {
   line-height: 1.4;
 }
 
-.mep-profile-motion-title-text,
-.mep-profile-motion-source {
+.mep-profile-motion-title-text {
   display: block;
-}
-
-.mep-profile-motion-source {
-  margin-top: 0.45rem;
-  color: #6b7a89;
-  font-size: 0.8rem;
 }
 
 .mep-motion-vote {
