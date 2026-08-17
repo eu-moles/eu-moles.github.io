@@ -11,9 +11,11 @@
 {{ $groups = collections.Uniq $groups }}
 {{ $parties = collections.Uniq $parties }}
 {{ $motions := partials.IncludeCached "motions-data.html" site }}
+{{ $speeches := partials.IncludeCached "speeches-data.html" site }}
 <section class="dataset-summary ph3 ph5-l pb4">
   <div class="flex flex-wrap nl2 nr2">
     <div class="dataset-summary-item w-100 w-50-m pa2"><div class="dataset-card dataset-card--meps"><strong class="db f2"><i class="fa-solid fa-users mr2" aria-hidden="true"></i>{{ len $meps }}</strong><span>MEPs</span></div></div>
+    <div class="dataset-summary-item w-100 w-50-m pa2"><div class="dataset-card dataset-card--speeches"><strong class="db f2"><i class="fa-solid fa-microphone-lines mr2" aria-hidden="true"></i>{{ len $speeches }}</strong><span>Speeches</span></div></div>
     <div class="dataset-summary-item w-100 w-50-m pa2"><div class="dataset-card dataset-card--motions"><strong class="db f2"><i class="fa-solid fa-scale-balanced mr2" aria-hidden="true"></i>{{ len $motions }}</strong><span>Motions</span></div></div>
     <div class="dataset-summary-item w-100 w-50-m pa2"><div class="dataset-card dataset-card--countries"><strong class="db f2"><i class="fa-solid fa-flag mr2" aria-hidden="true"></i>{{ len $countries }}</strong><span>countries</span></div></div>
     <div class="dataset-summary-item w-100 w-50-m pa2"><div class="dataset-card dataset-card--groups"><strong class="db f2"><i class="fa-solid fa-landmark mr2" aria-hidden="true"></i>{{ len $groups }}</strong><span>political groups</span></div></div>

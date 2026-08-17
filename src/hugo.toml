@@ -5,6 +5,16 @@ locale = 'en-us'
 title = 'EU Moles'
 disableKinds = ['taxonomy', 'term']
 
+# Keep Hugo's asset-pipeline cache outside the source tree. The site serves
+# generated assets from publishDir; these directories are only build caches.
+[caches]
+  [caches.assets]
+    dir = ':cacheDir/:project/assets'
+    maxAge = -1
+  [caches.images]
+    dir = ':cacheDir/:project/images'
+    maxAge = -1
+
 [params]
   description = 'A source-first research directory for examining pro-Kremlin positions in the European Parliament.'
   featured_image_class = 'cover bg-bottom'
