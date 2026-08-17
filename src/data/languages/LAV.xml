@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/LAV"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/LAV">
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="hu">lett</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Latvian</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">латвийски</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">латышский</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">latvijščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">letonski</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">lettone</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">latvia</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Lets</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">lotyština</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">lettiska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">летонски</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">latvių kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">letón</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">латиська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Laitvis</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">latvijski</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">letonca</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">łotewski</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">letton</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Latvjan</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">lotyština</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">латвиски</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">lettisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">latvisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">letonă</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">läti keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">letão</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">latviešu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">λετονικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">letišćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Lettisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">lettneska</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c87ce2230266e53e1103e440d2c2a879"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f6b4104749cdd41d8eaacd43c45b495b"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5944005990e24b6895a28a3ae1717b32"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6e5ac71cc7bdb437e99efd76669c72a1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f894c2f3701e803073d2b3d5c24e671b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bf3712498ea88a8385eca0da1c2e430e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9a8be809f23521a27b3f96a0d5014a45"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/049b1469de313b7d5a1659a9d24e2e13"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/48743f9980d433d3c8f4029dbcd389fe"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4d30a08854614297c5e07e530df38947"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d729c3e4c91430e234bd2f4d46a9d775"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6c8c6e2b0457042c3c9f33beec7b1cb7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/aa34b2c94de7269a23a4b753251b085e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/69ab890e6866432cd47b034543345a75"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/dda51e45aabe1d5ac54f1f94b25fc4fe"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2fc37146a317b3224e820729a819ecbf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7049628477adb5e2ff41b4db88970aa0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2bb55b8409f90ea72d15ba7deeabfc25"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6884f78b09448c1473abee99a6a9be2d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/48d185ecdc9481d7c96b5e1596660e7a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f08e512bb4f1b084049ad21d646dd916"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0b6d91592bd1f723da17bcc05e9cc873"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/174dbe798d9c1936c8bef8f8cea52185"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ea36d4d5adc548469c21a3de95194d8b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/002c4d6a49f4baa8011bb30d1f7195f4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/30041df2faf8060f1f0f5889cb1425dd"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ef49efc80c6c075372dc7acbce76f83d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6dfb627934313a46015fb60e90698242"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2aa02852931070c903daa449fd5c55ff"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f3f7bf8a51b2cdb9e894c118f5d7001e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/886918bfff2586e63a5d7f4801031ea6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f7eb9ece03fda46914185550199ad5c1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/093f4807ba2099380766e1e15a1ed72e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/185a9a87caf7bcd0364f9e4c7cb573c9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e46e72e8cc7faf2db0041d730bb6a5a0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/890f1883d349e782bd34bdd8d06ee335"/>
+    <dc:identifier>LAV</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:altLabel xml:lang="fr">lette</skos:altLabel>
+    <skos:altLabel xml:lang="nl">Letlands</skos:altLabel>
+    <skos:definition xml:lang="fr">Le letton ou lette est l’un des deux membres vivants des langues baltes, l’autre étant le lituanien. C’est la langue officielle de la Lettonie.Le letton est plus novateur, en particulier dans la morphologie, que le lituanien.</skos:definition>
+    <skos:definition xml:lang="en">Latvian is one of the two living members of the Baltic languages, the other being Lithuanian. It is the official language of Latvia.Latvian is more innovative, especially in morphology than Lithuanian.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">LV</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">lv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">LV</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">lav</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">LV</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">lav</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">LV</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">lv</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">LV</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">LV</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">lav</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">LV</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>LAV</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>LAV</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6048451"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051664"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051665"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051666"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051667"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051660"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051661"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051662"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051663"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051658"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051659"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>LAV</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:order>EU-13</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/67b9535216a65f38ebc3dcfc98b5fbdb"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/07418162cf07f7ee2b9f84e4b1ea7446"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/493bd9ababa2ffe27416efdcaf36f754"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/b35865e290f687c30dcae462bd49a8db"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/c75ccb1ab54b3f45047e407774bfb87c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/37da3d2a2e486036d6c5c31b7702e8e2"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/a6bfdd4ccf133a0e7a998f917d6d3eee"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/cb6647fe528086183d6f2537f224ab9d"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/131fa90e962a4463e589c4347eeacbb1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/0d1cdb785d2d9c69c01e038f810ac834"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/8fac5c1c972e11bf6ea03834a463b2b4"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/128b72ca14d6420bd9ebebcda9fa76f5"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f4d52c81bd62c62a989498fb11d98132"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/9ee59ec4b2503e2b9b5e6cb99a5eafe0"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/lv"/>
+    <ns9:protocol-order>EU-13</ns9:protocol-order>
+    <ns9:protocol.order>EU-13</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/LAV"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/LAV"/>
+  </rdf:Description>
+</rdf:RDF>

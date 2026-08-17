@@ -23,7 +23,8 @@
             {{- $candidateDistance = 0 -}}
           {{- end -}}
           {{- if and (ne $annexVote "") (ne $candidateTitle "") (le $candidateDistance 3) -}}
-            {{- $titles = merge $titles (dict $annexVote $candidateTitle) -}}
+            {{- /* XML attributes may be unmarshalled as numbers; Hugo dict keys must be strings. */ -}}
+            {{- $titles = merge $titles (dict (string $annexVote) $candidateTitle) -}}
             {{- $candidateTitle = "" -}}
             {{- $candidateDistance = 0 -}}
           {{- else if and (eq $reportTitle "") (ne $candidateTitle "") -}}

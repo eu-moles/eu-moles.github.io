@@ -13,13 +13,16 @@
     "title" .title
     "sourceTitle" .sourceTitle
     "agendaRequest" .agendaRequest
+    "procedure" .procedure
     "tracked" $tracked
     "result" .result
     "sourceURL" .sourceURL
     "contextURL" .contextURL
     "contextID" (printf "discussion-%s" .votingId)
     "discussion" $discussion
-    "positions" .positions
+    "votersFor" .votersFor
+    "votersAgainst" .votersAgainst
+    "votersAbstaining" .votersAbstaining
   ) -}}
 {{- end -}}
 {{- $items | jsonify -}}

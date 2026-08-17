@@ -11,103 +11,19 @@
     {{- $normalizedQueries = $normalizedQueries | append $query -}}
   {{- end -}}
 {{- end -}}
+
 {{- $turns := slice -}}
 {{- if and (gt (len $normalizedQueries) 0) (os.FileExists $file) -}}
-  {{- $speechFile := replace $file "transcript.xml" "speeches.json" -}}
-  {{- $languages := partials.IncludeCached "transcript-language-map.html" $speechFile $speechFile -}}
-  {{- $translationFile := replace $file "transcript.xml" "translations.json" -}}
-  {{- $translations := partials.IncludeCached "transcript-translation-map.html" $translationFile $translationFile -}}
-  {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
-  {{- $body := index $data "body" -}}
-  {{- $paragraphs := index $body "p" -}}
-  {{- if $paragraphs -}}
-    {{- if not (reflect.IsSlice $paragraphs) -}}
-      {{- $paragraphs = slice $paragraphs -}}
-    {{- end -}}
-    {{- $meps := partials.IncludeCached "meps-data.html" site -}}
-    {{- $waitingForMarker := false -}}
-    {{- $insideContext := false -}}
-    {{- $speaker := "" -}}
-    {{- $speakerID := "" -}}
-    {{- $speechNumber := "" -}}
-    {{- $paragraphBuffer := slice -}}
-    {{- range $paragraphs -}}
-      {{- $text := partials.Include "transcript-paragraph-text.html" . -}}
-      {{- $text = replaceRE "\\s+" " " $text -}}
-      {{- $text = replaceRE "\\s+([,.;:!?])" "$1" $text -}}
-      {{- $text = strings.TrimSpace $text -}}
-      {{- $bookmark := partials.Include "transcript-bookmark-name.html" . -}}
-      {{- $isSpeakerMarker := and (findRE "^[0-9]+-[0-9]+-[0-9]+$" $text) (ne $bookmark "") -}}
-      {{- $isAgendaHeading := and (ne $text "") (hasPrefix $bookmark "_Toc") -}}
-      {{- $isTargetHeading := false -}}
-      {{- if $isAgendaHeading -}}
-        {{- range $normalizedQueries -}}
-          {{- if strings.Contains (lower $text) . -}}
-            {{- $isTargetHeading = true -}}
-          {{- end -}}
+  {{- $contexts := partials.IncludeCached "motions-transcript-contexts.html" $file $file -}}
+  {{- range $contexts -}}
+    {{- if eq (len $turns) 0 -}}
+      {{- $contextHeading := .heading -}}
+      {{- $contextTurns := .turns -}}
+      {{- range $normalizedQueries -}}
+        {{- if strings.Contains $contextHeading . -}}
+          {{- $turns = $contextTurns -}}
         {{- end -}}
       {{- end -}}
-
-      {{- /* A new agenda heading ends the current debate, irrespective of its
-            title. The target match is only used to find where a debate begins. */ -}}
-      {{- if and $insideContext $isAgendaHeading -}}
-        {{- if ne $speaker "" -}}
-          {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
-        {{- end -}}
-        {{- $insideContext = false -}}
-        {{- $speaker = "" -}}
-        {{- $paragraphBuffer = slice -}}
-      {{- end -}}
-
-      {{- if and (not $insideContext) $isTargetHeading -}}
-        {{- $waitingForMarker = true -}}
-      {{- else if $waitingForMarker -}}
-        {{- if $isSpeakerMarker -}}
-          {{- $insideContext = true -}}
-          {{- $waitingForMarker = false -}}
-          {{- $speaker = replaceRE "^[0-9]+-[0-9]+-[0-9]+\\s*" "" $bookmark -}}
-          {{- $speakerID = "" -}}
-          {{- $speechNumber = $text -}}
-          {{- range $meps -}}
-            {{- if eq (lower .fullName) (lower $speaker) -}}
-              {{- $speakerID = .id -}}
-            {{- end -}}
-          {{- end -}}
-        {{- else if ne $text "" -}}
-          {{- $waitingForMarker = false -}}
-        {{- end -}}
-      {{- else if and $insideContext $isSpeakerMarker -}}
-        {{- if ne $speaker "" -}}
-          {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
-        {{- end -}}
-        {{- $speaker = replaceRE "^[0-9]+-[0-9]+-[0-9]+\\s*" "" $bookmark -}}
-        {{- $speakerID = "" -}}
-        {{- $speechNumber = $text -}}
-        {{- range $meps -}}
-          {{- if eq (lower .fullName) (lower $speaker) -}}
-            {{- $speakerID = .id -}}
-          {{- end -}}
-        {{- end -}}
-        {{- $paragraphBuffer = slice -}}
-      {{- else if and $insideContext (ne $text "") -}}
-        {{- /* The first paragraph repeats the speaker name and, sometimes,
-              their group. Attribution is already shown above the bubble. */ -}}
-        {{- if eq (len $paragraphBuffer) 0 -}}
-          {{- $withoutSpeaker := strings.TrimSpace (replace $text $speaker "") -}}
-          {{- if ne $withoutSpeaker $text -}}
-            {{- $text = replaceRE "^[^–]*–[[:space:]]*" "" $withoutSpeaker -}}
-          {{- end -}}
-        {{- end -}}
-        {{- if ne $text "" -}}
-          {{- $paragraphBuffer = $paragraphBuffer | append $text -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-    {{- if and $insideContext (ne $speaker "") -}}
-      {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
-      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

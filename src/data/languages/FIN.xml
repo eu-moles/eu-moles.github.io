@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/FIN"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/FIN">
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="lt">suomių kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">finšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">finlandês</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">finska</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">fince</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">finnska</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">fínčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Finnish</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">φινλανδικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">фински</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">somu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Fionlainnis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">finski</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">finlandeză</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">finština</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">finsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Fins</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">фински</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">finsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">финский</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">finn</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">suomi</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">finlandese</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">soome keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">finski</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Finlandiż</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">finés</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">фински</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Finnisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">fiński</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">finščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">finnois</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">фінська мова</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6385f9a12a7de9f47f52fd73e1c04320"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3310432cd0184a67bbfbd623bc9409ae"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/12cbb12891686548efaded5ab41cc91c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/52c9b6d02f5ba19d69fb9c1e9ce9edf9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5b2cfe76ff7dbaf75f3ab143473b0484"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4efb4d845c7265e47315be3f23fdc86c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/507994cd1b6dd3a0916edd787f37b3e0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/392ec74e44609c08e9fd209e7b17ba05"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ca8adf44e5b0280181cc19f0d7d5e11a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c422b0cfb8efff0669ddf83e42230ac5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5aaaf85bdc03608bd98ce828be0b7f19"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d4d3bdcae761f31a27f858c9fd25b2ff"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/967dedf46832e631acdc158cec56d25f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d54bede6967ffaac03af90fb9411a46c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1b89cb0888c2ba94c7924aa22a4baaf2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/16f923d48119b490a563cb66585b571f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ae37ec4ffaa7a68d3052d14f92a955f8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/795e2d27e77d230168cc50f85dbe0d35"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6e140eae205e4765d3cb6f52a7143ff1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b40b3c0814113bf4ebc6fd38822df711"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/59fb1588514f8b462fb173d5f5617083"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e577e847e3d49084562523321fc3d97f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/78c883ce5c034019babddc1c73e3ecff"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3741d5e68f6ce2a1d03c6bc629fa10c7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b6078be403d32abe9caf2bf9a8f6e698"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/edc9eb584b8c9ca16ec64033ebd20982"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1133fa153dff3941b24dc2dc810a7f03"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f414193ce12efc592c3325507ef0cfd8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/74c7609e59912bbb43b50376d8ab8fd8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/69dcc54442619369f04735a51d541932"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b5e47aef700625481f7380fd075da1ee"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0a7f8141a761ba2548a6e3e96372dd82"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2a8f33436468e0ec489d31cc6eb7225b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9c0c1ed6fbdc82882e7c2141d18c5396"/>
+    <dc:identifier>FIN</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="en">Finnish belongs (with Estonian) to the Baltic-Finnic subgroup of the Finno-Ugrian languages from the Uralic family. Finnish is one of two official languages of Finland (the other being Swedish).Finnish is typologically between fusional and agglutinative languages.</skos:definition>
+    <skos:definition xml:lang="fr">Le finnois appartient, avec l’estonien, au sous-groupe balto-finnois des langues finno-ougriennes de la famille ouralienne. Le finnois est l’une des deux langues officielles de la Finlande (l’autre étant le suédois).Typologiquement, le finnois se situe entre les langues fusionnelles et agglutinantes.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">FI</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">fin</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">FI</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">FI</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">fi</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">FI</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">fin</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">FI</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">fi</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">FI</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">fin</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">FI</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>FIN</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>FIN</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6048357"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048325"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052216"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052217"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052218"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052219"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052220"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052221"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048794"/>
+    <ns9:op-mapped-code rdf:nodeID="b6052215"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050958"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>FIN</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:order>EU-23</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/c5e97d7563cc1f43458e32c1c1baa8f9"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/9dbbfe152373d92da9d908aadd8a49d3"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f1608974ca43a633ff7d9664b12e0242"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5b2325aff63aad559957f9a4971d7d7d"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5b0c27ff42a4c6c6c908406e6cc773bb"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/cf89f7d7dcb7262d7587d6c81054de65"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ad4ef7f003db4a93ce0f962446d852df"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/08ce0af73042c77af23f00287408f4ca"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/aa47bf9a9726dd1359318cb6ddbc4285"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/d2bd761d47b1f392b4c7d889f31c0d0b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/1141bdbb039058b1c95a8c3cd14b10ca"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/671e5c70d39914feec78c93916f5266e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e1ee8b821ca49a3d7f017ab5627a7ba0"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/b7acf4b52a5f955d15f4838cccfec09a"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/fi"/>
+    <ns9:protocol-order>EU-23</ns9:protocol-order>
+    <ns9:protocol.order>EU-23</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/FIN"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/FIN"/>
+  </rdf:Description>
+</rdf:RDF>

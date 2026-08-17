@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-DEC-195334",
+      "type": "Vote",
+      "activity_date": "2026-07-07",
+      "activity_id": "MTG-PL-2026-07-07-DEC-195334",
+      "activity_order": "1.0",
+      "decision_method": "def/ep-decision-methods/VOTE_HAND",
+      "decision_outcome": "def/ep-statuses/ADOPTED",
+      "had_activity_type": "def/ep-activities/PLENARY_OUTCOME",
+      "notation_votingId": "195334",
+      "referenceText": {
+        "it": "Proposta di decisione",
+        "lv": "Lēmuma priekšlikums",
+        "da": "Forslag til afgørelse",
+        "cs": "návrh rozhodnutí",
+        "de": "Vorschlag für einen Beschluss",
+        "nl": "Ontwerpbesluit",
+        "pt": "Proposta de decisão",
+        "hu": "Határozatra irányuló javaslat",
+        "fr": "Proposition de décision",
+        "hr": "Prijedlog odluke",
+        "pl": "Projekt decyzji",
+        "en": "Proposal for a decision",
+        "mt": "Proposta għal deċiżjoni",
+        "lt": "Pasiūlymas dėl sprendimo",
+        "sv": "Förslag till beslut",
+        "sk": "Návrh rozhodnutia",
+        "es": "Propuesta de Decisión",
+        "el": "Πρόταση απόφασης",
+        "et": "Ettepanek võtta vastu otsus",
+        "ro": "Propunere de decizie",
+        "sl": "predlog sklepa",
+        "bg": "Предложение за решение",
+        "fi": "päätösehdotus",
+        "ga": "Togra le haghaidh cinneadh"
+      }
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

@@ -201,6 +201,7 @@ textarea {
 }
 
 .motion-agenda-badge,
+.motion-procedure-badge,
 .motion-tracked-badge {
   display: inline-flex;
   align-items: center;
@@ -222,6 +223,24 @@ textarea {
   border: 1px solid #c9add9;
   background: #faf5fc;
   color: #5b3474;
+}
+
+.motion-procedure-badge {
+  border: 1px solid #b8c9df;
+  background: #f2f6fb;
+  color: #315879;
+}
+
+.motion-procedure-badge--second {
+  border-color: #e7c982;
+  background: #fff9e9;
+  color: #87610b;
+}
+
+.motion-procedure-badge--conciliation {
+  border-color: #e7bebe;
+  background: #fdf4f4;
+  color: #9d2222;
 }
 
 .motion-tracked-badge {

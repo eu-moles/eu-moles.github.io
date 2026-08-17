@@ -55,50 +55,101 @@
               {{- if not (reflect.IsSlice $decisionReferences) -}}
                 {{- $decisionReferences = slice $decisionReferences -}}
               {{- end -}}
+              {{- $recordedDecisions := slice -}}
+              {{- $wholeDecision := dict -}}
+              {{- $hasWholeDecision := false -}}
+              {{- $wholeRecordedDecision := dict -}}
+              {{- $hasWholeRecordedDecision := false -}}
+              {{- $mainRecordedDecision := dict -}}
+              {{- $hasMainRecordedDecision := false -}}
               {{- range $decisionReferences -}}
                 {{- $decisionID := path.Base . -}}
                 {{- $decision := index $decisionsByID $decisionID -}}
                 {{- if $decision -}}
-                  {{- $title := $sourceTitle -}}
-                  {{- $contextURL := "" -}}
+                  {{- $decisionLabel := "" -}}
+                  {{- with index $decision "activity_label" -}}
+                    {{- $decisionLabel = index . "en" | default $decisionLabel -}}
+                  {{- end -}}
+                  {{- $decisionReference := "" -}}
                   {{- with index $decision "referenceText" -}}
-                    {{- $title = index . "en" | default $title -}}
+                    {{- $decisionReference = index . "en" | default $decisionReference -}}
                   {{- end -}}
-                  {{- $annexVote := int (index $vote "notation_dlvId") -}}
-                  {{- with index $minutesTitles (string $annexVote) -}}
-                    {{- $title = . -}}
-                    {{- $contextURL = index $minutesContextLinks . | default "" -}}
+                  {{- $decisionDescription := printf "%s %s" $decisionLabel $decisionReference -}}
+                  {{- $isWholeDecision := gt (len (findRE `(?i)\bmotion for a resolution\s*\(as a whole\)` $decisionDescription)) 0 -}}
+                  {{- if $isWholeDecision -}}
+                    {{- $wholeDecision = $decision -}}
+                    {{- $hasWholeDecision = true -}}
                   {{- end -}}
-                  {{- $positions := dict -}}
-                  {{- range $entry := slice (dict "key" "had_voter_favor" "value" "for") (dict "key" "had_voter_against" "value" "against") (dict "key" "had_voter_abstention" "value" "abstention") -}}
-                    {{- $people := index $decision (index $entry "key") -}}
-                    {{- if $people -}}
-                      {{- if not (reflect.IsSlice $people) -}}
-                        {{- $people = slice $people -}}
-                      {{- end -}}
-                      {{- range $people -}}
-                        {{- $positions = merge $positions (dict (path.Base .) (index $entry "value")) -}}
-                      {{- end -}}
+                  {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
+                  {{- $voters := int (index $decision "number_of_attendees") -}}
+                  {{- if and $recordedIn (gt $voters 0) -}}
+                    {{- $recordedDecisions = $recordedDecisions | append $decision -}}
+                    {{- if $isWholeDecision -}}
+                      {{- $wholeRecordedDecision = $decision -}}
+                      {{- $hasWholeRecordedDecision = true -}}
+                    {{- end -}}
+                    {{- $isMainDecision := gt (len (findRE `(?i)\b(motion for a resolution|proposal for a decision|joint text|provisional agreement|commission proposal)\b` $decisionDescription)) 0 -}}
+                    {{- if $isMainDecision -}}
+                      {{- $mainRecordedDecision = $decision -}}
+                      {{- $hasMainRecordedDecision = true -}}
                     {{- end -}}
                   {{- end -}}
+                {{- end -}}
+              {{- end -}}
+              {{- $selectedDecisions := slice -}}
+              {{- if $hasWholeDecision -}}
+                {{- if $hasWholeRecordedDecision -}}
+                  {{- $selectedDecisions = slice $wholeRecordedDecision -}}
+                {{- end -}}
+              {{- else if eq (len $recordedDecisions) 1 -}}
+                {{- $selectedDecisions = $recordedDecisions -}}
+              {{- else if $hasMainRecordedDecision -}}
+                {{- $selectedDecisions = slice $mainRecordedDecision -}}
+              {{- end -}}
+              {{- range $selectedDecisions -}}
+                {{- $decision := . -}}
+                  {{- $title := $sourceTitle -}}
+                  {{- $contextURL := "" -}}
+                  {{- $votersFor := partials.Include "motions-voter-ids.html" (index $decision "had_voter_favor") -}}
+                  {{- $votersAgainst := partials.Include "motions-voter-ids.html" (index $decision "had_voter_against") -}}
+                  {{- $votersAbstaining := partials.Include "motions-voter-ids.html" (index $decision "had_voter_abstention") -}}
                   {{- $date := index $decision "activity_date" | default (index $vote "activity_date") -}}
                   {{- $result := path.Base (index $decision "decision_outcome") -}}
                   {{- $voters := int (index $decision "number_of_attendees") -}}
                   {{- $sourceURL := "" -}}
+                  {{- $rcvItem := 0 -}}
                   {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
                   {{- if $recordedIn -}}
                     {{- if not (reflect.IsSlice $recordedIn) -}}
                       {{- $recordedIn = slice $recordedIn -}}
                     {{- end -}}
                     {{- $document := path.Base (index $recordedIn 0) -}}
+                    {{- $rcvItem = int (replaceRE `^.*-RCV-ITM-0*` "" $document) -}}
                     {{- $tocDocument := replaceRE "-RCV-ITM-[0-9]+$" "-TOC_EN.html" $document -}}
                     {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
                   {{- end -}}
+                  {{- with index $minutesTitles (string $rcvItem) -}}
+                    {{- if or $agendaRequest (eq $title "") -}}
+                      {{- $title = . -}}
+                    {{- end -}}
+                    {{- $contextURL = index $minutesContextLinks . | default "" -}}
+                  {{- end -}}
+                  {{- /* ***I–***III identify the legislative procedure stage, not motion parts. */ -}}
+                  {{- $procedure := "" -}}
+                  {{- if findRE `\s+\*{3}I\s*$` $title -}}
+                    {{- $procedure = "First reading" -}}
+                  {{- else if findRE `\s+\*{3}II\s*$` $title -}}
+                    {{- $procedure = "Second reading" -}}
+                  {{- else if findRE `\s+\*{3}III\s*$` $title -}}
+                    {{- $procedure = "Conciliation" -}}
+                  {{- end -}}
+                  {{- $title = strings.TrimSpace (replaceRE `\s+\*{3}I{1,3}\s*$` "" $title) -}}
                   {{- $motions = $motions | append (dict
                     "date" $date
                     "title" $title
                     "sourceTitle" $sourceTitle
                     "agendaRequest" $agendaRequest
+                    "procedure" $procedure
                     "result" $result
                     "for" (index $decision "number_of_votes_favor")
                     "against" (index $decision "number_of_votes_against")
@@ -106,11 +157,13 @@
                     "voters" $voters
                     "notRecorded" (sub $totalMEPs $voters)
                     "votingId" (index $decision "notation_votingId")
-                    "positions" $positions
+                    "votersFor" $votersFor
+                    "votersAgainst" $votersAgainst
+                    "votersAbstaining" $votersAbstaining
                     "sourceURL" $sourceURL
                     "contextURL" $contextURL
+                    "order" (printf "%s-%04d" $date (sub 10000 $rcvItem))
                   ) -}}
-                {{- end -}}
               {{- end -}}
             {{- end -}}
           {{- end -}}
@@ -120,5 +173,5 @@
   {{- end -}}
 {{- end -}}
 
-{{- $result := dict "motions" (sort $motions "date" "desc") -}}
+{{- $result := dict "motions" (sort $motions "order" "desc") -}}
 {{- return $result.motions -}}

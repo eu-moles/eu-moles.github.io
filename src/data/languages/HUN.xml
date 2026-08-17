@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/HUN"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/HUN">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="bg">унгарски</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">magyar</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">węgierski</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">unkari</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Hungarian</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">maďarština</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">ungherese</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Hongaars</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">vengrų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">húngaro</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Ungeriż</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">ουγγρικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">венгерский</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">ungarsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">mađarski</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">ungāru valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">madžarščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">maďarčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Ungarisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">унгарски</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">ungerska</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">ungari keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">мађарски</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">mađarski</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">hongrois</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">maghiară</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">ungverska</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">madźaršćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">húngaro</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Ungáiris</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">угорська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">ungarsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">macarca</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9f65740b8058e8da402cd98504ba547d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b341672798b5310c02f6549d07177c9e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1ff02a1945911bdf36bd66ae551ae887"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e6ed6ced47c45d629a858fe43ed3e006"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/52ef73840378f6e0ed15c449e626cde9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fcaca92bc967c3f4369caaad0fa58468"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/61fbdf77f7de16ba87a6a99d8ccbf282"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ccd7fb176e02077f297fafc1157a1a66"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ef0c2a3e6a3b41912eee250660d824ae"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fabc8494844453f5a5299032917d4c9a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1314ed571ec39f4b9d138ebfdb37a181"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e17128afa7641c1a4f77f454835e8b43"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9c8a090373120b00c8cebf0c945c378e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f6c23841d59605a227cb4eb3973de6f2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/23d6d1f1d2078893aeb3d2edfffff219"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1e3e2743565b2f2f040698212dfde615"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ddca71fc8a4931030ccb534b48390ed3"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a82a411793a86427e9eea22a16748c38"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8612c5af81ba1f1bf71c737f0664c1eb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a8ac3502b8236d5acdb2dda6778d4b9f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d09ae4b7a7ffa5c4b6c07b9c612a393b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/85fe42a8518bcf0a8975fd04b07e8c90"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/520aaa1b4c95db6da8b7bec4370c199a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6e2a7490e2f7922d855140b8c4cd87eb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f430082214d7481f9971f541cbd5e14c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/95f6879180ce83c275856b21c72222ae"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e2612fdd76b33d5181dc473ebe49bc49"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8663bfe88a62347ad1404acca3a2cdf9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1a510c9a1fe27ae4550a8dd22a3a8d25"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d3b3964948fb2ad9bbd858c7751e5aa5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/77706d4c4741f812fbbb0cf656e546e0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3f3e1c60608bb1466d2204448066fc31"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/86ce6a3eb1bb036b51883cd8d28c3c7a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f27b6b29d36df09cf050d7e5af57b551"/>
+    <dc:identifier>HUN</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="en">Hungarian (Magyar), like Finnish and Estonian, belongs to the Finno-Ugric branch of the Uralic language family. It is the official language of Hungary and is also spoken by communities of Hungarian people in neighbouring countries.In Hungarian, surnames precede Christian names.</skos:definition>
+    <skos:definition xml:lang="fr">Le hongrois (magyar), comme l’estonien et le finnois, appartient à la branche finno-ougrienne de la famille des langues ouraliennes. Il est la langue officielle de la Hongrie et est également parlé par les communautés hongroises dans les pays voisins.En hongrois, les noms de famille précèdent les prénoms.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">HU</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">HU</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">hun</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">HU</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">HU</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">hu</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">hun</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">HU</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">HU</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">HU</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">hu</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">hun</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>HUN</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>HUN</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6048462"/>
+    <ns9:op-mapped-code rdf:nodeID="b6049957"/>
+    <ns9:op-mapped-code rdf:nodeID="b6049958"/>
+    <ns9:op-mapped-code rdf:nodeID="b6049959"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050024"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050025"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050026"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050020"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050021"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050022"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050023"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>HUN</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:order>EU-15</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/87d689002c188fcdc91d2f647c89aded"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/00872e34c34c23ba5090c595a912a48d"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/bc111c14abdd5206f931a275a3e3e54a"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/963ec21e219921f8b7887ebc1f461a07"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/740c663a8e30bb76b748da454a0a367b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ffb536aa90c329b34972f03bb320ef84"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/fcfaa41718fbf698b042e2247742f493"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/a9b9b87c9f60538f01113e21ee83d557"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/716064b908baba679c5750f4b91dcfaf"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e1be8e1bf63466f2ed5ba850a4a66b00"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/2a4fa9eb3c857123b4497d70e9a12a1e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/91ec93415f41e514824ebb67d9dd79c1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ab07f9789359c0755d828617f7115ea2"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/746b181c243ecbec02529428b5d45c02"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/hu"/>
+    <ns9:protocol-order>EU-15</ns9:protocol-order>
+    <ns9:protocol.order>EU-15</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/HUN"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/HUN"/>
+  </rdf:Description>
+</rdf:RDF>

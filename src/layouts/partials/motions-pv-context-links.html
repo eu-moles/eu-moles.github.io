@@ -10,13 +10,20 @@
       {{- $sections = slice $sections -}}
     {{- end -}}
     {{- range $sections -}}
-      {{- $heading := index . "h" -}}
-      {{- $title := partials.Include "motions-report-short-title.html" $heading -}}
-      {{- $chapter := index $heading "chapter-number" -}}
-      {{- if and $title $chapter -}}
-        {{- $item := printf "%03d" (int $chapter) -}}
-        {{- $url := printf "https://www.europarl.europa.eu/doceo/document/%s-ITM-%s_EN.html" $transcriptDocument $item -}}
-        {{- $links = merge $links (dict $title $url) -}}
+      {{- $headings := index . "h" -}}
+      {{- if $headings -}}
+        {{- if not (reflect.IsSlice $headings) -}}
+          {{- $headings = slice $headings -}}
+        {{- end -}}
+        {{- range $headings -}}
+          {{- $title := partials.Include "motions-report-short-title.html" . -}}
+          {{- $chapter := index . "chapter-number" -}}
+          {{- if and $title $chapter -}}
+            {{- $item := printf "%03d" (int $chapter) -}}
+            {{- $url := printf "https://www.europarl.europa.eu/doceo/document/%s-ITM-%s_EN.html" $transcriptDocument $item -}}
+            {{- $links = merge $links (dict $title $url) -}}
+          {{- end -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

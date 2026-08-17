@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-DEC-195413",
+      "type": "Vote",
+      "activity_date": "2026-07-07",
+      "activity_id": "MTG-PL-2026-07-07-DEC-195413",
+      "activity_order": "9.0",
+      "decision_method": "def/ep-decision-methods/VOTE_HAND",
+      "decision_outcome": "def/ep-statuses/ADOPTED",
+      "had_activity_type": "def/ep-activities/PLENARY_OUTCOME",
+      "notation_votingId": "195413",
+      "headingLabel": {
+        "ro": "Propunerea de decizie B10-0343/2026 (Conferința președinților)",
+        "en": "Proposal for a decision B10-0343/2026 (Conference of Presidents)",
+        "sl": "Predlog sklepa B10-0343/2026 (konferenca predsednikov)",
+        "es": "Propuesta de Decisión B10-0343/2026 (Conferencia de Presidentes)",
+        "el": "Πρόταση απόφασης B10-0343/2026 (Διάσκεψη των Προέδρων)",
+        "hu": "B10-0343/2026 sz. határozatra irányuló javaslat (Elnökök Értekezlete)",
+        "lt": "Pasiūlymas dėl sprendimo B10-0343/2026 (Pirmininkų sueiga)",
+        "bg": "Предложение за решение B10-0343/2026 (Председателски съвет)",
+        "mt": "Proposta għal deċiżjoni B10-0343/2026 (Konferenza tal-Presidenti)",
+        "et": "Ettepanek võtta vastu otsus B10-0343/2026 (esimeeste konverents)",
+        "de": "Vorschlag für einen Beschluss B10-0343/2026 (Konferenz der Präsidenten)",
+        "ga": "Togra le haghaidh cinneadh B10-0343/2026\n(Comhdháil na nUachtarán)",
+        "pt": "Proposta de decisão B10-0343/2026 (Conferência dos Presidentes)",
+        "da": "Forslag til afgørelse B10-0343/2026 (Formandskonferencen)",
+        "cs": "Návrh rozhodnutí B10-0343/2026\n(Konference předsedů)",
+        "pl": "Projekt decyzji B10-0343/2026 (Konferencja Przewodniczących)",
+        "lv": "Lēmuma priekšlikums B10-0343/2026 (Priekšsēdētāju konference)",
+        "sk": "Návrh rozhodnutia B10-0343/2026 (Konferencia predsedov)",
+        "it": "Proposta di decisione B10-0343/2026 (Conferenza dei presidenti)",
+        "fr": "Proposition de décision B10-0343/2026 \n(Conférence des présidents)",
+        "hr": "Prijedlog odluke B10-0343/2026 (Konferencija predsjednika)",
+        "sv": "Förslag till beslut B10-0343/2026\n(Talmanskonferensen)",
+        "fi": "päätösehdotus B10-0343/2026\n(puheenjohtajakokous)",
+        "nl": "Ontwerpbesluit B10-0343/2026 (Conferentie van voorzitters)"
+      },
+      "referenceText": {
+        "lv": "Rezolūcijas priekšlikums (viss teksts)",
+        "sk": "Návrh uznesenia (text ako celok)",
+        "sv": "Resolutionsförslag (hela texten)",
+        "it": "Proposta di risoluzione (insieme del testo)",
+        "da": "Forslag til beslutning (tekst som helhed)",
+        "hu": "Állásfoglási indítvány (a szöveg egésze)",
+        "cs": "návrh usnesení (celé znění)",
+        "el": "Πρόταση ψηφίσματος (σύνολο του κειμένου)",
+        "mt": "Mozzjoni għal riżoluzzjoni (it-test kollu)",
+        "es": "Propuesta de Resolución (conjunto del texto)",
+        "bg": "Предложение за резолюция (целият текст)",
+        "hr": "Prijedlog rezolucije (cjelokupni tekst)",
+        "sl": "predlog resolucije (vse besedilo)",
+        "ga": "Tairiscint i gcomhair rúin (an téacs ina iomláine)",
+        "fi": "päätöslauselmaesitys (teksti kokonaisuudessaan)",
+        "ro": "Propunerea de rezoluție (întregul text)",
+        "pl": "Projekt rezolucji (całość tekstu)",
+        "nl": "Ontwerpresolutie (gehele tekst)",
+        "pt": "Proposta de resolução (conjunto do texto)",
+        "en": "Motion for a resolution (as a whole)",
+        "fr": "Proposition de résolution (ensemble du texte)",
+        "lt": "Pasiūlymas dėl rezoliucijos (visas tekstas)",
+        "de": "Entschließungsantrag (gesamter Text)",
+        "et": "Resolutsiooni ettepanek (terviktekst)"
+      }
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

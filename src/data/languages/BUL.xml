@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/BUL"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/BUL">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="tr">bulgarca</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">bulgarų kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Bulgaars</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">bulgarsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Bulgarisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">bulgāru valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">búlgarska</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Bulgarian</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">bulgaria</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">бугарски</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">bugarski</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">bulharština</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">болгарська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">bulgarsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">български</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">βουλγαρικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Bulgaru</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">bulgare</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">bulgariska</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">bułgarski</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">bolgár</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">bolgarščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">búlgaro</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">bulgaaria keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">bulgară</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">bugarski</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">bołharšćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">болгарский</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Bulgáiris</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">bulgaro</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">bulharčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">бугарски</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">búlgaro</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ddcb3df738b136664ada85a0a37581f5"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1107cfcb27eb8d1a366565f8bc89f15e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1dfdd8e40416405c2ffbfb71dfa209b3"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/9e55c72b6a8802dc6816f658a6ab7a5c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e138933c96f7ccd18b7b0f6079558071"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e4697e4591ef2cf727b8e3c9cefb9f55"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/50a49538780bf3232363a4e20d77acb4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/af622595ebe875eee543e1e20da910b4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/222a746865baff1746f8563f2b737bca"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ac2de2eacfbdab07dac2870af3d156bf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2a2bcb79577df180f2b5e3b3bf4dee92"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/98504e4d436510b04e5007a5645820cd"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ea94140a5dd72f015bab3c331b8e31c7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cf98ed58d5b182380efe047a82363520"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0800e192a9b3d38de18bffaa03ca3e64"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/16ed82f1ce8974732f5b0e93b69593d7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a30a76bfb964d1e13cf2b03e68183969"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/d71e1a955468c945fbd5ff265a75af87"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1b3270e958db78166de419ed00fdd80a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/abad2f333a2f4de18504b8377f374af0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8b6d592a6007d50b1575983562b52be5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/dd4129099f74e469429198754ca9973e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7417642bdba9423f3a90d195c800138e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6204f73a76e84f1e29f89513865b6b86"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fd04c10291368152986770b268f0ad97"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b810f5314deac5a1d76a41fbc28125e3"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e57f20857edd2e51405ce156cebbf5d2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/248b4f9bf3508cd0e5f6ff6af93bac41"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4b2825a3620d0290164d2cfd49bf90d7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/6b5e0af7b48dc3c1871e4852bec7800f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ff6f0b15c985296e6e762dcc3f1249a1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4746adf6f3123de7e655727e6a955ffc"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f72c86838aedcbf0ebcbff124f4937f7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ce4bdc98b3832c28f71f9ddc5c2104b8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ff0059ff47a3264c9062113a67204b13"/>
+    <dc:identifier>BUL</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:altLabel xml:lang="bg">bulgarski</skos:altLabel>
+    <skos:definition xml:lang="en">Bulgarian is a member of the Southern subgroup of the Slavic languages, spoken mainly in Bulgaria.Modern Bulgarian has several striking differences from other Slavic languages. e.g. nouns are no longer declined; however, there is a definite article suffixed to the noun.Bulgarian is written with the Cyrillic alphabet.</skos:definition>
+    <skos:definition xml:lang="fr">Le bulgare est une langue du sous-groupe sud des langues slaves. Il est parlé principalement en Bulgarie.Le bulgare a plusieurs caractéristiques qui le distinguent de toutes les autres langues slaves, par exemple l’absence de déclinaison ou l’existence d’un article défini suffixé au nom.Il est écrit avec l’alphabet cyrillique.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">BG</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">bg</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">BG</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">bul</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">BG</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">BG</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">bul</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">BG</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">bg</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">BG</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">bul</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">BG</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <ns9:authority-code>BUL</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>BUL</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6049461"/>
+    <ns9:op-mapped-code rdf:nodeID="b6047241"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050724"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050725"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050726"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050727"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050722"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050723"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050728"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050729"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050730"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>BUL</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:order>EU-01</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/2bc0526c5ae4c7502826bc2a366acb6a"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/50f546ff5091a1dc6f98ada74970f7d9"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/4fd8d2de36c8bbb392fac118516e34fe"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/2132f1b41eacbd0bebe3c1cbd2cec09b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/100dcc442d888b78e61b974a29e131d1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/17755ce2cb1ae4af7cb6c6f031fa0380"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/e0b61111186853a6e17e7ba9e5b5d503"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/99da74a551c9a3c073fb48e213fb96f2"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/6e20d0ebccb54fd9229d81a2aa45efd6"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7e35484ecba2d2c0fb78f8dd2f93d71b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7c3dad2aacf1e1076a2bd99acdd232bb"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/18cb8ea09eea96106e8b0afbf156b702"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f690ae24e1c578e1e666e8bd98fa82b8"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7d2f3ab2ca0f40edf56c506034822fca"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/bg"/>
+    <ns9:protocol-order>EU-01</ns9:protocol-order>
+    <ns9:protocol.order>EU-01</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/BUL"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/BUL"/>
+  </rdf:Description>
+</rdf:RDF>

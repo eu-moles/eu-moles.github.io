@@ -208,6 +208,19 @@
             agenda.append(icon, document.createTextNode('Agenda request'));
             typeBadges.append(agenda);
           }
+          if (motion.procedure) {
+            const procedureClasses = {
+              'First reading': 'motion-procedure-badge--first',
+              'Second reading': 'motion-procedure-badge--second',
+              Conciliation: 'motion-procedure-badge--conciliation',
+            };
+            const procedure = make('span', `motion-procedure-badge ${procedureClasses[motion.procedure] || 'motion-procedure-badge--first'}`);
+            procedure.title = 'Legislative procedure stage';
+            const icon = make('i', 'fa-solid fa-landmark');
+            icon.setAttribute('aria-hidden', 'true');
+            procedure.append(icon, document.createTextNode(motion.procedure));
+            typeBadges.append(procedure);
+          }
           if (motion.tracked) {
             const tracked = make('span', 'motion-tracked-badge');
             tracked.title = 'Contains tracked terms';
@@ -252,7 +265,14 @@
             motionCell.append(context);
           }
 
-          const position = motion.positions && motion.positions[mepID] ? motion.positions[mepID] : 'notRecorded';
+          const voterIDs = (voters) => Array.isArray(voters) ? voters : [];
+          const position = voterIDs(motion.votersFor).includes(mepID)
+            ? 'for'
+            : voterIDs(motion.votersAgainst).includes(mepID)
+              ? 'against'
+              : voterIDs(motion.votersAbstaining).includes(mepID)
+                ? 'abstention'
+                : 'notRecorded';
           const vote = document.createElement('td');
           vote.dataset.label = 'Vote';
           vote.append(voteBadge(position));

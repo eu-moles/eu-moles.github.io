@@ -1,0 +1,11 @@
+{{- $voters := . -}}
+{{- $ids := slice -}}
+{{- if $voters -}}
+  {{- if not (reflect.IsSlice $voters) -}}
+    {{- $voters = slice $voters -}}
+  {{- end -}}
+  {{- range $voters -}}
+    {{- $ids = $ids | append (path.Base .) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $ids -}}

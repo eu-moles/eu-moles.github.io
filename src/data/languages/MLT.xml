@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/MLT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/MLT">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="mt">Malti</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">maltiečių kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">maltais</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">maltčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">μαλτέζικα</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">máltai</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">малтешки</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">мальтійська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">malta</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Maltees</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">malteški</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">maltneska</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">maltašćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">maltesisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Máltais</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">maltaca</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Maltesisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="sl">malteščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">maltês</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">малтешки</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">мальтийский</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">maltesisk</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">malteză</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">maltański</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">maltiešu valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">maltština</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Maltese</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">malteški</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">malta keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">maltés</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">малтийски</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">maltese</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">maltesiska</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3d46b42c5d7c5d96565c46198ffbcf99"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ae2b4fbf804fa28eeae6d5ad835f47c5"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f983e0a2d57cd3049389bbfef7ba2dc9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fbd45954248778e6f8cb551339d51fda"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4b042bfe66c4a4262569f53ca421b679"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ea33b3437911d260e1e15475f6f060a6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ba4e58dcebd10c27068bf425bab5d5fe"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2255fed466e4ef3f1a6e668937a2a22f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/cea353f029055675c75e141baab52475"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/b20b3fdd63e6f218424d5388ea14bde3"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/55fcdb70b38a4b930b8eabad5615e427"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/17e66b19bd2a67e1175fb25b0e23a0f2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f4bab9eb63e84ff9bebf58dafed08906"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/129eda9e512f3a256062ec3102cba8ac"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2abf4d2d3a3bb8e644bd8e63e7cf99a7"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c79c325dae451d05ca62d09d29df703d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a000d34ebda6f6e47afb20ed61f62a75"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f3ffd4d58d48681c985946b5cdc4d2a4"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5351e8b34ce09b78f689b731c0b2c7aa"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/04edaada23b82993c68b209671c5cf94"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7b28d877c41c4f73fa74f7667eb2c336"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/e4ad95dcfc4575e9724881a2f436fc27"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/46ec7faa95d80552c6791d1cd610d8c8"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/4f84c3312479f6fb3abfe707263c0885"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/781780e850d6dfd8cca33f3adbbdf590"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1916491ee662609da58dcf8d93729502"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/dada79065958cf0aec111ec06e8d2929"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/7754fb0df649d0f86e44fb65efd75e0f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8903dfd31eb27be8802b70c053f3202d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1b60ae10c84bff8b10d096d4274ff255"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/f5cc118b789cf8a27c78adc29d947f28"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ded255245b9ad2eb99b117e0a9078b8b"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/20f97d9660cc5707cd14acc1d5f6af3e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/569a81cdf54d212682800728ff8b1f0b"/>
+    <dc:identifier>MLT</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:definition xml:lang="en">Maltese is a Semitic language, historically a dialect of Arabic, spoken in Malta. About half of the vocabulary is derived from standard Italian and Sicilian; English words also make up an important part of the Maltese vocabulary.It is the only Semitic language written in the Latin script in its standard form.</skos:definition>
+    <skos:definition xml:lang="fr">Le maltais est une langue sémitique, historiquement un dialecte de l’arabe, parlé à Malte. Environ la moitié du vocabulaire est dérivé de l’italien standard et de Sicile; les mots anglais constituent également une partie importante du vocabulaire maltais.Il est la seule langue sémitique écrite en alphabet latin dans sa forme standard.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">mt</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">mlt</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">MT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">MT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">mlt</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">mt</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">MT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">MT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">MT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">mlt</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">MT</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">MT</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>MLT</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>MLT</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6048467"/>
+    <ns9:op-mapped-code rdf:nodeID="b6054337"/>
+    <ns9:op-mapped-code rdf:nodeID="b6054338"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050153"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048911"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050965"/>
+    <ns9:op-mapped-code rdf:nodeID="b6049733"/>
+    <ns9:op-mapped-code rdf:nodeID="b6049328"/>
+    <ns9:op-mapped-code rdf:nodeID="b6048013"/>
+    <ns9:op-mapped-code rdf:nodeID="b6051377"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050550"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>MLT</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:order>EU-16</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/fed7330944b37a4d9a552ce8833ecb8c"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/ba645aed16e524e30c96dfcf5ef89454"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/72e7d1a22f917114759ee5bff9e057f1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ed7cc0daad1506b07e6fcec851d2676f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/df7f41b0ff1bb7f36afbe8eedf80532f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/3a396600528c2506ec43095b3872c42f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/da32ead1fb5d1b0c55e31db72fb94873"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/34e5bfb08221539163e855d4490c900c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/40b21bfdc8dfc4f192fd952134f29c55"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/fdc1a156bd5e4259b1069dd23755676b"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/9972503ad2dfad8cb17c80f54d2bb5d3"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/a9a2ca67919be5ac35849f8ae82a7833"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/3c5804a9e11e055a825e18566effb5e4"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/69fc66ac50af820ca87ff0d319dc1f37"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/mt"/>
+    <ns9:protocol-order>EU-16</ns9:protocol-order>
+    <ns9:protocol.order>EU-16</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/MLT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/MLT"/>
+  </rdf:Description>
+</rdf:RDF>

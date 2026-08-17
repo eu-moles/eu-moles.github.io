@@ -38,8 +38,28 @@ if [[ ! -f data/meps.xml ]] || (( $(date +%s) - $(stat -c %Y data/meps.xml) > $(
 fi
 format_xml data/meps.xml
 
+curl_with_error_url() {
+  local error_log
+  local status
+  local url="${!#}"
+
+  error_log=$(mktemp "${TMPDIR:-/tmp}/eu-moles-curl-error.XXXXXX")
+  if curl --stderr "$error_log" "$@"; then
+    status=0
+  else
+    status=$?
+  fi
+
+  cat "$error_log" >&2
+  if grep -q '^curl: (' "$error_log"; then
+    printf 'curl request URL: %s\n' "$url" >&2
+  fi
+  rm -f "$error_log"
+  return "$status"
+}
+
 current_date=$(date +%F)
-voting_dates=$(curl -fsSL "https://data.europarl.europa.eu/distribution/meetings_$(date +%Y)_4_en.csv" |
+voting_dates=$(curl_with_error_url -fsSL "https://data.europarl.europa.eu/distribution/meetings_$(date +%Y)_4_en.csv" |
   sed -nE 's/^MTG-PL-([0-9]{4}-[0-9]{2}-[0-9]{2}).*/\1/p' |
   sort -u)
 api="https://data.europarl.europa.eu/api/v2"
@@ -52,7 +72,7 @@ fetch_json() {
 
   temporary=$(mktemp "${destination}.tmp.XXXXXX")
   formatted=$(mktemp "${destination}.formatted.XXXXXX")
-  if curl -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
+  if curl_with_error_url -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
     -H 'Accept: application/ld+json' \
     -H 'User-Agent: EU-Moles-data-updater-1.0' \
     --output "$temporary" "$url" &&
@@ -74,7 +94,7 @@ fetch_xml() {
 
   temporary=$(mktemp "${destination}.tmp.XXXXXX")
   formatted=$(mktemp "${destination}.formatted.XXXXXX")
-  if curl -fsSL --output "$temporary" "$url" &&
+  if curl_with_error_url -fsSL --output "$temporary" "$url" &&
     grep -q '<PV[[:space:]>]' "$temporary" &&
     xmllint --format "$temporary" > "$formatted"; then
     mv "$formatted" "$destination"
@@ -93,7 +113,7 @@ fetch_language_xml() {
 
   temporary=$(mktemp "${destination}.tmp.XXXXXX")
   formatted=$(mktemp "${destination}.formatted.XXXXXX")
-  if curl -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
+  if curl_with_error_url -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
     -H 'Accept: application/rdf+xml' \
     -H 'User-Agent: EU-Moles-data-updater-1.0' \
     --output "$temporary" "$url" &&
@@ -117,7 +137,7 @@ fetch_docx_document_xml() {
   archive=$(mktemp "${destination}.docx.XXXXXX")
   document_xml=$(mktemp "${destination}.xml.XXXXXX")
   formatted=$(mktemp "${destination}.formatted.XXXXXX")
-  if curl -fsSL --output "$archive" "$url" &&
+  if curl_with_error_url -fsSL --output "$archive" "$url" &&
     unzip -p "$archive" word/document.xml > "$document_xml" &&
     grep -q '<w:document[[:space:]>]' "$document_xml" &&
     xmllint --format "$document_xml" > "$formatted"; then
@@ -133,7 +153,7 @@ translate_to_english() {
   local source_language="$1"
   local source_text="$2"
 
-  curl -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 \
+  curl_with_error_url -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 \
     -G 'https://translate.googleapis.com/translate_a/single' \
     --data-urlencode 'client=gtx' \
     --data-urlencode "sl=$source_language" \
@@ -395,7 +415,7 @@ cache_transcript_translations() {
 }
 
 for voting_date in $voting_dates; do
-  [[ "$voting_date" == "2026-07-06" ]] || continue
+  [[ "$voting_date" == "2026-07-07" ]] || continue
   [[ "$voting_date" < "$current_date" ]] || continue
   echo "$voting_date processing..."
   sitting_id="MTG-PL-${voting_date}"
@@ -461,10 +481,13 @@ for voting_date in $voting_dates; do
 
     while IFS= read -r decision_id; do
       decision_file="$decisions_dir/${decision_id}.json"
-      [[ -s "$decision_file" ]] || fetch_json "$api/events/$decision_id" "$decision_file" || {
-        echo "Could not fetch decision $decision_id for $sitting_id; no incomplete aggregate was saved." >&2
-        exit 1
-      }
+      if [[ ! -s "$decision_file" ]]; then
+        fetch_json "$api/events/$decision_id" "$decision_file" || {
+          echo "Could not fetch decision $decision_id for $sitting_id; no incomplete aggregate was saved." >&2
+          exit 1
+        }
+        sleep 0.1
+      fi
       decision_files+=("$decision_file")
     done < <(jq -r '.data[] | .consists_of[]? | split("/") | last' "$dir/vote-results.json")
 

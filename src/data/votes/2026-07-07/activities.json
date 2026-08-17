@@ -1,0 +1,2557 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-21",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T20:04:58.249+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-21",
+      "activity_label": {
+        "sl": "21. Sprejetje zapisnika te seje",
+        "et": "21. Käesoleva istungi protokolli kinnitamine",
+        "mt": "21. Approvazzjoni tal-minuti tas-seduta li għaddejja",
+        "ro": "21. Aprobarea procesului-verbal al prezentei ședințe",
+        "es": "21. Aprobación del acta de la presente sesión",
+        "fi": "21. Tämän istunnon pöytäkirjan hyväksyminen",
+        "el": "21. Έγκριση των Συνοπτικών Πρακτικών της παρούσας συνεδρίασης",
+        "cs": "21. Schválení zápisu z tohoto denního zasedání",
+        "de": "21. Genehmigung des Protokolls der laufenden Sitzung",
+        "it": "21. Approvazione del processo verbale della presente seduta",
+        "sk": "21. Schválenie zápisnice z dnešného rokovania",
+        "nl": "21. Goedkeuring van de notulen van deze vergadering",
+        "da": "21. Godkendelse af protokollen fra dette møde",
+        "lt": "21. Šio posėdžio protokolo tvirtinimas",
+        "sv": "21. Justering av protokollet från detta sammanträde",
+        "ga": "21. Formheas mhiontuairiscí an tsuí",
+        "bg": "21. Одобряване на протокола от настоящото заседание",
+        "fr": "21. Approbation du procès-verbal de la présente séance",
+        "pt": "21. Aprovação da ata da presente sessão",
+        "hu": "21. Az aktuális ülésnap jegyzőkönyvének jóváhagyása",
+        "hr": "21. Usvajanje zapisnika s aktualne dnevne sjednice",
+        "lv": "21. Šīs sēdes protokola apstiprināšana",
+        "pl": "21. Zatwierdzenie protokołu bieżącego posiedzenia",
+        "en": "21. Approval of the minutes of the sitting"
+      },
+      "activity_start_date": "2026-07-07T20:04:53.349+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086700059"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-021",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-021"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-18",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T20:04:38.533+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-18",
+      "activity_label": {
+        "ga": "18. Mínithe ó bhéal ar an vótáil (Riail 201)",
+        "lv": "18. Mutiski balsojumu skaidrojumi (Reglamenta 201. pants)",
+        "sk": "18. Ústne vysvetlenia hlasovania (článok 201 rokovacieho poriadku)",
+        "de": "18. Mündliche Erklärungen zur Abstimmung (Artikel 201 GO)",
+        "lt": "18. Žodiniai paaiškinimai dėl balsavimo (Darbo tvarkos taisyklių 201 straipsnis)",
+        "sv": "18. Muntliga röstförklaringar (artikel 201 i arbetsordningen)",
+        "fi": "18. Suulliset äänestysselitykset (työjärjestyksen 201 artikla)",
+        "bg": "18. Устни обяснения на вот (член 201 от Правилника за дейността)",
+        "fr": "18. Explications de vote orales (article 201 du règlement)",
+        "cs": "18. Ústní vysvětlení hlasování (článek 201 jednacího řádu)",
+        "es": "18. Explicaciones de voto orales (artículo 201 del Reglamento interno)",
+        "sl": "18. Ustne obrazložitve glasovanja (člen 201 Poslovnika)",
+        "et": "18. Hääletuste kohta suuliste selgituste andmine (kodukorra artikkel 201)",
+        "ro": "18. Explicații orale privind votul (articolul 201 din Regulamentul de procedură)",
+        "it": "18. Dichiarazioni di voto orali (articolo 201 del regolamento)",
+        "el": "18. Προφορικές αιτιολογήσεις ψήφων (άρθρο 201 του Κανονισμού)",
+        "pt": "18. Declarações de voto orais (artigo 201.º do Regimento)",
+        "pl": "18. Oświadczenia ustne dotyczące stanowiska zajętego w głosowaniu (art. 201 Regulaminu)",
+        "nl": "18. Mondelinge stemverklaringen (artikel 201 van het Reglement)",
+        "da": "18. Mundtlige stemmeforklaringer (forretningsordenens artikel 201)",
+        "hr": "18. Usmena obrazloženja glasovanja (članak 201. Poslovnika)",
+        "mt": "18. Spjegazzjonijiet tal-vot orali (Artikolu 201 tar-Regoli ta' Proċedura)",
+        "hu": "18. Szóbeli szavazatindokolások (az eljárási szabályzat 201. cikke)",
+        "en": "18. Oral explanations of votes (Rule 201)"
+      },
+      "activity_start_date": "2026-07-07T20:00:37.368+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-18-1",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086700045",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-18-2"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-018",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-018"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-1",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T09:00:25.983+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-1",
+      "activity_label": {
+        "fi": "1. Istunnon avaaminen",
+        "pt": "1. Abertura da sessão",
+        "nl": "1. Opening van de vergadering",
+        "mt": "1. Ftuħ tas-seduta",
+        "da": "1. Åbning af mødet",
+        "ga": "1. Oscailt an tsuí",
+        "lv": "1. Sēdes atklāšana",
+        "de": "1. Eröffnung der Sitzung",
+        "et": "1. Istungi algus",
+        "hu": "1. Az ülés megnyitása",
+        "hr": "1. Otvaranje dnevne sjednice",
+        "fr": "1. Ouverture de la séance",
+        "sv": "1. Öppnande av sammanträdet",
+        "cs": "1. Zahájení denního zasedání",
+        "lt": "1. Posėdžio pradžia",
+        "ro": "1. Deschiderea lucrărilor ședinței",
+        "sk": "1. Otvorenie rokovania",
+        "en": "1. Opening of the sitting",
+        "el": "1. Έναρξη της συνεδρίασης",
+        "sl": "1. Otvoritev seje",
+        "it": "1. Apertura della seduta",
+        "bg": "1. Откриване на заседанието",
+        "pl": "1. Otwarcie posiedzenia",
+        "es": "1. Apertura de la sesión"
+      },
+      "activity_start_date": "2026-07-07T09:00:18.155+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221881",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-1"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-001",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-001"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-11",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T15:00:20+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-11",
+      "activity_label": {
+        "pl": "11. Wznowienie posiedzenia",
+        "en": "11. Resumption of the sitting",
+        "es": "11. Reanudación de la sesión",
+        "fi": "11. Istunnon jatkaminen",
+        "et": "11. Istungi jätkamine",
+        "sk": "11. Pokračovanie rokovania",
+        "lt": "11. Posėdžio pratęsimas",
+        "sv": "11. Återupptagande av sammanträdet",
+        "ro": "11. Reluarea ședinței",
+        "nl": "11. Hervatting van de vergadering",
+        "lv": "11. Sēdes atsākšana",
+        "it": "11. Ripresa della seduta",
+        "hr": "11. Nastavak dnevne sjednice",
+        "ga": "11. Athchromadh ar an suí",
+        "el": "11. Επανάληψη της συνεδρίασης",
+        "mt": "11. Tkomplija tas-seduta",
+        "cs": "11. Pokračování denního zasedání",
+        "bg": "11. Възобновяване на заседанието",
+        "pt": "11. Reinício da sessão",
+        "de": "11. Wiederaufnahme der Sitzung",
+        "da": "11. Genoptagelse af mødet",
+        "sl": "11. Nadaljevanje seje",
+        "fr": "11. Reprise de la séance",
+        "hu": "11. Az ülés folytatása"
+      },
+      "activity_start_date": "2026-07-07T15:00:10.1+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537724"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-011",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-011"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-15",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T18:40:47.46+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-15",
+      "activity_label": {
+        "fr": "15. Rectificatifs (article 251 du règlement) (suites données)",
+        "et": "15. Parandused (kodukorra artikkel 251) (järelmeetmed)",
+        "de": "15. Berichtigungen (Artikel 251 GO) (Weiterbehandlung)",
+        "mt": "15. Rettifiki (Artikolu 251 tar-Regoli ta' Proċedura) (azzjonijiet meħuda)",
+        "pl": "15. Sprostowania (art. 251 Regulaminu) (podjęte działania)",
+        "hr": "15. Ispravci (članak 251. Poslovnika) (daljnje radnje)",
+        "en": "15. Corrigenda (Rule 251) (action taken)",
+        "nl": "15. Rectificaties (artikel 251 van het Reglement) (volgende stappen)",
+        "da": "15. Berigtigelser (forretningsordenens artikel 251) (opfølgning)",
+        "lt": "15. Klaidų ištaisymas (Darbo tvarkos taisyklių 251 straipsnis) (tolesni veiksmai)",
+        "ga": "15. Ceartúcháin (Riail 251) (gníomhaíocht déanta)",
+        "bg": "15. Поправки (член 251 от Правилника за дейността) (последващи действия)",
+        "cs": "15. Opravy (článek 251 jednacího řádu) (další postup)",
+        "ro": "15. Rectificări (articolul 251 din Regulamentul de procedură) (cursul dat)",
+        "sl": "15. Popravki (člen 251 Poslovnika) (nadaljnje ukrepanje)",
+        "es": "15. Correcciones de errores (artículo 251 del Reglamento interno) (curso dado)",
+        "el": "15. Διορθωτικά (άρθρο 251 του Κανονισμού) (συνέχεια που δόθηκε)",
+        "sv": "15. Rättelser (artikel 251 i arbetsordningen) (vidtagna åtgärder)",
+        "lv": "15. Kļūdu labojumi (Reglamenta 251. pants) (turpmākie pasākumi)",
+        "pt": "15. Retificações (artigo 251.º do Regimento) (seguimento dado)",
+        "fi": "15. Oikaisut (työjärjestyksen 251 artikla) (jatkotoimet)",
+        "hu": "15. Helyesbítések (az eljárási szabályzat 251. cikke) (további intézkedések)",
+        "sk": "15. Korigendá (článok 251 rokovacieho poriadku) (pokračovanie)",
+        "it": "15. Rettifiche (articolo 251 del regolamento) (seguito dato)"
+      },
+      "activity_start_date": "2026-07-07T18:40:27.556+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682046"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-015",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-015"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-4",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:20:30+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-4",
+      "activity_label": {
+        "pt": "4. Apresentação do programa de atividades da Presidência irlandesa (debate)",
+        "fi": "4. Puheenjohtajavaltio Irlannin toimintaohjelman esittely (keskustelu)",
+        "sk": "4. Predstavenie programu činností írskeho predsedníctva (rozprava)",
+        "lt": "4. Tarybai pirmininkaujančios Airijos veiklos programos pristatymas (diskusijos)",
+        "ro": "4. Prezentarea programului de activități al Președinției irlandeze (dezbatere)",
+        "lv": "4. Prezidentvalsts Īrijas darbības programmas izklāsts (debates)",
+        "hr": "4. Predstavljanje programa aktivnosti irskog predsjedništva (rasprava)",
+        "cs": "4. Představení programu činnosti irského předsednictví (rozprava)",
+        "fr": "4. Présentation du programme des activités de la présidence irlandaise (débat)",
+        "ga": "4. Cur i láthair chlár gníomhaíochtaí Uachtaránacht na hÉireann (díospóireacht)",
+        "pl": "4. Przedstawienie programu prac prezydencji irlandzkiej (debata)",
+        "mt": "4. Preżentazzjoni tal-programm ta’ attivitajiet tal-Presidenza Irlandiża (dibattitu)",
+        "sl": "4. Predstavitev programa dejavnosti irskega predsedstva (razprava)",
+        "hu": "4. Az ír elnökség programjának bemutatása (vita)",
+        "es": "4. Presentación del programa de actividades de la Presidencia irlandesa (debate)",
+        "et": "4. Eesistujariigi Iirimaa tegevuskava tutvustamine (arutelu)",
+        "en": "4. Presentation of the programme of activities of the Irish Presidency (debate)",
+        "el": "4. Παρουσίαση του προγράμματος δραστηριοτήτων της Ιρλανδικής Προεδρίας (συζήτηση)",
+        "nl": "4. Presentatie van het activiteitenprogramma van het Ierse voorzitterschap (debat)",
+        "bg": "4. Представяне на програмата за дейността на ирландското председателство (разискване)",
+        "sv": "4. Presentation av det irländska ordförandeskapets verksamhetsprogram (debatt)",
+        "it": "4. Presentazione del programma di attività della presidenza irlandese (discussione)",
+        "de": "4. Erläuterung des Tätigkeitsprogramms des irischen Ratsvorsitzes (Aussprache)",
+        "da": "4. Fremlæggelse af det irske formandskabs arbejdsprogram (forhandling)"
+      },
+      "activity_start_date": "2026-07-07T10:41:14.555+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456892",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456901",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456923",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456862",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456880",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456884",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456897",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313821",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456918",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313824",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704332",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456909",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456899",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456854",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651488",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313832",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456856",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456849",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456878",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456869",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456914",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456905",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456844",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456895",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313827",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456907",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313835",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456852",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456865",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456887",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456875",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313830",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456867",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313839",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456911",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456917",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456847",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017088050425",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313842",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456873",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456919",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456890",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313837",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456860",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456882",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456858"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-70"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-004",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-004"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2026-2756"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-20",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T20:04:53.349+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-20",
+      "activity_label": {
+        "hu": "20. A következő ülésnap napirendje",
+        "pt": "20. Ordem do dia da próxima sessão",
+        "el": "20. Ημερήσια διάταξη της επόμενης συνεδρίασης",
+        "bg": "20. Дневен ред на следващото заседание",
+        "lv": "20. Nākamās sēdes darba kārtība",
+        "ga": "20. Clár oibre an chéad suí eile",
+        "en": "20. Agenda of the next sitting",
+        "mt": "20. L-aġenda tas-seduta li jmiss",
+        "fi": "20. Seuraavan istunnon esityslista",
+        "fr": "20. Ordre du jour de la prochaine séance",
+        "sk": "20. Program rokovania na nasledujúci deň",
+        "it": "20. Ordine del giorno della prossima seduta",
+        "es": "20. Orden del día de la próxima sesión",
+        "pl": "20. Porządek obrad następnego posiedzenia",
+        "de": "20. Tagesordnung der nächsten Sitzung",
+        "et": "20. Järgmise istungi päevakord",
+        "ro": "20. Ordinea de zi a următoarei ședințe",
+        "hr": "20. Dnevni red sljedeće dnevne sjednice",
+        "nl": "20. Agenda van de volgende vergadering",
+        "sl": "20. Dnevni red naslednje seje",
+        "sv": "20. Föredragningslista för nästa sammanträde",
+        "da": "20. Dagsorden for næste møde",
+        "lt": "20. Kito posėdžio darbotvarkė",
+        "cs": "20. Pořad jednání příštího denního zasedání"
+      },
+      "activity_start_date": "2026-07-07T20:04:38.533+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086700057"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-020",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-020"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-8",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T13:03:36.716+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-8",
+      "activity_label": {
+        "bg": "8. Възобновяване на заседанието",
+        "sk": "8. Pokračovanie rokovania",
+        "en": "8. Resumption of the sitting",
+        "pl": "8. Wznowienie posiedzenia",
+        "it": "8. Ripresa della seduta",
+        "pt": "8. Reinício da sessão",
+        "fi": "8. Istunnon jatkaminen",
+        "lv": "8. Sēdes atsākšana",
+        "hu": "8. Az ülés folytatása",
+        "nl": "8. Hervatting van de vergadering",
+        "fr": "8. Reprise de la séance",
+        "sl": "8. Nadaljevanje seje",
+        "mt": "8. Tkomplija tas-seduta",
+        "hr": "8. Nastavak dnevne sjednice",
+        "et": "8. Istungi jätkamine",
+        "es": "8. Reanudación de la sesión",
+        "ga": "8. Athchromadh ar an suí",
+        "lt": "8. Posėdžio pratęsimas",
+        "ro": "8. Reluarea ședinței",
+        "sv": "8. Återupptagande av sammanträdet",
+        "cs": "8. Pokračování denního zasedání",
+        "de": "8. Wiederaufnahme der Sitzung",
+        "el": "8. Επανάληψη της συνεδρίασης",
+        "da": "8. Genoptagelse af mødet"
+      },
+      "activity_start_date": "2026-07-07T13:03:26.432+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463100"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-008",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-008"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-13",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T16:38:32.22+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-13",
+      "activity_label": {
+        "ro": "13. Prezentarea Planului de acțiune privind securitatea cibernetică și IA (dezbatere)",
+        "en": "13. Presentation of the Action Plan on Cybersecurity and AI (debate)",
+        "de": "13. Erläuterung des Aktionsplans zu Cybersicherheit und KI (Aussprache)",
+        "pt": "13. Apresentação do plano de ação para a cibersegurança e a IA (debate)",
+        "et": "13. Küberturvalisuse ja tehisintellekti tegevuskava tutvustamine (arutelu)",
+        "lv": "13. Iepazīstināšana ar rīcības plānu attiecībā uz kiberdrošību un MI (debates)",
+        "sl": "13. Predstavitev akcijskega načrta za kibernetsko varnost in umetno inteligenco (razprava)",
+        "hu": "13. A kiberbiztonságra és a mesterséges intelligenciára vonatkozó cselekvési terv ismertetése (vita)",
+        "bg": "13. Представяне на плана за действие относно киберсигурността и ИИ (разискване)",
+        "cs": "13. Prezentace akčního plánu pro kybernetickou bezpečnost a umělou inteligenci (rozprava)",
+        "hr": "13. Predstavljanje akcijskog plana za kibernetičku sigurnost i umjetnu inteligenciju (rasprava)",
+        "mt": "13. Preżentazzjoni tal-Pjan ta’ Azzjoni dwar iċ-Ċibersigurtà u l-IA (dibattitu)",
+        "fr": "13. Présentation du plan d'action sur la cybersécurité et l'IA (débat)",
+        "sk": "13. Predstavenie akčného plánu pre kybernetickú bezpečnosť a umelú inteligenciu (rozprava)",
+        "ga": "13. Cur i láthair an Phlean Gníomhaíochta maidir le Cibearshlándáil agus IS (díospóireacht)",
+        "el": "13. Παρουσίαση του σχεδίου δράσης για την κυβερνοασφάλεια και την τεχνητή νοημοσύνη (συζήτηση)",
+        "sv": "13. Presentation av handlingsplanen för cybersäkerhet och AI (debatt)",
+        "es": "13. Presentación del plan de acción sobre ciberseguridad e IA (debate)",
+        "fi": "13. Kyberturvallisuutta ja tekoälyä koskevan toimintasuunnitelman esittely (keskustelu)",
+        "pl": "13. Przedstawienie planu działania w sprawie cyberbezpieczeństwa i sztucznej inteligencji (debata)",
+        "da": "13. Forelæggelse af handlingsplanen om cybersikkerhed og AI (forhandling)",
+        "nl": "13. Presentatie van het actieplan inzake cyberbeveiliging en AI (debat)",
+        "lt": "13. Veiksmų plano kibernetinio saugumo ir dirbtinio intelekto srityje pristatymas (diskusijos)",
+        "it": "13. Presentazione del piano d'azione su cibersicurezza e IA (discussione)"
+      },
+      "activity_start_date": "2026-07-07T15:00:35+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566763",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556754",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704336",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537730",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556783",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017088050401",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556816",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556767",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566753",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537740",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556834",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556826",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556752",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556786",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556796",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537726",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537738",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556810",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556802",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556836",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556746",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556762",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566747",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537719",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556808",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556756",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556812",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556830",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556785",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556782",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556818",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556769",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566755",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537742",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017088050373",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556788",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556820",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556775",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556790",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556838",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087973610",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537720",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566757",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537732",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556748",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556764",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566760",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556840",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556828",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566744",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556814",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566751",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556779",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566749",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556798",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017088050402",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556771",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537728",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566746",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556804",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556744",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556822",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556777",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556760",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556792",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537722",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537734",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566759",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556758",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556832",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556824",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556750",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556842",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-6",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556794",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537736",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556800",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556781",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556773",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086556806"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-83"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-013",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-013"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2026-2795"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-17",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T20:00:37.368+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-17",
+      "activity_label": {
+        "lv": "17. Komisijas 2025. gada ziņojums par Serbiju (debates)",
+        "ro": "17. Raportul Comisiei din 2025 privind Serbia (dezbatere)",
+        "cs": "17. Zpráva Komise o Srbsku za rok 2025 (rozprava)",
+        "da": "17. Kommissionens 2025-rapport om Serbien (forhandling)",
+        "pt": "17. Relatório de 2025 da Comissão relativo à Sérvia (debate)",
+        "en": "17. 2025 Commission report on Serbia (debate)",
+        "sl": "17. Poročilo Komisije o Srbiji za leto 2025 (razprava)",
+        "lt": "17. 2025 m. Komisijos ataskaita dėl Serbijos (diskusijos)",
+        "hr": "17. Izvješće Komisije o Srbiji za 2025. (rasprava)",
+        "bg": "17. Доклад на Комисията относно Сърбия за 2025 г. (разискване)",
+        "ga": "17. Tuarascáil 2025 ón gCoimisiún maidir leis an tSeirbia (díospóireacht)",
+        "it": "17. Relazione 2025 della Commissione sulla Serbia (discussione)",
+        "sk": "17. Správa Komisie o Srbsku za rok 2025 (rozprava)",
+        "sv": "17. Kommissionens rapport för 2025 om Serbien (debatt)",
+        "fi": "17. Serbiaa koskeva komission vuoden 2025 kertomus (keskustelu)",
+        "es": "17. Informe de 2025 de la Comisión sobre Serbia (debate)",
+        "de": "17. Bericht 2025 der Kommission über Serbien (Aussprache)",
+        "el": "17. Έκθεση της Επιτροπής του 2025 για τη Σερβία (συζήτηση)",
+        "mt": "17. Ir-rapport 2025 tal-Kummissjoni dwar is-Serbja (dibattitu)",
+        "hu": "17. A Bizottság Szerbiáról szóló 2025. évi jelentése (vita)",
+        "et": "17. Komisjoni 2025. aasta aruanne Serbia kohta (arutelu)",
+        "pl": "17. Sprawozdanie Komisji dotyczące Serbii – 2025 r. (debata)",
+        "fr": "17. Rapport 2025 de la Commission concernant la Serbie (débat)",
+        "nl": "17. Commissieverslag 2025 over Servië (debat)"
+      },
+      "activity_start_date": "2026-07-07T19:34:42.971+02:00",
+      "based_on_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0163"
+      ],
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682127",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682121",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682133",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704341",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682122",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682129",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682131",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682125",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682141",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682137",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086700044",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682143",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682120",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682123",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682135",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682139"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-24"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-017",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-017"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2025-2255"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-6",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:24:26.651+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-6",
+      "activity_label": {
+        "ga": "6. Fáilte",
+        "ro": "6. Urări de bun-venit",
+        "mt": "6. Merħba",
+        "bg": "6. Приветствие с добре дошли",
+        "nl": "6. Welkomstwoord",
+        "en": "6. Welcome",
+        "et": "6. Tervitus",
+        "it": "6. Benvenuto",
+        "hu": "6. Köszöntés",
+        "lt": "6. Oficialus pasveikinimas",
+        "de": "6. Begrüßung",
+        "pt": "6. Votos de boas-vindas",
+        "lv": "6. Oficiāla sveikšana",
+        "fi": "6. Tervetulotoivotukset",
+        "pl": "6. Oficjalne powitanie",
+        "sv": "6. Välkomsthälsning",
+        "sl": "6. Dobrodošlica",
+        "sk": "6. Oficiálne privítanie",
+        "hr": "6. Dobrodošlica",
+        "el": "6. Υποδοχή",
+        "fr": "6. Souhaits de bienvenue",
+        "da": "6. Velkomstord",
+        "cs": "6. Přivítání",
+        "es": "6. Bienvenida"
+      },
+      "activity_start_date": "2026-07-07T12:20:56.46+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456932",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456930",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456929",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651489",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456931"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-006",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-006"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-10",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T14:47:07.189+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-10",
+      "activity_label": {
+        "en": "10. The impact of the 1974 Turkish invasion on Cypriot women and girls, and the crimes committed by Turkish forces and consequences on gender equality (debate)",
+        "ro": "10. Impactul invaziei turce din 1974 asupra femeilor și fetelor din Cipru, crimele comise de forțele turce și consecințele asupra egalității de gen (dezbatere)",
+        "de": "10. Die Folgen der türkischen Invasion von 1974 für zyprische Frauen und Mädchen, die von den türkischen Streitkräften verübten Verbrechen und die Konsequenzen für die Gleichstellung der Geschlechter (Aussprache)",
+        "hu": "10. Az 1974-es török invázió ciprusi nőkre és lányokra gyakorolt hatása, a török erők által elkövetett bűncselekmények és a nemek közötti egyenlőségre gyakorolt következmények (vita)",
+        "fi": "10. Turkin vuoden 1974 hyökkäyksen seuraukset kyproslaisille naisille ja tytöille, Turkin joukkojen tekemät rikokset ja seuraukset sukupuolten tasa-arvolle (keskustelu)",
+        "sk": "10. Vplyv tureckej invázie z roku 1974 na cyperské ženy a dievčatá a zločiny spáchané tureckými silami a dôsledky pre rodovú rovnosť (rozprava)",
+        "mt": "10. L-impatt tal-invażjoni Torka tal-1974 fuq in-nisa u l-bniet Ċiprijotti, u d-delitti mwettqa mill-forzi Torok u l-konsegwenzi għall-ugwaljanza bejn il-ġeneri (dibattitu)",
+        "ga": "10. Tionchar ionradh na Tuirce in 1974 ar mhná agus ar chailíní na Cipire, agus na coireanna a rinne fórsaí na Tuirce agus na hiarmhairtí ar chomhionannas inscne (díospóireacht)",
+        "sl": "10. Vpliv turške invazije leta 1974 na ciprske ženske in deklice ter kazniva dejanja, ki so jih zagrešile turške sile, in posledice za enakost spolov (razprava)",
+        "bg": "10. Въздействие на турската инвазия през 1974 г. върху кипърските жени и момичета, престъпления, извършени от турските сили, и последици за равенството между половете (разискване)",
+        "hr": "10. Učinak turske invazije 1974. godine na ciparske žene i djevojčice te zločini koje su počinile turske snage i posljedice na rodnu ravnopravnost (rasprava)",
+        "fr": "10. Répercussions de l’invasion turque de 1974 sur les femmes et les filles chypriotes, crimes perpétrés par les forces turques et conséquences sur l’égalité des genres (débat)",
+        "es": "10. Repercusiones de la invasión turca de 1974 para las mujeres y las niñas chipriotas, crímenes cometidos por las fuerzas turcas y consecuencias para la igualdad de género (debate)",
+        "et": "10. Türgi 1974. aasta sissetungi mõju Küprose naistele ja tütarlastele ning Türgi vägede toime pandud kuriteod ja tagajärjed soolisele võrdõiguslikkusele (arutelu)",
+        "el": "10. Ο αντίκτυπος της τουρκικής εισβολής του 1974 στις γυναίκες και τα κορίτσια της Κύπρου, τα εγκλήματα που διαπράχθηκαν από τις τουρκικές δυνάμεις και οι συνέπειες για την ισότητα των φύλων (συζήτηση)",
+        "pl": "10. Wpływ inwazji tureckiej z 1974 r. na kobiety i dziewczęta na Cyprze oraz zbrodnie popełniane przez siły tureckie i konsekwencje dla równości płci (debata)",
+        "lt": "10. 1974 m. Turkijos invazijos poveikis Kipro moterims ir mergaitėms, Turkijos pajėgų įvykdyti nusikaltimai ir pasekmės lyčių lygybei (diskusijos)",
+        "nl": "10. De gevolgen van de Turkse invasie van 1974 voor Cypriotische vrouwen en meisjes, en de misdaden die door Turkse troepen zijn begaan en de gevolgen daarvan voor de gendergelijkheid (debat)",
+        "it": "10. Impatto dell'invasione turca del 1974 sulle donne e le ragazze cipriote, crimini commessi dalle forze turche e conseguenze in termini di parità di genere (discussione)",
+        "lv": "10. Turcijas 1974. gada iebrukuma ietekme uz Kipras sievietēm un meitenēm, Turcijas spēku pastrādātie noziegumi un sekas dzimumu līdztiesībai (debates)",
+        "cs": "10. Dopad turecké invaze v roce 1974 na kyperské ženy a dívky a zločiny spáchané tureckými silami a jejich důsledky pro genderovou rovnost (rozprava)",
+        "pt": "10. O impacto da invasão turca de 1974 nas mulheres e nas raparigas cipriotas, os crimes cometidos pelas forças turcas e as consequências para a igualdade de género (debate)",
+        "sv": "10. Effekterna av den turkiska invasionen 1974 på cypriotiska kvinnor och flickor, de brott som begåtts av turkiska styrkor och konsekvenserna för jämställdheten (debatt)",
+        "da": "10. Konsekvenserne af Tyrkiets invasion i 1974 for de cypriotiske kvinder og piger og af de forbrydelser, som de tyrkiske tropper begik, samt følgevirkningerne heraf for ligestillingen mellem kønnene (forhandling)"
+      },
+      "activity_start_date": "2026-07-07T14:30:49.722+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537697",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537707",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537714",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537711",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537709",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537703",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537694",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537710",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537699",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704334",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537695",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-5",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537705",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537712",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537701"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-102"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-010",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-010"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2026-2617"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-14",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T18:40:27.556+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-14",
+      "activity_label": {
+        "de": "14. Bericht 2025 der Kommission über die Ukraine (Aussprache)",
+        "sl": "14. Poročilo Komisije o Ukrajini za leto 2025 (razprava)",
+        "ro": "14. Raportul Comisiei din 2025 privind Ucraina (dezbatere)",
+        "ga": "14. Tuarascáil 2025 ón gCoimisiún maidir leis an Úcráin (díospóireacht)",
+        "mt": "14. Ir-rapport 2025 tal-Kummissjoni dwar l-Ukrajna (dibattitu)",
+        "en": "14. 2025 Commission report on Ukraine (debate)",
+        "sk": "14. Správa Komisie o Ukrajine za rok 2025 (rozprava)",
+        "fi": "14. Ukrainaa koskeva komission vuoden 2025 kertomus (keskustelu)",
+        "cs": "14. Zpráva Komise o Ukrajině za rok 2025 (rozprava)",
+        "bg": "14. Доклад на Комисията относно Украйна за 2025 г. (разискване)",
+        "et": "14. Komisjoni 2025. aasta aruanne Ukraina kohta (arutelu)",
+        "sv": "14. Kommissionens rapport för 2025 om Ukraina (debatt)",
+        "hr": "14. Izvješće Komisije o Ukrajini za 2025. (rasprava)",
+        "it": "14. Relazione 2025 della Commissione sull'Ucraina (discussione)",
+        "nl": "14. Commissieverslag 2025 over Oekraïne (debat)",
+        "pt": "14. Relatório de 2025 da Comissão relativo à Ucrânia (debate)",
+        "da": "14. Kommissionens 2025-rapport om Ukraine (forhandling)",
+        "lt": "14. 2025 m. Komisijos ataskaita dėl Ukrainos (diskusijos)",
+        "pl": "14. Sprawozdanie Komisji dotyczące Ukrainy – 2025 r. (debata)",
+        "es": "14. Informe de 2025 de la Comisión sobre Ucrania (debate)",
+        "el": "14. Έκθεση της Επιτροπής του 2025 για την Ουκρανία (συζήτηση)",
+        "hu": "14. A Bizottság Ukrajnáról szóló 2025. évi jelentése (vita)",
+        "lv": "14. Komisijas 2025. gada ziņojums par Ukrainu (debates)",
+        "fr": "14. Rapport 2025 de la Commission sur l’Ukraine (débat)"
+      },
+      "activity_start_date": "2026-07-07T16:38:32.22+02:00",
+      "based_on_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0172"
+      ],
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651522",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651525",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704339",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566773",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682044",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651446",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566836",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651486",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566839",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651508",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566785",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682050",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651449",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566841",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566842",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-7",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651477",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566803",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017089158563",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566779",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566816",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566795",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651514",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566806",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651451",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651470",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566797",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651463",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566819",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651466",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566781",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651529",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651520",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566800",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651503",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566825",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651535",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566812",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566834",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566761",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651506",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566764",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651538",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651475",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651491",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566777",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566793",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651447",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017088282827",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566767",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566789",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566804",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651540",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566814",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651512",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651518",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651461",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566798",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651464",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651527",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566807",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566829",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566801",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566823",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651455",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651459",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651530",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651499",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566810",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651533",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566832",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566838",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651473",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704338",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566775",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651444",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566791",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566787",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651501",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566769",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651542",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651510",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651479",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651516",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651495",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566818",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566808",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566827",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566821",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651453",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651457",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651472",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651497",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566771",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566830",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566799",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651468",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651481",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651484",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086566783"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-72"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-014",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-014"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2025-2259"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-3",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T10:41:14.555+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-3",
+      "activity_label": {
+        "cs": "3. Pokračování denního zasedání",
+        "hr": "3. Nastavak dnevne sjednice",
+        "pt": "3. Reinício da sessão",
+        "sv": "3. Återupptagande av sammanträdet",
+        "ga": "3. Athchromadh ar an suí",
+        "en": "3. Resumption of the sitting",
+        "el": "3. Επανάληψη της συνεδρίασης",
+        "mt": "3. Tkomplija tas-seduta",
+        "sl": "3. Nadaljevanje seje",
+        "fi": "3. Istunnon jatkaminen",
+        "bg": "3. Възобновяване на заседанието",
+        "da": "3. Genoptagelse af mødet",
+        "lt": "3. Posėdžio pratęsimas",
+        "hu": "3. Az ülés folytatása",
+        "sk": "3. Pokračovanie rokovania",
+        "nl": "3. Hervatting van de vergadering",
+        "ro": "3. Reluarea ședinței",
+        "fr": "3. Reprise de la séance",
+        "lv": "3. Sēdes atsākšana",
+        "et": "3. Istungi jätkamine",
+        "pl": "3. Wznowienie posiedzenia",
+        "it": "3. Ripresa della seduta",
+        "de": "3. Wiederaufnahme der Sitzung",
+        "es": "3. Reanudación de la sesión"
+      },
+      "activity_start_date": "2026-07-07T10:41:11.853+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313825"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-003",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-003"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T13:01:03.163+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7",
+      "activity_label": {
+        "ga": "7. Am vótála",
+        "sk": "7. Hlasovanie",
+        "de": "7. Abstimmungsstunde",
+        "en": "7. Voting time",
+        "pt": "7. Período de votação",
+        "sl": "7. Čas glasovanja",
+        "cs": "7. Hlasování",
+        "fr": "7. Heure des votes",
+        "pl": "7. Głosowanie",
+        "fi": "7. Äänestykset",
+        "nl": "7. Stemmingen",
+        "es": "7. Turno de votaciones",
+        "it": "7. Turno di votazioni",
+        "hu": "7. Szavazások órája",
+        "lv": "7. Balsošanas laiks",
+        "et": "7. Hääletused",
+        "hr": "7. Glasovanje",
+        "ro": "7. Votare",
+        "el": "7. Ώρα των ψηφοφοριών",
+        "mt": "7. Ħin tal-votazzjonijiet",
+        "lt": "7. Balsuoti skirtas laikas",
+        "da": "7. Afstemningstid",
+        "sv": "7. Omröstning",
+        "bg": "7. Време за гласуване"
+      },
+      "activity_start_date": "2026-07-07T12:24:26.651+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-2",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-13",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-6",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-3",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-14",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-7",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456933",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-15",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-19",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-10",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-4",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-8",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-16",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-9",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-20",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-11",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-1",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-12",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-5",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-17",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-18"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-22",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T20:05:04.813+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-22",
+      "activity_label": {
+        "fi": "22. Istunnon päättäminen",
+        "et": "22. Istungi lõpp",
+        "sl": "22. Zaključek seje",
+        "nl": "22. Sluiting van de vergadering",
+        "bg": "22. Закриване на заседанието",
+        "fr": "22. Levée de la séance",
+        "de": "22. Schluss der Sitzung",
+        "sv": "22. Avslutande av sammanträdet",
+        "lt": "22. Posėdžio pabaiga",
+        "el": "22. Λήξη της συνεδρίασης",
+        "hu": "22. Az ülés berekesztése",
+        "en": "22. Closure of the sitting",
+        "cs": "22. Ukončení denního zasedání",
+        "sk": "22. Skončenie rokovania",
+        "it": "22. Chiusura della seduta",
+        "mt": "22. Għeluq tas-seduta",
+        "da": "22. Hævelse af mødet",
+        "hr": "22. Zatvaranje dnevne sjednice",
+        "pl": "22. Zamknięcie posiedzenia",
+        "lv": "22. Sēdes slēgšana",
+        "ga": "22. Críoch an tsuí",
+        "es": "22. Cierre de la sesión",
+        "ro": "22. Ridicarea ședinței",
+        "pt": "22. Encerramento da sessão"
+      },
+      "activity_start_date": "2026-07-07T20:04:58.249+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086700062"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-022",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-022"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-12",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T15:00:35+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-12",
+      "activity_label": {
+        "bg": "12. Одобряване на протокола от предишното заседание",
+        "pl": "12. Zatwierdzenie protokołu poprzedniego posiedzenia",
+        "pt": "12. Aprovação da ata da sessão anterior",
+        "da": "12. Godkendelse af protokollen fra foregående møde",
+        "fi": "12. Edellisen istunnon pöytäkirjan hyväksyminen",
+        "hu": "12. Az előző ülésnap jegyzőkönyvének elfogadása",
+        "cs": "12. Schválení zápisu z předchozího denního zasedání",
+        "lt": "12. Ankstesnio posėdžio protokolo tvirtinimas",
+        "el": "12. Έγκριση των Συνοπτικών Πρακτικών της προηγούμενης συνεδρίασης",
+        "sv": "12. Justering av protokollet från föregående sammanträde",
+        "sk": "12. Schválenie zápisnice z predchádzajúceho rokovania",
+        "ro": "12. Aprobarea procesului-verbal al ședinței precedente",
+        "en": "12. Approval of the minutes of the previous sitting",
+        "sl": "12. Sprejetje zapisnika predhodne seje",
+        "hr": "12. Usvajanje zapisnika s prethodne dnevne sjednice",
+        "lv": "12. Iepriekšējās sēdes protokola apstiprināšana",
+        "es": "12. Aprobación del acta de la sesión anterior",
+        "nl": "12. Goedkeuring van de notulen van de vorige vergadering",
+        "et": "12. Eelmise istungi protokolli kinnitamine",
+        "it": "12. Approvazione del processo verbale della seduta precedente",
+        "de": "12. Genehmigung des Protokolls der vorangegangenen Sitzung",
+        "fr": "12. Approbation du procès-verbal de la séance précédente",
+        "mt": "12. Approvazzjoni tal-minuti tas-seduta preċedenti",
+        "ga": "12. Formheas mhiontuairiscí an tsuí roimhe seo"
+      },
+      "activity_start_date": "2026-07-07T15:00:20+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537718"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-012",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-012"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-16",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T19:34:42.971+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-16",
+      "activity_label": {
+        "pt": "16. Relatório de 2025 da Comissão relativo à Moldávia (debate)",
+        "lv": "16. Komisijas 2025. gada ziņojums par Moldovu (debates)",
+        "nl": "16. Commissieverslag 2025 over Moldavië (debat)",
+        "fr": "16. Rapport 2025 de la Commission concernant la Moldavie (débat)",
+        "it": "16. Relazione 2025 della Commissione sulla Moldova (discussione)",
+        "fi": "16. Moldovaa koskeva komission vuoden 2025 kertomus (keskustelu)",
+        "sl": "16. Poročilo Komisije o Moldaviji za leto 2025 (razprava)",
+        "de": "16. Bericht 2025 der Kommission über Moldau (Aussprache)",
+        "et": "16. Komisjoni 2025. aasta aruanne Moldova kohta (arutelu)",
+        "lt": "16. 2025 m. Komisijos ataskaita dėl Moldovos (diskusijos)",
+        "hr": "16. Izvješće Komisije o Moldovi za 2025. (rasprava)",
+        "bg": "16. Доклад на Комисията относно Молдова за 2025 г. (разискване)",
+        "en": "16. 2025 Commission report on Moldova (debate)",
+        "da": "16. Kommissionens 2025-rapport om Moldova (forhandling)",
+        "cs": "16. Zpráva Komise o Moldavsku za rok 2025 (rozprava)",
+        "hu": "16. A Bizottság Moldováról szóló 2025. évi jelentése (vita)",
+        "ga": "16. Tuarascáil 2025 ón gCoimisiún maidir leis an Moldóiv (díospóireacht)",
+        "pl": "16. Sprawozdanie Komisji dotyczące Mołdawii – 2025 r. (debata)",
+        "mt": "16. Ir-rapport 2025 tal-Kummissjoni dwar il-Moldova (dibattitu)",
+        "es": "16. Informe de 2025 de la Comisión sobre Moldavia (debate)",
+        "sv": "16. Kommissionens rapport för 2025 om Moldavien (debatt)",
+        "el": "16. Έκθεση της Επιτροπής του 2025 για τη Μολδαβία (συζήτηση)",
+        "ro": "16. Raportul Comisiei din 2025 privind Republica Moldova (dezbatere)",
+        "sk": "16. Správa Komisie o Moldavsku za rok 2025 (rozprava)"
+      },
+      "activity_start_date": "2026-07-07T18:40:47.46+02:00",
+      "based_on_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0164"
+      ],
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682047",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682081",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682100",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682072",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682052",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682118",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682074",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682059",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682093",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682108",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682089",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-8",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682104",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682070",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682110",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682098",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682085",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682119",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682091",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682113",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682106",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682087",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682056",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682068",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682115",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682061",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682049",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682083",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682102",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682111",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682063",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682054",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682076",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682079",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682058",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682095",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682066",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086682116"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-73"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-016",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-016"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2025-2258"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-5",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:20:56.46+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-5",
+      "activity_label": {
+        "pt": "5. Reinício da sessão",
+        "mt": "5. Tkomplija tas-seduta",
+        "fr": "5. Reprise de la séance",
+        "sk": "5. Pokračovanie rokovania",
+        "it": "5. Ripresa della seduta",
+        "da": "5. Genoptagelse af mødet",
+        "nl": "5. Hervatting van de vergadering",
+        "el": "5. Επανάληψη της συνεδρίασης",
+        "pl": "5. Wznowienie posiedzenia",
+        "sl": "5. Nadaljevanje seje",
+        "fi": "5. Istunnon jatkaminen",
+        "lv": "5. Sēdes atsākšana",
+        "cs": "5. Pokračování denního zasedání",
+        "en": "5. Resumption of the sitting",
+        "bg": "5. Възобновяване на заседанието",
+        "hu": "5. Az ülés folytatása",
+        "ga": "5. Athchromadh ar an suí",
+        "de": "5. Wiederaufnahme der Sitzung",
+        "et": "5. Istungi jätkamine",
+        "ro": "5. Reluarea ședinței",
+        "sv": "5. Återupptagande av sammanträdet",
+        "lt": "5. Posėdžio pratęsimas",
+        "hr": "5. Nastavak dnevne sjednice",
+        "es": "5. Reanudación de la sesión"
+      },
+      "activity_start_date": "2026-07-07T12:20:52.895+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086651493"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-005",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-005"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-19",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T20:04:38.533+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-19",
+      "activity_label": {
+        "lt": "19. Rašytiniai paaiškinimai dėl balsavimo (Darbo tvarkos taisyklių 201 straipsnis)",
+        "cs": "19. Písemná vysvětlení hlasování (článek 201 jednacího řádu)",
+        "nl": "19. Schriftelijke stemverklaringen (artikel 201 van het Reglement)",
+        "da": "19. Skriftlige stemmeforklaringer (forretningsordenens artikel 201)",
+        "et": "19. Kirjalikud selgitused hääletuste kohta (kodukorra artikkel 201)",
+        "sv": "19. Skriftliga röstförklaringar (artikel 201 i arbetsordningen)",
+        "it": "19. Dichiarazioni di voto scritte (articolo 201 del regolamento)",
+        "hu": "19. Írásbeli szavazatindokolások (az eljárási szabályzat 201. cikke)",
+        "de": "19. Schriftliche Erklärungen zur Abstimmung (Artikel 201 GO)",
+        "lv": "19. Rakstiski balsojumu skaidrojumi (Reglamenta 201. pants)",
+        "el": "19. Γραπτές αιτιολογήσεις ψήφων (άρθρο 201 του Κανονισμού)",
+        "sk": "19. Písomné vysvetlenia hlasovania (článok 201 rokovacieho poriadku)",
+        "pt": "19. Declarações de voto escritas (artigo 201.º do Regimento)",
+        "mt": "19. Spjegazzjonijiet tal-vot bil-miktub (Artikolu 201 tar-Regoli ta' Proċedura)",
+        "hr": "19. Pisana obrazloženja glasovanja (članak 201. Poslovnika)",
+        "ro": "19. Explicații privind votul prezentate în scris (articolul 201 din Regulamentul de procedură)",
+        "pl": "19. Oświadczenia pisemne dotyczące stanowiska zajętego w głosowaniu (art. 201 Regulaminu)",
+        "fr": "19. Explications de vote écrites (article 201 du règlement)",
+        "es": "19. Explicaciones de voto por escrito (artículo 201 del Reglamento interno)",
+        "ga": "19. Mínithe i scríbhinn ar an vótáil (Riail 201)",
+        "en": "19. Written explanations of votes (Rule 201)",
+        "sl": "19. Pisne obrazložitve glasovanja (člen 201 Poslovnika)",
+        "bg": "19. Писмени обяснения на вот (член 201 от Правилника за дейността)",
+        "fi": "19. Kirjalliset äänestysselitykset (työjärjestyksen 201 artikla)"
+      },
+      "activity_start_date": "2026-07-07T20:04:38.533+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086833189"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-019",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-019"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-9",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T14:30:49.722+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-9",
+      "activity_label": {
+        "it": "9. UE-Messico (discussione congiunta)",
+        "pt": "9. UE-México (discussão conjunta)",
+        "sv": "9. EU–Mexiko (gemensam debatt)",
+        "sl": "9. EU-Mehika (skupna razprava)",
+        "cs": "9. EU–Mexiko (společná rozprava)",
+        "lt": "9. ES ir Meksika (bendros diskusijos)",
+        "fr": "9. UE-Mexique (discussion commune)",
+        "en": "9. EU-Mexico (joint debate)",
+        "es": "9. UE-México (debate conjunto)",
+        "pl": "9. UE–Meksyk (łączna debata)",
+        "bg": "9. ЕС-Мексико (общо разискване)",
+        "mt": "9. UE-Messiku (dibattitu konġunt)",
+        "el": "9. ΕΕ–Μεξικό (κοινή συζήτηση)",
+        "hu": "9. EU–Mexico (közös vita)",
+        "ga": "9. An tAontas agus Meicsiceo (díospóireacht chomhpháirteach)",
+        "nl": "9. EU-Mexico (gezamenlijk debat)",
+        "lv": "9. ES un Meksika (kopīga apspriešana)",
+        "sk": "9. EÚ – Mexiko (spoločná rozprava)",
+        "fi": "9. EU ja Meksiko (yhteiskeskustelu)",
+        "et": "9. EL ja Mehhiko (ühine arutelu)",
+        "ro": "9. UE-Mexic (discuție comună)",
+        "de": "9. EU-Mexiko (gemeinsame Aussprache)",
+        "hr": "9. EU-Meksiko (zajednička rasprava)",
+        "da": "9. EU og Mexico (forhandling under ét)"
+      },
+      "activity_start_date": "2026-07-07T13:03:36.716+02:00",
+      "based_on_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0181",
+        "eli/dl/doc/A-10-2026-0198",
+        "eli/dl/doc/C-10-2026-0128",
+        "eli/dl/doc/A-10-2026-0182",
+        "eli/dl/doc/C-10-2026-0126"
+      ],
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463138",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537664",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537678",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463114",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463128",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537683",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537654",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017089158561",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463104",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463130",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463134",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537660",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537674",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463096",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-4",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537656",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463110",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537646",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537650",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463106",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463140",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537666",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463108",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463116",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537685",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463093",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537690",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463121",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537680",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463136",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537662",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537676",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537644",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537670",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463112",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463126",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537648",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537652",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537693",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463119",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537682",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463102",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463142",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463132",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537668",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537672",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537687",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463099",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537692",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537658",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086537688",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463123"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-41",
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-40",
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-39"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-009",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-009"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2025-0271",
+        "eli/dl/proc/2025-0810",
+        "eli/dl/proc/2025-0810R"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-2",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T10:34:11.398+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-2",
+      "activity_label": {
+        "hu": "2. Az uniós autóipar versenyképességének megerősítését és minőségi munkahelyeinek megőrzését célzó sürgős intézkedések (vita)",
+        "it": "2. Misure urgenti per rafforzare la competitività e salvaguardare i posti di lavoro di qualità nel settore automobilistico dell'UE (discussione)",
+        "da": "2. Hasteforanstaltninger til at styrke konkurrenceevnen og beskytte job af høj kvalitet i EU's bilindustri (forhandling)",
+        "nl": "2. Dringende maatregelen om het concurrentievermogen te versterken en kwalitatief hoogwaardige banen in de automobielsector van de EU te waarborgen (debat)",
+        "pt": "2. Medidas urgentes para reforçar a competitividade e salvaguardar empregos de qualidade no setor automóvel da UE (debate)",
+        "et": "2. Kiireloomulised meetmed konkurentsivõime tugevdamiseks ja kvaliteetsete töökohtade säilitamiseks ELi autotööstuses (arutelu)",
+        "ro": "2. Măsuri urgente de consolidare a competitivității și de protejare a locurilor de muncă de calitate în sectorul autovehiculelor din UE (dezbatere)",
+        "es": "2. Medidas urgentes para reforzar la competitividad y proteger el empleo de calidad en el sector del automóvil de la Unión (debate)",
+        "cs": "2. Naléhavá opatření k posílení konkurenceschopnosti a zachování kvalitních pracovních míst v automobilovém průmyslu EU (rozprava)",
+        "fi": "2. Kiireelliset toimet kilpailukyvyn vahvistamiseksi ja laadukkaiden työpaikkojen turvaamiseksi EU:n autoalalla (keskustelu)",
+        "el": "2. Επείγοντα μέτρα για την ενίσχυση της ανταγωνιστικότητας και τη διασφάλιση ποιοτικών θέσεων εργασίας στον τομέα της αυτοκινητοβιομηχανίας της ΕΕ (συζήτηση)",
+        "mt": "2. Miżuri urġenti biex tissaħħaħ il-kompetittività u jiġu salvagwardjati impjiegi ta’ kwalità fis-settur tal-karozzi tal-UE (dibattitu)",
+        "ga": "2. Bearta práinneacha chun iomaíochas a neartú agus poist ardcháilíochta a choimirciú in earnáil mótarfheithiclí an Aontais (díospóireacht)",
+        "sv": "2. Brådskande åtgärder för att stärka konkurrenskraften och skydda arbetstillfällen av hög kvalitet inom EU:s fordonssektor (debatt)",
+        "en": "2. Urgent measures to strengthen the competitiveness and safeguard quality jobs in the EU’s automotive sector (debate)",
+        "lt": "2. Skubios priemonės ES automobilių pramonės sektoriaus konkurencingumui stiprinti ir kokybiškoms darbo vietoms išsaugoti (diskusijos)",
+        "sl": "2. Nujni ukrepi za povečanje konkurenčnosti in ohranitev kakovostnih delovnih mest v avtomobilskem sektorju EU (razprava)",
+        "pl": "2. Pilne środki mające wzmocnić konkurencyjność i chronić wysokiej jakości miejsca pracy w sektorze motoryzacyjnym UE (debata)",
+        "hr": "2. Hitne mjere za jačanje konkurentnosti i očuvanje kvalitetnih radnih mjesta u automobilskom sektoru EU-a (rasprava)",
+        "bg": "2. Спешни мерки за укрепване на конкурентоспособността и за запазване на качествените работни места в автомобилния сектор на ЕС (разискване)",
+        "fr": "2. Mesures urgentes pour renforcer la compétitivité et préserver des emplois de qualité dans le secteur automobile de l'Union européenne (débat)",
+        "sk": "2. Naliehavé opatrenia na posilnenie konkurencieschopnosti a zabezpečenie kvalitných pracovných miest v automobilovom odvetví EÚ (rozprava)",
+        "de": "2. Dringende Maßnahmen zur Stärkung der Wettbewerbsfähigkeit und zur Sicherung hochwertiger Arbeitsplätze im Automobilsektor der EU (Aussprache)",
+        "lv": "2. ES autobūves nozares konkurētspējas stiprināšanai un augstas kvalitātes darbvietu aizsardzībai paredzēti steidzami pasākumi (debates)"
+      },
+      "activity_start_date": "2026-07-07T09:00:25.983+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221935",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221918",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313749",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313756",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221899",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221922",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313784",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313788",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313747",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221887",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221897",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221929",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221927",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313814",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221889",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313801",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313811",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313780",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313790",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313745",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221895",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221883",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221893",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704328",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221942",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221880",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221909",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313755",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221913",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313797",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313795",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313799",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704330",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313772",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313782",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313776",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313786",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221885",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313807",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221940",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-2",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221905",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313753",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313751",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221877",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313793",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313791",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313768",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313778",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313766",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017087704329",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221924",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313809",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221920",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221891",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313818",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221907",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221901",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221911",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221939",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313758",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313803",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221916",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313770",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313764",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313774",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221926",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313760",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313762",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313813",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313805",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086313815",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221876",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221931",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221903",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221933",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221943",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086221937"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-100"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-002",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-002"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07",
+        "eli/dl/proc/2026-2806"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-2",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:30:46.643+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-2",
+      "activity_label": {
+        "de": "7.2. Beschluss, mit dem die APPF aufgefordert wird, zu prüfen, ob die Partei Europa der Souveränen Nationen die in der Verordnung (EU, Euratom) 2025/2445 festgelegten Voraussetzungen erfüllt (Abstimmung)",
+        "en": "7.2. Decision requesting the Authority for European Political Parties and European Political Foundations to verify whether Europe of Sovereign Nations Party complies with the conditions laid down in Article 3(1), points (d) and (e), of Regulation (EU, Euratom) 2025/2445 (vote)",
+        "ro": "7.2. Decizie prin care se solicită Autorității pentru partidele politice europene și fundațiile politice europene să verifice dacă Partidul „Europa Națiunilor Suverane” respectă condițiile prevăzute la articolul 3 alineatul (1) literele (d) și (e) din Regulamentul (UE, Euratom) 2025/2445 (vot)",
+        "fi": "7.2. Päätös, jolla pyydetään Euroopan tason poliittisista puolueista ja Euroopan tason poliittisista säätiöistä vastaavaa viranomaista tarkistamaan, täyttääkö Suvereenien kansakuntien Eurooppa -puolue asetuksen (EU, Euratom) 2025/2445 3 artiklan 1 kohdan d ja e alakohdassa säädetyt edellytykset (äänestys)",
+        "el": "7.2. Απόφαση με την οποία ζητείται από την Αρχή για τα Ευρωπαϊκά Πολιτικά Κόμματα και τα Ευρωπαϊκά Πολιτικά Ιδρύματα να ελέγξει αν η Ομάδα «H Ευρώπη των Κυρίαρχων Εθνών» συμμορφώνεται με τις προϋποθέσεις του κανονισμού (ΕΕ, Ευρατόμ) 2025/2445 (ψηφοφορία)",
+        "et": "7.2. Otsus, millega palutakse Euroopa tasandi erakondade ja Euroopa tasandi poliitiliste sihtasutuste ametil kontrollida, kas Suveräänsete Rahvusriikide Euroopa erakond täidab määruse (EL, Euratom) 2025/2445 artikli 3 lõike 1 punktides d ja e sätestatud tingimusi (hääletus)",
+        "mt": "7.2. Deċiżjoni li titlob lill-Awtorità għall-Partiti Politiċi Ewropej u l-Fondazzjonijiet Politiċi Ewropej tivverifika jekk il-Partit Ewropa tan-Nazzjonijiet Sovrani jikkonformax mal-kundizzjonijiet stabbiliti fl-Artikolu 3(1), il-punti (d) u (e), tar-Regolament (UE, Euratom) 2025/2445 (votazzjoni)",
+        "lt": "7.2. Sprendimas, kuriuo Europos politinių partijų ir Europos politinių fondų institucijos prašoma patikrinti, ar Suverenių tautų Europos partija atitinka sąlygas, nustatytas Reglamento (ES, Euratomas) 2025/2445 3 straipsnio 1 dalies d ir e punktuose (balsavimas)",
+        "fr": "7.2. Décision demandant à l'Autorité pour les partis politiques européens et les fondations politiques européennes de vérifier si le parti Europe des nations souveraines respecte les conditions énoncées dans le règlement (UE, Euratom) 2025/2445 (vote)",
+        "sk": "7.2. Rozhodnutie, ktorým sa Úrad pre európske politické strany a európske politické nadácie žiada, aby overil, či strana Európa suverénnych národov spĺňa podmienky stanovené v článku 3 ods. 1 písm. d) a e) nariadenia (EÚ, Euratom) 2025/2445 (hlasovanie)",
+        "sv": "7.2. Förslag till beslut om en begäran till myndigheten för europeiska politiska partier och europeiska politiska stiftelser att kontrollera om gruppen Europa av suveräna nationer uppfyller villkoren i artikel 3.1 d och e i förordning (EU, Euratom) 2025/2445 (omröstning)",
+        "da": "7.2. Afgørelse om at anmode Myndigheden for Europæiske Politiske Partier og Europæiske Politiske Fonde om at kontrollere, om partiet Europa af Suveræne Nationer overholder de betingelser, der er fastsat i forordning (EU, Euratom) 2025/2445 (afstemning)",
+        "pl": "7.2. Decyzja w sprawie zwrócenia się do Urzędu ds. Europejskich Partii Politycznych i Europejskich Fundacji Politycznych o sprawdzenie, czy partia Europa Suwerennych Narodów spełnia warunki przewidziane w art. 3 ust. 1 lit. d) i e) rozporządzenia (UE, Euratom) 2025/2445 (głosowanie)",
+        "pt": "7.2. Decisão que solicita à APPF que verifique se o partido ESN cumpre as condições previstas no artigo 3.º, n.º 1, alíneas d) e e) do Regulamento (UE, Euratom) 2025/2445 (votação)",
+        "it": "7.2. Decisione con cui si chiede all'Autorità per i partiti politici europei e le fondazioni politiche europee di verificare se il gruppo \"Europa delle Nazioni Sovrane\" rispetta le condizioni di cui all'articolo 3, paragrafo 1, lettere d) ed e), del regolamento (UE, Euratom) 2025/2445 (votazione)",
+        "hu": "7.2. Határozatra irányuló javaslat, amely felkéri az Európai Politikai Pártok és Európai Politikai Alapítványok Hatóságát annak ellenőrzésére, hogy a Szuverén Nemzetek Európája párt megfelel-e az (EU, Euratom) 2025/2445 rendelet 3. cikke (1) bekezdésének d) és e) pontjában foglalt feltételeknek (szavazás)",
+        "es": "7.2. Decisión por la que se solicita a la APPF que verifique si el partido ESN cumple los requisitos establecidos en el Reglamento (UE, Euratom) 2025/2445 (votación)",
+        "bg": "7.2. Решение, с което към Органа за европейските политически партии и европейските политически фондации се отправя искане да провери дали партията ESN спазва условията, предвидени в Регламент (ЕС, Евратом) 2025/2445 (гласуване)",
+        "cs": "7.2. Rozhodnutí obsahující požadavek, aby Úřad pro evropské politické strany a evropské politické nadace ověřil, zda strana Evropa suverénních národů dodržuje podmínky stanovené v čl. 3 odst. 1 písm. d) a e) nařízení (EU, Euratom) (hlasování)",
+        "ga": "7.2. Cinneadh ina n-iarrtar ar an APPF a fhíorú an gcomhlíonann an Páirtí ESN na coinníollacha arna leagan síos i Rialachán (AE, Euratom) 2025/2445 (vótáil)",
+        "nl": "7.2. Besluit om de APPF te verzoeken na te gaan of de ESN-partij voldoet aan de voorwaarden van Verordening (EU, Euratom) 2025/2445 (stemming)",
+        "lv": "7.2. Lēmums, ar ko pieprasa Eiropas politisko partiju un Eiropas politisko fondu iestādei pārbaudīt, vai partija “Suverēnu nāciju Eiropa” atbilst Regulas (ES, Euratom) 2025/2445 3. panta 1. punkta d) un e) apakšpunkta nosacījumiem (balsošana)",
+        "sl": "7.2. Sklep, s katerim se od Organa za evropske politične stranke in evropske politične fundacije zahteva, da preveri, ali stranka ESN izpolnjuje pogoje iz Uredbe (EU, Euratom) 2025/2445 (glasovanje)",
+        "hr": "7.2. Odluka kojom se od APPF-a traži da provjeri ispunjava li stranka ESN uvjete utvrđene u Uredbi (EU, Euratom) 2025/2445 (glasovanje)"
+      },
+      "activity_start_date": "2026-07-07T12:30:10.704+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463047"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0233"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-109"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-02",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-02"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-2792"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-13",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:37:25.027+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-13",
+      "activity_label": {
+        "ga": "7.13. Ciste Dlúthpháirtíochta an Aontais Eorpaigh a shlógadh: cúnamh don Rómáin, don Chipir agus don Spáinn i ndáil le tubaistí nádúrtha in 2025 (vótáil)",
+        "es": "7.13. Movilización del Fondo de Solidaridad de la Unión Europea: asistencia a Rumanía, Chipre y España en relación con catástrofes naturales acaecidas en 2025 (votación)",
+        "de": "7.13. Inanspruchnahme des Solidaritätsfonds der Europäischen Union: Hilfe für Rumänien, Zypern und Spanien im Hinblick auf die Naturkatastrophen im Jahr 2025 (Abstimmung)",
+        "bg": "7.13. Мобилизиране на средства от фонд „Солидарност“ на Европейския съюз: предоставяне на помощ на Румъния, Кипър и Испания във връзка с природните бедствия през 2025 г. (гласуване)",
+        "sk": "7.13. Mobilizácia Fondu solidarity Európskej únie: pomoc Rumunsku, Cypru a Španielsku v súvislosti s prírodnými katastrofami v roku 2025 (hlasovanie)",
+        "lt": "7.13. Europos Sąjungos solidarumo fondo lėšų sutelkimas: parama Rumunijai, Kiprui ir Ispanijai dėl 2025 m. gaivalinių nelaimių (balsavimas)",
+        "lv": "7.13. Eiropas Savienības Solidaritātes fonda izmantošana: palīdzība Rumānijai, Kiprai un Spānijai saistībā ar dabas katastrofām 2025. gadā (balsošana)",
+        "hr": "7.13. Mobilizacija Fonda solidarnosti Europske unije: pružanje pomoći Rumunjskoj, Cipru i Španjolskoj u vezi s prirodnim katastrofama u 2025.  (glasovanje)",
+        "cs": "7.13. Uvolnění prostředků z Fondu solidarity Evropské unie: pomoc Rumunsku, Kypru a Španělsku v souvislosti s přírodními katastrofami v roce 2025 (hlasování)",
+        "nl": "7.13. Beschikbaarstelling van middelen uit het Solidariteitsfonds van de Europese Unie: bijstand aan Roemenië, Cyprus en Spanje naar aanleiding van natuurrampen in 2025 (stemming)",
+        "pl": "7.13. Uruchomienie Funduszu Solidarności Unii Europejskiej: udzielenie pomocy Rumunii, Cyprowi i Hiszpanii w związku z klęskami żywiołowymi w 2025 r.  (głosowanie)",
+        "ro": "7.13. Mobilizarea Fondului de solidaritate al Uniunii Europene: asistența acordată României, Ciprului și Spaniei în urma catastrofelor naturale din 2025 (vot)",
+        "sl": "7.13. Uporaba Solidarnostnega sklada Evropske unije: pomoč Romuniji, Cipru in Španiji po naravnih nesrečah v letu 2025  (glasovanje)",
+        "hu": "7.13. Az Európai Unió Szolidaritási Alapjának igénybevétele: segítség Romániának, Ciprusnak és Spanyolországnak a 2025. évi természeti katasztrófákat követően (szavazás)",
+        "it": "7.13. Mobilitazione del Fondo di solidarietà dell'Unione europea: assistenza alla Romania, a Cipro e alla Spagna a seguito di calamità naturali nel 2025  (votazione)",
+        "fi": "7.13. Euroopan unionin solidaarisuusrahaston varojen käyttöönotto: tuki Romanialle, Kyprokselle ja Espanjalle vuoden 2025 luonnonkatastrofien johdosta (äänestys)",
+        "el": "7.13. Κινητοποίηση του Ταμείου Αλληλεγγύης της Ευρωπαϊκής Ένωσης: παροχή βοήθειας στη Ρουμανία, την Κύπρο και την Ισπανία λόγω φυσικών καταστροφών το 2025 (ψηφοφορία)",
+        "et": "7.13. Euroopa Liidu Solidaarsusfondi kasutuselevõtmine: abi andmine Rumeeniale, Küprosele ja Hispaaniale seoses 2025. aasta loodusõnnetustega (hääletus)",
+        "sv": "7.13. Ianspråktagande av Europeiska unionens solidaritetsfond: bistånd till Rumänien, Cypern och Spanien med anledning av naturkatastrofer 2025 (omröstning)",
+        "fr": "7.13. Mobilisation du Fonds de solidarité de l’Union européenne: aide à la Roumanie, à Chypre et à l’Espagne à la suite des catastrophes naturelles survenues en 2025 (vote)",
+        "pt": "7.13. Mobilização do Fundo Europeu de Solidariedade: assistência à Roménia, Chipre e Espanha, na sequência das catástrofes naturais de 2025 (votação)",
+        "mt": "7.13. Il-mobilizzazzjoni tal-Fond ta’ Solidarjetà tal-Unjoni Ewropea: assistenza lir-Rumanija, lil Ċipru u lil Spanja wara n-nirien fis-selvaġġ fl-2025 (votazzjoni)",
+        "da": "7.13. Anvendelse af Den Europæiske Unions Solidaritetsfond: bistand til Rumænien, Cypern og Spanien i forbindelse med naturkatastrofer i 2025 (afstemning)",
+        "en": "7.13. Mobilisation of the European Union Solidarity Fund: assistance to Romania, Cyprus and Spain with regard to natural disasters in 2025 (vote)"
+      },
+      "activity_start_date": "2026-07-07T12:37:00.985+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463062"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0244"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-68"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-13",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-13"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-0120"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-6",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:33:07.306+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-6",
+      "activity_label": {
+        "lt": "7.6. Prašymas atšaukti Ilhano Kyuchyuko (Ilhan Kyuchyuk) imunitetą (balsavimas)",
+        "pl": "7.6. Wniosek o uchylenie immunitetu Ilhana Kyuchyuka (głosowanie)",
+        "sl": "7.6. Zahteva za odvzem imunitete Ilhanu Kyuchyuku (glasovanje)",
+        "da": "7.6. Anmodning om ophævelse af Ilhan Kyuchyuks immunitet (afstemning)",
+        "et": "7.6. Ilhan Kyuchyuki puutumatuse äravõtmise taotlus (hääletus)",
+        "lv": "7.6. Pieprasījums atcelt Ilhan Kyuchyuk imunitāti (balsošana)",
+        "cs": "7.6. Žádost, aby byl Ilhan Kyuchyuk zbaven imunity (hlasování)",
+        "sv": "7.6. Begäran om upphävande av Ilhan Kyuchyuks immunitet (omröstning)",
+        "de": "7.6. Antrag auf Aufhebung der Immunität von Ilhan Kyuchyuk (Abstimmung)",
+        "en": "7.6. Request for the waiver of the immunity of Ilhan Kyuchyuk (vote)",
+        "hr": "7.6. Zahtjev za ukidanje imuniteta Ilhanu Kyuchyuku (glasovanje)",
+        "ro": "7.6. Cerere de ridicare a imunității deputatului Ilhan Kyuchyuk (vot)",
+        "es": "7.6. Suplicatorio de suspensión de la inmunidad de Ilhan Kyuchyuk (votación)",
+        "el": "7.6. Αίτημα για την άρση της ασυλίας του Ilhan Kyuchyuk (ψηφοφορία)",
+        "sk": "7.6. Žiadosť o zbavenie Ilhana Kyuchyuka imunity (hlasovanie)",
+        "hu": "7.6. Az Ilhan Kyuchyuk mentelmi jogának felfüggesztésére irányuló kérelem (szavazás)",
+        "bg": "7.6. Искане за снемане на имунитета на Илхан Кючюк (гласуване)",
+        "it": "7.6. Richiesta di revoca dell'immunità di Ilhan Kyuchyuk (votazione)",
+        "mt": "7.6. Talba għat-tneħħija tal-immunità ta’ Ilhan Kyuchyuk (votazzjoni)",
+        "pt": "7.6. Pedido de levantamento da imunidade de Ilhan Kyuchyuk (votação)",
+        "fi": "7.6. Ilhan Kyuchyukin koskemattomuuden pidättämistä koskeva pyyntö (äänestys)",
+        "nl": "7.6. Verzoek tot opheffing van de immuniteit van Ilhan Kyuchyuk (stemming)",
+        "ga": "7.6. Iarraidh ar dhíolúine Ilhan Kyuchyuk a tharscaoileadh (vótáil)",
+        "fr": "7.6. Demande de levée de l’immunité d’Ilhan Kyuchyuk (vote)"
+      },
+      "activity_start_date": "2026-07-07T12:32:54.869+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463053"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0237"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-114"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-06",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-06"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-2000"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-3",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:32:25.591+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-3",
+      "activity_label": {
+        "ga": "7.3. Coiste speisialta um an nGéarchéim Thithíochta san Aontas Eorpach a chur ar bun: síneadh a chur leis an téarma oifige agus a fhreagrachtaí a choigeartú (vótáil)",
+        "sk": "7.3. Zmena rozhodnutia z 18. decembra 2024 o zriadení osobitného výboru pre krízu v oblasti bývania v Európskej únii, predĺžení jeho funkčného obdobia a úprave jeho pôsobnosti (hlasovanie)",
+        "pl": "7.3. Zmiana decyzji z dnia 18 grudnia 2024 r. w sprawie powołania Komisji Specjalnej ds. Kryzysu Mieszkaniowego w Unii Europejskiej przedłużająca kadencję komisji specjalnej oraz dostosowująca jej zakres obowiązków (głosowanie)",
+        "bg": "7.3. Специална комисия относно жилищната криза в Европейския съюз: удължаване на мандата и адаптиране на отговорностите й (гласуване)",
+        "en": "7.3. Amending the decision of 18 December 2024 on setting up a special committee on the Housing Crisis in the European Union, extending its term of office and adjusting its responsibilities (vote)",
+        "hu": "7.3. Az Európai Unióban tapasztalható lakhatási válsággal foglalkozó különbizottság létrehozásáról szóló 2024. december 18-i határozatnak a különbizottság megbízatási idejének kiterjesztése és feladatainak kiigazítása tekintetében való módosítására irányuló javaslat (szavazás)",
+        "cs": "7.3. Zvláštní výbor pro krizi v oblasti bydlení v Evropské unii: prodloužení funkčního období a úpravy jeho působnosti (hlasování)",
+        "mt": "7.3. Proposta għal deċiżjoni li temenda d-Deċiżjoni tat-18 ta’ Diċembru 2024 dwar it-twaqqif ta’ kumitat speċjali dwar il-kriżi tad-djar fl-Unjoni Ewropea biex jiġi estiż il-mandat tal-kumitat speċjali u jiġu aġġustati r-responsabbiltajiet tiegħu (votazzjoni)",
+        "el": "7.3. Τροποποίηση της απόφασης της 18ης Δεκεμβρίου 2024 σχετικά με τη σύσταση Ειδικής Επιτροπής για τη Στεγαστική Κρίση στην Ευρωπαϊκή Ένωση με σκοπό την παράταση της θητείας της Ειδικής Επιτροπής και την προσαρμογή των αρμοδιοτήτων της (ψηφοφορία)",
+        "fr": "7.3. Commission spéciale sur la crise du logement dans l’Union européenne: prolongation du mandat et adaptation des responsabilités (vote)",
+        "ro": "7.3. Modificarea deciziei din 18 decembrie 2024 privind constituirea Comisiei speciale pentru criza locuințelor în Uniunea Europeană în scopul de a prelungi mandatul comisiei speciale și a adapta responsabilitățile sale (vot)",
+        "hr": "7.3. Posebni odbor za stambenu krizu u Europskoj uniji: produljenje mandata i prilagodba njegovih nadležnosti (glasovanje)",
+        "nl": "7.3. Bijzondere Commissie inzake de huisvestingscrisis in de Europese Unie: verlenging van haar ambtstermijn en aanpassing van haar bevoegdheden (stemming)",
+        "lt": "7.3. 2024 m. gruodžio 18 d. sprendimo dėl Specialiojo būsto krizės Europos Sąjungoje komiteto sudarymo dalinis keitimas, jo įgaliojimų laiko pratęsimas ir pareigų patikslinimas (balsavimas)",
+        "da": "7.3. Ændring af afgørelsen af 18. december 2024 om nedsættelse af et særligt udvalg om boligkrisen i Den Europæiske Union for at forlænge det særlige udvalgs funktionsperiode og tilpasse dets ansvarsområder (afstemning)",
+        "sv": "7.3. Ändring av beslutet av den 18 december 2024 om inrättande av ett särskilt utskott för bostadskrisen i Europeiska unionen för att förlänga det särskilda utskottets mandatperiod och anpassa dess ansvarsområden (omröstning)",
+        "et": "7.3. Euroopa Liidu eluasemekriisi erikomisjon: ametiaja pikendamine ja ülesannete kohandamine (hääletus)",
+        "es": "7.3. Comisión Especial sobre la Crisis de la Vivienda en la Unión Europea: prórroga de la duración del mandato de la comisión especial y adaptación de sus competencias (votación)",
+        "de": "7.3. Einsetzung eines Sonderausschusses zur Wohnraumkrise in der Europäischen Union: Verlängerung der Mandatszeit und Anpassung seiner Zuständigkeiten (Abstimmung)",
+        "pt": "7.3. Comissão especial sobre a crise de habitação na União Europeia: prorrogação do seu mandato e adaptação das suas competências (votação)",
+        "fi": "7.3. Asuntokriisiä Euroopan unionissa käsittelevä erityisvaliokunta: toimikauden pidentäminen ja vastuualueiden mukauttaminen (äänestys)",
+        "it": "7.3. Modifica della decisione del 18 dicembre 2024 sulla costituzione della commissione speciale sulla crisi degli alloggi nell'Unione europea al fine di prorogare la durata del mandato della commissione speciale e di adeguare le sue attribuzioni (votazione)",
+        "lv": "7.3. Grozījumi 2024. gada 18. decembra lēmumā par Īpašās komitejas mājokļu krīzes risināšanai Eiropas Savienībā izveidi, tās pilnvaru laika pagarināšanu un tās pienākumu precizēšanu (balsošana)",
+        "sl": "7.3. Sprememba sklepa z dne 18. decembra 2024 o ustanovitvi posebnega odbora za stanovanjsko krizo v Evropski uniji za podaljšanje njegovega mandata in prilagoditev njegovih pristojnosti (glasovanje)"
+      },
+      "activity_start_date": "2026-07-07T12:30:46.643+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463049"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0234"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-107"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-03",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-03"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-2807"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-14",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:42:11.309+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-14",
+      "activity_label": {
+        "el": "7.14. Χρηματοδοτικές δραστηριότητες του Ομίλου της Ευρωπαϊκής Τράπεζας Επενδύσεων – ετήσια έκθεση 2025 (ψηφοφορία)",
+        "et": "7.14. Euroopa Investeerimispanga Grupi finantstegevuse 2025. aasta aruanne (hääletus)",
+        "da": "7.14. Den Europæiske Investeringsbank-Gruppens finansielle aktiviteter – årlig betænkning 2025 (afstemning)",
+        "hr": "7.14. Financijske aktivnosti Grupe Europske investicijske banke – godišnje izvješće za 2025. (glasovanje)",
+        "sv": "7.14. Europeiska investeringsbanksgruppens finansiella verksamhet – årsrapport 2025 (omröstning)",
+        "en": "7.14. Financial activities of the European Investment Bank Group – annual report 2025 (vote)",
+        "lv": "7.14. Eiropas Investīciju bankas grupas finanšu darbības: 2025. gada ziņojums (balsošana)",
+        "nl": "7.14. Financiële activiteiten van de Europese Investeringsbank Groep – jaarverslag 2025 (stemming)",
+        "mt": "7.14. L-attivitajiet finanzjarji tal-Grupp tal-Bank Ewropew tal-Investiment – rapport annwali 2025 (votazzjoni)",
+        "it": "7.14. Attività finanziarie del Gruppo Banca europea per gli investimenti – relazione annuale 2025 (votazione)",
+        "fr": "7.14. Activités financières du Groupe Banque européenne d’investissement – Rapport annuel 2025 (vote)",
+        "es": "7.14. Actividades financieras del Grupo del Banco Europeo de Inversiones: informe anual 2025 (votación)",
+        "fi": "7.14. Euroopan investointipankkiryhmän rahoitustoiminta – vuosikertomus 2025 (äänestys)",
+        "hu": "7.14. Az Európai Beruházási Bank Csoport pénzügyi tevékenységei – 2025. évi éves jelentés (szavazás)",
+        "pt": "7.14. Atividades financeiras do Grupo do Banco Europeu de Investimento — relatório anual 2025 (votação)",
+        "ga": "7.14. Gníomhaíochtaí airgeadais Ghrúpa an Bhainc Eorpaigh Infheistíochta – tuarascáil bhliantúil 2025 (vótáil)",
+        "ro": "7.14. Activitățile financiare ale Grupului Băncii Europene de Investiții - raport anual 2025 (vot)",
+        "pl": "7.14. Działalność finansowa Grupy Europejskiego Banku Inwestycyjnego – sprawozdanie roczne 2025 (głosowanie)",
+        "bg": "7.14. Финансови дейности на групата на Европейската инвестиционна банка – годишен доклад за 2025 г. (гласуване)",
+        "sk": "7.14. Výročná správa o finančnej činnosti skupiny EIB 2025 (hlasovanie)",
+        "lt": "7.14. Europos investicijų banko grupės finansinė veikla. 2025 m. metinis pranešimas (balsavimas)",
+        "cs": "7.14. Finanční činnost Evropské investiční banky – výroční zpráva za rok 2025 (hlasování)",
+        "de": "7.14. Finanztätigkeit der Europäischen Investitionsbank-Gruppe – Jahresbericht 2025 (Abstimmung)",
+        "sl": "7.14. Finančne dejavnosti skupine Evropske investicijske banke – letno poročilo za leto 2025 (glasovanje)"
+      },
+      "activity_start_date": "2026-07-07T12:37:25.027+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463063",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463067",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463066",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463064"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0245"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-26"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-14",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-14"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-2213"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-7",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:33:38.099+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-7",
+      "activity_label": {
+        "el": "7.7. Δικαιώματα των επιβατών αεροπορικών μεταφορών ***III (ψηφοφορία)",
+        "sl": "7.7. Pravice letalskih potnikov ***III (glasovanje)",
+        "pl": "7.7. Prawa pasażerów lotniczych ***III (głosowanie)",
+        "it": "7.7. Diritti dei passeggeri del trasporto aereo ***III (votazione)",
+        "en": "7.7. Air passenger rights ***III (vote)",
+        "da": "7.7. Flypassagerers rettigheder ***III (afstemning)",
+        "lv": "7.7. Aviopasažieru tiesības ***III (balsošana)",
+        "es": "7.7. Derechos de los pasajeros aéreos ***III (votación)",
+        "sv": "7.7. Flygpassagerares rättigheter ***III (omröstning)",
+        "ga": "7.7. Cearta aerphaisnéirí ***III (vótáil)",
+        "fi": "7.7. Lentomatkustajien oikeudet ***III (äänestys)",
+        "ro": "7.7. Drepturile pasagerilor din transportul aerian ***III (vot)",
+        "lt": "7.7. Oro transporto keleivių teisės ***III (balsavimas)",
+        "fr": "7.7. Droits des passagers aériens ***III (vote)",
+        "cs": "7.7. Práva cestujících v letecké dopravě ***III (hlasování)",
+        "hu": "7.7. A légi utasok jogai ***III (szavazás)",
+        "pt": "7.7. Direitos dos passageiros dos transportes aéreos ***III (votação)",
+        "nl": "7.7. Rechten van luchtvaartpassagiers ***III (stemming)",
+        "de": "7.7. Fluggastrechte ***III (Abstimmung)",
+        "sk": "7.7. Práva cestujúcich v leteckej doprave ***III (hlasovanie)",
+        "mt": "7.7. Id-drittijiet tal-passiġġieri tal-ajru ***III (votazzjoni)",
+        "hr": "7.7. Prava putnika u zračnom prometu ***III (glasovanje)",
+        "et": "7.7. Lennureisijate õigused ***III (hääletus)",
+        "bg": "7.7. Права на пътниците във въздушния транспорт ***III (гласуване)"
+      },
+      "activity_start_date": "2026-07-07T12:33:07.306+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463074",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463054",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463056"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0238"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-76"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-07",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-07"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2013-0072"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-15",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:44:21.095+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-15",
+      "activity_label": {
+        "sk": "7.15. Odporúčanie k meniacej sa geopolitickej situácii vo východnej Ázii a k potrebe užšej spolupráce s podobne zmýšľajúcimi partnermi v regióne (hlasovanie)",
+        "fr": "7.15. Recommandation sur l'évolution de la situation géopolitique en Asie orientale et la nécessité d'une coopération plus étroite avec les partenaires qui partagent les mêmes valeurs dans la région (vote)",
+        "de": "7.15. Empfehlung zu der sich wandelnden geopolitischen Lage in Ostasien und der notwendigen engeren Zusammenarbeit mit gleichgesinnten Partnern in der Region (Abstimmung)",
+        "mt": "7.15. Rakkomandazzjoni dwar is-sitwazzjoni ġeopolitika li qed tinbidel fl-Asja tal-Lvant u l-ħtieġa ta’ koooperazzjoni eqreb mas-sħab tal-istess fehma fir-reġjun (votazzjoni)",
+        "cs": "7.15. Doporučení týkající se měnící se geopolitické situace ve východní Asii a potřeby užší spolupráce s podobně smýšlejícími partnery v regionu (hlasování)",
+        "nl": "7.15. Aanbeveling over de veranderende geopolitieke situatie in Oost-Azië en de noodzaak om nauwer samen te werken met gelijkgestemde partners in de regio (stemming)",
+        "pt": "7.15. Recomendação referente à evolução da situação geopolítica na Ásia Oriental e a necessidade de uma cooperação mais estreita com os parceiros que comungam dos mesmos ideais na região (votação)",
+        "et": "7.15. Soovitus, mis käsitleb muutuvat geopoliitilist olukorda Ida-Aasias ja vajadust teha tihedamat koostööd piirkonna sarnaselt meelestatud partneritega (hääletus)",
+        "lv": "7.15. Ieteikums par mainīgo ģeopolitisko situāciju Austrumāzijā un nepieciešamību pēc ciešākas sadarbības ar līdzīgi domājošiem partneriem šajā reģionā (balsošana)",
+        "en": "7.15. Recommendation on the changing geopolitical situation in East Asia and the need for closer cooperation with like-minded partners in the region (vote)",
+        "sv": "7.15. Rekommendation om den föränderliga geopolitiska situationen i Östasien och behovet av ett närmare samarbete med likasinnade partner i regionen (omröstning)",
+        "ro": "7.15. Recomandare privind situația geopolitică în schimbare din Asia de Est și necesitatea unei cooperări mai strânse cu partenerii regionali cu aceeași viziune (vot)",
+        "sl": "7.15. Priporočilo o spreminjajočih se geopolitičnih razmerah v vzhodni Aziji in nujnosti tesnejšega sodelovanja s podobno mislečimi partnerji v regiji (glasovanje)",
+        "lt": "7.15. Rekomendacija dėl kintančios geopolitinės padėties Rytų Azijoje ir poreikio glaudžiau bendradarbiauti su bendraminčiais partneriais regione (balsavimas)",
+        "bg": "7.15. Препоръка относно променящата се геополитическа обстановка в Източна Азия и необходимостта от по-тясно сътрудничество с единомислещи партньори в региона (гласуване)",
+        "el": "7.15. Σύσταση σχετικά με τη μεταλλασσόμενη γεωπολιτική κατάσταση στην Ανατολική Ασία και την ανάγκη για στενότερη συνεργασία με ομόφρονες εταίρους στην περιοχή (ψηφοφορία)",
+        "hr": "7.15. Preporuka o geopolitičkoj situaciji u istočnoj Aziji koja se mijenja i potrebi za tješnjom suradnjom s partnerima sličnih stavova u regiji (glasovanje)",
+        "es": "7.15. Recomendación sobre la situación geopolítica cambiante en Asia Oriental y la necesidad de una cooperación más estrecha con socios afines de la región (votación)",
+        "fi": "7.15. Suositus Itä-Aasian muuttuvasta geopoliittisesta tilanteesta ja tarpeesta tiivistää yhteistyötä alueen samanmielisten kumppaneiden kanssa (äänestys)",
+        "ga": "7.15. Moladh maidir leis an staid gheopholaitiúil atá ag athrú san Áise Thoir agus an gá atá le comhar níos dlúithe le comhpháirtithe atá ar aon intinn sa réigiún (vótáil)",
+        "it": "7.15. Raccomandazione concernente la situazione geopolitica in evoluzione in Asia orientale e la necessità di una maggiore cooperazione con partner che condividono gli stessi principi nella regione (votazione)",
+        "pl": "7.15. Zalecenie w sprawie zmieniającej się sytuacji geopolitycznej w Azji Wschodniej i potrzeby ściślejszej współpracy z partnerami o podobnych poglądach w regionie (głosowanie)",
+        "da": "7.15. Henstilling om den skiftende geopolitiske situation i Østasien og behovet for et tættere samarbejde med ligesindede partnere i regionen (afstemning)",
+        "hu": "7.15. Ajánlás a kelet-ázsiai geopolitikai helyzet változásáról és a régióban a hasonló gondolkodású partnerekkel való szorosabb együttműködés szükségességéről (szavazás)"
+      },
+      "activity_start_date": "2026-07-07T12:42:11.309+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463068"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0246"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-29"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-15",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-15"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-2169"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-19",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:59:53.6+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-19",
+      "activity_label": {
+        "bg": "7.19. Изпълнение и постигане на целите за устойчиво развитие с оглед на Политическия форум на високо равнище през 2026 г. (гласуване)",
+        "it": "7.19. Attuazione e realizzazione degli obiettivi di sviluppo sostenibile in vista del forum politico di alto livello del 2026 (votazione)",
+        "pt": "7.19. Execução e consecução dos objetivos de desenvolvimento sustentável na perspetiva do fórum político de alto nível de 2026 (votação)",
+        "pl": "7.19. Wdrażanie i realizacja celów zrównoważonego rozwoju z myślą o Forum Politycznym Wysokiego Szczebla w 2026 r. (głosowanie)",
+        "da": "7.19. Gennemførelse og opfyldelse af verdensmålene for bæredygtig udvikling med henblik på Politisk Forum på Højt Niveau 2026 (afstemning)",
+        "sk": "7.19. Vykonávanie a plnenie cieľov udržateľného rozvoja so zreteľom na politické fórum na vysokej úrovni v roku 2026 (hlasovanie)",
+        "nl": "7.19. Tenuitvoerlegging en verwezenlijking van de duurzameontwikkelingsdoelstellingen met het oog op het politiek forum op hoog niveau in 2026 (stemming)",
+        "cs": "7.19. Provádění a plnění cílů udržitelného rozvoje s ohledem na politické fórum na vysoké úrovni v roce 2026 (hlasování)",
+        "hr": "7.19. Provedba i ostvarivanje ciljeva održivog razvoja uoči političkog foruma na visokoj razini 2026. (glasovanje)",
+        "sl": "7.19. Izvajanje in uresničevanje ciljev trajnostnega razvoja pred političnim forumom na visoki ravni leta 2026 (glasovanje)",
+        "ga": "7.19. Na Spriocanna Forbartha Inbhuanaithe a chur chun feidhme agus a bhaint amach i bhfianaise Fhóram Polaitiúil Ardleibhéil 2026 (vótáil)",
+        "et": "7.19. Kestliku arengu eesmärkide rakendamine ja täitmine 2026. aasta kõrgetasemelist poliitilist foorumit silmas pidades (hääletus)",
+        "lt": "7.19. Darnaus vystymosi tikslų įgyvendinimas ir vykdymas atsižvelgiant į 2026 m. aukšto lygio politinį forumą (balsavimas)",
+        "en": "7.19. Implementation and delivery of the Sustainable Development Goals in view of the 2026 High-Level Political Forum (vote)",
+        "hu": "7.19. A fenntartható fejlődési célok végrehajtása és teljesítése, tekintettel a 2026. évi magas szintű politikai fórumra (szavazás)",
+        "sv": "7.19. Genomförandet och uppnåendet av målen för hållbar utveckling inför Politiska högnivåforumet 2026 (omröstning)",
+        "fr": "7.19. Mise en œuvre et réalisation des objectifs de développement durable dans la perspective du forum politique de haut niveau de 2026 (vote)",
+        "de": "7.19. Umsetzung und Erreichung der Ziele für nachhaltige Entwicklung im Hinblick auf das Hochrangige Politische Forum 2026 (Abstimmung)",
+        "ro": "7.19. Punerea în aplicare și realizarea obiectivelor de dezvoltare durabilă în perspectiva Forumului politic la nivel înalt din 2026 (vot)",
+        "el": "7.19. Εφαρμογή και υλοποίηση των Στόχων Βιώσιμης Ανάπτυξης ενόψει του Πολιτικού Φόρουμ Υψηλού Επιπέδου του 2026 (ψηφοφορία)",
+        "fi": "7.19. Kestävän kehityksen tavoitteiden täytäntöönpano ja tulokset valmistauduttaessa vuoden 2026 korkean tason poliittiseen foorumiin (äänestys)",
+        "es": "7.19. Aplicación y cumplimiento de los Objetivos de Desarrollo Sostenible en vista del Foro Político de Alto Nivel de 2026 (votación)",
+        "mt": "7.19. L-implimentazzjoni u t-twettiq tal-Għanijiet ta’ Żvilupp Sostenibbli fid-dawl tal-Forum Politiku ta’ Livell Għoli tal-2026 (votazzjoni)",
+        "lv": "7.19. Ilgtspējīgas attīstības mērķu rezultatīva īstenošana, gatavojoties Augsta līmeņa politiskā foruma 2026. gada sanāksmei (balsošana)"
+      },
+      "activity_start_date": "2026-07-07T12:56:21.1+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463083",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463085",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463081",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463082"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0250"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-19"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-19",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-19"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-2248"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-10",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:35:06.473+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-10",
+      "activity_label": {
+        "hr": "7.10. Međunarodni cestovni prijevoz putnika običnim i turističkim autobusima u pograničnim regijama: kabotaža između Austrije i Švicarske ***I (glasovanje)",
+        "et": "7.10. Rahvusvahelised bussiveoteenused piirialadel: kabotaažveod Austria ja Šveitsi vahel ***I (hääletus)",
+        "it": "7.10. Servizi di trasporto internazionale su strada di passeggeri a mezzo autobus nelle regioni frontaliere: operazioni di cabotaggio tra Austria e Svizzera ***I (votazione)",
+        "mt": "7.10. Servizzi tat-trasport internazzjonali bit-triq tal-passiġġieri bil-kowċ u bix-xarabank: operazzjonijiet ta’ kabotaġġ bejn l-Awstrija u l-Iżvizzera ***I (votazzjoni)",
+        "fi": "7.10. Linja-autolla harjoitettava maanteiden kansainvälinen henkilöliikenne raja-alueilla: Itävallan ja Sveitsin välinen kabotaasiliikenne ***I (äänestys)",
+        "nl": "7.10. Internationale personenvervoerdiensten over de weg per touringcar en autobus in de grensgebieden: cabotageactiviteiten tussen Oostenrijk en Zwitserland ***I (stemming)",
+        "en": "7.10. International road passenger transport services by coach and bus in the border regions: cabotage operations between Austria and Switzerland ***I (vote)",
+        "bg": "7.10. Международен автобусен превоз на пътници в граничните региони: каботажни превози между Австрия и Швейцария ***I (гласуване)",
+        "fr": "7.10. Prestation de services de transport international de voyageurs par autocars et autobus dans les régions frontalières: transports de cabotage entre l'Autriche et la Suisse ***I (vote)",
+        "el": "7.10. Διεθνείς οδικές επιβατικές μεταφορές με πούλμαν και λεωφορεία στις παραμεθόριες περιοχές: υπηρεσίες ενδομεταφορών μεταξύ Αυστρίας και Ελβετίας ***I (ψηφοφορία)",
+        "es": "7.10. Servicios de transporte internacional de viajeros por carretera en autocar y autobús en las regiones fronterizas: operaciones de cabotaje entre Austria y Suiza ***I (votación)",
+        "ga": "7.10. Seirbhísí iompair idirnáisiúnta de bhóthar do phaisinéirí ar chóiste agus ar bhus sna réigiúin teorann: oibríochtaí cabatáiste idir an Ostair agus an Eilvéis ***I (vótáil)",
+        "sl": "7.10. Mednarodni avtobusni prevoz potnikov v obmejnih regijah: kabotaža med Avstrijo in Švico ***I (glasovanje)",
+        "ro": "7.10. Serviciile de transport rutier internațional de călători cu autocarul și autobuzul în regiunile de frontieră: operațiunile de cabotaj dintre Austria și Elveția ***I (vot)",
+        "sv": "7.10. Internationella persontransporter med buss i gränsregioner: cabotagetrafik mellan Österrike och Schweiz ***I (omröstning)",
+        "sk": "7.10. Medzinárodná cestná osobná autokarová a autobusová doprava v pohraničných regiónoch: kabotážna preprava medzi Rakúskom a Švajčiarskom ***I (hlasovanie)",
+        "cs": "7.10. Provozování mezinárodní osobní silniční autokarové a autobusové dopravy v příhraničních oblastech: kabotáže mezi Rakouskem a Švýcarskem ***I (hlasování)",
+        "lt": "7.10. Tarptautinio keleivių vežimo keliais paslaugos tolimojo susisiekimo ir miesto autobusais pasienio regionuose: kabotažo operacijos tarp Austrijos ir Šveicarijos ***I (balsavimas)",
+        "pt": "7.10. Serviços de transporte rodoviário internacional de passageiros em autocarro nas regiões fronteiriças: operações de cabotagem entre a Áustria e a Suíça ***I (votação)",
+        "hu": "7.10. A határ menti régiókban autóbusszal végzett nemzetközi közúti személyszállítási szolgáltatások: kabotázsműveletek Ausztria és Svájc között ***I (szavazás)",
+        "da": "7.10. International personbefordring ad vej med bus i grænseregionerne: cabotagekørsel mellem Østrig og Schweiz ***I (afstemning)",
+        "de": "7.10. Grenzüberschreitende Personenkraftverkehrsleistungen mit Kraftomnibussen in der Grenzregion: Kabotagebeförderungen zwischen Österreich und der Schweiz ***I (Abstimmung)",
+        "pl": "7.10. Świadczenie międzynarodowych usług przewozu drogowego osób autokarem i autobusem w regionach przygranicznych: przewozy kabotażowe między Austrią a Szwajcarią ***I (głosowanie)",
+        "lv": "7.10. Starptautiski pasažieru autopārvadājumu pakalpojumi ar autobusiem pierobežas reģionos: kabotāžas pārvadājumi starp Austriju un Šveici ***I (balsošana)"
+      },
+      "activity_start_date": "2026-07-07T12:34:39.437+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463059"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0241"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-45"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-10",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-10"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-0407"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-4",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:32:37.73+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-4",
+      "activity_label": {
+        "pt": "7.4. Pedido de levantamento da imunidade de Klára Dobrev (votação)",
+        "lv": "7.4. Pieprasījums atcelt Klára Dobrev imunitāti (balsošana)",
+        "da": "7.4. Anmodning om ophævelse af Klára Dobrevs immunitet (afstemning)",
+        "fi": "7.4. Klára Dobrevin koskemattomuuden pidättämistä koskeva pyyntö (äänestys)",
+        "cs": "7.4. Žádost, aby byla Klára Dobrevová zbavena imunity (hlasování)",
+        "it": "7.4. Richiesta di revoca dell'immunità di Klára Dobrev (votazione)",
+        "lt": "7.4. Prašymas atšaukti Kláros Dobrev (Klára Dobrev) imunitetą (balsavimas)",
+        "es": "7.4. Suplicatorio de suspensión de la inmunidad de Klára Dobrev (votación)",
+        "hr": "7.4. Zahtjev za ukidanje imuniteta Klári Dobrev (glasovanje)",
+        "bg": "7.4. Искане за снемане на имунитета на Клара Добрев (гласуване)",
+        "sv": "7.4. Begäran om upphävande av Klára Dobrevs immunitet (omröstning)",
+        "fr": "7.4. Demande de levée de l’immunité de Klára Dobrev (vote)",
+        "de": "7.4. Antrag auf Aufhebung der Immunität von Klára Dobrev (Abstimmung)",
+        "sl": "7.4. Zahteva za odvzem imunitete Klári Dobrev (glasovanje)",
+        "ro": "7.4. Cerere de ridicare a imunității deputatei Klára Dobrev (vot)",
+        "hu": "7.4. Dobrev Klára mentelmi jogának felfüggesztésére irányuló kérelem (szavazás)",
+        "en": "7.4. Request for the waiver of the immunity of Klára Dobrev (vote)",
+        "et": "7.4. Klára Dobrevi puutumatuse äravõtmise taotlus (hääletus)",
+        "nl": "7.4. Verzoek tot opheffing van de immuniteit van Klára Dobrev (stemming)",
+        "el": "7.4. Αίτημα για την άρση της ασυλίας της Klára Dobrev (ψηφοφορία)",
+        "ga": "7.4. Iarraidh ar dhíolúine Klára Dobrev a tharscaoileadh (vótáil)",
+        "pl": "7.4. Wniosek o uchylenie immunitetu Kláry Dobrev (głosowanie)",
+        "mt": "7.4. Talba għat-tneħħija tal-immunità ta’ Klára Dobrev (votazzjoni)",
+        "sk": "7.4. Žiadosť o zbavenie Kláry Dobrevovej imunity (hlasovanie)"
+      },
+      "activity_start_date": "2026-07-07T12:32:25.591+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463051"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0235"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-80"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-04",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-04"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-2010"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-8",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:34:08.176+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-8",
+      "activity_label": {
+        "sk": "7.8. Koordinácia systémov sociálneho zabezpečenia ***I (hlasovanie)",
+        "bg": "7.8. Координация на системите за социална сигурност ***I (гласуване)",
+        "pt": "7.8. Coordenação dos sistemas de segurança social ***I (votação)",
+        "mt": "7.8. Koordinazzjoni tas-sistemi tas-sigurtà soċjali ***I (votazzjoni)",
+        "fr": "7.8. Coordination des systèmes de sécurité sociale ***I (vote)",
+        "hu": "7.8. A szociális biztonsági rendszerek koordinálása ***I (szavazás)",
+        "el": "7.8. Συντονισμός των συστημάτων κοινωνικής ασφάλειας ***I (ψηφοφορία)",
+        "sv": "7.8. Samordning av de sociala trygghetssystemen ***I (omröstning)",
+        "de": "7.8. Koordinierung der Systeme der sozialen Sicherheit ***I (Abstimmung)",
+        "hr": "7.8. Koordinacija sustava socijalne sigurnosti ***I (glasovanje)",
+        "pl": "7.8. Koordynacja systemów zabezpieczenia społecznego ***I (głosowanie)",
+        "en": "7.8. Coordination of social security systems ***I (vote)",
+        "et": "7.8. Sotsiaalkindlustussüsteemide koordineerimine ***I (hääletus)",
+        "it": "7.8. Coordinamento dei sistemi di sicurezza sociale ***I (votazione)",
+        "lv": "7.8. Sociālās nodrošināšanas sistēmu koordinācija ***I (balsošana)",
+        "ro": "7.8. Coordonarea sistemelor de securitate socială ***I (vot)",
+        "sl": "7.8. Koordinacija sistemov socialne varnosti ***I (glasovanje)",
+        "da": "7.8. Koordinering af de sociale sikringsordninger ***I (afstemning)",
+        "nl": "7.8. Coördinatie van socialezekerheidsstelsels ***I (stemming)",
+        "lt": "7.8. Socialinės apsaugos sistemų koordinavimas ***I (balsavimas)",
+        "fi": "7.8. Sosiaaliturvajärjestelmien yhteensovittaminen ***I (äänestys)",
+        "cs": "7.8. Koordinace systémů sociálního zabezpečení ***I (hlasování)",
+        "ga": "7.8. Comhordú na gcóras slándála sóisialta ***I (vótáil)",
+        "es": "7.8. Coordinación de los sistemas de seguridad social ***I (votación)"
+      },
+      "activity_start_date": "2026-07-07T12:33:38.099+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463075"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0239"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-52"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-08",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-08"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2016-0397"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-16",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:46:25.655+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-16",
+      "activity_label": {
+        "ro": "7.16. Politica în domeniul concurenței – raportul anual pe 2025 (vot)",
+        "es": "7.16. Política de competencia: informe anual 2025 (votación)",
+        "it": "7.16. Politica di concorrenza – relazione annuale 2025 (votazione)",
+        "nl": "7.16. Mededingingsbeleid – jaarverslag 2025 (stemming)",
+        "fr": "7.16. Politique de concurrence - rapport annuel 2025 (vote)",
+        "sk": "7.16. Politika hospodárskej súťaže – výročná správa za rok 2025 (hlasovanie)",
+        "pt": "7.16. Política de concorrência – relatório anual 2025 (votação)",
+        "cs": "7.16. Politika v oblasti hospodářské soutěže – výroční zpráva za rok 2025 (hlasování)",
+        "et": "7.16. Konkurentsipoliitika – 2025. aasta aruanne (hääletus)",
+        "el": "7.16. Πολιτική ανταγωνισμού – ετήσια έκθεση 2025 (ψηφοφορία)",
+        "lv": "7.16. Konkurences politika: 2025. gada ziņojums (balsošana)",
+        "ga": "7.16. Beartas iomaíochta - tuarascáil bhliantúil 2025 (vótáil)",
+        "sl": "7.16. Politika konkurence – letno poročilo za leto 2025 (glasovanje)",
+        "lt": "7.16. Konkurencijos politika. 2025 m. metinis pranešimas (balsavimas)",
+        "en": "7.16. Competition policy – annual report 2025 (vote)",
+        "fi": "7.16. Kilpailupolitiikka – vuosikertomus 2025 (äänestys)",
+        "bg": "7.16. Политика в областта на конкуренцията – годишен доклад за 2025 г. (гласуване)",
+        "sv": "7.16. Konkurrenspolitik – årsrapport 2025 (omröstning)",
+        "de": "7.16. Wettbewerbspolitik – Jahresbericht 2025 (Abstimmung)",
+        "da": "7.16. Konkurrencepolitik – årsberetning 2025 (afstemning)",
+        "hu": "7.16. Versenypolitika – 2025. évi éves jelentés (szavazás)",
+        "hr": "7.16. Politika tržišnog natjecanja – godišnje izvješće za 2025. (glasovanje)",
+        "pl": "7.16. Polityka konkurencji – sprawozdanie roczne za 2025 r. (głosowanie)",
+        "mt": "7.16. Il-politika tal-kompetizzjoni – ir-rapport annwali 2025 (votazzjoni)"
+      },
+      "activity_start_date": "2026-07-07T12:44:21.095+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463069"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0247"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-35"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-16",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-16"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-2134"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-9",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:34:39.437+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-9",
+      "activity_label": {
+        "sk": "7.9. Dočasná podpora a vyplácanie preddavkov v súvislosti so zvýšenými cenami hnojív v dôsledku krízy na Blízkom východe ***I (hlasovanie)",
+        "es": "7.9. Ayuda temporal y pago de anticipos en respuesta al aumento de los precios de los fertilizantes a consecuencia de la crisis de Oriente Próximo ***I (votación)",
+        "nl": "7.9. Tijdelijke steun en de betaling van voorschotten in reactie op de gestegen meststoffenprijzen als gevolg van de Midden-Oostencrisis ***I (stemming)",
+        "sl": "7.9. Začasna podpora in izplačila predplačil v odziv na višje cene gnojil zaradi krize na Bližnjem vzhodu ***I (glasovanje)",
+        "pl": "7.9. Tymczasowe wsparcie i wypłata zaliczek w odpowiedzi na wzrost cen nawozów spowodowany kryzysem na Bliskim Wschodzie ***I (głosowanie)",
+        "sv": "7.9. Tillfälligt stöd och utbetalning av förskott till följd av ökningen av priserna på gödselmedel på grund av krisen i Mellanöstern ***I (omröstning)",
+        "lt": "7.9. Laikina parama ir išankstiniai mokėjimai reaguojant į dėl Artimųjų Rytų krizės išaugusias trąšų kainas ***I (balsavimas)",
+        "hu": "7.9. Ideiglenes támogatás és előlegfizetés a műtrágyaárak közel-keleti válság miatti emelkedése miatt ***I (szavazás)",
+        "ro": "7.9. Sprijin temporar și plata avansurilor în ceea ce privește creșterea prețurilor la îngrășăminte ca urmare a crizei din Orientul Mijlociu ***I (vot)",
+        "pt": "7.9. Apoio temporário e pagamento de adiantamentos em resposta ao aumento dos preços dos adubos devido à crise no Médio Oriente ***I (votação)",
+        "lv": "7.9. Pagaidu atbalsts un avansa maksājumi, reaģējot uz mēslošanas līdzekļu cenu pieaugumu Tuvo Austrumu krīzes dēļ ***I (balsošana)",
+        "mt": "7.9. Appoġġ temporanju u pagamenti bil-quddiem rigward iż-żieda fil-prezzijiet tal-fertilizzanti minħabba l-kriżi tal-Lvant Nofsani ***I (votazzjoni)",
+        "it": "7.9. Sostegno temporaneo e pagamenti degli anticipi in relazione al rincaro dei prezzi dei concimi dovuto alla crisi in Medio Oriente ***I (votazione)",
+        "fr": "7.9. Soutien temporaire et versement d’avances en réponse à la hausse des prix des engrais due à la crise au Moyen-Orient ***I (vote)",
+        "el": "7.9. Προσωρινή στήριξη και πληρωμές προκαταβολών ως απάντηση στην αύξηση των τιμών των λιπασμάτων λόγω της κρίσης στη Μέση Ανατολή ***I (ψηφοφορία)",
+        "cs": "7.9. Dočasná podpora a vyplácení záloh v reakci na zvýšené ceny hnojiv v důsledku krize na Blízkém východě ***I (hlasování)",
+        "da": "7.9. Midlertidig støtte og forskudsbetalinger som en reaktion på stigningen i gødningspriserne som følge af krisen i Mellemøsten ***I (afstemning)",
+        "fi": "7.9. Väliaikainen tuki ja ennakkomaksut Lähi-idän kriisin aiheuttaman lannoitteiden hintojen nousun vuoksi ***I (äänestys)",
+        "ga": "7.9. Tacaíocht shealadach agus íoc réamhíocaíochtaí maidir le praghsanna leasacháin méadaithe mar thoradh ar an ngéarchéim sa Mheánoirthear ***I (vótáil)",
+        "en": "7.9. Temporary support and payment of advances regarding the increased fertiliser prices due to the Middle East crisis ***I (vote)",
+        "bg": "7.9. Временна подкрепа и авансови плащания във връзка с увеличението на цените на торовете, предизвикано от кризата в Близкия изток ***I (гласуване)",
+        "hr": "7.9. Privremena potpora i isplata predujmova u pogledu povećanih cijena gnojiva zbog krize na Bliskom istoku ***I (glasovanje)",
+        "de": "7.9. Befristete Unterstützung und Vorschusszahlungen angesichts der infolge der Krise im Nahen Osten gestiegenen Düngemittelpreise ***I (Abstimmung)",
+        "et": "7.9. Ajutine toetus ja ettemaksed seoses Lähis-Ida kriisist tingitud väetisehindade tõusuga ***I (hääletus)"
+      },
+      "activity_start_date": "2026-07-07T12:34:08.176+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463058"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0240"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-71"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-09",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-09"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-0150"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-20",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T13:01:03.163+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-20",
+      "activity_label": {
+        "hr": "7.20. Digitalna imovina – izazovi za konkurentnost i cjelovitost financijskog sustava Europske unije (glasovanje)",
+        "nl": "7.20. Digitale activa – uitdagingen voor het concurrentievermogen en de integriteit van het financiële stelsel van de Europese Unie (stemming)",
+        "lt": "7.20. Skaitmeninis turtas: iššūkiai Europos Sąjungos finansų sistemos konkurencingumui ir vientisumui (balsavimas)",
+        "lv": "7.20. Digitālie aktīvi: konkurētspējas un integritātes uzdevumi, kas jārisina Eiropas Savienības finanšu sistēmā (balsošana)",
+        "de": "7.20. Digitale Vermögenswerte – Herausforderungen für die Wettbewerbsfähigkeit und Integrität des Finanzsystems der Europäischen Union (Abstimmung)",
+        "ro": "7.20. Activele digitale - dificultăți pentru competitivitatea și integritatea sistemului financiar al Uniunii Europene (vot)",
+        "es": "7.20. Activos digitales: retos para la competitividad y la integridad del sistema financiero de la Unión Europea (votación)",
+        "fr": "7.20. Actifs numériques – Défis pour la compétitivité et l’intégrité du système financier de l’Union européenne (vote)",
+        "et": "7.20. Digivara – Euroopa Liidu finantssüsteemi konkurentsivõime ja terviklikkusega seotud probleemid (hääletus)",
+        "cs": "7.20. Digitální aktiva – výzvy pro konkurenceschopnost a integritu finančního systému Evropské unie (hlasování)",
+        "fi": "7.20. Digitaaliset varat – Euroopan unionin rahoitusjärjestelmän kilpailukyvyn ja eheyden haasteet (äänestys)",
+        "en": "7.20. Digital assets – challenges for the competitiveness and integrity of the European Union’s financial system (vote)",
+        "pl": "7.20. Aktywa cyfrowe – wyzwania dla konkurencji i integralności systemu finansowego Unii Europejskiej (głosowanie)",
+        "ga": "7.20. Sócmhainní digiteacha – dúshláin d’iomaíochas agus do shláine chóras airgeadais an Aontais Eorpaigh (vótáil)",
+        "pt": "7.20. Ativos digitais — desafios à competitividade e integridade do sistema financeiro da União Europeia (votação)",
+        "it": "7.20. Attività digitali – sfide per la competitività e l'integrità del sistema finanziario dell'Unione europea (votazione)",
+        "hu": "7.20. Digitális eszközök – az Európai Unió pénzügyi rendszerének versenyképessége és integritása előtt álló kihívások (szavazás)",
+        "bg": "7.20. Цифрови активи – предизвикателства пред конкурентоспособността и почтеността на финансовата система на Европейския съюз (гласуване)",
+        "da": "7.20. Digitale aktiver – udfordringer for konkurrenceevnen og integriteten i Den Europæiske Unions finansielle system (afstemning)",
+        "el": "7.20. Ψηφιακά περιουσιακά στοιχεία - προκλήσεις για την ανταγωνιστικότητα και την ακεραιότητα του χρηματοπιστωτικού συστήματος της Ευρωπαϊκής Ένωσης (ψηφοφορία)",
+        "mt": "7.20. L-assi diġitali – l-isfidi għall-kompetittività u l-integrità tas-sistema finanzjarja tal-Unjoni Ewropea (votazzjoni)",
+        "sv": "7.20. Digitala tillgångar – utmaningar för konkurrenskraften och integriteten i Europeiska unionens finansiella system (omröstning)",
+        "sk": "7.20. Digitálne aktíva – výzvy pre konkurencieschopnosť a integritu finančného systému Európskej únie (hlasovanie)",
+        "sl": "7.20. Digitalna sredstva – izzivi za konkurenčnost in integriteto finančnega sistema Evropske unije (glasovanje)"
+      },
+      "activity_start_date": "2026-07-07T12:59:53.6+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463087",
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-CHA-3",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463097"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0251"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-79"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-20",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-20"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-2208"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-11",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:36:43.978+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-11",
+      "activity_label": {
+        "de": "7.11. Entwurf des Berichtigungshaushaltsplans Nr. 1/2026: Einstellung des Haushaltsüberschusses 2025 (Abstimmung)",
+        "sl": "7.11. Predlog spremembe proračuna št. 1/2026: vknjižba presežka iz proračunskega leta 2025 (glasovanje)",
+        "ro": "7.11. Proiectul de buget rectificativ nr. 1/2026: înregistrarea excedentului aferent exercițiului financiar 2025 (vot)",
+        "el": "7.11. Σχέδιο διορθωτικού προϋπολογισμού αριθ. 1/2026: εγγραφή του πλεονάσματος του οικονομικού έτους 2025 (ψηφοφορία)",
+        "es": "7.11. Proyecto de presupuesto rectificativo n.º 1/2026: consignación del excedente del ejercicio presupuestario 2025 (votación)",
+        "sv": "7.11. Förslag till ändringsbudget nr 1/2026: införande av överskottet från budgetåret 2025 (omröstning)",
+        "sk": "7.11. Návrh opravného rozpočtu č. 1/2026: zahrnutie prebytku z rozpočtového roka 2025 (hlasovanie)",
+        "cs": "7.11. Návrh opravného rozpočtu č. 1/2026 – zapsání přebytku za rozpočtový rok 2025 (hlasování)",
+        "hu": "7.11. 1/2026. sz. költségvetés-módosítási tervezet: a 2025. évi pénzügyi év többletének beállítása a költségvetésbe (szavazás)",
+        "ga": "7.11. Dréachtbhuiséad leasaitheach Uimh. 1/2026: lena n-iontráiltear barrachas na bliana airgeadais 2025 (vótáil)",
+        "da": "7.11. Forslag til ændringsbudget nr. 1/2026: opførelse af overskuddet for regnskabsåret 2025 (afstemning)",
+        "fr": "7.11. Projet de budget rectificatif n° 1/2026: budgétisation de l’excédent de l’exercice 2025 (vote)",
+        "en": "7.11. Draft amending budget no 1/2026: entering the surplus of the financial year 2025 (vote)",
+        "pl": "7.11. Projekt budżetu korygującego nr 1/2026: zapisanie nadwyżki z roku budżetowego 2025 (głosowanie)",
+        "bg": "7.11. Проект на коригиращ бюджет № 1/2026: вписване на излишъка от финансовата 2025 година (гласуване)",
+        "mt": "7.11. Abbozz ta’ baġit emendatorju Nru 1/2026: dħul tas-surplus tas-sena finanzjarja 2025 (votazzjoni)",
+        "fi": "7.11. Lisätalousarvioesitys nro 1/2026: varainhoitovuoden 2025 ylijäämän ottaminen talousarvioon (äänestys)",
+        "lt": "7.11. Taisomojo biudžeto Nr. 1/2026 projektas: 2025 finansinių metų pertekliaus įtraukimas (balsavimas)",
+        "nl": "7.11. Ontwerp van gewijzigde begroting nr. 1/2026: opname van het overschot van het begrotingsjaar 2025 (stemming)",
+        "lv": "7.11. Budžeta grozījuma Nr. 1/2026 projekts: 2025. finanšu gada pārpalikuma ieskaitīšana (balsošana)",
+        "pt": "7.11. Projeto de orçamento retificativo n.º 1/2026: inscrição do excedente do exercício de 2025 (votação)",
+        "et": "7.11. Paranduseelarve projekt nr 1/2026: 2025. aasta ülejäägi kandmine eelarvesse (hääletus)",
+        "hr": "7.11. Nacrt izmjene proračuna br. 1 za opći proračun za 2026.: unošenje viška iz financijske godine 2025. (glasovanje)",
+        "it": "7.11. Progetto di bilancio rettificativo n. 1/2026: iscrizione dell'eccedenza dell'esercizio 2025 (votazione)"
+      },
+      "activity_start_date": "2026-07-07T12:35:06.473+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463060"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0242"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-59"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-11",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-11"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-0090"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-1",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:30:10.704+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-1",
+      "activity_label": {
+        "cs": "7.1. Dočasná odchylka od některých ustanovení směrnice o soukromí a elektronických komunikacích pro účely boje proti pohlavnímu zneužívání dětí prostřednictvím on-line ***II (hlasování)",
+        "bg": "7.1. Временна дерогация от някои разпоредби на Директивата за правото на неприкосновеност на личния живот и електронни комуникации за целите на борбата с онлайн сексуалното насилие над деца ***II (гласуване)",
+        "de": "7.1. Vorübergehende Ausnahme von bestimmten Vorschriften der Datenschutzrichtlinie für elektronische Kommunikation zwecks Bekämpfung des sexuellen Missbrauchs von Kindern im Internet ***II (Abstimmung)",
+        "hu": "7.1. Az elektronikus hírközlési adatvédelmi irányelvtől való, a gyermekek online szexuális zaklatása elleni küzdelmet célzó átmeneti eltérés ***II (szavazás)",
+        "ga": "7.1. Maolú sealadach ar fhorálacha áirithe den Treoir maidir le príobháideachas agus cumarsáid leictreonach chun mí-úsáid ghnéasach leanaí ar líne a chomhrac ***II (vótáil)",
+        "pt": "7.1. Derrogação temporária de determinadas disposições da Diretiva Privacidade Eletrónica para efeitos de combate ao abuso sexual de crianças em linha ***II (votação)",
+        "nl": "7.1. Tijdelijke afwijking van sommige bepalingen van de e-privacyrichtlijn ter bestrijding van online seksueel misbruik van kinderen ***II (stemming)",
+        "da": "7.1. Midlertidig undtagelse fra visse bestemmelser i e-databeskyttelsesdirektivet med henblik på bekæmpelse af seksuelt misbrug af børn på internettet ***II (afstemning)",
+        "en": "7.1. Temporary derogation from certain provisions of the ePrivacy Directive to combat online child sexual abuse ***II (vote)",
+        "et": "7.1. Ajutine erand eraelu puutumatust ja elektroonilist sidet käsitleva direktiivi teatavatest sätetest, et võidelda veebis toimuva laste seksuaalse kuritarvitamise vastu ***II (hääletus)",
+        "mt": "7.1. Deroga temporanja minn ċerti dispożizzjonijiet tad-Direttiva dwar il-privatezza u l-komunikazzjonijiet elettroniċi għall-ġlieda kontra l-abbuż sesswali tat-tfal online ***II (votazzjoni)",
+        "sl": "7.1. Začasno odstopanje od nekaterih določb direktive o e-zasebnosti za namen boja proti spolni zlorabi otrok na spletu ***II (glasovanje)",
+        "fi": "7.1. Tilapäinen poikkeus sähköisen viestinnän tietosuojadirektiivin tiettyihin säännöksiin verkkovälitteisen lapsiin kohdistuvan seksuaaliväkivallan torjumiseksi ***II (äänestys)",
+        "es": "7.1. Excepción temporal a determinadas disposiciones de la Directiva sobre la privacidad y las comunicaciones electrónicas para luchar contra los abusos sexuales de menores en línea ***II (votación)",
+        "hr": "7.1. Privremeno odstupanje od određenih odredbi direktive o e-privatnosti u svrhu borbe protiv seksualnog zlostavljanja djece na internetu ***II (glasovanje)",
+        "it": "7.1. Deroga temporanea a talune disposizioni della direttiva relativa alla vita privata e alle comunicazioni elettroniche ai fini della lotta contro gli abusi sessuali sui minori online ***II (votazione)",
+        "fr": "7.1. Dérogation temporaire à certaines dispositions de la directive « vie privée et communications électroniques » pour lutter contre les abus sexuels commis contre des enfants en ligne ***II (vote)",
+        "ro": "7.1. Derogare temporară de la anumite dispoziții ale Directivei asupra confidențialității și comunicațiilor electronice în scopul combaterii abuzului sexual online asupra copiilor ***II (vot)",
+        "sv": "7.1. Tillfälligt undantag från vissa bestämmelser i direktivet om integritet och elektronisk kommunikation i syfte att bekämpa sexuella övergrepp mot barn på nätet ***II (omröstning)",
+        "lv": "7.1. Pagaidu atkāpe no konkrētiem Direktīvas par privāto dzīvi un elektronisko komunikāciju noteikumiem nolūkā apkarot seksuālu vardarbību pret bērniem tiešsaistē ***II (balsošana)",
+        "sk": "7.1. Dočasná výnimka z určitých ustanovení smernice o súkromí a elektronických komunikáciách na účely boja proti online sexuálnemu zneužívaniu detí ***II (hlasovanie)",
+        "lt": "7.1. Laikina nuostata, leidžianti nukrypti nuo tam tikrų E. privatumo direktyvos nuostatų kovojant su seksualine prievarta prieš vaikus internete ***II (balsavimas)",
+        "pl": "7.1. Tymczasowe odstępstwo od niektórych przepisów dyrektywy o prywatności i łączności elektronicznej do celów zwalczania niegodziwego traktowania dzieci w celach seksualnych w internecie ***II (głosowanie)",
+        "el": "7.1. Προσωρινή παρέκκλιση από ορισμένες διατάξεις της οδηγίας για την προστασία της ιδιωτικής ζωής στις ηλεκτρονικές επικοινωνίες με σκοπό την καταπολέμηση της σεξουαλικής κακοποίησης παιδιών στο διαδίκτυο ***II (ψηφοφορία)"
+      },
+      "activity_start_date": "2026-07-07T12:24:27.355+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456938",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456939",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456940",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086456936",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463050"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-110"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-01",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-01"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-0429"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-12",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:37:00.985+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-12",
+      "activity_label": {
+        "cs": "7.12. Uvolnění prostředků z Evropského fondu pro přizpůsobení se globalizaci: žádost EGF/2026/000 TA 2026 – Technická pomoc z podnětu Komise (hlasování)",
+        "en": "7.12. Mobilisation of the European Globalisation Adjustment Fund: Application EGF/2026/000 TA 2026 - Technical assistance at the initiative of the Commission (vote)",
+        "et": "7.12. Globaliseerumisega Kohanemise Euroopa Fondi kasutuselevõtmine: taotlus EGF/2026/000 TA 2026 – Tehniline abi komisjoni algatusel (hääletus)",
+        "sk": "7.12. Mobilizácia Európskeho fondu na prispôsobenie sa globalizácii: žiadosť EGF/2026/000 TA 2026 – Technická pomoc na podnet Komisie (hlasovanie)",
+        "pl": "7.12. Uruchomienie Europejskiego Funduszu Dostosowania do Globalizacji: wniosek EGF/2026/000 TA 2026 – pomoc techniczna z inicjatywy Komisji (głosowanie)",
+        "es": "7.12. Movilización del Fondo Europeo de Adaptación a la Globalización: solicitud EGF/2026/000 TA 2026 (asistencia técnica a iniciativa de la Comisión) (votación)",
+        "bg": "7.12. Мобилизиране на средства от Европейския фонд за приспособяване към глобализацията за съкратени работници EGF/2026/000 TA 2026 — Техническа помощ по инициатива на Комисията (гласуване)",
+        "hr": "7.12. Mobilizacija Europskog fonda za prilagodbu globalizaciji: Zahtjev EGF/2026/000 TA 2026 – Tehnička pomoć na inicijativu Komisije (glasovanje)",
+        "pt": "7.12. Mobilização do Fundo Europeu de Ajustamento à Globalização: candidatura EGF/2026/000 TA 2026 — assistência técnica por iniciativa da Comissão (votação)",
+        "fr": "7.12. Mobilisation du Fonds européen d’ajustement à la mondialisation: demande EGF/2026/000 TA 2026 - Assistance technique sur l’initiative de la Commission (vote)",
+        "fi": "7.12. Euroopan globalisaatiorahaston varojen käyttöönotto: hakemus EGF/2026/000 TA 2026 – komission aloitteesta annettava tekninen apu (äänestys)",
+        "it": "7.12. Mobilitazione del Fondo europeo di adeguamento alla globalizzazione: domanda EGF/2026/000 TA 2026 – Assistenza tecnica su iniziativa della Commissione (votazione)",
+        "lt": "7.12. Europos prisitaikymo prie globalizacijos padarinių fondo lėšų mobilizavimas: paraiška EGF/2026/000 TA 2026 – Techninė pagalba Komisijos iniciatyva (balsavimas)",
+        "nl": "7.12. Beschikbaarstelling van middelen uit het Europees Fonds voor aanpassing aan de globalisering: aanvraag EGF/2026/000 TA 2026 — Technische bijstand op initiatief van de Commissie (stemming)",
+        "de": "7.12. Inanspruchnahme des Europäischen Fonds für die Anpassung an die Globalisierung: Antrag EGF/2026/000 TA 2026 – technische Unterstützung auf Initiative der Kommission (Abstimmung)",
+        "sv": "7.12. Utnyttjande av Europeiska fonden för justering för globaliseringseffekter: ansökan EGF/2026/000 TA 2026 – tekniskt bistånd på kommissionens initiativ (omröstning)",
+        "ga": "7.12. An Ciste Eorpach um Choigeartú don Domhandú d’Oibrithe Iomarcacha a Shlógadh: Iarratas CED/2026/000 CT 2026 - Cúnamh teicniúil ar thionscnamh ón gCoimisiún (vótáil)",
+        "hu": "7.12. Az Európai Globalizációs Alkalmazkodási Alap igénybevétele: EGF/2026/000 TA 2026 sz. kérelem – technikai segítségnyújtás a Bizottság kezdeményezésére (szavazás)",
+        "mt": "7.12. Il-mobilizzazzjoni tal-Fond Ewropew ta’ Aġġustament għall-Globalizzazzjoni: Applikazzjoni EGF/2026/000 TA 2026 - Assistenza teknika fuq inizjattiva tal-Kummissjoni (votazzjoni)",
+        "sl": "7.12. Uporaba Evropskega sklada za prilagoditev globalizaciji za presežne delavce: vloga EGF/2026/000 TA 2026 – tehnična pomoč na pobudo Komisije (glasovanje)",
+        "el": "7.12. Κινητοποίηση του Ευρωπαϊκού Ταμείου Προσαρμογής στην Παγκοσμιοποίηση: Αίτηση EGF/2026/000 TA 2026 – Τεχνική βοήθεια με πρωτοβουλία της Επιτροπής (ψηφοφορία)",
+        "da": "7.12. Mobilisering af Den Europæiske Fond for Tilpasning til Globaliseringen: Ansøgning EGF/2026/000 TA 2026 – Teknisk bistand på Kommissionens initiativ (afstemning)",
+        "ro": "7.12. Mobilizarea Fondului european de ajustare la globalizare: cererea EGF/2026/000 TA 2026 - Asistență tehnică la inițiativa Comisiei (vot)",
+        "lv": "7.12. Eiropas Globalizācijas pielāgošanās fonda darbu zaudējušiem darba ņēmējiem izmantošana - pieteikums EGF/2026/000 TA 2026- Tehniskā palīdzība pēc Komisijas iniciatīvas (balsošana)"
+      },
+      "activity_start_date": "2026-07-07T12:36:43.978+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463061"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0243"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-67"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-12",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-12"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-0126"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-5",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:32:54.869+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-5",
+      "activity_label": {
+        "et": "7.5. Siegbert Frank Droese puutumatuse äravõtmise taotlus (hääletus)",
+        "ro": "7.5. Cerere de ridicare a imunității deputatului Siegbert Frank Droese (vot)",
+        "lv": "7.5. Pieprasījums atcelt Siegbert Frank Droese imunitāti (balsošana)",
+        "fr": "7.5. Demande de levée de l’immunité de Siegbert Frank Droese (vote)",
+        "mt": "7.5. Talba għat-tneħħija tal-immunità ta’ Siegbert Frank Droese (votazzjoni)",
+        "bg": "7.5. Искане за снемане на имунитета на Зигберт Франк Дрьозе (гласуване)",
+        "ga": "7.5. Iarraidh ar dhíolúine Siegbert Frank Droese a tharscaoileadh (vótáil)",
+        "da": "7.5. Anmodning om ophævelse af Siegbert Frank Droeses immunitet (afstemning)",
+        "sl": "7.5. Zahteva za odvzem imunitete Siegbertu Franku Droeseju (glasovanje)",
+        "pl": "7.5. Wniosek o uchylenie immunitetu Siegberta Franka Droesego (głosowanie)",
+        "es": "7.5. Suplicatorio de suspensión de la inmunidad de Siegbert Frank Droese (votación)",
+        "sk": "7.5. Žiadosť o zbavenie Siegberta Franka Droeseho imunity (hlasovanie)",
+        "el": "7.5. Αίτημα για την άρση της ασυλίας του Siegbert Frank Droese (ψηφοφορία)",
+        "it": "7.5. Richiesta di revoca dell'immunità di Siegbert Frank Droese (votazione)",
+        "nl": "7.5. Verzoek tot opheffing van de immuniteit van Siegbert Frank Droese (stemming)",
+        "lt": "7.5. Prašymas atšaukti Siegberto Franko Droese (Siegbert Frank Droese) imunitetą (balsavimas)",
+        "fi": "7.5. Siegbert Frank Droesen koskemattomuuden pidättämistä koskeva pyyntö (äänestys)",
+        "pt": "7.5. Pedido de levantamento da imunidade de Siegbert Frank Droese (votação)",
+        "de": "7.5. Antrag auf Aufhebung der Immunität von Siegbert Frank Droese (Abstimmung)",
+        "hr": "7.5. Zahtjev za ukidanje imuniteta Siegbertu Franku Droeseu (glasovanje)",
+        "sv": "7.5. Begäran om upphävande av Siegbert Frank Droeses immunitet (omröstning)",
+        "cs": "7.5. Žádost, aby byl Siegbert Frank Droese zbaven imunity (hlasování)",
+        "hu": "7.5. Siegbert Frank Droese mentelmi jogának felfüggesztésére irányuló kérelem (szavazás)",
+        "en": "7.5. Request for the waiver of the immunity of Siegbert Frank Droese (vote)"
+      },
+      "activity_start_date": "2026-07-07T12:32:37.73+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463052"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0236"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-113"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-05",
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-05"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2026-2019"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-17",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:51:27.955+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-17",
+      "activity_label": {
+        "hu": "7.17. Koherens adózási keret az EU pénzügyi ágazata számára (szavazás)",
+        "el": "7.17. Ένα συνεκτικό πλαίσιο φορολόγησης για τον χρηματοπιστωτικό τομέα της ΕΕ (ψηφοφορία)",
+        "pl": "7.17. Spójne ramy podatkowe dla sektora finansowego UE (głosowanie)",
+        "ga": "7.17. Creat cánach comhleanúnach d’earnáil airgeadais an Aontais (vótáil)",
+        "ro": "7.17. Un cadru fiscal coerent pentru sectorul financiar al UE (vot)",
+        "lt": "7.17. Nuosekli ES finansų sektoriaus apmokestinimo sistema (balsavimas)",
+        "mt": "7.17. Qafas tat-taxxa koerenti għas-settur finanzjarju tal-UE (votazzjoni)",
+        "sk": "7.17. Ucelený daňový rámec pre finančný sektor EÚ (hlasovanie)",
+        "fi": "7.17. Yhdenmukainen verokehys EU:n rahoitusalalle (äänestys)",
+        "cs": "7.17. Ucelený daňový rámec pro finanční sektor EU (hlasování)",
+        "en": "7.17. A coherent tax framework for the EU's financial sector (vote)",
+        "fr": "7.17. Un cadre fiscal cohérent pour le secteur financier de l’Union (vote)",
+        "de": "7.17. Ein stimmiger Steuerrahmen für den Finanzsektor in der EU (Abstimmung)",
+        "da": "7.17. En sammenhængende skatteramme for EU's finanssektor (afstemning)",
+        "it": "7.17. Un quadro coerente della fiscalità per il settore finanziario dell'UE (votazione)",
+        "hr": "7.17. Dosljedan porezni okvir za financijski sektor EU-a (glasovanje)",
+        "nl": "7.17. Een samenhangend belastingkader voor de financiële sector van de EU (stemming)",
+        "sl": "7.17. Usklajen davčni okvir za finančni sektor EU (glasovanje)",
+        "sv": "7.17. Enhetliga skatteramar för EU:s finanssektor (omröstning)",
+        "bg": "7.17. Съгласувана данъчна рамка за финансовия сектор на ЕС (гласуване)",
+        "lv": "7.17. Saskaņots nodokļu regulējums ES finanšu sektorā (balsošana)",
+        "pt": "7.17. Um quadro fiscal coerente para o setor financeiro da UE (votação)",
+        "et": "7.17. ELi finantssektori maksustamise sidus raamistik (hääletus)",
+        "es": "7.17. Marco fiscal coherente para el sector financiero de la Unión (votación)"
+      },
+      "activity_start_date": "2026-07-07T12:46:25.655+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463070",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463071",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463072"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0248"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-57"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-17",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-17"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2024-2117"
+      ]
+    },
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-18",
+      "type": "Activity",
+      "activity_date": "2026-07-07",
+      "activity_end_date": "2026-07-07T12:56:21.1+02:00",
+      "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-18",
+      "activity_label": {
+        "de": "7.18. Eine neue Strategie für Medienkompetenz und digitales Lernen (Abstimmung)",
+        "ro": "7.18. O nouă strategie pentru educația în domeniul mass-mediei și învățarea digitală (vot)",
+        "et": "7.18. Uus meediapädevuse ja digiõppe strateegia (hääletus)",
+        "sl": "7.18. Nova strategija za medijsko pismenost in digitalno učenje (glasovanje)",
+        "da": "7.18. En ny strategi for mediekendskab og digital læring (afstemning)",
+        "mt": "7.18. Strateġija ġdida għal-litteriżmu fil-media u l-apprendiment diġitali (votazzjoni)",
+        "en": "7.18. A new strategy for media literacy and digital learning (vote)",
+        "fi": "7.18. Medialukutaitoa ja digitaalista oppimista koskeva uusi strategia (äänestys)",
+        "pl": "7.18. Nowa strategia na rzecz umiejętności korzystania z mediów i cyfrowego uczenia się (głosowanie)",
+        "ga": "7.18. Straitéis nua maidir le litearthacht sna meáin agus foghlaim dhigiteach (vótáil)",
+        "pt": "7.18. Uma nova estratégia para a literacia mediática e aprendizagem digital (votação)",
+        "sv": "7.18. En ny strategi för mediekompetens och digitalt lärande (omröstning)",
+        "it": "7.18. Una nuova strategia in materia di alfabetizzazione mediatica e apprendimento digitale (votazione)",
+        "bg": "7.18. Нова стратегия за медийна грамотност и цифрово обучение (гласуване)",
+        "cs": "7.18. Nová strategie pro mediální gramotnost a digitální učení (hlasování)",
+        "lv": "7.18. Jauna stratēģija attiecībā uz medijpratību un digitālo mācīšanos (balsošana)",
+        "lt": "7.18. Nauja gebėjimo naudotis žiniasklaidos priemonėmis ir skaitmeninio mokymosi strategija (balsavimas)",
+        "sk": "7.18. Nová stratégia pre mediálnu gramotnosť a digitálne vzdelávanie (hlasovanie)",
+        "fr": "7.18. Une nouvelle stratégie pour l'éducation aux médias et l'apprentissage numérique (vote)",
+        "el": "7.18. Μια νέα στρατηγική για τον γραμματισμό στα μέσα επικοινωνίας και την ψηφιακή μάθηση (ψηφοφορία)",
+        "hr": "7.18. Nova strategija za medijsku pismenost i digitalno učenje (glasovanje)",
+        "nl": "7.18. Een nieuwe strategie voor mediawijsheid en digitaal leren (stemming)",
+        "es": "7.18. Nueva estrategia para la alfabetización mediática y el aprendizaje digital (votación)",
+        "hu": "7.18. A médiatudatosságra és digitális tanulásra vonatkozó új stratégia (szavazás)"
+      },
+      "activity_start_date": "2026-07-07T12:51:27.955+02:00",
+      "consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463076",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463077",
+        "eli/dl/event/MTG-PL-2026-07-07-OTH-2017086463078"
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0249"
+      ],
+      "executed": [
+        "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-31"
+      ],
+      "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+      "recorded_in_a_realization_of": [
+        "eli/dl/doc/PV-10-2026-07-07-ITM-007-18",
+        "eli/dl/doc/CRE-10-2026-07-07-ITM-007-18"
+      ],
+      "inverse_consists_of": [
+        "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7",
+        "eli/dl/proc/2025-2181"
+      ]
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

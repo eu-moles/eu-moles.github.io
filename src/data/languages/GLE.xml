@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ns5="http://lemon-model.net/lemon#" xmlns:ns6="http://publications.europa.eu/ontology/euvoc#" xmlns:ns7="http://www.w3.org/2008/05/skos-xl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns9="http://publications.europa.eu/ontology/authority/" xmlns:ns10="http://publications.europa.eu/resource/authority/">
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/GLE"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/GLE">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://publications.europa.eu/ontology/euvoc#Language"/>
+    <owl:versionInfo>20260617-0</owl:versionInfo>
+    <skos:prefLabel xml:lang="sl">irščina</skos:prefLabel>
+    <skos:prefLabel xml:lang="et">iiri keel</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">irlandese</skos:prefLabel>
+    <skos:prefLabel xml:lang="da">irsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="sk">írčina</skos:prefLabel>
+    <skos:prefLabel xml:lang="mk">ирски</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Irisch</skos:prefLabel>
+    <skos:prefLabel xml:lang="lt">airių kalba</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">irlandzki</skos:prefLabel>
+    <skos:prefLabel xml:lang="hr">irski</skos:prefLabel>
+    <skos:prefLabel xml:lang="el">ιρλανδικά</skos:prefLabel>
+    <skos:prefLabel xml:lang="fi">iiri</skos:prefLabel>
+    <skos:prefLabel xml:lang="mt">Irlandiż</skos:prefLabel>
+    <skos:prefLabel xml:lang="hsb">iršćina</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">irlandais</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">irlandês</skos:prefLabel>
+    <skos:prefLabel xml:lang="is">írska</skos:prefLabel>
+    <skos:prefLabel xml:lang="ru">ирландский</skos:prefLabel>
+    <skos:prefLabel xml:lang="ro">irlandeză</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Iers</skos:prefLabel>
+    <skos:prefLabel xml:lang="no">irsk</skos:prefLabel>
+    <skos:prefLabel xml:lang="tr">ırlandaca</skos:prefLabel>
+    <skos:prefLabel xml:lang="cs">irština</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">ирски</skos:prefLabel>
+    <skos:prefLabel xml:lang="sv">iriska</skos:prefLabel>
+    <skos:prefLabel xml:lang="lv">īru valoda</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Irish</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">irlandés</skos:prefLabel>
+    <skos:prefLabel xml:lang="ga">Gaeilge</skos:prefLabel>
+    <skos:prefLabel xml:lang="hu">ír</skos:prefLabel>
+    <skos:prefLabel xml:lang="uk">ірландська мова</skos:prefLabel>
+    <skos:prefLabel xml:lang="bg">ирландски</skos:prefLabel>
+    <skos:prefLabel xml:lang="sh">irski</skos:prefLabel>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dcterms:created>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns5:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1950-05-09</ns6:startDate>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/423743003fb7b16ddf5c5dc67c10ea84"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/58f8d4a5c95735e23fba467fd733bb8c"/>
+    <ns7:altLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a93a4e96c9997c52c9240a4b6e689d97"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/728d63ad0eafdda6a74d191d24436d9c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/82fc050828c5b85b97e6f24b85c8dff0"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c0d002a7d2ac91d0a8c7d2d7c9cbd2d6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/2d1ca1afa8cf88f177783896ab164b0c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/77edcc6ea6cadd16f9b7998dffebb70f"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/77f42bcd53ce7a5ba0579f84db6b01ec"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0cc9c575564ff9a83a48c3d2c53df4e6"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/835288dfe159c17f3344b07bae45928c"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/dd2f1a3227c8d502bb13f93d94f371c9"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ce9a24ec691d8d8ecb072a73bb6426d1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/485c43d7881626ec11df2d39bd2adfab"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/45eb3a76e0b805e38f529d1275024621"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/5af9e0bf892bd6e6eabbba50b6bf9f57"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ad9ec01944449108ce1d0125bdfbe634"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/56fa1a3d836eafac500bb39fb0944164"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/89bcc004a0c33dfb4abae5e3febbc5bf"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bd6c19b9375945c8c5913690238ede91"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/afe05f2d6cff7623b8620d223dda7b0a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/8253b932e7219481364bcf22279b193e"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/bfad12d5173c70e8cc58c1958a068664"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/80b842ccf026fefe5c38f66c573ed8d1"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/fee5c89dc0471abfc3e3fc3526a24237"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/c4149fd4336e74b084c874d900164595"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/3ee3dd670c5906c5bf545a7ce8213c0a"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ec83d08456e3c0375807a37d8cfc7714"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/ae5193d58374ee64425897c97fdbaeae"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/64f64040d7661b68d93e7a878448cf1d"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/137c7899a18751aaf804a018f0199e86"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/a1cc7fa07b55dd70540f089567c8e6bb"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/1fe0eb1dbcbe11b3125248e8e2b15166"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/66dbbd57f289bae7cd8dfde38e330948"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/0e18b602d42c53437751de84b2dfc2a2"/>
+    <ns7:prefLabel rdf:resource="http://publications.europa.eu/resource/authority/language/39f300c16bdb77e113fd0244a8e9b96e"/>
+    <dc:identifier>GLE</dc:identifier>
+    <dcterms:dateAccepted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-06-27</dcterms:dateAccepted>
+    <dcterms:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-10-06</dcterms:dateSubmitted>
+    <dcterms:type rdf:resource="http://publications.europa.eu/resource/authority/membership-classification/EU"/>
+    <skos:altLabel xml:lang="fr">gaélique</skos:altLabel>
+    <skos:altLabel xml:lang="fr">gaélique irlandais</skos:altLabel>
+    <skos:definition xml:lang="en">Irish, Irish Gaelic, or Gaelic (Gaeilge) belongs to the Gaelic branch of the Celtic family of languages, originating in Ireland and historically spoken by the Irish people.Irish is spoken as a first language by a small minority of Irish people, and as a second language by a rather larger group. Irish enjoys constitutional status as the national and first official language of the Republic of Ireland, and is an officially recognised minority language in Northern Ireland.</skos:definition>
+    <skos:definition xml:lang="fr">L’irlandais, gaélique irlandais ou gaélique (Gaeilge) appartient à la branche gaélique de la famille des langues celtiques, originaires de l’Irlande et historiquement parlées par le peuple irlandais.L’irlandais est utilisé comme première langue par une minorité irlandaise et comme deuxième langue par un groupe beaucoup plus large. L’irlandais bénéficie d’un statut constitutionnel comme langue officielle nationale et première langue de la République d’Irlande, et est une langue minoritaire officiellement reconnue en Irlande du Nord.</skos:definition>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#EUDOR_LNG">GA</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_1">ga</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2T">gle</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED_SCHEMA">GA</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_2B">gle</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LANG">GA</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">IRL</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PLANJO">GA</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#TED">GA</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#ISO_639_3">gle</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#PUB_LNGISO">GA</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#XML_LNG">ga</skos:notation>
+    <skos:notation rdf:datatype="http://publications.europa.eu/ontology/euvoc#FD_060">GA</skos:notation>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0001"/>
+    <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/language/0002"/>
+    <ns9:authority-code>GLE</ns9:authority-code>
+    <ns9:deprecated>false</ns9:deprecated>
+    <ns9:op-code>GLE</ns9:op-code>
+    <ns9:op-mapped-code rdf:nodeID="b6050739"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050740"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050741"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050742"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050743"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050744"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050745"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050746"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050747"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050748"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050749"/>
+    <ns9:op-mapped-code rdf:nodeID="b6050750"/>
+    <ns9:start.use>1950-05-09</ns9:start.use>
+    <ns10:op-code>GLE</ns10:op-code>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COM_WEB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EURLEX"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/IMMC"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED_SCHEMA"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EUDOR"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/COMREF"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ESPD"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/TED"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/PUB"/>
+    <ns6:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/ODP"/>
+    <ns6:order>EU-10</ns6:order>
+    <ns6:status rdf:resource="http://publications.europa.eu/resource/authority/concept-status/CURRENT"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/6a9cbd3c34a466bfd34b1544e09c3700"/>
+    <ns6:xlDefinition rdf:resource="http://publications.europa.eu/resource/authority/language/fc2c491cee59ec818f50a21467e48dd6"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/47b51d46da8f767d229deb950bd0fcad"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/54eac89498bbf7643336fe8559502819"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/720336e0705b0e7d2cf6f9afac02fa5c"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/585c275a6eeef47dea2d61c7b93a4c8d"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ffb6d9da3dadb182930c78632b94dc77"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ac77b48d1b4b3338c544ebc38d319633"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/5ca25e7bcf3ca462b7f8f7998c13fa4e"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/f444577132f6f369cb23e13df2ca24a1"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/a38e0cc3c7c121d366d1a3514d35b978"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/4aeeff5451072ee74ea56c5fbbe405ab"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/6ec39bc16f2c04674d05f24b92e8950f"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/ec353dc8954528d924770a4856e28fb7"/>
+    <ns6:xlNotation rdf:resource="http://publications.europa.eu/resource/authority/language/7ad41bdf8ef01dcbd51c90fe4c51b945"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/iso639-1/ga"/>
+    <ns9:protocol-order>EU-10</ns9:protocol-order>
+    <ns9:protocol.order>EU-10</ns9:protocol.order>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0001">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/GLE"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/0002">
+    <skos:hasTopConcept rdf:resource="http://publications.europa.eu/resource/authority/language/GLE"/>
+  </rdf:Description>
+</rdf:RDF>
