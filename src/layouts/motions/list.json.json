@@ -7,10 +7,13 @@
     {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
     {{- $discussion = $context.turns -}}
   {{- end -}}
+  {{- $tracked := partials.Include "motion-tracked.html" (dict "title" .title "sourceTitle" .sourceTitle "turns" $discussion) -}}
   {{- $items = $items | append (dict
     "date" .date
     "title" .title
     "sourceTitle" .sourceTitle
+    "agendaRequest" .agendaRequest
+    "tracked" $tracked
     "result" .result
     "sourceURL" .sourceURL
     "contextURL" .contextURL

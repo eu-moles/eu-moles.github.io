@@ -192,6 +192,30 @@
           const row = document.createElement('tr');
           const date = make('td', 'mep-profile-motion-date', String(motion.date).slice(0, 10));
           date.dataset.label = 'Date';
+          const type = make('td', 'motion-type-cell');
+          type.dataset.label = 'Labels';
+          const typeBadges = make('span', 'motion-type-badges');
+          if (motion.agendaRequest) {
+            const agenda = make('span', 'motion-agenda-badge');
+            agenda.title = 'Agenda request';
+            const icon = make('i', 'fa-solid fa-calendar-plus');
+            icon.setAttribute('aria-hidden', 'true');
+            agenda.append(icon, document.createTextNode('Agenda request'));
+            typeBadges.append(agenda);
+          }
+          if (motion.tracked) {
+            const tracked = make('span', 'motion-tracked-badge');
+            tracked.title = 'Contains tracked terms';
+            const icon = make('i', 'fa-solid fa-bullseye');
+            icon.setAttribute('aria-hidden', 'true');
+            tracked.append(icon, document.createTextNode('Tracked'));
+            typeBadges.append(tracked);
+          }
+          if (typeBadges.childElementCount) {
+            type.append(typeBadges);
+          } else {
+            type.classList.add('motion-type-cell--empty');
+          }
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
           const title = motion.sourceURL
@@ -230,7 +254,7 @@
           const outcome = document.createElement('td');
           outcome.dataset.label = 'Outcome';
           outcome.append(outcomeBadge(motion.result));
-          row.append(date, motionCell, vote, outcome);
+          row.append(date, type, motionCell, vote, outcome);
           rows.append(row);
         });
         motions.hidden = false;

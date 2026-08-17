@@ -14,6 +14,7 @@
           <thead>
             <tr class="bg-near-white tl">
               <th class="pa2">Date</th>
+              <th class="pa2">Labels</th>
               <th class="pa2">Motion</th>
               <th class="pa2">Outcome</th>
               <th class="pa2 tr">For</th>
@@ -26,17 +27,31 @@
             {{ range $motions }}
               {{- $motion := . -}}
               <tr class="bb b--black-10">
-                <td class="pa2 nowrap" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
-                <td class="pa2" data-label="Motion">
-                  {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
-                  {{- $context := dict "turns" (slice) -}}
-                  {{- $modalID := "" -}}
-                  {{- if os.FileExists $contextFile -}}
-                    {{- $context = partials.IncludeCached "motions-transcript-context.html" (dict "file" $contextFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
-                    {{- with $context.turns -}}
-                      {{- $modalID = printf "discussion-%s" $motion.votingId -}}
-                    {{- end -}}
+                {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
+                {{- $context := dict "turns" (slice) -}}
+                {{- $modalID := "" -}}
+                {{- if os.FileExists $contextFile -}}
+                  {{- $context = partials.IncludeCached "motions-transcript-context.html" (dict "file" $contextFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
+                  {{- with $context.turns -}}
+                    {{- $modalID = printf "discussion-%s" $motion.votingId -}}
                   {{- end -}}
+                {{- end -}}
+                {{- $tracked := partials.Include "motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
+                {{- $hasType := or $motion.agendaRequest $tracked -}}
+                <td class="pa2 nowrap" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
+                <td class="pa2 motion-type-cell{{ if not $hasType }} motion-type-cell--empty{{ end }}" data-label="Labels">
+                  {{- if $hasType -}}
+                    <span class="motion-type-badges">
+                      {{- if $motion.agendaRequest -}}
+                        <span class="motion-agenda-badge" title="Agenda request"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i><span>Agenda request</span></span>
+                      {{- end -}}
+                      {{- if $tracked -}}
+                        <span class="motion-tracked-badge" title="Contains tracked terms"><i class="fa-solid fa-bullseye" aria-hidden="true"></i><span>Tracked</span></span>
+                      {{- end -}}
+                    </span>
+                  {{- end -}}
+                </td>
+                <td class="pa2" data-label="Motion">
                   <span class="db">
                     {{ with .sourceURL }}
                       <a class="motion-source-link link underline-hover" href="{{ . }}" target="_blank" rel="external noopener noreferrer">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>

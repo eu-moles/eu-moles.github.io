@@ -45,10 +45,11 @@
           {{- end -}}
           {{- range $votes -}}
             {{- $vote := . -}}
-            {{- $sourceTitle := "" -}}
-            {{- with index $vote "activity_label" -}}
-              {{- $sourceTitle = index . "en" | default $sourceTitle -}}
-            {{- end -}}
+                  {{- $sourceTitle := "" -}}
+                  {{- with index $vote "activity_label" -}}
+                    {{- $sourceTitle = index . "en" | default $sourceTitle -}}
+                  {{- end -}}
+                  {{- $agendaRequest := gt (len (findRE `(?i)^(monday|tuesday|wednesday|thursday|friday)[’']s agenda\b` $sourceTitle)) 0 -}}
             {{- $decisionReferences := index $vote "consists_of" -}}
             {{- if $decisionReferences -}}
               {{- if not (reflect.IsSlice $decisionReferences) -}}
@@ -97,6 +98,7 @@
                     "date" $date
                     "title" $title
                     "sourceTitle" $sourceTitle
+                    "agendaRequest" $agendaRequest
                     "result" $result
                     "for" (index $decision "number_of_votes_favor")
                     "against" (index $decision "number_of_votes_against")

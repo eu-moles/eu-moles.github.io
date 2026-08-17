@@ -1,0 +1,3 @@
+{{- $text := printf "%v" . -}}
+{{- $pattern := `(?i)\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)` -}}
+{{- return (gt (len (findRE $pattern $text)) 0) -}}
