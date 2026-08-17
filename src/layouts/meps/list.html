@@ -69,8 +69,8 @@
 
     <noscript><p class="pa3 bg-washed-yellow">Filtering and pagination require JavaScript. All MEP records are shown below.</p></noscript>
 
-    <div class="overflow-auto">
-      <table class="collapse w-100 ba b--black-10 f6" cellspacing="0">
+    <div class="mep-directory-table-wrap overflow-auto">
+      <table class="mep-directory-table collapse w-100 ba b--black-10 f6" cellspacing="0">
         <thead>
           <tr class="bg-near-white tl">
             <th class="pa2">Name</th>
@@ -82,7 +82,7 @@
         <tbody id="mep-directory-rows">
           {{ range $meps }}
             <tr class="bb b--black-10" data-mep-row data-country="{{ .country }}" data-group="{{ .politicalGroup }}" data-party="{{ .nationalPoliticalGroup }}" data-full-name="{{ .fullName }}">
-              <td class="pa2">
+              <td class="pa2" data-label="MEP">
                 <div class="flex items-center">
                   <img
                     class="br-100 ba b--black-20 mr2 flex-none"
@@ -95,9 +95,9 @@
                   <a class="link dark-blue underline-hover" href="{{ "mep/" | relURL }}?id={{ .id }}">{{ .fullName }}</a>
                 </div>
               </td>
-              <td class="pa2">{{ partial "country-flag.html" .country }} {{ .country }}</td>
-              <td class="pa2">{{ .politicalGroup }}</td>
-              <td class="pa2">{{ .nationalPoliticalGroup }}</td>
+              <td class="pa2" data-label="Country">{{ partial "country-flag.html" .country }} {{ .country }}</td>
+              <td class="pa2" data-label="Political group">{{ .politicalGroup }}</td>
+              <td class="pa2" data-label="National party">{{ .nationalPoliticalGroup }}</td>
             </tr>
           {{ end }}
         </tbody>

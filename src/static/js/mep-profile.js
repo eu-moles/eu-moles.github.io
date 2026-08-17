@@ -191,7 +191,9 @@
         items.forEach((motion) => {
           const row = document.createElement('tr');
           const date = make('td', 'mep-profile-motion-date', String(motion.date).slice(0, 10));
+          date.dataset.label = 'Date';
           const motionCell = make('td', 'mep-profile-motion-title');
+          motionCell.dataset.label = 'Motion';
           const title = motion.sourceURL
             ? make('a', 'mep-profile-motion-title-text motion-source-link')
             : make('span', 'mep-profile-motion-title-text');
@@ -223,8 +225,10 @@
 
           const position = motion.positions && motion.positions[mepID] ? motion.positions[mepID] : 'notRecorded';
           const vote = document.createElement('td');
+          vote.dataset.label = 'Vote';
           vote.append(voteBadge(position));
           const outcome = document.createElement('td');
+          outcome.dataset.label = 'Outcome';
           outcome.append(outcomeBadge(motion.result));
           row.append(date, motionCell, vote, outcome);
           rows.append(row);

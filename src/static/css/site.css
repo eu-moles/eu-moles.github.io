@@ -570,6 +570,158 @@ textarea {
   color: #65788c;
 }
 
+/* On phones, turn wide vote tables into readable motion records instead of
+   forcing a horizontal scroll area. */
+@media screen and (max-width: 42em) {
+  .motions-table-wrap,
+  .mep-profile-motions-table-wrap,
+  .mep-directory-table-wrap {
+    overflow: visible;
+  }
+
+  .motions-table,
+  .mep-profile-motions-table,
+  .mep-directory-table {
+    display: block;
+    min-width: 0;
+    border: 0;
+  }
+
+  .motions-table thead,
+  .mep-profile-motions-table thead,
+  .mep-directory-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .motions-table tbody,
+  .mep-profile-motions-table tbody {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .motions-table tr,
+  .mep-profile-motions-table tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 0.85rem;
+    padding: 1rem;
+    border: 1px solid #d6e0ea;
+    border-left: 0.28rem solid #174f91;
+    background: #fff;
+    box-shadow: 0 0.2rem 0.65rem rgb(16 42 69 / 6%);
+  }
+
+  .motions-table td,
+  .mep-profile-motions-table td {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+    border: 0;
+    color: #263746;
+    font-size: 0.92rem;
+    text-align: left !important;
+  }
+
+  .motions-table td::before,
+  .mep-profile-motions-table td::before {
+    color: #65788c;
+    content: attr(data-label);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .motions-table td:nth-child(2),
+  .mep-profile-motions-table td:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding-top: 0;
+    color: #172b42;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .motions-table td:nth-child(2)::before,
+  .mep-profile-motions-table td:nth-child(2)::before {
+    display: none;
+  }
+
+  .motions-table .motion-context-link {
+    margin-top: 0.45rem;
+    margin-left: 0;
+  }
+
+  .mep-profile-motions-table .mep-profile-motion-title {
+    min-width: 0;
+  }
+
+  .mep-directory-table tbody {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .mep-directory-table tr {
+    display: grid;
+    gap: 0;
+    padding: 0.85rem 1rem;
+    border: 1px solid #d6e0ea;
+    border-left: 0.28rem solid #174f91;
+    background: #fff;
+    box-shadow: 0 0.2rem 0.65rem rgb(16 42 69 / 6%);
+  }
+
+  .mep-directory-table tr[hidden] {
+    display: none;
+  }
+
+  .mep-directory-table td {
+    display: grid;
+    grid-template-columns: minmax(6.8rem, 0.8fr) minmax(0, 1.4fr);
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border: 0;
+    color: #263746;
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+
+  .mep-directory-table td::before {
+    color: #65788c;
+    content: attr(data-label);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .mep-directory-table td:first-child {
+    display: block;
+    padding: 0 0 0.85rem;
+    border-bottom: 1px solid #dce4ec;
+  }
+
+  .mep-directory-table td:first-child::before {
+    display: none;
+  }
+
+  .mep-directory-table td:first-child .flex {
+    align-items: center;
+  }
+}
+
 .mep-profile-speeches {
   border-top-color: #a52929;
 }

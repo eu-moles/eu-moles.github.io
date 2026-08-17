@@ -9,7 +9,7 @@
   <section class="ph3 ph5-l pb5">
     {{ if $motions }}
       <p class="f5 gray mt0 mb3">{{ len $motions }} recorded {{ if eq (len $motions) 1 }}motion{{ else }}motions{{ end }}</p>
-      <div class="overflow-auto">
+      <div class="motions-table-wrap overflow-auto">
         <table class="motions-table collapse w-100 ba b--black-10 f6" cellspacing="0">
           <thead>
             <tr class="bg-near-white tl">
@@ -26,8 +26,8 @@
             {{ range $motions }}
               {{- $motion := . -}}
               <tr class="bb b--black-10">
-                <td class="pa2 nowrap">{{ strings.Substr .date 0 10 }}</td>
-                <td class="pa2">
+                <td class="pa2 nowrap" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
+                <td class="pa2" data-label="Motion">
                   {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
                   {{- $context := dict "turns" (slice) -}}
                   {{- $modalID := "" -}}
@@ -103,7 +103,7 @@
                     </dialog>
                   {{ end }}
                 </td>
-                <td class="pa2">
+                <td class="pa2" data-label="Outcome">
                   <span class="motion-result motion-result--{{ lower .result }}">
                     {{ if eq .result "ADOPTED" }}
                       <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
@@ -113,10 +113,10 @@
                     {{ .result | humanize }}
                   </span>
                 </td>
-                <td class="pa2 tr">{{ .for }}</td>
-                <td class="pa2 tr">{{ .against }}</td>
-                <td class="pa2 tr">{{ .abstentions }}</td>
-                <td class="pa2 tr">{{ .notRecorded }}</td>
+                <td class="pa2 tr" data-label="For">{{ .for }}</td>
+                <td class="pa2 tr" data-label="Against">{{ .against }}</td>
+                <td class="pa2 tr" data-label="Abstentions">{{ .abstentions }}</td>
+                <td class="pa2 tr" data-label="Not voted">{{ .notRecorded }}</td>
               </tr>
             {{ end }}
           </tbody>
