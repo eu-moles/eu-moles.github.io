@@ -48,7 +48,9 @@
 
       {{- if $isAgendaHeading -}}
         {{- $heading = lower $text -}}
-        {{- $heading = replaceRE "^[0-9]+[.[:space:]-]+" "" $heading -}}
+        {{- $heading = replaceRE "^[0-9]+(\\.[0-9]+)*[.[:space:]-]+" "" $heading -}}
+        {{- $heading = replaceRE "[[:space:]]+\\*{3}I{1,3}[[:space:]]*$" "" $heading -}}
+        {{- $heading = replaceRE "[[:space:]]*\\(([Dd]ebate|[Vv]ote)\\)[[:space:]]*$" "" $heading -}}
         {{- $waitingForMarker = true -}}
       {{- else if $waitingForMarker -}}
         {{- if $isSpeakerMarker -}}

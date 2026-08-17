@@ -6,7 +6,9 @@
 {{- $normalizedQueries := slice -}}
 {{- range $queries -}}
   {{- $query := lower (strings.TrimSpace .) -}}
-  {{- $query = replaceRE "^[0-9]+[.[:space:]-]+" "" $query -}}
+  {{- $query = replaceRE "^[0-9]+(\\.[0-9]+)*[.[:space:]-]+" "" $query -}}
+  {{- $query = replaceRE "[[:space:]]+\\*{3}I{1,3}[[:space:]]*$" "" $query -}}
+  {{- $query = replaceRE "[[:space:]]*\\(([Dd]ebate|[Vv]ote)\\)[[:space:]]*$" "" $query -}}
   {{- if ne $query "" -}}
     {{- $normalizedQueries = $normalizedQueries | append $query -}}
   {{- end -}}

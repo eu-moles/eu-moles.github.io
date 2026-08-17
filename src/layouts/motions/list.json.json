@@ -3,7 +3,7 @@
 {{- range $motions -}}
   {{- $discussion := slice -}}
   {{- $transcriptFile := path.Join "data/votes" .date "transcript.xml" -}}
-  {{- if and .contextURL (os.FileExists $transcriptFile) -}}
+  {{- if os.FileExists $transcriptFile -}}
     {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
     {{- $discussion = $context.turns -}}
   {{- end -}}

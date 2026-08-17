@@ -195,10 +195,17 @@ generate_translation_candidates() {
     | @tsv
   ' "$directory/speeches.json")
 
-  # The one-minute item is always tracked. For motion discussions, associate
-  # debate titles with voting records through meaningful words in their source
-  # labels and decision references.
+  # The one-minute item is always tracked. Include every top-level vote item as
+  # well, so speakers recorded during voting-time interventions are translated
+  # when shown in a motion discussion.
   printf '%s\n' 'one-minute speeches on matters of political importance' > "$target_titles"
+  jq -r '
+    .data[]
+    | select(type == "object" and (.consists_of | type == "array") and (.consists_of | length > 0))
+    | .activity_label.en? // empty
+  ' "$directory/vote-results.json" |
+    sed -E 's/^[0-9]+([.][0-9]+)*[.[:space:]-]+//; s/[[:space:]]+\*{3}I{1,3}[[:space:]]*$//; s/[[:space:]]*\([Vv]ote\)[[:space:]]*$//' |
+    tr '[:upper:]' '[:lower:]' >> "$target_titles"
   {
     jq -r '.data[] | .activity_label.en? // empty' "$directory/vote-results.json"
     jq -r '.data[] | .referenceText.en? // empty' "$directory/decisions.json"
@@ -209,7 +216,7 @@ generate_translation_candidates() {
   while IFS= read -r title; do
     [[ "$title" == *'(debate)'* ]] || continue
     title=$(printf '%s' "$title" |
-      sed -E 's/^[0-9]+[.[:space:]-]+//; s/[[:space:]]*\([Dd]ebate\)[[:space:]]*$//' |
+      sed -E 's/^[0-9]+([.][0-9]+)*[.[:space:]-]+//; s/[[:space:]]*\([Dd]ebate\)[[:space:]]*$//' |
       tr '[:upper:]' '[:lower:]')
     title_terms=$(printf '%s' "$title" | LC_ALL=C tr -cs '[:alnum:]' '\n')
     matched=false
@@ -236,8 +243,9 @@ generate_translation_candidates() {
       return trim(value)
     }
     function title_key(value) {
-      sub(/^[0-9]+[. \t-]+/, "", value)
-      sub(/[ \t]*\([Dd]ebate\)[ \t]*$/, "", value)
+      sub(/^[0-9]+([.][0-9]+)*[. \t-]+/, "", value)
+      sub(/[ \t]+\*{3}I{1,3}[ \t]*$/, "", value)
+      sub(/[ \t]*\(([Dd]ebate|[Vv]ote)\)[ \t]*$/, "", value)
       return tolower(clean(value))
     }
     function json_escape(value) {
