@@ -2,4 +2,4 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/src"
-exec hugo --minify --gc
+exec hugo --minify --gc --noBuildLock

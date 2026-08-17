@@ -143,32 +143,177 @@ translate_to_english() {
     jq -er '[.[0][]? | .[0]?] | join("")'
 }
 
-find_hugo() {
-  if [[ -n "${HUGO_BIN:-}" && -x "$HUGO_BIN" ]]; then
-    printf '%s\n' "$HUGO_BIN"
-    return
-  fi
+generate_translation_candidates() {
+  local directory="$1"
+  local language_map
+  local target_titles
+  local vote_terms
+  local number
+  local language_uri
+  local language_file
+  local language_code
+  local title
+  local title_terms
+  local term
+  local matched
 
-  if command -v hugo > /dev/null 2>&1; then
-    command -v hugo
-    return
-  fi
+  language_map=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-languages.XXXXXX")
+  target_titles=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-titles.XXXXXX")
+  vote_terms=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-terms.XXXXXX")
 
-  if [[ -x /home/linuxbrew/.linuxbrew/bin/hugo ]]; then
-    printf '%s\n' /home/linuxbrew/.linuxbrew/bin/hugo
-    return
-  fi
+  # Match the language code Hugo displays from the cached EU authority files.
+  while IFS=$'\t' read -r number language_uri; do
+    language_file="data/languages/${language_uri##*/}.xml"
+    [[ -s "$language_file" ]] || continue
+    language_code=$(sed -nE 's@.*euvoc#ISO_639_1">([^<]+)</skos:notation>@\1@p' "$language_file" | head -n 1 | tr '[:upper:]' '[:lower:]')
+    [[ -n "$language_code" ]] && printf '%s\t%s\n' "$number" "$language_code" >> "$language_map"
+  done < <(jq -r '
+    .data[]
+    | .recorded_in_a_realization_of[]?
+    | select(.number and (.originalLanguage | length > 0) and (.originalLanguage | index("http://publications.europa.eu/resource/authority/language/ENG") | not))
+    | [.number, .originalLanguage[0]]
+    | @tsv
+  ' "$directory/speeches.json")
 
-  return 1
+  # The one-minute item is always tracked. For motion discussions, associate
+  # debate titles with voting records through meaningful words in their source
+  # labels and decision references.
+  printf '%s\n' 'one-minute speeches on matters of political importance' > "$target_titles"
+  {
+    jq -r '.data[] | .activity_label.en? // empty' "$directory/vote-results.json"
+    jq -r '.data[] | .referenceText.en? // empty' "$directory/decisions.json"
+  } | LC_ALL=C tr '[:upper:]' '[:lower:]' | LC_ALL=C tr -cs '[:alnum:]' '\n' |
+    awk 'length > 2 && $0 !~ /^(agenda|and|by|for|from|group|groups|monday|request|the|thursday|tuesday|wednesday|friday)$/' |
+    sort -u > "$vote_terms"
+
+  while IFS= read -r title; do
+    [[ "$title" == *'(debate)'* ]] || continue
+    title=$(printf '%s' "$title" |
+      sed -E 's/^[0-9]+[.[:space:]-]+//; s/[[:space:]]*\([Dd]ebate\)[[:space:]]*$//' |
+      tr '[:upper:]' '[:lower:]')
+    title_terms=$(printf '%s' "$title" | LC_ALL=C tr -cs '[:alnum:]' '\n')
+    matched=false
+    while IFS= read -r term; do
+      if grep -Fxq "$term" <<< "$title_terms"; then
+        matched=true
+        break
+      fi
+    done < "$vote_terms"
+    "$matched" && printf '%s\n' "$title" >> "$target_titles"
+  done < <(jq -r '.data[] | .activity_label.en? // empty' "$directory/activities.json")
+
+  LC_ALL=C awk -v language_map="$language_map" -v target_titles="$target_titles" '
+    function trim(value) {
+      sub(/^[ \t\r\n\f]+/, "", value)
+      sub(/[ \t\r\n\f]+$/, "", value)
+      return value
+    }
+    function clean(value) {
+      gsub(/[ \t\r\n\f]+/, " ", value)
+      while (match(value, /[ \t\r\n\f]+[,.;:!?]/)) {
+        value = substr(value, 1, RSTART - 1) substr(value, RSTART + RLENGTH - 1, 1) substr(value, RSTART + RLENGTH)
+      }
+      return trim(value)
+    }
+    function title_key(value) {
+      sub(/^[0-9]+[. \t-]+/, "", value)
+      sub(/[ \t]*\([Dd]ebate\)[ \t]*$/, "", value)
+      return tolower(clean(value))
+    }
+    function json_escape(value) {
+      gsub(/\\/, "\\\\", value)
+      gsub(/"/, "\\\"", value)
+      gsub(/\n/, "\\n", value)
+      gsub(/\r/, "\\r", value)
+      return value
+    }
+    function flush_turn(    code) {
+      if (!target || !speaker || !speech_number || !buffer || !(speech_number in languages) || (speech_number in seen)) return
+      code = languages[speech_number]
+      printf "{\"speechNumber\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(code), json_escape(buffer)
+      seen[speech_number] = 1
+    }
+    function process_paragraph(    i,line,text,bookmark,part,without_speaker) {
+      text = ""
+      bookmark = ""
+      for (i = 1; i <= paragraph_lines; i++) {
+        line = paragraph[i]
+        if (line ~ /<w:bookmarkStart/) {
+          bookmark = line
+          sub(/^.*w:name="/, "", bookmark)
+          sub(/".*$/, "", bookmark)
+        }
+        if (line ~ /<w:t([[:space:]][^>]*)?>/) {
+          part = line
+          sub(/^.*<w:t([^>]*)>/, "", part)
+          sub(/<\/w:t>.*$/, "", part)
+          gsub(/&amp;/, "\\&", part)
+          gsub(/&quot;/, "\\\"", part)
+          gsub(/&apos;/, "\047", part)
+          gsub(/&lt;/, "<", part)
+          gsub(/&gt;/, ">", part)
+          text = text part
+        } else if (line ~ /<w:(tab|br|cr)\/>/) {
+          text = text " "
+        }
+      }
+      text = clean(text)
+      if (text != "" && bookmark ~ /^_Toc/) {
+        flush_turn()
+        heading = title_key(text)
+        target = (heading in targets)
+        speaker = ""
+        speech_number = ""
+        buffer = ""
+      } else if (text ~ /^[0-9]+-[0-9]+-[0-9]+$/ && bookmark != "") {
+        flush_turn()
+        speaker = bookmark
+        sub(/^[0-9]+-[0-9]+-[0-9]+[ \t]*/, "", speaker)
+        speech_number = text
+        buffer = ""
+      } else if (target && speaker != "" && text != "") {
+        if (buffer == "") {
+          without_speaker = text
+          sub(speaker, "", without_speaker)
+          if (without_speaker != text) sub(/^[^–]*–[ \t]*/, "", without_speaker)
+          text = without_speaker
+        }
+        if (text != "") buffer = (buffer == "" ? text : buffer "\n\n" text)
+      }
+    }
+    BEGIN {
+      while ((getline line < language_map) > 0) {
+        split(line, fields, "\t")
+        languages[fields[1]] = fields[2]
+      }
+      close(language_map)
+      while ((getline line < target_titles) > 0) targets[line] = 1
+      close(target_titles)
+      in_paragraph = 0
+      paragraph_lines = 0
+    }
+    /^[ \t]*<w:p>$/ {
+      in_paragraph = 1
+      paragraph_lines = 0
+    }
+    in_paragraph {
+      paragraph[++paragraph_lines] = $0
+    }
+    /^[ \t]*<\/w:p>$/ && in_paragraph {
+      process_paragraph()
+      delete paragraph
+      in_paragraph = 0
+      paragraph_lines = 0
+    }
+    END { flush_turn() }
+  ' "$directory/transcript.xml"
+
+  rm -f "$language_map" "$target_titles" "$vote_terms"
 }
 
 cache_transcript_translations() {
   local voting_date="$1"
   local directory="$2"
-  local hugo_bin
-  local temporary_site
-  local motions_file
-  local speeches_file
   local translations_file="$directory/translations.json"
   local candidate
   local speech_number
@@ -178,25 +323,6 @@ cache_transcript_translations() {
   local translations_temporary
   local candidates_file
 
-  hugo_bin=$(find_hugo) || {
-    echo "Hugo was not found; skipping cached transcript translations for $voting_date." >&2
-    return
-  }
-
-  temporary_site=$(mktemp -d "${TMPDIR:-/tmp}/eu-moles-translations.XXXXXX")
-  if ! "$hugo_bin" --destination "$temporary_site" --noBuildLock --quiet; then
-    rm -rf "$temporary_site"
-    echo "Could not build the temporary transcript catalogue; skipping cached translations for $voting_date." >&2
-    return
-  fi
-  motions_file="$temporary_site/motions/index.json"
-  speeches_file="$temporary_site/speeches/index.json"
-  if [[ ! -s "$motions_file" || ! -s "$speeches_file" ]]; then
-    rm -rf "$temporary_site"
-    echo "No transcript catalogue was generated; skipping cached translations for $voting_date." >&2
-    return
-  fi
-
   if [[ ! -s "$translations_file" ]]; then
     translations_temporary=$(mktemp "${translations_file}.tmp.XXXXXX")
     jq -n '{version: 1, translations: {}}' > "$translations_temporary"
@@ -204,29 +330,7 @@ cache_transcript_translations() {
   fi
 
   candidates_file=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-candidates.XXXXXX")
-  jq -cn --arg date "$voting_date" --slurpfile motions "$motions_file" --slurpfile speeches "$speeches_file" '
-    [
-      $motions[0][]
-      | select(.date == $date)
-      | .discussion[]?
-      | select(.language and .language.code and .speechNumber and .text)
-      | {
-          speechNumber: (.speechNumber | tostring),
-          sourceLanguage: (.language.code | ascii_downcase),
-          sourceText: .text
-        }
-    ] + [
-      $speeches[0][]
-      | select(.date == $date and .language and .language.code and .speechNumber and .text)
-      | {
-          speechNumber: (.speechNumber | tostring),
-          sourceLanguage: (.language.code | ascii_downcase),
-          sourceText: .text
-        }
-    ]
-    | unique_by(.speechNumber)
-    | .[]
-  ' > "$candidates_file"
+  generate_translation_candidates "$directory" > "$candidates_file"
 
   # The generated catalogues define the speech records we retain: motion
   # discussions and the one-minute-speeches agenda item. Drop older, broader
@@ -238,7 +342,6 @@ cache_transcript_translations() {
       )
     ' "$translations_file" > "$translations_temporary"; then
     rm -f "$translations_temporary" "$candidates_file"
-    rm -rf "$temporary_site"
     return 1
   fi
   mv "$translations_temporary" "$translations_file"
@@ -289,7 +392,6 @@ cache_transcript_translations() {
   done < "$candidates_file"
 
   rm -f "$candidates_file"
-  rm -rf "$temporary_site"
 }
 
 for voting_date in $voting_dates; do
