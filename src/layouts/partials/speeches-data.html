@@ -52,6 +52,7 @@
 {{- $motions := partials.IncludeCached "motions-data.html" site -}}
 {{- range $motions -}}
   {{- $motion := . -}}
+  {{- if not $motion.isSubvote -}}
   {{- $transcriptFile := path.Join "data/votes" $motion.date "transcript.xml" -}}
   {{- if and $motion.contextURL (os.FileExists $transcriptFile) -}}
     {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $motion.title $motion.sourceTitle)) $motion.date $motion.title $motion.sourceTitle -}}
@@ -72,6 +73,7 @@
         ) -}}
       {{- end -}}
     {{- end -}}
+  {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- return (sort $speeches "date" "desc") -}}

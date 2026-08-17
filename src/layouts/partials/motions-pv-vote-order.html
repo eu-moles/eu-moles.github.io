@@ -1,0 +1,28 @@
+{{- $file := . -}}
+{{- $orderByTitle := dict -}}
+{{- if os.FileExists $file -}}
+  {{- $xml := os.ReadFile $file -}}
+  {{- $voteSectionMatches := findRESubmatch `(?s)<PV\.Vote\.Text>.*?</PV\.Vote\.Text>` $xml -}}
+  {{- if gt (len $voteSectionMatches) 0 -}}
+    {{- $voteSection := index (index $voteSectionMatches 0) 0 -}}
+    {{- $chunks := split $voteSection "<text:h" -}}
+    {{- range $chunks -}}
+      {{- $item := . -}}
+      {{- if findRE `^[^>]*text:level="2"[^>]*>` $item -}}
+        {{- $headingParts := split $item "</text:h>" -}}
+        {{- $heading := printf "<text:h%s</text:h>" (index $headingParts 0) -}}
+        {{- $chapterMatches := findRESubmatch `<text:chapter-number>[0-9]+\.([0-9]+)</text:chapter-number>` $heading -}}
+        {{- if gt (len $chapterMatches) 0 -}}
+          {{- $agendaOrder := int (index (index $chapterMatches 0) 1) -}}
+          {{- $heading = replaceRE `(?s)<text:chapter-number>.*?</text:chapter-number>` "" $heading -}}
+          {{- $heading = replaceRE `<[^>]+>` " " $heading -}}
+          {{- $key := partials.Include "motions-title-key.html" $heading -}}
+          {{- if ne $key "" -}}
+            {{- $orderByTitle = merge $orderByTitle (dict $key $agendaOrder) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $orderByTitle -}}

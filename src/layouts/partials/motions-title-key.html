@@ -1,0 +1,6 @@
+{{- $title := lower (strings.TrimSpace .) -}}
+{{- $title = replaceRE `^[0-9]+(\.[0-9]+)*[.[:space:]-]+` "" $title -}}
+{{- $title = replaceRE `[[:space:]]+\*{3}I{1,3}[[:space:]]*` " " $title -}}
+{{- $title = replaceRE `[[:space:]]*\((vote|debate)\)[[:space:]]*$` "" $title -}}
+{{- $title = replaceRE `[[:space:]]+` " " $title -}}
+{{- return (strings.TrimSpace $title) -}}

@@ -145,6 +145,12 @@ textarea {
   color: #8e2525;
 }
 
+.motion-result--unavailable {
+  padding-inline: 0.4rem;
+  background: #edf1f5;
+  color: #65788c;
+}
+
 .motion-discussion-link,
 .motion-discussion-link:visited {
   display: flex;
@@ -652,6 +658,65 @@ main table tbody tr:last-child td {
   min-width: 47rem;
 }
 
+/* A business item may finish by a non-roll-call vote while its constituent
+   amendments have individual roll-call results. Keep that hierarchy visible. */
+.motion-parent-row td {
+  background: #fbfcfe;
+}
+
+.motion-subvote-row td {
+  background: #f8fbfe;
+  border-bottom-color: #d9e4ef;
+}
+
+.motion-subvote-row .site-table-date {
+  padding-left: 2rem;
+  position: relative;
+}
+
+.motion-subvote-row .site-table-date::before {
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: 0.8rem;
+  width: 0.55rem;
+  border-left: 1px solid #b8cce1;
+  border-bottom: 1px solid #b8cce1;
+  content: "";
+}
+
+.motion-component-label,
+.motion-component-label i {
+  display: inline-flex;
+  align-items: center;
+}
+
+.motion-component-label {
+  gap: 0.35rem;
+  color: #506b86;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.motion-subvote-title {
+  padding-left: 0.25rem;
+}
+
+.motion-subvote-title__prefix {
+  display: block;
+  margin-bottom: 0.22rem;
+  color: #64788d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 /* Profile tables inherit the card frame that surrounds them. */
 .mep-profile-motions .site-table {
   border: 0;
@@ -759,6 +824,26 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion td.motion-type-cell--empty {
+    display: none;
+  }
+
+  .site-table--motion tr.motion-subvote-row {
+    margin-top: -0.55rem;
+    margin-left: 1rem;
+    border-left-color: #9cb8d4;
+    background: #f8fbfe;
+    box-shadow: none;
+  }
+
+  .site-table--motion tr.motion-parent-row {
+    margin-bottom: -0.55rem;
+  }
+
+  .motion-subvote-row .site-table-date {
+    padding-left: 0;
+  }
+
+  .motion-subvote-row .site-table-date::before {
     display: none;
   }
 

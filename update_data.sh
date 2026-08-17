@@ -293,12 +293,26 @@ generate_translation_candidates() {
         speaker = ""
         speech_number = ""
         buffer = ""
-      } else if (text ~ /^[0-9]+-[0-9]+-[0-9]+$/ && bookmark != "") {
+      } else if (target && text ~ /^[–-]?[ \t]*[Aa]fter the vote:/) {
         flush_turn()
-        speaker = bookmark
-        sub(/^[0-9]+-[0-9]+-[0-9]+[ \t]*/, "", speaker)
-        speech_number = text
+        target = 0
+        speaker = ""
+        speech_number = ""
         buffer = ""
+      } else if (text ~ /^[0-9]+-[0-9]+-[0-9]+$/ && bookmark != "") {
+        if (target && bookmark ~ /[Aa]fter the vote/) {
+          flush_turn()
+          target = 0
+          speaker = ""
+          speech_number = ""
+          buffer = ""
+        } else {
+          flush_turn()
+          speaker = bookmark
+          sub(/^[0-9]+-[0-9]+-[0-9]+[ \t]*/, "", speaker)
+          speech_number = text
+          buffer = ""
+        }
       } else if (target && speaker != "" && text != "") {
         if (buffer == "") {
           without_speaker = text

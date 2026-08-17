@@ -3,7 +3,7 @@
 {{- range $motions -}}
   {{- $discussion := slice -}}
   {{- $transcriptFile := path.Join "data/votes" .date "transcript.xml" -}}
-  {{- if os.FileExists $transcriptFile -}}
+  {{- if and (not .isSubvote) (os.FileExists $transcriptFile) -}}
     {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
     {{- $discussion = $context.turns -}}
   {{- end -}}
@@ -12,10 +12,14 @@
     "date" .date
     "title" .title
     "sourceTitle" .sourceTitle
+    "parentID" .parentID
+    "isSubvote" .isSubvote
+    "hasSubvotes" .hasSubvotes
     "agendaRequest" .agendaRequest
     "procedure" .procedure
     "tracked" $tracked
     "result" .result
+    "hasRecordedVote" .hasRecordedVote
     "sourceURL" .sourceURL
     "contextURL" .contextURL
     "contextID" (printf "discussion-%s" .votingId)

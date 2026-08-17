@@ -8,7 +8,8 @@
   {{ $motions := partials.IncludeCached "motions-data.html" site }}
   <section class="ph3 ph5-l pb5">
     {{ if $motions }}
-      <p class="f5 gray mt0 mb3">{{ len $motions }} recorded {{ if eq (len $motions) 1 }}motion{{ else }}motions{{ end }}</p>
+      {{- $parentMotions := where $motions "isSubvote" false -}}
+      <p class="f5 gray mt0 mb3">{{ len $parentMotions }} recorded {{ if eq (len $parentMotions) 1 }}motion{{ else }}motions{{ end }}</p>
       <div class="site-table-wrap motions-table-wrap">
         <table class="site-table site-table--motion motions-table" cellspacing="0">
           <thead>
@@ -26,11 +27,11 @@
           <tbody>
             {{ range $motions }}
               {{- $motion := . -}}
-              <tr>
+              <tr class="{{ if .isSubvote }}motion-subvote-row{{ else if .hasSubvotes }}motion-parent-row{{ end }}">
                 {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
                 {{- $context := dict "turns" (slice) -}}
                 {{- $modalID := "" -}}
-                {{- if os.FileExists $contextFile -}}
+                {{- if and (not .isSubvote) (os.FileExists $contextFile) -}}
                   {{- $context = partials.IncludeCached "motions-transcript-context.html" (dict "file" $contextFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
                   {{- with $context.turns -}}
                     {{- $modalID = printf "discussion-%s" $motion.votingId -}}
@@ -39,8 +40,10 @@
                 {{- $tracked := partials.Include "motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
                 {{- $hasType := or $motion.agendaRequest $tracked $motion.procedure -}}
                 <td class="site-table-date" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
-                <td class="motion-type-cell{{ if not $hasType }} motion-type-cell--empty{{ end }}" data-label="Classification">
-                  {{- if $hasType -}}
+                <td class="motion-type-cell{{ if and (not .isSubvote) (not $hasType) }} motion-type-cell--empty{{ end }}" data-label="Classification">
+                  {{- if .isSubvote -}}
+                    <span class="motion-component-label"><i class="fa-solid fa-turn-down" aria-hidden="true"></i><span>Component vote</span></span>
+                  {{- else if $hasType -}}
                     <span class="motion-type-badges">
                       {{- if $motion.agendaRequest -}}
                         <span class="motion-agenda-badge" title="Agenda request"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i><span>Agenda request</span></span>
@@ -60,8 +63,9 @@
                     </span>
                   {{- end -}}
                 </td>
-                <td data-label="Motion">
+                <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
                   <span class="db">
+                    {{- if .isSubvote -}}<span class="motion-subvote-title__prefix">Recorded component</span>{{- end -}}
                     {{ with .sourceURL }}
                       <a class="motion-source-link link underline-hover" href="{{ . }}" target="_blank" rel="external noopener noreferrer">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                     {{ else }}
@@ -128,19 +132,30 @@
                   {{ end }}
                 </td>
                 <td data-label="Outcome">
-                  <span class="motion-result motion-result--{{ lower .result }}">
-                    {{ if eq .result "ADOPTED" }}
-                      <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
-                    {{ else if eq .result "REJECTED" }}
-                      <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
-                    {{ end }}
-                    {{ .result | humanize }}
-                  </span>
+                  {{ if .hasSubvotes }}
+                    <span class="motion-result motion-result--unavailable">—</span>
+                  {{ else }}
+                    <span class="motion-result motion-result--{{ lower .result }}">
+                      {{ if eq .result "ADOPTED" }}
+                        <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
+                      {{ else if eq .result "REJECTED" }}
+                        <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
+                      {{ end }}
+                      {{ .result | humanize }}
+                    </span>
+                  {{ end }}
                 </td>
-                <td class="site-table-number" data-label="For">{{ .for }}</td>
-                <td class="site-table-number" data-label="Against">{{ .against }}</td>
-                <td class="site-table-number" data-label="Abstentions">{{ .abstentions }}</td>
-                <td class="site-table-number" data-label="Not voted">{{ .notRecorded }}</td>
+                {{ if .hasRecordedVote }}
+                  <td class="site-table-number" data-label="For">{{ .for }}</td>
+                  <td class="site-table-number" data-label="Against">{{ .against }}</td>
+                  <td class="site-table-number" data-label="Abstentions">{{ .abstentions }}</td>
+                  <td class="site-table-number" data-label="Not voted">{{ .notRecorded }}</td>
+                {{ else }}
+                  <td class="site-table-number" data-label="For">—</td>
+                  <td class="site-table-number" data-label="Against">—</td>
+                  <td class="site-table-number" data-label="Abstentions">—</td>
+                  <td class="site-table-number" data-label="Not voted">—</td>
+                {{ end }}
               </tr>
             {{ end }}
           </tbody>

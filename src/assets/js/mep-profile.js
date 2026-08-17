@@ -185,22 +185,49 @@
         return response.json();
       })
       .then((items) => {
-        if (!items.length) {
+        const voterIDs = (voters) => Array.isArray(voters) ? voters : [];
+        const positionFor = (motion) => (voterIDs(motion.votersFor).includes(mepID)
+          ? 'for'
+          : voterIDs(motion.votersAgainst).includes(mepID)
+            ? 'against'
+            : voterIDs(motion.votersAbstaining).includes(mepID)
+              ? 'abstention'
+              : 'notRecorded');
+        const parentIDsWithRecordedSubvotes = new Set(
+          items
+            .filter((motion) => motion.isSubvote && positionFor(motion) !== 'notRecorded')
+            .map((motion) => motion.parentID),
+        );
+        const relevant = items.filter((motion) => (
+          positionFor(motion) !== 'notRecorded'
+          || (motion.hasSubvotes && parentIDsWithRecordedSubvotes.has(motion.parentID))
+        ));
+
+        if (!relevant.length) {
           empty.textContent = 'No recorded roll-call votes are available yet.';
           empty.hidden = false;
           motions.hidden = false;
           return;
         }
 
-        summary.textContent = `${items.length} recorded ${items.length === 1 ? 'motion' : 'motions'}`;
-        items.forEach((motion) => {
+        const parentCount = relevant.filter((motion) => !motion.isSubvote).length;
+        summary.textContent = `${parentCount} recorded ${parentCount === 1 ? 'motion' : 'motions'}`;
+        relevant.forEach((motion) => {
           const row = document.createElement('tr');
+          if (motion.isSubvote) row.classList.add('motion-subvote-row');
+          if (motion.hasSubvotes) row.classList.add('motion-parent-row');
           const date = make('td', 'site-table-date', String(motion.date).slice(0, 10));
           date.dataset.label = 'Date';
           const type = make('td', 'motion-type-cell');
           type.dataset.label = 'Classification';
           const typeBadges = make('span', 'motion-type-badges');
-          if (motion.agendaRequest) {
+          if (motion.isSubvote) {
+            const component = make('span', 'motion-component-label');
+            const icon = make('i', 'fa-solid fa-turn-down');
+            icon.setAttribute('aria-hidden', 'true');
+            component.append(icon, document.createTextNode('Component vote'));
+            type.append(component);
+          } else if (motion.agendaRequest) {
             const agenda = make('span', 'motion-agenda-badge');
             agenda.title = 'Agenda request';
             const icon = make('i', 'fa-solid fa-calendar-plus');
@@ -208,7 +235,7 @@
             agenda.append(icon, document.createTextNode('Agenda request'));
             typeBadges.append(agenda);
           }
-          if (motion.procedure) {
+          if (!motion.isSubvote && motion.procedure) {
             const procedureClasses = {
               'First reading': 'motion-procedure-badge--first',
               'Second reading': 'motion-procedure-badge--second',
@@ -221,7 +248,7 @@
             procedure.append(icon, document.createTextNode(motion.procedure));
             typeBadges.append(procedure);
           }
-          if (motion.tracked) {
+          if (!motion.isSubvote && motion.tracked) {
             const tracked = make('span', 'motion-tracked-badge');
             tracked.title = 'Contains tracked terms';
             const icon = make('i', 'fa-solid fa-bullseye');
@@ -229,13 +256,17 @@
             tracked.append(icon, document.createTextNode('Tracked'));
             typeBadges.append(tracked);
           }
-          if (typeBadges.childElementCount) {
+          if (!motion.isSubvote && typeBadges.childElementCount) {
             type.append(typeBadges);
-          } else {
+          } else if (!motion.isSubvote) {
             type.classList.add('motion-type-cell--empty');
           }
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
+          if (motion.isSubvote) {
+            motionCell.classList.add('motion-subvote-title');
+            motionCell.append(make('span', 'motion-subvote-title__prefix', 'Recorded component'));
+          }
           const title = motion.sourceURL
             ? make('a', 'mep-profile-motion-title-text motion-source-link')
             : make('span', 'mep-profile-motion-title-text');
@@ -265,20 +296,17 @@
             motionCell.append(context);
           }
 
-          const voterIDs = (voters) => Array.isArray(voters) ? voters : [];
-          const position = voterIDs(motion.votersFor).includes(mepID)
-            ? 'for'
-            : voterIDs(motion.votersAgainst).includes(mepID)
-              ? 'against'
-              : voterIDs(motion.votersAbstaining).includes(mepID)
-                ? 'abstention'
-                : 'notRecorded';
+          const position = positionFor(motion);
           const vote = document.createElement('td');
           vote.dataset.label = 'Vote';
-          vote.append(voteBadge(position));
+          vote.append(motion.hasSubvotes
+            ? make('span', 'motion-result motion-result--unavailable', '—')
+            : voteBadge(position));
           const outcome = document.createElement('td');
           outcome.dataset.label = 'Outcome';
-          outcome.append(outcomeBadge(motion.result));
+          outcome.append(motion.hasSubvotes
+            ? make('span', 'motion-result motion-result--unavailable', '—')
+            : outcomeBadge(motion.result));
           row.append(date, type, motionCell, vote, outcome);
           rows.append(row);
         });

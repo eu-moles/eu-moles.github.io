@@ -32,6 +32,8 @@
       {{- $bookmark := partials.Include "transcript-bookmark-name.html" . -}}
       {{- $isSpeakerMarker := and (findRE "^[0-9]+-[0-9]+-[0-9]+$" $text) (ne $bookmark "") -}}
       {{- $isAgendaHeading := and (ne $text "") (hasPrefix $bookmark "_Toc") -}}
+      {{- $isAfterVoteMarker := and $isSpeakerMarker (findRE "(?i)after the vote" $bookmark) -}}
+      {{- $isAfterVoteLabel := and $insideContext (findRE "(?i)^–?[[:space:]]*after the vote:" $text) -}}
 
       {{- if and $insideContext $isAgendaHeading -}}
         {{- if ne $speaker "" -}}
@@ -62,6 +64,17 @@
         {{- else if ne $text "" -}}
           {{- $waitingForMarker = false -}}
         {{- end -}}
+      {{- else if and $insideContext (or $isAfterVoteMarker $isAfterVoteLabel) -}}
+        {{- if ne $speaker "" -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" (delimit $paragraphBuffer "\n\n") "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+        {{- end -}}
+        {{- if gt (len $turns) 0 -}}
+          {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
+        {{- end -}}
+        {{- $insideContext = false -}}
+        {{- $speaker = "" -}}
+        {{- $turns = slice -}}
+        {{- $paragraphBuffer = slice -}}
       {{- else if and $insideContext $isSpeakerMarker -}}
         {{- if ne $speaker "" -}}
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" (delimit $paragraphBuffer "\n\n") "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}

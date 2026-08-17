@@ -24,6 +24,7 @@
           {{- end -}}
         {{- end -}}
         {{- $minutesTitles := partials.Include "motions-pv-titles.html" $minutesFile -}}
+        {{- $minutesVoteOrder := partials.Include "motions-pv-vote-order.html" $minutesFile -}}
         {{- $minutesContextLinks := partials.Include "motions-pv-context-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
         {{- $decisionsByID := dict -}}
         {{- $decisions := index $decisionsData "data" -}}
@@ -97,18 +98,39 @@
                 {{- end -}}
               {{- end -}}
               {{- $selectedDecisions := slice -}}
+              {{- $subvoteDecisions := slice -}}
               {{- if $hasWholeDecision -}}
-                {{- if $hasWholeRecordedDecision -}}
-                  {{- $selectedDecisions = slice $wholeRecordedDecision -}}
+                {{- /* A final whole-text decision can be a non-roll-call vote. Keep it, rather than replacing it with an amendment. */ -}}
+                {{- $selectedDecisions = slice $wholeDecision -}}
+                {{- if and (not $hasWholeRecordedDecision) (gt (len $recordedDecisions) 0) -}}
+                  {{- $subvoteDecisions = $recordedDecisions -}}
                 {{- end -}}
               {{- else if eq (len $recordedDecisions) 1 -}}
                 {{- $selectedDecisions = $recordedDecisions -}}
               {{- else if $hasMainRecordedDecision -}}
                 {{- $selectedDecisions = slice $mainRecordedDecision -}}
               {{- end -}}
+              {{- $displayDecisions := slice -}}
               {{- range $selectedDecisions -}}
-                {{- $decision := . -}}
+                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" false "hasSubvotes" (gt (len $subvoteDecisions) 0)) -}}
+              {{- end -}}
+              {{- range $subvoteDecisions -}}
+                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false) -}}
+              {{- end -}}
+              {{- range $displayDecisions -}}
+                {{- $entry := . -}}
+                {{- $decision := index $entry "decision" -}}
+                {{- $isSubvote := index $entry "isSubvote" -}}
+                {{- $hasSubvotes := index $entry "hasSubvotes" -}}
                   {{- $title := $sourceTitle -}}
+                  {{- if $isSubvote -}}
+                    {{- $subvoteTitle := "" -}}
+                    {{- with index $decision "activity_label" -}}
+                      {{- $subvoteTitle = index . "en" | default "" -}}
+                    {{- end -}}
+                    {{- $subvoteTitle = strings.TrimSpace (replaceRE `^[^–—]*[–—][[:space:]]*` "" $subvoteTitle) -}}
+                    {{- $title = $subvoteTitle | default $title -}}
+                  {{- end -}}
                   {{- $contextURL := "" -}}
                   {{- $votersFor := partials.Include "motions-voter-ids.html" (index $decision "had_voter_favor") -}}
                   {{- $votersAgainst := partials.Include "motions-voter-ids.html" (index $decision "had_voter_against") -}}
@@ -128,6 +150,21 @@
                     {{- $tocDocument := replaceRE "-RCV-ITM-[0-9]+$" "-TOC_EN.html" $document -}}
                     {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
                   {{- end -}}
+                  {{- $hasRecordedVote := false -}}
+                  {{- if and $recordedIn (gt $voters 0) -}}
+                    {{- $hasRecordedVote = true -}}
+                  {{- end -}}
+                  {{- if eq $sourceURL "" -}}
+                    {{- $voteRecordedIn := index $vote "recorded_in_a_realization_of" -}}
+                    {{- if $voteRecordedIn -}}
+                      {{- if not (reflect.IsSlice $voteRecordedIn) -}}
+                        {{- $voteRecordedIn = slice $voteRecordedIn -}}
+                      {{- end -}}
+                      {{- $document := path.Base (index $voteRecordedIn 0) -}}
+                      {{- $tocDocument := replaceRE `-(RCV|VOT)-ITM-[0-9]+$` "-TOC_EN.html" $document -}}
+                      {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
+                    {{- end -}}
+                  {{- end -}}
                   {{- with index $minutesTitles (string $rcvItem) -}}
                     {{- if or $agendaRequest (eq $title "") -}}
                       {{- $title = . -}}
@@ -144,10 +181,28 @@
                     {{- $procedure = "Conciliation" -}}
                   {{- end -}}
                   {{- $title = strings.TrimSpace (replaceRE `\s+\*{3}I{1,3}\s*$` "" $title) -}}
+                  {{- $agendaOrder := int (index $minutesVoteOrder (partials.Include "motions-title-key.html" $sourceTitle) | default 0) -}}
+                  {{- if eq $agendaOrder 0 -}}
+                    {{- $agendaOrder = int (index $minutesVoteOrder (partials.Include "motions-title-key.html" $title) | default 0) -}}
+                  {{- end -}}
+                  {{- $sortOrder := $rcvItem -}}
+                  {{- if gt $agendaOrder 0 -}}
+                    {{- $sortOrder = $agendaOrder -}}
+                  {{- end -}}
+                  {{- $sortDetail := sub 10000 $rcvItem -}}
+                  {{- if $hasSubvotes -}}
+                    {{- $sortDetail = 9999 -}}
+                  {{- else if $isSubvote -}}
+                    {{- $sortDetail = sub 9999 (int (index $decision "activity_order")) -}}
+                  {{- end -}}
+                  {{- /* The minutes' voting section is the official business order. RCV item numbers are only a stable fallback. */ -}}
                   {{- $motions = $motions | append (dict
                     "date" $date
                     "title" $title
                     "sourceTitle" $sourceTitle
+                    "parentID" (index $vote "activity_id")
+                    "isSubvote" $isSubvote
+                    "hasSubvotes" $hasSubvotes
                     "agendaRequest" $agendaRequest
                     "procedure" $procedure
                     "result" $result
@@ -155,14 +210,15 @@
                     "against" (index $decision "number_of_votes_against")
                     "abstentions" (index $decision "number_of_votes_abstention")
                     "voters" $voters
-                    "notRecorded" (sub $totalMEPs $voters)
+                    "hasRecordedVote" $hasRecordedVote
+                    "notRecorded" (cond $hasRecordedVote (sub $totalMEPs $voters) 0)
                     "votingId" (index $decision "notation_votingId")
                     "votersFor" $votersFor
                     "votersAgainst" $votersAgainst
                     "votersAbstaining" $votersAbstaining
                     "sourceURL" $sourceURL
                     "contextURL" $contextURL
-                    "order" (printf "%s-%04d" $date (sub 10000 $rcvItem))
+                    "order" (printf "%s-%04d-%04d" $date (sub 10000 $sortOrder) $sortDetail)
                   ) -}}
               {{- end -}}
             {{- end -}}
