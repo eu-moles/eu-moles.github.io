@@ -84,14 +84,12 @@ textarea {
   color: #fff8f1;
 }
 
-.site-footer-copyright {
-  white-space: nowrap;
+.site-footer-inner {
+  justify-content: center;
 }
 
-@media screen and (max-width: 30em) {
-  .site-footer-inner {
-    justify-content: center;
-  }
+.site-footer-copyright {
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 42em) {
