@@ -193,7 +193,7 @@
           const date = make('td', 'mep-profile-motion-date', String(motion.date).slice(0, 10));
           date.dataset.label = 'Date';
           const type = make('td', 'motion-type-cell');
-          type.dataset.label = 'Labels';
+          type.dataset.label = 'Classification';
           const typeBadges = make('span', 'motion-type-badges');
           if (motion.agendaRequest) {
             const agenda = make('span', 'motion-agenda-badge');
