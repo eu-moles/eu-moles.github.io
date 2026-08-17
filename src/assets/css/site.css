@@ -92,6 +92,11 @@ textarea {
   white-space: nowrap;
 }
 
+.country-identity {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 42em) {
   .site-navigation > div {
     align-items: center;
@@ -298,6 +303,12 @@ textarea {
 .site-filter-action button:focus-visible {
   background: #edf4fb;
   color: #0b376f;
+}
+
+@media screen and (max-width: 75em) {
+  .site-filter-controls--mep {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 60em) {
@@ -671,9 +682,9 @@ main table tbody tr:last-child td {
   color: #65788c;
 }
 
-/* On phones, turn wide vote tables into readable motion records instead of
-   forcing a horizontal scroll area. */
-@media screen and (max-width: 42em) {
+/* Keep wide tables in their readable record layout until a viewport can
+   genuinely accommodate every column. The full tabular view starts at 1090px. */
+@media screen and (max-width: 1089px) {
   .site-table-wrap {
     overflow: visible;
   }

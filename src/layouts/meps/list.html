@@ -95,7 +95,7 @@
                   <a class="link dark-blue underline-hover" href="{{ "mep/" | relURL }}?id={{ .id }}">{{ .fullName }}</a>
                 </div>
               </td>
-              <td data-label="Country">{{ partial "country-flag.html" .country }} {{ .country }}</td>
+              <td data-label="Country"><span class="country-identity">{{ partial "country-flag.html" .country }} {{ .country }}</span></td>
               <td data-label="Political group">{{ .politicalGroup }}</td>
               <td data-label="National party">{{ .nationalPoliticalGroup }}</td>
             </tr>

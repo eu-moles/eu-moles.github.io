@@ -36,6 +36,11 @@
     return element;
   };
 
+  const setCountryIdentity = (element, flag, country) => {
+    const identity = make('span', 'country-identity', `${flag} ${country}`);
+    element.replaceChildren(identity);
+  };
+
   const appendMotionTitle = (container, text) => {
     if (window.EUMolesMotionContext && typeof window.EUMolesMotionContext.highlightText === 'function') {
       window.EUMolesMotionContext.highlightText(container, text);
@@ -311,8 +316,8 @@
       const photo = document.querySelector('#mep-profile-photo');
       photo.src = `https://www.europarl.europa.eu/mepphoto/${encodeURIComponent(mep.id)}.jpg`;
       photo.alt = `Portrait of ${mep.fullName}`;
-      document.querySelector('#mep-profile-country').textContent = `${mep.countryFlag} ${mep.country}`;
-      document.querySelector('#mep-profile-member-state').textContent = `${mep.countryFlag} ${mep.country}`;
+      setCountryIdentity(document.querySelector('#mep-profile-country'), mep.countryFlag, mep.country);
+      setCountryIdentity(document.querySelector('#mep-profile-member-state'), mep.countryFlag, mep.country);
       document.querySelector('#mep-profile-name').textContent = mep.fullName;
       document.querySelector('#mep-profile-group').textContent = mep.politicalGroup || 'Not listed';
       document.querySelector('#mep-profile-party').textContent = mep.nationalPoliticalGroup || 'Not listed';
