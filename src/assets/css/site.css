@@ -145,12 +145,6 @@ textarea {
   color: #8e2525;
 }
 
-.motion-result--unavailable {
-  padding-inline: 0.4rem;
-  background: #edf1f5;
-  color: #65788c;
-}
-
 .motion-discussion-link,
 .motion-discussion-link:visited {
   display: flex;
@@ -669,37 +663,48 @@ main table tbody tr:last-child td {
   border-bottom-color: #d9e4ef;
 }
 
-.motion-subvote-row .site-table-date {
-  padding-left: 2rem;
-  position: relative;
+.motion-subvote-row[hidden] {
+  display: none;
 }
 
-.motion-subvote-row .site-table-date::before {
-  position: absolute;
-  top: 0;
-  bottom: -1px;
-  left: 0.8rem;
-  width: 0.55rem;
-  border-left: 1px solid #b8cce1;
-  border-bottom: 1px solid #b8cce1;
-  content: "";
-}
-
-.motion-component-label,
-.motion-component-label i {
+.motion-subvotes-toggle {
   display: inline-flex;
   align-items: center;
+  min-height: 1.75rem;
+  min-width: 1.75rem;
+  justify-content: center;
+  padding: 0.2rem;
+  border: 1px solid #b8cce1;
+  border-radius: 0.2rem;
+  background: #f4f8fc;
+  color: #1c5b9f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  line-height: 1.15;
+  text-align: center;
 }
 
-.motion-component-label {
-  gap: 0.35rem;
-  color: #506b86;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.045em;
-  text-transform: uppercase;
-  white-space: nowrap;
+.motion-parent-date {
+  margin-left: 0.35rem;
+}
+
+.motion-subvotes-toggle:hover,
+.motion-subvotes-toggle:focus-visible {
+  border-color: #1c5b9f;
+  background: #e9f2fb;
+  color: #124779;
+}
+
+.motion-subvotes-toggle:focus-visible {
+  outline: 2px solid #d5a900;
+  outline-offset: 2px;
+}
+
+.motion-subvote-row td:first-child {
+  border-left: 0.28rem solid #9cb8d4;
+  padding-left: 0.72rem;
 }
 
 .motion-subvote-title {
@@ -835,16 +840,16 @@ main table tbody tr:last-child td {
     box-shadow: none;
   }
 
-  .site-table--motion tr.motion-parent-row {
-    margin-bottom: -0.55rem;
+  .site-table--motion tr.motion-subvote-row[hidden] {
+    display: none;
   }
 
   .motion-subvote-row .site-table-date {
-    padding-left: 0;
+    display: none;
   }
 
-  .motion-subvote-row .site-table-date::before {
-    display: none;
+  .site-table--motion tr.motion-parent-row {
+    margin-bottom: -0.55rem;
   }
 
   .site-table--motion td::before {

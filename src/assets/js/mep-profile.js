@@ -221,13 +221,7 @@
           const type = make('td', 'motion-type-cell');
           type.dataset.label = 'Classification';
           const typeBadges = make('span', 'motion-type-badges');
-          if (motion.isSubvote) {
-            const component = make('span', 'motion-component-label');
-            const icon = make('i', 'fa-solid fa-turn-down');
-            icon.setAttribute('aria-hidden', 'true');
-            component.append(icon, document.createTextNode('Component vote'));
-            type.append(component);
-          } else if (motion.agendaRequest) {
+          if (!motion.isSubvote && motion.agendaRequest) {
             const agenda = make('span', 'motion-agenda-badge');
             agenda.title = 'Agenda request';
             const icon = make('i', 'fa-solid fa-calendar-plus');
@@ -258,7 +252,7 @@
           }
           if (!motion.isSubvote && typeBadges.childElementCount) {
             type.append(typeBadges);
-          } else if (!motion.isSubvote) {
+          } else {
             type.classList.add('motion-type-cell--empty');
           }
           const motionCell = make('td', 'mep-profile-motion-title');
@@ -300,12 +294,12 @@
           const vote = document.createElement('td');
           vote.dataset.label = 'Vote';
           vote.append(motion.hasSubvotes
-            ? make('span', 'motion-result motion-result--unavailable', '—')
+            ? document.createTextNode('—')
             : voteBadge(position));
           const outcome = document.createElement('td');
           outcome.dataset.label = 'Outcome';
           outcome.append(motion.hasSubvotes
-            ? make('span', 'motion-result motion-result--unavailable', '—')
+            ? document.createTextNode('—')
             : outcomeBadge(motion.result));
           row.append(date, type, motionCell, vote, outcome);
           rows.append(row);

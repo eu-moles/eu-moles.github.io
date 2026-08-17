@@ -27,7 +27,7 @@
           <tbody>
             {{ range $motions }}
               {{- $motion := . -}}
-              <tr class="{{ if .isSubvote }}motion-subvote-row{{ else if .hasSubvotes }}motion-parent-row{{ end }}">
+              <tr class="{{ if .isSubvote }}motion-subvote-row{{ else if .hasSubvotes }}motion-parent-row{{ end }}"{{ if .isSubvote }} data-subvotes-child="{{ .parentID }}" hidden{{ else if .hasSubvotes }} data-subvotes-parent="{{ .parentID }}"{{ end }}>
                 {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
                 {{- $context := dict "turns" (slice) -}}
                 {{- $modalID := "" -}}
@@ -39,11 +39,9 @@
                 {{- end -}}
                 {{- $tracked := partials.Include "motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
                 {{- $hasType := or $motion.agendaRequest $tracked $motion.procedure -}}
-                <td class="site-table-date" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
-                <td class="motion-type-cell{{ if and (not .isSubvote) (not $hasType) }} motion-type-cell--empty{{ end }}" data-label="Classification">
-                  {{- if .isSubvote -}}
-                    <span class="motion-component-label"><i class="fa-solid fa-turn-down" aria-hidden="true"></i><span>Component vote</span></span>
-                  {{- else if $hasType -}}
+                <td class="site-table-date" data-label="Date">{{ if .isSubvote }}{{ else if .hasSubvotes }}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="false" aria-label="Show {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Show component votes"><i class="fa-solid fa-plus" aria-hidden="true"></i></button><span class="motion-parent-date">{{ strings.Substr .date 0 10 }}</span>{{ else }}{{ strings.Substr .date 0 10 }}{{ end }}</td>
+                <td class="motion-type-cell{{ if or .isSubvote (not $hasType) }} motion-type-cell--empty{{ end }}" data-label="Classification">
+                  {{- if and (not .isSubvote) $hasType -}}
                     <span class="motion-type-badges">
                       {{- if $motion.agendaRequest -}}
                         <span class="motion-agenda-badge" title="Agenda request"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i><span>Agenda request</span></span>
@@ -133,7 +131,7 @@
                 </td>
                 <td data-label="Outcome">
                   {{ if .hasSubvotes }}
-                    <span class="motion-result motion-result--unavailable">—</span>
+                    —
                   {{ else }}
                     <span class="motion-result motion-result--{{ lower .result }}">
                       {{ if eq .result "ADOPTED" }}
@@ -166,4 +164,5 @@
     {{ end }}
   </section>
   {{ partial "asset-script.html" "js/motion-context.js" }}
+  {{ partial "asset-script.html" "js/motion-subvotes.js" }}
 {{ end }}

@@ -112,16 +112,17 @@
               {{- end -}}
               {{- $displayDecisions := slice -}}
               {{- range $selectedDecisions -}}
-                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" false "hasSubvotes" (gt (len $subvoteDecisions) 0)) -}}
+                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" false "hasSubvotes" (gt (len $subvoteDecisions) 0) "subvoteCount" (len $subvoteDecisions)) -}}
               {{- end -}}
               {{- range $subvoteDecisions -}}
-                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false) -}}
+                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false "subvoteCount" 0) -}}
               {{- end -}}
               {{- range $displayDecisions -}}
                 {{- $entry := . -}}
                 {{- $decision := index $entry "decision" -}}
                 {{- $isSubvote := index $entry "isSubvote" -}}
                 {{- $hasSubvotes := index $entry "hasSubvotes" -}}
+                {{- $subvoteCount := index $entry "subvoteCount" -}}
                   {{- $title := $sourceTitle -}}
                   {{- if $isSubvote -}}
                     {{- $subvoteTitle := "" -}}
@@ -203,6 +204,7 @@
                     "parentID" (index $vote "activity_id")
                     "isSubvote" $isSubvote
                     "hasSubvotes" $hasSubvotes
+                    "subvoteCount" $subvoteCount
                     "agendaRequest" $agendaRequest
                     "procedure" $procedure
                     "result" $result
