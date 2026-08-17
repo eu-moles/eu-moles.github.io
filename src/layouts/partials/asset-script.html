@@ -1,0 +1,2 @@
+{{- $script := resources.Get . | resources.Minify | resources.Fingerprint -}}
+<script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous"></script>

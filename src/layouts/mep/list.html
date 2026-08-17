@@ -96,6 +96,6 @@
     </div>
   </section>
 
-  <script defer src="{{ "js/motion-context.js" | relURL }}?v={{ now.UnixNano }}"></script>
-  <script defer src="{{ "js/mep-profile.js" | relURL }}?v={{ now.UnixNano }}"></script>
+  {{ partial "asset-script.html" "js/motion-context.js" }}
+  {{ partial "asset-script.html" "js/mep-profile.js" }}
 {{ end }}
