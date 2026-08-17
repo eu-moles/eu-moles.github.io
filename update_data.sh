@@ -1,14 +1,7 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 set -euo pipefail
 
-cd src
-
-# Hugo resolves the site's module through Go. Homebrew's non-interactive
-# environment does not always include Go's libexec directory in PATH.
-if [[ -d /home/linuxbrew/.linuxbrew/opt/go/libexec/bin ]]; then
-  export PATH="/home/linuxbrew/.linuxbrew/opt/go/libexec/bin:$PATH"
-fi
+cd "$(dirname "$0")/src"
 
 format_json() {
   local file="$1"

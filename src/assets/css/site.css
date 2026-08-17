@@ -31,7 +31,6 @@ textarea {
 .site-brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
   color: #fff8f1;
   font-family: "Merriweather", Georgia, "Times New Roman", serif;
   font-size: clamp(1.15rem, 1.75vw, 1.45rem);
@@ -42,15 +41,15 @@ textarea {
 
 .site-brand > img {
   display: block;
-  width: 3.05rem;
-  height: 3.05rem;
+  width: clamp(15.75rem, 25.5vw, 21rem);
+  height: auto;
   flex: 0 0 auto;
 }
 
 @media screen and (max-width: 30em) {
   .site-brand > img {
-    width: 2.55rem;
-    height: 2.55rem;
+    width: min(69vw, 18rem);
+    height: auto;
   }
 }
 

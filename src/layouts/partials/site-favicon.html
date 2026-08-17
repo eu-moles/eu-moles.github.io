@@ -1,6 +1,15 @@
 {{- with .Site.Params.favicon -}}
   {{- with resources.Get (strings.TrimPrefix "/" .) -}}
     {{- $favicon := . | resources.Fingerprint -}}
-    <link rel="shortcut icon" href="{{ $favicon.RelPermalink }}" type="image/x-icon">
+    {{- $favicon32 := resources.Get "icons/favicon-32x32.png" | resources.Fingerprint -}}
+    {{- $appleTouchIcon := resources.Get "icons/apple-touch-icon.png" | resources.Fingerprint -}}
+    {{- $androidIcon192 := resources.Get "icons/android-chrome-192x192.png" | resources.Fingerprint -}}
+    {{- $androidIcon512 := resources.Get "icons/android-chrome-512x512.png" | resources.Fingerprint -}}
+    {{- $manifest := resources.Get "site.webmanifest" | resources.ExecuteAsTemplate "site.webmanifest" (dict "Icon192" $androidIcon192 "Icon512" $androidIcon512) | resources.Minify | resources.Fingerprint -}}
+    <link rel="icon" href="{{ $favicon.RelPermalink }}" sizes="any" type="image/x-icon">
+    <link rel="icon" href="{{ $favicon32.RelPermalink }}" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="{{ $appleTouchIcon.RelPermalink }}" sizes="180x180">
+    <link rel="manifest" href="{{ $manifest.RelPermalink }}" type="application/manifest+json">
+    <meta name="theme-color" content="#040c16">
   {{- end -}}
 {{- end -}}

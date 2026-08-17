@@ -1,0 +1,21 @@
+{
+  "name": "EU Moles",
+  "short_name": "EU Moles",
+  "icons": [
+    {
+      "src": "{{ .Icon192.RelPermalink }}",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "{{ .Icon512.RelPermalink }}",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#040c16",
+  "background_color": "#040c16",
+  "display": "browser"
+}

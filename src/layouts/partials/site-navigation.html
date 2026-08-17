@@ -4,10 +4,9 @@
       {{ with .Site.Params.site_logo }}
         {{ with resources.Get (strings.TrimPrefix "/" .) }}
           {{ $logo := . | resources.Fingerprint }}
-          <img src="{{ $logo.RelPermalink }}" alt="" />
+          <img src="{{ $logo.RelPermalink }}" alt="{{ $.Site.Title }}" />
         {{ end }}
       {{ end }}
-      <span>{{ .Site.Title }}</span>
     </a>
     <div class="flex items-center">
       {{ partials.Include "i18nlist.html" . }}

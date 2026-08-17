@@ -1,0 +1,3 @@
+{{- $font := resources.Get "vendor/fontawesome/webfonts/fa-solid-900.woff2" | resources.Fingerprint -}}
+{{- $style := resources.Get "vendor/fontawesome/css/solid.css" | resources.ExecuteAsTemplate "vendor/fontawesome/css/solid.css" (dict "SolidFont" $font) | resources.Minify | resources.Fingerprint -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">

@@ -20,7 +20,7 @@ enableRobotsTXT = true
 [params]
   description = 'A source-first research directory for examining pro-Kremlin positions in the European Parliament.'
   featured_image_class = 'cover bg-bottom'
-  site_logo = '/images/eu-moles-emblem.svg'
+  site_logo = '/images/eu-moles-wordmark.png'
   favicon = '/favicon.ico'
 
 [params.ananke]
