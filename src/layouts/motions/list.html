@@ -9,24 +9,24 @@
   <section class="ph3 ph5-l pb5">
     {{ if $motions }}
       <p class="f5 gray mt0 mb3">{{ len $motions }} recorded {{ if eq (len $motions) 1 }}motion{{ else }}motions{{ end }}</p>
-      <div class="motions-table-wrap overflow-auto">
-        <table class="motions-table collapse w-100 ba b--black-10 f6" cellspacing="0">
+      <div class="site-table-wrap motions-table-wrap">
+        <table class="site-table site-table--motion motions-table" cellspacing="0">
           <thead>
-            <tr class="bg-near-white tl">
-              <th class="pa2">Date</th>
-              <th class="pa2">Classification</th>
-              <th class="pa2">Motion</th>
-              <th class="pa2">Outcome</th>
-              <th class="pa2 tr">For</th>
-              <th class="pa2 tr">Against</th>
-              <th class="pa2 tr">Abstentions</th>
-              <th class="pa2 tr">Not voted</th>
+            <tr>
+              <th>Date</th>
+              <th>Classification</th>
+              <th>Motion</th>
+              <th>Outcome</th>
+              <th class="site-table-number">For</th>
+              <th class="site-table-number">Against</th>
+              <th class="site-table-number">Abstentions</th>
+              <th class="site-table-number">Not voted</th>
             </tr>
           </thead>
           <tbody>
             {{ range $motions }}
               {{- $motion := . -}}
-              <tr class="bb b--black-10">
+              <tr>
                 {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
                 {{- $context := dict "turns" (slice) -}}
                 {{- $modalID := "" -}}
@@ -38,8 +38,8 @@
                 {{- end -}}
                 {{- $tracked := partials.Include "motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
                 {{- $hasType := or $motion.agendaRequest $tracked -}}
-                <td class="pa2 nowrap" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
-                <td class="pa2 motion-type-cell{{ if not $hasType }} motion-type-cell--empty{{ end }}" data-label="Classification">
+                <td class="site-table-date" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
+                <td class="motion-type-cell{{ if not $hasType }} motion-type-cell--empty{{ end }}" data-label="Classification">
                   {{- if $hasType -}}
                     <span class="motion-type-badges">
                       {{- if $motion.agendaRequest -}}
@@ -51,7 +51,7 @@
                     </span>
                   {{- end -}}
                 </td>
-                <td class="pa2" data-label="Motion">
+                <td data-label="Motion">
                   <span class="db">
                     {{ with .sourceURL }}
                       <a class="motion-source-link link underline-hover" href="{{ . }}" target="_blank" rel="external noopener noreferrer">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
@@ -118,7 +118,7 @@
                     </dialog>
                   {{ end }}
                 </td>
-                <td class="pa2" data-label="Outcome">
+                <td data-label="Outcome">
                   <span class="motion-result motion-result--{{ lower .result }}">
                     {{ if eq .result "ADOPTED" }}
                       <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
@@ -128,10 +128,10 @@
                     {{ .result | humanize }}
                   </span>
                 </td>
-                <td class="pa2 tr" data-label="For">{{ .for }}</td>
-                <td class="pa2 tr" data-label="Against">{{ .against }}</td>
-                <td class="pa2 tr" data-label="Abstentions">{{ .abstentions }}</td>
-                <td class="pa2 tr" data-label="Not voted">{{ .notRecorded }}</td>
+                <td class="site-table-number" data-label="For">{{ .for }}</td>
+                <td class="site-table-number" data-label="Against">{{ .against }}</td>
+                <td class="site-table-number" data-label="Abstentions">{{ .abstentions }}</td>
+                <td class="site-table-number" data-label="Not voted">{{ .notRecorded }}</td>
               </tr>
             {{ end }}
           </tbody>

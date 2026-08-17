@@ -19,45 +19,45 @@
   {{ $parties = sort (collections.Uniq $parties) }}
 
   <section class="ph3 ph5-l pb5">
-    <form id="mep-filters" class="pa3 mb3 ba b--black-10 bg-near-white" aria-label="Filter MEP directory">
-      <div class="mep-filter-controls">
-        <label class="mep-filter-field">
-          <span class="db f6 b">Country</span>
-          <select id="mep-country" class="pa2 w-100">
+    <form id="mep-filters" class="site-filter-panel" aria-label="Filter MEP directory">
+      <div class="site-filter-controls site-filter-controls--mep">
+        <label class="site-filter-field">
+          <span>Country</span>
+          <select id="mep-country">
             <option value="">All countries</option>
             {{ range $countries }}<option value="{{ . }}">{{ partial "country-flag.html" . }} {{ . }}</option>{{ end }}
           </select>
         </label>
-        <label class="mep-filter-field">
-          <span class="db f6 b">First letter</span>
-          <select id="mep-letter" class="pa2 w-100">
+        <label class="site-filter-field">
+          <span>First letter</span>
+          <select id="mep-letter">
             <option value="">All letters</option>
           </select>
         </label>
-        <label class="mep-filter-field">
-          <span class="db f6 b">Political group</span>
-          <select id="mep-group" class="pa2 w-100">
+        <label class="site-filter-field">
+          <span>Political group</span>
+          <select id="mep-group">
             <option value="">All political groups</option>
             {{ range $groups }}<option value="{{ . }}">{{ . }}</option>{{ end }}
           </select>
         </label>
-        <label class="mep-filter-field">
-          <span class="db f6 b">National party</span>
-          <select id="mep-party" class="pa2 w-100">
+        <label class="site-filter-field">
+          <span>National party</span>
+          <select id="mep-party">
             <option value="">All national parties</option>
             {{ range $parties }}<option value="{{ . }}">{{ . }}</option>{{ end }}
           </select>
         </label>
-        <label class="mep-filter-field">
-          <span class="db f6 b">Rows per page</span>
-          <select id="mep-page-size" class="pa2 w-100">
+        <label class="site-filter-field">
+          <span>Rows per page</span>
+          <select id="mep-page-size">
             <option value="25">25</option>
             <option value="50">50</option>
             <option value="100">100</option>
           </select>
         </label>
-        <div class="mep-filter-action">
-          <button id="mep-clear-filters" class="pv2 ph3 ba b--dark-blue bg-white dark-blue pointer" type="button">Clear filters</button>
+        <div class="site-filter-action">
+          <button id="mep-clear-filters" type="button">Clear filters</button>
         </div>
       </div>
     </form>
@@ -69,20 +69,20 @@
 
     <noscript><p class="pa3 bg-washed-yellow">Filtering and pagination require JavaScript. All MEP records are shown below.</p></noscript>
 
-    <div class="mep-directory-table-wrap overflow-auto">
-      <table class="mep-directory-table collapse w-100 ba b--black-10 f6" cellspacing="0">
+    <div class="site-table-wrap mep-directory-table-wrap">
+      <table class="site-table site-table--mep-directory mep-directory-table" cellspacing="0">
         <thead>
-          <tr class="bg-near-white tl">
-            <th class="pa2">Name</th>
-            <th class="pa2">Country</th>
-            <th class="pa2">Political group</th>
-            <th class="pa2">National party</th>
+          <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Political group</th>
+            <th>National party</th>
           </tr>
         </thead>
         <tbody id="mep-directory-rows">
           {{ range $meps }}
-            <tr class="bb b--black-10" data-mep-row data-country="{{ .country }}" data-group="{{ .politicalGroup }}" data-party="{{ .nationalPoliticalGroup }}" data-full-name="{{ .fullName }}">
-              <td class="pa2" data-label="MEP">
+            <tr data-mep-row data-country="{{ .country }}" data-group="{{ .politicalGroup }}" data-party="{{ .nationalPoliticalGroup }}" data-full-name="{{ .fullName }}">
+              <td data-label="MEP">
                 <div class="flex items-center">
                   <img
                     class="br-100 ba b--black-20 mr2 flex-none"
@@ -95,9 +95,9 @@
                   <a class="link dark-blue underline-hover" href="{{ "mep/" | relURL }}?id={{ .id }}">{{ .fullName }}</a>
                 </div>
               </td>
-              <td class="pa2" data-label="Country">{{ partial "country-flag.html" .country }} {{ .country }}</td>
-              <td class="pa2" data-label="Political group">{{ .politicalGroup }}</td>
-              <td class="pa2" data-label="National party">{{ .nationalPoliticalGroup }}</td>
+              <td data-label="Country">{{ partial "country-flag.html" .country }} {{ .country }}</td>
+              <td data-label="Political group">{{ .politicalGroup }}</td>
+              <td data-label="National party">{{ .nationalPoliticalGroup }}</td>
             </tr>
           {{ end }}
         </tbody>

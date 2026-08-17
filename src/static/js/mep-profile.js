@@ -190,7 +190,7 @@
         summary.textContent = `${items.length} recorded ${items.length === 1 ? 'motion' : 'motions'}`;
         items.forEach((motion) => {
           const row = document.createElement('tr');
-          const date = make('td', 'mep-profile-motion-date', String(motion.date).slice(0, 10));
+          const date = make('td', 'site-table-date', String(motion.date).slice(0, 10));
           date.dataset.label = 'Date';
           const type = make('td', 'motion-type-cell');
           type.dataset.label = 'Classification';

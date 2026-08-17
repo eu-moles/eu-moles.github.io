@@ -227,37 +227,89 @@ textarea {
   }
 }
 
-/* Compact MEP filters: one desktop row, then fluidly collapse for smaller screens. */
-.mep-filter-controls {
+/* Reusable filter panels follow the table frame and compact editorial labels. */
+.site-filter-panel {
+  margin: 0 0 1.25rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border: 1px solid #d5dee7;
+  border-top: 0.28rem solid #174f91;
+  background: #f8fafc;
+  box-shadow: 0 0.3rem 0.9rem rgb(16 42 69 / 5%);
+}
+
+.site-filter-controls {
   display: grid;
-  grid-template-columns: minmax(8.5rem, 0.85fr) minmax(7.5rem, 0.7fr) minmax(12rem, 1.15fr) minmax(15rem, 1.7fr) minmax(6.25rem, 0.55fr) auto;
   gap: 0.65rem;
   align-items: end;
 }
 
-.mep-filter-field span {
-  margin-bottom: 0.25rem;
+/* The MEP directory needs a denser desktop grid than most future filters. */
+.site-filter-controls--mep {
+  grid-template-columns: minmax(8.5rem, 0.85fr) minmax(7.5rem, 0.7fr) minmax(12rem, 1.15fr) minmax(15rem, 1.7fr) minmax(6.25rem, 0.55fr) auto;
 }
 
-.mep-filter-field select {
-  padding: 0.45rem 0.55rem;
+.site-filter-field > span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #53677a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.065em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.site-filter-field select {
+  width: 100%;
+  min-height: 2.45rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #b9c8d7;
+  border-radius: 0.15rem;
+  background: #fff;
+  color: #263746;
+  font: inherit;
   font-size: 0.95rem;
 }
 
-.mep-filter-action button {
+.site-filter-field select:hover,
+.site-filter-field select:focus-visible {
+  border-color: #174f91;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(23 79 145 / 14%);
+}
+
+.site-filter-action button {
   width: 100%;
-  padding: 0.5rem 0.8rem;
+  min-height: 2.45rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid #174f91;
+  border-radius: 0.15rem;
+  background: #fff;
+  color: #174f91;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
+.site-filter-action button:hover,
+.site-filter-action button:focus-visible {
+  background: #edf4fb;
+  color: #0b376f;
+}
+
 @media screen and (max-width: 60em) {
-  .mep-filter-controls {
+  .site-filter-controls--mep {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media screen and (max-width: 32em) {
-  .mep-filter-controls {
+  .site-filter-controls--mep {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -514,17 +566,19 @@ textarea {
   text-transform: uppercase;
 }
 
-.mep-profile-motions-table-wrap {
+.site-table-wrap {
   overflow-x: auto;
 }
 
-.mep-profile-motions-table {
+main table {
   width: 100%;
-  min-width: 47rem;
+  border: 1px solid #d5dee7;
   border-collapse: collapse;
+  background: #fff;
+  color: #263746;
 }
 
-.mep-profile-motions-table th {
+main table th {
   padding: 0.85rem 1rem;
   border-bottom: 1px solid #dce4ec;
   background: #f4f7fa;
@@ -537,23 +591,36 @@ textarea {
   text-transform: uppercase;
 }
 
-.mep-profile-motions-table td {
+main table td {
   padding: 1rem;
   border-bottom: 1px solid #e1e7ee;
   vertical-align: top;
 }
 
-.mep-profile-motions-table tbody tr:last-child td {
+main table tbody tr:last-child td {
   border-bottom: 0;
 }
 
-.mep-profile-motion-date {
+.site-table-number {
+  text-align: right;
+}
+
+.site-table-date {
   width: 7.5rem;
   color: #566778;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.86rem;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.site-table--motion {
+  min-width: 47rem;
+}
+
+/* Profile tables inherit the card frame that surrounds them. */
+.mep-profile-motions .site-table {
+  border: 0;
 }
 
 .mep-profile-motion-title {
@@ -609,23 +676,17 @@ textarea {
 /* On phones, turn wide vote tables into readable motion records instead of
    forcing a horizontal scroll area. */
 @media screen and (max-width: 42em) {
-  .motions-table-wrap,
-  .mep-profile-motions-table-wrap,
-  .mep-directory-table-wrap {
+  .site-table-wrap {
     overflow: visible;
   }
 
-  .motions-table,
-  .mep-profile-motions-table,
-  .mep-directory-table {
+  .site-table {
     display: block;
     min-width: 0;
     border: 0;
   }
 
-  .motions-table thead,
-  .mep-profile-motions-table thead,
-  .mep-directory-table thead {
+  .site-table thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -634,14 +695,12 @@ textarea {
     white-space: nowrap;
   }
 
-  .motions-table tbody,
-  .mep-profile-motions-table tbody {
+  .site-table--motion tbody {
     display: grid;
     gap: 1rem;
   }
 
-  .motions-table tr,
-  .mep-profile-motions-table tr {
+  .site-table--motion tr {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.25rem 0.85rem;
@@ -652,8 +711,7 @@ textarea {
     box-shadow: 0 0.2rem 0.65rem rgb(16 42 69 / 6%);
   }
 
-  .motions-table td,
-  .mep-profile-motions-table td {
+  .site-table--motion td {
     display: flex;
     min-width: 0;
     flex-direction: column;
@@ -666,13 +724,11 @@ textarea {
     text-align: left !important;
   }
 
-  .motions-table td.motion-type-cell--empty,
-  .mep-profile-motions-table td.motion-type-cell--empty {
+  .site-table--motion td.motion-type-cell--empty {
     display: none;
   }
 
-  .motions-table td::before,
-  .mep-profile-motions-table td::before {
+  .site-table--motion td::before {
     color: #65788c;
     content: attr(data-label);
     font-family: Arial, Helvetica, sans-serif;
@@ -683,8 +739,7 @@ textarea {
     text-transform: uppercase;
   }
 
-  .motions-table td:nth-child(3),
-  .mep-profile-motions-table td:nth-child(3) {
+  .site-table--motion td:nth-child(3) {
     grid-column: 1 / -1;
     grid-row: 1;
     padding-top: 0;
@@ -693,26 +748,25 @@ textarea {
     line-height: 1.4;
   }
 
-  .motions-table td:nth-child(3)::before,
-  .mep-profile-motions-table td:nth-child(3)::before {
+  .site-table--motion td:nth-child(3)::before {
     display: none;
   }
 
-  .motions-table .motion-context-link {
+  .site-table--motion .motion-context-link {
     margin-top: 0.45rem;
     margin-left: 0;
   }
 
-  .mep-profile-motions-table .mep-profile-motion-title {
+  .site-table--motion .mep-profile-motion-title {
     min-width: 0;
   }
 
-  .mep-directory-table tbody {
+  .site-table--mep-directory tbody {
     display: grid;
     gap: 0.85rem;
   }
 
-  .mep-directory-table tr {
+  .site-table--mep-directory tr {
     display: grid;
     gap: 0;
     padding: 0.85rem 1rem;
@@ -722,11 +776,11 @@ textarea {
     box-shadow: 0 0.2rem 0.65rem rgb(16 42 69 / 6%);
   }
 
-  .mep-directory-table tr[hidden] {
+  .site-table--mep-directory tr[hidden] {
     display: none;
   }
 
-  .mep-directory-table td {
+  .site-table--mep-directory td {
     display: grid;
     grid-template-columns: minmax(6.8rem, 0.8fr) minmax(0, 1.4fr);
     gap: 0.75rem;
@@ -737,7 +791,7 @@ textarea {
     line-height: 1.42;
   }
 
-  .mep-directory-table td::before {
+  .site-table--mep-directory td::before {
     color: #65788c;
     content: attr(data-label);
     font-family: Arial, Helvetica, sans-serif;
@@ -748,17 +802,17 @@ textarea {
     text-transform: uppercase;
   }
 
-  .mep-directory-table td:first-child {
+  .site-table--mep-directory td:first-child {
     display: block;
     padding: 0 0 0.85rem;
     border-bottom: 1px solid #dce4ec;
   }
 
-  .mep-directory-table td:first-child::before {
+  .site-table--mep-directory td:first-child::before {
     display: none;
   }
 
-  .mep-directory-table td:first-child .flex {
+  .site-table--mep-directory td:first-child .flex {
     align-items: center;
   }
 }
