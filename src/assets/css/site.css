@@ -146,34 +146,41 @@ textarea {
   color: #8e2525;
 }
 
-.motion-context-link,
-.motion-context-link:visited {
-  display: inline-flex;
+.motion-discussion-link,
+.motion-discussion-link:visited {
+  display: flex;
+  width: fit-content;
   align-items: center;
-  gap: 0.28rem;
-  margin-left: 0.45rem;
-  padding: 0.2rem 0.46rem;
-  border: 1px solid #b8cbe0;
-  border-radius: 999px;
-  background: #f1f6fb;
-  color: #174f91;
+  gap: 0.35rem;
+  margin-top: 0.48rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1c5e9f;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.045em;
-  line-height: 1;
-  text-decoration: none;
-  text-transform: uppercase;
-  vertical-align: 0.1em;
+  line-height: 1.25;
+  text-decoration: underline;
+  text-decoration-color: rgb(28 94 159 / 45%);
+  text-underline-offset: 0.16em;
   appearance: none;
   cursor: pointer;
 }
 
-.motion-context-link:hover,
-.motion-context-link:focus-visible {
-  border-color: #174f91;
-  background: #e4eff9;
+.motion-discussion-link:hover,
+.motion-discussion-link:focus-visible {
   color: #0b376f;
+  text-decoration-color: currentColor;
+}
+
+.motion-discussion-link:focus-visible {
+  outline: 2px solid rgb(23 79 145 / 45%);
+  outline-offset: 0.2rem;
+}
+
+.motion-discussion-link i {
+  font-size: 0.9em;
 }
 
 .motion-source-link,
@@ -759,11 +766,6 @@ main table tbody tr:last-child td {
 
   .site-table--motion td:nth-child(3)::before {
     display: none;
-  }
-
-  .site-table--motion .motion-context-link {
-    margin-top: 0.45rem;
-    margin-left: 0;
   }
 
   .site-table--motion .mep-profile-motion-title {

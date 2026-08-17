@@ -59,7 +59,7 @@
                       {{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
                     {{ end }}
                     {{- if ne $modalID "" -}}
-                      <button class="motion-context-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion</span></button>
+                      <button class="motion-discussion-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
                     {{- end -}}
                   </span>
                   {{ with $context.turns }}

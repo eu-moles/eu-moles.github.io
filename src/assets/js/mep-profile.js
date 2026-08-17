@@ -240,12 +240,12 @@
           motionCell.append(title);
 
           if (Array.isArray(motion.discussion) && motion.discussion.length && window.EUMolesMotionContext) {
-            const context = make('button', 'motion-context-link');
+            const context = make('button', 'motion-discussion-link');
             context.type = 'button';
             context.setAttribute('aria-haspopup', 'dialog');
             const marker = make('i', 'fa-solid fa-book-open');
             marker.setAttribute('aria-hidden', 'true');
-            context.append(marker, document.createTextNode('Discussion'));
+            context.append(marker, document.createTextNode('Discussion transcript'));
             context.addEventListener('click', () => {
               window.EUMolesMotionContext.open(motion, context, motions.dataset.profileUrl);
             });
