@@ -151,7 +151,7 @@
         });
 
         if (!relevant.length) {
-          empty.textContent = 'No one-minute speeches containing tracked terms are available for this Member.';
+          empty.textContent = 'No speeches containing tracked terms are available for this Member.';
           empty.hidden = false;
           speeches.hidden = false;
           return;

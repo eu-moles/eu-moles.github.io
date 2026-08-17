@@ -831,6 +831,13 @@ textarea {
   }
 }
 
+@media screen and (max-width: 42em) {
+  .mep-profile-speech-date,
+  .mep-profile-speech-date::after {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 52em) {
   .mep-profile-fact {
     grid-template-columns: 1fr;
