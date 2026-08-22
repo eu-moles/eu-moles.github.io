@@ -4,7 +4,9 @@
 
   const setExpanded = (button, expanded) => {
     const group = button.dataset.subvotesToggle;
-    childrenFor(group).forEach((row) => { row.hidden = !expanded; });
+    childrenFor(group).forEach((row) => {
+      row.hidden = !expanded || row.dataset.calendarHidden === 'true';
+    });
     button.setAttribute('aria-expanded', String(expanded));
     const count = button.dataset.subvotesCount || '0';
     const noun = count === '1' ? 'component vote' : 'component votes';
@@ -24,6 +26,12 @@
     });
   };
 
-  window.EUMolesSubvotes = { bind };
+  const refresh = (root = document) => {
+    root.querySelectorAll('[data-subvotes-toggle]').forEach((button) => {
+      setExpanded(button, button.getAttribute('aria-expanded') === 'true');
+    });
+  };
+
+  window.EUMolesSubvotes = { bind, refresh };
   bind();
 })();

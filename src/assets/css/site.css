@@ -348,6 +348,178 @@ textarea {
   }
 }
 
+/* The motions calendar is a compact, data-led entry point to each sitting day. */
+.motion-calendar {
+  display: grid;
+  grid-template-columns: minmax(15rem, 1fr) minmax(20rem, 27rem);
+  gap: clamp(1.4rem, 4vw, 4rem);
+  align-items: center;
+  margin: 0 0 1.45rem;
+  padding: clamp(1.15rem, 2.5vw, 1.75rem);
+  border: 1px solid #d5dee7;
+  border-top: 0.28rem solid #174f91;
+  background: linear-gradient(115deg, #f7fafc, #fff);
+  box-shadow: 0 0.3rem 0.9rem rgb(16 42 69 / 5%);
+}
+
+.motion-calendar__eyebrow {
+  margin: 0 0 0.35rem;
+  color: #62778d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.motion-calendar h2 {
+  margin: 0;
+  color: #172f4d;
+  font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+  line-height: 1.15;
+}
+
+.motion-calendar__intro > p:last-child {
+  max-width: 32rem;
+  margin: 0.55rem 0 0;
+  color: #5d6f80;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.motion-calendar__picker {
+  padding: 0.85rem;
+  border: 1px solid #d6e1eb;
+  background: #fff;
+  box-shadow: 0 0.2rem 0.7rem rgb(19 52 85 / 5%);
+}
+
+.motion-calendar__toolbar {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
+  align-items: center;
+  margin-bottom: 0.55rem;
+}
+
+.motion-calendar__month {
+  margin: 0;
+  color: #243a53;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.motion-calendar__month-button {
+  display: inline-flex;
+  width: 1.85rem;
+  height: 1.85rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #c7d6e5;
+  border-radius: 50%;
+  background: #f7fafd;
+  color: #1c5e9f;
+  cursor: pointer;
+}
+
+.motion-calendar__month-button:hover:not(:disabled),
+.motion-calendar__month-button:focus-visible:not(:disabled) {
+  border-color: #1c5e9f;
+  background: #e9f2fb;
+  color: #0d467f;
+}
+
+.motion-calendar__month-button:focus-visible {
+  outline: 2px solid #d5a900;
+  outline-offset: 2px;
+}
+
+.motion-calendar__month-button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.motion-calendar__weekdays,
+.motion-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.22rem;
+}
+
+.motion-calendar__weekdays {
+  margin-bottom: 0.22rem;
+  color: #6e8091;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.motion-calendar__day {
+  position: relative;
+  min-height: 2rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background: transparent;
+  color: #9aa8b5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+button.motion-calendar__day {
+  cursor: default;
+}
+
+button.motion-calendar__day--available {
+  border-color: #c4d7e9;
+  background: #eff6fc;
+  color: #185b99;
+  cursor: pointer;
+}
+
+button.motion-calendar__day--available::after {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 50%;
+  width: 0.23rem;
+  height: 0.23rem;
+  border-radius: 50%;
+  background: #b8292f;
+  content: "";
+  transform: translateX(-50%);
+}
+
+button.motion-calendar__day--available:hover,
+button.motion-calendar__day--available:focus-visible {
+  border-color: #1c5e9f;
+  background: #e1effb;
+  color: #0c4175;
+}
+
+button.motion-calendar__day--available:focus-visible {
+  outline: 2px solid #d5a900;
+  outline-offset: 1px;
+}
+
+button.motion-calendar__day.is-selected {
+  border-color: #174f91;
+  background: #174f91;
+  color: #fff;
+  box-shadow: 0 0.15rem 0.35rem rgb(23 79 145 / 20%);
+}
+
+button.motion-calendar__day.is-selected::after {
+  background: #f0c442;
+}
+
 /* The profile is presented as a concise parliamentary dossier. */
 .mep-profile-page {
   background: linear-gradient(180deg, #f6f8fa 0%, #fff 34rem);
@@ -783,6 +955,14 @@ main table tbody tr:last-child td {
 /* Keep wide tables in their readable record layout until a viewport can
    genuinely accommodate every column. The full tabular view starts at 1090px. */
 @media screen and (max-width: 1089px) {
+  .motion-calendar {
+    grid-template-columns: 1fr;
+  }
+
+  .motion-calendar__picker {
+    max-width: 27rem;
+  }
+
   .site-table-wrap {
     overflow: visible;
   }
