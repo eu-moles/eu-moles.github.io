@@ -23,8 +23,8 @@
         "sl": "A10-0170/2026 – Joachim Streit – po § 5 – p.s. 11",
         "mt": "A10-0170/2026 – Joachim Streit – Wara l-§ 5 – Em 11",
         "en": "A10-0170/2026 – Joachim Streit – After § 5 – Am 11",
-        "fr": "A10-0170/2026 - Joachim Streit - Après le § 5 - Am 11",
         "mul": "A10-0170/2026 - Joachim Streit - Après le § 5 - Am 11",
+        "fr": "A10-0170/2026 - Joachim Streit - Après le § 5 - Am 11",
         "de": "A10-0170/2026 - Joachim Streit - nach § 5 – Änd. 11",
         "sk": "A10-0170/2026 - Joachim Streit- od odseku 5 - PN 11",
         "pl": "A10-0170/2026 - Joachim Streit - Po ust. 5 - Popr. 11",
@@ -741,11 +741,11 @@
       "comment": {
         "en": "RCV",
         "bg": "ПГ",
-        "fr": "AN",
-        "it": "AN",
-        "hr": "AN",
-        "da": "AN",
         "ro": "AN",
+        "da": "AN",
+        "hr": "AN",
+        "it": "AN",
+        "fr": "AN",
         "sl": "PG",
         "mt": "VSI",
         "sv": "ONU",
@@ -761,8 +761,8 @@
         "nl": "HS",
         "ga": "VGR",
         "lv": "ATKL",
-        "pt": "VN",
-        "es": "VN"
+        "es": "VN",
+        "pt": "VN"
       },
       "notation_votingId": "195192",
       "decisionAboutId_Lang": {

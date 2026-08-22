@@ -279,6 +279,12 @@
             toggle.append(icon);
             disclosure.append(toggle);
           }
+          const reference = make(
+            'td',
+            `motion-reference-cell${motion.reference ? '' : ' motion-reference-cell--empty'}`,
+            motion.reference || '',
+          );
+          reference.dataset.label = 'Reference';
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
           if (motion.isSubvote) {
@@ -322,7 +328,7 @@
           outcome.dataset.label = 'Outcome';
           if (motion.hasSubvotes) outcome.classList.add('motion-unavailable-cell');
           if (!motion.hasSubvotes) outcome.append(outcomeBadge(motion.result));
-          row.append(date, type, disclosure, motionCell, vote, outcome);
+          row.append(date, type, disclosure, reference, motionCell, vote, outcome);
           rows.append(row);
         });
         if (window.EUMolesSubvotes) window.EUMolesSubvotes.bind(rows);

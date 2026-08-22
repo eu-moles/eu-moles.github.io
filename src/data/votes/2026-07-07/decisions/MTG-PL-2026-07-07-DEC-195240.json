@@ -459,8 +459,8 @@
         "person/197448",
         "person/257727",
         "person/4289",
-        "person/256889",
         "person/197444",
+        "person/256889",
         "person/256905",
         "person/257298",
         "person/257002",
@@ -707,6 +707,7 @@
         "eli/dl/doc/PV-10-2026-07-07-RCV-ITM-014"
       ],
       "responsible_organization_label": {
+        "sv": "PfE",
         "it": "PfE",
         "ga": "PfE",
         "de": "PfE",
@@ -721,16 +722,15 @@
         "fi": "PfE",
         "sk": "PfE",
         "pt": "PfE",
-        "lv": "PfE",
-        "ro": "PfE",
-        "el": "PfE",
-        "sl": "PfE",
-        "pl": "PfE",
-        "hu": "PfE",
         "et": "PfE",
+        "hu": "PfE",
+        "pl": "PfE",
+        "sl": "PfE",
+        "el": "PfE",
+        "ro": "PfE",
+        "lv": "PfE",
         "lt": "PfE",
-        "es": "PfE",
-        "sv": "PfE"
+        "es": "PfE"
       },
       "was_motivated_by": [
         "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992921-RCV-1"

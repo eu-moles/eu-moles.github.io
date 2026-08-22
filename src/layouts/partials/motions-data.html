@@ -57,65 +57,44 @@
                 {{- $decisionReferences = slice $decisionReferences -}}
               {{- end -}}
               {{- $recordedDecisions := slice -}}
-              {{- $wholeDecision := dict -}}
-              {{- $hasWholeDecision := false -}}
-              {{- $wholeRecordedDecision := dict -}}
-              {{- $hasWholeRecordedDecision := false -}}
-              {{- $mainRecordedDecision := dict -}}
-              {{- $hasMainRecordedDecision := false -}}
               {{- range $decisionReferences -}}
                 {{- $decisionID := path.Base . -}}
                 {{- $decision := index $decisionsByID $decisionID -}}
                 {{- if $decision -}}
-                  {{- $decisionLabel := "" -}}
-                  {{- with index $decision "activity_label" -}}
-                    {{- $decisionLabel = index . "en" | default $decisionLabel -}}
-                  {{- end -}}
-                  {{- $decisionReference := "" -}}
-                  {{- with index $decision "referenceText" -}}
-                    {{- $decisionReference = index . "en" | default $decisionReference -}}
-                  {{- end -}}
-                  {{- $decisionDescription := printf "%s %s" $decisionLabel $decisionReference -}}
-                  {{- $isWholeDecision := gt (len (findRE `(?i)\bmotion for a resolution\s*\(as a whole\)` $decisionDescription)) 0 -}}
-                  {{- if $isWholeDecision -}}
-                    {{- $wholeDecision = $decision -}}
-                    {{- $hasWholeDecision = true -}}
-                  {{- end -}}
                   {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
                   {{- $voters := int (index $decision "number_of_attendees") -}}
                   {{- if and $recordedIn (gt $voters 0) -}}
                     {{- $recordedDecisions = $recordedDecisions | append $decision -}}
-                    {{- if $isWholeDecision -}}
-                      {{- $wholeRecordedDecision = $decision -}}
-                      {{- $hasWholeRecordedDecision = true -}}
-                    {{- end -}}
-                    {{- $isMainDecision := gt (len (findRE `(?i)\b(motion for a resolution|proposal for a decision|joint text|provisional agreement|commission proposal)\b` $decisionDescription)) 0 -}}
-                    {{- if $isMainDecision -}}
-                      {{- $mainRecordedDecision = $decision -}}
-                      {{- $hasMainRecordedDecision = true -}}
-                    {{- end -}}
                   {{- end -}}
                 {{- end -}}
               {{- end -}}
-              {{- $selectedDecisions := slice -}}
-              {{- $subvoteDecisions := slice -}}
-              {{- if $hasWholeDecision -}}
-                {{- /* A final whole-text decision can be a non-roll-call vote. Keep it, rather than replacing it with an amendment. */ -}}
-                {{- $selectedDecisions = slice $wholeDecision -}}
-                {{- if and (not $hasWholeRecordedDecision) (gt (len $recordedDecisions) 0) -}}
-                  {{- $subvoteDecisions = $recordedDecisions -}}
-                {{- end -}}
-              {{- else if eq (len $recordedDecisions) 1 -}}
-                {{- $selectedDecisions = $recordedDecisions -}}
-              {{- else if $hasMainRecordedDecision -}}
-                {{- $selectedDecisions = slice $mainRecordedDecision -}}
-              {{- end -}}
+              {{- /* The minutes group decisions beneath a business item. Preserve that
+                    hierarchy even for a single recorded decision: the parent is the
+                    topic, and each recorded decision becomes a child. */ -}}
+              {{- $childDecisions := $recordedDecisions -}}
               {{- $displayDecisions := slice -}}
-              {{- range $selectedDecisions -}}
-                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" false "hasSubvotes" (gt (len $subvoteDecisions) 0) "subvoteCount" (len $subvoteDecisions)) -}}
-              {{- end -}}
-              {{- range $subvoteDecisions -}}
-                {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false "subvoteCount" 0) -}}
+              {{- if gt (len $childDecisions) 0 -}}
+                {{- $parentRCVItem := 0 -}}
+                {{- $parentVotingID := "" -}}
+                {{- range $childDecisions -}}
+                  {{- if eq $parentVotingID "" -}}
+                    {{- $parentVotingID = index . "notation_votingId" | default "" -}}
+                  {{- end -}}
+                  {{- if eq $parentRCVItem 0 -}}
+                    {{- $parentRecordedIn := index . "recorded_in_a_realization_of" -}}
+                    {{- if $parentRecordedIn -}}
+                      {{- if not (reflect.IsSlice $parentRecordedIn) -}}
+                        {{- $parentRecordedIn = slice $parentRecordedIn -}}
+                      {{- end -}}
+                      {{- $parentDocument := path.Base (index $parentRecordedIn 0) -}}
+                      {{- $parentRCVItem = int (replaceRE `^.*-RCV-ITM-0*` "" $parentDocument) -}}
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+                {{- $displayDecisions = $displayDecisions | append (dict "decision" $vote "isSubvote" false "hasSubvotes" true "subvoteCount" (len $childDecisions) "rcvItem" $parentRCVItem "votingId" $parentVotingID) -}}
+                {{- range $childDecisions -}}
+                  {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false "subvoteCount" 0 "rcvItem" 0) -}}
+                {{- end -}}
               {{- end -}}
               {{- range $displayDecisions -}}
                 {{- $entry := . -}}
@@ -124,6 +103,16 @@
                 {{- $hasSubvotes := index $entry "hasSubvotes" -}}
                 {{- $subvoteCount := index $entry "subvoteCount" -}}
                   {{- $title := $sourceTitle -}}
+                  {{- $reference := "" -}}
+                  {{- if $isSubvote -}}
+                    {{- $decisionLabel := "" -}}
+                    {{- with index $decision "activity_label" -}}
+                      {{- $decisionLabel = index . "en" | default "" -}}
+                    {{- end -}}
+                    {{- with findRE `[A-Z][0-9]{1,2}-[0-9]{3,5}/[0-9]{4}` $decisionLabel -}}
+                      {{- $reference = index . 0 -}}
+                    {{- end -}}
+                  {{- end -}}
                   {{- if $isSubvote -}}
                     {{- $subvoteTitle := "" -}}
                     {{- with index $decision "activity_label" -}}
@@ -137,23 +126,24 @@
                   {{- $votersAgainst := partials.Include "motions-voter-ids.html" (index $decision "had_voter_against") -}}
                   {{- $votersAbstaining := partials.Include "motions-voter-ids.html" (index $decision "had_voter_abstention") -}}
                   {{- $date := index $decision "activity_date" | default (index $vote "activity_date") -}}
-                  {{- $result := path.Base (index $decision "decision_outcome") -}}
+                  {{- $result := "" -}}
+                  {{- with index $decision "decision_outcome" -}}
+                    {{- $result = path.Base . -}}
+                  {{- end -}}
                   {{- $voters := int (index $decision "number_of_attendees") -}}
                   {{- $sourceURL := "" -}}
-                  {{- $rcvItem := 0 -}}
+                  {{- $rcvItem := int (index $entry "rcvItem" | default 0) -}}
                   {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
                   {{- if $recordedIn -}}
                     {{- if not (reflect.IsSlice $recordedIn) -}}
                       {{- $recordedIn = slice $recordedIn -}}
                     {{- end -}}
                     {{- $document := path.Base (index $recordedIn 0) -}}
-                    {{- $rcvItem = int (replaceRE `^.*-RCV-ITM-0*` "" $document) -}}
+                    {{- if eq $rcvItem 0 -}}
+                      {{- $rcvItem = int (replaceRE `^.*-RCV-ITM-0*` "" $document) -}}
+                    {{- end -}}
                     {{- $tocDocument := replaceRE "-RCV-ITM-[0-9]+$" "-TOC_EN.html" $document -}}
                     {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
-                  {{- end -}}
-                  {{- $hasRecordedVote := false -}}
-                  {{- if and $recordedIn (gt $voters 0) -}}
-                    {{- $hasRecordedVote = true -}}
                   {{- end -}}
                   {{- if eq $sourceURL "" -}}
                     {{- $voteRecordedIn := index $vote "recorded_in_a_realization_of" -}}
@@ -182,6 +172,9 @@
                     {{- $procedure = "Conciliation" -}}
                   {{- end -}}
                   {{- $title = strings.TrimSpace (replaceRE `\s+\*{3}I{1,3}\s*$` "" $title) -}}
+                  {{- if $reference -}}
+                    {{- $title = strings.TrimSpace (replaceRE `^[A-Z][0-9]{1,2}-[0-9]{3,5}/[0-9]{4}\s*[–—-]\s*` "" $title) -}}
+                  {{- end -}}
                   {{- $agendaOrder := int (index $minutesVoteOrder (partials.Include "motions-title-key.html" $sourceTitle) | default 0) -}}
                   {{- if eq $agendaOrder 0 -}}
                     {{- $agendaOrder = int (index $minutesVoteOrder (partials.Include "motions-title-key.html" $title) | default 0) -}}
@@ -197,8 +190,10 @@
                     {{- $sortDetail = sub 9999 (int (index $decision "activity_order")) -}}
                   {{- end -}}
                   {{- /* The minutes' voting section is the official business order. RCV item numbers are only a stable fallback. */ -}}
+                  {{- $votingID := index $entry "votingId" | default (index $decision "notation_votingId") -}}
                   {{- $motions = $motions | append (dict
                     "date" $date
+                    "reference" $reference
                     "title" $title
                     "sourceTitle" $sourceTitle
                     "parentID" (index $vote "activity_id")
@@ -211,10 +206,8 @@
                     "for" (index $decision "number_of_votes_favor")
                     "against" (index $decision "number_of_votes_against")
                     "abstentions" (index $decision "number_of_votes_abstention")
-                    "voters" $voters
-                    "hasRecordedVote" $hasRecordedVote
-                    "notRecorded" (cond $hasRecordedVote (sub $totalMEPs $voters) 0)
-                    "votingId" (index $decision "notation_votingId")
+                    "notRecorded" (sub $totalMEPs $voters)
+                    "votingId" $votingID
                     "votersFor" $votersFor
                     "votersAgainst" $votersAgainst
                     "votersAbstaining" $votersAbstaining

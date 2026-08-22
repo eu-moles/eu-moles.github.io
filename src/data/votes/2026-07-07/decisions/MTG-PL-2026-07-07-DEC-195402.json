@@ -8,8 +8,8 @@
       "activity_label": {
         "de": "B10-0343/2026 - Erwägung D - Änd. 3",
         "bg": "B10-0343/2026 - съображение Г - изм. 3",
-        "fr": "B10-0343/2026 - Considérant D - Am 3",
         "mul": "B10-0343/2026 - Considérant D - Am 3",
+        "fr": "B10-0343/2026 - Considérant D - Am 3",
         "ga": "B10-0343/2026 - Aithris D - LS 3",
         "et": "B10-0343/2026 - Põhjendus D - Me 3",
         "lt": "B10-0343/2026 - D konstatuojamoji dalis - Pak. Nr. 3",
@@ -740,8 +740,8 @@
         "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992953-RCV-2"
       ],
       "comment": {
-        "pt": "VN",
         "es": "VN",
+        "pt": "VN",
         "nl": "HS",
         "el": "OK",
         "de": "NA",
@@ -756,11 +756,11 @@
         "hu": "NSz",
         "et": "NH",
         "en": "RCV",
-        "fr": "AN",
-        "it": "AN",
-        "hr": "AN",
-        "da": "AN",
         "ro": "AN",
+        "da": "AN",
+        "hr": "AN",
+        "it": "AN",
+        "fr": "AN",
         "pl": "gi",
         "lv": "ATKL",
         "bg": "ПГ"

@@ -87,7 +87,7 @@ textarea {
   justify-content: center;
 }
 
-.site-footer-copyright {
+.site-footer-update {
   white-space: nowrap;
 }
 
@@ -649,7 +649,16 @@ main table tbody tr:last-child td {
 }
 
 .site-table--motion {
-  min-width: 47rem;
+  min-width: 55rem;
+}
+
+.motion-reference-cell {
+  width: 9.5rem;
+  color: #526475;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 /* A business item may finish by a non-roll-call vote while its constituent
@@ -823,6 +832,10 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion td.motion-type-cell--empty {
+    display: none;
+  }
+
+  .site-table--motion td.motion-reference-cell--empty {
     display: none;
   }
 

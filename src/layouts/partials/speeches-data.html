@@ -29,7 +29,6 @@
                   "date" $date
                   "topic" (replaceRE "^[0-9]+[.[:space:]-]+" "" $label)
                   "sourceURL" $sourceURL
-                  "sourceType" "one-minute-speech"
                   "mepID" .mepID
                   "speaker" .speaker
                   "speechNumber" .speechNumber
@@ -63,7 +62,6 @@
           "date" $motion.date
           "topic" $motion.title
           "sourceURL" $motion.contextURL
-          "sourceType" "motion-discussion"
           "mepID" .mepID
           "speaker" .speaker
           "speechNumber" .speechNumber

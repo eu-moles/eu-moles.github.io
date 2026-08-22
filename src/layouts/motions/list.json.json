@@ -10,6 +10,7 @@
   {{- $tracked := partials.Include "motion-tracked.html" (dict "title" .title "sourceTitle" .sourceTitle "turns" $discussion) -}}
   {{- $items = $items | append (dict
     "date" .date
+    "reference" .reference
     "title" .title
     "sourceTitle" .sourceTitle
     "parentID" .parentID
@@ -19,7 +20,6 @@
     "procedure" .procedure
     "tracked" $tracked
     "result" .result
-    "hasRecordedVote" .hasRecordedVote
     "sourceURL" .sourceURL
     "contextURL" .contextURL
     "contextID" (printf "discussion-%s" .votingId)
