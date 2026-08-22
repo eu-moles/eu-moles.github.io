@@ -8,15 +8,22 @@
     button.setAttribute('aria-expanded', String(expanded));
     const count = button.dataset.subvotesCount || '0';
     const noun = count === '1' ? 'component vote' : 'component votes';
-    button.title = `${expanded ? 'Hide' : 'Show'} ${noun}`;
-    button.setAttribute('aria-label', `${expanded ? 'Hide' : 'Show'} ${count} ${noun}`);
+    button.title = `${expanded ? 'Hide' : 'Show'} vote breakdown`;
+    button.setAttribute('aria-label', `${expanded ? 'Hide' : 'Show'} vote breakdown: ${count} ${noun}`);
 
     const icon = button.querySelector('i');
     if (icon) icon.className = `fa-solid fa-${expanded ? 'minus' : 'plus'}`;
 
   };
 
-  document.querySelectorAll('[data-subvotes-toggle]').forEach((button) => {
-    button.addEventListener('click', () => setExpanded(button, button.getAttribute('aria-expanded') !== 'true'));
-  });
+  const bind = (root = document) => {
+    root.querySelectorAll('[data-subvotes-toggle]').forEach((button) => {
+      if (button.dataset.subvotesBound === 'true') return;
+      button.dataset.subvotesBound = 'true';
+      button.addEventListener('click', () => setExpanded(button, button.getAttribute('aria-expanded') !== 'true'));
+    });
+  };
+
+  window.EUMolesSubvotes = { bind };
+  bind();
 })();

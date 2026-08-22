@@ -216,6 +216,11 @@
           const row = document.createElement('tr');
           if (motion.isSubvote) row.classList.add('motion-subvote-row');
           if (motion.hasSubvotes) row.classList.add('motion-parent-row');
+          if (motion.isSubvote) {
+            row.dataset.subvotesChild = motion.parentID;
+          } else if (motion.hasSubvotes) {
+            row.dataset.subvotesParent = motion.parentID;
+          }
           const date = make('td', 'site-table-date', String(motion.date).slice(0, 10));
           date.dataset.label = 'Date';
           const type = make('td', 'motion-type-cell');
@@ -255,6 +260,25 @@
           } else {
             type.classList.add('motion-type-cell--empty');
           }
+          const disclosure = make(
+            'td',
+            `motion-disclosure-cell${motion.hasSubvotes ? '' : ' motion-disclosure-cell--empty'}`,
+          );
+          disclosure.dataset.label = '';
+          if (motion.hasSubvotes) {
+            const count = relevant.filter((item) => item.isSubvote && item.parentID === motion.parentID).length;
+            const toggle = make('button', 'motion-subvotes-toggle');
+            toggle.type = 'button';
+            toggle.dataset.subvotesToggle = motion.parentID;
+            toggle.dataset.subvotesCount = String(count);
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.setAttribute('aria-label', `Hide vote breakdown: ${count} component ${count === 1 ? 'vote' : 'votes'}`);
+            toggle.title = 'Hide vote breakdown';
+            const icon = make('i', 'fa-solid fa-minus');
+            icon.setAttribute('aria-hidden', 'true');
+            toggle.append(icon);
+            disclosure.append(toggle);
+          }
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
           if (motion.isSubvote) {
@@ -292,17 +316,16 @@
           const position = positionFor(motion);
           const vote = document.createElement('td');
           vote.dataset.label = 'Vote';
-          vote.append(motion.hasSubvotes
-            ? document.createTextNode('—')
-            : voteBadge(position));
+          if (motion.hasSubvotes) vote.classList.add('motion-unavailable-cell');
+          if (!motion.hasSubvotes) vote.append(voteBadge(position));
           const outcome = document.createElement('td');
           outcome.dataset.label = 'Outcome';
-          outcome.append(motion.hasSubvotes
-            ? document.createTextNode('—')
-            : outcomeBadge(motion.result));
-          row.append(date, type, motionCell, vote, outcome);
+          if (motion.hasSubvotes) outcome.classList.add('motion-unavailable-cell');
+          if (!motion.hasSubvotes) outcome.append(outcomeBadge(motion.result));
+          row.append(date, type, disclosure, motionCell, vote, outcome);
           rows.append(row);
         });
+        if (window.EUMolesSubvotes) window.EUMolesSubvotes.bind(rows);
         motions.hidden = false;
 
         const requestedContext = new URLSearchParams(window.location.search).get('context');

@@ -226,21 +226,21 @@ textarea {
 }
 
 .motion-procedure-badge {
-  border: 1px solid #b8c9df;
-  background: #f2f6fb;
-  color: #315879;
+  border: 1px solid #aac8e4;
+  background: #f0f7fd;
+  color: #205a8c;
 }
 
 .motion-procedure-badge--second {
-  border-color: #e7c982;
-  background: #fff9e9;
-  color: #87610b;
+  border-color: #c6b1e0;
+  background: #f7f2fc;
+  color: #65408b;
 }
 
 .motion-procedure-badge--conciliation {
-  border-color: #e7bebe;
-  background: #fdf4f4;
-  color: #9d2222;
+  border-color: #e1c36a;
+  background: #fff8df;
+  color: #805d08;
 }
 
 .motion-tracked-badge {
@@ -800,7 +800,7 @@ main table tbody tr:last-child td {
 
   .site-table--motion tr {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
     gap: 0.25rem 0.85rem;
     padding: 1rem;
     border: 1px solid #d6e0ea;
@@ -845,10 +845,6 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion tr.motion-subvote-row[hidden] {
-    display: none;
-  }
-
-  .motion-subvote-row .site-table-date {
     display: none;
   }
 

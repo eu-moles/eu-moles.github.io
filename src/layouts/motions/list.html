@@ -40,7 +40,7 @@
                 {{- end -}}
                 {{- $tracked := partials.Include "motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
                 {{- $hasType := or $motion.agendaRequest $tracked $motion.procedure -}}
-                <td class="site-table-date" data-label="Date">{{ if .isSubvote }}{{ else }}{{ strings.Substr .date 0 10 }}{{ end }}</td>
+                <td class="site-table-date" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
                 <td class="motion-type-cell{{ if or .isSubvote (not $hasType) }} motion-type-cell--empty{{ end }}" data-label="Classification">
                   {{- if and (not .isSubvote) $hasType -}}
                     <span class="motion-type-badges">
@@ -63,7 +63,7 @@
                   {{- end -}}
                 </td>
                 <td class="motion-disclosure-cell{{ if not .hasSubvotes }} motion-disclosure-cell--empty{{ end }}" data-label="">
-                  {{- if .hasSubvotes -}}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="true" aria-label="Hide {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Hide component votes"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>{{- end -}}
+                  {{- if .hasSubvotes -}}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="true" aria-label="Hide vote breakdown: {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Hide vote breakdown"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>{{- end -}}
                 </td>
                 <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
                   <span class="db">
@@ -132,10 +132,10 @@
                     </dialog>
                   {{ end }}
                 </td>
-                <td{{ if .hasSubvotes }} class="motion-unavailable-cell"{{ end }} data-label="Outcome">
-                  {{ if .hasSubvotes }}
-                    —
-                  {{ else }}
+                {{ if .hasSubvotes }}
+                  <td class="motion-unavailable-cell" data-label="Outcome"></td>
+                {{ else }}
+                  <td data-label="Outcome">
                     <span class="motion-result motion-result--{{ lower .result }}">
                       {{ if eq .result "ADOPTED" }}
                         <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
@@ -144,9 +144,14 @@
                       {{ end }}
                       {{ .result | humanize }}
                     </span>
-                  {{ end }}
-                </td>
-                {{ if .hasRecordedVote }}
+                  </td>
+                {{ end }}
+                {{ if .hasSubvotes }}
+                  <td class="site-table-number motion-unavailable-cell" data-label="For"></td>
+                  <td class="site-table-number motion-unavailable-cell" data-label="Against"></td>
+                  <td class="site-table-number motion-unavailable-cell" data-label="Abstentions"></td>
+                  <td class="site-table-number motion-unavailable-cell" data-label="Not voted"></td>
+                {{ else if .hasRecordedVote }}
                   <td class="site-table-number" data-label="For">{{ .for }}</td>
                   <td class="site-table-number" data-label="Against">{{ .against }}</td>
                   <td class="site-table-number" data-label="Abstentions">{{ .abstentions }}</td>

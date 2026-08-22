@@ -68,6 +68,7 @@
               <tr>
                 <th>Date</th>
                 <th>Classification</th>
+                <th class="motion-disclosure-heading" aria-label="Components"></th>
                 <th>Motion</th>
                 <th>Vote</th>
                 <th>Outcome</th>
@@ -97,5 +98,6 @@
   </section>
 
   {{ partial "asset-script.html" "js/motion-context.js" }}
+  {{ partial "asset-script.html" "js/motion-subvotes.js" }}
   {{ partial "asset-script.html" "js/mep-profile.js" }}
 {{ end }}
