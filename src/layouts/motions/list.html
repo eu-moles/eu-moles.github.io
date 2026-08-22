@@ -16,6 +16,7 @@
             <tr>
               <th>Date</th>
               <th>Classification</th>
+              <th class="motion-disclosure-heading" aria-label="Components"></th>
               <th>Motion</th>
               <th>Outcome</th>
               <th class="site-table-number">For</th>
@@ -27,7 +28,7 @@
           <tbody>
             {{ range $motions }}
               {{- $motion := . -}}
-              <tr class="{{ if .isSubvote }}motion-subvote-row{{ else if .hasSubvotes }}motion-parent-row{{ end }}"{{ if .isSubvote }} data-subvotes-child="{{ .parentID }}" hidden{{ else if .hasSubvotes }} data-subvotes-parent="{{ .parentID }}"{{ end }}>
+              <tr class="{{ if .isSubvote }}motion-subvote-row{{ else if .hasSubvotes }}motion-parent-row{{ end }}"{{ if .isSubvote }} data-subvotes-child="{{ .parentID }}"{{ else if .hasSubvotes }} data-subvotes-parent="{{ .parentID }}"{{ end }}>
                 {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
                 {{- $context := dict "turns" (slice) -}}
                 {{- $modalID := "" -}}
@@ -39,7 +40,7 @@
                 {{- end -}}
                 {{- $tracked := partials.Include "motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
                 {{- $hasType := or $motion.agendaRequest $tracked $motion.procedure -}}
-                <td class="site-table-date" data-label="Date">{{ if .isSubvote }}{{ else if .hasSubvotes }}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="false" aria-label="Show {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Show component votes"><i class="fa-solid fa-plus" aria-hidden="true"></i></button><span class="motion-parent-date">{{ strings.Substr .date 0 10 }}</span>{{ else }}{{ strings.Substr .date 0 10 }}{{ end }}</td>
+                <td class="site-table-date" data-label="Date">{{ if .isSubvote }}{{ else }}{{ strings.Substr .date 0 10 }}{{ end }}</td>
                 <td class="motion-type-cell{{ if or .isSubvote (not $hasType) }} motion-type-cell--empty{{ end }}" data-label="Classification">
                   {{- if and (not .isSubvote) $hasType -}}
                     <span class="motion-type-badges">
@@ -61,9 +62,11 @@
                     </span>
                   {{- end -}}
                 </td>
+                <td class="motion-disclosure-cell{{ if not .hasSubvotes }} motion-disclosure-cell--empty{{ end }}" data-label="">
+                  {{- if .hasSubvotes -}}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="true" aria-label="Hide {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Hide component votes"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>{{- end -}}
+                </td>
                 <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
                   <span class="db">
-                    {{- if .isSubvote -}}<span class="motion-subvote-title__prefix">Recorded component</span>{{- end -}}
                     {{ with .sourceURL }}
                       <a class="motion-source-link link underline-hover" href="{{ . }}" target="_blank" rel="external noopener noreferrer">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                     {{ else }}

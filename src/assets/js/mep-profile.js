@@ -259,7 +259,6 @@
           motionCell.dataset.label = 'Motion';
           if (motion.isSubvote) {
             motionCell.classList.add('motion-subvote-title');
-            motionCell.append(make('span', 'motion-subvote-title__prefix', 'Recorded component'));
           }
           const title = motion.sourceURL
             ? make('a', 'mep-profile-motion-title-text motion-source-link')

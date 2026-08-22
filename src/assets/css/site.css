@@ -670,24 +670,38 @@ main table tbody tr:last-child td {
 .motion-subvotes-toggle {
   display: inline-flex;
   align-items: center;
-  min-height: 1.75rem;
-  min-width: 1.75rem;
+  width: 1.55rem;
+  height: 1.55rem;
   justify-content: center;
-  padding: 0.2rem;
+  padding: 0;
   border: 1px solid #b8cce1;
-  border-radius: 0.2rem;
+  border-radius: 50%;
   background: #f4f8fc;
   color: #1c5b9f;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.035em;
-  line-height: 1.15;
+  line-height: 1;
   text-align: center;
 }
 
-.motion-parent-date {
-  margin-left: 0.35rem;
+.motion-subvotes-toggle i {
+  display: block;
+  line-height: 1;
+  transform: translateY(0.02em);
+}
+
+.motion-disclosure-heading,
+.motion-disclosure-cell {
+  width: 2.3rem;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  text-align: center !important;
+}
+
+.motion-disclosure-cell::before {
+  display: none;
 }
 
 .motion-subvotes-toggle:hover,
@@ -700,26 +714,6 @@ main table tbody tr:last-child td {
 .motion-subvotes-toggle:focus-visible {
   outline: 2px solid #d5a900;
   outline-offset: 2px;
-}
-
-.motion-subvote-row td:first-child {
-  border-left: 0.28rem solid #9cb8d4;
-  padding-left: 0.72rem;
-}
-
-.motion-subvote-title {
-  padding-left: 0.25rem;
-}
-
-.motion-subvote-title__prefix {
-  display: block;
-  margin-bottom: 0.22rem;
-  color: #64788d;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 /* Profile tables inherit the card frame that surrounds them. */
@@ -863,7 +857,7 @@ main table tbody tr:last-child td {
     text-transform: uppercase;
   }
 
-  .site-table--motion td:nth-child(3) {
+  .site-table--motion td[data-label="Motion"] {
     grid-column: 1 / -1;
     grid-row: 1;
     padding-top: 0;
@@ -872,8 +866,29 @@ main table tbody tr:last-child td {
     line-height: 1.4;
   }
 
-  .site-table--motion td:nth-child(3)::before {
+  .site-table--motion td[data-label="Motion"]::before {
     display: none;
+  }
+
+  .site-table--motion td.motion-disclosure-cell--empty {
+    display: none;
+  }
+
+  .site-table--motion tr.motion-parent-row {
+    position: relative;
+  }
+
+  .site-table--motion tr.motion-parent-row td.motion-disclosure-cell {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: flex;
+    width: auto;
+    padding: 0;
+  }
+
+  .site-table--motion tr.motion-parent-row td[data-label="Motion"] {
+    padding-right: 2.4rem;
   }
 
   .site-table--motion .mep-profile-motion-title {
