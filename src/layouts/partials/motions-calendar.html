@@ -1,0 +1,18 @@
+{{- $id := .id | default "motion-calendar-title" -}}
+{{- $classes := .classes | default "" -}}
+<section class="motion-calendar {{ $classes }}" aria-labelledby="{{ $id }}" data-motion-calendar{{ with .dates }} data-available-dates="{{ delimit . "," }}"{{ end }}{{ with .defaultDate }} data-default-date="{{ . }}"{{ end }}{{ if .deferred }} hidden{{ end }}>
+  <div class="motion-calendar__intro">
+    <p class="motion-calendar__eyebrow">Parliamentary calendar</p>
+    <h{{ .headingLevel | default 2 }} id="{{ $id }}">{{ .title | default "Browse recorded motions" }}</h{{ .headingLevel | default 2 }}>
+    <p>{{ .description | default "Select a marked sitting day to view its voting record." }}</p>
+  </div>
+  <div class="motion-calendar__picker" data-motion-calendar-picker>
+    <div class="motion-calendar__toolbar">
+      <button class="motion-calendar__month-button" type="button" data-motion-calendar-previous aria-label="Previous month"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+      <p class="motion-calendar__month" data-motion-calendar-month aria-live="polite"></p>
+      <button class="motion-calendar__month-button" type="button" data-motion-calendar-next aria-label="Next month"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+    </div>
+    <div class="motion-calendar__weekdays" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    <div class="motion-calendar__days" data-motion-calendar-days role="grid" aria-label="Available motion dates"></div>
+  </div>
+</section>

@@ -62,6 +62,7 @@
           </div>
           <span id="mep-profile-motions-summary" class="mep-profile-motions-summary"></span>
         </header>
+        {{ partial "motions-calendar.html" (dict "id" "mep-profile-motion-calendar-title" "classes" "motion-calendar--profile" "headingLevel" 3 "title" "Browse this Member’s motions" "description" "Select a marked sitting day to view this Member’s voting record across all motions." "deferred" true) }}
         <div class="site-table-wrap mep-profile-motions-table-wrap">
           <table class="site-table site-table--motion mep-profile-motions-table">
             <thead>
@@ -100,5 +101,6 @@
 
   {{ partial "asset-script.html" "js/motion-context.js" }}
   {{ partial "asset-script.html" "js/motion-subvotes.js" }}
+  {{ partial "asset-script.html" "js/motions-calendar.js" }}
   {{ partial "asset-script.html" "js/mep-profile.js" }}
 {{ end }}

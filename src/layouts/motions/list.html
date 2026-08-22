@@ -19,22 +19,7 @@
       {{- end -}}
       {{- $motionDates = uniq $motionDates -}}
       {{- $latestMotions := where $parentMotions "date" $latestDate -}}
-      <section class="motion-calendar" aria-labelledby="motion-calendar-title" data-available-dates="{{ delimit $motionDates "," }}" data-default-date="{{ $latestDate }}">
-        <div class="motion-calendar__intro">
-          <p class="motion-calendar__eyebrow">Parliamentary calendar</p>
-          <h2 id="motion-calendar-title">Browse recorded motions</h2>
-          <p>Select a marked sitting day to view its voting record.</p>
-        </div>
-        <div class="motion-calendar__picker" data-motion-calendar-picker>
-          <div class="motion-calendar__toolbar">
-            <button class="motion-calendar__month-button" type="button" data-motion-calendar-previous aria-label="Previous month"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-            <p class="motion-calendar__month" data-motion-calendar-month aria-live="polite"></p>
-            <button class="motion-calendar__month-button" type="button" data-motion-calendar-next aria-label="Next month"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-          </div>
-          <div class="motion-calendar__weekdays" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
-          <div class="motion-calendar__days" data-motion-calendar-days role="grid" aria-label="Available motion dates"></div>
-        </div>
-      </section>
+      {{ partial "motions-calendar.html" (dict "id" "motion-calendar-title" "dates" $motionDates "defaultDate" $latestDate) }}
       <p class="f5 gray mt0 mb3" data-motion-calendar-count>{{ len $latestMotions }} recorded {{ if eq (len $latestMotions) 1 }}motion{{ else }}motions{{ end }}</p>
       <div class="site-table-wrap motions-table-wrap">
         <table class="site-table site-table--motion motions-table" cellspacing="0">

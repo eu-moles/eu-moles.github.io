@@ -902,6 +902,22 @@ main table tbody tr:last-child td {
   border: 0;
 }
 
+.motion-calendar--profile {
+  grid-template-columns: minmax(13rem, 1fr) minmax(18rem, 24rem);
+  margin: 0;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  box-shadow: none;
+}
+
+.motion-calendar--profile h3 {
+  margin: 0;
+  color: #172f4d;
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  line-height: 1.15;
+}
+
 .mep-profile-motion-title {
   min-width: 23rem;
   color: #1f2b37;
@@ -961,6 +977,10 @@ main table tbody tr:last-child td {
 
   .motion-calendar__picker {
     max-width: 27rem;
+  }
+
+  .motion-calendar--profile {
+    grid-template-columns: 1fr;
   }
 
   .site-table-wrap {

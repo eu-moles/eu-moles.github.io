@@ -6,6 +6,7 @@
   const error = document.querySelector('#mep-profile-error');
   const back = document.querySelector('#mep-profile-back');
   const motions = document.querySelector('#mep-profile-motions');
+  const motionCalendar = motions?.querySelector('[data-motion-calendar]');
   const speeches = document.querySelector('#mep-profile-speeches');
   const parameters = new URLSearchParams(window.location.search);
   const id = parameters.get('id');
@@ -193,18 +194,12 @@
             : voterIDs(motion.votersAbstaining).includes(mepID)
               ? 'abstention'
               : 'notRecorded');
-        const parentIDsWithRecordedSubvotes = new Set(
-          items
-            .filter((motion) => motion.isSubvote && positionFor(motion) !== 'notRecorded')
-            .map((motion) => motion.parentID),
-        );
-        const relevant = items.filter((motion) => (
-          positionFor(motion) !== 'notRecorded'
-          || (motion.hasSubvotes && parentIDsWithRecordedSubvotes.has(motion.parentID))
-        ));
+        // A profile is also a complete view of the sitting record. Keep motions
+        // where the Member has no recorded vote, and make that absence explicit.
+        const relevant = items;
 
         if (!relevant.length) {
-          empty.textContent = 'No recorded roll-call votes are available yet.';
+          empty.textContent = 'No recorded motions are available yet.';
           empty.hidden = false;
           motions.hidden = false;
           return;
@@ -214,6 +209,11 @@
         summary.textContent = `${parentCount} recorded ${parentCount === 1 ? 'motion' : 'motions'}`;
         relevant.forEach((motion) => {
           const row = document.createElement('tr');
+          row.dataset.motionDate = String(motion.date || '').slice(0, 10);
+          if (!motion.isSubvote) {
+            row.dataset.motionVotingId = motion.contextID || motion.parentID;
+            row.dataset.motionContextId = motion.contextID || '';
+          }
           if (motion.isSubvote) row.classList.add('motion-subvote-row');
           if (motion.hasSubvotes) row.classList.add('motion-parent-row');
           if (motion.isSubvote) {
@@ -332,6 +332,12 @@
           rows.append(row);
         });
         if (window.EUMolesSubvotes) window.EUMolesSubvotes.bind(rows);
+        if (window.EUMolesMotionCalendar && motionCalendar) {
+          window.EUMolesMotionCalendar.bind(motionCalendar, {
+            rows: rows.querySelectorAll('[data-motion-date]'),
+            countElement: summary,
+          });
+        }
         motions.hidden = false;
 
         const requestedContext = new URLSearchParams(window.location.search).get('context');
