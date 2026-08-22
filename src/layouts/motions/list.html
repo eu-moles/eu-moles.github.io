@@ -132,7 +132,7 @@
                     </dialog>
                   {{ end }}
                 </td>
-                <td data-label="Outcome">
+                <td{{ if .hasSubvotes }} class="motion-unavailable-cell"{{ end }} data-label="Outcome">
                   {{ if .hasSubvotes }}
                     —
                   {{ else }}
@@ -152,10 +152,10 @@
                   <td class="site-table-number" data-label="Abstentions">{{ .abstentions }}</td>
                   <td class="site-table-number" data-label="Not voted">{{ .notRecorded }}</td>
                 {{ else }}
-                  <td class="site-table-number" data-label="For">—</td>
-                  <td class="site-table-number" data-label="Against">—</td>
-                  <td class="site-table-number" data-label="Abstentions">—</td>
-                  <td class="site-table-number" data-label="Not voted">—</td>
+                  <td class="site-table-number motion-unavailable-cell" data-label="For">—</td>
+                  <td class="site-table-number motion-unavailable-cell" data-label="Against">—</td>
+                  <td class="site-table-number motion-unavailable-cell" data-label="Abstentions">—</td>
+                  <td class="site-table-number motion-unavailable-cell" data-label="Not voted">—</td>
                 {{ end }}
               </tr>
             {{ end }}

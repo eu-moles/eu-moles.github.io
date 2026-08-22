@@ -826,12 +826,22 @@ main table tbody tr:last-child td {
     display: none;
   }
 
+  .site-table--motion tr.motion-parent-row .motion-unavailable-cell {
+    display: none;
+  }
+
   .site-table--motion tr.motion-subvote-row {
     margin-top: -0.55rem;
-    margin-left: 1rem;
+    margin-left: 0;
+    padding-left: 1rem;
     border-left-color: #9cb8d4;
     background: #f8fbfe;
     box-shadow: none;
+  }
+
+  .site-table--motion tr.motion-subvote-row + tr.motion-subvote-row {
+    margin-top: -1rem;
+    border-top: 0;
   }
 
   .site-table--motion tr.motion-subvote-row[hidden] {
