@@ -1,0 +1,21 @@
+{{- $file := index . "file" -}}
+{{- $document := index . "document" -}}
+{{- $links := dict -}}
+{{- if os.FileExists $file -}}
+  {{- /* In the minutes XML, a vote section heading is followed by the paragraph
+        containing its Pv.AnnexVote reference. Preserve that ordered relationship;
+        transform.Unmarshal groups headings and paragraphs separately. */ -}}
+  {{- $raw := os.ReadFile $file -}}
+  {{- $blocks := findRE `(?s)<text:h\b[^>]*>.*?<text:chapter-number>[0-9]+\.[0-9]+</text:chapter-number>.*?<Pv.Reference.Text Pv.AnnexVote="[0-9]+"` $raw -}}
+  {{- range $blocks -}}
+    {{- $chapter := replaceRE `(?s)^.*?<text:chapter-number>([0-9]+\.[0-9]+)</text:chapter-number>.*$` "$1" . -}}
+    {{- $annexVote := replaceRE `(?s)^.*?<Pv.Reference.Text Pv.AnnexVote="([0-9]+)".*$` "$1" . -}}
+    {{- if and (findRE `^[0-9]+\.[0-9]+$` $chapter) (findRE `^[0-9]+$` $annexVote) -}}
+      {{- $chapterParts := split $chapter "." -}}
+      {{- $item := printf "%03d-%02d" (int (index $chapterParts 0)) (int (index $chapterParts 1)) -}}
+      {{- $url := printf "https://www.europarl.europa.eu/doceo/document/%s-ITM-%s_EN.html" $document $item -}}
+      {{- $links = merge $links (dict (string $annexVote) $url) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $links -}}

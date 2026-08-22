@@ -26,6 +26,7 @@
         {{- $minutesTitles := partials.Include "motions-pv-titles.html" $minutesFile -}}
         {{- $minutesVoteOrder := partials.Include "motions-pv-vote-order.html" $minutesFile -}}
         {{- $minutesContextLinks := partials.Include "motions-pv-context-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
+        {{- $minutesItemLinks := partials.Include "motions-pv-item-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
         {{- $decisionsByID := dict -}}
         {{- $decisions := index $decisionsData "data" -}}
         {{- if $decisions -}}
@@ -133,27 +134,22 @@
                   {{- $voters := int (index $decision "number_of_attendees") -}}
                   {{- $sourceURL := "" -}}
                   {{- $rcvItem := int (index $entry "rcvItem" | default 0) -}}
-                  {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
-                  {{- if $recordedIn -}}
-                    {{- if not (reflect.IsSlice $recordedIn) -}}
-                      {{- $recordedIn = slice $recordedIn -}}
-                    {{- end -}}
-                    {{- $document := path.Base (index $recordedIn 0) -}}
-                    {{- if eq $rcvItem 0 -}}
-                      {{- $rcvItem = int (replaceRE `^.*-RCV-ITM-0*` "" $document) -}}
-                    {{- end -}}
-                    {{- $tocDocument := replaceRE "-RCV-ITM-[0-9]+$" "-TOC_EN.html" $document -}}
-                    {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
-                  {{- end -}}
-                  {{- if eq $sourceURL "" -}}
-                    {{- $voteRecordedIn := index $vote "recorded_in_a_realization_of" -}}
-                    {{- if $voteRecordedIn -}}
-                      {{- if not (reflect.IsSlice $voteRecordedIn) -}}
-                        {{- $voteRecordedIn = slice $voteRecordedIn -}}
+                  {{- if $isSubvote -}}
+                    {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
+                    {{- if $recordedIn -}}
+                      {{- if not (reflect.IsSlice $recordedIn) -}}
+                        {{- $recordedIn = slice $recordedIn -}}
                       {{- end -}}
-                      {{- $document := path.Base (index $voteRecordedIn 0) -}}
-                      {{- $tocDocument := replaceRE `-(RCV|VOT)-ITM-[0-9]+$` "-TOC_EN.html" $document -}}
+                      {{- $document := path.Base (index $recordedIn 0) -}}
+                      {{- if eq $rcvItem 0 -}}
+                        {{- $rcvItem = int (replaceRE `^.*-RCV-ITM-0*` "" $document) -}}
+                      {{- end -}}
+                      {{- $tocDocument := replaceRE "-RCV-ITM-[0-9]+$" "-TOC_EN.html" $document -}}
                       {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
+                    {{- end -}}
+                  {{- else -}}
+                    {{- with index $minutesItemLinks (string $rcvItem) -}}
+                      {{- $sourceURL = . -}}
                     {{- end -}}
                   {{- end -}}
                   {{- with index $minutesTitles (string $rcvItem) -}}
