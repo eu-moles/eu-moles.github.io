@@ -6,15 +6,32 @@
         containing its Pv.AnnexVote reference. Preserve that ordered relationship;
         transform.Unmarshal groups headings and paragraphs separately. */ -}}
   {{- $raw := os.ReadFile $file -}}
-  {{- $blocks := findRE `(?s)<text:h\b[^>]*>.*?<text:chapter-number>[0-9]+\.[0-9]+</text:chapter-number>.*?<Pv.Reference.Text Pv.AnnexVote="[0-9]+"` $raw -}}
-  {{- range $blocks -}}
+  {{- $blocks := findRE `(?s)<text:h\b[^>]*>\s*<text:chapter-number>[0-9]+\.[0-9]+</text:chapter-number>.*?<Pv.Reference.Text Pv.AnnexVote="[0-9]+"` $raw -}}
+{{- range $blocks -}}
     {{- $chapter := replaceRE `(?s)^.*?<text:chapter-number>([0-9]+\.[0-9]+)</text:chapter-number>.*$` "$1" . -}}
     {{- $annexVote := replaceRE `(?s)^.*?<Pv.Reference.Text Pv.AnnexVote="([0-9]+)".*$` "$1" . -}}
     {{- if and (findRE `^[0-9]+\.[0-9]+$` $chapter) (findRE `^[0-9]+$` $annexVote) -}}
       {{- $chapterParts := split $chapter "." -}}
       {{- $item := printf "%03d-%02d" (int (index $chapterParts 0)) (int (index $chapterParts 1)) -}}
       {{- $url := printf "https://www.europarl.europa.eu/doceo/document/%s-ITM-%s_EN.html" $document $item -}}
-      {{- $links = merge $links (dict (string $annexVote) $url) -}}
+      {{- $procedureReference := "" -}}
+      {{- with findRE `[0-9]{4}/[0-9]{4}\([A-Z]+\)` . -}}
+        {{- $procedureReference = index . 0 -}}
+      {{- end -}}
+      {{- $procedureURL := "" -}}
+      {{- if $procedureReference -}}
+        {{- $procedureURL = printf "https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=%s" ($procedureReference | urlquery) -}}
+      {{- end -}}
+      {{- $councilReference := "" -}}
+      {{- with findRE `\b[0-9]{4,5}/[0-9]+/[0-9]{4}\b` . -}}
+        {{- $councilReference = index . 0 -}}
+      {{- end -}}
+      {{- $documentURL := "" -}}
+      {{- if $councilReference -}}
+        {{- $councilParts := split $councilReference "/" -}}
+        {{- $documentURL = printf "https://data.consilium.europa.eu/doc/document/ST-%s-%s-REV-%s/en/pdf" (index $councilParts 0) (index $councilParts 2) (index $councilParts 1) -}}
+      {{- end -}}
+      {{- $links = merge $links (dict (string $annexVote) (dict "minutesURL" $url "procedureReference" $procedureReference "procedureURL" $procedureURL "documentReference" $councilReference "documentURL" $documentURL)) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

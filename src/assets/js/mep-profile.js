@@ -282,9 +282,21 @@
           const reference = make(
             'td',
             `motion-reference-cell${motion.reference ? '' : ' motion-reference-cell--empty'}`,
-            motion.reference || '',
           );
           reference.dataset.label = 'Reference';
+          if (motion.reference && motion.procedureURL) {
+            const referenceLink = make('a', '', motion.reference);
+            referenceLink.href = motion.procedureURL;
+            referenceLink.target = '_blank';
+            referenceLink.rel = 'external noopener noreferrer';
+            referenceLink.title = `Open procedure ${motion.procedureReference || ''}`.trim();
+            const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
+            icon.setAttribute('aria-hidden', 'true');
+            referenceLink.append(document.createTextNode(' '), icon);
+            reference.append(referenceLink);
+          } else {
+            reference.textContent = motion.reference || '';
+          }
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
           if (motion.isSubvote) {
@@ -305,6 +317,18 @@
             title.append(document.createTextNode(' '), icon);
           }
           motionCell.append(title);
+          if (motion.isSubvote && motion.documentURL) {
+            const documentLink = make('a', 'motion-document-link');
+            documentLink.href = motion.documentURL;
+            documentLink.target = '_blank';
+            documentLink.rel = 'external noopener noreferrer';
+            documentLink.title = `Open source document ${motion.documentReference || ''}`.trim();
+            documentLink.setAttribute('aria-label', documentLink.title);
+            const icon = make('i', 'fa-solid fa-file-lines');
+            icon.setAttribute('aria-hidden', 'true');
+            documentLink.append(icon);
+            motionCell.append(documentLink);
+          }
 
           if (Array.isArray(motion.discussion) && motion.discussion.length && window.EUMolesMotionContext) {
             const context = make('button', 'motion-discussion-link');

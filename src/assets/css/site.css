@@ -194,6 +194,27 @@ textarea {
   text-decoration-color: currentColor;
 }
 
+.motion-document-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.3rem;
+  color: #52718d;
+  font-size: 0.9em;
+  text-decoration: none;
+  vertical-align: 0.05em;
+}
+
+.motion-document-link:hover,
+.motion-document-link:focus-visible {
+  color: #1c5e9f;
+}
+
+.motion-document-link:focus-visible {
+  outline: 2px solid #d5a900;
+  outline-offset: 0.16rem;
+}
+
 .motion-type-badges {
   display: flex;
   flex-wrap: wrap;

@@ -92,9 +92,9 @@
                     {{- end -}}
                   {{- end -}}
                 {{- end -}}
-                {{- $displayDecisions = $displayDecisions | append (dict "decision" $vote "isSubvote" false "hasSubvotes" true "subvoteCount" (len $childDecisions) "rcvItem" $parentRCVItem "votingId" $parentVotingID) -}}
+                {{- $displayDecisions = $displayDecisions | append (dict "decision" $vote "isSubvote" false "hasSubvotes" true "subvoteCount" (len $childDecisions) "rcvItem" $parentRCVItem "contextRcvItem" $parentRCVItem "votingId" $parentVotingID) -}}
                 {{- range $childDecisions -}}
-                  {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false "subvoteCount" 0 "rcvItem" 0) -}}
+                  {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false "subvoteCount" 0 "rcvItem" 0 "contextRcvItem" $parentRCVItem) -}}
                 {{- end -}}
               {{- end -}}
               {{- range $displayDecisions -}}
@@ -134,6 +134,12 @@
                   {{- $voters := int (index $decision "number_of_attendees") -}}
                   {{- $sourceURL := "" -}}
                   {{- $rcvItem := int (index $entry "rcvItem" | default 0) -}}
+                  {{- $contextRcvItem := int (index $entry "contextRcvItem" | default $rcvItem) -}}
+                  {{- $minutesItemContext := index $minutesItemLinks (string $contextRcvItem) | default dict -}}
+                  {{- $procedureReference := index $minutesItemContext "procedureReference" | default "" -}}
+                  {{- $procedureURL := index $minutesItemContext "procedureURL" | default "" -}}
+                  {{- $documentReference := index $minutesItemContext "documentReference" | default "" -}}
+                  {{- $documentURL := index $minutesItemContext "documentURL" | default "" -}}
                   {{- if $isSubvote -}}
                     {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
                     {{- if $recordedIn -}}
@@ -148,7 +154,12 @@
                       {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s" $tocDocument -}}
                     {{- end -}}
                   {{- else -}}
-                    {{- with index $minutesItemLinks (string $rcvItem) -}}
+                    {{- with index $minutesItemContext "minutesURL" -}}
+                      {{- $sourceURL = . -}}
+                    {{- end -}}
+                  {{- end -}}
+                  {{- if $isSubvote -}}
+                    {{- with index $minutesItemContext "minutesURL" -}}
                       {{- $sourceURL = . -}}
                     {{- end -}}
                   {{- end -}}
@@ -190,6 +201,10 @@
                   {{- $motions = $motions | append (dict
                     "date" $date
                     "reference" $reference
+                    "procedureReference" $procedureReference
+                    "procedureURL" $procedureURL
+                    "documentReference" $documentReference
+                    "documentURL" $documentURL
                     "title" $title
                     "sourceTitle" $sourceTitle
                     "parentID" (index $vote "activity_id")

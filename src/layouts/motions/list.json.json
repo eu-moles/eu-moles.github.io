@@ -11,6 +11,10 @@
   {{- $items = $items | append (dict
     "date" .date
     "reference" .reference
+    "procedureReference" .procedureReference
+    "procedureURL" .procedureURL
+    "documentReference" .documentReference
+    "documentURL" .documentURL
     "title" .title
     "sourceTitle" .sourceTitle
     "parentID" .parentID

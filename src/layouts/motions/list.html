@@ -77,7 +77,15 @@
                 <td class="motion-disclosure-cell{{ if not .hasSubvotes }} motion-disclosure-cell--empty{{ end }}" data-label="">
                   {{- if .hasSubvotes -}}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="true" aria-label="Hide vote breakdown: {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Hide vote breakdown"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>{{- end -}}
                 </td>
-                <td class="motion-reference-cell{{ if not .reference }} motion-reference-cell--empty{{ end }}" data-label="Reference">{{ .reference }}</td>
+                <td class="motion-reference-cell{{ if not .reference }} motion-reference-cell--empty{{ end }}" data-label="Reference">
+                  {{ with .reference }}
+                    {{ with $motion.procedureURL }}
+                      <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open procedure {{ $motion.procedureReference }}">{{ $motion.reference }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    {{ else }}
+                      {{ $motion.reference }}
+                    {{ end }}
+                  {{ end }}
+                </td>
                 <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
                   <span class="db">
                     {{ with .sourceURL }}
@@ -85,6 +93,9 @@
                     {{ else }}
                       {{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
                     {{ end }}
+                    {{- if and .isSubvote .documentURL -}}
+                      <a class="motion-document-link" href="{{ .documentURL }}" target="_blank" rel="external noopener noreferrer" title="Open source document {{ .documentReference }}" aria-label="Open source document {{ .documentReference }}"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></a>
+                    {{- end -}}
                     {{- if ne $modalID "" -}}
                       <button class="motion-discussion-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
                     {{- end -}}
