@@ -247,20 +247,12 @@ translate_to_english() {
 generate_translation_candidates() {
   local directory="$1"
   local language_map
-  local target_titles
-  local vote_terms
   local number
   local language_uri
   local language_file
   local language_code
-  local title
-  local title_terms
-  local term
-  local matched
 
   language_map=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-languages.XXXXXX")
-  target_titles=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-titles.XXXXXX")
-  vote_terms=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-terms.XXXXXX")
 
   # Match the language code Hugo displays from the cached EU authority files.
   while IFS=$'\t' read -r number language_uri; do
@@ -271,46 +263,15 @@ generate_translation_candidates() {
   done < <(jq -r '
     .data[]
     | .recorded_in_a_realization_of[]?
-    | select(.number and (.originalLanguage | length > 0) and (.originalLanguage | index("http://publications.europa.eu/resource/authority/language/ENG") | not))
-    | [.number, .originalLanguage[0]]
+    | (.originalLanguage | map(select(. != "http://publications.europa.eu/resource/authority/language/ENG")) | first) as $source_language
+    | select(.number and $source_language)
+    | [.number, $source_language]
     | @tsv
   ' "$directory/speeches.json")
 
-  # The one-minute item is always tracked. Include every top-level vote item as
-  # well, so speakers recorded during voting-time interventions are translated
-  # when shown in a motion discussion.
-  printf '%s\n' 'one-minute speeches on matters of political importance' > "$target_titles"
-  jq -r '
-    .data[]
-    | select(type == "object" and (.consists_of | type == "array") and (.consists_of | length > 0))
-    | .activity_label.en? // empty
-  ' "$directory/vote-results.json" |
-    sed -E 's/^[0-9]+([.][0-9]+)*[.[:space:]-]+//; s/[[:space:]]+\*{3}I{1,3}[[:space:]]*$//; s/[[:space:]]*\([Vv]ote\)[[:space:]]*$//' |
-    tr '[:upper:]' '[:lower:]' >> "$target_titles"
-  {
-    jq -r '.data[] | .activity_label.en? // empty' "$directory/vote-results.json"
-    jq -r '.data[] | .referenceText.en? // empty' "$directory/decisions.json"
-  } | LC_ALL=C tr '[:upper:]' '[:lower:]' | LC_ALL=C tr -cs '[:alnum:]' '\n' |
-    awk 'length > 2 && $0 !~ /^(agenda|and|by|for|from|group|groups|monday|request|the|thursday|tuesday|wednesday|friday)$/' |
-    sort -u > "$vote_terms"
-
-  while IFS= read -r title; do
-    [[ "$title" == *'(debate)'* ]] || continue
-    title=$(printf '%s' "$title" |
-      sed -E 's/^[0-9]+([.][0-9]+)*[.[:space:]-]+//; s/[[:space:]]*\([Dd]ebate\)[[:space:]]*$//' |
-      tr '[:upper:]' '[:lower:]')
-    title_terms=$(printf '%s' "$title" | LC_ALL=C tr -cs '[:alnum:]' '\n')
-    matched=false
-    while IFS= read -r term; do
-      if grep -Fxq "$term" <<< "$title_terms"; then
-        matched=true
-        break
-      fi
-    done < "$vote_terms"
-    "$matched" && printf '%s\n' "$title" >> "$target_titles"
-  done < <(jq -r '.data[] | .activity_label.en? // empty' "$directory/activities.json")
-
-  LC_ALL=C awk -v language_map="$language_map" -v target_titles="$target_titles" '
+  # Retain every non-English parliamentary contribution from the transcript,
+  # not merely speeches already used by the current motion views.
+  LC_ALL=C awk -v language_map="$language_map" '
     function trim(value) {
       sub(/^[ \t\r\n\f]+/, "", value)
       sub(/[ \t\r\n\f]+$/, "", value)
@@ -323,12 +284,6 @@ generate_translation_candidates() {
       }
       return trim(value)
     }
-    function title_key(value) {
-      sub(/^[0-9]+([.][0-9]+)*[. \t-]+/, "", value)
-      sub(/[ \t]+\*{3}I{1,3}[ \t]*$/, "", value)
-      sub(/[ \t]*\(([Dd]ebate|[Vv]ote)\)[ \t]*$/, "", value)
-      return tolower(clean(value))
-    }
     function json_escape(value) {
       gsub(/\\/, "\\\\", value)
       gsub(/"/, "\\\"", value)
@@ -337,7 +292,7 @@ generate_translation_candidates() {
       return value
     }
     function flush_turn(    code) {
-      if (!target || !speaker || !speech_number || !buffer || !(speech_number in languages) || (speech_number in seen)) return
+      if (!speaker || !speech_number || !buffer || !(speech_number in languages) || (speech_number in seen)) return
       code = languages[speech_number]
       printf "{\"speechNumber\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(code), json_escape(buffer)
       seen[speech_number] = 1
@@ -369,32 +324,16 @@ generate_translation_candidates() {
       text = clean(text)
       if (text != "" && bookmark ~ /^_Toc/) {
         flush_turn()
-        heading = title_key(text)
-        target = (heading in targets)
-        speaker = ""
-        speech_number = ""
-        buffer = ""
-      } else if (target && text ~ /^[–-]?[ \t]*[Aa]fter the vote:/) {
-        flush_turn()
-        target = 0
         speaker = ""
         speech_number = ""
         buffer = ""
       } else if (text ~ /^[0-9]+-[0-9]+-[0-9]+$/ && bookmark != "") {
-        if (target && bookmark ~ /[Aa]fter the vote/) {
-          flush_turn()
-          target = 0
-          speaker = ""
-          speech_number = ""
-          buffer = ""
-        } else {
-          flush_turn()
-          speaker = bookmark
-          sub(/^[0-9]+-[0-9]+-[0-9]+[ \t]*/, "", speaker)
-          speech_number = text
-          buffer = ""
-        }
-      } else if (target && speaker != "" && text != "") {
+        flush_turn()
+        speaker = bookmark
+        sub(/^[0-9]+-[0-9]+-[0-9]+[ \t]*/, "", speaker)
+        speech_number = text
+        buffer = ""
+      } else if (speaker != "" && text != "") {
         if (buffer == "") {
           without_speaker = text
           sub(speaker, "", without_speaker)
@@ -410,8 +349,6 @@ generate_translation_candidates() {
         languages[fields[1]] = fields[2]
       }
       close(language_map)
-      while ((getline line < target_titles) > 0) targets[line] = 1
-      close(target_titles)
       in_paragraph = 0
       paragraph_lines = 0
     }
@@ -431,7 +368,7 @@ generate_translation_candidates() {
     END { flush_turn() }
   ' "$directory/transcript.xml"
 
-  rm -f "$language_map" "$target_titles" "$vote_terms"
+  rm -f "$language_map"
 }
 
 cache_transcript_translations() {
@@ -455,9 +392,9 @@ cache_transcript_translations() {
   candidates_file=$(mktemp "${TMPDIR:-/tmp}/eu-moles-translation-candidates.XXXXXX")
   generate_translation_candidates "$directory" > "$candidates_file"
 
-  # The generated catalogues define the speech records we retain: motion
-  # discussions and the one-minute-speeches agenda item. Drop older, broader
-  # context extractions from the translation cache.
+  # The generated catalogue contains every non-English contribution that can
+  # be parsed from the sitting transcript. Drop stale entries only when that
+  # contribution is no longer present in the source transcript.
   translations_temporary=$(mktemp "${translations_file}.tmp.XXXXXX")
   if ! jq --slurpfile candidates "$candidates_file" '
       .translations |= with_entries(
