@@ -64,7 +64,7 @@
     button.dataset.translationButton = "";
     button.dataset.translationCode = code;
     button.dataset.translationName = language.name || language.code;
-    button.dataset.translationSource = String(language.code).toLowerCase();
+    button.dataset.translationSource = String(language.source || language.code).toLowerCase();
     button.dataset.translationText = String(text || "");
     const cachedText = String(translation?.englishText || "");
     if (cachedText) {

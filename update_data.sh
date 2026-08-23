@@ -3,11 +3,17 @@ set -euo pipefail
 
 cd "$(dirname "$0")/src"
 
+make_temporary_file() {
+  local purpose="$1"
+
+  mktemp "${TMPDIR:-/tmp}/eu-moles-${purpose}.XXXXXX"
+}
+
 format_json() {
   local file="$1"
   local temporary
 
-  temporary=$(mktemp "${file}.tmp.XXXXXX")
+  temporary=$(make_temporary_file "format-json")
   jq '.' "$file" > "$temporary"
   mv "$temporary" "$file"
 }
@@ -16,7 +22,7 @@ format_xml() {
   local file="$1"
   local temporary
 
-  temporary=$(mktemp "${file}.tmp.XXXXXX")
+  temporary=$(make_temporary_file "format-xml")
   xmllint --format "$file" > "$temporary"
   mv "$temporary" "$file"
 }
@@ -43,7 +49,7 @@ curl_with_error_url() {
   local status
   local url="${!#}"
 
-  error_log=$(mktemp "${TMPDIR:-/tmp}/eu-moles-curl-error.XXXXXX")
+  error_log=$(make_temporary_file "curl-error")
   if curl --stderr "$error_log" "$@"; then
     status=0
   else
@@ -70,8 +76,8 @@ fetch_json() {
   local temporary
   local formatted
 
-  temporary=$(mktemp "${destination}.tmp.XXXXXX")
-  formatted=$(mktemp "${destination}.formatted.XXXXXX")
+  temporary=$(make_temporary_file "fetch-json")
+  formatted=$(make_temporary_file "format-json")
   if curl_with_error_url -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
     -H 'Accept: application/ld+json' \
     -H 'User-Agent: EU-Moles-data-updater-1.0' \
@@ -92,8 +98,8 @@ fetch_xml() {
   local temporary
   local formatted
 
-  temporary=$(mktemp "${destination}.tmp.XXXXXX")
-  formatted=$(mktemp "${destination}.formatted.XXXXXX")
+  temporary=$(make_temporary_file "fetch-xml")
+  formatted=$(make_temporary_file "format-xml")
   if curl_with_error_url -fsSL --output "$temporary" "$url" &&
     grep -q '<PV[[:space:]>]' "$temporary" &&
     xmllint --format "$temporary" > "$formatted"; then
@@ -111,8 +117,8 @@ fetch_language_xml() {
   local temporary
   local formatted
 
-  temporary=$(mktemp "${destination}.tmp.XXXXXX")
-  formatted=$(mktemp "${destination}.formatted.XXXXXX")
+  temporary=$(make_temporary_file "fetch-language")
+  formatted=$(make_temporary_file "format-language")
   if curl_with_error_url -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
     -H 'Accept: application/rdf+xml' \
     -H 'User-Agent: EU-Moles-data-updater-1.0' \
@@ -134,9 +140,9 @@ fetch_docx_document_xml() {
   local document_xml
   local formatted
 
-  archive=$(mktemp "${destination}.docx.XXXXXX")
-  document_xml=$(mktemp "${destination}.xml.XXXXXX")
-  formatted=$(mktemp "${destination}.formatted.XXXXXX")
+  archive=$(make_temporary_file "transcript-docx")
+  document_xml=$(make_temporary_file "transcript-xml")
+  formatted=$(make_temporary_file "format-transcript")
   if curl_with_error_url -fsSL --output "$archive" "$url" &&
     unzip -p "$archive" word/document.xml > "$document_xml" &&
     grep -q '<w:document[[:space:]>]' "$document_xml" &&
@@ -154,7 +160,7 @@ fetch_oeil_procedure() {
   local destination="$2"
   local temporary
 
-  temporary=$(mktemp "${destination}.tmp.XXXXXX")
+  temporary=$(make_temporary_file "fetch-oeil")
   if curl_with_error_url -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
     -G --data-urlencode "reference=$reference" \
     -H 'User-Agent: EU-Moles-data-updater-1.0' \
@@ -176,8 +182,8 @@ extract_oeil_document_summaries() {
   local procedure_file
   local procedure_id
 
-  rows=$(mktemp "${destination}.rows.XXXXXX")
-  temporary=$(mktemp "${destination}.tmp.XXXXXX")
+  rows=$(make_temporary_file "oeil-summary-rows")
+  temporary=$(make_temporary_file "oeil-summary")
 
   while IFS= read -r -d '' procedure_file; do
     procedure_id=${procedure_file##*/}
@@ -242,6 +248,137 @@ translate_to_english() {
     --data-urlencode 'dt=t' \
     --data-urlencode "q=$source_text" |
     jq -er '[.[0][]? | .[0]?] | join("")'
+}
+
+split_translation_text() {
+  local source_text="$1"
+  local limit="$2"
+  local chunks_directory="$3"
+  local source_file="$chunks_directory/source.txt"
+
+  printf '%s' "$source_text" > "$source_file"
+  awk -v limit="$limit" -v output_directory="$chunks_directory" '
+    function abs(value) { return value < 0 ? -value : value }
+    function ceil(value) { return int(value) + (value > int(value)) }
+    function trim(value) {
+      sub(/^[[:space:]]+/, "", value)
+      sub(/[[:space:]]+$/, "", value)
+      return value
+    }
+    function write_chunk(value,    file) {
+      value = trim(value)
+      if (value == "") return
+      file = sprintf("%s/part-%03d.txt", output_directory, ++chunk_count)
+      printf "%s", value > file
+      close(file)
+    }
+    {
+      text = text (NR == 1 ? "" : "\n") $0
+    }
+    END {
+      total = length(text)
+      requests = ceil(total / limit)
+      start = 1
+
+      for (request = 1; request <= requests && start <= total; request++) {
+        remaining = total - start + 1
+        remaining_requests = requests - request + 1
+        if (remaining_requests == 1) {
+          write_chunk(substr(text, start))
+          break
+        }
+
+        target = ceil(remaining / remaining_requests)
+        minimum = remaining - (limit * (remaining_requests - 1))
+        if (minimum < 1) minimum = 1
+        maximum = limit
+        if (maximum > remaining) maximum = remaining
+        cut = 0
+        best_score = -1
+
+        # Prefer a paragraph boundary nearest to an even share of the text.
+        for (i = minimum + 1; i <= maximum; i++) {
+          if (substr(text, start + i - 2, 2) == "\n\n") {
+            candidate = i - 1
+            score = abs(candidate - target)
+            if (best_score < 0 || score < best_score) {
+              cut = candidate
+              best_score = score
+            }
+          }
+        }
+
+        # A sentence boundary is the next-best option for an oversized paragraph.
+        if (cut == 0) {
+          for (i = minimum; i <= maximum; i++) {
+            if (substr(text, start + i - 1, 1) ~ /[.!?]/ && substr(text, start + i, 1) ~ /[[:space:]]/) {
+              score = abs(i - target)
+              if (best_score < 0 || score < best_score) {
+                cut = i
+                best_score = score
+              }
+            }
+          }
+        }
+
+        # Never split a word unless there is no whitespace at all in the range.
+        if (cut == 0) {
+          for (i = minimum; i <= maximum; i++) {
+            if (substr(text, start + i - 1, 1) ~ /[[:space:]]/) {
+              score = abs(i - target)
+              if (best_score < 0 || score < best_score) {
+                cut = i
+                best_score = score
+              }
+            }
+          }
+        }
+
+        if (cut == 0) cut = target
+        write_chunk(substr(text, start, cut))
+        start += cut
+        while (start <= total && substr(text, start, 1) ~ /[[:space:]]/) start++
+      }
+    }
+  ' "$source_file"
+}
+
+translate_speech_to_english() {
+  local source_language="$1"
+  local source_text="$2"
+  local limit=14000
+  local chunks_directory
+  local chunk_file
+  local translated_part
+  local translated_text=""
+  local request_count=0
+  local status=0
+
+  if (( ${#source_text} <= limit )); then
+    translate_to_english "$source_language" "$source_text"
+    return
+  fi
+
+  chunks_directory=$(mktemp -d "${TMPDIR:-/tmp}/eu-moles-translation-chunks.XXXXXX")
+  split_translation_text "$source_text" "$limit" "$chunks_directory"
+
+  for chunk_file in "$chunks_directory"/part-*.txt; do
+    [[ -f "$chunk_file" ]] || {
+      status=1
+      break
+    }
+    (( request_count > 0 )) && sleep 0.5
+    if ! translated_part=$(translate_to_english "$source_language" "$(<"$chunk_file")"); then
+      status=1
+      break
+    fi
+    translated_text+="${translated_text:+$'\n\n'}${translated_part}"
+    ((request_count += 1))
+  done
+
+  rm -rf "$chunks_directory"
+  (( status == 0 && request_count > 0 )) || return 1
+  printf '%s' "$translated_text"
 }
 
 generate_translation_candidates() {
@@ -384,7 +521,7 @@ cache_transcript_translations() {
   local candidates_file
 
   if [[ ! -s "$translations_file" ]]; then
-    translations_temporary=$(mktemp "${translations_file}.tmp.XXXXXX")
+    translations_temporary=$(make_temporary_file "translations")
     jq -n '{version: 1, translations: {}}' > "$translations_temporary"
     mv "$translations_temporary" "$translations_file"
   fi
@@ -395,7 +532,7 @@ cache_transcript_translations() {
   # The generated catalogue contains every non-English contribution that can
   # be parsed from the sitting transcript. Drop stale entries only when that
   # contribution is no longer present in the source transcript.
-  translations_temporary=$(mktemp "${translations_file}.tmp.XXXXXX")
+  translations_temporary=$(make_temporary_file "translations")
   if ! jq --slurpfile candidates "$candidates_file" '
       .translations |= with_entries(
         select(.key as $speech_number | $candidates | any(.speechNumber == $speech_number))
@@ -424,14 +561,9 @@ cache_transcript_translations() {
       continue
     fi
 
-    if (( ${#source_text} > 15000 )); then
-      echo "Skipping $speech_number: contribution exceeds the translation service limit." >&2
-      continue
-    fi
-
     echo "Translating $speech_number ($source_language)…"
-    if translated_text=$(translate_to_english "$source_language" "$source_text"); then
-      translations_temporary=$(mktemp "${translations_file}.tmp.XXXXXX")
+    if translated_text=$(translate_speech_to_english "$source_language" "$source_text"); then
+      translations_temporary=$(make_temporary_file "translations")
       jq \
         --arg speech_number "$speech_number" \
         --arg source_language "$source_language" \
@@ -590,7 +722,7 @@ for voting_date in $voting_dates; do
       exit 1
     }
 
-    decisions_temporary=$(mktemp "$dir/decisions.json.tmp.XXXXXX")
+    decisions_temporary=$(make_temporary_file "decisions")
     jq -s '{data: [.[].data[]]}' "${decision_files[@]}" > "$decisions_temporary"
     mv "$decisions_temporary" "$dir/decisions.json"
   fi
