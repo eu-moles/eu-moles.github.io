@@ -64,9 +64,6 @@
 
   const motionDocuments = (motion) => {
     const documents = make('div', 'motion-documents');
-    if (motion.sourceURL) {
-      documents.append(documentLink('Record', motion.sourceURL, 'fa-file-lines', 'Open official sitting record'));
-    }
     if (motion.procedureURL) {
       documents.append(documentLink('Procedure', motion.procedureURL, 'fa-diagram-project', `Open procedure ${motion.procedureReference || ''}`.trim()));
     }
@@ -320,26 +317,27 @@
             `motion-reference-cell${motion.reference ? '' : ' motion-reference-cell--empty'}`,
           );
           reference.dataset.label = 'Reference';
-          if (motion.reference && motion.procedureURL) {
-            const referenceLink = make('a', '', motion.reference);
-            referenceLink.href = motion.procedureURL;
-            referenceLink.target = '_blank';
-            referenceLink.rel = 'external noopener noreferrer';
-            referenceLink.title = `Open procedure ${motion.procedureReference || ''}`.trim();
-            const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
-            icon.setAttribute('aria-hidden', 'true');
-            referenceLink.append(document.createTextNode(' '), icon);
-            reference.append(referenceLink);
-          } else {
-            reference.textContent = motion.reference || '';
-          }
+          reference.textContent = motion.reference || '';
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
           if (motion.isSubvote) {
             motionCell.classList.add('motion-subvote-title');
           }
-          const title = make('span', 'mep-profile-motion-title-text');
+          const title = motion.sourceURL && !motion.isSubvote
+            ? make('a', 'mep-profile-motion-title-text')
+            : make('span', 'mep-profile-motion-title-text');
+          if (motion.sourceURL && !motion.isSubvote) {
+            title.href = motion.sourceURL;
+            title.target = '_blank';
+            title.rel = 'external noopener noreferrer';
+            title.title = 'Open official sitting record';
+          }
           appendMotionTitle(title, motion.title);
+          if (motion.sourceURL && !motion.isSubvote) {
+            const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
+            icon.setAttribute('aria-hidden', 'true');
+            title.append(document.createTextNode(' '), icon);
+          }
           motionCell.append(title);
 
           if (Array.isArray(motion.discussion) && motion.discussion.length && window.EUMolesMotionContext) {
@@ -356,7 +354,7 @@
           }
 
           const hasDocuments = !motion.isSubvote
-            && Boolean(motion.sourceURL || motion.procedureURL || motion.documentURL || motion.contextURL
+            && Boolean(motion.procedureURL || motion.documentURL || motion.contextURL
               || (Array.isArray(motion.procedureDocuments) && motion.procedureDocuments.length));
           const documents = make('td', `motion-documents-cell${hasDocuments ? '' : ' motion-documents-cell--empty'}`);
           documents.dataset.label = 'Documents';
