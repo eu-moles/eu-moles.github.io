@@ -1,4 +1,4 @@
-{{ $meps := partials.IncludeCached "meps-data.html" site }}
+{{ $meps := partials.IncludeCached "data/meps-data.html" site }}
 {{ $countries := slice }}
 {{ $groups := slice }}
 {{ $parties := slice }}
@@ -10,9 +10,9 @@
 {{ $countries = collections.Uniq $countries }}
 {{ $groups = collections.Uniq $groups }}
 {{ $parties = collections.Uniq $parties }}
-{{ $motions := partials.IncludeCached "motions-data.html" site }}
+{{ $motions := partials.IncludeCached "motions/motions-data.html" site }}
 {{ $parentMotions := where $motions "isSubvote" false }}
-{{ $speeches := partials.IncludeCached "speeches-data.html" site }}
+{{ $speeches := partials.IncludeCached "data/speeches-data.html" site }}
 <section class="dataset-summary ph3 ph5-l pb4">
   <div class="flex flex-wrap nl2 nr2">
     <div class="dataset-summary-item w-100 w-50-m pa2"><div class="dataset-card dataset-card--meps"><strong class="db f2"><i class="fa-solid fa-users mr2" aria-hidden="true"></i>{{ len $meps }}</strong><span>MEPs</span></div></div>

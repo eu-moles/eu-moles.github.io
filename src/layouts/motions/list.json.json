@@ -1,13 +1,13 @@
-{{- $motions := partials.IncludeCached "motions-data.html" site -}}
+{{- $motions := partials.IncludeCached "motions/motions-data.html" site -}}
 {{- $items := slice -}}
 {{- range $motions -}}
   {{- $discussion := slice -}}
   {{- $transcriptFile := path.Join "data/votes" .date "transcript.xml" -}}
   {{- if and (not .isSubvote) (os.FileExists $transcriptFile) -}}
-    {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
+    {{- $context := partials.IncludeCached "motions/motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
     {{- $discussion = $context.turns -}}
   {{- end -}}
-  {{- $tracked := partials.Include "motion-tracked.html" (dict "title" .title "sourceTitle" .sourceTitle "turns" $discussion) -}}
+  {{- $tracked := partials.Include "motions/motion-tracked.html" (dict "title" .title "sourceTitle" .sourceTitle "turns" $discussion) -}}
   {{- $items = $items | append (dict
     "date" .date
     "reference" .reference

@@ -2,9 +2,9 @@
 {{- $contexts := slice -}}
 {{- if os.FileExists $file -}}
   {{- $speechFile := replace $file "transcript.xml" "speeches.json" -}}
-  {{- $languages := partials.IncludeCached "transcript-language-map.html" $speechFile $speechFile -}}
+  {{- $languages := partials.IncludeCached "transcript/transcript-language-map.html" $speechFile $speechFile -}}
   {{- $translationFile := replace $file "transcript.xml" "translations.json" -}}
-  {{- $translations := partials.IncludeCached "transcript-translation-map.html" $translationFile $translationFile -}}
+  {{- $translations := partials.IncludeCached "transcript/transcript-translation-map.html" $translationFile $translationFile -}}
   {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
   {{- $body := index $data "body" -}}
   {{- $paragraphs := index $body "p" -}}
@@ -13,7 +13,7 @@
       {{- $paragraphs = slice $paragraphs -}}
     {{- end -}}
     {{- $mepIDs := dict -}}
-    {{- range partials.IncludeCached "meps-data.html" site -}}
+    {{- range partials.IncludeCached "data/meps-data.html" site -}}
       {{- $mepIDs = merge $mepIDs (dict (lower .fullName) .id) -}}
     {{- end -}}
     {{- $waitingForMarker := false -}}
@@ -25,11 +25,11 @@
     {{- $turns := slice -}}
     {{- $paragraphBuffer := slice -}}
     {{- range $paragraphs -}}
-      {{- $text := partials.Include "transcript-paragraph-text.html" . -}}
+      {{- $text := partials.Include "transcript/transcript-paragraph-text.html" . -}}
       {{- $text = replaceRE "\\s+" " " $text -}}
       {{- $text = replaceRE "\\s+([,.;:!?])" "$1" $text -}}
       {{- $text = strings.TrimSpace $text -}}
-      {{- $bookmark := partials.Include "transcript-bookmark-name.html" . -}}
+      {{- $bookmark := partials.Include "transcript/transcript-bookmark-name.html" . -}}
       {{- $isSpeakerMarker := and (findRE "^[0-9]+-[0-9]+-[0-9]+$" $text) (ne $bookmark "") -}}
       {{- $isAgendaHeading := and (ne $text "") (hasPrefix $bookmark "_Toc") -}}
       {{- $isAfterVoteMarker := and $isSpeakerMarker (findRE "(?i)after the vote" $bookmark) -}}

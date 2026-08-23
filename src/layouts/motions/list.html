@@ -5,7 +5,7 @@
     </article>
   {{ end }}
 
-  {{ $motions := partials.IncludeCached "motions-data.html" site }}
+  {{ $motions := partials.IncludeCached "motions/motions-data.html" site }}
   <section class="ph3 ph5-l pb5">
     {{ if $motions }}
       {{- $parentMotions := where $motions "isSubvote" false -}}
@@ -19,7 +19,7 @@
       {{- end -}}
       {{- $motionDates = uniq $motionDates -}}
       {{- $latestMotions := where $parentMotions "date" $latestDate -}}
-      {{ partial "motions-calendar.html" (dict "id" "motion-calendar-title" "dates" $motionDates "defaultDate" $latestDate) }}
+      {{ partial "motions/motions-calendar.html" (dict "id" "motion-calendar-title" "dates" $motionDates "defaultDate" $latestDate) }}
       <p class="f5 gray mt0 mb3" data-motion-calendar-count>{{ len $latestMotions }} recorded {{ if eq (len $latestMotions) 1 }}motion{{ else }}motions{{ end }}</p>
       <div class="site-table-wrap motions-table-wrap">
         <table class="site-table site-table--motion motions-table" cellspacing="0">
@@ -46,12 +46,12 @@
                 {{- $context := dict "turns" (slice) -}}
                 {{- $modalID := "" -}}
                 {{- if and (not .isSubvote) (os.FileExists $contextFile) -}}
-                  {{- $context = partials.IncludeCached "motions-transcript-context.html" (dict "file" $contextFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
+                  {{- $context = partials.IncludeCached "motions/motions-transcript-context.html" (dict "file" $contextFile "titles" (slice .title .sourceTitle)) .date .title .sourceTitle -}}
                   {{- with $context.turns -}}
                     {{- $modalID = printf "discussion-%s" $motion.votingId -}}
                   {{- end -}}
                 {{- end -}}
-                {{- $tracked := partials.Include "motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
+                {{- $tracked := partials.Include "motions/motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
                 {{- $hasType := or $motion.agendaRequest $tracked $motion.procedure -}}
                 <td class="site-table-date" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
                 <td class="motion-type-cell{{ if or .isSubvote (not $hasType) }} motion-type-cell--empty{{ end }}" data-label="Classification">
@@ -86,9 +86,9 @@
                 <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
                   <span class="db">
                     {{ if and (not .isSubvote) $motion.sourceURL }}
-                      <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                      <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                     {{ else }}
-                      {{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
+                      {{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
                     {{ end }}
                     {{- if ne $modalID "" -}}
                       <button class="motion-discussion-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
@@ -100,7 +100,7 @@
                         <header class="motion-context-modal__header">
                           <div>
                             <p class="motion-context-modal__eyebrow">Discussion transcript</p>
-                            <h2 id="{{ $modalID }}-title">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }}</h2>
+                            <h2 id="{{ $modalID }}-title">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}</h2>
                           </div>
                           <button class="motion-context-modal__close" type="button" data-motion-context-close aria-label="Close context"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
                         </header>
@@ -136,7 +136,7 @@
                                   {{ end }}
                                 </p>
                                 <div class="motion-context-bubble">
-                                  <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText) | safeHTML }}</div>
+                                  <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript/transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText) | safeHTML }}</div>
                                   {{ with .language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ lower .code }}" data-translation-text="{{ $turn.text }}"{{ if $isTranslated }} data-translation-cached="{{ $translation.englishText }}" data-translated="true"{{ end }} title="{{ if $isTranslated }}Machine-translated to English. Show original {{ .name }} text.{{ else }}Original language: {{ .name }}. Translate to English.{{ end }}" aria-label="{{ if $isTranslated }}Show original {{ .name }} text{{ else }}Translate {{ .name }} to English{{ end }}" aria-pressed="{{ if $isTranslated }}true{{ else }}false{{ end }}">{{ upper .code }}{{ if $isTranslated }} → EN{{ end }}</button>{{ end }}
                                 </div>
                               </div>
@@ -199,7 +199,7 @@
       <p class="pa3 bg-washed-yellow">No voting-result files were found in <code>data/votes/</code>.</p>
     {{ end }}
   </section>
-  {{ partial "asset-script.html" "js/motion-context.js" }}
-  {{ partial "asset-script.html" "js/motion-subvotes.js" }}
-  {{ partial "asset-script.html" "js/motions-calendar.js" }}
+  {{ partial "assets/asset-script.html" "js/motion-context.js" }}
+  {{ partial "assets/asset-script.html" "js/motion-subvotes.js" }}
+  {{ partial "assets/asset-script.html" "js/motions-calendar.js" }}
 {{ end }}

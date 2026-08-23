@@ -16,7 +16,7 @@
           {{- $headings = slice $headings -}}
         {{- end -}}
         {{- range $headings -}}
-          {{- $title := partials.Include "motions-report-short-title.html" . -}}
+          {{- $title := partials.Include "motions/motions-report-short-title.html" . -}}
           {{- $chapter := index . "chapter-number" -}}
           {{- if and $title $chapter -}}
             {{- $item := printf "%03d" (int $chapter) -}}

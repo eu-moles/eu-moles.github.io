@@ -16,7 +16,7 @@
 
 {{- $turns := slice -}}
 {{- if and (gt (len $normalizedQueries) 0) (os.FileExists $file) -}}
-  {{- $contexts := partials.IncludeCached "motions-transcript-contexts.html" $file $file -}}
+  {{- $contexts := partials.IncludeCached "motions/motions-transcript-contexts.html" $file $file -}}
   {{- range $contexts -}}
     {{- if eq (len $turns) 0 -}}
       {{- $contextHeading := .heading -}}

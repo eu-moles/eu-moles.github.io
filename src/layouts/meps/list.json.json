@@ -1,11 +1,11 @@
-{{- $meps := sort (partials.IncludeCached "meps-data.html" site) "fullName" -}}
+{{- $meps := sort (partials.IncludeCached "data/meps-data.html" site) "fullName" -}}
 {{- $items := slice -}}
 {{- range $meps -}}
   {{- $items = $items | append (dict
     "id" .id
     "fullName" .fullName
     "country" .country
-    "countryFlag" (partial "country-flag.html" .country)
+    "countryFlag" (partial "utilities/country-flag.html" .country)
     "politicalGroup" .politicalGroup
     "nationalPoliticalGroup" .nationalPoliticalGroup
   ) -}}

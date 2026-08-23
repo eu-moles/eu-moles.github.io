@@ -21,7 +21,7 @@
                 {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s_EN.html" $document -}}
               {{- end -}}
             {{- end -}}
-            {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $label)) $date $label -}}
+            {{- $context := partials.IncludeCached "motions/motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $label)) $date $label -}}
             {{- range $context.turns -}}
               {{- if and .mepID .text (not (index $seenSpeechNumbers .speechNumber)) -}}
                 {{- $seenSpeechNumbers = merge $seenSpeechNumbers (dict .speechNumber true) -}}
@@ -48,13 +48,13 @@
 {{- /* Add the debate contexts associated with voting items. These use the same
       extracted turns as the Motion discussion dialog, so the profile view and
       dialog always describe the same intervention. */ -}}
-{{- $motions := partials.IncludeCached "motions-data.html" site -}}
+{{- $motions := partials.IncludeCached "motions/motions-data.html" site -}}
 {{- range $motions -}}
   {{- $motion := . -}}
   {{- if not $motion.isSubvote -}}
   {{- $transcriptFile := path.Join "data/votes" $motion.date "transcript.xml" -}}
   {{- if and $motion.contextURL (os.FileExists $transcriptFile) -}}
-    {{- $context := partials.IncludeCached "motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $motion.title $motion.sourceTitle)) $motion.date $motion.title $motion.sourceTitle -}}
+    {{- $context := partials.IncludeCached "motions/motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $motion.title $motion.sourceTitle)) $motion.date $motion.title $motion.sourceTitle -}}
     {{- range $context.turns -}}
       {{- if and .mepID .text (not (index $seenSpeechNumbers .speechNumber)) -}}
         {{- $seenSpeechNumbers = merge $seenSpeechNumbers (dict .speechNumber true) -}}

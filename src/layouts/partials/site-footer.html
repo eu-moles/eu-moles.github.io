@@ -1,8 +1,1 @@
-<footer class="site-footer {{ .Site.Params.background_color_class | compare.Default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">
-  <div class="site-footer-inner flex flex-wrap items-center justify-between">
-    <p class="site-footer-update f5 f4-ns fw4 white-70 dib mv0 pv2 ph3">
-      Last update: <time datetime="{{ now.Format "2006-01-02" }}">{{ now.Format "2 January 2006" }}</time>
-    </p>
-    <div>{{ partials.IncludeCached "social/follow.html" . }}</div>
-  </div>
-</footer>
+{{- partial "site/site-footer.html" . -}}

@@ -1,9 +1,9 @@
 {{- $title := index . "title" -}}
 {{- $sourceTitle := index . "sourceTitle" -}}
 {{- $turns := index . "turns" -}}
-{{- $tracked := partials.Include "contains-geopolitical-keywords.html" $title -}}
+{{- $tracked := partials.Include "utilities/contains-geopolitical-keywords.html" $title -}}
 {{- if not $tracked -}}
-  {{- $tracked = partials.Include "contains-geopolitical-keywords.html" $sourceTitle -}}
+  {{- $tracked = partials.Include "utilities/contains-geopolitical-keywords.html" $sourceTitle -}}
 {{- end -}}
 {{- if not $tracked -}}
   {{- range $turns -}}
@@ -13,7 +13,7 @@
         {{- $text = . -}}
       {{- end -}}
     {{- end -}}
-    {{- if partials.Include "contains-geopolitical-keywords.html" $text -}}
+    {{- if partials.Include "utilities/contains-geopolitical-keywords.html" $text -}}
       {{- $tracked = true -}}
     {{- end -}}
   {{- end -}}

@@ -5,7 +5,7 @@
     </article>
   {{ end }}
 
-  {{ $meps := sort (partials.IncludeCached "meps-data.html" site) "fullName" }}
+  {{ $meps := sort (partials.IncludeCached "data/meps-data.html" site) "fullName" }}
   {{ $countries := slice }}
   {{ $groups := slice }}
   {{ $parties := slice }}
@@ -25,7 +25,7 @@
           <span>Country</span>
           <select id="mep-country">
             <option value="">All countries</option>
-            {{ range $countries }}<option value="{{ . }}">{{ partial "country-flag.html" . }} {{ . }}</option>{{ end }}
+            {{ range $countries }}<option value="{{ . }}">{{ partial "utilities/country-flag.html" . }} {{ . }}</option>{{ end }}
           </select>
         </label>
         <label class="site-filter-field">
@@ -95,7 +95,7 @@
                   <a class="link dark-blue underline-hover" href="{{ "mep/" | relURL }}?id={{ .id }}">{{ .fullName }}</a>
                 </div>
               </td>
-              <td data-label="Country"><span class="country-identity">{{ partial "country-flag.html" .country }} {{ .country }}</span></td>
+              <td data-label="Country"><span class="country-identity">{{ partial "utilities/country-flag.html" .country }} {{ .country }}</span></td>
               <td data-label="Political group">{{ .politicalGroup }}</td>
               <td data-label="National party">{{ .nationalPoliticalGroup }}</td>
             </tr>
@@ -108,5 +108,5 @@
     </div>
   </section>
 
-  {{ partial "asset-script.html" "js/meps-directory.js" }}
+  {{ partial "assets/asset-script.html" "js/meps-directory.js" }}
 {{ end }}

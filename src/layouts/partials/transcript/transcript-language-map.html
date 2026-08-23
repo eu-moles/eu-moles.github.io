@@ -7,7 +7,7 @@
     {{- range .recorded_in_a_realization_of -}}
       {{- $sourceLanguages := .originalLanguage | default slice -}}
       {{- if and .number (gt (len $sourceLanguages) 0) (not (in $sourceLanguages $english)) -}}
-        {{- $language := partials.IncludeCached "transcript-language-code.html" (index $sourceLanguages 0) (index $sourceLanguages 0) -}}
+        {{- $language := partials.IncludeCached "transcript/transcript-language-code.html" (index $sourceLanguages 0) (index $sourceLanguages 0) -}}
         {{- if gt (len $language) 0 -}}
           {{- $languages = merge $languages (dict .number $language) -}}
         {{- end -}}

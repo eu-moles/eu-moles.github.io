@@ -16,7 +16,7 @@
           {{- $agendaOrder := int (index (index $chapterMatches 0) 1) -}}
           {{- $heading = replaceRE `(?s)<text:chapter-number>.*?</text:chapter-number>` "" $heading -}}
           {{- $heading = replaceRE `<[^>]+>` " " $heading -}}
-          {{- $key := partials.Include "motions-title-key.html" $heading -}}
+          {{- $key := partials.Include "motions/motions-title-key.html" $heading -}}
           {{- if ne $key "" -}}
             {{- $orderByTitle = merge $orderByTitle (dict $key $agendaOrder) -}}
           {{- end -}}

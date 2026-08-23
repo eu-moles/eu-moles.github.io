@@ -1,6 +1,6 @@
 {{- $motions := slice -}}
 {{- $directory := "data/votes" -}}
-{{- $totalMEPs := len (partials.IncludeCached "meps-data.html" site) -}}
+{{- $totalMEPs := len (partials.IncludeCached "data/meps-data.html" site) -}}
 {{- if os.FileExists $directory -}}
   {{- range os.ReadDir $directory -}}
     {{- if .IsDir -}}
@@ -23,11 +23,11 @@
             {{- end -}}
           {{- end -}}
         {{- end -}}
-        {{- $minutesTitles := partials.Include "motions-pv-titles.html" $minutesFile -}}
-        {{- $minutesVoteOrder := partials.Include "motions-pv-vote-order.html" $minutesFile -}}
-        {{- $minutesContextLinks := partials.Include "motions-pv-context-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
-        {{- $minutesItemLinks := partials.Include "motions-pv-item-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
-        {{- $procedureDocumentsByID := partials.Include "motions-procedure-documents.html" (path.Join $dateDirectory "procedures") -}}
+        {{- $minutesTitles := partials.Include "motions/motions-pv-titles.html" $minutesFile -}}
+        {{- $minutesVoteOrder := partials.Include "motions/motions-pv-vote-order.html" $minutesFile -}}
+        {{- $minutesContextLinks := partials.Include "motions/motions-pv-context-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
+        {{- $minutesItemLinks := partials.Include "motions/motions-pv-item-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
+        {{- $procedureDocumentsByID := partials.Include "motions/motions-procedure-documents.html" (path.Join $dateDirectory "procedures") -}}
         {{- $decisionsByID := dict -}}
         {{- $decisions := index $decisionsData "data" -}}
         {{- if $decisions -}}
@@ -136,9 +136,9 @@
                     {{- $title = $subvoteTitle | default $title -}}
                   {{- end -}}
                   {{- $contextURL := "" -}}
-                  {{- $votersFor := partials.Include "motions-voter-ids.html" (index $decision "had_voter_favor") -}}
-                  {{- $votersAgainst := partials.Include "motions-voter-ids.html" (index $decision "had_voter_against") -}}
-                  {{- $votersAbstaining := partials.Include "motions-voter-ids.html" (index $decision "had_voter_abstention") -}}
+                  {{- $votersFor := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_favor") -}}
+                  {{- $votersAgainst := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_against") -}}
+                  {{- $votersAbstaining := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_abstention") -}}
                   {{- $date := index $decision "activity_date" | default (index $vote "activity_date") -}}
                   {{- $result := "" -}}
                   {{- with index $decision "decision_outcome" -}}
@@ -221,9 +221,9 @@
                   {{- if $reference -}}
                     {{- $title = strings.TrimSpace (replaceRE `^[A-Z][0-9]{1,2}-[0-9]{3,5}/[0-9]{4}\s*[–—-]\s*` "" $title) -}}
                   {{- end -}}
-                  {{- $agendaOrder := int (index $minutesVoteOrder (partials.Include "motions-title-key.html" $sourceTitle) | default 0) -}}
+                  {{- $agendaOrder := int (index $minutesVoteOrder (partials.Include "motions/motions-title-key.html" $sourceTitle) | default 0) -}}
                   {{- if eq $agendaOrder 0 -}}
-                    {{- $agendaOrder = int (index $minutesVoteOrder (partials.Include "motions-title-key.html" $title) | default 0) -}}
+                    {{- $agendaOrder = int (index $minutesVoteOrder (partials.Include "motions/motions-title-key.html" $title) | default 0) -}}
                   {{- end -}}
                   {{- $sortOrder := $rcvItem -}}
                   {{- if gt $agendaOrder 0 -}}

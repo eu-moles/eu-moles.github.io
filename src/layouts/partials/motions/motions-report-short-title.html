@@ -11,14 +11,14 @@
   {{- else -}}
     {{- range $_, $value := $node -}}
       {{- if and (eq $title "") (or (reflect.IsMap $value) (reflect.IsSlice $value)) -}}
-        {{- $title = partials.Include "motions-report-short-title.html" $value -}}
+        {{- $title = partials.Include "motions/motions-report-short-title.html" $value -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- else if reflect.IsSlice $node -}}
   {{- range $node -}}
     {{- if eq $title "" -}}
-      {{- $title = partials.Include "motions-report-short-title.html" . -}}
+      {{- $title = partials.Include "motions/motions-report-short-title.html" . -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

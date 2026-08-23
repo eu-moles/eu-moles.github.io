@@ -16,14 +16,14 @@
   {{- if eq $name "" -}}
     {{- range $value := $node -}}
       {{- if eq $name "" -}}
-        {{- $name = partials.Include "transcript-bookmark-name.html" $value -}}
+        {{- $name = partials.Include "transcript/transcript-bookmark-name.html" $value -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- else if reflect.IsSlice $node -}}
   {{- range $node -}}
     {{- if eq $name "" -}}
-      {{- $name = partials.Include "transcript-bookmark-name.html" . -}}
+      {{- $name = partials.Include "transcript/transcript-bookmark-name.html" . -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

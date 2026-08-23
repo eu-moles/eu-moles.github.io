@@ -16,8 +16,8 @@
         {{- $candidateTitle := "" -}}
         {{- $candidateDistance := 0 -}}
         {{- range $paragraphs -}}
-          {{- $reportTitle := partials.Include "motions-report-short-title.html" . -}}
-          {{- $annexVote := partials.Include "motions-annex-vote.html" . -}}
+          {{- $reportTitle := partials.Include "motions/motions-report-short-title.html" . -}}
+          {{- $annexVote := partials.Include "motions/motions-annex-vote.html" . -}}
           {{- if ne $reportTitle "" -}}
             {{- $candidateTitle = $reportTitle -}}
             {{- $candidateDistance = 0 -}}

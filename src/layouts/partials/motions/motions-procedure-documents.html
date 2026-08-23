@@ -38,7 +38,7 @@
                   {{- if gt (len (findRE `^(A|B|TA)-[0-9]+-` $documentID)) 0 -}}
                     {{- $extension = "html" -}}
                   {{- end -}}
-                  {{- $documentTitle := partials.Include "motions-procedure-document-title.html" (dict
+                  {{- $documentTitle := partials.Include "motions/motions-procedure-document-title.html" (dict
                     "id" $documentID
                     "activityType" (index $activity "had_activity_type")
                     "stage" (index $activity "occured_at_stage")

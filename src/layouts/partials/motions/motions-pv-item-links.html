@@ -26,7 +26,7 @@
       {{- with findRESubmatch `(?s)<OJ.ReportShortDescription.Text\b[^>]*>(.*?)</OJ.ReportShortDescription.Text>` . -}}
         {{- $title := index (index . 0) 1 -}}
         {{- $title = replaceRE `<[^>]+>` " " $title -}}
-        {{- $titleKey = partials.Include "motions-title-key.html" $title -}}
+        {{- $titleKey = partials.Include "motions/motions-title-key.html" $title -}}
       {{- end -}}
       {{- $links = merge $links (dict (string $annexVote) (dict "minutesURL" $url "titleKey" $titleKey "procedureReference" $procedureReference "procedureURL" $procedureURL)) -}}
     {{- end -}}
