@@ -7,7 +7,7 @@
 {{- else if eq $stage "RDG2" -}}
   {{- $stageLabel = "2nd reading" -}}
 {{- else if eq $stage "RDG3" -}}
-  {{- $stageLabel = "conciliation" -}}
+  {{- $stageLabel = "Conciliation" -}}
 {{- end -}}
 
 {{- $title := "" -}}
@@ -22,7 +22,7 @@
 {{- else if eq $activityType "TABLING_PLENARY" -}}
   {{- $title = "Plenary report" -}}
 {{- else if eq $activityType "PLENARY_AMEND" -}}
-  {{- $title = "Adopted text · partial vote" -}}
+  {{- $title = "Adopted text · Partial vote" -}}
 {{- else if eq $activityType "PLENARY_ADOPT_JOINT_TEXT" -}}
   {{- $title = "Adopted joint text" -}}
 {{- else if gt (len (findRE `^PLENARY_(ADOPT|AMEND)` $activityType)) 0 -}}
