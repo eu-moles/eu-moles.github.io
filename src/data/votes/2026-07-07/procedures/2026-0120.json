@@ -1,0 +1,278 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-0120",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/A-10-2026-0178-AM-001-001-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0178-AM-001-001-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0178-AM-001-001"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0120-ANPRO-2026-06-15",
+          "type": "Activity",
+          "activity_date": "2026-06-15",
+          "activity_id": "2026-0120-ANPRO-2026-06-15",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0120-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-0120-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0244"
+          ],
+          "had_activity_type": "http://publications.europa.eu/resource/authority/event/POS_BUDACT_byEP",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/BUDG-PR-789090-DEPOT-2026-06-01",
+          "type": "Activity",
+          "activity_date": "2026-06-01",
+          "activity_id": "BUDG-PR-789090-DEPOT-2026-06-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/BUDG-PR-789090"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992919",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992919",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0178"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-013"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-0120-PUB-2026-07-21",
+          "type": "Activity",
+          "activity_date": "2026-07-21",
+          "activity_id": "2026-0120-PUB-2026-07-21",
+          "had_activity_type": "def/ep-activities/PUBLICATION_OFFICIAL_JOURNAL"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-13",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-13",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-13",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-13"
+          ]
+        },
+        {
+          "id": "eli/dl/event/BUDG-AM-789895-DEPOT-2026-06-08",
+          "type": "Activity",
+          "activity_date": "2026-06-08",
+          "activity_id": "BUDG-AM-789895-DEPOT-2026-06-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/BUDG-AM-789895"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0120-DEC-ADCP-2026-06-23",
+          "type": "Decision",
+          "activity_date": "2026-06-23",
+          "activity_id": "2026-0120-DEC-ADCP-2026-06-23",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0120-DEPOT-2026-06-24",
+          "type": "Activity",
+          "activity_date": "2026-06-24",
+          "activity_id": "2026-0120-DEPOT-2026-06-24",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0178"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0178",
+        "eli/dl/doc/TA-10-2026-0244",
+        "eli/dl/doc/BUDG-PR-789090"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-0120-AVI-REGI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/REGI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-NMSR-58766-2026-06-03",
+          "type": "Participation",
+          "activity_date": "2026-06-03",
+          "had_participant_person": [
+            "person/58766"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 606
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-NMSR-256997-2026-06-02",
+          "type": "Participation",
+          "activity_date": "2026-06-02",
+          "had_participant_person": [
+            "person/256997"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 602
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-NMCP-197545-BUDG-2026-06-01",
+          "type": "Participation",
+          "activity_date": "2026-06-01",
+          "had_participant_person": [
+            "person/197545"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/BUDG",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 604
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-NMSR-256985-2026-06-03",
+          "type": "Participation",
+          "activity_date": "2026-06-03",
+          "had_participant_person": [
+            "person/256985"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 601
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-MAIN-BUDG",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/BUDG"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-NMSR-197463-2026-06-03",
+          "type": "Participation",
+          "activity_date": "2026-06-03",
+          "had_participant_person": [
+            "person/197463"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 605
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-NMSR-256896-2026-06-02",
+          "type": "Participation",
+          "activity_date": "2026-06-02",
+          "had_participant_person": [
+            "person/256896"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 603
+        },
+        {
+          "id": "eli/dl/participation/2026-0120-NMSR-197699-2026-06-01",
+          "type": "Participation",
+          "activity_date": "2026-06-01",
+          "had_participant_person": [
+            "person/197699"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 607
+        }
+      ],
+      "process_id": "2026-0120",
+      "process_title": {
+        "hu": "Az Európai Unió Szolidaritási Alapjának igénybevétele: segítség Romániának a 2025. május végi árvizeket követően, Ciprusnak a 2025. júliusi vegetációtüzeket követően, valamint Spanyolországnak a 2025. augusztusi vegetációtüzeket követően",
+        "pl": "Uruchomienie Funduszu Solidarności Unii Europejskiej: udzielenie pomocy Rumunii w związku z powodziami pod koniec maja 2025 r., Cyprowi – w następstwie pożarów roślinności w lipcu 2025 r. i Hiszpanii – w następstwie pożarów roślinności w sierpniu 2025 r. ",
+        "da": "Anvendelse af Den Europæiske Unions Solidaritetsfond: bistand til Rumænien i forbindelse med oversvømmelserne i slutningen af maj 2025, Cypern efter naturbrandene i juli 2025 og Spanien efter naturbrandene i august 2025 ",
+        "bg": "Мобилизиране на средства от фонд „Солидарност“ на Европейския съюз: предоставяне на помощ на Румъния във връзка с наводненията в края на май 2025 г., на Кипър след горските пожари през юли 2025 г. и на Испания след горските пожари през август 2025 г. ",
+        "pt": "Mobilização do Fundo Europeu de Solidariedade: assistência à Roménia, na sequência das inundações ocorridas no final de maio de 2025, a Chipre, na sequência dos fogos florestais de julho de 2025, e à Espanha, na sequência dos fogos florestais de agosto de 2025\n\n",
+        "cs": "Uvolnění prostředků z Fondu solidarity Evropské unie: poskytnutí pomoci Rumunsku v souvislosti s povodněmi na konci května 2025, Kypru po přírodních požárech v červenci 2025 a Španělsku po přírodních požárech v srpnu 2025",
+        "ga": "Slógadh Chiste Dlúthpháirtíochta an Aontais Eorpaigh: cúnamh don Rómáin maidir leis na tuilte ag deireadh mhí na Bealtaine 2025, don Chipir tar éis na bhfalscaithe i mí Iúil 2025 agus don Spáinn tar éis na bhfalscaithe i mí Lúnasa 2025",
+        "lv": "Eiropas Savienības Solidaritātes fonda izmantošana, lai sniegtu palīdzību Rumānijai saistībā ar plūdiem 2025. gada maija beigās, Kiprai pēc dabas ugunsgrēkiem 2025. gada jūlijā un Spānijai pēc dabas ugunsgrēkiem 2025. gada augustā",
+        "en": "Mobilisation of the European Union Solidarity Fund: assistance to Romania regarding the floods at the end of May 2025, Cyprus following the wildfires in July 2025 and Spain following the wildfires in August 2025",
+        "lt": "Europos Sąjungos solidarumo fondo lėšų sutelkimas: parama Rumunijai dėl 2025 m. gegužės mėn. pabaigoje įvykusių potvynių, Kiprui dėl 2025 m. liepos mėn. gamtos gaisrų ir Ispanijai dėl 2025 m. rugpjūčio mėn. gamtos gaisrų",
+        "mt": "Il-mobilizzazzjoni tal-Fond ta’ Solidarjetà tal-Unjoni Ewropea: assistenza lir-Rumanija rigward l-għargħar tal-aħħar ta’ Mejju 2025, lil Ċipru wara n-nirien fis-selvaġġ f’Lulju 2025 u lil Spanja wara n-nirien fis-selvaġġ f’Awwissu 2025 ",
+        "nl": "Beschikbaarstelling van middelen uit het Solidariteitsfonds van de Europese Unie voor bijstand aan Roemenië naar aanleiding van de overstromingen eind mei 2025, aan Cyprus naar aanleiding van de natuurbranden in juli 2025 en aan Spanje naar aanleiding van de natuurbranden in augustus 2025",
+        "es": "Movilización del Fondo de Solidaridad de la Unión Europea: asistencia a Rumanía en relación con las inundaciones de finales de mayo de 2025, a Chipre tras los incendios forestales de julio de 2025 y a España a raíz de los incendios forestales de agosto de 2025",
+        "el": "Κινητοποίηση του Ταμείου Αλληλεγγύης της Ευρωπαϊκής Ένωσης: παροχή βοήθειας στη Ρουμανία όσον αφορά τις πλημμύρες στα τέλη Μαΐου του 2025, στην Κύπρο μετά τις δασικές πυρκαγιές του Ιουλίου του 2025 και στην Ισπανία μετά τις δασικές πυρκαγιές του Αυγούστου του 2025",
+        "hr": "Mobilizacija Fonda solidarnosti Europske unije radi pružanja pomoći Rumunjskoj u vezi s poplavama krajem svibnja 2025., Cipru u vezi sa šumskim požarima u srpnju 2025. i Španjolskoj u vezi sa šumskim požarima u kolovozu 2025. ",
+        "it": "Mobilitazione del Fondo di solidarietà dell'Unione europea per fornire assistenza alla Romania in relazione alle alluvioni verificatesi a fine maggio 2025, a Cipro a seguito degli incendi boschivi verificatisi nel luglio 2025 e alla Spagna a seguito degli incendi boschivi verificatisi nell'agosto 2025 ",
+        "ro": "Mobilizarea Fondului de solidaritate al Uniunii Europene: asistența acordată României în urma inundațiilor de la sfârșitul lunii mai 2025, Ciprului în urma incendiilor forestiere din iulie 2025 și Spaniei în urma incendiilor forestiere din august 2025",
+        "sl": "Uporaba Solidarnostnega sklada Evropske unije: pomoč Romuniji v zvezi s poplavami konec maja 2025, Cipru po požarih v naravi julija 2025 in Španiji po požarih v naravi avgusta 2025 ",
+        "sk": "Mobilizácia Fondu solidarity Európskej únie: pomoc Rumunsku v súvislosti s povodňami na konci mája 2025, Cypru v súvislosti s prírodnými požiarmi v júli 2025 a Španielsku v súvislosti s prírodnými požiarmi v auguste 2025",
+        "fi": "Euroopan unionin solidaarisuusrahaston varojen käyttöönotto tuen antamiseksi Romanialle toukokuun 2025 lopussa esiintyneiden tulvien johdosta, Kyprokselle heinäkuussa 2025 esiintyneiden maastopalojen johdosta ja Espanjalle elokuussa 2025 esiintyneiden maastopalojen johdosta",
+        "fr": "Mobilisation du Fonds de solidarité de l’Union européenne: aide à la Roumanie dans le contexte des inondations survenues à la fin du mois de mai 2025, à Chypre à la suite des incendies de forêt survenus en juillet 2025 et à l’Espagne à la suite des incendies de forêt survenus en août 2025",
+        "de": "Inanspruchnahme des Solidaritätsfonds der Europäischen Union zur Leistung von Hilfe für Rumänien aufgrund der Überschwemmungen von Ende Mai 2025, Zypern aufgrund der Waldbrände im Juli 2025 und Spanien aufgrund der Waldbrände im August 2025 ",
+        "et": "Euroopa Liidu Solidaarsusfondi kasutuselevõtmine: abi andmine Rumeeniale seoses 2025. aasta mai lõpu üleujutustega, Küprosele seoses 2025. aasta juuli metsa- ja maastikupõlengutega ning Hispaaniale seoses 2025. aasta augusti metsa- ja maastikupõlengutega ",
+        "sv": "Ianspråktagande av Europeiska unionens solidaritetsfond för att ge bistånd till Rumänien med anledning av översvämningarna i slutet av maj 2025, Cypern med anledning av skogsbränderna i juli 2025 och Spanien med anledning av skogsbränderna i augusti 2025"
+      },
+      "process_type": "def/ep-procedure-types/BUD",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-68",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-68",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-68"
+        }
+      ],
+      "label": "2026/0120(BUD)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

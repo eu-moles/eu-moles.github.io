@@ -1,0 +1,284 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-2134",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/2025-2134-ANPRO-2025-07-10",
+          "type": "Activity",
+          "activity_date": "2025-07-10",
+          "activity_id": "2025-2134-ANPRO-2025-07-10",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2134-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2025-2134-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0247"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0171-AM-009-012-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0171-AM-009-012-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0171-AM-009-012"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-16",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-16",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-16",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-16"
+          ]
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0171-AM-008-008-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0171-AM-008-008-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0171-AM-008-008"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/ECON-PR-779796-DEPOT-2026-02-23",
+          "type": "Activity",
+          "activity_date": "2026-02-23",
+          "activity_id": "ECON-PR-779796-DEPOT-2026-02-23",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/ECON-PR-779796"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2134-DEC-ADCP-2026-06-03",
+          "type": "Decision",
+          "activity_date": "2026-06-03",
+          "activity_id": "2025-2134-DEC-ADCP-2026-06-03",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2134-DEPOT-2026-06-12",
+          "type": "Activity",
+          "activity_date": "2026-06-12",
+          "activity_id": "2025-2134-DEPOT-2026-06-12",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0171"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0171-AM-001-007-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0171-AM-001-007-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0171-AM-001-007"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/ECON-AM-786777-DEPOT-2026-03-25",
+          "type": "Activity",
+          "activity_date": "2026-03-25",
+          "activity_id": "ECON-AM-786777-DEPOT-2026-03-25",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/ECON-AM-786777"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992932",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992932",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0171"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-016"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0171",
+        "eli/dl/doc/ECON-PR-779796",
+        "eli/dl/doc/TA-10-2026-0247"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-2134-NMCP-197581-ECON-2025-10-10",
+          "type": "Participation",
+          "activity_date": "2025-10-10",
+          "had_participant_person": [
+            "person/197581"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ECON",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 805
+        },
+        {
+          "id": "eli/dl/participation/2025-2134-NMSR-197448-2025-10-29",
+          "type": "Participation",
+          "activity_date": "2025-10-29",
+          "had_participant_person": [
+            "person/197448"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 806
+        },
+        {
+          "id": "eli/dl/participation/2025-2134-NMSR-257137-2025-09-30",
+          "type": "Participation",
+          "activity_date": "2025-09-30",
+          "had_participant_person": [
+            "person/257137"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 801
+        },
+        {
+          "id": "eli/dl/participation/2025-2134-NMSR-257087-2025-11-03",
+          "type": "Participation",
+          "activity_date": "2025-11-03",
+          "had_participant_person": [
+            "person/257087"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 802
+        },
+        {
+          "id": "eli/dl/participation/2025-2134-MAIN-ECON",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ECON"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-2134-NMSR-127766-2025-12-18",
+          "type": "Participation",
+          "activity_date": "2025-12-18",
+          "had_participant_person": [
+            "person/127766"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 807
+        },
+        {
+          "id": "eli/dl/participation/2025-2134-NMSR-256893-2025-11-18",
+          "type": "Participation",
+          "activity_date": "2025-11-18",
+          "had_participant_person": [
+            "person/256893"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 803
+        },
+        {
+          "id": "eli/dl/participation/2025-2134-NMSR-257109-2025-11-03",
+          "type": "Participation",
+          "activity_date": "2025-11-03",
+          "had_participant_person": [
+            "person/257109"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 804
+        }
+      ],
+      "process_id": "2025-2134",
+      "process_title": {
+        "pt": "Política de concorrência – relatório anual 2025",
+        "it": "Politica di concorrenza – Relazione annuale 2025",
+        "ro": "Politica în domeniul concurenței – raportul anual pe 2025",
+        "nl": "Mededingingsbeleid - jaarverslag 2025",
+        "sl": "Politika konkurence – letno poročilo za leto 2025",
+        "es": "Política de competencia: informe anual 2025",
+        "el": "Πολιτική ανταγωνισμού - ετήσια έκθεση 2025",
+        "et": "Konkurentsipoliitika – 2025. aasta aruanne",
+        "lv": "Konkurences politika: 2025. gada ziņojums",
+        "cs": "Politika v oblasti hospodářské soutěže – výroční zpráva za rok 2025",
+        "pl": "Polityka konkurencji – sprawozdanie roczne za 2025 r.",
+        "de": "Wettbewerbspolitik – Jahresbericht 2025",
+        "fi": "Kilpailupolitiikka – vuosikertomus 2025",
+        "hr": "Politika tržišnog natjecanja – godišnje izvješće za 2025.",
+        "mt": "Il-politika tal-kompetizzjoni – ir-rapport annwali 2025",
+        "fr": "Politique de concurrence - rapport annuel 2025",
+        "sk": "Politika hospodárskej súťaže – výročná správa za rok 2025",
+        "en": "Competition policy – annual report 2025",
+        "bg": "Политика в областта на конкуренцията – годишен доклад за 2025 г.",
+        "lt": "Konkurencijos politika. 2025 m. metinis pranešimas",
+        "ga": "Beartas iomaíochta - tuarascáil bhliantúil 2025",
+        "da": "Konkurrencepolitik – årsberetning 2025",
+        "hu": "Versenypolitika – 2025. évi éves jelentés",
+        "sv": "Konkurrenspolitik – årsrapport 2025"
+      },
+      "process_type": "def/ep-procedure-types/INI",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-35",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-35",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-35"
+        }
+      ],
+      "label": "2025/2134(INI)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

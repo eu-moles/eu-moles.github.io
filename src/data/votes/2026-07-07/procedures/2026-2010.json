@@ -1,0 +1,142 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2010",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-4",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-4",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-04",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-04"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-2010-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-2010-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0235"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992942",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992942",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0190"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-004"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-2010-DEC-ADCP-2026-06-23",
+          "type": "Decision",
+          "activity_date": "2026-06-23",
+          "activity_id": "2026-2010-DEC-ADCP-2026-06-23",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-2010-DEPOT-2026-06-30",
+          "type": "Activity",
+          "activity_date": "2026-06-30",
+          "activity_id": "2026-2010-DEPOT-2026-06-30",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0190"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0190",
+        "eli/dl/doc/TA-10-2026-0235"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2010-NMCP-197795-JURI-2026-02-24",
+          "type": "Participation",
+          "activity_date": "2026-02-24",
+          "had_participant_person": [
+            "person/197795"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/JURI",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 2007
+        },
+        {
+          "id": "eli/dl/participation/2026-2010-MAIN-JURI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/JURI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        }
+      ],
+      "process_id": "2026-2010",
+      "process_title": {
+        "lv": "Pieprasījums atcelt Klára Dobrev imunitāti",
+        "hu": "Dobrev Klára mentelmi jogának felfüggesztésére irányuló kérelem",
+        "et": "Klára Dobrevi puutumatuse äravõtmise taotlus",
+        "ro": "Cerere de ridicare a imunității deputatei Klára Dobrev",
+        "sv": "Begäran om upphävande av Klára Dobrevs immunitet",
+        "da": "Anmodning om ophævelse af Klára Dobrevs immunitet",
+        "it": "Richiesta di revoca dell'immunità di Klára Dobrev",
+        "sl": "Zahteva za odvzem imunitete Klári Dobrev",
+        "lt": "Prašymas atšaukti Kláros Dobrev (Klára Dobrev) imunitetą",
+        "ga": "Iarraidh ar dhíolúine Klára Dobrev a tharscaoileadh",
+        "fr": "Demande de levée de l’immunité de Klára Dobrev",
+        "pl": "Wniosek o uchylenie immunitetu Kláry Dobrev",
+        "de": "Antrag auf Aufhebung der Immunität von Klára Dobrev",
+        "hr": "Zahtjev za ukidanje imuniteta Klári Dobrev",
+        "pt": "Pedido de levantamento da imunidade de Klára Dobrev",
+        "nl": "Verzoek tot opheffing van de immuniteit van Klára Dobrev",
+        "sk": "Žiadosť o zbavenie Kláry Dobrevovej imunity",
+        "el": "Αίτημα για την άρση της ασυλίας της Klára Dobrev",
+        "fi": "Klára Dobrevin koskemattomuuden pidättämistä koskeva pyyntö",
+        "mt": "Talba għat-tneħħija tal-immunità ta’ Klára Dobrev",
+        "en": "Request for the waiver of the immunity of Klára Dobrev",
+        "es": "Suplicatorio de suspensión de la inmunidad de Klára Dobrev",
+        "cs": "Žádost, aby byla Klára Dobrevová zbavena imunity",
+        "bg": "Искане за снемане на имунитета на Клара Добрев"
+      },
+      "process_type": "def/ep-procedure-types/IMM",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-80",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-80",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-80"
+        }
+      ],
+      "label": "2026/2010(IMM)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

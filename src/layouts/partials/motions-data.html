@@ -27,6 +27,7 @@
         {{- $minutesVoteOrder := partials.Include "motions-pv-vote-order.html" $minutesFile -}}
         {{- $minutesContextLinks := partials.Include "motions-pv-context-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
         {{- $minutesItemLinks := partials.Include "motions-pv-item-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
+        {{- $procedureDocumentsByID := partials.Include "motions-procedure-documents.html" (path.Join $dateDirectory "procedures") -}}
         {{- $decisionsByID := dict -}}
         {{- $decisions := index $decisionsData "data" -}}
         {{- if $decisions -}}
@@ -75,26 +76,38 @@
               {{- $childDecisions := $recordedDecisions -}}
               {{- $displayDecisions := slice -}}
               {{- if gt (len $childDecisions) 0 -}}
-                {{- $parentRCVItem := 0 -}}
+                {{- /* A parent vote explicitly records the corresponding VOT item.
+                      Its number is the PV AnnexVote number; do not infer it from
+                      one of the parent's component roll-call decisions. */ -}}
+                {{- $parentAnnexVote := 0 -}}
+                {{- $parentRecordedIn := index $vote "recorded_in_a_realization_of" -}}
+                {{- if $parentRecordedIn -}}
+                  {{- if not (reflect.IsSlice $parentRecordedIn) -}}
+                    {{- $parentRecordedIn = slice $parentRecordedIn -}}
+                  {{- end -}}
+                  {{- range $parentRecordedIn -}}
+                    {{- $parentDocument := path.Base . -}}
+                    {{- if findRE `-VOT-ITM-[0-9]+$` $parentDocument -}}
+                      {{- $parentAnnexVote = int (replaceRE `^.*-VOT-ITM-0*` "" $parentDocument) -}}
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+                {{- if eq $parentAnnexVote 0 -}}
+                  {{- errorf "Motion %q (%s) has recorded child decisions but no parent PV VOT item reference." $sourceTitle (index $vote "activity_id") -}}
+                {{- end -}}
+                {{- $parentMinutesContext := index $minutesItemLinks (string $parentAnnexVote) -}}
+                {{- if not $parentMinutesContext -}}
+                  {{- errorf "Motion %q (%s) maps to PV AnnexVote %d, which was not found in %s." $sourceTitle (index $vote "activity_id") $parentAnnexVote $minutesFile -}}
+                {{- end -}}
                 {{- $parentVotingID := "" -}}
                 {{- range $childDecisions -}}
                   {{- if eq $parentVotingID "" -}}
                     {{- $parentVotingID = index . "notation_votingId" | default "" -}}
                   {{- end -}}
-                  {{- if eq $parentRCVItem 0 -}}
-                    {{- $parentRecordedIn := index . "recorded_in_a_realization_of" -}}
-                    {{- if $parentRecordedIn -}}
-                      {{- if not (reflect.IsSlice $parentRecordedIn) -}}
-                        {{- $parentRecordedIn = slice $parentRecordedIn -}}
-                      {{- end -}}
-                      {{- $parentDocument := path.Base (index $parentRecordedIn 0) -}}
-                      {{- $parentRCVItem = int (replaceRE `^.*-RCV-ITM-0*` "" $parentDocument) -}}
-                    {{- end -}}
-                  {{- end -}}
                 {{- end -}}
-                {{- $displayDecisions = $displayDecisions | append (dict "decision" $vote "isSubvote" false "hasSubvotes" true "subvoteCount" (len $childDecisions) "rcvItem" $parentRCVItem "contextRcvItem" $parentRCVItem "votingId" $parentVotingID) -}}
+                {{- $displayDecisions = $displayDecisions | append (dict "decision" $vote "isSubvote" false "hasSubvotes" true "subvoteCount" (len $childDecisions) "rcvItem" $parentAnnexVote "contextRcvItem" $parentAnnexVote "votingId" $parentVotingID) -}}
                 {{- range $childDecisions -}}
-                  {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false "subvoteCount" 0 "rcvItem" 0 "contextRcvItem" $parentRCVItem) -}}
+                  {{- $displayDecisions = $displayDecisions | append (dict "decision" . "isSubvote" true "hasSubvotes" false "subvoteCount" 0 "rcvItem" 0 "contextRcvItem" $parentAnnexVote) -}}
                 {{- end -}}
               {{- end -}}
               {{- range $displayDecisions -}}
@@ -140,6 +153,34 @@
                   {{- $procedureURL := index $minutesItemContext "procedureURL" | default "" -}}
                   {{- $documentReference := index $minutesItemContext "documentReference" | default "" -}}
                   {{- $documentURL := index $minutesItemContext "documentURL" | default "" -}}
+                  {{- $procedureDocuments := slice -}}
+                  {{- if not $isSubvote -}}
+                    {{- $procedureIDs := slice -}}
+                    {{- range $procedureLink := index $vote "inverse_consists_of" -}}
+                      {{- $procedureELI := "" -}}
+                      {{- if reflect.IsMap $procedureLink -}}
+                        {{- $procedureELI = index $procedureLink "id" | default "" -}}
+                      {{- else -}}
+                        {{- $procedureELI = $procedureLink -}}
+                      {{- end -}}
+                      {{- if findRE `/proc/[0-9]{4}-[0-9]{4}$` $procedureELI -}}
+                        {{- $procedureIDs = $procedureIDs | append (path.Base $procedureELI) -}}
+                      {{- end -}}
+                    {{- end -}}
+                    {{- with findRE `^[0-9]{4}/[0-9]{4}\([A-Z]+\)$` $procedureReference -}}
+                      {{- $procedureIDs = $procedureIDs | append (replaceRE `^([0-9]{4})/([0-9]{4})\([A-Z]+\)$` "$1-$2" $procedureReference) -}}
+                    {{- end -}}
+                    {{- $seenProcedureDocuments := dict -}}
+                    {{- range uniq $procedureIDs -}}
+                      {{- range index $procedureDocumentsByID . -}}
+                        {{- $procedureDocumentID := index . "id" -}}
+                        {{- if not (index $seenProcedureDocuments $procedureDocumentID) -}}
+                          {{- $procedureDocuments = $procedureDocuments | append . -}}
+                          {{- $seenProcedureDocuments = merge $seenProcedureDocuments (dict $procedureDocumentID true) -}}
+                        {{- end -}}
+                      {{- end -}}
+                    {{- end -}}
+                  {{- end -}}
                   {{- if $isSubvote -}}
                     {{- $recordedIn := index $decision "recorded_in_a_realization_of" -}}
                     {{- if $recordedIn -}}
@@ -205,6 +246,7 @@
                     "procedureURL" $procedureURL
                     "documentReference" $documentReference
                     "documentURL" $documentURL
+                    "procedureDocuments" $procedureDocuments
                     "title" $title
                     "sourceTitle" $sourceTitle
                     "parentID" (index $vote "activity_id")

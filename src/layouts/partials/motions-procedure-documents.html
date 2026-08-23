@@ -1,0 +1,57 @@
+{{- $documentsByProcedure := dict -}}
+{{- $directory := . -}}
+{{- if os.FileExists $directory -}}
+  {{- range os.ReadDir $directory -}}
+    {{- if and (not .IsDir) (eq (path.Ext .Name) ".json") -}}
+      {{- $procedureID := strings.TrimSuffix ".json" .Name -}}
+      {{- $procedureFile := path.Join $directory .Name -}}
+      {{- $procedureData := transform.Unmarshal (os.ReadFile $procedureFile) -}}
+      {{- $records := index $procedureData "data" -}}
+      {{- $documents := slice -}}
+      {{- $seenDocuments := dict -}}
+      {{- if and (reflect.IsSlice $records) (gt (len $records) 0) -}}
+        {{- $activities := index (index $records 0) "consists_of" -}}
+        {{- if $activities -}}
+          {{- if not (reflect.IsSlice $activities) -}}
+            {{- $activities = slice $activities -}}
+          {{- end -}}
+          {{- range $activity := $activities -}}
+            {{- $documentReferences := index $activity "based_on_a_realization_of" | default (index $activity "decided_on_a_realization_of") -}}
+            {{- if $documentReferences -}}
+              {{- if not (reflect.IsSlice $documentReferences) -}}
+                {{- $documentReferences = slice $documentReferences -}}
+              {{- end -}}
+              {{- range $documentReference := $documentReferences -}}
+                {{- $documentID := "" -}}
+                {{- if reflect.IsMap $documentReference -}}
+                  {{- $documentID = path.Base (index $documentReference "id" | default "") -}}
+                {{- else -}}
+                  {{- $documentID = path.Base $documentReference -}}
+                {{- end -}}
+                {{- /* The procedure API supplies every activity-linked document.
+                      Keep the published EP document families represented in the
+                      Gateway and omit Commission/preparatory/component records. */ -}}
+                {{- $isGatewayDocument := gt (len (findRE `^(A|B|TA)-[0-9]+-|^[A-Z0-9]+-(PR|AM|AD|AL|AG)-[0-9]+$` $documentID)) 0 -}}
+                {{- $isComponentAmendment := gt (len (findRE `^(A|B)-[0-9]+-[0-9]{4}-[0-9]+-AM-` $documentID)) 0 -}}
+                {{- if and $isGatewayDocument (not $isComponentAmendment) (not (index $seenDocuments $documentID)) -}}
+                  {{- $extension := "pdf" -}}
+                  {{- if gt (len (findRE `^(A|B|TA)-[0-9]+-` $documentID)) 0 -}}
+                    {{- $extension = "html" -}}
+                  {{- end -}}
+                  {{- $documents = $documents | append (dict
+                    "id" $documentID
+                    "url" (printf "https://www.europarl.europa.eu/doceo/document/%s_EN.%s" $documentID $extension)
+                    "order" (printf "%s-%s" (index $activity "activity_date" | default "") $documentID)
+                  ) -}}
+                  {{- $seenDocuments = merge $seenDocuments (dict $documentID true) -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $documentsByProcedure = merge $documentsByProcedure (dict $procedureID (sort $documents "order" "asc")) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $documentsByProcedure -}}

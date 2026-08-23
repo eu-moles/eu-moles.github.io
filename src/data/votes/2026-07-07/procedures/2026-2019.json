@@ -1,0 +1,142 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2019",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/2026-2019-DEPOT-2026-07-02",
+          "type": "Activity",
+          "activity_date": "2026-07-02",
+          "activity_id": "2026-2019-DEPOT-2026-07-02",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0193"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-5",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-5",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-05",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-05"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992971",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992971",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0193"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-005"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-2019-DEC-ADCP-2026-07-02",
+          "type": "Decision",
+          "activity_date": "2026-07-02",
+          "activity_id": "2026-2019-DEC-ADCP-2026-07-02",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-2019-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-2019-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0236"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0236",
+        "eli/dl/doc/A-10-2026-0193"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2019-MAIN-JURI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/JURI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2026-2019-NMCP-204400-JURI-2026-03-24",
+          "type": "Participation",
+          "activity_date": "2026-03-24",
+          "had_participant_person": [
+            "person/204400"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/JURI",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 2001
+        }
+      ],
+      "process_id": "2026-2019",
+      "process_title": {
+        "lv": "Pieprasījums atcelt Siegbert Frank Droese imunitāti",
+        "sk": "Žiadosť o zbavenie Siegberta Franka Droeseho imunity",
+        "pt": "Pedido de levantamento da imunidade de Siegbert Frank Droese",
+        "lt": "Prašymas atšaukti Siegberto Franko Droese (Siegbert Frank Droese) imunitetą",
+        "fr": "Demande de levée de l’immunité de Siegbert Frank Droese",
+        "nl": "Verzoek tot opheffing van de immuniteit van Siegbert Frank Droese",
+        "pl": "Wniosek o uchylenie immunitetu Siegberta Franka Droesego",
+        "en": "Request for the waiver of the immunity of Siegbert Frank Droese",
+        "it": "Richiesta di revoca dell'immunità di Siegbert Frank Droese",
+        "cs": "Žádost, aby byl Siegbert Frank Droese zbaven imunity",
+        "et": "Siegbert Frank Droese puutumatuse äravõtmise taotlus",
+        "ga": "Iarraidh ar dhíolúine Siegbert Frank Droese a tharscaoileadh",
+        "mt": "Talba għat-tneħħija tal-immunità ta’ Siegbert Frank Droese",
+        "hr": "Zahtjev za ukidanje imuniteta Siegbertu Franku Droeseu",
+        "es": "Suplicatorio de suspensión de la inmunidad de Siegbert Frank Droese",
+        "de": "Antrag auf Aufhebung der Immunität von Siegbert Frank Droese",
+        "sv": " Begäran om upphävande av Siegbert Frank Droeses immunitet",
+        "sl": "Zahteva za odvzem imunitete Siegbertu Franku Droeseju",
+        "da": "Anmodning om ophævelse af Siegbert Frank Droeses immunitet",
+        "ro": "Cerere de ridicare a imunității deputatului Siegbert Frank Droese",
+        "bg": "Искане за снемане на имунитета на Зигберт Франк Дрьозе",
+        "el": "Αίτημα για την άρση της ασυλίας του Siegbert Frank Droese",
+        "fi": "Siegbert Frank Droesen koskemattomuuden pidättämistä koskeva pyyntö",
+        "hu": "Siegbert Frank Droese mentelmi jogának felfüggesztésére irányuló kérelem"
+      },
+      "process_type": "def/ep-procedure-types/IMM",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-113",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-113",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-113"
+        }
+      ],
+      "label": "2026/2019(IMM)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

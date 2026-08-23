@@ -31,7 +31,13 @@
         {{- $councilParts := split $councilReference "/" -}}
         {{- $documentURL = printf "https://data.consilium.europa.eu/doc/document/ST-%s-%s-REV-%s/en/pdf" (index $councilParts 0) (index $councilParts 2) (index $councilParts 1) -}}
       {{- end -}}
-      {{- $links = merge $links (dict (string $annexVote) (dict "minutesURL" $url "procedureReference" $procedureReference "procedureURL" $procedureURL "documentReference" $councilReference "documentURL" $documentURL)) -}}
+      {{- $titleKey := "" -}}
+      {{- with findRESubmatch `(?s)<OJ.ReportShortDescription.Text\b[^>]*>(.*?)</OJ.ReportShortDescription.Text>` . -}}
+        {{- $title := index (index . 0) 1 -}}
+        {{- $title = replaceRE `<[^>]+>` " " $title -}}
+        {{- $titleKey = partials.Include "motions-title-key.html" $title -}}
+      {{- end -}}
+      {{- $links = merge $links (dict (string $annexVote) (dict "minutesURL" $url "titleKey" $titleKey "procedureReference" $procedureReference "procedureURL" $procedureURL "documentReference" $councilReference "documentURL" $documentURL)) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

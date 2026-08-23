@@ -30,6 +30,7 @@
               <th class="motion-disclosure-heading" aria-label="Components"></th>
               <th>Reference</th>
               <th>Motion</th>
+              <th>Documents</th>
               <th>Outcome</th>
               <th class="site-table-number">For</th>
               <th class="site-table-number">Against</th>
@@ -88,14 +89,7 @@
                 </td>
                 <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
                   <span class="db">
-                    {{ with .sourceURL }}
-                      <a class="motion-source-link link underline-hover" href="{{ . }}" target="_blank" rel="external noopener noreferrer">{{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                    {{ else }}
-                      {{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
-                    {{ end }}
-                    {{- if and .isSubvote .documentURL -}}
-                      <a class="motion-document-link" href="{{ .documentURL }}" target="_blank" rel="external noopener noreferrer" title="Open source document {{ .documentReference }}" aria-label="Open source document {{ .documentReference }}"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></a>
-                    {{- end -}}
+                    {{ partial "highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
                     {{- if ne $modalID "" -}}
                       <button class="motion-discussion-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
                     {{- end -}}
@@ -155,6 +149,27 @@
                       </div>
                     </dialog>
                   {{ end }}
+                </td>
+                <td class="motion-documents-cell{{ if or .isSubvote (not (or .sourceURL .procedureURL .documentURL .contextURL (gt (len .procedureDocuments) 0))) }} motion-documents-cell--empty{{ end }}" data-label="Documents">
+                  <div class="motion-documents">
+                    {{ if not .isSubvote }}
+                      {{ with .sourceURL }}
+                        <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Record</span></a>
+                      {{ end }}
+                      {{ with .procedureURL }}
+                        <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open procedure {{ $motion.procedureReference }}"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Procedure</span></a>
+                      {{ end }}
+                      {{ with .documentURL }}
+                        <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open Council document {{ $motion.documentReference }}"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>{{ $motion.documentReference | default "Council document" }}</span></a>
+                      {{ end }}
+                      {{ range .procedureDocuments }}
+                        <a href="{{ .url }}" target="_blank" rel="external noopener noreferrer" title="Open European Parliament document {{ .id }}"><i class="fa-solid {{ if hasSuffix .url ".pdf" }}fa-file-pdf{{ else }}fa-file-lines{{ end }}" aria-hidden="true"></i><span>{{ .id }}</span></a>
+                      {{ end }}
+                      {{ with .contextURL }}
+                        <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open official debate transcript"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Transcript</span></a>
+                      {{ end }}
+                    {{ end }}
+                  </div>
                 </td>
                 {{ if .hasSubvotes }}
                   <td class="motion-unavailable-cell" data-label="Outcome"></td>

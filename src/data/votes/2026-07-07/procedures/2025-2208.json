@@ -1,0 +1,275 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-2208",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/ECON-PR-784381-DEPOT-2026-02-19",
+          "type": "Activity",
+          "activity_date": "2026-02-19",
+          "activity_id": "ECON-PR-784381-DEPOT-2026-02-19",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/ECON-PR-784381"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2208-DEPOT-2026-06-26",
+          "type": "Activity",
+          "activity_date": "2026-06-26",
+          "activity_id": "2025-2208-DEPOT-2026-06-26",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0186"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0186-AM-001-003-DEPOT-2026-07-03",
+          "type": "Activity",
+          "activity_date": "2026-07-03",
+          "activity_id": "A-10-2026-0186-AM-001-003-DEPOT-2026-07-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0186-AM-001-003"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-20",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-20",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-20",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-20"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2025-2208-DEC-ADCP-2026-06-23",
+          "type": "Decision",
+          "activity_date": "2026-06-23",
+          "activity_id": "2025-2208-DEC-ADCP-2026-06-23",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/ECON-AM-786707-DEPOT-2026-03-24",
+          "type": "Activity",
+          "activity_date": "2026-03-24",
+          "activity_id": "ECON-AM-786707-DEPOT-2026-03-24",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/ECON-AM-786707"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2208-ANPRO-2025-11-13",
+          "type": "Activity",
+          "activity_date": "2025-11-13",
+          "activity_id": "2025-2208-ANPRO-2025-11-13",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992974",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992974",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0186"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-020"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2025-2208-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2025-2208-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0251"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0186",
+        "eli/dl/doc/ECON-PR-784381",
+        "eli/dl/doc/TA-10-2026-0251"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-2208-NMCP-125106-ECON-2025-10-17",
+          "type": "Participation",
+          "activity_date": "2025-10-17",
+          "had_participant_person": [
+            "person/125106"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ECON",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 804
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-NMSR-198076-2025-11-20",
+          "type": "Participation",
+          "activity_date": "2025-11-20",
+          "had_participant_person": [
+            "person/198076"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 806
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-NMSR-125046-2025-11-18",
+          "type": "Participation",
+          "activity_date": "2025-11-18",
+          "had_participant_person": [
+            "person/125046"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 802
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-MAIN-ECON",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ECON"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-NMSR-256941-2025-11-06",
+          "type": "Participation",
+          "activity_date": "2025-11-06",
+          "had_participant_person": [
+            "person/256941"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ESN",
+          "precedenceOrder": 808
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-NMSR-103246-2025-10-27",
+          "type": "Participation",
+          "activity_date": "2025-10-27",
+          "had_participant_person": [
+            "person/103246"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 803
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-NMSR-127766-2025-11-10",
+          "type": "Participation",
+          "activity_date": "2025-11-10",
+          "had_participant_person": [
+            "person/127766"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 807
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-NMSR-197410-2025-11-18",
+          "type": "Participation",
+          "activity_date": "2025-11-18",
+          "had_participant_person": [
+            "person/197410"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 801
+        },
+        {
+          "id": "eli/dl/participation/2025-2208-NMSR-197577-2025-11-03",
+          "type": "Participation",
+          "activity_date": "2025-11-03",
+          "had_participant_person": [
+            "person/197577"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 805
+        }
+      ],
+      "process_id": "2025-2208",
+      "process_title": {
+        "sl": "Digitalna sredstva – izzivi za konkurenčnost in integriteto finančnega sistema Evropske unije",
+        "fr": "Actifs numériques – Défis pour la compétitivité et l’intégrité du système financier de l’Union européenne",
+        "fi": "Digitaaliset varat – Euroopan unionin rahoitusjärjestelmän kilpailukyvyn ja eheyden haasteet",
+        "pt": "Ativos digitais — Desafios à competitividade e integridade do sistema financeiro da União Europeia ",
+        "es": "Activos digitales: retos para la competitividad y la integridad del sistema financiero de la Unión Europea",
+        "ga": "Sócmhainní digiteacha – dúshláin d’iomaíochas agus do shláine chóras airgeadais an Aontais Eorpaigh",
+        "lv": "Digitālie aktīvi: konkurētspējas un integritātes uzdevumi, kas jārisina Eiropas Savienības finanšu sistēmā",
+        "et": "Digivara – Euroopa Liidu finantssüsteemi konkurentsivõime ja terviklikkusega seotud probleemid",
+        "sk": "Digitálne aktíva – výzvy pre konkurencieschopnosť a integritu finančného systému Európskej únie",
+        "sv": "Digitala tillgångar – utmaningar för konkurrenskraften och integriteten i Europeiska unionens finansiella system",
+        "cs": "Digitální aktiva – výzvy pro konkurenceschopnost a integritu finančního systému Evropské unie",
+        "en": "Digital assets – challenges for the competitiveness and integrity of the European Union’s financial system",
+        "hr": "Digitalna imovina – izazovi za konkurentnost i cjelovitost financijskog sustava Europske unije",
+        "de": "Digitale Vermögenswerte – Herausforderungen für die Wettbewerbsfähigkeit und Integrität des Finanzsystems der Europäischen Union",
+        "lt": "Skaitmeninis turtas: iššūkiai Europos Sąjungos finansų sistemos konkurencingumui ir vientisumui",
+        "nl": "Digitale activa – uitdagingen voor het concurrentievermogen en de integriteit van het financiële stelsel van de Europese Unie",
+        "mt": "L-assi diġitali – l-isfidi għall-kompetittività u l-integrità tas-sistema finanzjarja tal-Unjoni Ewropea",
+        "pl": "Aktywa cyfrowe – wyzwania dla konkurencji i integralności systemu finansowego Unii Europejskiej",
+        "hu": "Digitális eszközök – az Európai Unió pénzügyi rendszerének versenyképessége és integritása előtt álló kihívások",
+        "da": "Digitale aktiver – udfordringer for konkurrenceevnen og integriteten i Den Europæiske Unions finansielle system",
+        "ro": "Activele digitale - dificultăți pentru competitivitatea și integritatea sistemului financiar al Uniunii Europene",
+        "el": "Ψηφιακά περιουσιακά στοιχεία - προκλήσεις για την ανταγωνιστικότητα και την ακεραιότητα του χρηματοπιστωτικού συστήματος της Ευρωπαϊκής Ένωσης",
+        "it": "Attività digitali – sfide per la competitività e l'integrità del sistema finanziario dell'Unione europea",
+        "bg": "Цифрови активи – предизвикателства пред конкурентоспособността и почтеността на финансовата система на Европейския съюз"
+      },
+      "process_type": "def/ep-procedure-types/INI",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-79",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-79",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-79"
+        }
+      ],
+      "label": "2025/2208(INI)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

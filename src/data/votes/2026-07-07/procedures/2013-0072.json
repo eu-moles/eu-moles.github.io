@@ -1,0 +1,715 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2013-0072",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2019-10-09-PVCRE-ITM-7",
+          "type": "Activity",
+          "activity_date": "2019-10-09",
+          "activity_id": "MTG-PL-2019-10-09-PVCRE-ITM-7",
+          "had_activity_type": "def/ep-activities/PLENARY_ACTIVITY",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-9-2019-10-09-ITM-7"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEC-ADCP-2026-06-15",
+          "type": "Decision",
+          "activity_date": "2026-06-15",
+          "activity_id": "2013-0072-DEC-ADCP-2026-06-15",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-ANPRO-2025-10-09",
+          "type": "Activity",
+          "activity_date": "2025-10-09",
+          "activity_id": "2013-0072-ANPRO-2025-10-09",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-MEET-TRI4-2026-05-19",
+          "type": "Activity",
+          "activity_date": "2026-05-19",
+          "activity_id": "2013-0072-MEET-TRI4-2026-05-19",
+          "had_activity_type": "def/ep-activities/INTERINSTITUTIONAL_NEGOTIATION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/CONCILIA_RDG3"
+        },
+        {
+          "id": "eli/dl/event/TRAN-PR-778081-DEPOT-2025-11-24",
+          "type": "Activity",
+          "activity_date": "2025-11-24",
+          "activity_id": "TRAN-PR-778081-DEPOT-2025-11-24",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-PR-778081"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEC-DCPL-2026-01-21",
+          "type": "Decision",
+          "activity_date": "2026-01-21",
+          "activity_id": "2013-0072-DEC-DCPL-2026-01-21",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0009"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_AMEND_COUNCIL_POSITION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/TRAN-AM-781297-DEPOT-2025-12-05",
+          "type": "Activity",
+          "activity_date": "2025-12-05",
+          "activity_id": "TRAN-AM-781297-DEPOT-2025-12-05",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-AM-781297"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/IMCO-PA-516966-DEPOT-2013-09-17",
+          "type": "Activity",
+          "activity_date": "2013-09-17",
+          "activity_id": "IMCO-PA-516966-DEPOT-2013-09-17",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/IMCO-PA-516966"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_OPINION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-01-21-VOT-ITM-981675",
+          "type": "Activity",
+          "activity_date": "2026-01-21",
+          "activity_id": "MTG-PL-2026-01-21-VOT-ITM-981675",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0001"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-01-21-VOT-ITM-002"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEC-ADCP-2013-12-17",
+          "type": "Decision",
+          "activity_date": "2013-12-17",
+          "activity_id": "2013-0072-DEC-ADCP-2013-12-17",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-7",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-7",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-07",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-07"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2013-0072-MEET-TRI4-2026-06-02",
+          "type": "Activity",
+          "activity_date": "2026-06-02",
+          "activity_id": "2013-0072-MEET-TRI4-2026-06-02",
+          "had_activity_type": "def/ep-activities/INTERINSTITUTIONAL_NEGOTIATION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/CONCILIA_RDG3"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992933",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992933",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0191"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-007"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-01-21-PVCRE-ITM-7-2",
+          "type": "Activity",
+          "activity_date": "2026-01-21",
+          "activity_id": "MTG-PL-2026-01-21-PVCRE-ITM-7-2",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-01-21-ITM-007-02",
+            "eli/dl/doc/PV-10-2026-01-21-ITM-007-02"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2013-0072-ANPRO-2013-04-16",
+          "type": "Activity",
+          "activity_date": "2013-04-16",
+          "activity_id": "2013-0072-ANPRO-2013-04-16",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-01-20-PVCRE-ITM-11",
+          "type": "Activity",
+          "activity_date": "2026-01-20",
+          "activity_id": "MTG-PL-2026-01-20-PVCRE-ITM-11",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0001",
+            "eli/dl/doc/C-10-2025-0228"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-01-20-ITM-011",
+            "eli/dl/doc/CRE-10-2026-01-20-ITM-011"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2013-0072-MEET-TRI3-2025-10-15",
+          "type": "Activity",
+          "activity_date": "2025-10-15",
+          "activity_id": "2013-0072-MEET-TRI3-2025-10-15",
+          "had_activity_type": "def/ep-activities/INTERINSTITUTIONAL_NEGOTIATION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/TRAN-AM-519451-DEPOT-2013-10-08",
+          "type": "Activity",
+          "activity_date": "2013-10-08",
+          "activity_id": "TRAN-AM-519451-DEPOT-2013-10-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-AM-519451"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEC-ADCP-IMCO-2013-11-05",
+          "type": "Decision",
+          "activity_date": "2013-11-05",
+          "activity_id": "2013-0072-DEC-ADCP-IMCO-2013-11-05",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/IMCO-AD-516966"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_OPINION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEPOT-2014-01-22",
+          "type": "Activity",
+          "activity_date": "2014-01-22",
+          "activity_id": "2013-0072-DEPOT-2014-01-22",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-7-2014-0020"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0001-AM-001-243-DEPOT-2026-01-19",
+          "type": "Activity",
+          "activity_date": "2026-01-19",
+          "activity_id": "A-10-2026-0001-AM-001-243-DEPOT-2026-01-19",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0001-AM-001-243"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEPOT-2026-01-13",
+          "type": "Activity",
+          "activity_date": "2026-01-13",
+          "activity_id": "2013-0072-DEPOT-2026-01-13",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0001"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-ANPRO-2026-06-18",
+          "type": "Activity",
+          "activity_date": "2026-06-18",
+          "activity_id": "2013-0072-ANPRO-2026-06-18",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "2013-0072-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0191"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-MEET-TRI4-2026-04-20",
+          "type": "Activity",
+          "activity_date": "2026-04-20",
+          "activity_id": "2013-0072-MEET-TRI4-2026-04-20",
+          "had_activity_type": "def/ep-activities/INTERINSTITUTIONAL_NEGOTIATION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/CONCILIA_RDG3"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEC-DCPL-2014-02-05",
+          "type": "Decision",
+          "activity_date": "2014-02-05",
+          "activity_id": "2013-0072-DEC-DCPL-2014-02-05",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-7-2014-0092"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_AMEND_PROPOSAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-MEET-TRI4-2026-03-23",
+          "type": "Activity",
+          "activity_date": "2026-03-23",
+          "activity_id": "2013-0072-MEET-TRI4-2026-03-23",
+          "had_activity_type": "def/ep-activities/INTERINSTITUTIONAL_NEGOTIATION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/CONCILIA_RDG3"
+        },
+        {
+          "id": "eli/dl/event/TRAN-AM-521519-DEPOT-2013-10-08",
+          "type": "Activity",
+          "activity_date": "2013-10-08",
+          "activity_id": "TRAN-AM-521519-DEPOT-2013-10-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-AM-521519"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/TRAN-PR-510868-DEPOT-2013-09-06",
+          "type": "Activity",
+          "activity_date": "2013-09-06",
+          "activity_id": "TRAN-PR-510868-DEPOT-2013-09-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-PR-510868"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-MEET-TRI3-2025-12-01",
+          "type": "Activity",
+          "activity_date": "2025-12-01",
+          "activity_id": "2013-0072-MEET-TRI3-2025-12-01",
+          "had_activity_type": "def/ep-activities/INTERINSTITUTIONAL_NEGOTIATION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2014-02-05-VOT-ITM-345844-23",
+          "type": "Activity",
+          "activity_date": "2014-02-05",
+          "activity_id": "MTG-PL-2014-02-05-VOT-ITM-345844-23",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-7-2014-0020"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-7-2014-02-05-VOT-ITM-023"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEC-ADCP-2026-01-12",
+          "type": "Decision",
+          "activity_date": "2026-01-12",
+          "activity_id": "2013-0072-DEC-ADCP-2026-01-12",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-06-PVCRE-ITM-18",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "MTG-PL-2026-07-06-PVCRE-ITM-18",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/C-10-2026-0144",
+            "eli/dl/doc/A-10-2026-0191"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-06-ITM-018",
+            "eli/dl/doc/CRE-10-2026-07-06-ITM-018"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2013-0072-MEET-TRI3-2025-11-19",
+          "type": "Activity",
+          "activity_date": "2025-11-19",
+          "activity_id": "2013-0072-MEET-TRI3-2025-11-19",
+          "had_activity_type": "def/ep-activities/INTERINSTITUTIONAL_NEGOTIATION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2"
+        },
+        {
+          "id": "eli/dl/event/2013-0072-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2013-0072-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0238"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_ADOPT_JOINT_TEXT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-7-2014-0020",
+        "eli/dl/doc/TA-7-2014-0092",
+        "eli/dl/doc/TRAN-PR-510868",
+        "eli/dl/doc/TA-10-2026-0238",
+        "eli/dl/doc/IMCO-PA-516966",
+        "eli/dl/doc/TRAN-PR-778081",
+        "eli/dl/doc/TA-10-2026-0009",
+        "eli/dl/doc/SP-2014-446-TA-7-2014-0092",
+        "eli/dl/doc/IMCO-AD-516966",
+        "eli/dl/doc/A-10-2026-0191",
+        "eli/dl/doc/A-10-2026-0001"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-28177-2013-04-09",
+          "type": "Participation",
+          "activity_date": "2013-04-09",
+          "had_participant_person": [
+            "person/28177"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-7",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 2507
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-197432-2024-12-04",
+          "type": "Participation",
+          "activity_date": "2024-12-04",
+          "had_participant_person": [
+            "person/197432"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 1505
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-256909-2025-06-10",
+          "type": "Participation",
+          "activity_date": "2025-06-10",
+          "had_participant_person": [
+            "person/256909"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 1503
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-257121-2025-04-29",
+          "type": "Participation",
+          "activity_date": "2025-04-29",
+          "had_participant_person": [
+            "person/257121"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1502
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-124884-2025-05-05",
+          "type": "Participation",
+          "activity_date": "2025-05-05",
+          "had_participant_person": [
+            "person/124884"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1504
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-257016-2025-04-24",
+          "type": "Participation",
+          "activity_date": "2025-04-24",
+          "had_participant_person": [
+            "person/257016"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 1506
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-97308-2013-04-09",
+          "type": "Participation",
+          "activity_date": "2013-04-09",
+          "had_participant_person": [
+            "person/97308"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-7",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ALDE",
+          "precedenceOrder": 2501
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-28331-2013-04-09",
+          "type": "Participation",
+          "activity_date": "2013-04-09",
+          "had_participant_person": [
+            "person/28331"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-7",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/GUE-NGL",
+          "precedenceOrder": 2502
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMCP-4275-IMCO-2013-05-29",
+          "type": "Participation",
+          "activity_date": "2013-05-29",
+          "had_participant_person": [
+            "person/4275"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-7",
+          "participation_in_name_of": "org/IMCO",
+          "participation_role": "def/ep-roles/RAPPORTEUR_OPINION",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1401
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-102931-2013-04-09",
+          "type": "Participation",
+          "activity_date": "2013-04-09",
+          "had_participant_person": [
+            "person/102931"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-7",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 2508
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-MAIN-LEGI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/LEGI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMCP-97293-TRAN-2013-03-28",
+          "type": "Participation",
+          "activity_date": "2013-03-28",
+          "had_participant_person": [
+            "person/97293"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-7",
+          "participation_in_name_of": "org/TRAN",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 2505
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-AVI-ENVI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ENVI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMCP-107212-TRAN-2026-01-28",
+          "type": "Participation",
+          "activity_date": "2026-01-28",
+          "had_participant_person": [
+            "person/107212"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/TRAN",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1501
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-256911-2025-06-10",
+          "type": "Participation",
+          "activity_date": "2025-06-10",
+          "had_participant_person": [
+            "person/256911"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 1507
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-AVI-JURI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/JURI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMCP-107212-TRAN-2024-12-05",
+          "type": "Participation",
+          "activity_date": "2024-12-05",
+          "had_participant_person": [
+            "person/107212"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/TRAN",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1501
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-NMSR-4553-2013-04-09",
+          "type": "Participation",
+          "activity_date": "2013-04-09",
+          "had_participant_person": [
+            "person/4553"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-7",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 2503
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-AVI-IMCO",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/IMCO"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2013-0072-MAIN-TRAN",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/TRAN"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        }
+      ],
+      "process_id": "2013-0072",
+      "process_title": {
+        "en": "Amendment of Regulation (EC) No 261/2004 establishing common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights and amendment of Regulation (EC) No 2027/97 on air carrier liability in respect of the carriage of passengers and their baggage by air",
+        "fr": "Modification du règlement (CE) n° 261/2004 établissant des règles communes en matière d'indemnisation et d'assistance des passagers en cas de refus d'embarquement et d'annulation ou de retard important d'un vol, ainsi que du règlement (CE) n° 2027/97 relatif à la responsabilité des transporteurs aériens en ce qui concerne le transport aérien de passagers et de leurs bagages",
+        "ga": "Leasú a dhéanamh ar Rialachán (CE) Uimh. 261/2004 lena mbunaítear comhrialacha maidir le cúiteamh agus cúnamh do phaisinéirí sa chás nach gceadaítear dóibh bordáil agus sa chás ina gcuirtear eitiltí ar ceal nó go gcuirtear moill fhada orthu, agus leasú a dhéanamh ar Rialachán (CE) Uimh. 2027/97 maidir le dliteanas aeriompróirí i ndáil le hiompar paisinéirí agus a gcuid bagáiste d’aer",
+        "cs": "Změna nařízení (ES) č. 261/2004, kterým se stanoví společná pravidla náhrad a pomoci cestujícím v letecké dopravě v případě odepření nástupu na palubu, zrušení nebo významného zpoždění letů, a změna nařízení (ES) č. 2027/97 o odpovědnosti leteckého dopravce při letecké dopravě cestujících a jejich zavazadel",
+        "sl": "Sprememba Uredbe (ES) št. 261/2004 o določitvi skupnih pravil glede odškodnine in pomoči potnikom v primerih zavrnitve vkrcanja, odpovedi ali velike zamude letov ter Uredbe (ES) št. 2027/97 o odgovornosti letalskih prevoznikov v zvezi z letalskim prevozom potnikov in njihove prtljage",
+        "hu": "A visszautasított beszállás és légijáratok törlése vagy hosszú késése esetén az utasoknak nyújtandó kártalanítás és segítség közös szabályainak megállapításáról szóló 261/2004/EK rendelet módosítása, valamint a légifuvarozók felelősségéről szóló 2027/97/EGK rendeletnek az utasok és poggyászaik légi szállítása tekintetében történő módosítása",
+        "el": "Τροποποίηση του κανονισμού (ΕΚ) αριθ. 261/2004 για τη θέσπιση κοινών κανόνων αποζημίωσης των επιβατών αεροπορικών μεταφορών και παροχής βοήθειας σε αυτούς σε περίπτωση άρνησης επιβίβασης και ματαίωσης ή μεγάλης καθυστέρησης της πτήσης και τροποποίηση του κανονισμού (EΚ) αριθ. 2027/97 για την ευθύνη των αερομεταφορέων όσον αφορά την αεροπορική μεταφορά επιβατών και των αποσκευών τους",
+        "mt": "Emenda tar-Regolament (KE) Nru 261/2004 li jistabbilixxi regoli komuni dwar il-kumpens u l-assistenza għal passiġġieri fil-każ li ma jitħallewx jitilgħu u ta' kanċellazzjoni jew dewmien twil ta' titjiriet u emenda tar-Regolament (KE) Nru 2027/97 dwar ir-responsabbiltà ta' trasportaturi bl-ajru, fejn jidħol it-trasport bl-ajru tal-passiġġieri u l-bagalji tagħhom",
+        "da": "Ændring af forordning (EF) nr. 261/2004 om fælles bestemmelser om kompensation og bistand til luftfartspassagerer ved boardingafvisning og ved aflysning eller lange forsinkelser og forordning (EF) nr. 2027/97 om luftfartsselskabers erstatningsansvar ved luftbefordring af passagerer og deres bagage",
+        "bg": "Изменение на Регламент (ЕО) № 261/2004 относно създаване на общи правила за обезщетяване и помощ на пътниците при отказан достъп на борда и отмяна или голямо закъснение на полети и на Регламент (ЕО) № 2027/97 относно отговорността на въздушните превозвачи при въздушния превоз на пътници и техния багаж",
+        "fi": "Matkustajille heidän lennolle pääsynsä epäämisen sekä lentojen peruuttamisen tai pitkäaikaisen viivästymisen johdosta annettavaa korvausta ja apua koskevista yhteisistä säännöistä annetun asetuksen (EY) N:o 261/2004 ja matkustajien ja heidän matkatavaroidensa ilmakuljetusta koskevasta lentoliikenteen harjoittajien korvausvastuusta annetun neuvoston asetuksen (EY) N:o 2027/97 muuttaminen",
+        "pt": "Alteração do Regulamento (CE) n.º 261/2004 que estabelece regras comuns para a indemnização e a assistência aos passageiros dos transportes aéreos em caso de recusa de embarque e de cancelamento ou atraso considerável dos voos e alteração do Regulamento (CE) n.º 2027/97 relativo à responsabilidade das transportadoras aéreas no transporte de passageiros e respetiva bagagem",
+        "es": "Modificación del Reglamento (CE) nº 261/2004 por el que se establecen normas comunes sobre compensación y asistencia a los pasajeros aéreos en caso de denegación de embarque y de cancelación o gran retraso de los vuelos y del Reglamento (CE) nº 2027/97 sobre la responsabilidad de las compañías aéreas respecto al transporte aéreo de los pasajeros y su equipaje",
+        "it": "Modifica del regolamento (CE) n. 261/2004, che istituisce regole comuni in materia di compensazione ed assistenza ai passeggeri in caso di negato imbarco, di cancellazione del volo o di ritardo prolungato, e del regolamento (CE) n. 2027/97, sulla responsabilità del vettore aereo con riferimento al trasporto aereo dei passeggeri e dei loro bagagli",
+        "sv": "Ändring av förordning (EG) nr 261/2004 om fastställande av gemensamma regler om kompensation och assistans till passagerare vid nekad ombordstigning och inställda eller kraftigt försenade flygningar och ändring av förordning (EG) nr 2027/97 om lufttrafikföretags skadeståndsansvar avseende lufttransport av passagerare och deras bagage",
+        "sk": "Zmena nariadenia (ES) č. 261/2004, ktorým sa ustanovujú spoločné pravidlá systému náhrad a pomoci cestujúcim pri odmietnutí nástupu do lietadla, v prípade zrušenia alebo veľkého meškania letov, a zmena nariadenia (ES) č. 2027/97 o zodpovednosti leteckého dopravcu pri preprave cestujúcich a ich batožiny v leteckej doprave",
+        "de": "Änderung der Verordnung (EG) Nr. 261/2004 über eine gemeinsame Regelung für Ausgleichs- und Unterstützungsleistungen für Fluggäste im Fall der Nichtbeförderung und bei Annullierung oder großer Verspätung von Flügen und der Verordnung (EG) Nr. 2027/97 über die Haftung von Luftfahrtunternehmen bei der Beförderung von Fluggästen und deren Gepäck im Luftverkehr",
+        "et": "Määruse (EÜ) nr 261/2004 (millega kehtestatakse ühiseeskirjad reisijatele lennureisist mahajätmise korral ning lendude tühistamise või pikaajalise hilinemise eest antava hüvitise ja abi kohta) ning määruse (EÜ) nr 2027/97 (lennuettevõtja vastutuse kohta reisijate ja nende pagasi õhuveol) muutmine",
+        "lv": "Grozījumu izdarīšana Regulā (EK) Nr. 261/2004, ar ko paredz kopīgus noteikumus par kompensāciju un atbalstu pasažieriem sakarā ar iekāpšanas atteikumu un lidojumu atcelšanu vai ilgu kavēšanos, un Regulā (EK) Nr. 2027/97 par gaisa pārvadātāju atbildību, veicot pasažieru un viņu bagāžas gaisa pārvadājumus",
+        "nl": "Wijziging van Verordening (EG) nr. 261/2004 tot vaststelling van gemeenschappelĳke regels inzake compensatie en bĳstand aan luchtreizigers bĳ instapweigering en annulering of langdurige vertraging van vluchten en wijziging van Verordening (EG) nr. 2027/97 betreffende de aansprakelijkheid van luchtvervoerders met betrekking tot het luchtvervoer van passagiers en hun bagage",
+        "lt": "Reglamento (EB) Nr. 261/2004, nustatančio bendras kompensavimo ir pagalbos keleiviams taisykles atsisakymo vežti ir skrydžių atšaukimo arba atidėjimo ilgam laikui atveju, ir Reglamento (EB) Nr. 2027/97 dėl oro vežėjo atsakomybės už keleivių ir jų bagažo vežimą oru dalinis keitimas",
+        "pl": "Zmiana rozporządzenia (WE) nr 261/2004 ustanawiającego wspólne zasady odszkodowania i pomocy dla pasażerów w przypadku odmowy przyjęcia na pokład albo odwołania lub dużego opóźnienia lotów oraz rozporządzenia (WE) nr 2027/97 w sprawie odpowiedzialności przewoźnika lotniczego w odniesieniu do przewozu drogą powietrzną pasażerów i ich bagażu",
+        "ro": "Modificarea Regulamentului (CE) nr. 261/2004 de stabilire a unor norme comune privind compensarea și asistența acordată pasagerilor în eventualitatea refuzului la îmbarcare, a anulării sau a întârzierii prelungite a unui zbor și modificarea Regulamentului (CE) nr. 2027/1997 privind răspunderea operatorilor de transport aerian privind transportul aerian al pasagerilor și al bagajelor acestora",
+        "hr": "Izmjena Uredbe (EZ) br. 261/2004 o utvrđivanju općih pravila o naknadi i pomoći putnicima u slučaju uskraćenog ukrcaja i otkazivanja ili dužeg kašnjenja letova i Uredbe (EZ) br. 2027/97 o odgovornosti zračnih prijevoznika u pogledu zračnog prijevoza putnika i njihove prtljage"
+      },
+      "process_type": "def/ep-procedure-types/COD",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-01-20-OJ-ITM-D-29",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-01-20",
+          "activity_id": "MTG-PL-2026-01-20-OJ-ITM-D-29",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-01-20"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "notation_agendaPoint": "D-29"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-01-21-OJ-ITM-V-29",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-01-21",
+          "activity_id": "MTG-PL-2026-01-21-OJ-ITM-V-29",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-01-21"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG2",
+          "notation_agendaPoint": "V-29"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-76",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-76",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+          "notation_agendaPoint": "V-76"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-06-OJ-ITM-D-76",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-06",
+          "activity_id": "MTG-PL-2026-07-06-OJ-ITM-D-76",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-06"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG3",
+          "notation_agendaPoint": "D-76"
+        }
+      ],
+      "label": "2013/0072(COD)",
+      "identifierYear": "2013"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-2181",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/CULT-AM-786847-DEPOT-2026-04-01",
+          "type": "Activity",
+          "activity_date": "2026-04-01",
+          "activity_id": "CULT-AM-786847-DEPOT-2026-04-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/CULT-AM-786847"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2181-DEC-ADCP-2026-06-03",
+          "type": "Decision",
+          "activity_date": "2026-06-03",
+          "activity_id": "2025-2181-DEC-ADCP-2026-06-03",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992928",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992928",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0173"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-018"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2025-2181-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2025-2181-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0249"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2181-DEPOT-2026-06-12",
+          "type": "Activity",
+          "activity_date": "2026-06-12",
+          "activity_id": "2025-2181-DEPOT-2026-06-12",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0173"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/CULT-PR-784483-DEPOT-2026-03-10",
+          "type": "Activity",
+          "activity_date": "2026-03-10",
+          "activity_id": "CULT-PR-784483-DEPOT-2026-03-10",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/CULT-PR-784483"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2181-ANPRO-2025-10-09",
+          "type": "Activity",
+          "activity_date": "2025-10-09",
+          "activity_id": "2025-2181-ANPRO-2025-10-09",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0173-AM-001-006-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0173-AM-001-006-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0173-AM-001-006"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-18",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-18",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-18",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-18"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/CULT-PR-784483",
+        "eli/dl/doc/A-10-2026-0173",
+        "eli/dl/doc/TA-10-2026-0249"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-2181-NMSR-257258-2025-11-03",
+          "type": "Participation",
+          "activity_date": "2025-11-03",
+          "had_participant_person": [
+            "person/257258"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1904
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-NMSR-197672-2025-12-19",
+          "type": "Participation",
+          "activity_date": "2025-12-19",
+          "had_participant_person": [
+            "person/197672"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 1905
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-NMSR-197462-2025-12-04",
+          "type": "Participation",
+          "activity_date": "2025-12-04",
+          "had_participant_person": [
+            "person/197462"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 1906
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-MAIN-CULT",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/CULT"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-NMSR-202036-2026-01-13",
+          "type": "Participation",
+          "activity_date": "2026-01-13",
+          "had_participant_person": [
+            "person/202036"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1901
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-NMCP-204413-CULT-2025-11-03",
+          "type": "Participation",
+          "activity_date": "2025-11-03",
+          "had_participant_person": [
+            "person/204413"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/CULT",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1902
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-NMSR-257054-2026-01-19",
+          "type": "Participation",
+          "activity_date": "2026-01-19",
+          "had_participant_person": [
+            "person/257054"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 1903
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-NMSR-256952-2025-11-03",
+          "type": "Participation",
+          "activity_date": "2025-11-03",
+          "had_participant_person": [
+            "person/256952"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 1907
+        },
+        {
+          "id": "eli/dl/participation/2025-2181-NMSR-257457-2025-12-20",
+          "type": "Participation",
+          "activity_date": "2025-12-20",
+          "had_participant_person": [
+            "person/257457"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ESN",
+          "precedenceOrder": 1908
+        }
+      ],
+      "process_id": "2025-2181",
+      "process_title": {
+        "fr": "Une nouvelle stratégie pour l'éducation aux médias et l'apprentissage numérique",
+        "fi": "Medialukutaitoa ja digitaalista oppimista koskeva uusi strategia",
+        "cs": "Nová strategie pro mediální gramotnost a digitální učení",
+        "lt": "Nauja gebėjimo naudotis žiniasklaidos priemonėmis ir skaitmeninio mokymosi strategija",
+        "el": "Μια νέα στρατηγική για τον γραμματισμό στα μέσα επικοινωνίας και την ψηφιακή μάθηση",
+        "en": "A new strategy for media literacy and digital learning",
+        "sl": "Nova strategija za medijsko pismenost in digitalno učenje",
+        "hu": "A médiatudatosságra és digitális tanulásra vonatkozó új stratégia",
+        "lv": "Jauna stratēģija attiecībā uz medijpratību un digitālo mācīšanos",
+        "it": "Una nuova strategia in materia di alfabetizzazione mediatica e apprendimento digitale",
+        "ro": "O nouă strategie pentru educația în domeniul mass-mediei și învățarea digitală",
+        "mt": "Strateġija ġdida għal-litteriżmu fil-media u l-apprendiment diġitali",
+        "da": "En ny strategi for mediekendskab og digital læring",
+        "sv": "En ny strategi för mediekompetens och digitalt lärande",
+        "hr": "Nova strategija za medijsku pismenost i digitalno učenje",
+        "bg": "Нова стратегия за медийна грамотност и цифрово обучение ",
+        "ga": "Straitéis nua maidir le litearthacht sna meáin agus foghlaim dhigiteach",
+        "pt": "Uma nova estratégia para a literacia mediática e a aprendizagem digital",
+        "sk": "Nová stratégia pre mediálnu gramotnosť a digitálne vzdelávanie",
+        "pl": "Nowa strategia na rzecz umiejętności korzystania z mediów i cyfrowego uczenia się",
+        "nl": "Een nieuwe strategie voor mediawijsheid en digitaal leren",
+        "es": "Nueva estrategia para la alfabetización mediática y el aprendizaje digital",
+        "de": "Eine neue Strategie für Medienkompetenz und digitales Lernen",
+        "et": "Uus meediapädevuse ja digiõppe strateegia"
+      },
+      "process_type": "def/ep-procedure-types/INI",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-31",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-31",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-31"
+        }
+      ],
+      "label": "2025/2181(INI)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

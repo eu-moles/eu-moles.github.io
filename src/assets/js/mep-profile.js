@@ -50,6 +50,42 @@
     container.textContent = text;
   };
 
+  const documentLink = (label, url, icon, title) => {
+    const link = make('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'external noopener noreferrer';
+    link.title = title;
+    const marker = make('i', `fa-solid ${icon}`);
+    marker.setAttribute('aria-hidden', 'true');
+    link.append(marker, document.createTextNode(label));
+    return link;
+  };
+
+  const motionDocuments = (motion) => {
+    const documents = make('div', 'motion-documents');
+    if (motion.sourceURL) {
+      documents.append(documentLink('Record', motion.sourceURL, 'fa-file-lines', 'Open official sitting record'));
+    }
+    if (motion.procedureURL) {
+      documents.append(documentLink('Procedure', motion.procedureURL, 'fa-diagram-project', `Open procedure ${motion.procedureReference || ''}`.trim()));
+    }
+    if (motion.documentURL) {
+      documents.append(documentLink(motion.documentReference || 'Council document', motion.documentURL, 'fa-file-pdf', `Open Council document ${motion.documentReference || ''}`.trim()));
+    }
+    if (Array.isArray(motion.procedureDocuments)) {
+      motion.procedureDocuments.forEach((document) => {
+        if (!document || !document.url || !document.id) return;
+        const icon = document.url.endsWith('.pdf') ? 'fa-file-pdf' : 'fa-file-lines';
+        documents.append(documentLink(document.id, document.url, icon, `Open European Parliament document ${document.id}`));
+      });
+    }
+    if (motion.contextURL) {
+      documents.append(documentLink('Transcript', motion.contextURL, 'fa-comments', 'Open official debate transcript'));
+    }
+    return documents;
+  };
+
   const voteBadge = (position) => {
     const labels = {
       for: ['In favour', 'fa-thumbs-up'],
@@ -302,33 +338,9 @@
           if (motion.isSubvote) {
             motionCell.classList.add('motion-subvote-title');
           }
-          const title = motion.sourceURL
-            ? make('a', 'mep-profile-motion-title-text motion-source-link')
-            : make('span', 'mep-profile-motion-title-text');
-          if (motion.sourceURL) {
-            title.href = motion.sourceURL;
-            title.target = '_blank';
-            title.rel = 'external noopener noreferrer';
-          }
+          const title = make('span', 'mep-profile-motion-title-text');
           appendMotionTitle(title, motion.title);
-          if (motion.sourceURL) {
-            const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
-            icon.setAttribute('aria-hidden', 'true');
-            title.append(document.createTextNode(' '), icon);
-          }
           motionCell.append(title);
-          if (motion.isSubvote && motion.documentURL) {
-            const documentLink = make('a', 'motion-document-link');
-            documentLink.href = motion.documentURL;
-            documentLink.target = '_blank';
-            documentLink.rel = 'external noopener noreferrer';
-            documentLink.title = `Open source document ${motion.documentReference || ''}`.trim();
-            documentLink.setAttribute('aria-label', documentLink.title);
-            const icon = make('i', 'fa-solid fa-file-lines');
-            icon.setAttribute('aria-hidden', 'true');
-            documentLink.append(icon);
-            motionCell.append(documentLink);
-          }
 
           if (Array.isArray(motion.discussion) && motion.discussion.length && window.EUMolesMotionContext) {
             const context = make('button', 'motion-discussion-link');
@@ -343,6 +355,13 @@
             motionCell.append(context);
           }
 
+          const hasDocuments = !motion.isSubvote
+            && Boolean(motion.sourceURL || motion.procedureURL || motion.documentURL || motion.contextURL
+              || (Array.isArray(motion.procedureDocuments) && motion.procedureDocuments.length));
+          const documents = make('td', `motion-documents-cell${hasDocuments ? '' : ' motion-documents-cell--empty'}`);
+          documents.dataset.label = 'Documents';
+          if (hasDocuments) documents.append(motionDocuments(motion));
+
           const position = positionFor(motion);
           const vote = document.createElement('td');
           vote.dataset.label = 'Vote';
@@ -352,7 +371,7 @@
           outcome.dataset.label = 'Outcome';
           if (motion.hasSubvotes) outcome.classList.add('motion-unavailable-cell');
           if (!motion.hasSubvotes) outcome.append(outcomeBadge(motion.result));
-          row.append(date, type, disclosure, reference, motionCell, vote, outcome);
+          row.append(date, type, disclosure, reference, motionCell, documents, vote, outcome);
           rows.append(row);
         });
         if (window.EUMolesSubvotes) window.EUMolesSubvotes.bind(rows);

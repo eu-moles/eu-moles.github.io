@@ -182,35 +182,36 @@ textarea {
   font-size: 0.9em;
 }
 
-.motion-source-link,
-.motion-source-link:visited {
-  color: #1c5e9f;
-  text-decoration-color: rgb(28 94 159 / 45%);
+.motion-documents-cell {
+  width: 11rem;
 }
 
-.motion-source-link:hover,
-.motion-source-link:focus-visible {
-  color: #0b376f;
-  text-decoration-color: currentColor;
+.motion-documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
-.motion-document-link {
+.motion-documents a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 0.3rem;
-  color: #52718d;
-  font-size: 0.9em;
-  text-decoration: none;
-  vertical-align: 0.05em;
-}
-
-.motion-document-link:hover,
-.motion-document-link:focus-visible {
+  gap: 0.32rem;
   color: #1c5e9f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-.motion-document-link:focus-visible {
+.motion-documents a:hover,
+.motion-documents a:focus-visible {
+  color: #0b376f;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.motion-documents a:focus-visible {
   outline: 2px solid #d5a900;
   outline-offset: 0.16rem;
 }
@@ -842,7 +843,7 @@ main table tbody tr:last-child td {
 }
 
 .site-table--motion {
-  min-width: 55rem;
+  min-width: 65rem;
 }
 
 .motion-reference-cell {
@@ -1057,6 +1058,10 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion td.motion-reference-cell--empty {
+    display: none;
+  }
+
+  .site-table--motion td.motion-documents-cell--empty {
     display: none;
   }
 

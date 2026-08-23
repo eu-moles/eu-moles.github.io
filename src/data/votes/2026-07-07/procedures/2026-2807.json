@@ -1,0 +1,119 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2807",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992953",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992953",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0343"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-003"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-3",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-3",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-03",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-03"
+          ]
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0343-AM-002-007-DEPOT-2026-07-03",
+          "type": "Activity",
+          "activity_date": "2026-07-03",
+          "activity_id": "B-10-2026-0343-AM-002-007-DEPOT-2026-07-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0343-AM-002-007"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0343-AM-001-001-DEPOT-2026-07-03",
+          "type": "Activity",
+          "activity_date": "2026-07-03",
+          "activity_id": "B-10-2026-0343-AM-001-001-DEPOT-2026-07-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0343-AM-001-001"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/2026-2807-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-2807-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0234"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/B-10-2026-0343",
+        "eli/dl/doc/TA-10-2026-0234"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "process_id": "2026-2807",
+      "process_title": {
+        "hr": "Prijedlog odluke o izmjeni Odluke od 18. prosinca 2024. o osnivanju Posebnog odbora za stambenu krizu u Europskoj uniji radi produljenja mandata Posebnog odbora i prilagodbe njegovih nadležnosti",
+        "nl": "Voorstel voor een besluit tot wijziging van het besluit van 18 december 2024 over de instelling van de Bijzondere Commissie inzake de huisvestingscrisis in de Europese Unie, teneinde de zittingsduur van de Bijzondere Commissie te verlengen en haar bevoegdheden aan te passen",
+        "bg": "Предложение за решение за изменение на решението от 18 декември 2024 г. за създаване на специална комисия относно жилищната криза в Европейския съюз с цел удължаване на мандата на специалната комисия и преразглеждане на нейните отговорности",
+        "cs": "Návrh rozhodnutí, kterým se mění rozhodnutí ze dne 18. prosince 2024 o zřízení zvláštního výboru pro krizi v oblasti bydlení v Evropské unii za účelem prodloužení funkčního období zvláštního výboru a úpravy jeho působnosti",
+        "it": "Proposta di decisione recante modifica della decisione del 18 dicembre 2024 sulla costituzione della commissione speciale sulla crisi degli alloggi nell'Unione europea al fine di prorogare la durata del mandato della commissione speciale e di adeguare le sue attribuzioni",
+        "ga": "Togra le haghaidh Cinneadh lena leasaítear Cinneadh an 18 Nollaig 2024 maidir le coiste speisialta um an nGéarchéim Thithíochta san Aontas Eorpach a chur ar bun chun síneadh a chur le téarma oifige an choiste speisialta agus a fhreagrachtaí a choigeartú",
+        "fr": "Proposition de décision modifiant la décision du 18 décembre 2024 sur la constitution d’une commission spéciale sur la crise du logement dans l’Union européenne pour en prolonger le mandat et en adapter les responsabilités",
+        "en": "Proposal for a decision amending the decision of 18 December 2024 on setting up a special committee on the Housing Crisis in the European Union to extend the special committee’s term of office and adjust its responsibilities",
+        "fi": "Ehdotus päätökseksi, jolla muutetaan 18. joulukuuta 2024 tehtyä päätöstä asuntokriisiä Euroopan unionissa käsittelevän erityisvaliokunnan asettamisesta erityisvaliokunnan toimikauden pidentämiseksi ja sen vastuualueiden mukauttamiseksi",
+        "et": "Ettepanek võtta vastu otsus, millega muudetakse 18. detsembri 2024. aasta otsust Euroopa Liidu eluasemekriisi erikomisjoni moodustamise kohta, et pikendada erikomisjoni ametiaega ja kohandada selle ülesandeid",
+        "sv": "Förslag till beslut om ändring av beslutet av den 18 december 2024 om inrättande av ett särskilt utskott för bostadskrisen i Europeiska unionen för att förlänga det särskilda utskottets mandatperiod och anpassa dess ansvarsområden",
+        "lv": "Priekšlikums lēmumam, ar ko groza 2024. gada 18. decembra lēmumu par Īpašās komitejas mājokļu krīzes risināšanai Eiropas Savienībā izveidi, lai pagarinātu īpašās komitejas pilnvaru laiku un precizētu tās pienākumus",
+        "da": "Forslag til afgørelse om ændring af afgørelsen af 18. december 2024 om nedsættelse af et særligt udvalg om boligkrisen i Den Europæiske Union for at forlænge det særlige udvalgs funktionsperiode og tilpasse dets ansvarsområder",
+        "de": "Vorschlag für einen Beschluss zur Änderung des Beschlusses vom 18. Dezember 2024 über die Einsetzung des Sonderausschusses zur Wohnraumkrise in der Europäischen Union zwecks Verlängerung der Mandatszeit des Sonderausschusses und Anpassung seiner Zuständigkeiten",
+        "el": "Πρόταση απόφασης για την τροποποίηση της απόφασης της 18ης Δεκεμβρίου 2024 σχετικά με τη σύσταση Ειδικής Επιτροπής για τη Στεγαστική Κρίση στην Ευρωπαϊκή Ένωση με σκοπό την παράταση της θητείας της Ειδικής Επιτροπής και την προσαρμογή των αρμοδιοτήτων της",
+        "pl": "Wniosek dotyczący decyzji zmieniającej decyzję z dnia 18 grudnia 2024 r. w sprawie powołania Komisji Specjalnej ds. Kryzysu Mieszkaniowego w Unii Europejskiej w celu przedłużenia kadencji komisji specjalnej oraz dostosowania jej zakresu obowiązków",
+        "pt": "Proposta de decisão que altera a decisão de 18 de dezembro de 2024  sobre a criação de uma comissão especial sobre a crise de habitação na União Europeia para prorrogar o mandato da comissão especial e adaptar as suas competências",
+        "sl": "Predlog sklepa o spremembi sklepa z dne 18. decembra 2024 o ustanovitvi posebnega odbora za stanovanjsko krizo v Evropski uniji za podaljšanje mandata posebnega odbora in prilagoditev njegovih pristojnosti",
+        "es": "Propuesta de Decisión por la que se modifica la Decisión de 18 de diciembre de 2024 sobre la constitución de la Comisión Especial sobre la Crisis de la Vivienda en la Unión Europea para prorrogar la duración del mandato de la comisión especial y adaptar sus competencias",
+        "ro": "Propunere de decizie de modificare a Deciziei din 18 decembrie 2024 privind constituirea Comisiei speciale pentru criza locuințelor în Uniunea Europeană în scopul de a prelungi mandatul comisiei speciale și a adapta responsabilitățile sale",
+        "sk": "Návrh rozhodnutia, ktorým sa mení rozhodnutie z 18. decembra 2024 o zriadení osobitného výboru pre krízu v oblasti bývania v Európskej únii s cieľom predĺžiť funkčné obdobie osobitného výboru a upraviť jeho pôsobnosť",
+        "lt": "Pasiūlymas dėl sprendimo, kuriuo iš dalies keičiamas 2024 m. gruodžio 18 d. sprendimas dėl Specialiojo komiteto būsto krizės Europos Sąjungoje klausimais sudarymo siekiant pratęsti specialiojo komiteto įgaliojimų laiką ir patikslinti jo pareigas",
+        "mt": "Proposta għal deċiżjoni li temenda d-Deċiżjoni tat-18 ta’ Diċembru 2024 dwar it-twaqqif ta’ kumitat speċjali dwar il-kriżi tal-akkomodazzjoni fl-Unjoni Ewropea biex jiġi estiż il-mandat tal-kumitat speċjali u jiġu aġġustati r-responsabbiltajiet tiegħu",
+        "hu": "Az Európai Unióban tapasztalható lakhatási válsággal foglalkozó különbizottság létrehozásáról szóló 2024. december 18-i határozatnak a különbizottság megbízatási idejének kiterjesztése és feladatainak kiigazítása tekintetében való módosítására irányuló javaslat "
+      },
+      "process_type": "def/ep-procedure-types/RSO",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-107",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-107",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-107"
+        }
+      ],
+      "label": "2026/2807(RSO)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

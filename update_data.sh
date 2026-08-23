@@ -450,6 +450,37 @@ for voting_date in $voting_dates; do
     "$api/speeches?sitting-date=$voting_date&activity-type=PLENARY_DEBATE_SPEECH&limit=500&sort-by=video-start-time:asc" \
     "$dir/speeches.json"
 
+  # Each vote result carries the procedure(s) to which it belongs.  Cache one
+  # complete procedure record per distinct ID: this exposes the authoritative
+  # EP document chain without making a request for every document.
+  procedures_dir="$dir/procedures"
+  mkdir -p "$procedures_dir"
+  while IFS= read -r procedure_id; do
+    procedure_file="$procedures_dir/${procedure_id}.json"
+    [[ -s "$procedure_file" ]] && continue
+    fetch_json "$api/procedures/$procedure_id" "$procedure_file" || {
+      echo "Could not fetch procedure $procedure_id referenced by $sitting_id." >&2
+      exit 1
+    }
+    # Stay comfortably below the public API's per-endpoint request limit.
+    sleep 0.5
+  done < <(jq -r '
+    (
+      .data[]
+      | .inverse_consists_of[]?
+      | objects
+      | .id? // empty
+      | capture("/proc/(?<id>[0-9]{4}-[0-9]{4})$").id
+    ),
+    (
+      .data[]
+      | .structuredLabel.en? // empty
+      | scan("[0-9]{4}/[0-9]{4}\\([A-Z]+\\)")
+      | capture("(?<year>[0-9]{4})/(?<number>[0-9]{4})\\([A-Z]+\\)")
+      | "\(.year)-\(.number)"
+    )
+  ' "$dir/vote-results.json" | sort -u)
+
   mkdir -p data/languages
   while IFS= read -r language_uri; do
     language_code="${language_uri##*/}"

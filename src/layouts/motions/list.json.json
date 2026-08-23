@@ -15,6 +15,7 @@
     "procedureURL" .procedureURL
     "documentReference" .documentReference
     "documentURL" .documentURL
+    "procedureDocuments" .procedureDocuments
     "title" .title
     "sourceTitle" .sourceTitle
     "parentID" .parentID

@@ -1,0 +1,284 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2024-2117",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/A-10-2026-0169-AM-003-003-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0169-AM-003-003-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0169-AM-003-003"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/ECON-AM-786665-DEPOT-2026-03-19",
+          "type": "Activity",
+          "activity_date": "2026-03-19",
+          "activity_id": "ECON-AM-786665-DEPOT-2026-03-19",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/ECON-AM-786665"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2024-2117-DEC-ADCP-2026-06-03",
+          "type": "Decision",
+          "activity_date": "2026-06-03",
+          "activity_id": "2024-2117-DEC-ADCP-2026-06-03",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2024-2117-DEPOT-2026-06-11",
+          "type": "Activity",
+          "activity_date": "2026-06-11",
+          "activity_id": "2024-2117-DEPOT-2026-06-11",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0169"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0169-AM-001-002-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0169-AM-001-002-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0169-AM-001-002"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2024-2117-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2024-2117-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0248"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/ECON-PR-779360-DEPOT-2026-02-04",
+          "type": "Activity",
+          "activity_date": "2026-02-04",
+          "activity_id": "ECON-PR-779360-DEPOT-2026-02-04",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/ECON-PR-779360"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2024-2117-ANPRO-2025-01-23",
+          "type": "Activity",
+          "activity_date": "2025-01-23",
+          "activity_id": "2024-2117-ANPRO-2025-01-23",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992949",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992949",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0169"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-017"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-17",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-17",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-17",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-17"
+          ]
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0169-AM-004-006-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0169-AM-004-006-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0169-AM-004-006"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0169",
+        "eli/dl/doc/ECON-PR-779360",
+        "eli/dl/doc/TA-10-2026-0248"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2024-2117-NMSR-28615-2024-11-21",
+          "type": "Participation",
+          "activity_date": "2024-11-21",
+          "had_participant_person": [
+            "person/28615"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 804
+        },
+        {
+          "id": "eli/dl/participation/2024-2117-MAIN-ECON",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ECON"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2024-2117-NMSR-197577-2024-11-21",
+          "type": "Participation",
+          "activity_date": "2024-11-21",
+          "had_participant_person": [
+            "person/197577"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 805
+        },
+        {
+          "id": "eli/dl/participation/2024-2117-NMSR-261038-2026-04-10",
+          "type": "Participation",
+          "activity_date": "2026-04-10",
+          "had_participant_person": [
+            "person/261038"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 803
+        },
+        {
+          "id": "eli/dl/participation/2024-2117-NMSR-127766-2024-11-21",
+          "type": "Participation",
+          "activity_date": "2024-11-21",
+          "had_participant_person": [
+            "person/127766"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 807
+        },
+        {
+          "id": "eli/dl/participation/2024-2117-NMSR-197448-2024-11-21",
+          "type": "Participation",
+          "activity_date": "2024-11-21",
+          "had_participant_person": [
+            "person/197448"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 806
+        },
+        {
+          "id": "eli/dl/participation/2024-2117-NMSR-257237-2024-11-21",
+          "type": "Participation",
+          "activity_date": "2024-11-21",
+          "had_participant_person": [
+            "person/257237"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 801
+        },
+        {
+          "id": "eli/dl/participation/2024-2117-NMCP-237465-ECON-2024-11-21",
+          "type": "Participation",
+          "activity_date": "2024-11-21",
+          "had_participant_person": [
+            "person/237465"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ECON",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 802
+        }
+      ],
+      "process_id": "2024-2117",
+      "process_title": {
+        "et": "ELi finantssektori maksustamise sidus raamistik",
+        "sv": "Enhetliga skatteramar för EU:s finanssektor",
+        "bg": "Съгласувана данъчна рамка за финансовия сектор на ЕС ",
+        "sk": "Ucelený daňový rámec pre finančný sektor EÚ",
+        "da": "En sammenhængende skatteramme for EU's finanssektor",
+        "ga": "Creat cánach comhleanúnach d’earnáil airgeadais an Aontais",
+        "fi": "Yhdenmukainen verokehys EU:n rahoitusalalle",
+        "mt": "Qafas tat-taxxa koerenti għas-settur finanzjarju tal-UE",
+        "pt": "Um quadro fiscal coerente para o setor financeiro da UE",
+        "cs": "Ucelený daňový rámec pro finanční sektor EU",
+        "es": "Marco fiscal coherente para el sector financiero de la Unión",
+        "lt": "Nuosekli ES finansų sektoriaus apmokestinimo sistema",
+        "sl": "Usklajen davčni okvir za finančni sektor EU",
+        "hr": "Dosljedan porezni okvir za financijski sektor EU-a",
+        "pl": "Spójne ramy podatkowe dla sektora finansowego UE",
+        "el": "Ένα συνεκτικό πλαίσιο φορολόγησης για τον χρηματοπιστωτικό τομέα της ΕΕ",
+        "hu": "Koherens adózási keret az EU pénzügyi ágazata számára",
+        "it": "Un quadro coerente della fiscalità per il settore finanziario dell'UE",
+        "nl": "Een samenhangend belastingkader voor de financiële sector van de EU",
+        "en": "A coherent tax framework for the EU's financial sector",
+        "fr": "Un cadre fiscal cohérent pour le secteur financier de l’Union",
+        "de": "Ein stimmiger Steuerrahmen für den Finanzsektor in der EU",
+        "ro": "Un cadru fiscal coerent pentru sectorul financiar al UE",
+        "lv": "Saskaņots nodokļu regulējums ES finanšu sektorā"
+      },
+      "process_type": "def/ep-procedure-types/INI",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-57",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-57",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-57"
+        }
+      ],
+      "label": "2024/2117(INI)",
+      "identifierYear": "2024"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

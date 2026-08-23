@@ -1,0 +1,314 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-0407",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/2025-0407-DEC-ADCP-2026-06-03",
+          "type": "Decision",
+          "activity_date": "2026-06-03",
+          "activity_id": "2025-0407-DEC-ADCP-2026-06-03",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0174-AM-001-002-DEPOT-2026-07-02",
+          "type": "Activity",
+          "activity_date": "2026-07-02",
+          "activity_id": "A-10-2026-0174-AM-001-002-DEPOT-2026-07-02",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0174-AM-001-002"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0407-PUB-2026-07-17",
+          "type": "Activity",
+          "activity_date": "2026-07-17",
+          "activity_id": "2025-0407-PUB-2026-07-17",
+          "had_activity_type": "def/ep-activities/PUBLICATION_OFFICIAL_JOURNAL"
+        },
+        {
+          "id": "eli/dl/event/2025-0407-SIGN-2026-07-14",
+          "type": "Activity",
+          "activity_date": "2026-07-14",
+          "activity_id": "2025-0407-SIGN-2026-07-14",
+          "had_activity_type": "def/ep-activities/SIGNATURE"
+        },
+        {
+          "id": "eli/dl/event/2025-0407-ANPRO-2026-01-27",
+          "type": "Activity",
+          "activity_date": "2026-01-27",
+          "activity_id": "2025-0407-ANPRO-2026-01-27",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0407-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2025-0407-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0241"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_ADOPT_POSITION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/TRAN-AM-787943-DEPOT-2026-05-06",
+          "type": "Activity",
+          "activity_date": "2026-05-06",
+          "activity_id": "TRAN-AM-787943-DEPOT-2026-05-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-AM-787943"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-10",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-10",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-10",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-10"
+          ]
+        },
+        {
+          "id": "eli/dl/event/TRAN-PR-785404-DEPOT-2026-04-13",
+          "type": "Activity",
+          "activity_date": "2026-04-13",
+          "activity_id": "TRAN-PR-785404-DEPOT-2026-04-13",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-PR-785404"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992913",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992913",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0174"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-010"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2025-0407-DEC-ADCP-JURI-2026-05-05",
+          "type": "Decision",
+          "activity_date": "2026-05-05",
+          "activity_id": "2025-0407-DEC-ADCP-JURI-2026-05-05",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/JURI-AL-788004"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_OPINION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0407-DEPOT-2026-06-15",
+          "type": "Activity",
+          "activity_date": "2026-06-15",
+          "activity_id": "2025-0407-DEPOT-2026-06-15",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0174"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TRAN-PR-785404",
+        "eli/dl/doc/C-10-2026-0184",
+        "eli/dl/doc/JURI-AL-788004",
+        "eli/dl/doc/A-10-2026-0174",
+        "eli/dl/doc/TA-10-2026-0241"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-0407-NMSR-124884-2026-03-12",
+          "type": "Participation",
+          "activity_date": "2026-03-12",
+          "had_participant_person": [
+            "person/124884"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1504
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-NMSR-256833-2026-02-18",
+          "type": "Participation",
+          "activity_date": "2026-02-18",
+          "had_participant_person": [
+            "person/256833"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 1506
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-OLB-JURI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/JURI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION_LEGAL_BASIS"
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-NMCP-257073-JURI-2025-12-11",
+          "type": "Participation",
+          "activity_date": "2025-12-11",
+          "had_participant_person": [
+            "person/257073"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/JURI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_OPINION",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 2004
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-NMSR-197699-2026-03-11",
+          "type": "Participation",
+          "activity_date": "2026-03-11",
+          "had_participant_person": [
+            "person/197699"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 1507
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-NMSR-197670-2026-03-10",
+          "type": "Participation",
+          "activity_date": "2026-03-10",
+          "had_participant_person": [
+            "person/197670"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1502
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-MAIN-TRAN",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/TRAN"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-NMCP-125065-TRAN-2026-02-04",
+          "type": "Participation",
+          "activity_date": "2026-02-04",
+          "had_participant_person": [
+            "person/125065"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/TRAN",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1501
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-NMSR-198176-2026-03-11",
+          "type": "Participation",
+          "activity_date": "2026-03-11",
+          "had_participant_person": [
+            "person/198176"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 1503
+        },
+        {
+          "id": "eli/dl/participation/2025-0407-NMSR-256891-2026-02-26",
+          "type": "Participation",
+          "activity_date": "2026-02-26",
+          "had_participant_person": [
+            "person/256891"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 1505
+        }
+      ],
+      "process_id": "2025-0407",
+      "process_title": {
+        "de": "Ermächtigung Österreichs, seine bestehende bilaterale Vereinbarung über den Straßenverkehr mit der Schweiz zur Genehmigung von Kabotagebeförderungen bei der Bereitstellung von grenzüberschreitenden Personenkraftverkehrsleistungen mit Kraftomnibussen in der Grenzregion der beiden Länder zu ändern",
+        "nl": "Machtiging van Oostenrijk om zijn bilaterale overeenkomst met Zwitserland inzake wegvervoer te wijzigen zodat cabotageactiviteiten worden toegestaan tijdens het verrichten van internationale personenvervoerdiensten over de weg per touringcar en autobus in de grensgebieden tussen beide landen",
+        "sl": "Pooblastilo Avstriji, da spremeni svoj obstoječi dvostranski sporazum o cestnem prevozu s Švico, da se dovoli kabotaža pri opravljanju mednarodnih avtobusnih prevozov potnikov v obmejnih regijah obeh držav",
+        "pt": "Habilitar a Áustria a alterar o seu atual acordo bilateral de transporte rodoviário com a Suíça com vista a autorizar as operações de cabotagem no decurso da prestação de serviços de transporte rodoviário internacional de passageiros em autocarro nas regiões fronteiriças entre os dois países",
+        "et": "Austriale volituste andmine muuta olemasolevat Šveitsiga sõlmitud kahepoolset maanteetranspordi lepingut, et lubada kabotaažvedusid rahvusvaheliste bussiveoteenuste osutamisel kahe riigi vahelistel piirialadel",
+        "es": "Concesión a Austria de la facultad para modificar su acuerdo bilateral existente de transporte por carretera con Suiza, con el fin de autorizar las operaciones de cabotaje durante la prestación de servicios de transporte internacional de viajeros por carretera en autocar y autobús en las regiones fronterizas entre ambos países",
+        "it": "Autorizzazione per l'Austria a modificare il suo accordo bilaterale con la Svizzera sul trasporto su strada al fine di autorizzare operazioni di cabotaggio nell'ambito della fornitura di servizi di trasporto internazionale su strada di passeggeri a mezzo autobus nelle regioni frontaliere tra i due paesi",
+        "lt": "Įgaliojimų Austrijai iš dalies pakeisti dabartinį dvišalį kelių transporto susitarimą su Šveicarija, kad teikiant tarptautinio keleivių vežimo kelių transportu paslaugas tolimojo susisiekimo ir miesto autobusais šių dviejų šalių pasienio regionuose būtų leidžiama vykdyti kabotažo operacijas, suteikimas",
+        "mt": "L-għoti tas-setgħa lill-Awstrija li temenda l-ftehim bilaterali eżistenti tagħha dwar it-trasport bit-triq mal-Iżvizzera bil-għan li tawtorizza l-operazzjonijiet ta’ kabotaġġ waqt l-għoti ta’ servizzi tat-trasport internazzjonali bit-triq tal-passiġġieri bil-kowċ u bix-xarabank fir-reġjuni ta’ mal-fruntiera bejn iż-żewġ pajjiżi",
+        "lv": "Lēmums pilnvarot Austriju grozīt tās spēkā esošo divpusējo autotransporta nolīgumu ar Šveici, lai atļautu kabotāžas pārvadājumus, kad pierobežas reģionos starp abām valstīm tiek sniegti starptautiski pasažieru autopārvadājumu pakalpojumi ar autobusiem",
+        "sk": "Splnomocnenie Rakúska zmeniť jeho dvojstrannú dohodu o cestnej doprave so Švajčiarskom s cieľom povoliť kabotážnu prepravu počas prevádzkovania medzinárodnej cestnej osobnej autokarovej a autobusovej dopravy v pohraničných regiónoch medzi týmito dvoma krajinami",
+        "pl": "Upoważnienie Austrii do zmiany jej obowiązującej dwustronnej umowy o transporcie drogowym ze Szwajcarią w celu dopuszczenia przewozów kabotażowych w regionach przygranicznych w ramach świadczenia międzynarodowych usług przewozu drogowego osób autokarem i autobusem między tymi dwoma państwami",
+        "el": "Εξουσιοδότηση της Αυστρίας να τροποποιήσει την ισχύουσα διμερή συμφωνία οδικών μεταφορών με την Ελβετία με σκοπό να επιτραπούν οι υπηρεσίες ενδομεταφορών στο πλαίσιο της εκτέλεσης διεθνών οδικών επιβατικών μεταφορών με πούλμαν και λεωφορεία στις παραμεθόριες περιοχές μεταξύ των δύο χωρών",
+        "fr": "Habiliter l’Autriche à modifier son accord bilatéral existant de transport routier avec la Suisse en vue d’autoriser les transports de cabotage lors de la prestation de services de transport international routier de voyageurs par autocars et autobus dans les régions frontalières entre les deux pays",
+        "sv": "Bemyndigande för Österrike att ändra sitt befintliga bilaterala avtal om vägtransporter med Schweiz i syfte att tillåta cabotagetrafik vid internationella persontransporter med buss i de båda ländernas gränsregioner",
+        "hr": "Davanje ovlasti Austriji za izmjenu njezina postojećeg bilateralnog sporazuma o cestovnom prijevozu sa Švicarskom kako bi se dozvolila kabotaža prilikom pružanja usluga međunarodnog cestovnog prijevoza putnika običnim i turističkim autobusima u pograničnim regijama tih dviju zemalja",
+        "cs": "Zmocnění Rakouska ke změně své stávající dvoustranné dohody o silniční dopravě se Švýcarskem za účelem povolení kabotáže v rámci provozování mezinárodní osobní silniční autokarové a autobusové dopravy v příhraničních oblastech mezi oběma zeměmi",
+        "ga": "Cumhacht a thabhairt don Ostair an comhaontú déthaobhach um iompar de bhóthar atá aici cheana leis an Eilvéis a leasú d’fhonn oibríochtaí cabatáiste a údarú le linn seirbhísí iompair idirnáisiúnta de bhóthar do phaisinéirí i gcóiste agus i mbus a bheith á soláthar i réigiúin na teorann idir an dá thír",
+        "bg": "Оправомощаване на Австрия да измени съществуващото си двустранно споразумение с Швейцария относно автомобилния транспорт с цел да бъдат разрешени каботажните превози при предоставянето на услуги за международен автобусен превоз на пътници в граничните региони на двете държави",
+        "fi": "Itävallan valtuuttaminen muuttamaan Sveitsin kanssa tekemäänsä kahdenvälistä tieliikennesopimusta kabotaasiliikenteen sallimiseksi linja-autolla harjoitettavan maanteiden kansainvälisen henkilöliikenteen yhteydessä näiden kahden maan välisillä raja-alueilla",
+        "en": "Empowering Austria to amend its existing bilateral road transport agreement with Switzerland with a view to authorising cabotage operations in the course of the provision of international road passenger transport services by coach and bus in the border regions between the two countries",
+        "ro": "Împuternicire a Austriei să modifice Acordul bilateral existent privind transportul rutier încheiat cu Elveția, în vederea autorizării operațiunilor de cabotaj în cursul furnizării de servicii de transport rutier internațional de călători cu autocarul și autobuzul în regiunile de frontieră dintre cele două țări",
+        "da": "Bemyndigelse af Østrig til at ændre sin eksisterende bilaterale aftale om vejtransport med Schweiz med henblik på at tillade cabotagekørsel i forbindelse med udøvelse af international personbefordring ad vej med bus i grænseregionerne mellem de to lande",
+        "hu": "Ausztriának a Svájccal kötött, közúti szállításról szóló meglévő kétoldalú megállapodásának a két ország között, a határ menti régiókban autóbusszal végzett nemzetközi közúti személyszállítási szolgáltatások nyújtása során folytatott kabotázsműveletek engedélyezése céljából történő módosítására való felhatalmazása"
+      },
+      "process_type": "def/ep-procedure-types/COD",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-45",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-45",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "notation_agendaPoint": "V-45"
+        }
+      ],
+      "label": "2025/0407(COD)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

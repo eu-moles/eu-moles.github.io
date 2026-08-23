@@ -1,0 +1,334 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-2248",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/2025-2248-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2025-2248-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0250"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/CJ37-PR-784194-DEPOT-2026-03-03",
+          "type": "Activity",
+          "activity_date": "2026-03-03",
+          "activity_id": "CJ37-PR-784194-DEPOT-2026-03-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/CJ37-PR-784194"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/CJ37-AM-786769-DEPOT-2026-03-25",
+          "type": "Activity",
+          "activity_date": "2026-03-25",
+          "activity_id": "CJ37-AM-786769-DEPOT-2026-03-25",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/CJ37-AM-786769"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2248-ANPRO-2025-12-18",
+          "type": "Activity",
+          "activity_date": "2025-12-18",
+          "activity_id": "2025-2248-ANPRO-2025-12-18",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2248-DEC-ADCP-2026-06-23",
+          "type": "Decision",
+          "activity_date": "2026-06-23",
+          "activity_id": "2025-2248-DEC-ADCP-2026-06-23",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-19",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-19",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-19",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-19"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2025-2248-DEPOT-2026-06-29",
+          "type": "Activity",
+          "activity_date": "2026-06-29",
+          "activity_id": "2025-2248-DEPOT-2026-06-29",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0187"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/CJ37-AM-786741-DEPOT-2026-06-22",
+          "type": "Activity",
+          "activity_date": "2026-06-22",
+          "activity_id": "CJ37-AM-786741-DEPOT-2026-06-22",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/CJ37-AM-786741"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/CJ37-AM-785443-DEPOT-2026-03-25",
+          "type": "Activity",
+          "activity_date": "2026-03-25",
+          "activity_id": "CJ37-AM-785443-DEPOT-2026-03-25",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/CJ37-AM-785443"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992924",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992924",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0187"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-019"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0250",
+        "eli/dl/doc/A-10-2026-0187",
+        "eli/dl/doc/CJ37-PR-784194"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-256968-2026-03-11",
+          "type": "Participation",
+          "activity_date": "2026-03-11",
+          "had_participant_person": [
+            "person/256968"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1101
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-257054-2026-03-05",
+          "type": "Participation",
+          "activity_date": "2026-03-05",
+          "had_participant_person": [
+            "person/257054"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 403
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-256811-2026-01-15",
+          "type": "Participation",
+          "activity_date": "2026-01-15",
+          "had_participant_person": [
+            "person/256811"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1104
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-197574-2026-02-24",
+          "type": "Participation",
+          "activity_date": "2026-02-24",
+          "had_participant_person": [
+            "person/197574"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 407
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMCOR-190713-DEVE-2026-03-02",
+          "type": "Participation",
+          "activity_date": "2026-03-02",
+          "had_participant_person": [
+            "person/190713"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/DEVE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 401
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-197500-2026-03-18",
+          "type": "Participation",
+          "activity_date": "2026-03-18",
+          "had_participant_person": [
+            "person/197500"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 406
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-256942-2026-03-25",
+          "type": "Participation",
+          "activity_date": "2026-03-25",
+          "had_participant_person": [
+            "person/256942"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ESN",
+          "precedenceOrder": 408
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-MAIN-DEVE",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/DEVE"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-256899-2026-03-26",
+          "type": "Participation",
+          "activity_date": "2026-03-26",
+          "had_participant_person": [
+            "person/256899"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 402
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-MAIN-ENVI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ENVI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-256823-2026-03-04",
+          "type": "Participation",
+          "activity_date": "2026-03-04",
+          "had_participant_person": [
+            "person/256823"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 1107
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMSR-197400-2026-03-26",
+          "type": "Participation",
+          "activity_date": "2026-03-26",
+          "had_participant_person": [
+            "person/197400"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 405
+        },
+        {
+          "id": "eli/dl/participation/2025-2248-NMCOR-257727-ENVI-2026-03-02",
+          "type": "Participation",
+          "activity_date": "2026-03-02",
+          "had_participant_person": [
+            "person/257727"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1102
+        }
+      ],
+      "process_id": "2025-2248",
+      "process_title": {
+        "el": "Εφαρμογή και υλοποίηση των Στόχων Βιώσιμης Ανάπτυξης ενόψει του Πολιτικού Φόρουμ Υψηλού Επιπέδου του 2026",
+        "de": "Umsetzung und Erreichung der Ziele für nachhaltige Entwicklung im Hinblick auf das Hochrangige Politische Forum 2026",
+        "fi": "Kestävän kehityksen tavoitteiden täytäntöönpano ja tulokset valmistauduttaessa vuoden 2026 korkean tason poliittiseen foorumiin",
+        "mt": "L-implimentazzjoni u t-twettiq tal-Għanijiet ta’ Żvilupp Sostenibbli fid-dawl tal-Forum Politiku ta’ Livell Għoli tal-2026",
+        "lv": "Ilgtspējīgas attīstības mērķu rezultatīva īstenošana, gatavojoties Augsta līmeņa politiskā foruma 2026. gada sanāksmei",
+        "hr": "Provedba i ostvarivanje ciljeva održivog razvoja uoči političkog foruma na visokoj razini 2026.",
+        "fr": "Mise en œuvre et réalisation des objectifs de développement durable dans la perspective du forum politique de haut niveau de 2026",
+        "ro": "Punerea în aplicare și realizarea obiectivelor de dezvoltare durabilă în perspectiva Forumului politic la nivel înalt din 2026",
+        "pl": "Wdrażanie i realizacja celów zrównoważonego rozwoju z myślą o Forum Politycznym Wysokiego Szczebla w 2026 r.",
+        "bg": "Изпълнение и постигане на целите за устойчиво развитие с оглед на Политическия форум на високо равнище през 2026 г.",
+        "hu": "A fenntartható fejlődési célok végrehajtása és teljesítése, tekintettel a 2026. évi magas szintű politikai fórumra",
+        "et": "Kestliku arengu eesmärkide rakendamine ja täitmine 2026. aasta kõrgetasemelist poliitilist foorumit silmas pidades",
+        "sk": "Vykonávanie a plnenie cieľov udržateľného rozvoja so zreteľom na politické fórum na vysokej úrovni v roku 2026",
+        "lt": "Darnaus vystymosi tikslų įgyvendinimas ir vykdymas atsižvelgiant į 2026 m. aukšto lygio politinį forumą",
+        "da": "Gennemførelse og opfyldelse af verdensmålene for bæredygtig udvikling med henblik på Politisk Forum på Højt Niveau 2026",
+        "pt": "Execução e consecução dos objetivos de desenvolvimento sustentável na perspetiva do fórum político de alto nível de 2026",
+        "nl": "Tenuitvoerlegging en verwezenlijking van de duurzameontwikkelingsdoelstellingen met het oog op het politiek forum op hoog niveau in 2026",
+        "it": "Attuazione e realizzazione degli obiettivi di sviluppo sostenibile in vista del forum politico di alto livello del 2026",
+        "en": "Implementation and delivery of the Sustainable Development Goals in view of the 2026 High-Level Political Forum",
+        "ga": "Na Spriocanna Forbartha Inbhuanaithe a chur chun feidhme agus a bhaint amach i bhfianaise Fhóram Polaitiúil Ardleibhéil 2026",
+        "sl": "Izvajanje in uresničevanje ciljev trajnostnega razvoja pred političnim forumom na visoki ravni leta 2026",
+        "sv": "Genomförandet och uppnåendet av målen för hållbar utveckling inför Politiska högnivåforumet 2026",
+        "es": "Aplicación y cumplimiento de los Objetivos de Desarrollo Sostenible en vista del Foro Político de Alto Nivel de 2026",
+        "cs": "Provádění a plnění cílů udržitelného rozvoje s ohledem na politické fórum na vysoké úrovni v roce 2026"
+      },
+      "process_type": "def/ep-procedure-types/INI",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-19",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-19",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-19"
+        }
+      ],
+      "label": "2025/2248(INI)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

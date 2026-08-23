@@ -1,0 +1,276 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-0090",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992921",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992921",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0180"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-011"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-11",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-11",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-11",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-11"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-0090-DEPOT-2026-06-24",
+          "type": "Activity",
+          "activity_date": "2026-06-24",
+          "activity_id": "2026-0090-DEPOT-2026-06-24",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0180"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/BUDG-PR-787947-DEPOT-2026-05-13",
+          "type": "Activity",
+          "activity_date": "2026-05-13",
+          "activity_id": "BUDG-PR-787947-DEPOT-2026-05-13",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/BUDG-PR-787947"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0180-AM-001-003-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0180-AM-001-003-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0180-AM-001-003"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0090-DEC-ADCP-2026-06-23",
+          "type": "Decision",
+          "activity_date": "2026-06-23",
+          "activity_id": "2026-0090-DEC-ADCP-2026-06-23",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0090-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-0090-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0242"
+          ],
+          "had_activity_type": "http://publications.europa.eu/resource/authority/event/POS_BUDACT_byEP",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0180-AM-004-006-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0180-AM-004-006-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0180-AM-004-006"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0090-ANPRO-2026-06-18",
+          "type": "Activity",
+          "activity_date": "2026-06-18",
+          "activity_id": "2026-0090-ANPRO-2026-06-18",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/BUDG-PR-787947",
+        "eli/dl/doc/A-10-2026-0180",
+        "eli/dl/doc/TA-10-2026-0242"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-0090-NMSR-256941-2025-02-10",
+          "type": "Participation",
+          "activity_date": "2025-02-10",
+          "had_participant_person": [
+            "person/256941"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ESN",
+          "precedenceOrder": 608
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-NMCP-197514-BUDG-2024-12-04",
+          "type": "Participation",
+          "activity_date": "2024-12-04",
+          "had_participant_person": [
+            "person/197514"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/BUDG",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 601
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-MAIN-BUDG",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/BUDG"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-NMSR-58766-2025-01-16",
+          "type": "Participation",
+          "activity_date": "2025-01-16",
+          "had_participant_person": [
+            "person/58766"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 606
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-NMSR-197810-2024-12-02",
+          "type": "Participation",
+          "activity_date": "2024-12-02",
+          "had_participant_person": [
+            "person/197810"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 602
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-NMSR-96826-2024-12-12",
+          "type": "Participation",
+          "activity_date": "2024-12-12",
+          "had_participant_person": [
+            "person/96826"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 603
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-NMSR-257083-2025-01-16",
+          "type": "Participation",
+          "activity_date": "2025-01-16",
+          "had_participant_person": [
+            "person/257083"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 607
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-NMSR-257104-2025-01-07",
+          "type": "Participation",
+          "activity_date": "2025-01-07",
+          "had_participant_person": [
+            "person/257104"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 604
+        },
+        {
+          "id": "eli/dl/participation/2026-0090-NMSR-257020-2025-10-23",
+          "type": "Participation",
+          "activity_date": "2025-10-23",
+          "had_participant_person": [
+            "person/257020"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 605
+        }
+      ],
+      "process_id": "2026-0090",
+      "process_title": {
+        "it": "Progetto di bilancio rettificativo n. 1/2026 – Iscrizione dell'eccedenza dell'esercizio 2025",
+        "lt": "Taisomojo biudžeto Nr. 1/2026 projektas „2025 finansinių metų pertekliaus įtraukimas“",
+        "en": "Draft amending budget no 1/2026: entering the surplus of the financial year 2025",
+        "hu": "1/2026. sz. költségvetésmódosítás-tervezet: a 2025-ös pénzügyi év többletének bevitele a költségvetésbe",
+        "el": "Σχέδιο διορθωτικού προϋπολογισμού αριθ. 1/2026: εγγραφή του πλεονάσματος του οικονομικού έτους 2025",
+        "sk": "Návrh opravného rozpočtu č. 1/2026: zahrnutie prebytku z rozpočtového roka 2025",
+        "es": "Proyecto de presupuesto rectificativo n.º 1/2026: consignación del excedente del ejercicio presupuestario 2025",
+        "pt": "Projeto de orçamento retificativo n.º 1/2026: inscrição do excedente do exercício de 2025",
+        "de": "Entwurf des Berichtigungshaushaltsplans Nr. 1/2026: Einstellung des Haushaltsüberschusses 2025",
+        "sv": "Förslag till ändringsbudget nr 1: införande av överskottet från budgetåret 2025",
+        "sl": "Predlog spremembe proračuna št. 1 k splošnemu proračunu za leto 2026 – vknjižba presežka iz proračunskega leta 2025",
+        "mt": "Abbozz ta’ baġit emendatorju Nru 1/2026: dħul tas-surplus tas-sena finanzjarja 2025",
+        "et": "Paranduseelarve projekt nr 1/2026: 2025. aasta ülejäägi kandmine eelarvesse",
+        "fi": "Lisätalousarvioesitys nro 1/2026: varainhoitovuoden 2025 ylijäämän ottaminen talousarvioon",
+        "bg": "Проект на коригиращ бюджет № 1/2026: вписване на излишъка от финансовата 2025 година",
+        "pl": "Projekt budżetu korygującego nr 1/2026: zapisanie nadwyżki z roku budżetowego 2025",
+        "cs": "Návrh opravného rozpočtu č. 1/2026: zahrnutí přebytku za rozpočtový rok 2025",
+        "nl": "Ontwerp van gewijzigde begroting nr. 1/2026:  opname van het overschot van het begrotingsjaar 2025",
+        "fr": "Projet de budget rectificatif n° 1/2026: budgétisation de l’excédent de l’exercice 2025",
+        "lv": "Budžeta grozījuma Nr. 1/2026 projekts: 2025. finanšu gada pārpalikuma ieskaitīšana",
+        "hr": "Nacrt izmjene proračuna br. 1 za opći proračun za 2026.: Unošenje viška iz financijske godine 2025.",
+        "da": "Forslag til ændringsbudget nr. 1/2026 – Opførelse af overskuddet for regnskabsåret 2025",
+        "ro": "Proiectul de buget rectificativ nr. 1/2026: înregistrarea excedentului aferent exercițiului financiar 2025",
+        "ga": "Dréachtbhuiséad leasaitheach Uimh. 1/2026: lena n-iontráiltear barrachas na bliana airgeadais 2025"
+      },
+      "process_type": "def/ep-procedure-types/BUD",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-59",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-59",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-59"
+        }
+      ],
+      "label": "2026/0090(BUD)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

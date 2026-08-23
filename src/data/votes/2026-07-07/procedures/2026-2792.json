@@ -1,0 +1,99 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2792",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992946",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992946",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0338"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-002"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-2792-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-2792-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0233"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-2",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-2",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-02",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-02"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0233",
+        "eli/dl/doc/B-10-2026-0338"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "process_id": "2026-2792",
+      "process_title": {
+        "mt": "Proposta għal deċiżjoni li titlob lill-Awtorità għall-Partiti Politiċi Ewropej u l-Fondazzjonijiet Politiċi Ewropej tivverifika jekk il-Partit Ewropa tan-Nazzjonijiet Sovrani jikkonformax mal-kundizzjonijiet stabbiliti fl-Artikolu 3(1), il-punti (d) u (e), tar-Regolament (UE, Euratom) 2025/2445",
+        "nl": "Voorstel voor een besluit om de Autoriteit voor Europese politieke partijen en Europese politieke stichtingen te verzoeken na te gaan of de partij Europa van Soevereine Naties voldoet aan de voorwaarden die zijn vastgelegd in artikel 3, lid 1, punten d) en e), van Verordening (EU, Euratom) 2025/2445",
+        "es": "Propuesta de decisión por la que se solicita a la Autoridad para los partidos políticos europeos y las fundaciones políticas europeas que verifique si el partido Europa de las Naciones Soberanas cumple los requisitos establecidos en el artículo 3, apartado 1, letras d) y e), del Reglamento (UE, Euratom) 2025/2445",
+        "et": "Ettepanek võtta vastu otsus, millega palutakse Euroopa tasandi erakondade ja Euroopa tasandi poliitiliste sihtasutuste ametil kontrollida, kas Suveräänsete Rahvusriikide Euroopa erakond täidab määruse (EL, Euratom) 2025/2445 artikli 3 lõike 1 punktides d ja e sätestatud tingimusi",
+        "de": "Vorschlag für einen Beschluss, mit dem die Behörde für europäische politische Parteien und europäische politische Stiftungen aufgefordert wird, zu prüfen, ob die Partei Europa der Souveränen Nationen die Voraussetzungen gemäß Artikel 3 Absatz 1 Buchstaben d und e der Verordnung (EU, Euratom) 2025/2445 erfüllt",
+        "sv": "Förslag till beslut om en begäran till myndigheten för europeiska politiska partier och europeiska politiska stiftelser att kontrollera om gruppen Europa av suveräna nationer uppfyller villkoren i artikel 3.1 d och e i förordning (EU, Euratom) 2025/2445",
+        "fi": "Ehdotus päätökseksi, jolla pyydetään Euroopan tason poliittisista puolueista ja ja Euroopan tason poliittisista säätiöistä vastaavaa viranomaista tarkistamaan, täyttääkö Suvereenien kansakuntien Eurooppa -puolue asetuksen (EU, Euratom) 2025/2445 3 artiklan 1 kohdan d ja e alakohdassa säädetyt edellytykset",
+        "hr": "Prijedlog odluke kojom se od Tijela za europske političke stranke i europske političke zaklade traži da provjeri ispunjava li stranka Europa suverenih nacija uvjete utvrđene u članku 3. stavku 1. točkama (d) i (e) Uredbe (EU, Euratom) 2025/2445",
+        "bg": "Предложение за решение, с което към Органа за европейските политически партии и европейските политически фондации се отправя искане да провери дали партията „Европа на суверенните нации“ спазва условията, предвидени в член 3, параграф 1, букви г) и д) от Регламент (ЕС, Евратом) 2025/2445",
+        "en": "Proposal for a decision requesting the Authority for European Political Parties and European Political Foundations to verify whether Europe of Sovereign Nations Party complies with the conditions laid down in Article 3(1), points (d) and (e), of Regulation (EU, Euratom) 2025/2445",
+        "hu": "Határozatra irányuló javaslat, amely felkéri az Európai Politikai Pártok és Európai Politikai Alapítványok Hatóságát annak ellenőrzésére, hogy a Szuverén Nemzetek Európája párt megfelel-e az (EU, Euratom) 2025/2445 rendelet 3. cikke (1) bekezdésének d) és e) pontjában foglalt feltételeknek",
+        "ga": "Togra le haghaidh cinneadh ina n-iarrtar ar an Údarás um Páirtithe Polaitiúla Eorpacha agus um Fhondúireachtaí Polaitiúla Eorpacha a fhíorú an gcomhlíonann an Páirtí 'Eoraip na Náisiún Ceannasach' na coinníollacha arna leagan síos in Airteagal 3(1), pointí (d) agus (e), de Rialachán (AE, Euratom) 2025/2445",
+        "el": "Πρόταση απόφασης με την οποία ζητείται από την Αρχή για τα Ευρωπαϊκά Πολιτικά Κόμματα και τα Ευρωπαϊκά Πολιτικά Ιδρύματα να ελέγξει αν η Ομάδα «H Ευρώπη των Κυρίαρχων Εθνών» συμμορφώνεται με τις προϋποθ΄έσεις του άρθρου 3 παράγραφος στοιχεία δ) και ε) του κανονισμού (ΕΕ, Ευρατόμ) 2025/2445",
+        "lt": "Pasiūlymas dėl sprendimo, kuriuo Europos politinių partijų ir Europos politinių fondų institucijos prašoma patikrinti, ar Suverenių tautų Europos partija atitinka sąlygas, nustatytas Reglamento (ES, Euratomas) 2025/2445 3 straipsnio 1 dalies d ir e punktuose",
+        "pl": "Wniosek dotyczący decyzji w sprawie zwrócenia się do Urzędu ds. Europejskich Partii Politycznych i Europejskich Fundacji Politycznych o sprawdzenie, czy partia Europa Suwerennych Narodów spełnia warunki przewidziane w art. 3 ust. 1 lit. d) i e) rozporządzenia (UE, Euratom) 2025/2445",
+        "sk": "Návrh rozhodnutia, ktorým sa Úrad pre európske politické strany a európske politické nadácie žiada, aby overil, či strana Európa suverénnych národov spĺňa podmienky stanovené v článku 3 ods. 1 písm. d) a e) nariadenia (EÚ, Euratom) 2025/2445",
+        "da": "Forslag til afgørelse om at anmode Myndigheden for Europæiske Politiske Partier og Europæiske Politiske Fonde om at kontrollere, om partiet  Europa af Suveræne Nationer overholder de betingelser, der er fastsat i artikel 3, stk. 1, litra d) og e), i forordning (EU, Euratom) 2025/2445 ",
+        "sl": "Predlog sklepa o zaprosilu Organu za evropske politične stranke in evropske politične fundacije, naj preveri, ali stranka Evropa suverenih narodov izpolnjuje pogoje iz člena 3(1), točki (d) in (e), Uredbe  (EU, Euratom) 2025/2445",
+        "ro": "Propunere de decizie prin care se solicită Autorității pentru partidele politice europene și fundațiile politice europene să verifice dacă Partidul „Europa Națiunilor Suverane” respectă condițiile prevăzute la articolul 3 alineatul (1) literele (d) și (e) din Regulamentul (UE, Euratom) 2025/2445",
+        "it": "Proposta di decisione con cui si chiede all'Autorità per i partiti politici europei e le fondazioni politiche europee di verificare se il gruppo \"Europa delle Nazioni Sovrane\" rispetta le condizioni di cui all'articolo 3, paragrafo 1, lettere d) ed e), del regolamento (UE, Euratom) 2025/2445",
+        "fr": "Proposition de décision demandant à l'Autorité pour les partis politiques européens et les fondations politiques européennes de vérifier si le parti Europe des nations souveraines satisfait aux conditions énoncées à l'article 3, paragraphe 1, points d) et e) du règlement (UE, Euratom) 2025/2445",
+        "pt": "Proposta de decisão que solicita à Autoridade para os Partidos Políticos Europeus e as Fundações Políticas Europeias que verifique se o partido Europa das Nações Soberanas cumpre as condições estabelecidas no artigo 3.º, n.º 1, alíneas d) e e) do Regulamento (UE, Euratom) 2025/2445 ",
+        "lv": "Priekšlikums lēmumam, ar ko pieprasa Eiropas politisko partiju un Eiropas politisko fondu iestādei pārbaudīt, vai partija “Suverēnu nāciju Eiropa” atbilst Regulas (ES, Euratom) 2025/2445 3. panta 1. punkta d) un e) apakšpunkta nosacījumiem",
+        "cs": "Návrh rozhodnutí, kterým se Úřad pro evropské politické strany a evropské politické nadace žádá, aby ověřil, zda strana Evropa suverénních národů splňuje podmínky stanovené v čl. 3 odst. 1 písm. d) a e) nařízení (EU, Euratom) 2025/2445"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-109",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-109",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-109"
+        }
+      ],
+      "label": "2026/2792(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

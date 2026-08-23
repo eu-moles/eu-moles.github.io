@@ -1,0 +1,421 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-2169",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/A-10-2026-0189-AM-010-012-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0189-AM-010-012-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0189-AM-010-012"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0189-AM-008-009-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0189-AM-008-009-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0189-AM-008-009"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-15",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-15",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-15",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-15"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992925",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992925",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0189"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-015"
+          ]
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0189-AM-003-007-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0189-AM-003-007-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0189-AM-003-007"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2169-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2025-2169-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0246"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/AFET-PR-776904-DEPOT-2026-01-27",
+          "type": "Activity",
+          "activity_date": "2026-01-27",
+          "activity_id": "AFET-PR-776904-DEPOT-2026-01-27",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/AFET-PR-776904"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2169-DEC-ADCP-INTA-2026-05-06",
+          "type": "Decision",
+          "activity_date": "2026-05-06",
+          "activity_id": "2025-2169-DEC-ADCP-INTA-2026-05-06",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/INTA-AD-785196"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_OPINION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2169-DEC-ADCP-2026-06-24",
+          "type": "Decision",
+          "activity_date": "2026-06-24",
+          "activity_id": "2025-2169-DEC-ADCP-2026-06-24",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0189-AM-001-002-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0189-AM-001-002-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0189-AM-001-002"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2169-ANPRO-2025-09-11",
+          "type": "Activity",
+          "activity_date": "2025-09-11",
+          "activity_id": "2025-2169-ANPRO-2025-09-11",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/AFET-AM-787006-DEPOT-2026-04-14",
+          "type": "Activity",
+          "activity_date": "2026-04-14",
+          "activity_id": "AFET-AM-787006-DEPOT-2026-04-14",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/AFET-AM-787006"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2169-DEPOT-2026-06-30",
+          "type": "Activity",
+          "activity_date": "2026-06-30",
+          "activity_id": "2025-2169-DEPOT-2026-06-30",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0189"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0189",
+        "eli/dl/doc/AFET-PR-776904",
+        "eli/dl/doc/INTA-PA-785196",
+        "eli/dl/doc/INTA-AD-785196",
+        "eli/dl/doc/TA-10-2026-0246"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-2169-AVI-INTA",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/INTA"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-190517-2025-10-17",
+          "type": "Participation",
+          "activity_date": "2025-10-17",
+          "had_participant_person": [
+            "person/190517"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW_OPINION",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 507
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-124766-2025-10-17",
+          "type": "Participation",
+          "activity_date": "2025-10-17",
+          "had_participant_person": [
+            "person/124766"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW_OPINION",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 505
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-2268-2026-02-19",
+          "type": "Participation",
+          "activity_date": "2026-02-19",
+          "had_participant_person": [
+            "person/2268"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 107
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-257437-2025-10-17",
+          "type": "Participation",
+          "activity_date": "2025-10-17",
+          "had_participant_person": [
+            "person/257437"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW_OPINION",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 506
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-256841-2026-02-05",
+          "type": "Participation",
+          "activity_date": "2026-02-05",
+          "had_participant_person": [
+            "person/256841"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 105
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-197802-2026-04-14",
+          "type": "Participation",
+          "activity_date": "2026-04-14",
+          "had_participant_person": [
+            "person/197802"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 106
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-257081-2026-04-13",
+          "type": "Participation",
+          "activity_date": "2026-04-13",
+          "had_participant_person": [
+            "person/257081"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 101
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMCP-23788-AFET-2025-09-04",
+          "type": "Participation",
+          "activity_date": "2025-09-04",
+          "had_participant_person": [
+            "person/23788"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/AFET",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 104
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-256997-2026-02-02",
+          "type": "Participation",
+          "activity_date": "2026-02-02",
+          "had_participant_person": [
+            "person/256997"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 102
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-5729-2025-10-17",
+          "type": "Participation",
+          "activity_date": "2025-10-17",
+          "had_participant_person": [
+            "person/5729"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW_OPINION",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 502
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-MAIN-AFET",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/AFET"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-197580-2025-10-17",
+          "type": "Participation",
+          "activity_date": "2025-10-17",
+          "had_participant_person": [
+            "person/197580"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW_OPINION",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 503
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMCP-220871-INTA-2025-07-15",
+          "type": "Participation",
+          "activity_date": "2025-07-15",
+          "had_participant_person": [
+            "person/220871"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/INTA",
+          "participation_role": "def/ep-roles/RAPPORTEUR_OPINION",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 504
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-257040-2025-10-17",
+          "type": "Participation",
+          "activity_date": "2025-10-17",
+          "had_participant_person": [
+            "person/257040"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW_OPINION",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 501
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-130881-2026-02-09",
+          "type": "Participation",
+          "activity_date": "2026-02-09",
+          "had_participant_person": [
+            "person/130881"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 103
+        },
+        {
+          "id": "eli/dl/participation/2025-2169-NMSR-256959-2026-04-15",
+          "type": "Participation",
+          "activity_date": "2026-04-15",
+          "had_participant_person": [
+            "person/256959"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ESN",
+          "precedenceOrder": 108
+        }
+      ],
+      "process_id": "2025-2169",
+      "process_title": {
+        "pt": "Recomendação ao Conselho, à Comissão e à vice-presidente da Comissão/alta representante da União para os Negócios Estrangeiros e a Política de Segurança referente à evolução da situação geopolítica na Ásia Oriental e a necessidade de uma cooperação mais estreita com os parceiros que comungam dos mesmos ideais na região",
+        "et": "Soovitus nõukogule, komisjonile ja komisjoni asepresidendile ning liidu välisasjade ja julgeolekupoliitika kõrgele esindajale, mis käsitleb muutuvat geopoliitilist olukorda Ida-Aasias ja vajadust teha tihedamat koostööd piirkonna sarnaselt meelestatud partneritega",
+        "ga": "Moladh don Chomhairle, don Choimisiún agus do Leas-Uachtarán an Choimisiúin / Ardionadaí an Aontais do Ghnóthaí Eachtracha agus don Bheartas Slándála maidir leis an staid gheopholaitiúil atá ag athrú san Áise Thoir agus an gá atá le comhar níos dlúithe le comhpháirtithe atá ar aon intinn sa réigiún",
+        "sk": "Odporúčanie Rade, Komisii a podpredsedníčke Komisie/vysokej predstaviteľke Únie pre zahraničné veci a bezpečnostnú politiku k meniacej sa geopolitickej situácii vo východnej Ázii a k potrebe užšej spolupráce s podobne zmýšľajúcimi partnermi v regióne ",
+        "mt": "Rakkomandazzjoni lill-Kunsill, lill-Kummissjoni u lill-Viċi President tal-Kummissjoni/Rappreżentant Għoli tal-Unjoni għall-Affarijiet Barranin u l-Politika ta’ Sigurtà dwar is-sitwazzjoni ġeopolitika li qed tinbidel fl-Asja tal-Lvant u l-ħtieġa ta’ koooperazzjoni eqreb mas-sħab tal-istess fehma fir-reġjun",
+        "ro": "Recomandare adresată Consiliului, Comisiei și Vicepreședintei Comisiei/Înaltei Reprezentante a Uniunii pentru afaceri externe și politica de securitate privind situația geopolitică în schimbare din Asia de Est și necesitatea unei cooperări mai strânse cu partenerii regionali cu aceeași viziune",
+        "sv": "Rekommendation till rådet, kommissionen och vice ordföranden för kommissionen/unionens höga representant för utrikes frågor och säkerhetspolitik om den föränderliga geopolitiska situationen i Östasien och behovet av ett närmare samarbete med likasinnade partner i regionen",
+        "de": "Empfehlung an den Rat, an die Kommission und die Vizepräsidentin der Kommission und Hohe Vertreterin der Union für Außen- und Sicherheitspolitik zu der sich wandelnden geopolitischen Lage in Ostasien und der notwendigen engeren Zusammenarbeit mit gleichgesinnten Partnern in der Region",
+        "it": "Raccomandazione al Consiglio, alla Commissione e alla vicepresidente della Commissione/alta rappresentante dell'Unione per gli affari esteri e la politica di sicurezza concernente la situazione geopolitica in evoluzione in Asia orientale e la necessità di una maggiore cooperazione con partner che condividono gli stessi principi nella regione ",
+        "cs": "Doporučení Radě, Komisi a místopředsedkyni Komise, vysoké představitelce Unie pro zahraniční věci a bezpečnostní politiku týkající se měnící se geopolitické situace ve východní Asii a potřeby užší spolupráce s podobně smýšlejícími partnery v regionu",
+        "fr": "Recommandation à l'intention du Conseil, de la Commission et de la vice-présidente de la Commission / haute représentante de l'Union pour les affaires étrangères et la politique de sécurité sur l'évolution de la situation géopolitique en Asie orientale et la nécessité d'une coopération plus étroite avec les partenaires qui partagent les mêmes valeurs dans la région",
+        "hr": "Preporuka Vijeću, Komisiji i potpredsjednici Komisije / visokoj predstavnici Unije za vanjske poslove i sigurnosnu politiku o geopolitičkoj situaciji u istočnoj Aziji koja se mijenja i potrebi za tješnjom suradnjom s partnerima sličnih stavova u regiji",
+        "en": "Recommendation for the Council, for the Commission and for the Vice-President of the Commission / High Representative of the Union for Foreign Affairs and Security Policy on the changing geopolitical situation in East Asia and the need for closer cooperation with like-minded partners in the region",
+        "el": "Σύσταση προς το Συμβούλιο, την Επιτροπή και τον Αντιπρόεδρο της Επιτροπής / Ύπατο Εκπρόσωπο της Ένωσης για θέματα εξωτερικής πολιτικής και πολιτικής ασφαλείας σχετικά με τη μεταλλασσόμενη γεωπολιτική κατάσταση στην Ανατολική Ασία και την ανάγκη για στενότερη συνεργασία με ομόφρονες εταίρους στην περιοχή",
+        "sl": "Priporočilo za Svet, Komisijo in podpredsednico Komisije/visoko predstavnico Unije za zunanje zadeve in varnostno politiko o spreminjajočih se geopolitičnih razmerah v vzhodni Aziji in nujnosti tesnejšega sodelovanja s podobno mislečimi partnerji v regiji",
+        "hu": "Ajánlás a Tanácsnak, a Bizottságnak és a Bizottság alelnökének / az Unió külügyi és biztonságpolitikai főképviselőjének a kelet-ázsiai geopolitikai helyzet változásáról és a régióban a hasonló gondolkodású partnerekkel való szorosabb együttműködés szükségességéről",
+        "bg": "Препоръка към Съвета, Комисията и заместник-председателя на Комисията / върховен представител на Съюза по въпросите на външните работи и политиката на сигурност относно променящата се геополитическа обстановка в Източна Азия и необходимостта от по-тясно сътрудничество с единомислещи партньори в региона",
+        "da": "Henstilling til Rådet, Kommissionen og næstformanden for Kommissionen/Unionens højtstående repræsentant for udenrigsanliggender og sikkerhedspolitik om den skiftende geopolitiske situation i Østasien og behovet for et tættere samarbejde med ligesindede partnere i regionen",
+        "es": "Recomendación al Consejo, a la Comisión y a la vicepresidenta de la Comisión / alta representante de la Unión para Asuntos Exteriores y Política de Seguridad sobre la situación geopolítica cambiante en Asia Oriental y la necesidad de una cooperación más estrecha con socios afines de la región",
+        "lt": "Rekomendacija Tarybai, Komisijai ir Komisijos pirmininko pavaduotojai ir Sąjungos vyriausiajai įgaliotinei užsienio reikalams ir saugumo politikai dėl kintančios geopolitinės padėties Rytų Azijoje ir poreikio glaudžiau bendradarbiauti su bendraminčiais partneriais regione",
+        "nl": "Aanbeveling aan de Raad, de Commissie en de vicevoorzitter van de Commissie/hoge vertegenwoordiger van de Unie voor buitenlandse zaken en veiligheidsbeleid betreffende de veranderende geopolitieke situatie in Oost-Azië en de noodzaak om nauwer samen te werken met gelijkgestemde partners in de regio",
+        "lv": "Ieteikums Padomei, Komisijai un Komisijas priekšsēdētājas vietniecei/Savienības Augstajai pārstāvei ārlietās un drošības politikas jautājumos: mainīgā ģeopolitiskā situācija Austrumāzijā un nepieciešamība pēc ciešākas sadarbības ar līdzīgi domājošiem partneriem šajā reģionā",
+        "pl": "Zalecenie dla Rady, Komisji i wiceprzewodniczącej Komisji / wysokiej przedstawicielki Unii do spraw zagranicznych i polityki bezpieczeństwa w sprawie zmieniającej się sytuacji geopolitycznej w Azji Wschodniej i potrzeby ściślejszej współpracy z partnerami o podobnych poglądach w regionie",
+        "fi": "Suositus neuvostolle, komissiolle ja komission varapuheenjohtajalle / unionin ulkoasioiden ja turvallisuuspolitiikan korkealle edustajalle Itä-Aasian muuttuvasta geopoliittisesta tilanteesta ja tarpeesta tiivistää yhteistyötä alueen samanmielisten kumppaneiden kanssa"
+      },
+      "process_type": "def/ep-procedure-types/INI",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-29",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-29",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-29"
+        }
+      ],
+      "label": "2025/2169(INI)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-0150",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-9",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-9",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-09",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-09"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-0150-SIGN-2026-07-14",
+          "type": "Activity",
+          "activity_date": "2026-07-14",
+          "activity_id": "2026-0150-SIGN-2026-07-14",
+          "had_activity_type": "def/ep-activities/SIGNATURE"
+        },
+        {
+          "id": "eli/dl/event/2026-0150-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-0150-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0240"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_ADOPT_POSITION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-0150-PUB-2026-07-21",
+          "type": "Activity",
+          "activity_date": "2026-07-21",
+          "activity_id": "2026-0150-PUB-2026-07-21",
+          "had_activity_type": "def/ep-activities/PUBLICATION_OFFICIAL_JOURNAL"
+        },
+        {
+          "id": "eli/dl/event/2026-0150-ANPRO-2026-06-15",
+          "type": "Activity",
+          "activity_date": "2026-06-15",
+          "activity_id": "2026-0150-ANPRO-2026-06-15",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-06-16-PVCRE-ITM-7-2",
+          "type": "Activity",
+          "activity_date": "2026-06-16",
+          "activity_id": "MTG-PL-2026-06-16-PVCRE-ITM-7-2",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-06-16-ITM-007-02",
+            "eli/dl/doc/PV-10-2026-06-16-ITM-007-02"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/C-10-2026-0185",
+        "eli/dl/doc/TA-10-2026-0240"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": {
+        "id": "eli/dl/participation/2026-0150-MAIN-AGRI",
+        "type": "Participation",
+        "had_participant_organization": [
+          "org/AGRI"
+        ],
+        "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+      },
+      "process_id": "2026-0150",
+      "process_title": {
+        "ga": "Tacaíocht shealadach agus íoc réamhíocaíochtaí maidir le praghsanna leasacháin méadaithe mar thoradh ar an ngéarchéim sa Mheánoirthear",
+        "ro": "Sprijin temporar și plata avansurilor în ceea ce privește creșterea prețurilor la îngrășăminte ca urmare a crizei din Orientul Mijlociu",
+        "el": "Προσωρινή στήριξη και πληρωμές προκαταβολών ως απάντηση στην αύξηση των τιμών των λιπασμάτων λόγω της κρίσης στη Μέση Ανατολή",
+        "lt": "Laikina parama ir išankstiniai mokėjimai reaguojant į dėl Artimųjų Rytų krizės išaugusias trąšų kainas",
+        "pl": "Tymczasowe wsparcie i wypłata zaliczek w odpowiedzi na wzrost cen nawozów spowodowany kryzysem na Bliskim Wschodzie",
+        "sk": "Dočasná podpora a vyplácanie preddavkov v súvislosti so zvýšenými cenami hnojív v dôsledku krízy na Blízkom východe",
+        "en": "Temporary support and payment of advances regarding the increased fertiliser prices due to the Middle East crisis",
+        "fi": "Väliaikainen tuki ja ennakkomaksut Lähi-idän kriisin aiheuttaman lannoitteiden hintojen nousun vuoksi",
+        "hr": "Privremena potpora i isplata predujmova u pogledu povećanih cijena gnojiva zbog krize na Bliskom istoku",
+        "fr": "Soutien temporaire et versement d’avances en réponse à la hausse des prix des engrais due à la crise au Moyen-Orient",
+        "de": "Befristete Unterstützung und Vorschusszahlungen angesichts der infolge der Krise im Nahen Osten gestiegenen Düngemittelpreise",
+        "bg": "Временна подкрепа и плащане на авансови плащания във връзка с повишените цени на торовете поради кризата в Близкия изток",
+        "sl": "Začasna podpora in izplačila predplačil v odziv na višje cene gnojil zaradi krize na Bližnjem vzhodu",
+        "sv": "Tillfälligt stöd och utbetalning av förskott till följd av ökningen av priserna på gödselmedel på grund av krisen i Mellanöstern",
+        "da": "Midlertidig støtte og forskudsbetalinger som en reaktion på stigningen i gødningspriserne som følge af krisen i Mellemøsten",
+        "mt": "Appoġġ temporanju u pagamenti bil-quddiem rigward iż-żieda fil-prezzijiet tal-fertilizzanti minħabba l-kriżi tal-Lvant Nofsani",
+        "nl": "Tijdelijke steun en de betaling van voorschotten in reactie op de gestegen meststoffenprijzen als gevolg van de Midden-Oostencrisis",
+        "it": "Sostegno temporaneo e pagamenti degli anticipi in risposta all'aumento dei prezzi dei concimi dovuto alla crisi in Medio Oriente",
+        "lv": "Pagaidu atbalsts un avansa maksājumi, reaģējot uz mēslošanas līdzekļu cenu pieaugumu Tuvo Austrumu krīzes dēļ",
+        "et": "Ajutine toetus ja ettemaksed seoses Lähis-Ida kriisist tingitud väetisehindade tõusuga",
+        "hu": "Ideiglenes támogatás és előlegfizetés a műtrágyaárak közel-keleti válság miatti emelkedése miatt",
+        "pt": "Apoio temporário e pagamento de adiantamentos em resposta ao aumento dos preços dos adubos devido à crise no Médio Oriente",
+        "cs": "Dočasná podpora a vyplácení záloh v reakci na zvýšené ceny hnojiv v důsledku krize na Blízkém východě",
+        "es": "Ayuda temporal y pago de anticipos en respuesta al aumento de los precios de los fertilizantes a consecuencia de la crisis de Oriente Próximo"
+      },
+      "process_type": "def/ep-procedure-types/COD",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-06-16-OJ-ITM-V-105",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-06-16",
+          "activity_id": "MTG-PL-2026-06-16-OJ-ITM-V-105",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-06-16"
+          ],
+          "had_activity_type": "def/ep-activities/REQUEST_VOTE_URGENCY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "notation_agendaPoint": "V-105"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-71",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-71",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "notation_agendaPoint": "V-71"
+        }
+      ],
+      "label": "2026/0150(COD)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

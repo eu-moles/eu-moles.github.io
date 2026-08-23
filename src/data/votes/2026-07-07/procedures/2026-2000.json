@@ -1,0 +1,142 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2000",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-7-6",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-7-6",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-007-06",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-007-06"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-2000-DEPOT-2026-07-02",
+          "type": "Activity",
+          "activity_date": "2026-07-02",
+          "activity_id": "2026-2000-DEPOT-2026-07-02",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0194"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-2000-DEC-ADCP-2026-07-02",
+          "type": "Decision",
+          "activity_date": "2026-07-02",
+          "activity_id": "2026-2000-DEC-ADCP-2026-07-02",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2026-2000-DEC-DCPL-2026-07-07",
+          "type": "Decision",
+          "activity_date": "2026-07-07",
+          "activity_id": "2026-2000-DEC-DCPL-2026-07-07",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0237"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-VOT-ITM-992973",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-VOT-ITM-992973",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0194"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-VOT-ITM-006"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0237",
+        "eli/dl/doc/A-10-2026-0194"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2000-NMCP-204346-JURI-2026-02-24",
+          "type": "Participation",
+          "activity_date": "2026-02-24",
+          "had_participant_person": [
+            "person/204346"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/JURI",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 2004
+        },
+        {
+          "id": "eli/dl/participation/2026-2000-MAIN-JURI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/JURI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        }
+      ],
+      "process_id": "2026-2000",
+      "process_title": {
+        "et": "Ilhan Kyuchyuki puutumatuse äravõtmise taotlus",
+        "it": "Richiesta di revoca dell'immunità di Ilhan Kyuchyuk",
+        "ga": "Iarraidh ar dhíolúine Ilhan Kyuchyuk a tharscaoileadh",
+        "fr": "Demande de levée de l’immunité d'Ilhan Kyuchyuk",
+        "hu": "Az Ilhan Kyuchyuk mentelmi jogának felfüggesztésére irányuló kérelem",
+        "de": "Antrag auf Aufhebung der Immunität von Ilhan Kyuchyuk",
+        "lt": "Prašymas atšaukti Ilhano Kyuchyuko (Ilhan Kyuchyuk) imunitetą",
+        "pl": "Wniosek o uchylenie immunitetu Ilhana Kyuchyuka",
+        "sv": "Begäran om upphävande av Ilhan Kyuchyuks immunitet ",
+        "da": "Anmodning om ophævelse af Ilhan Kyuchyuks immunitet",
+        "hr": "Zahtjev za ukidanje imuniteta Ilhanu Kyuchyuku",
+        "lv": "Pieprasījums atcelt Ilhan Kyuchyuk imunitāti",
+        "cs": "Žádost, aby byl Ilhan Kyuchyuk zbaven imunity",
+        "nl": "Verzoek tot opheffing van de immuniteit van Ilhan Kyuchyuk",
+        "sk": "Žiadosť o zbavenie Ilhana Kyuchyuka imunity",
+        "el": "Αίτημα για την άρση της ασυλίας του Ilhan Kyuchyuk",
+        "fi": "Ilhan Kyuchyukin koskemattomuuden pidättämistä koskeva pyyntö",
+        "pt": "Pedido de levantamento da imunidade de Ilhan Kyuchyuk",
+        "bg": "Искане за снемане на имунитета на Илхан Кючюк",
+        "es": "Suplicatorio de suspensión de la inmunidad de Ilhan Kyuchyuk",
+        "mt": "Talba għat-tneħħija tal-immunità ta’ Ilhan Kyuchyuk",
+        "sl": "Zahteva za odvzem imunitete Ilhanu Kjučuku (Ilhan Kyuchyuk)",
+        "en": "Request for the waiver of the immunity of Ilhan Kyuchyuk",
+        "ro": "Cerere de ridicare a imunității deputatului Ilhan Kyuchyuk"
+      },
+      "process_type": "def/ep-procedure-types/IMM",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-V-114",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-V-114",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-114"
+        }
+      ],
+      "label": "2026/2000(IMM)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}
