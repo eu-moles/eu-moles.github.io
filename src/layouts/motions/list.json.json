@@ -13,8 +13,6 @@
     "reference" .reference
     "procedureReference" .procedureReference
     "procedureURL" .procedureURL
-    "documentReference" .documentReference
-    "documentURL" .documentURL
     "procedureDocuments" .procedureDocuments
     "title" .title
     "sourceTitle" .sourceTitle

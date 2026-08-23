@@ -150,17 +150,14 @@
                     </dialog>
                   {{ end }}
                 </td>
-                <td class="motion-documents-cell{{ if or .isSubvote (not (or .procedureURL .documentURL .contextURL (gt (len .procedureDocuments) 0))) }} motion-documents-cell--empty{{ end }}" data-label="Documents">
+                <td class="motion-documents-cell{{ if or .isSubvote (not (or .procedureURL .contextURL (gt (len .procedureDocuments) 0))) }} motion-documents-cell--empty{{ end }}" data-label="Documents">
                   <div class="motion-documents">
                     {{ if not .isSubvote }}
                       {{ with .procedureURL }}
                         <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open procedure {{ $motion.procedureReference }}"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Procedure</span></a>
                       {{ end }}
-                      {{ with .documentURL }}
-                        <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open Council document {{ $motion.documentReference }}"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>{{ $motion.documentReference | default "Council document" }}</span></a>
-                      {{ end }}
                       {{ range .procedureDocuments }}
-                        <a href="{{ .url }}" target="_blank" rel="external noopener noreferrer" title="Open European Parliament document {{ .id }}"><i class="fa-solid {{ if hasSuffix .url ".pdf" }}fa-file-pdf{{ else }}fa-file-lines{{ end }}" aria-hidden="true"></i><span>{{ .id }}</span></a>
+                        <a href="{{ .url }}" target="_blank" rel="external noopener noreferrer" title="Open {{ .title }} ({{ .id }})"><i class="fa-solid {{ if hasSuffix .url ".pdf" }}fa-file-pdf{{ else }}fa-file-lines{{ end }}" aria-hidden="true"></i><span>{{ .title }}</span></a>
                       {{ end }}
                       {{ with .contextURL }}
                         <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open official debate transcript"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Transcript</span></a>

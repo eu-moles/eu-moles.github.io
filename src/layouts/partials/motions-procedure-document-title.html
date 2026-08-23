@@ -1,0 +1,47 @@
+{{- $documentID := .id -}}
+{{- $activityType := path.Base (.activityType | default "") -}}
+{{- $stage := path.Base (.stage | default "") -}}
+{{- $stageLabel := "" -}}
+{{- if eq $stage "RDG1" -}}
+  {{- $stageLabel = "1st reading" -}}
+{{- else if eq $stage "RDG2" -}}
+  {{- $stageLabel = "2nd reading" -}}
+{{- else if eq $stage "RDG3" -}}
+  {{- $stageLabel = "conciliation" -}}
+{{- end -}}
+
+{{- $title := "" -}}
+{{- if eq $activityType "COMMITTEE_TABLING_REPORT" -}}
+  {{- $title = "Draft report" -}}
+{{- else if eq $activityType "COMMITTEE_TABLING_AMENDMENT" -}}
+  {{- $title = "Amendments" -}}
+{{- else if eq $activityType "COMMITTEE_ADOPTING_OPINION" -}}
+  {{- $title = "Opinion" -}}
+{{- else if eq $activityType "COMMITTEE_APPROVE_PROVISIONAL_AGREEMENT" -}}
+  {{- $title = "Provisional agreement" -}}
+{{- else if eq $activityType "TABLING_PLENARY" -}}
+  {{- $title = "Plenary report" -}}
+{{- else if eq $activityType "PLENARY_AMEND" -}}
+  {{- $title = "Adopted text · partial vote" -}}
+{{- else if eq $activityType "PLENARY_ADOPT_JOINT_TEXT" -}}
+  {{- $title = "Adopted joint text" -}}
+{{- else if gt (len (findRE `^PLENARY_(ADOPT|AMEND)` $activityType)) 0 -}}
+  {{- $title = "Adopted text" -}}
+{{- else if hasPrefix $documentID "TA-" -}}
+  {{- $title = "Adopted text" -}}
+{{- else if hasPrefix $documentID "A-" -}}
+  {{- $title = "Plenary report" -}}
+{{- else if hasPrefix $documentID "B-" -}}
+  {{- $title = "Resolution motion" -}}
+{{- else -}}
+  {{- $title = "European Parliament document" -}}
+{{- end -}}
+
+{{- if and $stageLabel (or
+  (eq $activityType "TABLING_PLENARY")
+  (gt (len (findRE `^PLENARY_(ADOPT|AMEND)` $activityType)) 0)
+  (hasPrefix $documentID "TA-")
+  (hasPrefix $documentID "A-")) -}}
+  {{- $title = printf "%s · %s" $title $stageLabel -}}
+{{- end -}}
+{{- return $title -}}

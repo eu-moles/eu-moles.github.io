@@ -15,7 +15,7 @@
           {{- if not (reflect.IsSlice $activities) -}}
             {{- $activities = slice $activities -}}
           {{- end -}}
-          {{- range $activity := $activities -}}
+          {{- range $activity := sort $activities "activity_date" "asc" -}}
             {{- $documentReferences := index $activity "based_on_a_realization_of" | default (index $activity "decided_on_a_realization_of") -}}
             {{- if $documentReferences -}}
               {{- if not (reflect.IsSlice $documentReferences) -}}
@@ -38,8 +38,14 @@
                   {{- if gt (len (findRE `^(A|B|TA)-[0-9]+-` $documentID)) 0 -}}
                     {{- $extension = "html" -}}
                   {{- end -}}
+                  {{- $documentTitle := partials.Include "motions-procedure-document-title.html" (dict
+                    "id" $documentID
+                    "activityType" (index $activity "had_activity_type")
+                    "stage" (index $activity "occured_at_stage")
+                  ) -}}
                   {{- $documents = $documents | append (dict
                     "id" $documentID
+                    "title" $documentTitle
                     "url" (printf "https://www.europarl.europa.eu/doceo/document/%s_EN.%s" $documentID $extension)
                     "order" (printf "%s-%s" (index $activity "activity_date" | default "") $documentID)
                   ) -}}

@@ -67,14 +67,12 @@
     if (motion.procedureURL) {
       documents.append(documentLink('Procedure', motion.procedureURL, 'fa-diagram-project', `Open procedure ${motion.procedureReference || ''}`.trim()));
     }
-    if (motion.documentURL) {
-      documents.append(documentLink(motion.documentReference || 'Council document', motion.documentURL, 'fa-file-pdf', `Open Council document ${motion.documentReference || ''}`.trim()));
-    }
     if (Array.isArray(motion.procedureDocuments)) {
       motion.procedureDocuments.forEach((document) => {
         if (!document || !document.url || !document.id) return;
         const icon = document.url.endsWith('.pdf') ? 'fa-file-pdf' : 'fa-file-lines';
-        documents.append(documentLink(document.id, document.url, icon, `Open European Parliament document ${document.id}`));
+        const label = document.title || document.id;
+        documents.append(documentLink(label, document.url, icon, `Open ${label} (${document.id})`));
       });
     }
     if (motion.contextURL) {
@@ -354,7 +352,7 @@
           }
 
           const hasDocuments = !motion.isSubvote
-            && Boolean(motion.procedureURL || motion.documentURL || motion.contextURL
+            && Boolean(motion.procedureURL || motion.contextURL
               || (Array.isArray(motion.procedureDocuments) && motion.procedureDocuments.length));
           const documents = make('td', `motion-documents-cell${hasDocuments ? '' : ' motion-documents-cell--empty'}`);
           documents.dataset.label = 'Documents';

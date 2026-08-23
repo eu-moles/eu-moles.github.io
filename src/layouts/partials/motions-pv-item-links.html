@@ -22,22 +22,13 @@
       {{- if $procedureReference -}}
         {{- $procedureURL = printf "https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=%s" ($procedureReference | urlquery) -}}
       {{- end -}}
-      {{- $councilReference := "" -}}
-      {{- with findRE `\b[0-9]{4,5}/[0-9]+/[0-9]{4}\b` . -}}
-        {{- $councilReference = index . 0 -}}
-      {{- end -}}
-      {{- $documentURL := "" -}}
-      {{- if $councilReference -}}
-        {{- $councilParts := split $councilReference "/" -}}
-        {{- $documentURL = printf "https://data.consilium.europa.eu/doc/document/ST-%s-%s-REV-%s/en/pdf" (index $councilParts 0) (index $councilParts 2) (index $councilParts 1) -}}
-      {{- end -}}
       {{- $titleKey := "" -}}
       {{- with findRESubmatch `(?s)<OJ.ReportShortDescription.Text\b[^>]*>(.*?)</OJ.ReportShortDescription.Text>` . -}}
         {{- $title := index (index . 0) 1 -}}
         {{- $title = replaceRE `<[^>]+>` " " $title -}}
         {{- $titleKey = partials.Include "motions-title-key.html" $title -}}
       {{- end -}}
-      {{- $links = merge $links (dict (string $annexVote) (dict "minutesURL" $url "titleKey" $titleKey "procedureReference" $procedureReference "procedureURL" $procedureURL "documentReference" $councilReference "documentURL" $documentURL)) -}}
+      {{- $links = merge $links (dict (string $annexVote) (dict "minutesURL" $url "titleKey" $titleKey "procedureReference" $procedureReference "procedureURL" $procedureURL)) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

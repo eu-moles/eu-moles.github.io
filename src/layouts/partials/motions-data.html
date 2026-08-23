@@ -151,8 +151,6 @@
                   {{- $minutesItemContext := index $minutesItemLinks (string $contextRcvItem) | default dict -}}
                   {{- $procedureReference := index $minutesItemContext "procedureReference" | default "" -}}
                   {{- $procedureURL := index $minutesItemContext "procedureURL" | default "" -}}
-                  {{- $documentReference := index $minutesItemContext "documentReference" | default "" -}}
-                  {{- $documentURL := index $minutesItemContext "documentURL" | default "" -}}
                   {{- $procedureDocuments := slice -}}
                   {{- if not $isSubvote -}}
                     {{- $procedureIDs := slice -}}
@@ -244,8 +242,6 @@
                     "reference" $reference
                     "procedureReference" $procedureReference
                     "procedureURL" $procedureURL
-                    "documentReference" $documentReference
-                    "documentURL" $documentURL
                     "procedureDocuments" $procedureDocuments
                     "title" $title
                     "sourceTitle" $sourceTitle

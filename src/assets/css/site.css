@@ -188,7 +188,8 @@ textarea {
 
 .motion-documents {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0.35rem;
 }
 
@@ -202,6 +203,7 @@ textarea {
   font-weight: 700;
   line-height: 1.2;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .motion-documents a:hover,
