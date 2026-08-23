@@ -149,6 +149,87 @@ fetch_docx_document_xml() {
   fi
 }
 
+fetch_oeil_procedure() {
+  local reference="$1"
+  local destination="$2"
+  local temporary
+
+  temporary=$(mktemp "${destination}.tmp.XXXXXX")
+  if curl_with_error_url -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
+    -G --data-urlencode "reference=$reference" \
+    -H 'User-Agent: EU-Moles-data-updater-1.0' \
+    --output "$temporary" \
+    'https://oeil.europarl.europa.eu/oeil/en/procedure-file' &&
+    grep -q '<title>Procedure File:' "$temporary"; then
+    mv "$temporary" "$destination"
+  else
+    rm -f "$temporary"
+    return 1
+  fi
+}
+
+extract_oeil_document_summaries() {
+  local source_directory="$1"
+  local destination="$2"
+  local rows
+  local temporary
+  local procedure_file
+  local procedure_id
+
+  rows=$(mktemp "${destination}.rows.XXXXXX")
+  temporary=$(mktemp "${destination}.tmp.XXXXXX")
+
+  while IFS= read -r -d '' procedure_file; do
+    procedure_id=${procedure_file##*/}
+    procedure_id=${procedure_id%.html}
+    awk -v procedure_id="$procedure_id" '
+      function emit() {
+        if (document_id != "" && summary_id != "") {
+          printf "%s\t%s\t%s\n", procedure_id, document_id, summary_id
+        }
+        document_id = ""
+        summary_id = ""
+      }
+      /<tr[[:space:]>]/ {
+        emit()
+        in_row = 1
+      }
+      in_row && match($0, /https:\/\/www\.europarl\.europa\.eu\/doceo\/document\/[A-Z0-9-]+_EN\.(html|pdf)/) {
+        document_id = substr($0, RSTART, RLENGTH)
+        sub(/^.*\/document\//, "", document_id)
+        sub(/_EN\.(html|pdf)$/, "", document_id)
+      }
+      in_row && match($0, /document-summary\?id=[0-9]+/) {
+        summary_id = substr($0, RSTART, RLENGTH)
+        sub(/^.*id=/, "", summary_id)
+      }
+      /<\/tr>/ {
+        emit()
+        in_row = 0
+      }
+      END { emit() }
+    ' "$procedure_file" >> "$rows"
+  done < <(find "$source_directory" -maxdepth 1 -type f -name '*.html' -print0 | sort -z)
+
+  jq -Rn '
+    reduce inputs as $line (
+      {version: 1, procedures: {}};
+      ($line | split("\t")) as $fields
+      | select($fields | length == 3)
+      | .procedures[$fields[0]] = (
+          (.procedures[$fields[0]] // {}) + {
+            ($fields[1]): {
+              id: $fields[2],
+              url: ("https://oeil.europarl.europa.eu/oeil/en/document-summary?id=" + $fields[2])
+            }
+          }
+        )
+    )
+  ' "$rows" > "$temporary"
+  mv "$temporary" "$destination"
+  rm -f "$rows"
+}
+
 translate_to_english() {
   local source_language="$1"
   local source_text="$2"
@@ -480,6 +561,29 @@ for voting_date in $voting_dates; do
       | "\(.year)-\(.number)"
     )
   ' "$dir/vote-results.json" | sort -u)
+
+  # OEIL exposes document-summary IDs only on its procedure pages. Cache one
+  # source page per local procedure so later processing can join each official
+  # document reference to its OEIL summary without title matching.
+  oeil_procedures_dir="$dir/oeil-procedures"
+  mkdir -p "$oeil_procedures_dir"
+  while IFS= read -r -d '' procedure_file; do
+    procedure_id=${procedure_file##*/}
+    procedure_id=${procedure_id%.json}
+    oeil_procedure_file="$oeil_procedures_dir/${procedure_id}.html"
+    [[ -s "$oeil_procedure_file" ]] && continue
+
+    procedure_reference=$(jq -er '.data[0].label | select(test("^[0-9]{4}/[0-9]{4}\\([A-Z]+\\)$"))' "$procedure_file") || {
+      echo "Could not determine the OEIL reference for procedure $procedure_id." >&2
+      exit 1
+    }
+    fetch_oeil_procedure "$procedure_reference" "$oeil_procedure_file" || {
+      echo "Could not fetch OEIL procedure page for $procedure_reference." >&2
+      exit 1
+    }
+    sleep 0.5
+  done < <(find "$procedures_dir" -maxdepth 1 -type f -name '*.json' -print0 | sort -z)
+  extract_oeil_document_summaries "$oeil_procedures_dir" "$dir/oeil-document-summaries.json"
 
   mkdir -p data/languages
   while IFS= read -r language_uri; do

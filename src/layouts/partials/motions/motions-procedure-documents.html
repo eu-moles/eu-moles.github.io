@@ -1,5 +1,11 @@
 {{- $documentsByProcedure := dict -}}
 {{- $directory := . -}}
+{{- $summariesByProcedure := dict -}}
+{{- $summariesFile := path.Join (path.Dir $directory) "oeil-document-summaries.json" -}}
+{{- if os.FileExists $summariesFile -}}
+  {{- $summariesData := transform.Unmarshal (os.ReadFile $summariesFile) -}}
+  {{- $summariesByProcedure = index $summariesData "procedures" | default dict -}}
+{{- end -}}
 {{- if os.FileExists $directory -}}
   {{- range os.ReadDir $directory -}}
     {{- if and (not .IsDir) (eq (path.Ext .Name) ".json") -}}
@@ -43,10 +49,17 @@
                     "activityType" (index $activity "had_activity_type")
                     "stage" (index $activity "occured_at_stage")
                   ) -}}
+                  {{- $summaryURL := "" -}}
+                  {{- with index $summariesByProcedure $procedureID -}}
+                    {{- with index . $documentID -}}
+                      {{- $summaryURL = index . "url" | default "" -}}
+                    {{- end -}}
+                  {{- end -}}
                   {{- $documents = $documents | append (dict
                     "id" $documentID
                     "title" $documentTitle
                     "url" (printf "https://www.europarl.europa.eu/doceo/document/%s_EN.%s" $documentID $extension)
+                    "summaryURL" $summaryURL
                     "order" (printf "%s-%s" (index $activity "activity_date" | default "") $documentID)
                   ) -}}
                   {{- $seenDocuments = merge $seenDocuments (dict $documentID true) -}}

@@ -156,8 +156,11 @@
                       {{ with .procedureURL }}
                         <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open procedure {{ $motion.procedureReference }}"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Procedure</span></a>
                       {{ end }}
-                      {{ range .procedureDocuments }}
+                      {{ range $document := .procedureDocuments }}
                         <a href="{{ .url }}" target="_blank" rel="external noopener noreferrer" title="Open {{ .title }} ({{ .id }})"><i class="fa-solid {{ if hasSuffix .url ".pdf" }}fa-file-pdf{{ else }}fa-file-lines{{ end }}" aria-hidden="true"></i><span>{{ .title }}</span></a>
+                        {{ with .summaryURL }}
+                          <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open OEIL document summary for {{ $document.title }}"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i><span>{{ $document.title }} · Summary</span></a>
+                        {{ end }}
                       {{ end }}
                       {{ with .contextURL }}
                         <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open official debate transcript"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Transcript</span></a>

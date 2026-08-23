@@ -72,7 +72,10 @@
         if (!document || !document.url || !document.id) return;
         const icon = document.url.endsWith('.pdf') ? 'fa-file-pdf' : 'fa-file-lines';
         const label = document.title || document.id;
-        documents.append(documentLink(label, document.url, icon, `Open ${label} (${document.id})`));
+  documents.append(documentLink(label, document.url, icon, `Open ${label} (${document.id})`));
+  if (document.summaryURL) {
+    documents.append(documentLink(`${label} · Summary`, document.summaryURL, 'fa-file-circle-check', `Open OEIL summary for ${label}`));
+  }
       });
     }
     if (motion.contextURL) {
