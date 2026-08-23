@@ -993,8 +993,8 @@ main table tbody tr:last-child td {
 }
 
 /* Keep wide tables in their readable record layout until a viewport can
-   genuinely accommodate every column. The full tabular view starts at 1090px. */
-@media screen and (max-width: 1089px) {
+   genuinely accommodate every column. The full tabular view starts at 1450px. */
+@media screen and (max-width: 1449px) {
   .motion-calendar {
     grid-template-columns: 1fr;
   }
@@ -1015,6 +1015,7 @@ main table tbody tr:last-child td {
     display: block;
     min-width: 0;
     border: 0;
+    background: transparent;
   }
 
   .site-table thead {
@@ -1034,7 +1035,8 @@ main table tbody tr:last-child td {
   .site-table--motion tr {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-    gap: 0.25rem 0.85rem;
+    /* Separate the metadata row from the title and documents consistently. */
+    gap: 0.5rem 0.85rem;
     padding: 1rem;
     border: 1px solid #d6e0ea;
     border-left: 0.28rem solid #174f91;
@@ -1045,13 +1047,16 @@ main table tbody tr:last-child td {
   .site-table--motion td {
     display: flex;
     min-width: 0;
+    width: fit-content;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
-    padding: 0.5rem 0;
+    padding: 5px;
     border: 0;
+    background: transparent;
     color: #263746;
-    font-size: 0.92rem;
+    /* Keep all compact record values aligned with document-link text. */
+    font-size: 0.72rem;
     text-align: left !important;
   }
 
@@ -1065,6 +1070,53 @@ main table tbody tr:last-child td {
 
   .site-table--motion td.motion-documents-cell--empty {
     display: none;
+  }
+
+  /* Documents belong to the parent motion; component votes inherit them. */
+  .site-table--motion tr.motion-subvote-row td.motion-documents-cell {
+    display: none;
+  }
+
+  /* Document labels are intentionally kept as whole links. Use the actual card
+     width, so grid tracks never extend beyond the parent record. */
+  .site-table--motion td.motion-documents-cell {
+    display: block;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-table--motion .motion-documents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    align-items: start;
+    justify-content: start;
+    gap: 0.35rem 0.85rem;
+  }
+
+  .site-table--motion .motion-type-badges {
+    width: fit-content;
+  }
+
+  .site-table--motion .motion-agenda-badge,
+  .site-table--motion .motion-procedure-badge,
+  .site-table--motion .motion-tracked-badge,
+  .site-table--motion .mep-motion-vote {
+    font-size: 0.72rem;
+  }
+
+  .site-table--motion .motion-result {
+    padding: 0.14rem 0.32rem;
+    font-size: 0.64rem;
+  }
+
+  /* Desktop badges use a trailing margin for inline-table spacing. The mobile
+     card grid already uses gap, so that margin would leave a 0.45rem (~7px)
+     strip beyond the badge. */
+  .site-table--motion .motion-agenda-badge,
+  .site-table--motion .motion-procedure-badge,
+  .site-table--motion .motion-tracked-badge {
+    margin: 0;
   }
 
   .site-table--motion tr.motion-parent-row .motion-unavailable-cell {
@@ -1107,7 +1159,7 @@ main table tbody tr:last-child td {
   .site-table--motion td[data-label="Motion"] {
     grid-column: 1 / -1;
     grid-row: 1;
-    padding-top: 0;
+    padding: 0;
     color: #172b42;
     font-size: 1rem;
     line-height: 1.4;
@@ -1115,6 +1167,10 @@ main table tbody tr:last-child td {
 
   .site-table--motion td[data-label="Motion"]::before {
     display: none;
+  }
+
+  .site-table--motion .motion-discussion-link {
+    margin-bottom: 0.5rem;
   }
 
   .site-table--motion td.motion-disclosure-cell--empty {

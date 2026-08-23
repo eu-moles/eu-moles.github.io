@@ -1,5 +1,6 @@
 ---
-title: "European Parliament Research Directory"
+title: "Home"
+hero_title: "European Parliament Research Directory"
 description: "A source-first research directory for examining pro-Kremlin positions in the European Parliament."
 featured_image: "/images/header-hero.png"
 ---
