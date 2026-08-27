@@ -23,6 +23,18 @@
       <p class="f5 gray mt0 mb3" data-motion-calendar-count>{{ len $latestMotions }} recorded {{ if eq (len $latestMotions) 1 }}motion{{ else }}motions{{ end }}</p>
       <div class="site-table-wrap motions-table-wrap">
         <table class="site-table site-table--motion motions-table" cellspacing="0">
+          <colgroup>
+            <col class="motion-column--date">
+            <col class="motion-column--classification">
+            <col class="motion-column--disclosure">
+            <col class="motion-column--reference">
+            <col class="motion-column--title">
+            <col class="motion-column--documents">
+            <col class="motion-column--number">
+            <col class="motion-column--number">
+            <col class="motion-column--number">
+            <col class="motion-column--number">
+          </colgroup>
           <thead>
             <tr>
               <th>Date</th>
@@ -31,7 +43,6 @@
               <th>Reference</th>
               <th>Motion</th>
               <th>Documents</th>
-              <th>Outcome</th>
               <th class="site-table-number">For</th>
               <th class="site-table-number">Against</th>
               <th class="site-table-number">Abstentions</th>
@@ -41,6 +52,20 @@
           <tbody>
             {{ range $motions }}
               {{- $motion := . -}}
+              {{- if not .isSubvote -}}
+                <tr class="motion-group-heading" data-motion-date="{{ .date }}"{{ if ne .date $latestDate }} hidden{{ end }} aria-hidden="true">
+                  <th>Date</th>
+                  <th>Classification</th>
+                  <th class="motion-disclosure-heading"></th>
+                  <th>Reference</th>
+                  <th>Motion</th>
+                  <th>Documents</th>
+                  <th class="site-table-number">For</th>
+                  <th class="site-table-number">Against</th>
+                  <th class="site-table-number">Abstentions</th>
+                  <th class="site-table-number">Not voted</th>
+                </tr>
+              {{- end -}}
               <tr class="{{ if .isSubvote }}motion-subvote-row{{ else if .hasSubvotes }}motion-parent-row{{ end }}" data-motion-date="{{ .date }}"{{ if not .isSubvote }} data-motion-voting-id="{{ .votingId }}"{{ end }}{{ if ne .date $latestDate }} hidden{{ end }}{{ if .isSubvote }} data-subvotes-child="{{ .parentID }}"{{ else if .hasSubvotes }} data-subvotes-parent="{{ .parentID }}"{{ end }}>
                 {{- $contextFile := path.Join "data/votes" .date "transcript.xml" -}}
                 {{- $context := dict "turns" (slice) -}}
@@ -84,16 +109,28 @@
                   {{ end }}
                 </td>
                 <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
-                  <span class="db">
-                    {{ if and (not .isSubvote) $motion.sourceURL }}
-                      <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                    {{ else }}
-                      {{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
-                    {{ end }}
-                    {{- if ne $modalID "" -}}
-                      <button class="motion-discussion-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
+                  <span class="motion-title-line">
+                    <span class="motion-title-text">
+                      {{ if and (not .isSubvote) $motion.sourceURL }}
+                        <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                      {{ else }}
+                        {{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
+                      {{ end }}
+                    </span>
+                    {{- if not .hasSubvotes -}}
+                      <span class="motion-result motion-result--{{ lower .result }}">
+                        {{ if eq .result "ADOPTED" }}
+                          <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
+                        {{ else if eq .result "REJECTED" }}
+                          <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
+                        {{ end }}
+                        {{ .result | humanize }}
+                      </span>
                     {{- end -}}
                   </span>
+                  {{- if ne $modalID "" -}}
+                    <button class="motion-discussion-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
+                  {{- end -}}
                   {{ with $context.turns }}
                     <dialog id="{{ $modalID }}" class="motion-context-modal" aria-labelledby="{{ $modalID }}-title">
                       <div class="motion-context-modal__shell">
@@ -168,20 +205,6 @@
                     {{ end }}
                   </div>
                 </td>
-                {{ if .hasSubvotes }}
-                  <td class="motion-unavailable-cell" data-label="Outcome"></td>
-                {{ else }}
-                  <td data-label="Outcome">
-                    <span class="motion-result motion-result--{{ lower .result }}">
-                      {{ if eq .result "ADOPTED" }}
-                        <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
-                      {{ else if eq .result "REJECTED" }}
-                        <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
-                      {{ end }}
-                      {{ .result | humanize }}
-                    </span>
-                  </td>
-                {{ end }}
                 {{ if .hasSubvotes }}
                   <td class="site-table-number motion-unavailable-cell" data-label="For"></td>
                   <td class="site-table-number motion-unavailable-cell" data-label="Against"></td>
