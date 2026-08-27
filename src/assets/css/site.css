@@ -894,12 +894,11 @@ main table tbody tr:last-child td {
    title absorbs the remaining reading space instead of being squeezed by
    empty date or reference cells. */
 .motions-table .motion-column--date { width: 7%; }
-.motions-table .motion-column--classification { width: 11%; }
+.motions-table .motion-column--classification { width: 10%; }
 .motions-table .motion-column--disclosure { width: 2.5%; }
-.motions-table .motion-column--reference { width: 9.5%; }
-.motions-table .motion-column--title { width: 31%; }
-.motions-table .motion-column--documents { width: 19%; }
-.motions-table .motion-column--number { width: 5%; }
+.motions-table .motion-column--title { width: 40%; }
+.motions-table .motion-column--documents { width: 18.5%; }
+.motions-table .motion-column--number { width: 5.5%; }
 
 .mep-profile-motions-table .motion-column--date { width: 8%; }
 .mep-profile-motions-table .motion-column--classification { width: 14%; }
@@ -909,15 +908,6 @@ main table tbody tr:last-child td {
 
 .site-table--motion .motion-title-line {
   min-width: 0;
-}
-
-.motion-reference-cell {
-  width: 9.5rem;
-  color: #526475;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.82rem;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 /* A business item may finish by a non-roll-call vote while its constituent
@@ -1154,10 +1144,6 @@ main table tbody tr:last-child td {
     display: none;
   }
 
-  .site-table--motion td.motion-reference-cell--empty {
-    display: none;
-  }
-
   .site-table--motion td.motion-documents-cell--empty {
     display: none;
   }
@@ -1313,9 +1299,10 @@ main table tbody tr:last-child td {
     width: 100%;
   }
 
-  /* After the title occupies its own line, a leading divider before the first
-     badge would be orphaned; retain only the divider between the badges. */
-  .mep-profile-motions-table td[data-label="Motion"] .motion-title-primary + .motion-inline-divider {
+  /* After the title occupies its own line, a leading divider before a result
+     badge would be orphaned. Keep inline reference separators aligned with
+     their title, then place child-row results below the title. */
+  .site-table--motion td[data-label="Motion"] .motion-title-primary + .motion-inline-divider {
     display: none;
   }
 
@@ -1323,21 +1310,21 @@ main table tbody tr:last-child td {
     display: none;
   }
 
-  .mep-profile-motions-table td[data-label="Motion"] .motion-title-line {
+  .site-table--motion tr.motion-subvote-row td[data-label="Motion"] .motion-title-line {
     justify-content: center;
   }
 
-  .mep-profile-motions-table td[data-label="Motion"] .motion-title-primary > .motion-inline-divider {
+  .site-table--motion td[data-label="Motion"] .motion-title-primary > .motion-inline-divider {
     align-self: flex-start;
     margin-top: 0.1rem;
   }
 
-  .mep-profile-motions-table tr.motion-subvote-row .motion-title-primary {
+  .site-table--motion tr.motion-subvote-row .motion-title-primary {
     padding-bottom: 0.55rem;
     border-bottom: 1px solid #dce4ec;
   }
 
-  .mep-profile-motions-table tr.motion-subvote-row .motion-title-line {
+  .site-table--motion tr.motion-subvote-row .motion-title-line {
     row-gap: 0.75rem;
   }
 

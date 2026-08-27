@@ -27,7 +27,6 @@
             <col class="motion-column--date">
             <col class="motion-column--classification">
             <col class="motion-column--disclosure">
-            <col class="motion-column--reference">
             <col class="motion-column--title">
             <col class="motion-column--documents">
             <col class="motion-column--number">
@@ -40,7 +39,6 @@
               <th>Date</th>
               <th>Classification</th>
               <th class="motion-disclosure-heading" aria-label="Components"></th>
-              <th>Reference</th>
               <th>Motion</th>
               <th>Documents</th>
               <th class="site-table-number">For</th>
@@ -57,7 +55,6 @@
                   <th>Date</th>
                   <th>Classification</th>
                   <th class="motion-disclosure-heading"></th>
-                  <th>Reference</th>
                   <th>Motion</th>
                   <th>Documents</th>
                   <th class="site-table-number">For</th>
@@ -103,21 +100,23 @@
                 <td class="motion-disclosure-cell{{ if not .hasSubvotes }} motion-disclosure-cell--empty{{ end }}" data-label="">
                   {{- if .hasSubvotes -}}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="true" aria-label="Hide vote breakdown: {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Hide vote breakdown"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>{{- end -}}
                 </td>
-                <td class="motion-reference-cell{{ if not .reference }} motion-reference-cell--empty{{ end }}" data-label="Reference">
-                  {{ with .reference }}
-                    {{ . }}
-                  {{ end }}
-                </td>
-                <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
+                <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion"{{ if .isSubvote }} colspan="2"{{ end }}>
                   <span class="motion-title-line">
-                    <span class="motion-title-text">
-                      {{ if and (not .isSubvote) $motion.sourceURL }}
-                        <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                      {{ else }}
-                        {{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
+                    <span class="motion-title-primary">
+                      {{ with .reference }}
+                        <span class="motion-inline-reference" title="Reference: {{ . }}">{{ . }}</span>
+                        <span class="motion-inline-divider" aria-hidden="true"></span>
                       {{ end }}
+                      <span class="motion-title-text">
+                        {{ if and (not .isSubvote) $motion.sourceURL }}
+                          <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        {{ else }}
+                          {{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
+                        {{ end }}
+                      </span>
                     </span>
                     {{- if not .hasSubvotes -}}
+                      <span class="motion-inline-divider motion-inline-divider--outcome" aria-hidden="true"></span>
                       <span class="motion-result motion-result--{{ lower .result }}">
                         {{ if eq .result "ADOPTED" }}
                           <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
@@ -187,9 +186,9 @@
                     </dialog>
                   {{ end }}
                 </td>
-                <td class="motion-documents-cell{{ if or .isSubvote (not (or .procedureURL .contextURL (gt (len .procedureDocuments) 0))) }} motion-documents-cell--empty{{ end }}" data-label="Documents">
-                  <div class="motion-documents">
-                    {{ if not .isSubvote }}
+                {{ if not .isSubvote }}
+                  <td class="motion-documents-cell{{ if not (or .procedureURL .contextURL (gt (len .procedureDocuments) 0)) }} motion-documents-cell--empty{{ end }}" data-label="Documents">
+                    <div class="motion-documents">
                       {{ with .procedureURL }}
                         <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open procedure {{ $motion.procedureReference }}"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Procedure</span></a>
                       {{ end }}
@@ -202,9 +201,9 @@
                       {{ with .contextURL }}
                         <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open official debate transcript"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Transcript</span></a>
                       {{ end }}
-                    {{ end }}
-                  </div>
-                </td>
+                    </div>
+                  </td>
+                {{ end }}
                 {{ if .hasSubvotes }}
                   <td class="site-table-number motion-unavailable-cell" data-label="For"></td>
                   <td class="site-table-number motion-unavailable-cell" data-label="Against"></td>
