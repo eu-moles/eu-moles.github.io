@@ -29,10 +29,6 @@
             <col class="motion-column--disclosure">
             <col class="motion-column--title">
             <col class="motion-column--documents">
-            <col class="motion-column--number">
-            <col class="motion-column--number">
-            <col class="motion-column--number">
-            <col class="motion-column--number">
           </colgroup>
           <thead>
             <tr>
@@ -41,15 +37,28 @@
               <th class="motion-disclosure-heading" aria-label="Components"></th>
               <th>Motion</th>
               <th>Documents</th>
-              <th class="site-table-number">For</th>
-              <th class="site-table-number">Against</th>
-              <th class="site-table-number">Abstentions</th>
-              <th class="site-table-number">Not voted</th>
             </tr>
           </thead>
           <tbody>
             {{ range $motions }}
               {{- $motion := . -}}
+              {{- $documentsMotion := $motion -}}
+              {{- $isFirstSubvote := false -}}
+              {{- $subvoteRowspan := 0 -}}
+              {{- if .isSubvote -}}
+                {{- $subvotes := where (where $motions "parentID" .parentID) "isSubvote" true -}}
+                {{- $subvoteRowspan = len $subvotes -}}
+                {{- $firstSubvote := index $subvotes 0 -}}
+                {{- $isFirstSubvote = eq .order $firstSubvote.order -}}
+                {{- $parentMotionsForItem := where (where $motions "parentID" .parentID) "isSubvote" false -}}
+                {{- with index $parentMotionsForItem 0 -}}
+                  {{- $documentsMotion = . -}}
+                {{- end -}}
+              {{- end -}}
+              {{- $showDocuments := and (not .isSubvote) (not .hasSubvotes) -}}
+              {{- if and .isSubvote $isFirstSubvote -}}
+                {{- $showDocuments = true -}}
+              {{- end -}}
               {{- if not .isSubvote -}}
                 <tr class="motion-group-heading" data-motion-date="{{ .date }}"{{ if ne .date $latestDate }} hidden{{ end }} aria-hidden="true">
                   <th>Date</th>
@@ -57,10 +66,6 @@
                   <th class="motion-disclosure-heading"></th>
                   <th>Motion</th>
                   <th>Documents</th>
-                  <th class="site-table-number">For</th>
-                  <th class="site-table-number">Against</th>
-                  <th class="site-table-number">Abstentions</th>
-                  <th class="site-table-number">Not voted</th>
                 </tr>
               {{- end -}}
               <tr class="{{ if .isSubvote }}motion-subvote-row{{ else if .hasSubvotes }}motion-parent-row{{ end }}" data-motion-date="{{ .date }}"{{ if not .isSubvote }} data-motion-voting-id="{{ .votingId }}"{{ end }}{{ if ne .date $latestDate }} hidden{{ end }}{{ if .isSubvote }} data-subvotes-child="{{ .parentID }}"{{ else if .hasSubvotes }} data-subvotes-parent="{{ .parentID }}"{{ end }}>
@@ -75,7 +80,7 @@
                 {{- end -}}
                 {{- $tracked := partials.Include "motions/motion-tracked.html" (dict "title" $motion.title "sourceTitle" $motion.sourceTitle "turns" $context.turns) -}}
                 {{- $hasType := or $motion.agendaRequest $tracked $motion.procedure -}}
-                <td class="site-table-date" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
+                <td class="site-table-date" data-label="Date">{{ if not .isSubvote }}{{ strings.Substr .date 0 10 }}{{ end }}</td>
                 <td class="motion-type-cell{{ if or .isSubvote (not $hasType) }} motion-type-cell--empty{{ end }}" data-label="Classification">
                   {{- if and (not .isSubvote) $hasType -}}
                     <span class="motion-type-badges">
@@ -100,7 +105,7 @@
                 <td class="motion-disclosure-cell{{ if not .hasSubvotes }} motion-disclosure-cell--empty{{ end }}" data-label="">
                   {{- if .hasSubvotes -}}<button class="motion-subvotes-toggle" type="button" data-subvotes-toggle="{{ .parentID }}" data-subvotes-count="{{ .subvoteCount }}" aria-expanded="true" aria-label="Hide vote breakdown: {{ .subvoteCount }} component {{ if eq .subvoteCount 1 }}vote{{ else }}votes{{ end }}" title="Hide vote breakdown"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>{{- end -}}
                 </td>
-                <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion"{{ if .isSubvote }} colspan="2"{{ end }}>
+                <td class="{{ if .isSubvote }}motion-subvote-title{{ end }}" data-label="Motion">
                   <span class="motion-title-line">
                     <span class="motion-title-primary">
                       {{ with .reference }}
@@ -124,6 +129,13 @@
                           <i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>
                         {{ end }}
                         {{ .result | humanize }}
+                      </span>
+                      <span class="motion-inline-divider motion-inline-divider--counts" aria-hidden="true"></span>
+                      <span class="motion-vote-counts" aria-label="Vote totals: {{ .for }} in favour, {{ .against }} against, {{ .abstentions }} abstentions, {{ .notRecorded }} not voted">
+                        <span class="motion-vote-count motion-vote-count--for" title="In favour: {{ .for }}"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i><span>{{ .for }}</span></span>
+                        <span class="motion-vote-count motion-vote-count--against" title="Against: {{ .against }}"><i class="fa-solid fa-thumbs-down" aria-hidden="true"></i><span>{{ .against }}</span></span>
+                        <span class="motion-vote-count motion-vote-count--abstentions" title="Abstentions: {{ .abstentions }}"><i class="fa-solid fa-circle-minus" aria-hidden="true"></i><span>{{ .abstentions }}</span></span>
+                        <span class="motion-vote-count motion-vote-count--not-voted" title="Not voted: {{ .notRecorded }}"><i class="fa-solid fa-minus" aria-hidden="true"></i><span>{{ .notRecorded }}</span></span>
                       </span>
                     {{- end -}}
                   </span>
@@ -186,34 +198,23 @@
                     </dialog>
                   {{ end }}
                 </td>
-                {{ if not .isSubvote }}
-                  <td class="motion-documents-cell{{ if not (or .procedureURL .contextURL (gt (len .procedureDocuments) 0)) }} motion-documents-cell--empty{{ end }}" data-label="Documents">
+                {{ if $showDocuments }}
+                  <td class="motion-documents-cell{{ if .isSubvote }} motion-documents-cell--subvotes{{ end }}{{ if not (or $documentsMotion.procedureURL $documentsMotion.contextURL (gt (len $documentsMotion.procedureDocuments) 0)) }} motion-documents-cell--empty{{ end }}" data-label="Documents"{{ if .isSubvote }} rowspan="{{ $subvoteRowspan }}"{{ end }}>
                     <div class="motion-documents">
-                      {{ with .procedureURL }}
-                        <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open procedure {{ $motion.procedureReference }}"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Procedure</span></a>
+                      {{ with $documentsMotion.procedureURL }}
+                        <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open procedure {{ $documentsMotion.procedureReference }}"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Procedure</span></a>
                       {{ end }}
-                      {{ range $document := .procedureDocuments }}
+                      {{ range $document := $documentsMotion.procedureDocuments }}
                         <a href="{{ .url }}" target="_blank" rel="external noopener noreferrer" title="Open {{ .title }} ({{ .id }})"><i class="fa-solid {{ if hasSuffix .url ".pdf" }}fa-file-pdf{{ else }}fa-file-lines{{ end }}" aria-hidden="true"></i><span>{{ .title }}</span></a>
                         {{ with .summaryURL }}
                           <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open OEIL document summary for {{ $document.title }}"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i><span>{{ $document.title }} · Summary</span></a>
                         {{ end }}
                       {{ end }}
-                      {{ with .contextURL }}
+                      {{ with $documentsMotion.contextURL }}
                         <a href="{{ . }}" target="_blank" rel="external noopener noreferrer" title="Open official debate transcript"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Transcript</span></a>
                       {{ end }}
                     </div>
                   </td>
-                {{ end }}
-                {{ if .hasSubvotes }}
-                  <td class="site-table-number motion-unavailable-cell" data-label="For"></td>
-                  <td class="site-table-number motion-unavailable-cell" data-label="Against"></td>
-                  <td class="site-table-number motion-unavailable-cell" data-label="Abstentions"></td>
-                  <td class="site-table-number motion-unavailable-cell" data-label="Not voted"></td>
-                {{ else }}
-                  <td class="site-table-number" data-label="For">{{ .for }}</td>
-                  <td class="site-table-number" data-label="Against">{{ .against }}</td>
-                  <td class="site-table-number" data-label="Abstentions">{{ .abstentions }}</td>
-                  <td class="site-table-number" data-label="Not voted">{{ .notRecorded }}</td>
                 {{ end }}
               </tr>
             {{ end }}

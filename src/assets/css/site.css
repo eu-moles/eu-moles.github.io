@@ -146,6 +146,30 @@ textarea {
   color: #8e2525;
 }
 
+.motion-vote-counts {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #526475;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.motion-vote-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+}
+
+.motion-vote-count--for { color: #18613a; }
+.motion-vote-count--against { color: #8e2525; }
+.motion-vote-count--abstentions { color: #805b10; }
+.motion-vote-count--not-voted { color: #526475; }
+
 .motion-title-line {
   display: flex;
   align-items: flex-start;
@@ -890,15 +914,13 @@ main table tbody tr:last-child td {
   table-layout: fixed;
 }
 
-/* Columns with compact, predictable values receive a measured share; the
-   title absorbs the remaining reading space instead of being squeezed by
-   empty date or reference cells. */
+/* Compact metadata receives a measured share; the title takes the remaining
+   reading space while vote totals stay with the corresponding result. */
 .motions-table .motion-column--date { width: 7%; }
-.motions-table .motion-column--classification { width: 10%; }
+.motions-table .motion-column--classification { width: 11%; }
 .motions-table .motion-column--disclosure { width: 2.5%; }
-.motions-table .motion-column--title { width: 40%; }
-.motions-table .motion-column--documents { width: 18.5%; }
-.motions-table .motion-column--number { width: 5.5%; }
+.motions-table .motion-column--title { width: 55%; }
+.motions-table .motion-column--documents { width: 24.5%; }
 
 .mep-profile-motions-table .motion-column--date { width: 8%; }
 .mep-profile-motions-table .motion-column--classification { width: 14%; }
@@ -1148,11 +1170,6 @@ main table tbody tr:last-child td {
     display: none;
   }
 
-  /* Documents belong to the parent motion; component votes inherit them. */
-  .site-table--motion tr.motion-subvote-row td.motion-documents-cell {
-    display: none;
-  }
-
   .site-table--motion tr.motion-subvote-row td.site-table-date {
     display: none;
   }
@@ -1187,6 +1204,10 @@ main table tbody tr:last-child td {
 
   .site-table--motion .motion-result {
     padding: 0.2rem 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .site-table--motion .motion-vote-counts {
     font-size: 0.72rem;
   }
 
@@ -1303,6 +1324,10 @@ main table tbody tr:last-child td {
      badge would be orphaned. Keep inline reference separators aligned with
      their title, then place child-row results below the title. */
   .site-table--motion td[data-label="Motion"] .motion-title-primary + .motion-inline-divider {
+    display: none;
+  }
+
+  .motions-table td[data-label="Motion"] .motion-inline-divider--counts {
     display: none;
   }
 

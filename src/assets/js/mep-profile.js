@@ -94,8 +94,8 @@
     const labels = {
       for: ['In favour', 'fa-thumbs-up'],
       against: ['Against', 'fa-thumbs-down'],
-      abstention: ['Abstained', 'fa-minus'],
-      notRecorded: ['No recorded vote', 'fa-circle-minus'],
+      abstention: ['Abstained', 'fa-circle-minus'],
+      notRecorded: ['No recorded vote', 'fa-minus'],
     };
     const [label, icon] = labels[position] || labels.notRecorded;
     const badge = make('span', `mep-motion-vote mep-motion-vote--${position}`);
@@ -248,6 +248,15 @@
         const parentCount = relevant.filter((motion) => !motion.isSubvote).length;
         summary.textContent = `${parentCount} recorded ${parentCount === 1 ? 'motion' : 'motions'}`;
         relevant.forEach((motion) => {
+          const siblingSubvotes = motion.isSubvote
+            ? relevant.filter((item) => item.isSubvote && item.parentID === motion.parentID)
+            : [];
+          const isFirstSubvote = Boolean(motion.isSubvote && siblingSubvotes[0] === motion);
+          const parentMotion = motion.isSubvote
+            ? relevant.find((item) => !item.isSubvote && item.parentID === motion.parentID)
+            : motion;
+          const documentsMotion = parentMotion || motion;
+          const showDocuments = Boolean((!motion.isSubvote && !motion.hasSubvotes) || isFirstSubvote);
           if (!motion.isSubvote) {
             const heading = document.createElement('tr');
             heading.className = 'motion-group-heading';
@@ -271,7 +280,7 @@
           } else if (motion.hasSubvotes) {
             row.dataset.subvotesParent = motion.parentID;
           }
-          const date = make('td', 'site-table-date', String(motion.date).slice(0, 10));
+          const date = make('td', 'site-table-date', motion.isSubvote ? '' : String(motion.date).slice(0, 10));
           date.dataset.label = 'Date';
           const type = make('td', 'motion-type-cell');
           type.dataset.label = 'Classification';
@@ -334,7 +343,6 @@
           motionCell.dataset.label = 'Motion';
           if (motion.isSubvote) {
             motionCell.classList.add('motion-subvote-title');
-            motionCell.colSpan = 2;
           }
           const title = motion.sourceURL && !motion.isSubvote
             ? make('a', 'mep-profile-motion-title-text')
@@ -384,15 +392,16 @@
             motionCell.append(context);
           }
 
-          const hasDocuments = !motion.isSubvote
-            && Boolean(motion.procedureURL || motion.contextURL
-              || (Array.isArray(motion.procedureDocuments) && motion.procedureDocuments.length));
-          const documents = make('td', `motion-documents-cell${hasDocuments ? '' : ' motion-documents-cell--empty'}`);
+          const hasDocuments = showDocuments
+            && Boolean(documentsMotion.procedureURL || documentsMotion.contextURL
+              || (Array.isArray(documentsMotion.procedureDocuments) && documentsMotion.procedureDocuments.length));
+          const documents = make('td', `motion-documents-cell${motion.isSubvote ? ' motion-documents-cell--subvotes' : ''}${hasDocuments ? '' : ' motion-documents-cell--empty'}`);
           documents.dataset.label = 'Documents';
-          if (hasDocuments) documents.append(motionDocuments(motion));
+          if (motion.isSubvote) documents.rowSpan = siblingSubvotes.length;
+          if (hasDocuments) documents.append(motionDocuments(documentsMotion));
 
           row.append(date, type, disclosure, motionCell);
-          if (!motion.isSubvote) row.append(documents);
+          if (showDocuments) row.append(documents);
           rows.append(row);
         });
         if (window.EUMolesSubvotes) window.EUMolesSubvotes.bind(rows);
