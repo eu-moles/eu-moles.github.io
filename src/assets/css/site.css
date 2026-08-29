@@ -918,18 +918,143 @@ main table tbody tr:last-child td {
    reading space while vote totals stay with the corresponding result. */
 .motions-table .motion-column--date { width: 7%; }
 .motions-table .motion-column--classification { width: 11%; }
-.motions-table .motion-column--disclosure { width: 2.5%; }
-.motions-table .motion-column--title { width: 55%; }
+.motions-table .motion-column--title { width: 57.5%; }
 .motions-table .motion-column--documents { width: 24.5%; }
 
 .mep-profile-motions-table .motion-column--date { width: 8%; }
 .mep-profile-motions-table .motion-column--classification { width: 14%; }
-.mep-profile-motions-table .motion-column--disclosure { width: 3%; }
-.mep-profile-motions-table .motion-column--title { width: 44%; }
+.mep-profile-motions-table .motion-column--title { width: 47%; }
 .mep-profile-motions-table .motion-column--documents { width: 31%; }
 
 .site-table--motion .motion-title-line {
   min-width: 0;
+}
+
+@media screen and (min-width: 1450px) {
+  .site-table--motion {
+    display: block;
+    border: 0;
+    border-collapse: separate;
+  }
+
+  .site-table--motion > tbody.motion-grid-group {
+    display: grid;
+    grid-template-columns:
+      var(--motion-date-column, max-content)
+      var(--motion-classification-column, max-content)
+      minmax(0, 1fr)
+      var(--motion-documents-column, minmax(20rem, 24rem));
+    /* The parent row may grow only to fit its own title. A Documents cell
+       spanning both record rows contributes any remaining height to the
+       component-vote row instead of splitting it between the two. */
+    grid-template-rows: auto minmax(min-content, min-content) minmax(0, auto);
+    border: 1px solid #d5dee7;
+    border-bottom: 0;
+    background: #fff;
+  }
+
+  .site-table--motion > tbody.motion-grid-group:last-child {
+    border-bottom: 1px solid #d5dee7;
+  }
+
+  /* Each group already begins with a full-width frame border. Avoid stacking
+     that border on the final cell border of the preceding group. */
+  .site-table--motion > tbody.motion-grid-group:not(:last-child) > tr:last-child > td,
+  .site-table--motion > tbody.motion-grid-group:not(:last-child) > .motion-parent-row > td[rowspan] {
+    border-bottom: 0;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > tr {
+    display: contents;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > tr > th,
+  .site-table--motion > tbody.motion-grid-group > tr > td {
+    display: block;
+    min-width: 0;
+    border-bottom: 1px solid #e1e7ee;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > tr > td.motion-documents-cell {
+    width: auto;
+    justify-self: stretch;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-group-heading > th {
+    grid-row: 1;
+    border-bottom-color: #dce4ec;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > tr > :nth-child(1) { grid-column: 1; }
+  .site-table--motion > tbody.motion-grid-group > tr > :nth-child(2) { grid-column: 2; }
+  .site-table--motion > tbody.motion-grid-group > tr > :nth-child(3) { grid-column: 3; }
+  .site-table--motion > tbody.motion-grid-group > tr > :nth-child(4) { grid-column: 4; }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td {
+    grid-row: 2;
+    background: #fbfcfe;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.site-table-date {
+    width: auto;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.site-table-date[rowspan],
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-type-cell[rowspan],
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-documents-cell[rowspan] {
+    grid-row: 2 / span 2;
+    align-self: stretch;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.site-table-date[rowspan] {
+    border-right: 1px solid #d6e0ea;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-type-cell[rowspan] {
+    border-right: 1px solid #d6e0ea;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-documents-cell[rowspan] {
+    border-left: 1px solid #d6e0ea;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-subvote-row > td {
+    grid-row: 3;
+    background: #fbfcfe;
+    border-bottom-color: #d9e4ef;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-subvote-row > .motion-type-cell {
+    grid-column: 2;
+  }
+
+  .site-table--motion > tbody.motion-grid-group > .motion-subvote-row > .motion-subvotes-cell {
+    grid-column: 3;
+  }
+
+  /* Grid items that truly span two intrinsic rows share their height. For a
+     compact parent, measure the document list and reserve its remaining
+     height in the component row; the document list itself then overlays the
+     single visual span without affecting the parent track. */
+  .site-table--motion > tbody.motion-grid-group--measuring > .motion-parent-row > td[data-label="Motion"] {
+    align-self: start;
+  }
+
+  .site-table--motion > tbody.motion-grid-group--balanced > .motion-parent-row > td.motion-documents-cell[rowspan] {
+    position: relative;
+    min-height: 0;
+  }
+
+  .site-table--motion > tbody.motion-grid-group--balanced > .motion-parent-row > td.motion-documents-cell[rowspan] .motion-documents {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+
+  .site-table--motion > tbody.motion-grid-group--balanced > .motion-subvote-row > .motion-subvotes-cell {
+    min-height: var(--motion-grid-component-min-height, 0);
+  }
 }
 
 /* A business item may finish by a non-roll-call vote while its constituent
@@ -939,61 +1064,56 @@ main table tbody tr:last-child td {
 }
 
 .motion-subvote-row td {
-  background: #f8fbfe;
+  background: #fbfcfe;
   border-bottom-color: #d9e4ef;
 }
 
-.motion-subvote-row[hidden] {
-  display: none;
-}
-
-.motion-subvotes-toggle {
-  display: inline-flex;
-  align-items: center;
-  width: 1.55rem;
-  height: 1.55rem;
-  justify-content: center;
+.motion-subvotes-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
   padding: 0;
-  border: 1px solid #b8cce1;
-  border-radius: 50%;
-  background: #f4f8fc;
-  color: #1c5b9f;
+  list-style: none;
+}
+
+.motion-subvotes-heading {
+  margin: 0.4rem 0 0.1rem;
+  color: #61758c;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.035em;
-  line-height: 1;
-  text-align: center;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
-.motion-subvotes-toggle i {
-  display: block;
-  line-height: 1;
-  transform: translateY(0.02em);
+.motion-subvote-item {
+  position: relative;
+  min-width: 0;
+  padding: 0.55rem 0 0.55rem 0.85rem;
 }
 
-.motion-disclosure-heading,
-.motion-disclosure-cell {
-  width: 2.3rem;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-  text-align: center !important;
+.motion-subvote-item::before {
+  position: absolute;
+  top: 1.08rem;
+  left: 0.15rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: #86a9cc;
+  content: "";
 }
 
-.motion-disclosure-cell::before {
-  display: none;
+.motion-subvote-item:first-child {
+  padding-top: 0.35rem;
 }
 
-.motion-subvotes-toggle:hover,
-.motion-subvotes-toggle:focus-visible {
-  border-color: #1c5b9f;
-  background: #e9f2fb;
-  color: #124779;
+.motion-subvote-item:first-child::before {
+  top: 0.88rem;
 }
 
-.motion-subvotes-toggle:focus-visible {
-  outline: 2px solid #d5a900;
-  outline-offset: 2px;
+.motion-subvote-item .motion-title-line {
+  flex-wrap: wrap;
 }
 
 /* Profile tables inherit the card frame that surrounds them. */
@@ -1174,6 +1294,45 @@ main table tbody tr:last-child td {
     display: none;
   }
 
+  .site-table--motion td.motion-subvotes-cell {
+    display: block;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .site-table--motion td.motion-subvotes-cell::before {
+    display: none;
+  }
+
+  .site-table--motion .motion-subvote-item {
+    padding: 0.75rem 0;
+  }
+
+  .site-table--motion .motion-subvote-item .motion-title-line {
+    width: 100%;
+    justify-content: center;
+    row-gap: 0.75rem;
+  }
+
+  .site-table--motion .motion-subvote-item .motion-title-primary {
+    flex: 0 0 100%;
+    width: 100%;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid #dce4ec;
+  }
+
+  .site-table--motion .motion-subvote-item .motion-title-primary > .motion-inline-divider {
+    align-self: flex-start;
+    margin-top: 0.1rem;
+  }
+
+  .site-table--motion .motion-subvote-item .motion-title-primary + .motion-inline-divider,
+  .site-table--motion .motion-subvote-item .motion-inline-divider--counts {
+    display: none;
+  }
+
   /* Document labels are intentionally kept as whole links. Use the actual card
      width, so grid tracks never extend beyond the parent record. */
   .site-table--motion td.motion-documents-cell {
@@ -1220,10 +1379,6 @@ main table tbody tr:last-child td {
     margin: 0;
   }
 
-  .site-table--motion tr.motion-parent-row .motion-unavailable-cell {
-    display: none;
-  }
-
   .site-table--motion tr.motion-subvote-row {
     margin-top: -0.55rem;
     margin-left: 0;
@@ -1236,10 +1391,6 @@ main table tbody tr:last-child td {
   .site-table--motion tr.motion-subvote-row + tr.motion-subvote-row {
     margin-top: -1rem;
     border-top: 0;
-  }
-
-  .site-table--motion tr.motion-subvote-row[hidden] {
-    display: none;
   }
 
   .site-table--motion tr.motion-parent-row {
@@ -1282,27 +1433,6 @@ main table tbody tr:last-child td {
     margin-bottom: 0.5rem;
   }
 
-  .site-table--motion td.motion-disclosure-cell--empty {
-    display: none;
-  }
-
-  .site-table--motion tr.motion-parent-row {
-    position: relative;
-  }
-
-  .site-table--motion tr.motion-parent-row td.motion-disclosure-cell {
-    position: absolute;
-    top: 0.85rem;
-    right: 0.85rem;
-    display: flex;
-    width: auto;
-    padding: 0;
-  }
-
-  .site-table--motion tr.motion-parent-row td[data-label="Motion"] {
-    padding-right: 2.4rem;
-  }
-
   .site-table--motion .mep-profile-motion-title {
     min-width: 0;
   }
@@ -1332,6 +1462,10 @@ main table tbody tr:last-child td {
   }
 
   .mep-profile-motions-table td[data-label="Motion"] .mep-motion-vote + .motion-inline-divider {
+    display: none;
+  }
+
+  .mep-profile-motions-table .motion-subvote-item .mep-motion-vote + .motion-inline-divider {
     display: none;
   }
 

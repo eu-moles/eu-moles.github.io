@@ -12,6 +12,112 @@
     month: 'long', year: 'numeric', timeZone: 'UTC',
   });
 
+  let balanceFrame;
+  const resetGridColumns = (table) => {
+    table.style.removeProperty('--motion-date-column');
+    table.style.removeProperty('--motion-classification-column');
+    table.style.removeProperty('--motion-documents-column');
+  };
+
+  const horizontalPadding = (element) => {
+    const styles = window.getComputedStyle(element);
+    return (Number.parseFloat(styles.paddingLeft) || 0)
+      + (Number.parseFloat(styles.paddingRight) || 0);
+  };
+
+  const syncGridColumns = (root = document) => {
+    const tables = root.matches?.('.site-table--motion')
+      ? [root]
+      : [...root.querySelectorAll('.site-table--motion')];
+
+    tables.forEach((table) => {
+      const groups = [...table.querySelectorAll('tbody.motion-grid-group')];
+      if (!groups.length) return;
+      resetGridColumns(table);
+
+      const hiddenStates = [];
+      groups.forEach((group) => {
+        [group, ...group.querySelectorAll('[hidden]')].forEach((element) => {
+          hiddenStates.push([element, element.hidden]);
+          element.hidden = false;
+        });
+      });
+
+      let dateWidth = 0;
+      let classificationWidth = 0;
+      let documentsWidth = 0;
+      groups.forEach((group) => {
+        dateWidth = Math.max(
+          dateWidth,
+          ...[...group.querySelectorAll('.motion-group-heading th:nth-child(1), .site-table-date')]
+            .map((element) => element.getBoundingClientRect().width),
+        );
+        classificationWidth = Math.max(
+          classificationWidth,
+          ...[...group.querySelectorAll('.motion-group-heading th:nth-child(2), .motion-type-cell')]
+            .map((element) => element.getBoundingClientRect().width),
+        );
+        const documentCell = group.querySelector('.motion-documents-cell');
+        const documentLinks = [...group.querySelectorAll('.motion-documents a')];
+        const widestDocument = Math.max(
+          0,
+          ...documentLinks.map((link) => link.getBoundingClientRect().width),
+        );
+        documentsWidth = Math.max(
+          documentsWidth,
+          ...[...group.querySelectorAll('.motion-group-heading th:nth-child(4)')]
+            .map((element) => element.getBoundingClientRect().width),
+          documentCell ? widestDocument + horizontalPadding(documentCell) : 0,
+        );
+      });
+
+      hiddenStates.forEach(([element, hidden]) => { element.hidden = hidden; });
+      table.style.setProperty('--motion-date-column', `${Math.ceil(dateWidth)}px`);
+      table.style.setProperty('--motion-classification-column', `${Math.ceil(classificationWidth)}px`);
+      table.style.setProperty('--motion-documents-column', `${Math.max(320, Math.ceil(documentsWidth))}px`);
+    });
+  };
+
+  const balanceGridGroups = (root = document) => {
+    const groups = [...root.querySelectorAll('.motion-grid-group')];
+    groups.forEach((group) => {
+      group.classList.remove('motion-grid-group--balanced', 'motion-grid-group--measuring');
+      group.style.removeProperty('--motion-grid-component-min-height');
+    });
+
+    if (!window.matchMedia('(min-width: 1450px)').matches) return;
+
+    groups.forEach((group) => {
+      if (group.hidden) return;
+      const parentTitle = group.querySelector('.motion-parent-row td[data-label="Motion"]');
+      const childCell = group.querySelector('.motion-subvote-row .motion-subvotes-cell');
+      const documentsCell = group.querySelector('.motion-parent-row td.motion-documents-cell[rowspan]');
+      const documents = documentsCell?.querySelector('.motion-documents');
+      if (!parentTitle || !childCell || !documentsCell || !documents) return;
+
+      group.classList.add('motion-grid-group--measuring');
+      const parentHeight = parentTitle.getBoundingClientRect().height;
+      const documentStyles = window.getComputedStyle(documentsCell);
+      const documentHeight = documents.getBoundingClientRect().height
+        + Number.parseFloat(documentStyles.paddingTop)
+        + Number.parseFloat(documentStyles.paddingBottom);
+      group.style.setProperty(
+        '--motion-grid-component-min-height',
+        `${Math.max(0, Math.ceil(documentHeight - parentHeight))}px`,
+      );
+      group.classList.remove('motion-grid-group--measuring');
+      group.classList.add('motion-grid-group--balanced');
+    });
+  };
+
+  const scheduleGridBalance = (root = document) => {
+    cancelAnimationFrame(balanceFrame);
+    balanceFrame = requestAnimationFrame(() => {
+      syncGridColumns(root);
+      balanceGridGroups(root);
+    });
+  };
+
   const bind = (calendar, options = {}) => {
     if (!calendar || calendar.dataset.motionCalendarBound === 'true') return;
 
@@ -51,7 +157,7 @@
         row.dataset.calendarHidden = String(row.dataset.motionDate !== selected);
         row.hidden = row.dataset.calendarHidden === 'true';
       });
-      window.EUMolesSubvotes?.refresh?.();
+      scheduleGridBalance();
       const number = dateCounts[selected] || 0;
       if (count) {
         count.textContent = `${number} recorded ${number === 1 ? 'motion' : 'motions'} — ${displayDate.format(parseDate(selected))}`;
@@ -121,5 +227,9 @@
   };
 
   window.EUMolesMotionCalendar = { bind };
+  window.EUMolesMotionGrid = { balance: scheduleGridBalance };
+  window.addEventListener('resize', () => scheduleGridBalance());
   document.querySelectorAll('[data-motion-calendar][data-available-dates]').forEach((calendar) => bind(calendar));
+  scheduleGridBalance();
+  document.fonts?.ready?.then(() => scheduleGridBalance());
 })();

@@ -64,11 +64,10 @@
         </header>
         {{ partial "motions/motions-calendar.html" (dict "id" "mep-profile-motion-calendar-title" "classes" "motion-calendar--profile" "headingLevel" 3 "title" "Browse this Member’s motions" "description" "Select a marked sitting day to view this Member’s voting record across all motions." "deferred" true) }}
         <div class="site-table-wrap mep-profile-motions-table-wrap">
-          <table class="site-table site-table--motion mep-profile-motions-table">
+          <table id="mep-profile-motions-table" class="site-table site-table--motion mep-profile-motions-table">
             <colgroup>
               <col class="motion-column--date">
               <col class="motion-column--classification">
-              <col class="motion-column--disclosure">
               <col class="motion-column--title">
               <col class="motion-column--documents">
             </colgroup>
@@ -76,12 +75,10 @@
               <tr>
                 <th>Date</th>
                 <th>Classification</th>
-                <th class="motion-disclosure-heading" aria-label="Components"></th>
                 <th>Motion</th>
                 <th>Documents</th>
               </tr>
             </thead>
-            <tbody id="mep-profile-motion-rows"></tbody>
           </table>
         </div>
         <p id="mep-profile-motions-empty" class="mep-profile-motions-empty" hidden></p>
@@ -105,7 +102,6 @@
   </section>
 
   {{ partial "assets/asset-script.html" "js/motion-context.js" }}
-  {{ partial "assets/asset-script.html" "js/motion-subvotes.js" }}
   {{ partial "assets/asset-script.html" "js/motions-calendar.js" }}
   {{ partial "assets/asset-script.html" "js/mep-profile.js" }}
 {{ end }}

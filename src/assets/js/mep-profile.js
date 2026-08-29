@@ -216,7 +216,8 @@
 
   const renderMotions = (mepID) => {
     if (!motions) return;
-    const rows = document.querySelector('#mep-profile-motion-rows');
+    const table = document.querySelector('#mep-profile-motions-table');
+    if (!table) return;
     const summary = document.querySelector('#mep-profile-motions-summary');
     const empty = document.querySelector('#mep-profile-motions-empty');
 
@@ -247,45 +248,41 @@
 
         const parentCount = relevant.filter((motion) => !motion.isSubvote).length;
         summary.textContent = `${parentCount} recorded ${parentCount === 1 ? 'motion' : 'motions'}`;
+        table.querySelectorAll('tbody').forEach((group) => group.remove());
         relevant.forEach((motion) => {
-          const siblingSubvotes = motion.isSubvote
+          if (motion.isSubvote) return;
+          const siblingSubvotes = motion.hasSubvotes
             ? relevant.filter((item) => item.isSubvote && item.parentID === motion.parentID)
             : [];
-          const isFirstSubvote = Boolean(motion.isSubvote && siblingSubvotes[0] === motion);
-          const parentMotion = motion.isSubvote
-            ? relevant.find((item) => !item.isSubvote && item.parentID === motion.parentID)
-            : motion;
-          const documentsMotion = parentMotion || motion;
-          const showDocuments = Boolean((!motion.isSubvote && !motion.hasSubvotes) || isFirstSubvote);
-          if (!motion.isSubvote) {
-            const heading = document.createElement('tr');
-            heading.className = 'motion-group-heading';
-            heading.dataset.motionDate = String(motion.date || '').slice(0, 10);
-            heading.setAttribute('aria-hidden', 'true');
-            ['Date', 'Classification', '', 'Motion', 'Documents'].forEach((label) => {
-              heading.append(make('th', label ? '' : 'motion-disclosure-heading', label));
-            });
-            rows.append(heading);
-          }
+          const sharedReference = motion.reference
+            || siblingSubvotes.find(({ reference }) => reference)?.reference
+            || '';
+          const showDocuments = true;
+          const group = document.createElement('tbody');
+          group.className = 'motion-grid-group';
+          group.dataset.motionDate = String(motion.date || '').slice(0, 10);
+          const heading = document.createElement('tr');
+          heading.className = 'motion-group-heading';
+          heading.dataset.motionDate = String(motion.date || '').slice(0, 10);
+          heading.setAttribute('aria-hidden', 'true');
+          ['Date', 'Classification', 'Motion', 'Documents'].forEach((label) => {
+            heading.append(make('th', '', label));
+          });
+          group.append(heading);
+
           const row = document.createElement('tr');
           row.dataset.motionDate = String(motion.date || '').slice(0, 10);
-          if (!motion.isSubvote) {
-            row.dataset.motionVotingId = motion.contextID || motion.parentID;
-            row.dataset.motionContextId = motion.contextID || '';
-          }
-          if (motion.isSubvote) row.classList.add('motion-subvote-row');
+          row.dataset.motionVotingId = motion.contextID || motion.parentID;
+          row.dataset.motionContextId = motion.contextID || '';
           if (motion.hasSubvotes) row.classList.add('motion-parent-row');
-          if (motion.isSubvote) {
-            row.dataset.subvotesChild = motion.parentID;
-          } else if (motion.hasSubvotes) {
-            row.dataset.subvotesParent = motion.parentID;
-          }
-          const date = make('td', 'site-table-date', motion.isSubvote ? '' : String(motion.date).slice(0, 10));
+          const date = make('td', 'site-table-date', String(motion.date).slice(0, 10));
           date.dataset.label = 'Date';
+          if (siblingSubvotes.length) date.rowSpan = 2;
           const type = make('td', 'motion-type-cell');
           type.dataset.label = 'Classification';
+          if (siblingSubvotes.length) type.rowSpan = 2;
           const typeBadges = make('span', 'motion-type-badges');
-          if (!motion.isSubvote && motion.agendaRequest) {
+          if (motion.agendaRequest) {
             const agenda = make('span', 'motion-agenda-badge');
             agenda.title = 'Agenda request';
             const icon = make('i', 'fa-solid fa-calendar-plus');
@@ -293,7 +290,7 @@
             agenda.append(icon, document.createTextNode('Agenda request'));
             typeBadges.append(agenda);
           }
-          if (!motion.isSubvote && motion.procedure) {
+          if (motion.procedure) {
             const procedureClasses = {
               'First reading': 'motion-procedure-badge--first',
               'Second reading': 'motion-procedure-badge--second',
@@ -306,7 +303,7 @@
             procedure.append(icon, document.createTextNode(motion.procedure));
             typeBadges.append(procedure);
           }
-          if (!motion.isSubvote && motion.tracked) {
+          if (motion.tracked) {
             const tracked = make('span', 'motion-tracked-badge');
             tracked.title = 'Contains tracked terms';
             const icon = make('i', 'fa-solid fa-bullseye');
@@ -314,47 +311,25 @@
             tracked.append(icon, document.createTextNode('Tracked'));
             typeBadges.append(tracked);
           }
-          if (!motion.isSubvote && typeBadges.childElementCount) {
+          if (typeBadges.childElementCount) {
             type.append(typeBadges);
           } else {
             type.classList.add('motion-type-cell--empty');
           }
-          const disclosure = make(
-            'td',
-            `motion-disclosure-cell${motion.hasSubvotes ? '' : ' motion-disclosure-cell--empty'}`,
-          );
-          disclosure.dataset.label = '';
-          if (motion.hasSubvotes) {
-            const count = relevant.filter((item) => item.isSubvote && item.parentID === motion.parentID).length;
-            const toggle = make('button', 'motion-subvotes-toggle');
-            toggle.type = 'button';
-            toggle.dataset.subvotesToggle = motion.parentID;
-            toggle.dataset.subvotesCount = String(count);
-            toggle.setAttribute('aria-expanded', 'true');
-            toggle.setAttribute('aria-label', `Hide vote breakdown: ${count} component ${count === 1 ? 'vote' : 'votes'}`);
-            toggle.title = 'Hide vote breakdown';
-            const icon = make('i', 'fa-solid fa-minus');
-            icon.setAttribute('aria-hidden', 'true');
-            toggle.append(icon);
-            disclosure.append(toggle);
-          }
           const position = positionFor(motion);
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
-          if (motion.isSubvote) {
-            motionCell.classList.add('motion-subvote-title');
-          }
-          const title = motion.sourceURL && !motion.isSubvote
+          const title = motion.sourceURL
             ? make('a', 'mep-profile-motion-title-text')
             : make('span', 'mep-profile-motion-title-text');
-          if (motion.sourceURL && !motion.isSubvote) {
+          if (motion.sourceURL) {
             title.href = motion.sourceURL;
             title.target = '_blank';
             title.rel = 'external noopener noreferrer';
             title.title = 'Open official sitting record';
           }
           appendMotionTitle(title, motion.title);
-          if (motion.sourceURL && !motion.isSubvote) {
+          if (motion.sourceURL) {
             const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
             icon.setAttribute('aria-hidden', 'true');
             title.append(document.createTextNode(' '), icon);
@@ -362,9 +337,9 @@
           const titleLine = make('span', 'motion-title-line');
           title.classList.add('motion-title-text');
           const titlePrimary = make('span', 'motion-title-primary');
-          if (motion.reference) {
-            const reference = make('span', 'motion-inline-reference', motion.reference);
-            reference.title = `Reference: ${motion.reference}`;
+          if (sharedReference) {
+            const reference = make('span', 'motion-inline-reference', sharedReference);
+            reference.title = `Reference: ${sharedReference}`;
             titlePrimary.append(reference, inlineDivider());
           }
           titlePrimary.append(title);
@@ -392,26 +367,59 @@
             motionCell.append(context);
           }
 
-          const hasDocuments = showDocuments
-            && Boolean(documentsMotion.procedureURL || documentsMotion.contextURL
-              || (Array.isArray(documentsMotion.procedureDocuments) && documentsMotion.procedureDocuments.length));
-          const documents = make('td', `motion-documents-cell${motion.isSubvote ? ' motion-documents-cell--subvotes' : ''}${hasDocuments ? '' : ' motion-documents-cell--empty'}`);
+          const motionHasDocuments = Boolean(motion.procedureURL || motion.contextURL
+            || (Array.isArray(motion.procedureDocuments) && motion.procedureDocuments.length));
+          const hasDocuments = showDocuments && motionHasDocuments;
+          const documents = make('td', `motion-documents-cell${hasDocuments ? '' : ' motion-documents-cell--empty'}`);
           documents.dataset.label = 'Documents';
-          if (motion.isSubvote) documents.rowSpan = siblingSubvotes.length;
-          if (hasDocuments) documents.append(motionDocuments(documentsMotion));
+          if (siblingSubvotes.length) documents.rowSpan = 2;
+          if (hasDocuments) documents.append(motionDocuments(motion));
 
-          row.append(date, type, disclosure, motionCell);
+          row.append(date, type, motionCell);
           if (showDocuments) row.append(documents);
-          rows.append(row);
+          group.append(row);
+
+          if (siblingSubvotes.length) {
+            const componentsRow = document.createElement('tr');
+            componentsRow.className = 'motion-subvote-row';
+            componentsRow.dataset.motionDate = String(motion.date || '').slice(0, 10);
+            const components = make('td', 'motion-subvotes-cell');
+            components.dataset.label = 'Vote details';
+            const heading = make('p', 'motion-subvotes-heading', 'Vote details');
+            const list = make('ul', 'motion-subvotes-list');
+
+            siblingSubvotes.forEach((subvote) => {
+              const item = make('li', 'motion-subvote-item');
+              const line = make('span', 'motion-title-line');
+              const primary = make('span', 'motion-title-primary');
+              const subvoteTitle = make('span', 'mep-profile-motion-title-text motion-title-text');
+              appendMotionTitle(subvoteTitle, subvote.title);
+              primary.append(subvoteTitle);
+              line.append(
+                primary,
+                inlineDivider(),
+                voteBadge(positionFor(subvote), 'MEP '),
+                inlineDivider(),
+                outcomeBadge(subvote.result),
+              );
+              item.append(line);
+              list.append(item);
+            });
+            components.append(heading, list);
+
+            componentsRow.append(components);
+            group.append(componentsRow);
+          }
+          table.append(group);
         });
-        if (window.EUMolesSubvotes) window.EUMolesSubvotes.bind(rows);
         if (window.EUMolesMotionCalendar && motionCalendar) {
           window.EUMolesMotionCalendar.bind(motionCalendar, {
-            rows: rows.querySelectorAll('[data-motion-date]'),
+            rows: table.querySelectorAll('[data-motion-date]'),
             countElement: summary,
           });
         }
         motions.hidden = false;
+        window.EUMolesMotionGrid?.balance?.(table);
 
         const requestedContext = new URLSearchParams(window.location.search).get('context');
         const requestedMotion = items.find((motion) => motion.contextID === requestedContext);
