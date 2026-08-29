@@ -918,12 +918,14 @@ main table tbody tr:last-child td {
    reading space while vote totals stay with the corresponding result. */
 .motions-table .motion-column--date { width: 7%; }
 .motions-table .motion-column--classification { width: 11%; }
-.motions-table .motion-column--title { width: 57.5%; }
+.motions-table .motion-column--reference { width: 10%; }
+.motions-table .motion-column--title { width: 47.5%; }
 .motions-table .motion-column--documents { width: 24.5%; }
 
 .mep-profile-motions-table .motion-column--date { width: 8%; }
 .mep-profile-motions-table .motion-column--classification { width: 14%; }
-.mep-profile-motions-table .motion-column--title { width: 47%; }
+.mep-profile-motions-table .motion-column--reference { width: 10%; }
+.mep-profile-motions-table .motion-column--title { width: 37%; }
 .mep-profile-motions-table .motion-column--documents { width: 31%; }
 
 .site-table--motion .motion-title-line {
@@ -942,6 +944,7 @@ main table tbody tr:last-child td {
     grid-template-columns:
       var(--motion-date-column, max-content)
       var(--motion-classification-column, max-content)
+      var(--motion-reference-column, max-content)
       minmax(0, 1fr)
       var(--motion-documents-column, minmax(20rem, 24rem));
     /* The parent row may grow only to fit its own title. A Documents cell
@@ -989,6 +992,7 @@ main table tbody tr:last-child td {
   .site-table--motion > tbody.motion-grid-group > tr > :nth-child(2) { grid-column: 2; }
   .site-table--motion > tbody.motion-grid-group > tr > :nth-child(3) { grid-column: 3; }
   .site-table--motion > tbody.motion-grid-group > tr > :nth-child(4) { grid-column: 4; }
+  .site-table--motion > tbody.motion-grid-group > tr > :nth-child(5) { grid-column: 5; }
 
   .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td {
     grid-row: 2;
@@ -1001,6 +1005,7 @@ main table tbody tr:last-child td {
 
   .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.site-table-date[rowspan],
   .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-type-cell[rowspan],
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-reference-cell[rowspan],
   .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-documents-cell[rowspan] {
     grid-row: 2 / span 2;
     align-self: stretch;
@@ -1014,6 +1019,10 @@ main table tbody tr:last-child td {
     border-right: 1px solid #d6e0ea;
   }
 
+  .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-reference-cell[rowspan] {
+    border-right: 1px solid #d6e0ea;
+  }
+
   .site-table--motion > tbody.motion-grid-group > .motion-parent-row > td.motion-documents-cell[rowspan] {
     border-left: 1px solid #d6e0ea;
   }
@@ -1024,12 +1033,8 @@ main table tbody tr:last-child td {
     border-bottom-color: #d9e4ef;
   }
 
-  .site-table--motion > tbody.motion-grid-group > .motion-subvote-row > .motion-type-cell {
-    grid-column: 2;
-  }
-
   .site-table--motion > tbody.motion-grid-group > .motion-subvote-row > .motion-subvotes-cell {
-    grid-column: 3;
+    grid-column: 4;
   }
 
   /* Grid items that truly span two intrinsic rows share their height. For a
@@ -1066,6 +1071,10 @@ main table tbody tr:last-child td {
 .motion-subvote-row td {
   background: #fbfcfe;
   border-bottom-color: #d9e4ef;
+}
+
+.motion-reference-cell {
+  white-space: nowrap;
 }
 
 .motion-subvotes-list {
@@ -1283,6 +1292,10 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion td.motion-type-cell--empty {
+    display: none;
+  }
+
+  .site-table--motion td.motion-reference-cell--empty {
     display: none;
   }
 

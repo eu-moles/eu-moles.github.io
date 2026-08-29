@@ -265,7 +265,7 @@
           heading.className = 'motion-group-heading';
           heading.dataset.motionDate = String(motion.date || '').slice(0, 10);
           heading.setAttribute('aria-hidden', 'true');
-          ['Date', 'Classification', 'Motion', 'Documents'].forEach((label) => {
+          ['Date', 'Classification', 'Reference', 'Motion', 'Documents'].forEach((label) => {
             heading.append(make('th', '', label));
           });
           group.append(heading);
@@ -316,6 +316,10 @@
           } else {
             type.classList.add('motion-type-cell--empty');
           }
+          const reference = make('td', `motion-reference-cell${sharedReference ? '' : ' motion-reference-cell--empty'}`, sharedReference);
+          reference.dataset.label = 'Reference';
+          if (sharedReference) reference.title = `Reference: ${sharedReference}`;
+          if (siblingSubvotes.length) reference.rowSpan = 2;
           const position = positionFor(motion);
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
@@ -337,11 +341,6 @@
           const titleLine = make('span', 'motion-title-line');
           title.classList.add('motion-title-text');
           const titlePrimary = make('span', 'motion-title-primary');
-          if (sharedReference) {
-            const reference = make('span', 'motion-inline-reference', sharedReference);
-            reference.title = `Reference: ${sharedReference}`;
-            titlePrimary.append(reference, inlineDivider());
-          }
           titlePrimary.append(title);
           titleLine.append(titlePrimary);
           if (!motion.hasSubvotes) {
@@ -375,7 +374,7 @@
           if (siblingSubvotes.length) documents.rowSpan = 2;
           if (hasDocuments) documents.append(motionDocuments(motion));
 
-          row.append(date, type, motionCell);
+          row.append(date, type, reference, motionCell);
           if (showDocuments) row.append(documents);
           group.append(row);
 

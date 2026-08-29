@@ -26,6 +26,7 @@
           <colgroup>
             <col class="motion-column--date">
             <col class="motion-column--classification">
+            <col class="motion-column--reference">
             <col class="motion-column--title">
             <col class="motion-column--documents">
           </colgroup>
@@ -33,6 +34,7 @@
             <tr>
               <th>Date</th>
               <th>Classification</th>
+              <th>Reference</th>
               <th>Motion</th>
               <th>Documents</th>
             </tr>
@@ -52,6 +54,7 @@
                 <tr class="motion-group-heading" data-motion-date="{{ .date }}"{{ if ne .date $latestDate }} hidden{{ end }} aria-hidden="true">
                   <th>Date</th>
                   <th>Classification</th>
+                  <th>Reference</th>
                   <th>Motion</th>
                   <th>Documents</th>
                 </tr>
@@ -89,13 +92,12 @@
                     </span>
                   {{- end -}}
                 </td>
+                <td class="motion-reference-cell{{ if not $motionReference }} motion-reference-cell--empty{{ end }}" data-label="Reference"{{ if .hasSubvotes }} rowspan="2"{{ end }}>
+                  {{ with $motionReference }}<span class="motion-inline-reference" title="Reference: {{ . }}">{{ . }}</span>{{ end }}
+                </td>
                 <td data-label="Motion">
                   <span class="motion-title-line">
                     <span class="motion-title-primary">
-                      {{ with $motionReference }}
-                        <span class="motion-inline-reference" title="Reference: {{ . }}">{{ . }}</span>
-                        <span class="motion-inline-divider" aria-hidden="true"></span>
-                      {{ end }}
                       <span class="motion-title-text">
                         {{ if $motion.sourceURL }}
                           <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>

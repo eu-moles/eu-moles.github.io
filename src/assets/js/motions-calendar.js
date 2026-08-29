@@ -16,6 +16,7 @@
   const resetGridColumns = (table) => {
     table.style.removeProperty('--motion-date-column');
     table.style.removeProperty('--motion-classification-column');
+    table.style.removeProperty('--motion-reference-column');
     table.style.removeProperty('--motion-documents-column');
   };
 
@@ -45,6 +46,7 @@
 
       let dateWidth = 0;
       let classificationWidth = 0;
+      let referenceWidth = 0;
       let documentsWidth = 0;
       groups.forEach((group) => {
         dateWidth = Math.max(
@@ -57,6 +59,11 @@
           ...[...group.querySelectorAll('.motion-group-heading th:nth-child(2), .motion-type-cell')]
             .map((element) => element.getBoundingClientRect().width),
         );
+        referenceWidth = Math.max(
+          referenceWidth,
+          ...[...group.querySelectorAll('.motion-group-heading th:nth-child(3), .motion-reference-cell')]
+            .map((element) => element.getBoundingClientRect().width),
+        );
         const documentCell = group.querySelector('.motion-documents-cell');
         const documentLinks = [...group.querySelectorAll('.motion-documents a')];
         const widestDocument = Math.max(
@@ -65,7 +72,7 @@
         );
         documentsWidth = Math.max(
           documentsWidth,
-          ...[...group.querySelectorAll('.motion-group-heading th:nth-child(4)')]
+          ...[...group.querySelectorAll('.motion-group-heading th:nth-child(5)')]
             .map((element) => element.getBoundingClientRect().width),
           documentCell ? widestDocument + horizontalPadding(documentCell) : 0,
         );
@@ -74,6 +81,7 @@
       hiddenStates.forEach(([element, hidden]) => { element.hidden = hidden; });
       table.style.setProperty('--motion-date-column', `${Math.ceil(dateWidth)}px`);
       table.style.setProperty('--motion-classification-column', `${Math.ceil(classificationWidth)}px`);
+      table.style.setProperty('--motion-reference-column', `${Math.ceil(referenceWidth)}px`);
       table.style.setProperty('--motion-documents-column', `${Math.max(320, Math.ceil(documentsWidth))}px`);
     });
   };
