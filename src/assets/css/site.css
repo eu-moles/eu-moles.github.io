@@ -1097,28 +1097,52 @@ main table tbody tr:last-child td {
 }
 
 .motion-subvote-item {
+  display: flex;
+  align-items: center;
   position: relative;
   min-width: 0;
-  padding: 0.55rem 0 0.55rem 0.85rem;
+  min-height: calc(2rem + 2px);
+  /* When no proposing Member is identified, reserve space only for the list dot. */
+  padding: 0 0 0 0.85rem;
 }
 
 .motion-subvote-item::before {
   position: absolute;
-  top: 1.08rem;
-  left: 0.15rem;
+  top: 50%;
+  left: 0.25rem;
   width: 0.3rem;
   height: 0.3rem;
   border-radius: 50%;
   background: #86a9cc;
   content: "";
+  transform: translateY(-50%);
 }
 
-.motion-subvote-item:first-child {
-  padding-top: 0.35rem;
+.motion-subvote-item--with-mep {
+  padding-left: 3.15rem;
 }
 
-.motion-subvote-item:first-child::before {
-  top: 0.88rem;
+.motion-subvote-mep {
+  position: absolute;
+  top: 50%;
+  left: 0.85rem;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #b9cce0;
+  border-radius: 50%;
+  background: #edf3f9;
+  box-shadow: 0 0.1rem 0.25rem rgb(18 54 88 / 14%);
+  transform: translateY(-50%);
+}
+
+.motion-subvote-mep img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .motion-subvote-item .motion-title-line {
@@ -1320,7 +1344,12 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion .motion-subvote-item {
-    padding: 0.75rem 0;
+    min-height: calc(2rem + 2px);
+    padding: 0 0 0 0.85rem;
+  }
+
+  .site-table--motion .motion-subvote-item--with-mep {
+    padding-left: 3.15rem;
   }
 
   .site-table--motion .motion-subvote-item .motion-title-line {
@@ -1342,7 +1371,8 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion .motion-subvote-item .motion-title-primary + .motion-inline-divider,
-  .site-table--motion .motion-subvote-item .motion-inline-divider--counts {
+  .site-table--motion .motion-subvote-item .motion-inline-divider--counts,
+  .site-table--motion .motion-subvote-item .motion-inline-divider--outcome {
     display: none;
   }
 

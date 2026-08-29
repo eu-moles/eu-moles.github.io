@@ -15,6 +15,9 @@
     "procedureURL" .procedureURL
     "procedureDocuments" .procedureDocuments
     "title" .title
+    "displayTitle" .displayTitle
+    "labelMepID" .labelMepID
+    "labelMepName" .labelMepName
     "sourceTitle" .sourceTitle
     "parentID" .parentID
     "isSubvote" .isSubvote

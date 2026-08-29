@@ -388,11 +388,24 @@
             const list = make('ul', 'motion-subvotes-list');
 
             siblingSubvotes.forEach((subvote) => {
-              const item = make('li', 'motion-subvote-item');
+              const item = make('li', `motion-subvote-item${subvote.labelMepID ? ' motion-subvote-item--with-mep' : ''}`);
+              if (subvote.labelMepID) {
+                const relatedMep = make('a', 'motion-subvote-mep');
+                relatedMep.href = `${motions.dataset.profileUrl}?id=${encodeURIComponent(subvote.labelMepID)}`;
+                relatedMep.title = `View profile for ${subvote.labelMepName || 'this Member'}`;
+                relatedMep.setAttribute('aria-label', relatedMep.title);
+                const portrait = make('img');
+                portrait.src = `https://www.europarl.europa.eu/mepphoto/${encodeURIComponent(subvote.labelMepID)}.jpg`;
+                portrait.alt = '';
+                portrait.loading = 'lazy';
+                relatedMep.append(portrait);
+                item.append(relatedMep);
+              }
               const line = make('span', 'motion-title-line');
               const primary = make('span', 'motion-title-primary');
               const subvoteTitle = make('span', 'mep-profile-motion-title-text motion-title-text');
-              appendMotionTitle(subvoteTitle, subvote.title);
+              subvoteTitle.title = `Original voting label: ${subvote.title || ''}`;
+              appendMotionTitle(subvoteTitle, subvote.displayTitle || subvote.title);
               primary.append(subvoteTitle);
               line.append(
                 primary,

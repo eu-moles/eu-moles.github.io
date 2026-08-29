@@ -1,6 +1,11 @@
 {{- $motions := slice -}}
 {{- $directory := "data/votes" -}}
-{{- $totalMEPs := len (partials.IncludeCached "data/meps-data.html" site) -}}
+{{- $meps := partials.IncludeCached "data/meps-data.html" site -}}
+{{- $totalMEPs := len $meps -}}
+{{- $mepsByName := dict -}}
+{{- range $meps -}}
+  {{- $mepsByName = merge $mepsByName (dict (lower .fullName) (dict "id" .id "fullName" .fullName)) -}}
+{{- end -}}
 {{- if os.FileExists $directory -}}
   {{- range os.ReadDir $directory -}}
     {{- if .IsDir -}}
@@ -221,6 +226,32 @@
                   {{- if $reference -}}
                     {{- $title = strings.TrimSpace (replaceRE `^[A-Z][0-9]{1,2}-[0-9]{3,5}/[0-9]{4}\s*[–—-]\s*` "" $title) -}}
                   {{- end -}}
+                  {{- $displayTitle := $title -}}
+                  {{- $labelMep := dict -}}
+                  {{- if $isSubvote -}}
+                    {{- $labelName := strings.TrimSpace (replaceRE `\s+[–—-]\s+.*$` "" $title) -}}
+                    {{- $labelMep = index $mepsByName (lower $labelName) | default dict -}}
+                    {{- $plainTitle := replaceRE `^[^–—]+[–—]\s*((?i:after|before|§|recital|motion for a resolution|provisional agreement|joint text|commission proposal).*)$` "$1" $title -}}
+                    {{- $plainTitle = replaceRE `^§\s*([0-9]+),\s*(before|after)\s+point\s+([[:alpha:]]+)$` "Paragraph $1, $2 point ($3)" $plainTitle -}}
+                    {{- $plainTitle = replaceRE `^§\s*([0-9]+),\s*point\s+([[:alpha:]]+)$` "Paragraph $1, point ($2)" $plainTitle -}}
+                    {{- $plainTitle = replaceRE `^(Before|After)\s+§\s*([0-9]+)$` "$1 paragraph $2" $plainTitle -}}
+                    {{- $plainTitle = replaceRE `^§\s*([0-9]+)/([0-9]+)$` "Paragraph $1, part $2" $plainTitle -}}
+                    {{- $plainTitle = replaceRE `^§\s*([0-9]+)$` "Paragraph $1" $plainTitle -}}
+                    {{- if findRE `(?i)[–—-]\s*Am\s+[0-9]+(?:/[0-9]+)?\s*$` $plainTitle -}}
+                      {{- $target := strings.TrimSpace (replaceRE `\s*[–—-]\s*(?i:Am)\s+[0-9]+(?:/[0-9]+)?\s*$` "" $plainTitle) -}}
+                      {{- $amendment := replaceRE `^.*[–—-]\s*(?i:Am)\s+([0-9]+(?:/[0-9]+)?)\s*$` "$1" $plainTitle -}}
+                      {{- $target = replaceRE `^§\s*([0-9]+),\s*(before|after)\s+point\s+([[:alpha:]]+)$` "Paragraph $1, $2 point ($3)" $target -}}
+                      {{- $target = replaceRE `^§\s*([0-9]+),\s*point\s+([[:alpha:]]+)$` "Paragraph $1, point ($2)" $target -}}
+                      {{- $target = replaceRE `^(Before|After)\s+§\s*([0-9]+)$` "$1 paragraph $2" $target -}}
+                      {{- $target = replaceRE `^§\s*([0-9]+)/([0-9]+)$` "Paragraph $1, part $2" $target -}}
+                      {{- $target = replaceRE `^§\s*([0-9]+)$` "Paragraph $1" $target -}}
+                      {{- $displayTitle = printf "Amendment %s · %s" $amendment $target -}}
+                    {{- else if eq $plainTitle "Motion for a resolution (as a whole)" -}}
+                      {{- $displayTitle = "Final vote on the motion for a resolution" -}}
+                    {{- else -}}
+                      {{- $displayTitle = $plainTitle -}}
+                    {{- end -}}
+                  {{- end -}}
                   {{- $agendaOrder := int (index $minutesVoteOrder (partials.Include "motions/motions-title-key.html" $sourceTitle) | default 0) -}}
                   {{- if eq $agendaOrder 0 -}}
                     {{- $agendaOrder = int (index $minutesVoteOrder (partials.Include "motions/motions-title-key.html" $title) | default 0) -}}
@@ -244,6 +275,9 @@
                     "procedureURL" $procedureURL
                     "procedureDocuments" $procedureDocuments
                     "title" $title
+                    "displayTitle" $displayTitle
+                    "labelMepID" ($labelMep.id | default "")
+                    "labelMepName" ($labelMep.fullName | default "")
                     "sourceTitle" $sourceTitle
                     "parentID" (index $vote "activity_id")
                     "isSubvote" $isSubvote
