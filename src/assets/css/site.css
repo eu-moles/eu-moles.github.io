@@ -1260,9 +1260,11 @@ main table tbody tr:last-child td {
 
 /* Keep wide tables in their readable record layout until a viewport can
    genuinely accommodate every column. The full tabular view starts at 1600px. */
-@media screen and (max-width: 1449px) {
+@media screen and (max-width: 1599px) {
   .motion-calendar {
     grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1rem;
   }
 
   .motion-calendar__picker {
@@ -1306,7 +1308,10 @@ main table tbody tr:last-child td {
 
   .site-table--motion tr {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    /* Date, classification, and reference need their intrinsic widths. Equal
+       auto-fit tracks let a non-wrapping classification badge run into the
+       following reference card. The remaining track absorbs spare space. */
+    grid-template-columns: max-content max-content max-content minmax(0, 1fr);
     /* Separate the metadata row from the title and documents consistently. */
     gap: 0.5rem 0.85rem;
     padding: 1rem;
@@ -1408,10 +1413,27 @@ main table tbody tr:last-child td {
     align-items: start;
     justify-content: start;
     gap: 0.35rem 0.85rem;
+    margin-top: 5px;
   }
 
   .site-table--motion .motion-type-badges {
     width: fit-content;
+  }
+
+  /* A classification card must be at least as wide as its longest badge.
+     The generic compact-cell min-width otherwise lets a non-wrapping badge
+     overflow into the following metadata card. */
+  .site-table--motion td.motion-type-cell {
+    min-width: max-content;
+    width: max-content;
+  }
+
+  @media screen and (max-width: 40rem) {
+    .site-table--motion tr {
+      /* On narrow phones, keep the classification on the first metadata row
+         and move the reference to a new row when necessary. */
+      grid-template-columns: max-content minmax(0, 1fr);
+    }
   }
 
   .site-table--motion .motion-agenda-badge,
