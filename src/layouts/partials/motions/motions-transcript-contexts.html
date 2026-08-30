@@ -36,8 +36,10 @@
       {{- $isAfterVoteLabel := and $insideContext (findRE "(?i)^–?[[:space:]]*after the vote:" $text) -}}
 
       {{- if and $insideContext $isAgendaHeading -}}
-        {{- if ne $speaker "" -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" (delimit $paragraphBuffer "\n\n") "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+        {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+        {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+        {{- if and (ne $speaker "") (not $isChairChange) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
           {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
@@ -65,8 +67,10 @@
           {{- $waitingForMarker = false -}}
         {{- end -}}
       {{- else if and $insideContext (or $isAfterVoteMarker $isAfterVoteLabel) -}}
-        {{- if ne $speaker "" -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" (delimit $paragraphBuffer "\n\n") "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+        {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+        {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+        {{- if and (ne $speaker "") (not $isChairChange) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
           {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
@@ -76,8 +80,10 @@
         {{- $turns = slice -}}
         {{- $paragraphBuffer = slice -}}
       {{- else if and $insideContext $isSpeakerMarker -}}
-        {{- if ne $speaker "" -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" (delimit $paragraphBuffer "\n\n") "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+        {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+        {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+        {{- if and (ne $speaker "") (not $isChairChange) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
         {{- end -}}
         {{- $speaker = replaceRE "^[0-9]+-[0-9]+-[0-9]+\\s*" "" $bookmark -}}
         {{- $speakerID = index $mepIDs (lower $speaker) | default "" -}}
@@ -95,8 +101,10 @@
         {{- end -}}
       {{- end -}}
     {{- end -}}
-    {{- if and $insideContext (ne $speaker "") -}}
-      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" (delimit $paragraphBuffer "\n\n") "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+    {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+    {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+    {{- if and $insideContext (ne $speaker "") (not $isChairChange) -}}
+      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
     {{- end -}}
     {{- if gt (len $turns) 0 -}}
       {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
