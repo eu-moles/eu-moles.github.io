@@ -155,11 +155,6 @@
       topic.rel = 'external noopener noreferrer';
     }
     topic.append(document.createTextNode(speech.topic || 'One-minute speech'));
-    if (speech.sourceURL) {
-      const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
-      icon.setAttribute('aria-hidden', 'true');
-      topic.append(document.createTextNode(' '), icon);
-    }
     meta.append(date, topic);
 
     const bubble = make('div', 'motion-context-bubble');
@@ -333,11 +328,6 @@
             title.title = 'Open official sitting record';
           }
           appendMotionTitle(title, motion.title);
-          if (motion.sourceURL) {
-            const icon = make('i', 'fa-solid fa-arrow-up-right-from-square');
-            icon.setAttribute('aria-hidden', 'true');
-            title.append(document.createTextNode(' '), icon);
-          }
           const titleLine = make('span', 'motion-title-line');
           title.classList.add('motion-title-text');
           const titlePrimary = make('span', 'motion-title-primary');

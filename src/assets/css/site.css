@@ -148,6 +148,7 @@ textarea {
 
 .motion-vote-counts {
   display: inline-flex;
+  align-self: center;
   align-items: center;
   gap: 0.5rem;
   color: #526475;
@@ -178,6 +179,22 @@ textarea {
 
 .motion-title-text {
   min-width: 0;
+}
+
+/* Motion titles are the primary action in each record. Keep them clean at
+   rest, then reveal the conventional link underline on interaction. */
+.motion-title-text > a,
+a.mep-profile-motion-title-text {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.motion-title-text > a:hover,
+.motion-title-text > a:focus-visible,
+a.mep-profile-motion-title-text:hover,
+a.mep-profile-motion-title-text:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .motion-title-primary {
@@ -932,7 +949,7 @@ main table tbody tr:last-child td {
   min-width: 0;
 }
 
-@media screen and (min-width: 1450px) {
+@media screen and (min-width: 1600px) {
   .site-table--motion {
     display: block;
     border: 0;
@@ -1242,7 +1259,7 @@ main table tbody tr:last-child td {
 }
 
 /* Keep wide tables in their readable record layout until a viewport can
-   genuinely accommodate every column. The full tabular view starts at 1450px. */
+   genuinely accommodate every column. The full tabular view starts at 1600px. */
 @media screen and (max-width: 1449px) {
   .motion-calendar {
     grid-template-columns: 1fr;
@@ -2137,6 +2154,7 @@ button.motion-context-language:disabled {
 }
 
 .motion-context-modal__footer {
+  text-align: center;
   padding: 0.9rem clamp(1.25rem, 3vw, 2.2rem);
   border-top: 1px solid #d9e2eb;
   background: #fff;
@@ -2145,7 +2163,8 @@ button.motion-context-language:disabled {
   font-weight: 700;
 }
 
-.motion-context-modal__footer a {
+.motion-context-modal__footer a,
+.motion-context-modal__footer a:visited {
   color: #174f91;
   text-decoration: none;
 }
@@ -2154,6 +2173,7 @@ button.motion-context-language:disabled {
 .motion-context-modal__footer a:focus-visible {
   color: #0b376f;
   text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 @media screen and (max-width: 36em) {

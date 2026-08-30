@@ -100,7 +100,7 @@
                     <span class="motion-title-primary">
                       <span class="motion-title-text">
                         {{ if $motion.sourceURL }}
-                          <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }} <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                          <a href="{{ $motion.sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official sitting record">{{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}</a>
                         {{ else }}
                           {{ partial "utilities/highlight-geopolitical-keywords.html" $motion.title | safeHTML }}
                         {{ end }}
@@ -129,6 +129,10 @@
                     <button class="motion-discussion-link" type="button" data-motion-context-open="{{ $modalID }}" aria-haspopup="dialog" aria-controls="{{ $modalID }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
                   {{- end -}}
                   {{ with $context.turns }}
+                    {{- /* A discussion is published in CRE, while the motion title
+                          itself points at its PV item. Prefer an explicitly mapped
+                          CRE context, otherwise derive the matching CRE item. */ -}}
+                    {{- $officialRecordURL := $motion.contextURL | default (replace $motion.sourceURL "/PV-" "/CRE-") -}}
                     <dialog id="{{ $modalID }}" class="motion-context-modal" aria-labelledby="{{ $modalID }}-title">
                       <div class="motion-context-modal__shell">
                         <header class="motion-context-modal__header">
@@ -177,8 +181,8 @@
                             </article>
                           {{ end }}
                         </div>
-                        {{ with $motion.contextURL }}
-                          <footer class="motion-context-modal__footer"><a href="{{ . }}" target="_blank" rel="external noopener noreferrer">Open the official transcript <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></footer>
+                        {{ with $officialRecordURL }}
+                          <footer class="motion-context-modal__footer"><a href="{{ . }}" target="_blank" rel="external noopener noreferrer">European Parliament record</a></footer>
                         {{ end }}
                       </div>
                     </dialog>

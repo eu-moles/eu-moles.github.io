@@ -46,9 +46,6 @@
       link.href = `https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=${encodeURIComponent(match[1])}`;
       link.target = "_blank";
       link.rel = "external noopener noreferrer";
-      const icon = make("i", "fa-solid fa-arrow-up-right-from-square");
-      icon.setAttribute("aria-hidden", "true");
-      link.append(document.createTextNode(" "), icon);
       container.append(link);
       lastIndex = expression.lastIndex;
     }
@@ -297,15 +294,13 @@
     });
 
     shell.append(header, note, transcript);
-    if (motion.contextURL) {
+    const officialRecordURL = motion.contextURL || String(motion.sourceURL || "").replace("/PV-", "/CRE-");
+    if (officialRecordURL) {
       const footer = make("footer", "motion-context-modal__footer");
-      const source = make("a", "", "Open the official transcript ");
-      source.href = motion.contextURL;
+      const source = make("a", "", "European Parliament record");
+      source.href = officialRecordURL;
       source.target = "_blank";
       source.rel = "external noopener noreferrer";
-      const sourceIcon = make("i", "fa-solid fa-arrow-up-right-from-square");
-      sourceIcon.setAttribute("aria-hidden", "true");
-      source.append(sourceIcon);
       footer.append(source);
       shell.append(footer);
     }

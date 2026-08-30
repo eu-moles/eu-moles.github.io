@@ -93,7 +93,7 @@
       group.style.removeProperty('--motion-grid-component-min-height');
     });
 
-    if (!window.matchMedia('(min-width: 1450px)').matches) return;
+    if (!window.matchMedia('(min-width: 1600px)').matches) return;
 
     groups.forEach((group) => {
       if (group.hidden) return;
