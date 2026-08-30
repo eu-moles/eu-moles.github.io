@@ -153,7 +153,7 @@
                             {{- if $isTranslated -}}
                               {{- $displayText = $translation.englishText -}}
                             {{- end -}}
-                            <article class="motion-context-turn{{ if eq .speaker "President" }} motion-context-turn--chair{{ end }}">
+                            <article class="motion-context-turn{{ if .isChair }} motion-context-turn--chair{{ end }}">
                               {{ with $turn.mepID }}
                                 {{- $returnURL := printf "%s?context=%s" ("motions/" | relURL) $modalID -}}
                                 <a class="motion-context-avatar" href="{{ "mep/" | relURL }}?id={{ . }}&return={{ $returnURL | urlquery }}" aria-label="View profile for {{ $turn.speaker }}">
