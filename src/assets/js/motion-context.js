@@ -34,16 +34,22 @@
     container.append(document.createTextNode(text.slice(lastIndex)));
   };
 
-  const appendProcedureText = (container, text, highlight = false) => {
-    const expression = /(\d{4}\/\d{4}\([A-Z]{2,10}\))/g;
+  const appendProcedureText = (container, text, highlight = false, minutesURL = "") => {
+    const expression = minutesURL
+      ? /(\d{4}\/\d{4}\([A-Z]{2,10}\)|\(see minutes, item \d+\.\d+\))/gi
+      : /(\d{4}\/\d{4}\([A-Z]{2,10}\))/g;
     let lastIndex = 0;
     let match;
     while ((match = expression.exec(text)) !== null) {
       const beforeReference = text.slice(lastIndex, match.index);
       if (highlight) appendHighlightedText(container, beforeReference);
       else container.append(document.createTextNode(beforeReference));
-      const link = make("a", "motion-transcript-reference", match[1]);
-      link.href = `https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=${encodeURIComponent(match[1])}`;
+      const matchText = match[1];
+      const isMinutesReference = /^\(see minutes, item \d+\.\d+\)$/i.test(matchText);
+      const link = make("a", "motion-transcript-reference", matchText);
+      link.href = isMinutesReference && minutesURL
+        ? minutesURL
+        : `https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=${encodeURIComponent(matchText)}`;
       link.target = "_blank";
       link.rel = "external noopener noreferrer";
       container.append(link);
@@ -87,11 +93,11 @@
       .join("");
   };
 
-  const replaceBubbleText = (content, text, highlight = false) => {
+  const replaceBubbleText = (content, text, highlight = false, minutesURL = "") => {
     content.replaceChildren();
     String(text).split(/\n{2,}/).forEach((paragraph, index) => {
       if (index) content.append(document.createElement("br"), document.createElement("br"));
-      appendProcedureText(content, paragraph, highlight);
+      appendProcedureText(content, paragraph, highlight, minutesURL);
     });
   };
 
@@ -106,7 +112,7 @@
       if (typeof button._translationOriginalMarkup === "string") {
         content.innerHTML = button._translationOriginalMarkup;
       } else {
-        replaceBubbleText(content, button.dataset.translationText || "", false);
+        replaceBubbleText(content, button.dataset.translationText || "", false, bubble.dataset.minutesUrl || "");
       }
       button.textContent = code;
       button.title = `Original language: ${button.dataset.translationName || code}. Translate to English`;
@@ -123,7 +129,7 @@
     const cachedText = button.dataset.translationCached || "";
     if (cachedText) {
       button._translationOriginalMarkup = content.innerHTML;
-      replaceBubbleText(content, cachedText, true);
+      replaceBubbleText(content, cachedText, true, bubble.dataset.minutesUrl || "");
       button.textContent = `${code} → EN`;
       button.title = "Machine-translated to English. Show original text.";
       button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
@@ -154,7 +160,7 @@
       const response = await fetch(url, { headers: { Accept: "application/json" } });
       if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
       button._translationOriginalMarkup = content.innerHTML;
-      replaceBubbleText(content, translationText(await response.json()), true);
+      replaceBubbleText(content, translationText(await response.json()), true, bubble.dataset.minutesUrl || "");
       button.textContent = `${code} → EN`;
       button.title = "Machine-translated to English by Google Translate. Show original text.";
       button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
@@ -273,6 +279,7 @@
         speaker.textContent = turn.speaker;
       }
       const bubble = make("div", "motion-context-bubble");
+      if (motion.sourceURL) bubble.dataset.minutesUrl = motion.sourceURL;
       const bubbleText = make("div", "motion-context-bubble__text");
       bubbleText.setAttribute("aria-live", "polite");
       const translatedText = String(turn.translation?.englishText || "");
@@ -280,7 +287,7 @@
       const highlightText = Boolean(translatedText) || !(turn.language && turn.language.code);
       displayedText.split(/\n{2,}/).forEach((paragraph, index) => {
         if (index) bubbleText.append(document.createElement("br"), document.createElement("br"));
-        appendProcedureText(bubbleText, paragraph, highlightText);
+        appendProcedureText(bubbleText, paragraph, highlightText, motion.sourceURL || "");
       });
       bubble.append(bubbleText);
       if (turn.language && turn.language.code) {
@@ -316,8 +323,8 @@
     highlightText(container, text) {
       appendHighlightedText(container, String(text || ""));
     },
-    renderBubbleText(container, text, highlight = false) {
-      replaceBubbleText(container, String(text || ""), highlight);
+    renderBubbleText(container, text, highlight = false, minutesURL = "") {
+      replaceBubbleText(container, String(text || ""), highlight, minutesURL);
     },
     createTranslationButton(language, text, translation) {
       const button = createTranslationButton(language, text, translation);

@@ -174,7 +174,7 @@
                                   {{ end }}
                                 </p>
                                 <div class="motion-context-bubble">
-                                  <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript/transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText) | safeHTML }}</div>
+                                  <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript/transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText "minutesURL" $motion.sourceURL) | safeHTML }}</div>
                                   {{ with .language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ .source }}" data-translation-text="{{ $turn.text }}"{{ if $isTranslated }} data-translation-cached="{{ $translation.englishText }}" data-translated="true"{{ end }} title="{{ if $isTranslated }}Machine-translated to English. Show original {{ .name }} text.{{ else }}Original language: {{ .name }}. Translate to English.{{ end }}" aria-label="{{ if $isTranslated }}Show original {{ .name }} text{{ else }}Translate {{ .name }} to English{{ end }}" aria-pressed="{{ if $isTranslated }}true{{ else }}false{{ end }}">{{ upper .code }}{{ if $isTranslated }} → EN{{ end }}</button>{{ end }}
                                 </div>
                               </div>
