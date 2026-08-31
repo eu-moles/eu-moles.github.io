@@ -1,0 +1,12 @@
+{{- $latestDate := "" -}}
+{{- $directory := "data/votes" -}}
+{{- if os.FileExists $directory -}}
+  {{- range os.ReadDir $directory -}}
+    {{- if and .IsDir (os.FileExists (path.Join $directory .Name "vote-results.json")) -}}
+      {{- if or (eq $latestDate "") (gt .Name $latestDate) -}}
+        {{- $latestDate = .Name -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $latestDate -}}
