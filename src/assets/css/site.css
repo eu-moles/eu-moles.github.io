@@ -1260,7 +1260,10 @@ main table tbody tr:last-child td {
 
 /* Keep wide tables in their readable record layout until a viewport can
    genuinely accommodate every column. The full tabular view starts at 1600px. */
-@media screen and (max-width: 1599px) {
+/* Keep this complementary to the 1600px wide-table breakpoint. The fractional
+   value prevents zoom/DPR rounding from leaving a gap near 1599px where the
+   browser would fall back to its native table layout. */
+@media screen and (max-width: 1599.98px) {
   .motion-calendar {
     grid-template-columns: 1fr;
     align-items: start;
