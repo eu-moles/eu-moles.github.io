@@ -92,10 +92,10 @@
 
   const voteBadge = (position, prefix = '') => {
     const labels = {
-      for: ['In favour', 'fa-thumbs-up'],
-      against: ['Against', 'fa-thumbs-down'],
-      abstention: ['Abstained', 'fa-circle-minus'],
-      notRecorded: ['No recorded vote', 'fa-minus'],
+      for: ['in favour', 'fa-thumbs-up'],
+      against: ['against', 'fa-thumbs-down'],
+      abstention: ['abstained', 'fa-circle-minus'],
+      notRecorded: ['did not vote', 'fa-minus'],
     };
     const [label, icon] = labels[position] || labels.notRecorded;
     const badge = make('span', `mep-motion-vote mep-motion-vote--${position}`);
