@@ -160,6 +160,10 @@ textarea {
   white-space: nowrap;
 }
 
+.motion-vote-summary {
+  display: contents;
+}
+
 .motion-vote-count {
   display: inline-flex;
   align-items: center;
@@ -1373,7 +1377,7 @@ main table tbody tr:last-child td {
      entire motion card. */
   .site-table--motion .motion-subvotes-list {
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
-    gap: 0.55rem 0.85rem;
+    gap: 0.55rem 1rem;
   }
 
   .site-table--motion .motion-subvote-item {
@@ -1458,6 +1462,14 @@ main table tbody tr:last-child td {
   .site-table--motion .motion-result {
     padding: 0.2rem 0.45rem;
     font-size: 0.72rem;
+  }
+
+  .site-table--motion .motion-subvote-item .motion-vote-summary {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 0.55rem;
+    white-space: nowrap;
   }
 
   .site-table--motion .motion-vote-counts {

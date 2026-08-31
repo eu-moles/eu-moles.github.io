@@ -397,13 +397,13 @@
               subvoteTitle.title = `Original voting label: ${subvote.title || ''}`;
               appendMotionTitle(subvoteTitle, subvote.displayTitle || subvote.title);
               primary.append(subvoteTitle);
-              line.append(
-                primary,
-                inlineDivider(),
+              const voteSummary = make('span', 'motion-vote-summary');
+              voteSummary.append(
                 voteBadge(positionFor(subvote), 'MEP '),
                 inlineDivider(),
                 outcomeBadge(subvote.result),
               );
+              line.append(primary, inlineDivider(), voteSummary);
               item.append(line);
               list.append(item);
             });

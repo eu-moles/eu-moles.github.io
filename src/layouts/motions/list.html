@@ -225,14 +225,16 @@
                               <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
                             </span>
                             <span class="motion-inline-divider motion-inline-divider--counts" aria-hidden="true"></span>
-                            <span class="motion-vote-counts" aria-label="Vote totals: {{ .for }} in favour, {{ .against }} against, {{ .abstentions }} abstentions, {{ .notRecorded }} not voted">
-                              <span class="motion-vote-count motion-vote-count--for" title="In favour: {{ .for }}"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i><span>{{ .for }}</span></span>
-                              <span class="motion-vote-count motion-vote-count--against" title="Against: {{ .against }}"><i class="fa-solid fa-thumbs-down" aria-hidden="true"></i><span>{{ .against }}</span></span>
-                              <span class="motion-vote-count motion-vote-count--abstentions" title="Abstentions: {{ .abstentions }}"><i class="fa-solid fa-circle-minus" aria-hidden="true"></i><span>{{ .abstentions }}</span></span>
-                              <span class="motion-vote-count motion-vote-count--not-voted" title="Not voted: {{ .notRecorded }}"><i class="fa-solid fa-minus" aria-hidden="true"></i><span>{{ .notRecorded }}</span></span>
+                            <span class="motion-vote-summary">
+                              <span class="motion-vote-counts" aria-label="Vote totals: {{ .for }} in favour, {{ .against }} against, {{ .abstentions }} abstentions, {{ .notRecorded }} not voted">
+                                <span class="motion-vote-count motion-vote-count--for" title="In favour: {{ .for }}"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i><span>{{ .for }}</span></span>
+                                <span class="motion-vote-count motion-vote-count--against" title="Against: {{ .against }}"><i class="fa-solid fa-thumbs-down" aria-hidden="true"></i><span>{{ .against }}</span></span>
+                                <span class="motion-vote-count motion-vote-count--abstentions" title="Abstentions: {{ .abstentions }}"><i class="fa-solid fa-circle-minus" aria-hidden="true"></i><span>{{ .abstentions }}</span></span>
+                                <span class="motion-vote-count motion-vote-count--not-voted" title="Not voted: {{ .notRecorded }}"><i class="fa-solid fa-minus" aria-hidden="true"></i><span>{{ .notRecorded }}</span></span>
+                              </span>
+                              <span class="motion-inline-divider motion-inline-divider--outcome" aria-hidden="true"></span>
+                              <span class="motion-result motion-result--{{ lower .result }}">{{ if eq .result "ADOPTED" }}<i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>{{ else if eq .result "REJECTED" }}<i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>{{ end }}{{ .result | humanize }}</span>
                             </span>
-                            <span class="motion-inline-divider motion-inline-divider--outcome" aria-hidden="true"></span>
-                            <span class="motion-result motion-result--{{ lower .result }}">{{ if eq .result "ADOPTED" }}<i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>{{ else if eq .result "REJECTED" }}<i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>{{ end }}{{ .result | humanize }}</span>
                           </span>
                         </li>
                       {{- end -}}
