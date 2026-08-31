@@ -64,7 +64,7 @@ curl_with_error_url() {
   return "$status"
 }
 
-current_date=$(date +%F)
+cutoff_date=$(date -d '1 month ago' +%F)
 voting_dates=$(curl_with_error_url -fsSL "https://data.europarl.europa.eu/distribution/meetings_$(date +%Y)_4_en.csv" |
   sed -nE 's/^MTG-PL-([0-9]{4}-[0-9]{2}-[0-9]{2}).*/\1/p' |
   sort -u)
@@ -588,7 +588,7 @@ cache_transcript_translations() {
 
 for voting_date in $voting_dates; do
   [[ "$voting_date" == "2026-07-07" ]] || continue
-  [[ "$voting_date" < "$current_date" ]] || continue
+  [[ "$voting_date" < "$cutoff_date" ]] || continue
   echo "$voting_date processing..."
   sitting_id="MTG-PL-${voting_date}"
   dir="data/votes/${voting_date}"
