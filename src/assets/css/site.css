@@ -1183,6 +1183,52 @@ main table tbody tr:last-child td {
   flex-wrap: wrap;
 }
 
+/* Vote details use the same compact, two-line component in every table view.
+   A detail's divider stays within its own grid item instead of spanning the
+   entire motion record. */
+.site-table--motion .motion-subvotes-list {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 0.55rem 1rem;
+}
+
+.site-table--motion .motion-subvote-item {
+  align-items: stretch;
+  min-height: 0;
+  padding: 0.25rem 0 0.25rem 0.85rem;
+}
+
+.site-table--motion .motion-subvote-item--with-mep {
+  padding-left: 3.15rem;
+}
+
+.site-table--motion .motion-subvote-item .motion-title-line {
+  width: 100%;
+  justify-content: flex-start;
+  row-gap: 2px;
+}
+
+.site-table--motion .motion-subvote-item .motion-title-primary {
+  flex: 0 0 100%;
+  width: 100%;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #dce4ec;
+}
+
+.site-table--motion .motion-subvote-item .motion-title-primary + .motion-inline-divider,
+.site-table--motion .motion-subvote-item .motion-inline-divider--counts,
+.site-table--motion .motion-subvote-item .motion-inline-divider--outcome,
+.mep-profile-motions-table .motion-subvote-item .mep-motion-vote + .motion-inline-divider {
+  display: none;
+}
+
+.site-table--motion .motion-subvote-item .motion-vote-summary {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+
 /* Profile tables inherit the card frame that surrounds them. */
 .mep-profile-motions .site-table {
   border: 0;
@@ -1385,48 +1431,6 @@ main table tbody tr:last-child td {
     display: none;
   }
 
-  /* Vote details become a responsive collection of compact list items. Each
-     item owns its title divider, rather than stretching a divider across the
-     entire motion card. */
-  .site-table--motion .motion-subvotes-list {
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
-    gap: 0.55rem 1rem;
-  }
-
-  .site-table--motion .motion-subvote-item {
-    align-items: stretch;
-    min-height: 0;
-    padding: 0.25rem 0 0.25rem 0.85rem;
-  }
-
-  .site-table--motion .motion-subvote-item--with-mep {
-    padding-left: 3.15rem;
-  }
-
-  .site-table--motion .motion-subvote-item .motion-title-line {
-    width: 100%;
-    justify-content: flex-start;
-    row-gap: 2px;
-  }
-
-  .site-table--motion .motion-subvote-item .motion-title-primary {
-    flex: 0 0 100%;
-    width: 100%;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #dce4ec;
-  }
-
-  .site-table--motion .motion-subvote-item .motion-title-primary > .motion-inline-divider {
-    align-self: flex-start;
-    margin-top: 0.1rem;
-  }
-
-  .site-table--motion .motion-subvote-item .motion-title-primary + .motion-inline-divider,
-  .site-table--motion .motion-subvote-item .motion-inline-divider--counts,
-  .site-table--motion .motion-subvote-item .motion-inline-divider--outcome {
-    display: none;
-  }
-
   /* Document labels are intentionally kept as whole links. Use the actual card
      width, so grid tracks never extend beyond the parent record. */
   .site-table--motion td.motion-documents-cell {
@@ -1475,14 +1479,6 @@ main table tbody tr:last-child td {
   .site-table--motion .motion-result {
     padding: 0.2rem 0.45rem;
     font-size: 0.72rem;
-  }
-
-  .site-table--motion .motion-subvote-item .motion-vote-summary {
-    display: inline-flex;
-    flex: 0 0 auto;
-    align-items: center;
-    gap: 0.55rem;
-    white-space: nowrap;
   }
 
   .site-table--motion .motion-vote-counts {
@@ -1584,10 +1580,6 @@ main table tbody tr:last-child td {
     display: none;
   }
 
-  .mep-profile-motions-table .motion-subvote-item .mep-motion-vote + .motion-inline-divider {
-    display: none;
-  }
-
   .site-table--motion tr.motion-subvote-row td[data-label="Motion"] .motion-title-line {
     justify-content: center;
   }
@@ -1595,15 +1587,6 @@ main table tbody tr:last-child td {
   .site-table--motion td[data-label="Motion"] .motion-title-primary > .motion-inline-divider {
     align-self: flex-start;
     margin-top: 0.1rem;
-  }
-
-  .site-table--motion tr.motion-subvote-row .motion-title-primary {
-    padding-bottom: 2px;
-    border-bottom: 1px solid #dce4ec;
-  }
-
-  .site-table--motion tr.motion-subvote-row .motion-title-line {
-    row-gap: 2px;
   }
 
   .site-table--mep-directory tbody {
