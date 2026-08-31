@@ -1565,6 +1565,13 @@ main table tbody tr:last-child td {
     width: 100%;
   }
 
+  /* Compact-card metadata is intentionally small, but a vote-detail title is
+     still primary content and should match its full-table reading size. */
+  .site-table--motion tr.motion-subvote-row .motion-title-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
   /* After the title occupies its own line, a leading divider before a result
      badge would be orphaned. Keep inline reference separators aligned with
      their title, then place child-row results below the title. */
