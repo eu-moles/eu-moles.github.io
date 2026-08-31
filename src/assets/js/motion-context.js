@@ -12,6 +12,12 @@
     window.history.replaceState(null, "", url);
   };
 
+  const syncPageScrollLock = () => {
+    const hasOpenDialog = Boolean(document.querySelector(".motion-context-modal[open]"));
+    document.documentElement.classList.toggle("motion-context-open", hasOpenDialog);
+    document.body.classList.toggle("motion-context-open", hasOpenDialog);
+  };
+
   const make = (tag, className, text) => {
     const element = document.createElement(tag);
     if (className) element.className = className;
@@ -212,6 +218,7 @@
     dialog.addEventListener("close", () => {
       const activeContext = new URLSearchParams(window.location.search).get(contextParameter);
       if (activeContext === dialog.id) updateContext("");
+      syncPageScrollLock();
       if (dialog._motionContextOpener) dialog._motionContextOpener.focus();
     });
   };
@@ -221,6 +228,7 @@
     dialog._motionContextOpener = opener || null;
     if (writeURL) updateContext(dialog.id);
     if (!dialog.open) dialog.showModal();
+    syncPageScrollLock();
   };
 
   const createDiscussionDialog = (motion, profileURL) => {

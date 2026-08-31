@@ -1917,6 +1917,12 @@ header.cover h2.fw1 {
 }
 
 /* In-page transcript reader for the context control on voting motions. */
+html.motion-context-open,
+body.motion-context-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 .motion-context-modal {
   width: min(92vw, 58rem);
   max-width: none;
@@ -2014,6 +2020,7 @@ header.cover h2.fw1 {
   display: grid;
   gap: 1.15rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: clamp(1.25rem, 3vw, 2rem);
   background: linear-gradient(135deg, #f6f9fc, #fff);
 }
