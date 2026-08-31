@@ -1,0 +1,14 @@
+{{- $procedureReference := .procedureReference | default "" -}}
+{{- $documentsByProcedure := .documentsByProcedure | default dict -}}
+{{- $procedureID := "" -}}
+{{- with findRE `^[0-9]{4}/[0-9]{4}\([A-Z]+\)$` $procedureReference -}}
+  {{- $procedureID = replaceRE `^([0-9]{4})/([0-9]{4})\([A-Z]+\)$` "$1-$2" (index . 0) -}}
+{{- end -}}
+{{- $sourceURL := "" -}}
+{{- range index $documentsByProcedure $procedureID -}}
+  {{- $documentID := index . "id" | default "" -}}
+  {{- if and (eq $sourceURL "") (gt (len (findRE `^(A|B)-[0-9]+-` $documentID)) 0) -}}
+    {{- $sourceURL = index . "url" | default "" -}}
+  {{- end -}}
+{{- end -}}
+{{- return $sourceURL -}}

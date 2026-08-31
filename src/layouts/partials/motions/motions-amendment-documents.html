@@ -1,0 +1,54 @@
+{{- $documentsByBase := dict -}}
+{{- $directory := . -}}
+{{- if os.FileExists $directory -}}
+  {{- range os.ReadDir $directory -}}
+    {{- if and (not .IsDir) (eq (path.Ext .Name) ".json") -}}
+      {{- $procedureFile := path.Join $directory .Name -}}
+      {{- $procedureData := transform.Unmarshal (os.ReadFile $procedureFile) -}}
+      {{- $records := index $procedureData "data" -}}
+      {{- if and (reflect.IsSlice $records) (gt (len $records) 0) -}}
+        {{- range index (index $records 0) "consists_of" -}}
+          {{- if eq (index . "had_activity_type") "def/ep-activities/TABLING_PLENARY" -}}
+            {{- $references := index . "based_on_a_realization_of" -}}
+            {{- if $references -}}
+              {{- if not (reflect.IsSlice $references) -}}
+                {{- $references = slice $references -}}
+              {{- end -}}
+              {{- range $reference := $references -}}
+                {{- $documentID := path.Base $reference -}}
+                {{- with findRESubmatch `^((A|B|RC)-[0-9]+-[0-9]{4}-[0-9]+)-AM-([0-9]+)-([0-9]+)$` $documentID -}}
+                  {{- $match := index . 0 -}}
+                  {{- $baseID := index $match 1 -}}
+                  {{- $family := index $match 2 -}}
+                  {{- /* Hugo's int treats a leading zero as an octal literal; the
+                        Parliament identifiers use zero-padded decimal ranges. */ -}}
+                  {{- $first := int (replaceRE `^0+` "" (index $match 3)) -}}
+                  {{- $last := int (replaceRE `^0+` "" (index $match 4)) -}}
+                  {{- $distribution := "" -}}
+                  {{- if eq $family "A" -}}
+                    {{- $distribution = "reds_iPlRp_Amd" -}}
+                  {{- else if eq $family "B" -}}
+                    {{- $distribution = "reds_iPlRe_Amd" -}}
+                  {{- else if eq $family "RC" -}}
+                    {{- $distribution = "reds_iPlRc_Amd" -}}
+                  {{- end -}}
+                  {{- if $distribution -}}
+                    {{- $document := dict
+                      "id" $documentID
+                      "first" $first
+                      "last" $last
+                      "url" (printf "https://data.europarl.europa.eu/distribution/%s/%s/%s_en.pdf" $distribution $documentID $documentID)
+                    -}}
+                    {{- $existing := index $documentsByBase $baseID | default slice -}}
+                    {{- $documentsByBase = merge $documentsByBase (dict $baseID ($existing | append $document)) -}}
+                  {{- end -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $documentsByBase -}}

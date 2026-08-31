@@ -33,6 +33,7 @@
         {{- $minutesContextLinks := partials.Include "motions/motions-pv-context-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
         {{- $minutesItemLinks := partials.Include "motions/motions-pv-item-links.html" (dict "file" $minutesFile "document" $minutesDocument) -}}
         {{- $procedureDocumentsByID := partials.Include "motions/motions-procedure-documents.html" (path.Join $dateDirectory "procedures") -}}
+        {{- $amendmentDocumentsByBase := partials.Include "motions/motions-amendment-documents.html" (path.Join $dateDirectory "procedures") -}}
         {{- $decisionsByID := dict -}}
         {{- $decisions := index $decisionsData "data" -}}
         {{- if $decisions -}}
@@ -228,6 +229,9 @@
                   {{- end -}}
                   {{- $displayTitle := $title -}}
                   {{- $labelMep := dict -}}
+                  {{- $amendmentNumber := 0 -}}
+                  {{- $amendmentURL := "" -}}
+                  {{- $componentURL := "" -}}
                   {{- if $isSubvote -}}
                     {{- $labelName := strings.TrimSpace (replaceRE `\s+[–—-]\s+.*$` "" $title) -}}
                     {{- $labelMep = index $mepsByName (lower $labelName) | default dict -}}
@@ -240,6 +244,7 @@
                     {{- if findRE `(?i)[–—-]\s*Am\s+[0-9]+(?:/[0-9]+)?\s*$` $plainTitle -}}
                       {{- $target := strings.TrimSpace (replaceRE `\s*[–—-]\s*(?i:Am)\s+[0-9]+(?:/[0-9]+)?\s*$` "" $plainTitle) -}}
                       {{- $amendment := replaceRE `^.*[–—-]\s*(?i:Am)\s+([0-9]+(?:/[0-9]+)?)\s*$` "$1" $plainTitle -}}
+                      {{- $amendmentNumber = int (replaceRE `^([0-9]+).*$` "$1" $amendment) -}}
                       {{- $target = replaceRE `^§\s*([0-9]+),\s*(before|after)\s+point\s+([[:alpha:]]+)$` "Paragraph $1, $2 point ($3)" $target -}}
                       {{- $target = replaceRE `^§\s*([0-9]+),\s*point\s+([[:alpha:]]+)$` "Paragraph $1, point ($2)" $target -}}
                       {{- $target = replaceRE `^(Before|After)\s+§\s*([0-9]+)$` "$1 paragraph $2" $target -}}
@@ -250,6 +255,31 @@
                       {{- $displayTitle = "Final vote on the motion for a resolution" -}}
                     {{- else -}}
                       {{- $displayTitle = $plainTitle -}}
+                    {{- end -}}
+                    {{- if and (gt $amendmentNumber 0) $reference -}}
+                      {{- $amendmentBase := replaceRE `^([A-Z]+)([0-9]+)-([0-9]+)/([0-9]{4})$` "$1-$2-$4-$3" $reference -}}
+                      {{- range $amendmentDocument := index $amendmentDocumentsByBase $amendmentBase -}}
+                        {{- $first := int (index $amendmentDocument "first") -}}
+                        {{- $last := int (index $amendmentDocument "last") -}}
+                        {{- if and (eq $amendmentURL "") (ge $amendmentNumber $first) (le $amendmentNumber $last) -}}
+                          {{- $amendmentURL = index $amendmentDocument "url" -}}
+                        {{- end -}}
+                      {{- end -}}
+                    {{- end -}}
+                    {{- if eq $amendmentURL "" -}}
+                      {{- /* Parliament records an amendment vote immediately before the
+                            vote on its affected paragraph/recital. Its amendment table
+                            contains both the original and proposed wording, so reuse it
+                            for that matching component vote. */ -}}
+                      {{- range where (where $motions "parentID" (index $vote "activity_id")) "isSubvote" true -}}
+                        {{- $candidateTarget := strings.TrimSpace (replaceRE `^Amendment [^·]+ · ` "" (.displayTitle | default "")) -}}
+                        {{- if and (eq $componentURL "") .amendmentURL (eq (lower $candidateTarget) (lower $displayTitle)) -}}
+                          {{- $componentURL = .amendmentURL -}}
+                        {{- end -}}
+                      {{- end -}}
+                      {{- if eq $componentURL "" -}}
+                        {{- $componentURL = partials.Include "motions/motions-component-source-url.html" (dict "procedureReference" $procedureReference "documentsByProcedure" $procedureDocumentsByID) -}}
+                      {{- end -}}
                     {{- end -}}
                   {{- end -}}
                   {{- $agendaOrder := int (index $minutesVoteOrder (partials.Include "motions/motions-title-key.html" $sourceTitle) | default 0) -}}
@@ -276,6 +306,8 @@
                     "procedureDocuments" $procedureDocuments
                     "title" $title
                     "displayTitle" $displayTitle
+                    "amendmentURL" $amendmentURL
+                    "componentURL" $componentURL
                     "labelMepID" ($labelMep.id | default "")
                     "labelMepName" ($labelMep.fullName | default "")
                     "sourceTitle" $sourceTitle

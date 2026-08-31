@@ -16,6 +16,8 @@
     "procedureDocuments" .procedureDocuments
     "title" .title
     "displayTitle" .displayTitle
+    "amendmentURL" .amendmentURL
+    "componentURL" .componentURL
     "labelMepID" .labelMepID
     "labelMepName" .labelMepName
     "sourceTitle" .sourceTitle
