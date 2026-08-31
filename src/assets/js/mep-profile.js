@@ -249,9 +249,6 @@
           const siblingSubvotes = motion.hasSubvotes
             ? relevant.filter((item) => item.isSubvote && item.parentID === motion.parentID)
             : [];
-          const sharedReference = motion.reference
-            || siblingSubvotes.find(({ reference }) => reference)?.reference
-            || '';
           const showDocuments = true;
           const group = document.createElement('tbody');
           group.className = 'motion-grid-group';
@@ -260,7 +257,7 @@
           heading.className = 'motion-group-heading';
           heading.dataset.motionDate = String(motion.date || '').slice(0, 10);
           heading.setAttribute('aria-hidden', 'true');
-          ['Date', 'Classification', 'Reference', 'Motion', 'Documents'].forEach((label) => {
+          ['Date', 'Classification', 'Motion', 'Documents'].forEach((label) => {
             heading.append(make('th', '', label));
           });
           group.append(heading);
@@ -311,10 +308,6 @@
           } else {
             type.classList.add('motion-type-cell--empty');
           }
-          const reference = make('td', `motion-reference-cell${sharedReference ? '' : ' motion-reference-cell--empty'}`, sharedReference);
-          reference.dataset.label = 'Reference';
-          if (sharedReference) reference.title = `Reference: ${sharedReference}`;
-          if (siblingSubvotes.length) reference.rowSpan = 2;
           const position = positionFor(motion);
           const motionCell = make('td', 'mep-profile-motion-title');
           motionCell.dataset.label = 'Motion';
@@ -364,7 +357,7 @@
           if (siblingSubvotes.length) documents.rowSpan = 2;
           if (hasDocuments) documents.append(motionDocuments(motion));
 
-          row.append(date, type, reference, motionCell);
+          row.append(date, type, motionCell);
           if (showDocuments) row.append(documents);
           group.append(row);
 
