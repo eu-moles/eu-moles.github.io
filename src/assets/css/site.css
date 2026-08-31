@@ -1368,9 +1368,18 @@ main table tbody tr:last-child td {
     display: none;
   }
 
+  /* Vote details become a responsive collection of compact list items. Each
+     item owns its title divider, rather than stretching a divider across the
+     entire motion card. */
+  .site-table--motion .motion-subvotes-list {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    gap: 0.55rem 0.85rem;
+  }
+
   .site-table--motion .motion-subvote-item {
-    min-height: calc(2rem + 2px);
-    padding: 0 0 0 0.85rem;
+    align-items: stretch;
+    min-height: 0;
+    padding: 0.25rem 0 0.25rem 0.85rem;
   }
 
   .site-table--motion .motion-subvote-item--with-mep {
@@ -1379,14 +1388,14 @@ main table tbody tr:last-child td {
 
   .site-table--motion .motion-subvote-item .motion-title-line {
     width: 100%;
-    justify-content: center;
-    row-gap: 0.75rem;
+    justify-content: flex-start;
+    row-gap: 2px;
   }
 
   .site-table--motion .motion-subvote-item .motion-title-primary {
     flex: 0 0 100%;
     width: 100%;
-    padding-bottom: 0.55rem;
+    padding-bottom: 2px;
     border-bottom: 1px solid #dce4ec;
   }
 
@@ -1564,12 +1573,12 @@ main table tbody tr:last-child td {
   }
 
   .site-table--motion tr.motion-subvote-row .motion-title-primary {
-    padding-bottom: 0.55rem;
+    padding-bottom: 2px;
     border-bottom: 1px solid #dce4ec;
   }
 
   .site-table--motion tr.motion-subvote-row .motion-title-line {
-    row-gap: 0.75rem;
+    row-gap: 2px;
   }
 
   .site-table--mep-directory tbody {
