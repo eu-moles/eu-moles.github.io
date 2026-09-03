@@ -398,7 +398,8 @@ a.mep-profile-motion-title-text:focus-visible {
 }
 
 .site-filter-controls {
-  display: grid;
+  /* A hidden absolutely positioned popup still affects scrollable overflow. */
+  display: none;
   gap: 0.65rem;
   align-items: end;
 }
@@ -1311,7 +1312,8 @@ main table tbody tr:last-child td {
 }
 
 .motion-vote-explainer__popup {
-  position: absolute;
+  /* Fixed hidden popups cannot enlarge document scroll overflow. */
+  position: fixed;
   z-index: 25;
   top: calc(100% + 0.48rem);
   left: 0;
@@ -1344,9 +1346,22 @@ main table tbody tr:last-child td {
 .motion-vote-explainer:hover .motion-vote-explainer__popup,
 .motion-vote-explainer:focus-within .motion-vote-explainer__popup,
 .motion-vote-explainer.is-open .motion-vote-explainer__popup {
+  position: absolute;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: translateY(0);
+}
+
+.motion-vote-explainer--opens-upward .motion-vote-explainer__popup {
+  top: auto;
+  bottom: calc(100% + 0.48rem);
+  transform: translateY(0.2rem);
+}
+
+.motion-vote-explainer--opens-upward:hover .motion-vote-explainer__popup,
+.motion-vote-explainer--opens-upward:focus-within .motion-vote-explainer__popup,
+.motion-vote-explainer--opens-upward.is-open .motion-vote-explainer__popup {
   transform: translateY(0);
 }
 

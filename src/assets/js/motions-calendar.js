@@ -36,19 +36,16 @@
       if (!groups.length) return;
       resetGridColumns(table);
 
-      const hiddenStates = [];
-      groups.forEach((group) => {
-        [group, ...group.querySelectorAll('[hidden]')].forEach((element) => {
-          hiddenStates.push([element, element.hidden]);
-          element.hidden = false;
-        });
-      });
+      // The calendar has already selected the relevant sitting day. Measuring
+      // every hidden group forces all dates into layout and can stall the picker.
+      const visibleGroups = groups.filter((group) => !group.hidden);
+      const measuredGroups = visibleGroups.length ? visibleGroups : groups;
 
       let dateWidth = 0;
       let classificationWidth = 0;
       let referenceWidth = 0;
       let documentsWidth = 0;
-      groups.forEach((group) => {
+      measuredGroups.forEach((group) => {
         dateWidth = Math.max(
           dateWidth,
           ...[...group.querySelectorAll('.motion-group-heading th:nth-child(1), .site-table-date')]
@@ -78,7 +75,6 @@
         );
       });
 
-      hiddenStates.forEach(([element, hidden]) => { element.hidden = hidden; });
       table.style.setProperty('--motion-date-column', `${Math.ceil(dateWidth)}px`);
       table.style.setProperty('--motion-classification-column', `${Math.ceil(classificationWidth)}px`);
       table.style.setProperty('--motion-reference-column', `${Math.ceil(referenceWidth)}px`);
