@@ -386,7 +386,7 @@
               }
               const line = make('span', 'motion-title-line');
               const primary = make('span', 'motion-title-primary');
-              const subvoteURL = subvote.amendmentURL || subvote.componentURL;
+              const subvoteURL = subvote.amendmentURL;
               const subvoteTitle = subvoteURL
                 ? make('a', 'mep-profile-motion-title-text motion-title-text')
                 : make('span', 'mep-profile-motion-title-text motion-title-text');
@@ -395,11 +395,6 @@
                 subvoteTitle.target = '_blank';
                 subvoteTitle.rel = 'external noopener noreferrer';
                 subvoteTitle.title = 'Open official amendment table';
-              } else if (subvote.componentURL) {
-                subvoteTitle.href = subvote.componentURL;
-                subvoteTitle.target = '_blank';
-                subvoteTitle.rel = 'external noopener noreferrer';
-                subvoteTitle.title = 'Open the underlying Parliament text';
               } else {
                 subvoteTitle.title = `Original voting label: ${subvote.title || ''}`;
               }

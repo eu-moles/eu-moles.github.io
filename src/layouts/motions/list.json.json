@@ -9,6 +9,7 @@
   {{- end -}}
   {{- $tracked := partials.Include "motions/motion-tracked.html" (dict "title" .title "sourceTitle" .sourceTitle "turns" $discussion) -}}
   {{- $items = $items | append (dict
+    "id" .id
     "date" .date
     "reference" .reference
     "procedureReference" .procedureReference
@@ -17,7 +18,8 @@
     "title" .title
     "displayTitle" .displayTitle
     "amendmentURL" .amendmentURL
-    "componentURL" .componentURL
+    "explanation" .explanation
+    "explainerSources" .explainerSources
     "labelMepID" .labelMepID
     "labelMepName" .labelMepName
     "sourceTitle" .sourceTitle

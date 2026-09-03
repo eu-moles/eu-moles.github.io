@@ -222,13 +222,8 @@
                           {{ end }}
                           <span class="motion-title-line">
                             <span class="motion-title-primary">
-                              {{- if .amendmentURL -}}
-                                <a class="motion-title-text" href="{{ .amendmentURL }}" target="_blank" rel="external noopener noreferrer" title="Open official amendment table">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</a>
-                              {{- else if .componentURL -}}
-                                <a class="motion-title-text" href="{{ .componentURL }}" target="_blank" rel="external noopener noreferrer" title="Open the underlying Parliament text">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</a>
-                              {{- else -}}
-                                <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
-                              {{- end -}}
+                              <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
+                              {{ partial "motions/motion-vote-explainer.html" (dict "id" .id "explanation" .explanation "sources" .explainerSources) }}
                             </span>
                             <span class="motion-inline-divider motion-inline-divider--counts" aria-hidden="true"></span>
                             <span class="motion-vote-summary">
@@ -258,5 +253,6 @@
     {{ end }}
   </section>
   {{ partial "assets/asset-script.html" "js/motion-context.js" }}
+  {{ partial "assets/asset-script.html" "js/motion-vote-explainers.js" }}
   {{ partial "assets/asset-script.html" "js/motions-calendar.js" }}
 {{ end }}

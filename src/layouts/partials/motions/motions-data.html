@@ -12,11 +12,17 @@
       {{- $dateDirectory := path.Join $directory .Name -}}
       {{- $votesFile := path.Join $dateDirectory "vote-results.json" -}}
       {{- $decisionsFile := path.Join $dateDirectory "decisions.json" -}}
+      {{- $explainersFile := path.Join $dateDirectory "vote-explainers.json" -}}
       {{- $minutesFile := path.Join $dateDirectory "minutes_en.xml" -}}
       {{- $minutesMetadataFile := path.Join $dateDirectory "minutes.json" -}}
       {{- if and (os.FileExists $votesFile) (os.FileExists $decisionsFile) -}}
         {{- $votesData := transform.Unmarshal (os.ReadFile $votesFile) -}}
         {{- $decisionsData := transform.Unmarshal (os.ReadFile $decisionsFile) -}}
+        {{- $explainersByDecision := dict -}}
+        {{- if os.FileExists $explainersFile -}}
+          {{- $explainersData := transform.Unmarshal (os.ReadFile $explainersFile) -}}
+          {{- $explainersByDecision = index $explainersData "items" | default dict -}}
+        {{- end -}}
         {{- $minutesDocument := printf "PV-10-%s" .Name -}}
         {{- if os.FileExists $minutesMetadataFile -}}
           {{- $minutesMetadata := transform.Unmarshal (os.ReadFile $minutesMetadataFile) -}}
@@ -145,6 +151,9 @@
                   {{- $votersFor := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_favor") -}}
                   {{- $votersAgainst := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_against") -}}
                   {{- $votersAbstaining := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_abstention") -}}
+                  {{- $explainer := index $explainersByDecision (index $decision "activity_id") | default dict -}}
+                  {{- $explanation := index $explainer "explanation" | default "" -}}
+                  {{- $explainerSources := index $explainer "sources" | default slice -}}
                   {{- $date := index $decision "activity_date" | default (index $vote "activity_date") -}}
                   {{- $result := "" -}}
                   {{- with index $decision "decision_outcome" -}}
@@ -231,7 +240,6 @@
                   {{- $labelMep := dict -}}
                   {{- $amendmentNumber := 0 -}}
                   {{- $amendmentURL := "" -}}
-                  {{- $componentURL := "" -}}
                   {{- if $isSubvote -}}
                     {{- $labelName := strings.TrimSpace (replaceRE `\s+[–—-]\s+.*$` "" $title) -}}
                     {{- $labelMep = index $mepsByName (lower $labelName) | default dict -}}
@@ -266,21 +274,6 @@
                         {{- end -}}
                       {{- end -}}
                     {{- end -}}
-                    {{- if eq $amendmentURL "" -}}
-                      {{- /* Parliament records an amendment vote immediately before the
-                            vote on its affected paragraph/recital. Its amendment table
-                            contains both the original and proposed wording, so reuse it
-                            for that matching component vote. */ -}}
-                      {{- range where (where $motions "parentID" (index $vote "activity_id")) "isSubvote" true -}}
-                        {{- $candidateTarget := strings.TrimSpace (replaceRE `^Amendment [^·]+ · ` "" (.displayTitle | default "")) -}}
-                        {{- if and (eq $componentURL "") .amendmentURL (eq (lower $candidateTarget) (lower $displayTitle)) -}}
-                          {{- $componentURL = .amendmentURL -}}
-                        {{- end -}}
-                      {{- end -}}
-                      {{- if eq $componentURL "" -}}
-                        {{- $componentURL = partials.Include "motions/motions-component-source-url.html" (dict "procedureReference" $procedureReference "documentsByProcedure" $procedureDocumentsByID) -}}
-                      {{- end -}}
-                    {{- end -}}
                   {{- end -}}
                   {{- $agendaOrder := int (index $minutesVoteOrder (partials.Include "motions/motions-title-key.html" $sourceTitle) | default 0) -}}
                   {{- if eq $agendaOrder 0 -}}
@@ -299,6 +292,7 @@
                   {{- /* The minutes' voting section is the official business order. RCV item numbers are only a stable fallback. */ -}}
                   {{- $votingID := index $entry "votingId" | default (index $decision "notation_votingId") -}}
                   {{- $motions = $motions | append (dict
+                    "id" (index $decision "activity_id")
                     "date" $date
                     "reference" $reference
                     "procedureReference" $procedureReference
@@ -307,7 +301,8 @@
                     "title" $title
                     "displayTitle" $displayTitle
                     "amendmentURL" $amendmentURL
-                    "componentURL" $componentURL
+                    "explanation" $explanation
+                    "explainerSources" $explainerSources
                     "labelMepID" ($labelMep.id | default "")
                     "labelMepName" ($labelMep.fullName | default "")
                     "sourceTitle" $sourceTitle

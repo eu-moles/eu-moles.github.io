@@ -1,0 +1,22 @@
+{{- $explanation := index . "explanation" | default "" -}}
+{{- $sources := index . "sources" | default slice -}}
+{{- $id := index . "id" | default "" -}}
+{{- if $explanation -}}
+  {{- $explanation = replaceRE `\s*\[citation:[^]]+\]` "" $explanation -}}
+  {{- $popupID := printf "vote-explainer-%s" $id -}}
+  <span class="motion-vote-explainer">
+    <button class="motion-vote-explainer__toggle" type="button" data-vote-explainer-toggle aria-expanded="false" aria-controls="{{ $popupID }}" aria-label="What this vote means?">
+      <i class="fa-solid fa-circle-info" aria-hidden="true"></i><span class="motion-vote-explainer__label">What this means?</span>
+    </button>
+    <span id="{{ $popupID }}" class="motion-vote-explainer__popup" role="tooltip">
+      <span class="motion-vote-explainer__eyebrow">Plain-language guide</span>
+      <span class="motion-vote-explainer__text">{{ $explanation }}</span>
+      {{- with $sources -}}
+        <span class="motion-vote-explainer__sources">
+          <span>Official sources</span>
+          <span class="motion-vote-explainer__source-links">{{ range . }}<a href="{{ .url }}" target="_blank" rel="external noopener noreferrer">{{ .label }}</a>{{ end }}</span>
+        </span>
+      {{- end -}}
+    </span>
+  </span>
+{{- end -}}
