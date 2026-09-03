@@ -193,8 +193,15 @@ a.mep-profile-motion-title-text {
   text-decoration: none;
 }
 
+a.motion-title-text {
+  font-weight: inherit;
+  text-decoration: none;
+}
+
 .motion-title-text > a:hover,
 .motion-title-text > a:focus-visible,
+a.motion-title-text:hover,
+a.motion-title-text:focus-visible,
 a.mep-profile-motion-title-text:hover,
 a.mep-profile-motion-title-text:focus-visible {
   text-decoration: underline;
