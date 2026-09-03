@@ -18,8 +18,9 @@
     "title" .title
     "displayTitle" .displayTitle
     "amendmentURL" .amendmentURL
-    "explanation" .explanation
-    "explainerSources" .explainerSources
+    "explainerDescription" .explainerDescription
+    "explainerYesVote" .explainerYesVote
+    "explainerRussia" .explainerRussia
     "labelMepID" .labelMepID
     "labelMepName" .labelMepName
     "sourceTitle" .sourceTitle

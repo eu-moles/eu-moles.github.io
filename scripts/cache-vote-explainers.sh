@@ -118,7 +118,7 @@ jq -n \
       | {
           id: $decision.activity_id,
           prompt: (
-            "Write a politically neutral plain-English explanation for a person unfamiliar with the European Parliament. Give up to two short sentences, with no Markdown, heading, quotation marks or preface, and a maximum of 500 Unicode characters including spaces. First state the specific real-world policy change: name the people, institution, money, rule, right, obligation or objective affected. Then explicitly state what a Yes vote would have done or approved. Do not call it merely a paragraph, clause, point or change; that is not an explanation. Never state or imply the outcome: do not say whether it passed, failed, was adopted, rejected, or how anyone voted. Use only the official sources and quoted amendment text below; do not guess. Detailed amendment wording, when available, is authoritative.\n\n"
+            "Write a politically neutral plain-English guide for a person unfamiliar with the European Parliament. Output only a valid one-line JSON object with exactly these string keys: description, yesVote, russia. No Markdown, code fence, citations, preface or extra keys. The combined text must be at most 500 Unicode characters including spaces. description (max 220 characters): state the specific real-world policy change, naming the people, institution, money, rule, right, obligation or objective affected. yesVote (max 180 characters): explicitly state what a Yes vote would do or approve. russia (max 100 characters): assess only whether the proposal has a direct or reasonably supported indirect benefit for Russia. If the official text gives no basis for such a link, use this exact text: No direct Russia-related effect is stated. Do not speculate. Never state or imply the outcome: do not say whether it passed, failed, was adopted, rejected, or how anyone voted. Use only the official sources and quoted amendment text below; detailed amendment wording is authoritative.\n\n"
             + "Parent item: \($vote.activity_label.en // "")\n"
             + "Vote detail: \($label)\n"
             + "Official sources:\n"
@@ -181,23 +181,22 @@ fi
 jq \
   --slurpfile candidates "$temporary_candidates" \
   --slurpfile existing "$existing_file" '
-  def usable_explanation:
-    type == "string"
-    and length > 0
-    and length <= 500
-    and (test("DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:"; "i") | not);
+  def usable_sections:
+    type == "object"
+    and ((.description // "") | type == "string" and length > 0 and length <= 220)
+    and ((.yesVote // "") | type == "string" and length > 0 and length <= 180)
+    and ((.russia // "") | type == "string" and length > 0 and length <= 100)
+    and ([.description, .yesVote, .russia] | join(" ") | length <= 500)
+    and ([.description, .yesVote, .russia] | join(" ") | test("DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:"; "i") | not);
   reduce $candidates[0][] as $candidate (
     {version: 1, items: {}};
     (($existing[0].items[$candidate.id] // {})) as $previous
     | .items[$candidate.id] = {
         prompt: $candidate.prompt,
         sources: $candidate.sources,
-        explanation: (
-          if $previous.prompt == $candidate.prompt and (($previous.explanation // "") | usable_explanation)
-          then $previous.explanation
-          else ""
-          end
-        ),
+        description: (if $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.description else "" end),
+        yesVote: (if $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.yesVote else "" end),
+        russia: (if $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.russia else "" end),
         generatedAt: ($previous.generatedAt // null)
       }
   )
@@ -235,11 +234,19 @@ compact_text() {
   tr '\r\n\t' '   ' | sed -E 's/[[:space:]]+/ /g; s/^[[:space:]]+//; s/[[:space:]]+$//'
 }
 
-is_valid_explanation() {
-  local value=$1
+is_valid_explainer_sections() {
+  local value=$1 text
 
-  [[ -n "$value" ]] &&
-    ! grep -Eiq 'DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:|\b(passed|failed|adopted|rejected|defeated|voted down|outcome|result|vote tally)\b|did not pass|was not approved' <<< "$value"
+  jq -e '
+    type == "object"
+    and ((.description // "") | type == "string" and length > 0 and length <= 220)
+    and ((.yesVote // "") | type == "string" and length > 0 and length <= 180)
+    and ((.russia // "") | type == "string" and length > 0 and length <= 100)
+    and ([.description, .yesVote, .russia] | join(" ") | length <= 500)
+  ' <<< "$value" > /dev/null 2>&1 || return 1
+
+  text=$(jq -r '[.description, .yesVote, .russia] | join(" ")' <<< "$value")
+  ! grep -Eiq 'DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:|\b(passed|failed|adopted|rejected|defeated|voted down|outcome|result|vote tally)\b|did not pass|was not approved' <<< "$text"
 }
 
 add_amendment_context() {
@@ -265,7 +272,7 @@ add_amendment_context() {
     "$base_prompt" "${amendment_text:0:12000}"
 }
 
-pending_total=$(jq '[.items[] | select((.explanation // "") == "")] | length' "$output_file")
+pending_total=$(jq '[.items[] | select((.description // "") == "" or (.yesVote // "") == "" or (.russia // "") == "")] | length' "$output_file")
 explainer_total=$(jq '.items | length' "$output_file")
 retry_delay_seconds=${EXPLAINER_RETRY_DELAY_SECONDS:-15}
 printf 'Vote explainers: %d/%d response(s) need generating\n' "$pending_total" "$explainer_total" >&2
@@ -277,7 +284,7 @@ response_current=0
 while IFS= read -r candidate; do
   response_current=$((response_current + 1))
   id=$(jq -r '.key' <<< "$candidate")
-  if [[ $(jq -r '.value.explanation // empty' <<< "$candidate") != "" ]]; then
+  if [[ $(jq -r '.value.description // empty' <<< "$candidate") != "" && $(jq -r '.value.yesVote // empty' <<< "$candidate") != "" && $(jq -r '.value.russia // empty' <<< "$candidate") != "" ]]; then
     printf 'Vote explainers: response %d/%d cached (%s)\n' "$response_current" "$explainer_total" "$id" >&2
     continue
   fi
@@ -291,13 +298,9 @@ while IFS= read -r candidate; do
   while :; do
     attempt=$((attempt + 1))
     answer=""
-    if answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>/dev/null | compact_text); then
-      if (( $(printf '%s' "$answer" | wc -m) > 500 )); then
-        answer=$("$tgpt_bin" -q "Rewrite this as up to two neutral plain-text sentences of at most 500 Unicode characters. Keep the concrete policy change and explicitly say what a Yes vote would do. Do not mention whether the proposal passed, failed, was adopted or rejected. Output only the replacement text: $answer" </dev/null 2>/dev/null | compact_text) || answer=""
-      fi
-    fi
+    answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>/dev/null | compact_text) || answer=""
 
-    if is_valid_explanation "$answer" && (( $(printf '%s' "$answer" | wc -m) <= 500 )); then
+    if is_valid_explainer_sections "$answer"; then
       break
     fi
 
@@ -307,9 +310,9 @@ while IFS= read -r candidate; do
 
   jq \
     --arg id "$id" \
-    --arg explanation "$answer" \
+    --argjson sections "$answer" \
     --arg generated_at "$(date --iso-8601=seconds)" \
-    '.items[$id].explanation = $explanation | .items[$id].generatedAt = $generated_at' \
+    '.items[$id].description = $sections.description | .items[$id].yesVote = $sections.yesVote | .items[$id].russia = $sections.russia | .items[$id].generatedAt = $generated_at' \
     "$output_file" > "$temporary_output"
   mv -f "$temporary_output" "$output_file"
   temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")

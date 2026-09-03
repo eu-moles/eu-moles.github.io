@@ -152,8 +152,9 @@
                   {{- $votersAgainst := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_against") -}}
                   {{- $votersAbstaining := partials.Include "motions/motions-voter-ids.html" (index $decision "had_voter_abstention") -}}
                   {{- $explainer := index $explainersByDecision (index $decision "activity_id") | default dict -}}
-                  {{- $explanation := index $explainer "explanation" | default "" -}}
-                  {{- $explainerSources := index $explainer "sources" | default slice -}}
+                  {{- $explainerDescription := index $explainer "description" | default "" -}}
+                  {{- $explainerYesVote := index $explainer "yesVote" | default "" -}}
+                  {{- $explainerRussia := index $explainer "russia" | default "" -}}
                   {{- $date := index $decision "activity_date" | default (index $vote "activity_date") -}}
                   {{- $result := "" -}}
                   {{- with index $decision "decision_outcome" -}}
@@ -301,8 +302,9 @@
                     "title" $title
                     "displayTitle" $displayTitle
                     "amendmentURL" $amendmentURL
-                    "explanation" $explanation
-                    "explainerSources" $explainerSources
+                    "explainerDescription" $explainerDescription
+                    "explainerYesVote" $explainerYesVote
+                    "explainerRussia" $explainerRussia
                     "labelMepID" ($labelMep.id | default "")
                     "labelMepName" ($labelMep.fullName | default "")
                     "sourceTitle" $sourceTitle

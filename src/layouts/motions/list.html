@@ -228,7 +228,7 @@
                           <span class="motion-title-line">
                             <span class="motion-title-primary">
                               <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
-                              <span class="motion-vote-explainer-row">{{ partial "motions/motion-vote-explainer.html" (dict "id" .id "explanation" .explanation "sources" .explainerSources) }}</span>
+                              <span class="motion-vote-explainer-row">{{ partial "motions/motion-vote-explainer.html" (dict "id" .id "description" .explainerDescription "yesVote" .explainerYesVote "russia" .explainerRussia) }}</span>
                             </span>
                             <span class="motion-inline-divider motion-inline-divider--counts" aria-hidden="true"></span>
                             <span class="motion-vote-summary">

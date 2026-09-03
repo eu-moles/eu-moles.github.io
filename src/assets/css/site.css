@@ -1320,11 +1320,11 @@ main table tbody tr:last-child td {
   display: grid;
   width: min(28rem, calc(100vw - 2rem));
   max-height: min(60vh, 24rem);
-  gap: 0.55rem;
+  gap: 0;
   box-sizing: border-box;
-  padding: 0.85rem 0.95rem;
+  padding: 0.7rem 0.95rem;
   border: 1px solid #9eb8d2;
-  border-top: 0.25rem solid #d4a62a;
+  border-top: 0.25rem solid #175b9a;
   border-radius: 0.2rem;
   background: #fff;
   box-shadow: 0 0.7rem 1.65rem rgb(11 41 71 / 22%);
@@ -1365,8 +1365,7 @@ main table tbody tr:last-child td {
   transform: translateY(0);
 }
 
-.motion-vote-explainer__eyebrow,
-.motion-vote-explainer__sources > span:first-child {
+.motion-vote-explainer__eyebrow {
   color: #58718c;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.62rem;
@@ -1376,29 +1375,43 @@ main table tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-.motion-vote-explainer__sources {
+.motion-vote-explainer__section {
   display: grid;
-  gap: 0.25rem;
-  padding-top: 0.55rem;
+  grid-template-columns: 1.65rem minmax(0, 1fr);
+  gap: 0.55rem;
+  padding: 0.6rem 0;
+}
+
+.motion-vote-explainer__section + .motion-vote-explainer__section {
   border-top: 1px solid #d8e2eb;
 }
 
-.motion-vote-explainer__source-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.28rem 0.5rem;
+.motion-vote-explainer__section-content {
+  display: grid;
+  gap: 0.22rem;
+  min-width: 0;
 }
 
-.motion-vote-explainer__source-links a,
-.motion-vote-explainer__source-links a:visited {
+.motion-vote-explainer__section-icon {
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  margin-top: 0.02rem;
+  border-radius: 50%;
+  background: #e5f1fb;
   color: #175b9a;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  line-height: 1.25;
-  text-decoration: underline;
-  text-decoration-color: rgb(23 91 154 / 42%);
-  text-underline-offset: 0.15em;
+  font-size: 0.78rem;
+}
+
+.motion-vote-explainer__section-icon--yes {
+  background: #e5f4eb;
+  color: #197344;
+}
+
+.motion-vote-explainer__section-icon--russia {
+  background: #fbe9e9;
+  color: #a12b2b;
 }
 
 @media (hover: none) {
