@@ -118,7 +118,7 @@ jq -n \
       | {
           id: $decision.activity_id,
           prompt: (
-            "Write a politically neutral plain-English guide for a person unfamiliar with the European Parliament. Output only a valid one-line JSON object with exactly these string keys: description, yesVote, russia. No Markdown, code fence, citations, preface or extra keys. The combined text must be at most 500 Unicode characters including spaces. description (max 220 characters): state the specific real-world policy change, naming the people, institution, money, rule, right, obligation or objective affected. yesVote (max 180 characters): explicitly state what a Yes vote would do or approve. russia (max 100 characters): assess only whether the proposal has a direct or reasonably supported indirect benefit for Russia. If the official text gives no basis for such a link, use this exact text: No direct Russia-related effect is stated. Do not speculate. Never state or imply the outcome: do not say whether it passed, failed, was adopted, rejected, or how anyone voted. Use only the official sources and quoted amendment text below; detailed amendment wording is authoritative.\n\n"
+            "Write a politically neutral plain-English guide for a person unfamiliar with the European Parliament. Output only a valid one-line JSON object with exactly these string keys: description, yesVote, russia. No Markdown, code fence, citations, preface or extra keys. The combined text must be at most 500 Unicode characters including spaces. description (maximum 150 characters, exactly one sentence): explain the central concrete policy change. Name the affected institution, rule, money, right, obligation or objective, but use at most two representative examples rather than a list. State that it is a proposal when appropriate; do not present a political group claim as an established fact. yesVote (maximum 130 characters, exactly one sentence): explicitly say the precise text or policy priority a Yes vote would add, remove, replace or approve; do not merely say it approves an amendment. russia (maximum 100 characters): assess only whether the official sources explicitly establish a direct or reasonably supported indirect benefit for Russia. The existence of this field is not evidence of a Russia connection. If the sources give no basis for one, use this exact text: No direct Russia-related effect is stated. Do not speculate. A split-vote label such as Am 3/1 is not evidence of a different amendment: detailed quoted amendment wording is authoritative. Never state or imply the outcome: do not say whether it passed, failed, was adopted, rejected, or how anyone voted. Use only the official sources and quoted amendment text below.\n\n"
             + "Parent item: \($vote.activity_label.en // "")\n"
             + "Vote detail: \($label)\n"
             + "Official sources:\n"
@@ -183,8 +183,8 @@ jq \
   --slurpfile existing "$existing_file" '
   def usable_sections:
     type == "object"
-    and ((.description // "") | type == "string" and length > 0 and length <= 220)
-    and ((.yesVote // "") | type == "string" and length > 0 and length <= 180)
+    and ((.description // "") | type == "string" and length > 0 and length <= 150)
+    and ((.yesVote // "") | type == "string" and length > 0 and length <= 130)
     and ((.russia // "") | type == "string" and length > 0 and length <= 100)
     and ([.description, .yesVote, .russia] | join(" ") | length <= 500)
     and ([.description, .yesVote, .russia] | join(" ") | test("DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:"; "i") | not);
