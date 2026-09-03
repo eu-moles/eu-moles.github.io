@@ -1,4 +1,24 @@
 /* Shared spacing between every hero and its page content. */
+html {
+  min-height: 100%;
+  background: #000;
+  overscroll-behavior-y: none;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+body > main {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex: 0 0 auto;
+}
+
 main.pb7 {
   padding-top: 2rem !important;
   padding-bottom: 0 !important;
@@ -888,6 +908,13 @@ button.motion-calendar__day.is-selected::after {
   overflow-x: auto;
 }
 
+/* Motion rows use responsive cards below the wide-table breakpoint and a
+   measured grid above it, so they should remain part of the page scroll—not
+   become a nested scrolling region. */
+.motions-table-wrap {
+  overflow: visible;
+}
+
 /* Motion records repeat their field heading before every parent group. */
 .site-table--motion > thead {
   display: none;
@@ -1144,7 +1171,7 @@ main table tbody tr:last-child td {
   min-width: 0;
   min-height: calc(2rem + 2px);
   /* When no proposing Member is identified, reserve space only for the list dot. */
-  padding: 0 0 0 0.85rem;
+  padding: 0 0 0 calc(1.9rem + 16px);
 }
 
 .motion-subvote-item::before {
@@ -1159,14 +1186,66 @@ main table tbody tr:last-child td {
   transform: translateY(-50%);
 }
 
+.motion-subvote-item--adopted::before,
+.motion-subvote-item--rejected::before {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  font-family: "Font Awesome 6 Free";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.motion-subvote-item--adopted::before {
+  color: #18613a;
+  content: none;
+}
+
+.motion-subvote-item--rejected::before {
+  color: #8e2525;
+  content: none;
+}
+
+.motion-subvote-status {
+  position: absolute;
+  top: 50%;
+  left: 0.25rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.motion-subvote-status--adopted {
+  color: #18613a;
+}
+
+.motion-subvote-status--rejected {
+  color: #8e2525;
+}
+
+.motion-subvote-item--adopted::after,
+.motion-subvote-item--rejected::after {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: calc(1.65rem + 10px);
+  width: 2px;
+  border-radius: 2px;
+  background: #9eb8d2;
+  opacity: 0.82;
+  content: "";
+}
+
 .motion-subvote-item--with-mep {
-  padding-left: 3.15rem;
+  padding-left: calc(4.2rem + 16px);
 }
 
 .motion-subvote-mep {
   position: absolute;
   top: 50%;
-  left: 0.85rem;
+  left: calc(1.9rem + 16px);
   display: block;
   width: 2rem;
   height: 2rem;
@@ -1324,11 +1403,11 @@ main table tbody tr:last-child td {
 .site-table--motion .motion-subvote-item {
   align-items: stretch;
   min-height: 0;
-  padding: 0.25rem 0 0.25rem 0.85rem;
+  padding: 0.25rem 0 0.25rem calc(1.9rem + 16px);
 }
 
 .site-table--motion .motion-subvote-item--with-mep {
-  padding-left: 3.15rem;
+  padding-left: calc(4.2rem + 16px);
 }
 
 .site-table--motion .motion-subvote-item .motion-title-line {
@@ -1341,17 +1420,20 @@ main table tbody tr:last-child td {
   flex: 0 0 100%;
   width: 100%;
   flex-wrap: wrap;
-  row-gap: 0.28rem;
-  padding-bottom: 2px;
-  border-bottom: 1px solid #dce4ec;
+  row-gap: 0;
 }
 
 .site-table--motion .motion-subvote-item .motion-title-primary > .motion-title-text,
-.site-table--motion .motion-subvote-item .motion-title-primary > .motion-vote-explainer {
+.site-table--motion .motion-subvote-item .motion-title-primary > .motion-vote-explainer-row {
   flex: 0 0 100%;
 }
 
-.site-table--motion .motion-subvote-item .motion-title-primary > .motion-vote-explainer {
+.site-table--motion .motion-subvote-item .motion-vote-explainer-row {
+  display: block;
+  margin: 10px 0;
+}
+
+.site-table--motion .motion-subvote-item .motion-vote-explainer-row > .motion-vote-explainer {
   margin-left: 0;
 }
 

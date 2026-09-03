@@ -214,7 +214,12 @@
                       {{- range $subvotes -}}
                         {{- $subvote := . -}}
                         {{- $displayTitle := .displayTitle | default .title -}}
-                        <li class="motion-subvote-item{{ if .labelMepID }} motion-subvote-item--with-mep{{ end }}">
+                        <li class="motion-subvote-item{{ if .labelMepID }} motion-subvote-item--with-mep{{ end }}{{ if eq .result "ADOPTED" }} motion-subvote-item--adopted{{ else if eq .result "REJECTED" }} motion-subvote-item--rejected{{ end }}">
+                          {{- if eq .result "ADOPTED" -}}
+                            <span class="motion-subvote-status motion-subvote-status--adopted" role="img" aria-label="Adopted" title="Adopted"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i></span>
+                          {{- else if eq .result "REJECTED" -}}
+                            <span class="motion-subvote-status motion-subvote-status--rejected" role="img" aria-label="Rejected" title="Rejected"><i class="fa-solid fa-thumbs-down" aria-hidden="true"></i></span>
+                          {{- end -}}
                           {{ with .labelMepID }}
                             <a class="motion-subvote-mep" href="{{ "mep/" | relURL }}?id={{ . }}" aria-label="View profile for {{ $subvote.labelMepName }}" title="View profile for {{ $subvote.labelMepName }}">
                               <img src="https://www.europarl.europa.eu/mepphoto/{{ . }}.jpg" alt="" loading="lazy">
@@ -223,7 +228,7 @@
                           <span class="motion-title-line">
                             <span class="motion-title-primary">
                               <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
-                              {{ partial "motions/motion-vote-explainer.html" (dict "id" .id "explanation" .explanation "sources" .explainerSources) }}
+                              <span class="motion-vote-explainer-row">{{ partial "motions/motion-vote-explainer.html" (dict "id" .id "explanation" .explanation "sources" .explainerSources) }}</span>
                             </span>
                             <span class="motion-inline-divider motion-inline-divider--counts" aria-hidden="true"></span>
                             <span class="motion-vote-summary">
@@ -233,8 +238,6 @@
                                 <span class="motion-vote-count motion-vote-count--abstentions" title="Abstentions: {{ .abstentions }}"><i class="fa-solid fa-circle-minus" aria-hidden="true"></i><span>{{ .abstentions }}</span></span>
                                 <span class="motion-vote-count motion-vote-count--not-voted" title="Not voted: {{ .notRecorded }}"><i class="fa-solid fa-minus" aria-hidden="true"></i><span>{{ .notRecorded }}</span></span>
                               </span>
-                              <span class="motion-inline-divider motion-inline-divider--outcome" aria-hidden="true"></span>
-                              <span class="motion-result motion-result--{{ lower .result }}">{{ if eq .result "ADOPTED" }}<i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>{{ else if eq .result "REJECTED" }}<i class="fa-solid fa-thumbs-down" aria-hidden="true"></i>{{ end }}{{ .result | humanize }}</span>
                             </span>
                           </span>
                         </li>
