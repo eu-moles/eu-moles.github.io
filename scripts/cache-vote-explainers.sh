@@ -53,7 +53,7 @@ fi
 # Each candidate names the exact vote and supplies only official Parliament
 # sources. Keep the model instruction compact: the quoted primary text carries
 # the vote-specific detail, while the instruction defines the output contract.
-prompt_instructions='Write a politically neutral plain-English guide for someone unfamiliar with the European Parliament. Use only the official sources. A quoted amendment table or report paragraph is primary evidence: use the exact Amendment or paragraph in Vote detail. For a replacement amendment, use the right-hand amended text and say Would replace; use Would add only for a new paragraph or point. A Yes vote changes Parliament text under debate, not EU law, spending, or an institution mandate. Return only one-line JSON with exactly string keys description, yesVote, russia. No Markdown, citations or extra text. All values together: at most 500 characters. description: one concrete action from the primary text, one sentence, maximum 150 characters and 18 words. It must match the yesVote action and use an operative verb such as opposes, requires, calls for or gives; never describe parliamentary procedure, debate or voting. For an amendment, say the proposal or amendment, never the Parliament. yesVote: start with Would, one precise text change, one sentence, maximum 130 characters and 12 words; never say merely add text or approve a text about a topic. russia: one sentence, maximum 150 characters and 18 words. Assess the direction of the actual Yes change, not keywords. Use Potentially only when Yes itself imposes, retains or strengthens an explicit restriction, ban, defunding or transfer that reduces named EU defence, security, sanctions, Ukraine support, energy independence, resilience or collective capability. If Yes removes, relaxes or reduces a defence/security restriction, barrier or exclusion, or expands defence financing, use exactly: No supported Russia-related effect is stated. An EIB or EU funding restriction on defence or militarisation means exactly: Potentially: reduced EU defence capability could benefit Russia. If media-literacy, disinformation or foreign-information work explicitly removes EU supervision, guidance, funding, recommendations or control and gives it to Member States, use exactly: Potentially: moving media-literacy control to Member States could weaken EU coordination against disinformation, benefiting Russia. Otherwise use exactly: No supported Russia-related effect is stated. Never mention a vote outcome.'
+prompt_instructions='Write a politically neutral plain-English guide for someone unfamiliar with the European Parliament. Use only the official sources. A quoted amendment table or report paragraph is primary evidence: use the exact Amendment or paragraph in Vote detail. For a replacement amendment, use the right-hand amended text and say Would replace; use Would add only for a new paragraph or point. A Yes vote changes Parliament text under debate, not EU law, spending, or an institution mandate. Return only one-line JSON with exactly string keys description, yesVote, russia. No Markdown, citations or extra text. All values together: at most 500 characters. description: explain what the proposal would mean in practice, in one or two short sentences, maximum 220 characters and 28 words. Name the affected people, institution, money, rule, right, obligation or objective and the practical change or consequence. Use plain words; explain legal or parliamentary jargon rather than repeating it. Do not merely say the proposal calls for, adds, replaces or concerns text. For an amendment, say the proposal or amendment, never the Parliament. yesVote: start with Would and explain exactly what a Yes would approve, in one sentence, maximum 150 characters and 18 words; do not merely say it adds or approves text about a topic. russia: one sentence, maximum 150 characters and 16 words. Assess the direction of the actual Yes change, not keywords. Use Potentially only when Yes itself imposes, retains or strengthens an explicit restriction, ban, defunding or transfer that reduces named EU defence, security, sanctions, Ukraine support, energy independence, resilience or collective capability. If Yes removes, relaxes or reduces a defence/security restriction, barrier or exclusion, or expands defence financing, use exactly: No supported Russia-related effect is stated. An EIB or EU funding restriction on defence or militarisation means exactly: Potentially: reduced EU defence capability could benefit Russia. If media-literacy, disinformation or foreign-information work explicitly removes EU supervision, guidance, funding, recommendations or control and gives it to Member States, use exactly: Potentially: moving media-literacy control to Member States could weaken EU coordination against disinformation, benefiting Russia. Otherwise use exactly: No supported Russia-related effect is stated. Never mention a vote outcome.'
 
 jq -n \
   --arg instructions "$prompt_instructions" \
@@ -177,7 +177,7 @@ jq -n \
            + "Official sources:\n"
            + ($sources | map("- \(.label): \(.url)") | join("\n"))
             + (if $label | test("Request for an urgent decision"; "i") then
-                "\n\nVote-type rule: this is a procedural urgency request, not a vote on the underlying law. description and yesVote must say that Yes would approve urgent parliamentary handling of the named file; never say it adopts, changes, extends or derogates the underlying law."
+                "\n\nVote-type rule: this is a procedural urgency request, not a vote on the underlying law. description must explain that it speeds up Parliament’s timetable so the named temporary exception can be decided sooner; it does not decide whether that exception takes effect. yesVote must say that Yes approves urgent parliamentary handling. Never say it adopts, changes, extends or derogates the underlying law."
               elif (($label | test("\\bAm\\s+[0-9]+"; "i")) and ([ $sources[] | select(.label == "Amendment text") ] | length == 0)) then
                 "\n\nEvidence rule: this amendment wording is absent from the official source bundle. Do not invent its policy content. State only its labelled insertion or replacement location, reproduce that location exactly, and explicitly say the official wording is unavailable."
               else "" end)
@@ -280,8 +280,8 @@ jq \
   --slurpfile existing "$existing_file" '
   def usable_sections:
     type == "object"
-    and ((.description // "") | type == "string" and length > 0 and length <= 150)
-    and ((.yesVote // "") | type == "string" and length > 0 and length <= 130)
+    and ((.description // "") | type == "string" and length > 0 and length <= 220)
+    and ((.yesVote // "") | type == "string" and length > 0 and length <= 150)
     and ((.russia // "") | type == "string" and length > 0 and length <= 150)
     and ([.description, .yesVote, .russia] | join(" ") | length <= 500)
     and ([.description, .yesVote, .russia] | join(" ") | test("DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:"; "i") | not);
@@ -348,8 +348,8 @@ is_valid_explainer_sections() {
 
   jq -e '
     type == "object"
-    and ((.description // "") | type == "string" and length > 0 and length <= 150)
-    and ((.yesVote // "") | type == "string" and length > 0 and length <= 130)
+    and ((.description // "") | type == "string" and length > 0 and length <= 220)
+    and ((.yesVote // "") | type == "string" and length > 0 and length <= 150)
     and ((.russia // "") | type == "string" and length > 0 and length <= 150)
     and ([.description, .yesVote, .russia] | join(" ") | length <= 500)
   ' <<< "$value" > /dev/null 2>&1 || return 1
