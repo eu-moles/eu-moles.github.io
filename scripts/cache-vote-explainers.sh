@@ -17,6 +17,8 @@ decisions_file="$directory/decisions.json"
 procedures_directory="$directory/procedures"
 oeil_document_summaries_file="$directory/oeil-document-summaries.json"
 output_file="$directory/vote-explainers.json"
+amendment_texts_file="$directory/amendment-texts.json"
+report_texts_file="$directory/report-texts.json"
 
 [[ -s "$votes_file" && -s "$decisions_file" ]] || exit 0
 
@@ -24,7 +26,10 @@ temporary_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainer-candidate
 temporary_procedures=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainer-procedures.XXXXXX")
 temporary_oeil_summaries=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainer-oeil-summaries.XXXXXX")
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")
-trap 'rm -f "$temporary_candidates" "$temporary_procedures" "$temporary_oeil_summaries" "$temporary_output"' EXIT
+temporary_amendment_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-texts.XXXXXX")
+temporary_report_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-texts.XXXXXX")
+temporary_tgpt_error=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainer-error.XXXXXX")
+trap 'rm -f "$temporary_candidates" "$temporary_procedures" "$temporary_oeil_summaries" "$temporary_output" "$temporary_amendment_texts" "$temporary_report_texts" "$temporary_tgpt_error"' EXIT
 
 procedure_files=()
 if [[ -d "$procedures_directory" ]]; then
@@ -46,8 +51,12 @@ else
 fi
 
 # Each candidate names the exact vote and supplies only official Parliament
-# sources. Amendment tables are selected by their published amendment range.
+# sources. Keep the model instruction compact: the quoted primary text carries
+# the vote-specific detail, while the instruction defines the output contract.
+prompt_instructions='Write a politically neutral plain-English guide for someone unfamiliar with the European Parliament. Use only the official sources. A quoted amendment table or report paragraph is primary evidence: use the exact Amendment or paragraph in Vote detail. For a replacement amendment, use the right-hand amended text and say Would replace; use Would add only for a new paragraph or point. A Yes vote changes Parliament text under debate, not EU law, spending, or an institution mandate. Return only one-line JSON with exactly string keys description, yesVote, russia. No Markdown, citations or extra text. All values together: at most 500 characters. description: one concrete action from the primary text, one sentence, maximum 150 characters and 18 words. It must match the yesVote action and use an operative verb such as opposes, requires, calls for or gives; never describe parliamentary procedure, debate or voting. For an amendment, say the proposal or amendment, never the Parliament. yesVote: start with Would, one precise text change, one sentence, maximum 130 characters and 12 words; never say merely add text or approve a text about a topic. russia: one sentence, maximum 150 characters and 18 words. Assess the direction of the actual Yes change, not keywords. Use Potentially only when Yes itself imposes, retains or strengthens an explicit restriction, ban, defunding or transfer that reduces named EU defence, security, sanctions, Ukraine support, energy independence, resilience or collective capability. If Yes removes, relaxes or reduces a defence/security restriction, barrier or exclusion, or expands defence financing, use exactly: No supported Russia-related effect is stated. An EIB or EU funding restriction on defence or militarisation means exactly: Potentially: reduced EU defence capability could benefit Russia. If media-literacy, disinformation or foreign-information work explicitly removes EU supervision, guidance, funding, recommendations or control and gives it to Member States, use exactly: Potentially: moving media-literacy control to Member States could weaken EU coordination against disinformation, benefiting Russia. Otherwise use exactly: No supported Russia-related effect is stated. Never mention a vote outcome.'
+
 jq -n \
+  --arg instructions "$prompt_instructions" \
   --slurpfile votes "$votes_file" \
   --slurpfile decisions "$decisions_file" \
   --slurpfile procedures "$temporary_procedures" \
@@ -150,19 +159,115 @@ jq -n \
         ] | unique_by(.url)) as $sources
       | {
           id: $decision.activity_id,
-          prompt: (
-            "Write a politically neutral plain-English guide for a person unfamiliar with the European Parliament. Output only a valid one-line JSON object with exactly these string keys: description, yesVote, russia. No Markdown, code fence, citations, preface or extra keys. All values together must be at most 500 Unicode characters including spaces. Before responding, silently count the characters in every value. A response exceeding any limit is invalid: shorten it and count again. Prefer short everyday words. Avoid parenthetical text, lists and repetition between fields. description (maximum 150 characters, exactly one sentence; target 110): explain only the central concrete policy change, using at most two representative examples. State that it is a proposal when appropriate; do not present a political group claim as an established fact. yesVote (maximum 130 characters, exactly one sentence; target 90): explicitly say the precise text or policy priority a Yes vote would add, remove, replace or approve; do not merely say it approves an amendment or repeat the description. russia (maximum 150 characters, exactly one sentence; target 120): make an EU-security assessment, not merely a keyword search. A proposal can indirectly benefit Russian state interests even if Russia is never named. Assess whether it could plausibly reduce EU defence investment, military readiness, security cooperation, sanctions enforcement, support for Ukraine, energy independence, economic resilience or EU collective capacity. Do not infer a Russia benefit from a political label alone; state it only when the amendment supports a concrete causal mechanism. If the proposal could credibly constrain one of those EU capabilities, begin with Potentially: and name both the reduced EU capability and the resulting benefit to Russian interests. Do not use vague phrases such as support capacity. Otherwise use this exact text: No supported Russia-related effect is stated. A split-vote label such as Am 3/1 is not evidence of a different amendment: use the linked official amendment document for its wording. Never state or imply the outcome: do not say whether it passed, failed, was adopted, rejected, or how anyone voted. Use only the official source URLs below.\n\n"
-            + "Parent item: \($vote.activity_label.en // "")\n"
-            + "Vote detail: \($label)\n"
-            + "Official sources:\n"
-            + ($sources | map("- \(.label): \(.url)") | join("\n"))
+          fallback: (
+            ($label | if test("After recital[[:space:]]+[0-9]+"; "i") then capture("After recital[[:space:]]+(?<recital>[0-9]+)"; "i") else {} end) as $after_reci
+            | if ($after_reci["recital"] // "") != ""
+              and (($sources | map(.label) | index("Amendment text")) == null) then
+                {
+                  description: "This amendment would add a recital after recital \($after_reci.recital), but its official text is unavailable.",
+                  yesVote: "Would add a recital after recital \($after_reci.recital); its official wording is unavailable.",
+                  russia: "Official amendment wording is unavailable, so Russia impact cannot be assessed."
+                }
+              else null end
           ),
+          prompt: (
+            ($instructions + "\n\n")
+           + "Parent item: \($vote.activity_label.en // "")\n"
+           + "Vote detail: \($label)\n"
+           + "Official sources:\n"
+           + ($sources | map("- \(.label): \(.url)") | join("\n"))
+            + (if $label | test("Request for an urgent decision"; "i") then
+                "\n\nVote-type rule: this is a procedural urgency request, not a vote on the underlying law. description and yesVote must say that Yes would approve urgent parliamentary handling of the named file; never say it adopts, changes, extends or derogates the underlying law."
+              elif (($label | test("\\bAm\\s+[0-9]+"; "i")) and ([ $sources[] | select(.label == "Amendment text") ] | length == 0)) then
+                "\n\nEvidence rule: this amendment wording is absent from the official source bundle. Do not invent its policy content. State only its labelled insertion or replacement location, reproduce that location exactly, and explicitly say the official wording is unavailable."
+              else "" end)
+         ),
           sources: $sources
         }
     ]
 ' > "$temporary_candidates"
 
-printf 'Vote explainers: preparing %s response record(s) with official source URLs\n' "$(jq 'length' "$temporary_candidates")" >&2
+# DeepSeek does not reliably open linked PDFs. Cache the official amendment
+# tables locally and quote their text in the prompt for amendment votes.
+if [[ ! -s "$amendment_texts_file" ]]; then
+  printf '{"version":1,"documents":{}}\n' > "$amendment_texts_file"
+fi
+
+amendment_total=$(jq '[.[] | .sources[]? | select(.label == "Amendment text") | .url] | unique | length' "$temporary_candidates")
+amendment_current=0
+while IFS= read -r amendment_url; do
+  amendment_current=$((amendment_current + 1))
+  amendment_document=${amendment_url##*/}
+  amendment_document=${amendment_document%_en.pdf}
+  [[ -n "$amendment_document" ]] || continue
+
+  if jq -e --arg document "$amendment_document" '.documents[$document].text | strings | length > 0' "$amendment_texts_file" > /dev/null; then
+    printf 'Vote explainers: amendment text %d/%d cached (%s)\n' "$amendment_current" "$amendment_total" "$amendment_document" >&2
+    continue
+  fi
+
+  printf 'Vote explainers: amendment text %d/%d downloading (%s)\n' "$amendment_current" "$amendment_total" "$amendment_document" >&2
+  amendment_pdf=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-pdf.XXXXXX")
+  amendment_text=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-text.XXXXXX")
+  if curl -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$amendment_pdf" "$amendment_url" &&
+    pdftotext -layout "$amendment_pdf" "$amendment_text" &&
+    [[ -s "$amendment_text" ]]; then
+    jq \
+      --arg document "$amendment_document" \
+      --arg url "$amendment_url" \
+      --rawfile text "$amendment_text" \
+      '.documents[$document] = {url: $url, text: $text}' \
+      "$amendment_texts_file" > "$temporary_amendment_texts"
+    mv -f "$temporary_amendment_texts" "$amendment_texts_file"
+    temporary_amendment_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-texts.XXXXXX")
+  else
+    echo "Vote explainers: could not extract $amendment_url; it will be retried next update." >&2
+  fi
+  rm -f "$amendment_pdf" "$amendment_text"
+done < <(jq -r '[.[] | .sources[]? | select(.label == "Amendment text") | .url] | unique[]' "$temporary_candidates")
+
+if [[ ! -s "$report_texts_file" ]]; then
+  printf '{"version":1,"documents":{}}\n' > "$report_texts_file"
+fi
+
+# Paragraph votes are not necessarily amendments. Cache their underlying
+# parliamentary reports too, so an answer names the actual paragraph policy
+# instead of guessing from the report title or a linked web page.
+report_total=$(jq '[.[] | .sources[]? | select(.label == "Parliamentary report") | .url] | unique | length' "$temporary_candidates")
+report_current=0
+while IFS= read -r report_url; do
+  report_current=$((report_current + 1))
+  report_document=${report_url##*/}
+  report_document=${report_document%_EN.html}
+  [[ -n "$report_document" ]] || continue
+
+  if jq -e --arg document "$report_document" '.documents[$document].text | strings | length > 0' "$report_texts_file" > /dev/null; then
+    printf 'Vote explainers: report text %d/%d cached (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+    continue
+  fi
+
+  printf 'Vote explainers: report text %d/%d downloading (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+  report_pdf=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-pdf.XXXXXX")
+  report_text=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-text.XXXXXX")
+  report_pdf_url="https://data.europarl.europa.eu/distribution/reds_iPlRp/$report_document/${report_document}_en.pdf"
+  if curl -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$report_pdf" "$report_pdf_url" &&
+    pdftotext -layout "$report_pdf" "$report_text" &&
+    [[ -s "$report_text" ]]; then
+    jq \
+      --arg document "$report_document" \
+      --arg url "$report_pdf_url" \
+      --rawfile text "$report_text" \
+      '.documents[$document] = {url: $url, text: $text}' \
+      "$report_texts_file" > "$temporary_report_texts"
+    mv -f "$temporary_report_texts" "$report_texts_file"
+    temporary_report_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-texts.XXXXXX")
+  else
+    echo "Vote explainers: could not extract $report_pdf_url; the report link will still be supplied." >&2
+  fi
+  rm -f "$report_pdf" "$report_text"
+done < <(jq -r '[.[] | .sources[]? | select(.label == "Parliamentary report") | .url] | unique[]' "$temporary_candidates")
+
+printf 'Vote explainers: preparing %s response record(s) with official source text and URLs\n' "$(jq 'length' "$temporary_candidates")" >&2
 if [[ -s "$output_file" ]]; then
   existing_file="$output_file"
 else
@@ -183,12 +288,14 @@ jq \
   reduce $candidates[0][] as $candidate (
     {version: 1, items: {}};
     (($existing[0].items[$candidate.id] // {})) as $previous
+    | (($candidate.fallback // {})) as $fallback
+    | ($fallback != {}) as $has_fallback
     | .items[$candidate.id] = {
         prompt: $candidate.prompt,
         sources: $candidate.sources,
-        description: (if $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.description else "" end),
-        yesVote: (if $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.yesVote else "" end),
-        russia: (if $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.russia else "" end),
+        description: (if $has_fallback then $fallback.description elif $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.description else "" end),
+        yesVote: (if $has_fallback then $fallback.yesVote elif $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.yesVote else "" end),
+        russia: (if $has_fallback then $fallback.russia elif $previous.prompt == $candidate.prompt and ($previous | usable_sections) then $previous.russia else "" end),
         generatedAt: ($previous.generatedAt // null)
       }
   )
@@ -198,6 +305,7 @@ temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")
 [[ "$existing_file" == "$output_file" ]] || rm -f "$existing_file"
 
 tgpt_bin=${TGPT_BIN:-tgpt}
+tgpt_provider=${TGPT_PROVIDER:-}
 if ! command -v "$tgpt_bin" > /dev/null 2>&1; then
   for candidate in /home/linuxbrew/.linuxbrew/opt/tgpt/bin/tgpt /opt/homebrew/opt/tgpt/bin/tgpt; do
     if [[ -x "$candidate" ]]; then
@@ -212,11 +320,20 @@ if ! command -v "$tgpt_bin" > /dev/null 2>&1; then
 fi
 
 # update_data.sh runs non-interactively, so .bashrc's Homebrew shellenv is not
-# loaded. DeepSeek Web needs a JS runtime for its proof-of-work challenge.
-if [[ -z "${DEEPSEEK_WEB_RUNTIME:-}" ]] && ! command -v node > /dev/null 2>&1 && ! command -v bun > /dev/null 2>&1 && ! command -v deno > /dev/null 2>&1; then
+# loaded. Reproduce it here: tgpt's DeepSeek Web proof-of-work needs the full
+# Homebrew environment, not just an absolute path to node.
+for brew_bin in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew; do
+  if [[ -x "$brew_bin" ]]; then
+    eval "$("$brew_bin" shellenv)"
+    break
+  fi
+done
+
+if ! command -v node > /dev/null 2>&1 && ! command -v bun > /dev/null 2>&1 && ! command -v deno > /dev/null 2>&1; then
   for runtime in /home/linuxbrew/.linuxbrew/opt/node/bin/node /opt/homebrew/opt/node/bin/node; do
     if [[ -x "$runtime" ]]; then
-      export DEEPSEEK_WEB_RUNTIME="$runtime"
+      export PATH="$(dirname "$runtime"):$PATH"
+      export DEEPSEEK_WEB_RUNTIME="${DEEPSEEK_WEB_RUNTIME:-$runtime}"
       break
     fi
   done
@@ -241,9 +358,105 @@ is_valid_explainer_sections() {
   ! grep -Eiq 'DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:|\b(passed|failed|adopted|rejected|defeated|voted down|outcome|result|vote tally)\b|did not pass|was not approved' <<< "$text"
 }
 
+add_amendment_context() {
+  local candidate_value=$1
+  local base_prompt=$2
+  local amendment_url amendment_document amendment_number amendment_text amendment_row amendment_body
+
+  amendment_url=$(jq -r '[.value.sources[]? | select(.label == "Amendment text") | .url][0] // empty' <<< "$candidate_value")
+  [[ -n "$amendment_url" ]] || {
+    printf '%s' "$base_prompt"
+    return
+  }
+
+  amendment_document=${amendment_url##*/}
+  amendment_document=${amendment_document%_en.pdf}
+  amendment_number=$(jq -r '
+    .value.prompt
+    | split("\n")
+    | map(select(startswith("Vote detail:")))[0]
+    | try capture("(?i)\\bAm\\s+(?<number>[0-9]+)") catch {}
+    | .number // empty
+  ' <<< "$candidate_value")
+  amendment_text=$(jq -r --arg document "$amendment_document" '.documents[$document].text // empty' "$amendment_texts_file")
+  [[ -n "$amendment_number" && -n "$amendment_text" ]] || {
+    echo "Vote explainers: no extracted text is available for $amendment_document" >&2
+    return 1
+  }
+
+  amendment_row=$(awk -v number="$amendment_number" '
+    $0 ~ "^[[:space:]]*Amendment[[:space:]]+" number "([[:space:]]*/[^[:space:]]+)?[[:space:]]*$" { found = 1 }
+    found {
+      if ($0 ~ /^[[:space:]]*Amendment[[:space:]]+[0-9]+([[:space:]]*\/[^[:space:]]+)?[[:space:]]*$/ && $0 !~ "^[[:space:]]*Amendment[[:space:]]+" number "([[:space:]]*/[^[:space:]]+)?[[:space:]]*$") exit
+      print
+    }
+  ' <<< "$amendment_text")
+  [[ -n "$amendment_row" ]] || amendment_row=$amendment_text
+
+  # Tables start after a potentially very long list of signatories. Keep the
+  # legislative heading and table, not the names, so the excerpt reaches the
+  # actual changed wording.
+  amendment_body=$(awk '
+    /^[[:space:]]*(Motion for a resolution|Proposal for a regulation|Proposal for a decision|Draft legislative resolution|Report)[[:space:]]*$/ { policy = 1 }
+    policy { print }
+  ' <<< "$amendment_row")
+  [[ -n "$amendment_body" ]] && amendment_row=$amendment_body
+
+  printf '%s\n\nQuoted official Amendment %s (primary evidence): use this text, not the broader report.\n--- amendment text ---\n%s\n--- end amendment text ---' \
+    "$base_prompt" "$amendment_number" "${amendment_row:0:3600}"
+}
+
+add_report_context() {
+  local candidate_value=$1
+  local base_prompt=$2
+  local report_url report_document paragraph_number report_text paragraph_text
+
+  # An amendment table is more specific evidence than the underlying report.
+  if jq -e '[.value.sources[]? | select(.label == "Amendment text")] | length > 0' <<< "$candidate_value" > /dev/null; then
+    printf '%s' "$base_prompt"
+    return
+  fi
+
+  report_url=$(jq -r '[.value.sources[]? | select(.label == "Parliamentary report") | .url][0] // empty' <<< "$candidate_value")
+  paragraph_number=$(jq -r '
+    .value.prompt
+    | split("\n")
+    | map(select(startswith("Vote detail:")))[0]
+    | try capture("§\\s*(?<number>[0-9]+)") catch {}
+    | .number // empty
+  ' <<< "$candidate_value")
+  [[ -n "$report_url" && -n "$paragraph_number" ]] || {
+    printf '%s' "$base_prompt"
+    return
+  }
+
+  report_document=${report_url##*/}
+  report_document=${report_document%_EN.html}
+  report_text=$(jq -r --arg document "$report_document" '.documents[$document].text // empty' "$report_texts_file")
+  [[ -n "$report_text" ]] || {
+    printf '%s' "$base_prompt"
+    return
+  }
+
+  paragraph_text=$(awk -v number="$paragraph_number" '
+    $0 ~ "^[[:space:]]*" number "\\.[[:space:]]" { found = 1 }
+    found {
+      if ($0 ~ "^[[:space:]]*[0-9]+\\.[[:space:]]" && $0 !~ "^[[:space:]]*" number "\\.[[:space:]]") exit
+      print
+    }
+  ' <<< "$report_text")
+  [[ -n "$paragraph_text" ]] || {
+    printf '%s' "$base_prompt"
+    return
+  }
+
+  printf '%s\n\nQuoted official report paragraph %s (primary evidence): use this paragraph, not the broad report title.\n--- report paragraph ---\n%s\n--- end report paragraph ---' \
+    "$base_prompt" "$paragraph_number" "${paragraph_text:0:3600}"
+}
+
 pending_total=$(jq '[.items[] | select((.description // "") == "" or (.yesVote // "") == "" or (.russia // "") == "")] | length' "$output_file")
 explainer_total=$(jq '.items | length' "$output_file")
-retry_delay_seconds=${EXPLAINER_RETRY_DELAY_SECONDS:-15}
+retry_delay_seconds=${EXPLAINER_RETRY_DELAY_SECONDS:-2}
 printf 'Vote explainers: %d/%d response(s) need generating\n' "$pending_total" "$explainer_total" >&2
 if (( pending_total == 0 )); then
   echo "Vote explainers: all $explainer_total cached explanations are current." >&2
@@ -259,6 +472,11 @@ while IFS= read -r candidate; do
   fi
 
   prompt=$(jq -r '.value.prompt' <<< "$candidate")
+  if ! prompt=$(add_amendment_context "$candidate" "$prompt"); then
+    printf 'Vote explainers: response %d/%d awaiting official amendment text (%s)\n' "$response_current" "$explainer_total" "$id" >&2
+    continue
+  fi
+  prompt=$(add_report_context "$candidate" "$prompt")
   answer=""
   printf 'Vote explainers: response %d/%d generating (%s)\n' "$response_current" "$explainer_total" "$id" >&2
 
@@ -266,12 +484,25 @@ while IFS= read -r candidate; do
   while :; do
     attempt=$((attempt + 1))
     answer=""
-    answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>/dev/null | compact_text) || answer=""
+    : > "$temporary_tgpt_error"
+    if [[ -n "$tgpt_provider" ]]; then
+      answer=$("$tgpt_bin" --provider "$tgpt_provider" -q "$prompt" </dev/null 2>"$temporary_tgpt_error" | compact_text) || answer=""
+    else
+      answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_tgpt_error" | compact_text) || answer=""
+    fi
 
     if is_valid_explainer_sections "$answer"; then
       break
     fi
 
+    tgpt_error=$(compact_text < "$temporary_tgpt_error")
+    if [[ -n "$tgpt_error" ]]; then
+      printf 'Vote explainers: attempt %d for %s error: %s\n' "$attempt" "$id" "${tgpt_error:0:600}" >&2
+    elif [[ -n "$answer" ]]; then
+      printf 'Vote explainers: attempt %d for %s returned invalid output: %s\n' "$attempt" "$id" "${answer:0:600}" >&2
+    else
+      printf 'Vote explainers: attempt %d for %s returned no output\n' "$attempt" "$id" >&2
+    fi
     printf 'Vote explainers: attempt %d for %s was unusable; retrying in %ss\n' "$attempt" "$id" "$retry_delay_seconds" >&2
     sleep "$retry_delay_seconds"
   done
