@@ -225,9 +225,14 @@
                               <img src="https://www.europarl.europa.eu/mepphoto/{{ . }}.jpg" alt="" loading="lazy">
                             </a>
                           {{ end }}
-                          <span class="motion-title-line">
-                            <span class="motion-title-primary">
-                              <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
+                            <span class="motion-title-line">
+                              <span class="motion-title-primary">
+                              <span class="motion-subvote-title">
+                                <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
+                                {{- if and .explainerRussia (ne .explainerRussia "No supported Russia-related effect is stated.") -}}
+                                  <span class="motion-subvote-russia-alert" role="img" aria-label="Russia-related assessment" title="Russia-related assessment"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+                                {{- end -}}
+                              </span>
                               <span class="motion-vote-explainer-row">{{ partial "motions/motion-vote-explainer.html" (dict "id" .id "title" $displayTitle "description" .explainerDescription "yesVote" .explainerYesVote "russia" .explainerRussia) }}</span>
                             </span>
                             <span class="motion-inline-divider motion-inline-divider--counts" aria-hidden="true"></span>

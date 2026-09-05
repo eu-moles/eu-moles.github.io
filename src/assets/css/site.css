@@ -1513,9 +1513,30 @@ body.motion-vote-explainer-open::before {
   row-gap: 0;
 }
 
-.site-table--motion .motion-subvote-item .motion-title-primary > .motion-title-text,
+.site-table--motion .motion-subvote-item .motion-subvote-title,
 .site-table--motion .motion-subvote-item .motion-title-primary > .motion-vote-explainer-row {
   flex: 0 0 100%;
+}
+
+.site-table--motion .motion-subvote-title {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.site-table--motion .motion-subvote-title .motion-title-text {
+  min-width: 0;
+}
+
+.motion-subvote-russia-alert {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  margin-left: 0.15rem;
+  color: #a12b2b;
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .site-table--motion .motion-subvote-item .motion-vote-explainer-row {
