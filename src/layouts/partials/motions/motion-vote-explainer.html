@@ -2,6 +2,7 @@
 {{- $yesVote := index . "yesVote" | default "" -}}
 {{- $russia := index . "russia" | default "" -}}
 {{- $id := index . "id" | default "" -}}
+{{- $title := index . "title" | default "" -}}
 {{- if $description -}}
   {{- $description = replaceRE `\s*\[citation:[^]]+\]` "" $description -}}
   {{- $yesVote = replaceRE `\s*\[citation:[^]]+\]` "" $yesVote -}}
@@ -11,7 +12,14 @@
     <button class="motion-vote-explainer__toggle" type="button" data-vote-explainer-toggle aria-expanded="false" aria-controls="{{ $popupID }}" aria-label="What this vote means?">
       <i class="fa-solid fa-circle-info" aria-hidden="true"></i><span class="motion-vote-explainer__label">What this means?</span>
     </button>
-    <span id="{{ $popupID }}" class="motion-vote-explainer__popup" role="tooltip">
+    <span id="{{ $popupID }}" class="motion-vote-explainer__popup" role="dialog" aria-label="Plain-language guide">
+      <span class="motion-vote-explainer__mobile-header">
+        <span>
+          <span class="motion-vote-explainer__mobile-eyebrow">Plain-language guide</span>
+          <span class="motion-vote-explainer__mobile-title">{{ $title }}</span>
+        </span>
+        <button class="motion-vote-explainer__close" type="button" data-vote-explainer-close aria-label="Close plain-language guide"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </span>
       <span class="motion-vote-explainer__section">
         <i class="motion-vote-explainer__section-icon motion-vote-explainer__section-icon--description fa-solid fa-file-lines" aria-hidden="true"></i>
         <span class="motion-vote-explainer__section-content">

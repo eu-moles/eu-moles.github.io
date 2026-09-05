@@ -1312,22 +1312,21 @@ main table tbody tr:last-child td {
 }
 
 .motion-vote-explainer__popup {
-  /* Fixed hidden popups cannot enlarge document scroll overflow. */
   position: fixed;
-  z-index: 25;
-  top: calc(100% + 0.48rem);
-  left: 0;
-  display: grid;
-  width: min(28rem, calc(100vw - 2rem));
-  max-height: min(60vh, 24rem);
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  display: none;
+  width: min(92vw, 58rem);
+  height: auto;
+  max-height: min(86dvh, 56rem);
   gap: 0;
   box-sizing: border-box;
-  padding: 0.7rem 0.95rem;
-  border: 1px solid #9eb8d2;
-  border-top: 0.25rem solid #175b9a;
-  border-radius: 0.2rem;
-  background: #fff;
-  box-shadow: 0 0.7rem 1.65rem rgb(11 41 71 / 22%);
+  padding: 0;
+  border: 0;
+  border-radius: 0.45rem;
+  background: #f5f8fb;
+  box-shadow: 0 1.5rem 4rem rgb(5 18 32 / 55%);
   color: #24394e;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 0.86rem;
@@ -1339,30 +1338,86 @@ main table tbody tr:last-child td {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-0.2rem);
+  transform: translate(-50%, -50%);
   transition: opacity 120ms ease, transform 120ms ease, visibility 120ms ease;
 }
 
-.motion-vote-explainer:hover .motion-vote-explainer__popup,
-.motion-vote-explainer:focus-within .motion-vote-explainer__popup,
 .motion-vote-explainer.is-open .motion-vote-explainer__popup {
-  position: absolute;
+  display: grid;
+  align-content: start;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translate(-50%, -50%);
 }
 
-.motion-vote-explainer--opens-upward .motion-vote-explainer__popup {
-  top: auto;
-  bottom: calc(100% + 0.48rem);
-  transform: translateY(0.2rem);
+html.motion-vote-explainer-open,
+body.motion-vote-explainer-open {
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
-.motion-vote-explainer--opens-upward:hover .motion-vote-explainer__popup,
-.motion-vote-explainer--opens-upward:focus-within .motion-vote-explainer__popup,
-.motion-vote-explainer--opens-upward.is-open .motion-vote-explainer__popup {
-  transform: translateY(0);
+body.motion-vote-explainer-open::before {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  background: rgb(5 15 26 / 72%);
+  content: "";
+  backdrop-filter: blur(3px);
+}
+
+.motion-vote-explainer__mobile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem 1.05rem;
+  border-top: 0.28rem solid #d6a62e;
+  background: #102a45;
+  color: #fff;
+}
+
+.motion-vote-explainer__mobile-header > span:first-child {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.motion-vote-explainer__mobile-eyebrow {
+  color: #e7c867;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.085em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.motion-vote-explainer__mobile-title {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 2.1vw, 1.55rem);
+  line-height: 1.35;
+}
+
+.motion-vote-explainer__close {
+  display: inline-grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.motion-vote-explainer__close:hover,
+.motion-vote-explainer__close:focus-visible {
+  border-color: #e7c867;
+  background: rgb(255 255 255 / 12%);
+  color: #fff4c8;
 }
 
 .motion-vote-explainer__eyebrow {
@@ -1379,7 +1434,7 @@ main table tbody tr:last-child td {
   display: grid;
   grid-template-columns: 1.65rem minmax(0, 1fr);
   gap: 0.55rem;
-  padding: 0.6rem 0;
+  padding: 1rem 1.25rem;
 }
 
 .motion-vote-explainer__section + .motion-vote-explainer__section {
@@ -1417,6 +1472,13 @@ main table tbody tr:last-child td {
 @media (hover: none) {
   .motion-vote-explainer__toggle {
     cursor: pointer;
+  }
+}
+
+@media (max-width: 42rem) {
+  .motion-vote-explainer__popup {
+    width: 96vw;
+    max-height: 92dvh;
   }
 }
 

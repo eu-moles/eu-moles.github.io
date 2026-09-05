@@ -3,22 +3,16 @@
 
   const explainers = () => [...document.querySelectorAll(".motion-vote-explainer")];
 
-  const updatePlacement = (explainer) => {
-    const toggle = explainer.querySelector("[data-vote-explainer-toggle]");
-    const popup = explainer.querySelector(".motion-vote-explainer__popup");
-    if (!toggle || !popup) return;
-
-    const toggleBounds = toggle.getBoundingClientRect();
-    const popupHeight = popup.getBoundingClientRect().height;
-    const spaceBelow = window.innerHeight - toggleBounds.bottom;
-    const spaceAbove = toggleBounds.top;
-    const opensUpward = popupHeight > spaceBelow && spaceAbove > spaceBelow;
-    explainer.classList.toggle("motion-vote-explainer--opens-upward", opensUpward);
+  const syncScrollLock = () => {
+    const isOpen = explainers().some((item) => item.classList.contains("is-open"));
+    document.documentElement.classList.toggle("motion-vote-explainer-open", isOpen);
+    document.body.classList.toggle("motion-vote-explainer-open", isOpen);
   };
 
   const close = (explainer) => {
     explainer.classList.remove("is-open");
     explainer.querySelector("[data-vote-explainer-toggle]")?.setAttribute("aria-expanded", "false");
+    syncScrollLock();
   };
 
   const open = (explainer) => {
@@ -27,7 +21,7 @@
     });
     explainer.classList.add("is-open");
     explainer.querySelector("[data-vote-explainer-toggle]")?.setAttribute("aria-expanded", "true");
-    requestAnimationFrame(() => updatePlacement(explainer));
+    syncScrollLock();
   };
 
   explainers().forEach((explainer) => {
@@ -38,8 +32,7 @@
       if (explainer.classList.contains("is-open")) close(explainer);
       else open(explainer);
     });
-    explainer.addEventListener("pointerenter", () => updatePlacement(explainer));
-    explainer.addEventListener("focusin", () => updatePlacement(explainer));
+    explainer.querySelector("[data-vote-explainer-close]")?.addEventListener("click", () => close(explainer));
   });
 
   document.addEventListener("pointerdown", (event) => {
@@ -51,11 +44,5 @@
     explainers().forEach(close);
   });
 
-  window.addEventListener("resize", () => {
-    explainers().forEach((explainer) => {
-      if (explainer.matches(":hover, :focus-within") || explainer.classList.contains("is-open")) {
-        updatePlacement(explainer);
-      }
-    });
-  });
+  window.addEventListener("resize", syncScrollLock);
 })();
