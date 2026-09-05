@@ -241,8 +241,12 @@ while IFS= read -r report_url; do
   report_document=${report_document%_EN.html}
   [[ -n "$report_document" ]] || continue
 
-  if jq -e --arg document "$report_document" '.documents[$document].text | strings | length > 0' "$report_texts_file" > /dev/null; then
-    printf 'Vote explainers: report text %d/%d cached (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+  if jq -e --arg document "$report_document" '.documents[$document] | (((.text // "") | length > 0) or (.unavailable == true))' "$report_texts_file" > /dev/null; then
+    if jq -e --arg document "$report_document" '.documents[$document].unavailable == true' "$report_texts_file" > /dev/null; then
+      printf 'Vote explainers: report text %d/%d cached unavailable (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+    else
+      printf 'Vote explainers: report text %d/%d cached (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+    fi
     continue
   fi
 
@@ -250,7 +254,8 @@ while IFS= read -r report_url; do
   report_pdf=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-pdf.XXXXXX")
   report_text=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-text.XXXXXX")
   report_pdf_url="https://data.europarl.europa.eu/distribution/reds_iPlRp/$report_document/${report_document}_en.pdf"
-  if curl -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$report_pdf" "$report_pdf_url" &&
+  report_status=$(curl -sS -L --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$report_pdf" --write-out '%{http_code}' "$report_pdf_url" || true)
+  if [[ "$report_status" == "200" ]] &&
     pdftotext -layout "$report_pdf" "$report_text" &&
     [[ -s "$report_text" ]]; then
     jq \
@@ -261,8 +266,17 @@ while IFS= read -r report_url; do
       "$report_texts_file" > "$temporary_report_texts"
     mv -f "$temporary_report_texts" "$report_texts_file"
     temporary_report_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-texts.XXXXXX")
+  elif [[ "$report_status" == "404" ]]; then
+    jq \
+      --arg document "$report_document" \
+      --arg url "$report_pdf_url" \
+      '.documents[$document] = {url: $url, unavailable: true}' \
+      "$report_texts_file" > "$temporary_report_texts"
+    mv -f "$temporary_report_texts" "$report_texts_file"
+    temporary_report_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-texts.XXXXXX")
+    echo "Vote explainers: report text $report_document is unavailable (404); caching this result." >&2
   else
-    echo "Vote explainers: could not extract $report_pdf_url; the report link will still be supplied." >&2
+    echo "Vote explainers: could not extract $report_pdf_url (HTTP ${report_status:-unknown}); the report link will still be supplied." >&2
   fi
   rm -f "$report_pdf" "$report_text"
 done < <(jq -r '[.[] | .sources[]? | select(.label == "Parliamentary report") | .url] | unique[]' "$temporary_candidates")
