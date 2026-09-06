@@ -224,7 +224,7 @@
                       {{- range $subvotes -}}
                         {{- $subvote := . -}}
                         {{- $displayTitle := .displayTitle | default .title -}}
-                        <li class="motion-subvote-item{{ if .labelMepID }} motion-subvote-item--with-mep{{ end }}{{ if eq .result "ADOPTED" }} motion-subvote-item--adopted{{ else if eq .result "REJECTED" }} motion-subvote-item--rejected{{ end }}">
+                        <li class="motion-subvote-item{{ if .labelMepID }} motion-subvote-item--with-mep{{ end }}{{ if eq .result "ADOPTED" }} motion-subvote-item--adopted{{ else if eq .result "REJECTED" }} motion-subvote-item--rejected{{ end }}" data-motion-russia-benefit="{{ hasPrefix .explainerRussia "Potentially:" }}">
                           {{- if eq .result "ADOPTED" -}}
                             <span class="motion-subvote-status motion-subvote-status--adopted" role="img" aria-label="Adopted" title="Adopted"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i></span>
                           {{- else if eq .result "REJECTED" -}}

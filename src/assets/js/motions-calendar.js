@@ -126,6 +126,9 @@
     if (!calendar || calendar.dataset.motionCalendarBound === 'true') return;
 
     const rows = options.rows ? [...options.rows] : [...document.querySelectorAll('[data-motion-date]')];
+    const subvoteItems = options.subvoteItems
+      ? [...options.subvoteItems]
+      : [...document.querySelectorAll('[data-motion-russia-benefit]')];
     const parentRows = rows.filter((row) => row.dataset.motionVotingId);
     const suppliedDates = options.dates || (calendar.dataset.availableDates || '').split(',').filter(Boolean);
     const dates = [...new Set(suppliedDates.length ? suppliedDates : parentRows.map((row) => row.dataset.motionDate))].sort();
@@ -173,6 +176,10 @@
         row.dataset.calendarHidden = String(calendarHidden);
         row.dataset.russiaHidden = String(russiaHidden);
         row.hidden = calendarHidden || russiaHidden;
+      });
+      subvoteItems.forEach((item) => {
+        item.hidden = Boolean(russiaFilter?.checked)
+          && item.dataset.motionRussiaBenefit !== 'true';
       });
       scheduleGridBalance();
       const number = countForDate(selected);

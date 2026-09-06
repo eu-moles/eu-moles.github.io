@@ -1209,6 +1209,10 @@ main table tbody tr:last-child td {
   padding: 0 0 0 calc(1.9rem + 16px);
 }
 
+.motion-subvote-item[hidden] {
+  display: none;
+}
+
 .motion-subvote-item::before {
   position: absolute;
   top: 50%;
