@@ -17,7 +17,7 @@ progress_note "Vote data: discovered $(wc -w <<< "$voting_dates") plenary date(s
 for voting_date in $voting_dates; do
   [[ "$voting_date" == "2026-07-07" ]] || continue
   [[ "$voting_date" < "$cutoff_date" ]] || continue
-  stage_total=10
+  stage_total=11
   progress 0 "$stage_total" "Vote data for $voting_date: starting"
   sitting_id="MTG-PL-${voting_date}"
   dir="data/votes/${voting_date}"
@@ -98,8 +98,10 @@ for voting_date in $voting_dates; do
   "$repository_root/scripts/cache-vote-explainers.sh" "$dir"
   progress 9 "$stage_total" "Cached English translations of debate contributions"
   cache_transcript_translations "$voting_date" "$dir"
-  progress 10 "$stage_total" "Formatting cached vote data"
+  progress 10 "$stage_total" "Cached Russia-benefit assessments of debate contributions"
+  "$repository_root/scripts/cache-speech-russia-assessments.sh" "$dir"
+  progress 11 "$stage_total" "Formatting cached vote data"
   format_data_sources "$dir"
-  progress 10 "$stage_total" "Vote data for $voting_date: complete"
+  progress 11 "$stage_total" "Vote data for $voting_date: complete"
   break
 done

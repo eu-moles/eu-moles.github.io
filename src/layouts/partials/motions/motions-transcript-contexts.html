@@ -5,6 +5,16 @@
   {{- $languages := partials.IncludeCached "transcript/transcript-language-map.html" $speechFile $speechFile -}}
   {{- $translationFile := replace $file "transcript.xml" "translations.json" -}}
   {{- $translations := partials.IncludeCached "transcript/transcript-translation-map.html" $translationFile $translationFile -}}
+  {{- $assessmentFile := replace $file "transcript.xml" "speech-russia-assessments.json" -}}
+  {{- $russiaBenefits := dict -}}
+  {{- if os.FileExists $assessmentFile -}}
+    {{- $assessmentData := transform.Unmarshal (os.ReadFile $assessmentFile) -}}
+    {{- range $speechNumber, $assessment := index $assessmentData "items" | default dict -}}
+      {{- if isset $assessment "benefitsRussia" -}}
+        {{- $russiaBenefits = merge $russiaBenefits (dict $speechNumber (index $assessment "benefitsRussia")) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
   {{- $data := transform.Unmarshal (dict "format" "xml") (os.ReadFile $file) -}}
   {{- $body := index $data "body" -}}
   {{- $paragraphs := index $body "p" -}}
@@ -57,7 +67,7 @@
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
         {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
           {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
@@ -100,7 +110,7 @@
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
         {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
           {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
@@ -114,7 +124,7 @@
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
         {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
         {{- $speaker = $rawSpeaker -}}
         {{- $speakerMarker = $rawSpeaker -}}
@@ -146,7 +156,7 @@
     {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
     {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
     {{- if and $insideContext (ne $speaker "") (not $isChairChange) -}}
-      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber)) -}}
+      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
     {{- end -}}
     {{- if gt (len $turns) 0 -}}
       {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
