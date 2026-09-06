@@ -25,8 +25,8 @@
     return element;
   };
 
-  const trackedKeywordExpression = /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)/giu;
-  const hasTrackedKeyword = (text) => /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)/iu.test(String(text || ""));
+  const trackedKeywordExpression = /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?|zelensk\p{L}*(?:['’]s)?)/giu;
+  const hasTrackedKeyword = (text) => /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?|zelensk\p{L}*(?:['’]s)?)/iu.test(String(text || ""));
 
   const appendHighlightedText = (container, text) => {
     const expression = new RegExp(trackedKeywordExpression.source, trackedKeywordExpression.flags);
