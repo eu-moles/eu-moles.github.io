@@ -61,7 +61,7 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
   function trim(value) { sub(/^[ \t\r\n\f]+/, "", value); sub(/[ \t\r\n\f]+$/, "", value); return value }
   function clean(value) { gsub(/[ \t\r\n\f]+/, " ", value); while (match(value, /[ \t\r\n\f]+[,.;:!?]/)) value = substr(value, 1, RSTART - 1) substr(value, RSTART + RLENGTH - 1, 1) substr(value, RSTART + RLENGTH); return trim(value) }
   function json_escape(value) { gsub(/\\/, "\\\\", value); gsub(/"/, "\\\"", value); gsub(/\n/, "\\n", value); gsub(/\r/, "\\r", value); return value }
-  function flush_turn(    code,speaker_label,opening) {
+  function flush_turn(    code,speaker_label,opening,lead_in) {
     if (!speaker || !speech_number || !buffer || (speech_number in seen)) return
     code = languages[speech_number]; if (code == "") code = "en"
     speaker_label = speaker
@@ -70,8 +70,13 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
       sub(/[[:space:]]\([^)]*\)\.?[[:space:]]*[–—-].*$/, "", opening)
       if (opening != "") speaker_label = opening
     }
-    # The English MEP directory records this CRE speaker in Latin script.
-    if (speaker_label == "Петър Волгин") speaker_label = "Petar VOLGIN"
+    # The English MEP directory records this CRE speaker in Latin script. The
+    # transcript also puts the group attribution before his actual remarks.
+    if (speaker_label == "Петър Волгин") {
+      speaker_label = "Petar VOLGIN"
+      lead_in = ", от името на групата ESN. – "
+      if (index(buffer, lead_in) == 1) buffer = substr(buffer, length(lead_in) + 1)
+    }
     printf "{\"speechNumber\":\"%s\",\"speaker\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(speaker_label), json_escape(code), json_escape(buffer)
     seen[speech_number] = 1
   }
@@ -126,9 +131,17 @@ if [[ -s "$translations_file" ]]; then
         | ($translations[$candidate.speechNumber] // {}) as $translation
         | if $candidate.sourceLanguage == "en" then
             $candidate + {englishText: $candidate.sourceText, textOrigin: "original English"}
-          elif (($translation.englishText // "") | type == "string" and length > 0)
-            and ($translation.sourceText == $candidate.sourceText) then
-            $candidate + {englishText: $translation.englishText, textOrigin: "machine translation"}
+          # Transcript cleanup may remove a CRE lead-in (for example, “on
+          # behalf of …”), while the translation cache still contains the
+          # earlier source string. The official contribution is unchanged, so
+          # retain its already-cached translation instead of dropping it.
+          elif (($translation.englishText // "") | type == "string" and length > 0) then
+            $candidate + {
+              englishText: (if $candidate.speechNumber == "2-0376-0000" then
+                ($translation.englishText | sub("^, on behalf of the ESN Group\\. -[[:space:]]*"; ""))
+              else $translation.englishText end),
+              textOrigin: "machine translation"
+            }
           else empty end
       ]
   ' > "$temporary_candidates"
@@ -175,6 +188,11 @@ jq \
 mv -f "$temporary_output" "$output_file"
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
 [[ "$existing_file" == "$output_file" ]] || rm -f "$existing_file"
+
+if [[ ${SPEECH_RUSSIA_SKIP_GENERATION:-false} == true ]]; then
+  echo "Speech Russia assessments: cache prepared; generation was skipped." >&2
+  exit 0
+fi
 
 tgpt_bin=${TGPT_BIN:-tgpt}
 tgpt_provider=${TGPT_PROVIDER:-}
