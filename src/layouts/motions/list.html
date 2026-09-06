@@ -19,7 +19,7 @@
       {{- end -}}
       {{- $motionDates = uniq $motionDates -}}
       {{- $latestMotions := where $parentMotions "date" $latestDate -}}
-      {{ partial "motions/motions-calendar.html" (dict "id" "motion-calendar-title" "dates" $motionDates "defaultDate" $latestDate) }}
+      {{ partial "motions/motions-calendar.html" (dict "id" "motion-calendar-title" "dates" $motionDates "defaultDate" $latestDate "showRussiaFilter" true) }}
       <p class="f5 gray mt0 mb3" data-motion-calendar-count>{{ len $latestMotions }} recorded {{ if eq (len $latestMotions) 1 }}motion{{ else }}motions{{ end }}</p>
       <div class="site-table-wrap motions-table-wrap">
         <table class="site-table site-table--motion motions-table" cellspacing="0">
@@ -43,14 +43,24 @@
               {{- $motion := . -}}
               {{- if not .isSubvote -}}
                 {{- $motionReference := .reference -}}
+                {{- $hasRussiaAssessment := false -}}
                 {{- if and .hasSubvotes (not $motionReference) -}}
                   {{- range where (where $motions "parentID" .parentID) "isSubvote" true -}}
                     {{- if and (not $motionReference) .reference -}}
                       {{- $motionReference = .reference -}}
                     {{- end -}}
+                    {{- if hasPrefix .explainerRussia "Potentially:" -}}
+                      {{- $hasRussiaAssessment = true -}}
+                    {{- end -}}
+                  {{- end -}}
+                {{- else if .hasSubvotes -}}
+                  {{- range where (where $motions "parentID" .parentID) "isSubvote" true -}}
+                    {{- if hasPrefix .explainerRussia "Potentially:" -}}
+                      {{- $hasRussiaAssessment = true -}}
+                    {{- end -}}
                   {{- end -}}
                 {{- end -}}
-                <tbody class="motion-grid-group" data-motion-date="{{ .date }}"{{ if ne .date $latestDate }} hidden{{ end }}>
+                <tbody class="motion-grid-group" data-motion-date="{{ .date }}" data-motion-russia-assessment="{{ $hasRussiaAssessment }}"{{ if ne .date $latestDate }} hidden{{ end }}>
                 <tr class="motion-group-heading" data-motion-date="{{ .date }}"{{ if ne .date $latestDate }} hidden{{ end }} aria-hidden="true">
                   <th>Date</th>
                   <th>Classification</th>
@@ -229,8 +239,10 @@
                               <span class="motion-title-primary">
                               <span class="motion-subvote-title">
                                 <span class="motion-title-text" title="Original voting label: {{ .title }}">{{ partial "utilities/highlight-geopolitical-keywords.html" $displayTitle | safeHTML }}</span>
-                                {{- if and .explainerRussia (ne .explainerRussia "No supported Russia-related effect is stated.") -}}
-                                  <span class="motion-subvote-russia-alert" role="img" aria-label="Russia-related assessment" title="Russia-related assessment"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+                                {{- if hasPrefix .explainerRussia "Potentially:" -}}
+                                  <span class="motion-subvote-russia-alert" role="img" aria-label="Potential benefit to Russia" title="Potential benefit to Russia"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+                                {{- else if eq .explainerRussia "Official amendment wording is unavailable, so Russia impact cannot be assessed." -}}
+                                  <span class="motion-subvote-russia-alert motion-subvote-russia-alert--unknown" role="img" aria-label="Russia impact cannot be assessed" title="Russia impact cannot be assessed"><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span>
                                 {{- end -}}
                               </span>
                               <span class="motion-vote-explainer-row">{{ partial "motions/motion-vote-explainer.html" (dict "id" .id "title" $displayTitle "description" .explainerDescription "yesVote" .explainerYesVote "russia" .explainerRussia) }}</span>

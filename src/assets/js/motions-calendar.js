@@ -153,18 +153,32 @@
     const previous = calendar.querySelector('[data-motion-calendar-previous]');
     const next = calendar.querySelector('[data-motion-calendar-next]');
     const count = options.countElement || document.querySelector('[data-motion-calendar-count]');
+    const russiaFilter = options.russiaFilter || document.querySelector('[data-motion-russia-filter]');
     const firstMonth = monthKey(parseDate(dates[0]));
     const lastMonth = monthKey(parseDate(dates.at(-1)));
 
+    const matchesRussiaFilter = (row) => {
+      if (!russiaFilter?.checked) return true;
+      return row.closest('.motion-grid-group')?.dataset.motionRussiaAssessment === 'true';
+    };
+
+    const countForDate = (date) => parentRows.filter((row) => (
+      row.dataset.motionDate === date && matchesRussiaFilter(row)
+    )).length;
+
     const updateRows = () => {
       rows.forEach((row) => {
-        row.dataset.calendarHidden = String(row.dataset.motionDate !== selected);
-        row.hidden = row.dataset.calendarHidden === 'true';
+        const calendarHidden = row.dataset.motionDate !== selected;
+        const russiaHidden = !matchesRussiaFilter(row);
+        row.dataset.calendarHidden = String(calendarHidden);
+        row.dataset.russiaHidden = String(russiaHidden);
+        row.hidden = calendarHidden || russiaHidden;
       });
       scheduleGridBalance();
-      const number = dateCounts[selected] || 0;
+      const number = countForDate(selected);
       if (count) {
-        count.textContent = `${number} recorded ${number === 1 ? 'motion' : 'motions'} — ${displayDate.format(parseDate(selected))}`;
+        const qualifier = russiaFilter?.checked ? ' with potential benefits for Russia' : '';
+        count.textContent = `${number} recorded ${number === 1 ? 'motion' : 'motions'}${qualifier} — ${displayDate.format(parseDate(selected))}`;
       }
       if (options.updateURL !== false) {
         const url = new URL(window.location.href);
@@ -208,8 +222,9 @@
         button.disabled = !isAvailable;
         button.setAttribute('role', 'gridcell');
         button.setAttribute('aria-selected', String(date === selected));
+        const motionCount = russiaFilter?.checked ? countForDate(date) : dateCounts[date];
         button.title = isAvailable
-          ? `${displayDate.format(parseDate(date))}: ${dateCounts[date]} recorded ${dateCounts[date] === 1 ? 'motion' : 'motions'}`
+          ? `${displayDate.format(parseDate(date))}: ${motionCount} recorded ${motionCount === 1 ? 'motion' : 'motions'}`
           : displayDate.format(parseDate(date));
         if (isAvailable) button.addEventListener('click', () => selectDate(date));
         days.append(button);
@@ -222,6 +237,10 @@
     });
     next.addEventListener('click', () => {
       displayedMonth.setUTCMonth(displayedMonth.getUTCMonth() + 1);
+      render();
+    });
+    russiaFilter?.addEventListener('change', () => {
+      updateRows();
       render();
     });
 

@@ -481,6 +481,34 @@ a.mep-profile-motion-title-text:focus-visible {
   }
 }
 
+.motion-russia-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.9rem 0 0;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #e4c5c5;
+  border-radius: 0.25rem;
+  background: #fff8f8;
+  color: #6e2626;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.motion-russia-filter input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: #a12b2b;
+}
+
+.motion-russia-filter i {
+  color: #a12b2b;
+}
+
 /* The motions calendar is a compact, data-led entry point to each sitting day. */
 .motion-calendar {
   display: grid;
@@ -1011,6 +1039,12 @@ main table tbody tr:last-child td {
     background: #fff;
   }
 
+  /* The desktop record layout uses grid, which overrides the browser's
+     default [hidden] display rule unless it is restated at this specificity. */
+  .site-table--motion > tbody.motion-grid-group[hidden] {
+    display: none;
+  }
+
   /* MEP profiles omit the shared reference column, giving the motion title
      the space it needs while retaining the same record-grid structure. */
   .mep-profile-motions-table > tbody.motion-grid-group {
@@ -1539,6 +1573,10 @@ body.motion-vote-explainer-open::before {
   line-height: 1;
 }
 
+.motion-subvote-russia-alert--unknown {
+  color: #a87500;
+}
+
 .site-table--motion .motion-subvote-item .motion-vote-explainer-row {
   display: block;
   margin: 10px 0;
@@ -1700,6 +1738,10 @@ body.motion-vote-explainer-open::before {
     display: grid;
     gap: 1rem;
     background: #f6f7f9;
+  }
+
+  .site-table--motion tbody.motion-grid-group[hidden] {
+    display: none;
   }
 
   .site-table--motion tr {
