@@ -1,1 +1,1 @@
-{{- partials.IncludeCached "data/speeches-data.html" site | jsonify -}}
+{{- partials.Include "data/speeches-data.html" site | jsonify -}}

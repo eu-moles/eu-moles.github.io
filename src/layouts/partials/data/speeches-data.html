@@ -1,79 +1,30 @@
 {{- $speeches := slice -}}
-{{- $seenSpeechNumbers := dict -}}
 {{- $directory := "data/votes" -}}
-{{- $oneMinutePattern := `(?i)one-minute speeches on matters of political importance` -}}
 {{- if os.FileExists $directory -}}
   {{- range os.ReadDir $directory -}}
     {{- if .IsDir -}}
       {{- $date := .Name -}}
-      {{- $dateDirectory := path.Join $directory $date -}}
-      {{- $activitiesFile := path.Join $dateDirectory "activities.json" -}}
-      {{- $transcriptFile := path.Join $dateDirectory "transcript.xml" -}}
-      {{- if and (os.FileExists $activitiesFile) (os.FileExists $transcriptFile) -}}
-        {{- $activities := transform.Unmarshal (os.ReadFile $activitiesFile) -}}
-        {{- range index $activities "data" -}}
-          {{- $label := index (index . "activity_label") "en" | default "" -}}
-          {{- if findRE $oneMinutePattern $label -}}
-            {{- $sourceURL := "" -}}
-            {{- range index . "recorded_in_a_realization_of" -}}
-              {{- $document := path.Base . -}}
-              {{- if hasPrefix $document "CRE-" -}}
-                {{- $sourceURL = printf "https://www.europarl.europa.eu/doceo/document/%s_EN.html" $document -}}
-              {{- end -}}
-            {{- end -}}
-            {{- $context := partials.IncludeCached "motions/motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $label)) $date $label -}}
-            {{- range $context.turns -}}
-              {{- if and .mepID .text (not (index $seenSpeechNumbers .speechNumber)) -}}
-                {{- $seenSpeechNumbers = merge $seenSpeechNumbers (dict .speechNumber true) -}}
-                {{- $speeches = $speeches | append (dict
-                  "date" $date
-                  "topic" (replaceRE "^[0-9]+[.[:space:]-]+" "" $label)
-                  "sourceURL" $sourceURL
-                  "mepID" .mepID
-                  "speaker" .speaker
-                  "speechNumber" .speechNumber
-                  "text" .text
-                  "language" .language
-                  "translation" .translation
-                  "russiaBenefit" .russiaBenefit
-                ) -}}
-              {{- end -}}
-            {{- end -}}
+      {{- $assessmentFile := path.Join $directory $date "speech-russia-assessments.json" -}}
+      {{- if os.FileExists $assessmentFile -}}
+        {{- $assessmentData := transform.Unmarshal (os.ReadFile $assessmentFile) -}}
+        {{- range $speechNumber, $assessment := index $assessmentData "items" | default dict -}}
+          {{- $mepID := index $assessment "mepID" | default "" -}}
+          {{- if and (index $assessment "benefitsRussia") $mepID -}}
+            {{- $speeches = $speeches | append (dict
+              "date" $date
+              "topic" "Plenary debate contribution"
+              "sourceURL" (printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date)
+              "mepID" $mepID
+              "speaker" (index $assessment "speaker" | default "")
+              "speechNumber" $speechNumber
+              "text" (index $assessment "sourceText" | default "")
+              "translation" (dict "englishText" (index $assessment "englishText" | default ""))
+              "russiaBenefit" true
+            ) -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
-  {{- end -}}
-{{- end -}}
-
-{{- /* Add the debate contexts associated with voting items. These use the same
-      extracted turns as the Motion discussion dialog, so the profile view and
-      dialog always describe the same intervention. */ -}}
-{{- $motions := partials.IncludeCached "motions/motions-data.html" site -}}
-{{- range $motions -}}
-  {{- $motion := . -}}
-  {{- if not $motion.isSubvote -}}
-  {{- $transcriptFile := path.Join "data/votes" $motion.date "transcript.xml" -}}
-  {{- if and $motion.contextURL (os.FileExists $transcriptFile) -}}
-    {{- $context := partials.IncludeCached "motions/motions-transcript-context.html" (dict "file" $transcriptFile "titles" (slice $motion.title $motion.sourceTitle)) $motion.date $motion.title $motion.sourceTitle -}}
-    {{- range $context.turns -}}
-      {{- if and .mepID .text (not (index $seenSpeechNumbers .speechNumber)) -}}
-        {{- $seenSpeechNumbers = merge $seenSpeechNumbers (dict .speechNumber true) -}}
-        {{- $speeches = $speeches | append (dict
-          "date" $motion.date
-          "topic" $motion.title
-          "sourceURL" $motion.contextURL
-          "mepID" .mepID
-          "speaker" .speaker
-          "speechNumber" .speechNumber
-          "text" .text
-          "language" .language
-          "translation" .translation
-          "russiaBenefit" .russiaBenefit
-        ) -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- return (sort $speeches "date" "desc") -}}

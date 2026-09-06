@@ -4,6 +4,8 @@ set -euo pipefail
 # Screen each available English plenary contribution for an explicitly stated
 # position that could benefit Russian strategic interests. The assessment is a
 # cache beside the official transcript: raw source data remains untouched.
+# Bump prompt_version when screening rules change; harmless transcript-format
+# changes must not spend tokens regenerating an already screened contribution.
 
 if (( $# != 1 )); then
   echo "Usage: $0 data/votes/YYYY-MM-DD" >&2
@@ -19,11 +21,22 @@ output_file="$directory/speech-russia-assessments.json"
 [[ -s "$transcript_file" && -s "$speeches_file" ]] || exit 0
 
 temporary_languages=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-languages.XXXXXX")
+temporary_mep_ids=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-mep-ids.XXXXXX")
 temporary_raw_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-raw.XXXXXX")
+temporary_mapped_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-mapped.XXXXXX")
 temporary_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-candidates.XXXXXX")
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
 temporary_tgpt_error=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-error.XXXXXX")
-trap 'rm -f "$temporary_languages" "$temporary_raw_candidates" "$temporary_candidates" "$temporary_output" "$temporary_tgpt_error"' EXIT
+trap 'rm -f "$temporary_languages" "$temporary_mep_ids" "$temporary_raw_candidates" "$temporary_mapped_candidates" "$temporary_candidates" "$temporary_output" "$temporary_tgpt_error"' EXIT
+
+# Resolve the transcript's speaker label once, while building the cache. The
+# frontend must use Parliament's stable MEP ID rather than trying to match a
+# display name (which may use another script or spelling in the CRE record).
+xmllint --xpath '/meps/mep' data/meps.xml 2>/dev/null \
+  | awk 'BEGIN { RS = "</mep>" } {
+      if (match($0, /<fullName>([^<]+)<\/fullName>/, name) && match($0, /<id>([^<]+)<\/id>/, id))
+        print name[1] "\t" id[1]
+    }' > "$temporary_mep_ids"
 
 # The language authority files are fetched before translations. Include every
 # known language; a missing language is treated as English only when no other
@@ -48,10 +61,18 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
   function trim(value) { sub(/^[ \t\r\n\f]+/, "", value); sub(/[ \t\r\n\f]+$/, "", value); return value }
   function clean(value) { gsub(/[ \t\r\n\f]+/, " ", value); while (match(value, /[ \t\r\n\f]+[,.;:!?]/)) value = substr(value, 1, RSTART - 1) substr(value, RSTART + RLENGTH - 1, 1) substr(value, RSTART + RLENGTH); return trim(value) }
   function json_escape(value) { gsub(/\\/, "\\\\", value); gsub(/"/, "\\\"", value); gsub(/\n/, "\\n", value); gsub(/\r/, "\\r", value); return value }
-  function flush_turn(    code) {
+  function flush_turn(    code,speaker_label,opening) {
     if (!speaker || !speech_number || !buffer || (speech_number in seen)) return
     code = languages[speech_number]; if (code == "") code = "en"
-    printf "{\"speechNumber\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(code), json_escape(buffer)
+    speaker_label = speaker
+    opening = buffer; sub(/\n\n.*/, "", opening)
+    if (opening ~ /[[:space:]]\([^)]*\)\.?[[:space:]]*[–—-]/) {
+      sub(/[[:space:]]\([^)]*\)\.?[[:space:]]*[–—-].*$/, "", opening)
+      if (opening != "") speaker_label = opening
+    }
+    # The English MEP directory records this CRE speaker in Latin script.
+    if (speaker_label == "Петър Волгин") speaker_label = "Petar VOLGIN"
+    printf "{\"speechNumber\":\"%s\",\"speaker\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(speaker_label), json_escape(code), json_escape(buffer)
     seen[speech_number] = 1
   }
   function process_paragraph(    i,line,text,bookmark,part,without_speaker) {
@@ -77,8 +98,27 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
   END { flush_turn() }
 ' "$transcript_file" > "$temporary_raw_candidates"
 
+# Unicode case-folding is important here: Parliament's directory capitalises
+# surnames, while CRE records usually use title case. Node handles names such
+# as ZAJĄCZKOWSKA-HERNIK correctly where jq's ASCII folding cannot.
+/home/linuxbrew/.linuxbrew/opt/node/bin/node -e '
+  const fs = require("fs");
+  const normalise = (value) => String(value || "").normalize("NFC").toLowerCase();
+  const ids = new Map();
+  for (const line of fs.readFileSync(process.argv[1], "utf8").split("\n")) {
+    const [name, id] = line.split("\t");
+    if (name && id) ids.set(normalise(name), id);
+  }
+  for (const line of fs.readFileSync(0, "utf8").trim().split("\n")) {
+    if (!line) continue;
+    const candidate = JSON.parse(line);
+    const mepID = ids.get(normalise(candidate.speaker));
+    if (mepID) process.stdout.write(`${JSON.stringify({...candidate, mepID})}\n`);
+  }
+' "$temporary_mep_ids" < "$temporary_raw_candidates" > "$temporary_mapped_candidates"
+
 if [[ -s "$translations_file" ]]; then
-  jq -n --slurpfile raw "$temporary_raw_candidates" --slurpfile translations "$translations_file" '
+  jq -n --slurpfile raw "$temporary_mapped_candidates" --slurpfile translations "$translations_file" '
     ($translations[0].translations // {}) as $translations
     | [
         $raw[]
@@ -93,7 +133,8 @@ if [[ -s "$translations_file" ]]; then
       ]
   ' > "$temporary_candidates"
 else
-  jq -n --slurpfile raw "$temporary_raw_candidates" '[$raw[] | select(.sourceLanguage == "en") | . + {englishText: .sourceText, textOrigin: "original English"}]' > "$temporary_candidates"
+  jq -n --slurpfile raw "$temporary_mapped_candidates" \
+    '[$raw[] | select(.sourceLanguage == "en") | . + {englishText: .sourceText, textOrigin: "original English"}]' > "$temporary_candidates"
 fi
 
 if [[ ! -s "$output_file" ]]; then
@@ -117,10 +158,11 @@ jq \
     {version: 1, items: {}};
     ($existing[0].items[$candidate.speechNumber] // {}) as $previous
     | ($previous.promptVersion == $prompt_version
-      and $previous.englishText == $candidate.englishText
       and ($previous | usable)) as $cached
     | .items[$candidate.speechNumber] = {
         sourceLanguage: $candidate.sourceLanguage,
+        speaker: $candidate.speaker,
+        mepID: $candidate.mepID,
         sourceText: $candidate.sourceText,
         englishText: $candidate.englishText,
         textOrigin: $candidate.textOrigin,

@@ -118,13 +118,6 @@
     return badge;
   };
 
-  const containsTrackedKeyword = (text) => {
-    if (window.EUMolesMotionContext && typeof window.EUMolesMotionContext.containsTrackedKeyword === 'function') {
-      return window.EUMolesMotionContext.containsTrackedKeyword(text);
-    }
-    return /\b(russ\p{L}*(?:['’]s)?|ukrain\p{L}*(?:['’]s)?|nato\b(?:['’]s)?|belarus\p{L}*(?:['’]s)?)/iu.test(String(text || ''));
-  };
-
   const renderSpeechText = (container, text) => {
     if (window.EUMolesMotionContext && typeof window.EUMolesMotionContext.renderBubbleText === 'function') {
       window.EUMolesMotionContext.renderBubbleText(container, text, true);
@@ -186,19 +179,17 @@
       .then((items) => {
         const relevant = items.filter((speech) => {
           if (String(speech.mepID) !== String(mepID)) return false;
-          const translation = String(speech.translation?.englishText || '');
-          const searchableText = translation || (speech.language && speech.language.code ? '' : String(speech.text || ''));
-          return Boolean(searchableText) && containsTrackedKeyword(searchableText);
+          return speech.russiaBenefit === true;
         });
 
         if (!relevant.length) {
-          empty.textContent = 'No speeches containing tracked terms are available for this Member.';
+          empty.textContent = 'No speeches flagged for potential Russia benefit are available for this Member.';
           empty.hidden = false;
           speeches.hidden = false;
           return;
         }
 
-        summary.textContent = `${relevant.length} tracked ${relevant.length === 1 ? 'speech' : 'speeches'}`;
+        summary.textContent = `${relevant.length} flagged ${relevant.length === 1 ? 'speech' : 'speeches'}`;
         relevant.forEach((speech) => appendSpeech(list, speech));
         speeches.hidden = false;
       })

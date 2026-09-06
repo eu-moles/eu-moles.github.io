@@ -398,8 +398,7 @@ a.mep-profile-motion-title-text:focus-visible {
 }
 
 .site-filter-controls {
-  /* A hidden absolutely positioned popup still affects scrollable overflow. */
-  display: none;
+  display: grid;
   gap: 0.65rem;
   align-items: end;
 }
