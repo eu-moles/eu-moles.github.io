@@ -24,15 +24,23 @@
     syncScrollLock();
   };
 
-  explainers().forEach((explainer) => {
-    const toggle = explainer.querySelector("[data-vote-explainer-toggle]");
-    if (!toggle) return;
-    toggle.addEventListener("click", (event) => {
+  document.addEventListener("click", (event) => {
+    const toggle = event.target.closest("[data-vote-explainer-toggle]");
+    if (toggle) {
       event.preventDefault();
+      const explainer = toggle.closest(".motion-vote-explainer");
+      if (!explainer) return;
       if (explainer.classList.contains("is-open")) close(explainer);
       else open(explainer);
-    });
-    explainer.querySelector("[data-vote-explainer-close]")?.addEventListener("click", () => close(explainer));
+      return;
+    }
+
+    const closeButton = event.target.closest("[data-vote-explainer-close]");
+    if (closeButton) {
+      event.preventDefault();
+      const explainer = closeButton.closest(".motion-vote-explainer");
+      if (explainer) close(explainer);
+    }
   });
 
   document.addEventListener("pointerdown", (event) => {
