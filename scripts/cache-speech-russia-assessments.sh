@@ -61,7 +61,20 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
   function trim(value) { sub(/^[ \t\r\n\f]+/, "", value); sub(/[ \t\r\n\f]+$/, "", value); return value }
   function clean(value) { gsub(/[ \t\r\n\f]+/, " ", value); while (match(value, /[ \t\r\n\f]+[,.;:!?]/)) value = substr(value, 1, RSTART - 1) substr(value, RSTART + RLENGTH - 1, 1) substr(value, RSTART + RLENGTH); return trim(value) }
   function json_escape(value) { gsub(/\\/, "\\\\", value); gsub(/"/, "\\\"", value); gsub(/\n/, "\\n", value); gsub(/\r/, "\\r", value); return value }
-  function flush_turn(    code,speaker_label,opening,lead_in) {
+  function strip_initial_attribution(value, opening) {
+    # CRE paragraphs can begin with editorial speaker/group metadata such as
+    # “Name (Group). –”, or “, on behalf of Group. –”, in any language.
+    # Those labels are not remarks and must never reach the translation or AI
+    # assessment pipeline.
+    opening = value; sub(/\n\n.*/, "", opening)
+    if (opening ~ /^[^(]*\([^)]*\)\.[[:space:]]*[–—-][[:space:]]*/) {
+      sub(/^[^(]*\([^)]*\)\.[[:space:]]*[–—-][[:space:]]*/, "", value)
+    } else if (opening ~ /^,[^.]*\.[[:space:]]*[–—-][[:space:]]*/) {
+      sub(/^,[^.]*\.[[:space:]]*[–—-][[:space:]]*/, "", value)
+    }
+    return value
+  }
+  function flush_turn(    code,speaker_label,opening) {
     if (!speaker || !speech_number || !buffer || (speech_number in seen)) return
     code = languages[speech_number]; if (code == "") code = "en"
     speaker_label = speaker
@@ -74,9 +87,8 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
     # transcript also puts the group attribution before his actual remarks.
     if (speaker_label == "Петър Волгин") {
       speaker_label = "Petar VOLGIN"
-      lead_in = ", от името на групата ESN. – "
-      if (index(buffer, lead_in) == 1) buffer = substr(buffer, length(lead_in) + 1)
     }
+    buffer = strip_initial_attribution(buffer)
     printf "{\"speechNumber\":\"%s\",\"speaker\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(speaker_label), json_escape(code), json_escape(buffer)
     seen[speech_number] = 1
   }
@@ -124,6 +136,9 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
 
 if [[ -s "$translations_file" ]]; then
   jq -n --slurpfile raw "$temporary_mapped_candidates" --slurpfile translations "$translations_file" '
+    def strip_initial_attribution:
+      sub("^[^\\(\\r\\n]*\\([^\\)\\r\\n]*\\)\\.[[:space:]]*[–—-][[:space:]]*"; "")
+      | sub("^,[^\\.\\r\\n]*\\.[[:space:]]*[–—-][[:space:]]*"; "");
     ($translations[0].translations // {}) as $translations
     | [
         $raw[]
@@ -137,9 +152,7 @@ if [[ -s "$translations_file" ]]; then
           # retain its already-cached translation instead of dropping it.
           elif (($translation.englishText // "") | type == "string" and length > 0) then
             $candidate + {
-              englishText: (if $candidate.speechNumber == "2-0376-0000" then
-                ($translation.englishText | sub("^, on behalf of the ESN Group\\. -[[:space:]]*"; ""))
-              else $translation.englishText end),
+              englishText: ($translation.englishText | strip_initial_attribution),
               textOrigin: "machine translation"
             }
           else empty end
@@ -154,7 +167,7 @@ if [[ ! -s "$output_file" ]]; then
   printf '{"version":1,"items":{}}\n' > "$output_file"
 fi
 
-prompt_version=1
+prompt_version=5
 if [[ -s "$output_file" ]]; then
   existing_file="$output_file"
 else
@@ -230,11 +243,13 @@ is_valid_assessment() {
   jq -e 'type == "object" and (keys | sort == ["benefitsRussia"]) and (.benefitsRussia | type == "boolean")' <<< "$1" > /dev/null 2>&1
 }
 
-assessment_instructions='Screen this single European Parliament debate contribution for a data flag. Analyse the message itself, not the speaker, party, nationality or tone. Output only a one-line JSON object with exactly one boolean key: benefitsRussia.
+assessment_instructions='Screen this single European Parliament debate contribution for a data flag. Analyse the concrete policy position expressed, not the speaker, party, nationality, tone, factual accuracy or rhetorical hostility. Output only a one-line JSON object with exactly one boolean key: benefitsRussia.
 
-Set benefitsRussia to true only when the contribution explicitly advocates, endorses or positively frames a concrete position that could reasonably benefit Russian strategic interests by weakening EU collective defence or security, sanctions enforcement, support for Ukraine, energy independence, resilience, or coordinated counter-disinformation.
+Set benefitsRussia to true only if the contribution advocates, endorses, or clearly argues for a concrete outcome that would reasonably benefit Russian strategic interests by weakening European security or support for Ukraine or Moldova. This includes ending, reducing or obstructing sanctions; military, financial or economic support for Ukraine; EU or NATO defence and security coordination; European defence investment; energy independence; or counter-disinformation.
 
-Set it to false for neutral reporting, criticism, procedural language, mention of Russia without such advocacy, generic national-sovereignty arguments, or claims without a concrete causal mechanism. Do not guess motives or infer a benefit from political disagreement alone.'
+In the context of Russia’s war against Ukraine, treat calls against weapons deliveries, rearmament, militarisation, NATO security, escalation or a “war against Russia” as true when they present less European military support or deterrence as the preferred outcome, even if framed as peace. Also treat it as true when the speaker explicitly calls to stop or reverse Ukraine or Moldova EU integration while arguing that support must be diverted from it, or that integration itself must be stopped to avoid war, escalation, confrontation with Russia, or NATO-driven conflict.
+
+Always set benefitsRussia to false for an accession objection based on historical memory, wartime atrocities, symbols, national identity, corruption, costs, minority rights, national interest or domestic politics—even when it says Ukraine should never join the EU—unless the contribution independently calls to reduce support or links the requested block to war, escalation, Russia or NATO. Also set it to false for factual reporting; criticism without a requested policy change; peace language that still supports Ukraine’s sovereignty and continuing assistance; and criticism of military spending unrelated to Russia’s war against Ukraine. Do not guess motives.'
 
 assessment_total=$(jq '.items | length' "$output_file")
 pending_total=$(jq '[.items[] | select((.benefitsRussia | type) != "boolean")] | length' "$output_file")
