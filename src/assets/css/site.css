@@ -405,7 +405,7 @@ a.mep-profile-motion-title-text:focus-visible {
 
 /* The MEP directory needs a denser desktop grid than most future filters. */
 .site-filter-controls--mep {
-  grid-template-columns: minmax(8.5rem, 0.85fr) minmax(7.5rem, 0.7fr) minmax(12rem, 1.15fr) minmax(15rem, 1.7fr) minmax(6.25rem, 0.55fr) auto;
+  grid-template-columns: minmax(8.5rem, 0.85fr) minmax(7.5rem, 0.7fr) minmax(12rem, 1.15fr) minmax(15rem, 1.7fr) minmax(6.25rem, 0.55fr) minmax(17rem, 1.35fr) auto;
 }
 
 .site-filter-field > span {
@@ -506,6 +506,13 @@ a.mep-profile-motion-title-text:focus-visible {
 
 .motion-russia-filter i {
   color: #a12b2b;
+}
+
+.mep-russia-filter {
+  align-self: end;
+  box-sizing: border-box;
+  height: 2.45rem;
+  margin: 0;
 }
 
 /* The motions calendar is a compact, data-led entry point to each sitting day. */

@@ -17,6 +17,19 @@
   {{ $countries = sort (collections.Uniq $countries) }}
   {{ $groups = sort (collections.Uniq $groups) }}
   {{ $parties = sort (collections.Uniq $parties) }}
+  {{ $motions := partials.IncludeCached "motions/motions-data.html" site }}
+  {{ $russiaMepIDs := slice }}
+  {{ range partials.IncludeCached "data/speeches-data.html" site }}
+    {{ $russiaMepIDs = $russiaMepIDs | append (printf "%v" .mepID) }}
+  {{ end }}
+  {{ range $motions }}
+    {{ if and .isSubvote (hasPrefix .explainerRussia "Potentially:") }}
+      {{ range .votersFor }}
+        {{ $russiaMepIDs = $russiaMepIDs | append (printf "%v" .) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $russiaMepIDs = uniq $russiaMepIDs }}
 
   <section class="ph3 ph5-l pb5">
     <form id="mep-filters" class="site-filter-panel" aria-label="Filter MEP directory">
@@ -56,6 +69,11 @@
             <option value="100">100</option>
           </select>
         </label>
+        <label class="motion-russia-filter mep-russia-filter" title="Shows Members with a speech flagged for potential Russia benefit or a recorded vote in favour of a vote with a potential Russia benefit.">
+          <input id="mep-russia-filter" type="checkbox">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <span>Only Russia-related activity</span>
+        </label>
         <div class="site-filter-action">
           <button id="mep-clear-filters" type="button">Clear filters</button>
         </div>
@@ -81,7 +99,7 @@
         </thead>
         <tbody id="mep-directory-rows">
           {{ range $meps }}
-            <tr data-mep-row data-country="{{ .country }}" data-group="{{ .politicalGroup }}" data-party="{{ .nationalPoliticalGroup }}" data-full-name="{{ .fullName }}">
+            <tr data-mep-row data-country="{{ .country }}" data-group="{{ .politicalGroup }}" data-party="{{ .nationalPoliticalGroup }}" data-full-name="{{ .fullName }}" data-russia-benefit="{{ in $russiaMepIDs (printf "%v" .id) }}">
               <td data-label="MEP">
                 <div class="flex items-center">
                   <img

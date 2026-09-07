@@ -9,6 +9,7 @@
     group: document.querySelector('#mep-group'),
     party: document.querySelector('#mep-party'),
     pageSize: document.querySelector('#mep-page-size'),
+    russia: document.querySelector('#mep-russia-filter'),
   };
   const summary = document.querySelector('#mep-results-summary');
   const pagination = document.querySelector('#mep-pagination');
@@ -32,6 +33,7 @@
   });
   const requestedPageSize = Number(query.get('pageSize'));
   if (pageSizeOptions.includes(requestedPageSize)) controls.pageSize.value = requestedPageSize;
+  controls.russia.checked = query.get('russia') === '1';
   page = Math.max(1, Number(query.get('page')) || 1);
 
   const updateUrl = () => {
@@ -39,6 +41,7 @@
     ['country', 'letter', 'group', 'party'].forEach((name) => {
       if (controls[name].value) params.set(name, controls[name].value);
     });
+    if (controls.russia.checked) params.set('russia', '1');
     if (Number(controls.pageSize.value) !== 25) params.set('pageSize', controls.pageSize.value);
     if (page > 1) params.set('page', page);
     const suffix = params.toString();
@@ -89,7 +92,8 @@
       (!controls.country.value || row.dataset.country === controls.country.value) &&
       (!controls.letter.value || firstLetter(row) === controls.letter.value) &&
       (!controls.group.value || row.dataset.group === controls.group.value) &&
-      (!controls.party.value || row.dataset.party === controls.party.value)
+      (!controls.party.value || row.dataset.party === controls.party.value) &&
+      (!controls.russia.checked || row.dataset.russiaBenefit === 'true')
     ));
     const pages = Math.max(1, Math.ceil(matchingRows.length / pageSize));
     page = Math.min(page, pages);
@@ -100,7 +104,10 @@
     matchingRows.slice(start, end).forEach((row) => { row.hidden = false; });
 
     if (matchingRows.length) {
-      summary.textContent = `${matchingRows.length} MEP record${matchingRows.length === 1 ? '' : 's'} — showing ${start + 1}–${Math.min(end, matchingRows.length)}`;
+      const description = controls.russia.checked
+        ? ' MEP record with potential Russia-benefit activity'
+        : ' MEP record';
+      summary.textContent = `${matchingRows.length}${description}${matchingRows.length === 1 ? '' : 's'} — showing ${start + 1}–${Math.min(end, matchingRows.length)}`;
     } else {
       summary.textContent = 'No MEP records match these filters.';
     }

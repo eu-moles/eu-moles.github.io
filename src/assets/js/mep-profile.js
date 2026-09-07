@@ -110,6 +110,7 @@
   };
 
   const explainerText = (value) => String(value || '').replace(/\s*\[citation:[^\]]+\]/gi, '').trim();
+  const hasPotentialRussiaBenefit = (motion) => explainerText(motion.explainerRussia).startsWith('Potentially:');
 
   const voteExplainer = (motion) => {
     const description = explainerText(motion.explainerDescription);
@@ -327,6 +328,9 @@
           const group = document.createElement('tbody');
           group.className = 'motion-grid-group';
           group.dataset.motionDate = String(motion.date || '').slice(0, 10);
+          group.dataset.motionRussiaAssessment = String(
+            hasPotentialRussiaBenefit(motion) || siblingSubvotes.some(hasPotentialRussiaBenefit),
+          );
           const heading = document.createElement('tr');
           heading.className = 'motion-group-heading';
           heading.dataset.motionDate = String(motion.date || '').slice(0, 10);
@@ -445,6 +449,7 @@
             siblingSubvotes.forEach((subvote) => {
               const outcome = String(subvote.result || '').toUpperCase();
               const item = make('li', `motion-subvote-item${subvote.labelMepID ? ' motion-subvote-item--with-mep' : ''}${outcome === 'ADOPTED' ? ' motion-subvote-item--adopted' : ''}${outcome === 'REJECTED' ? ' motion-subvote-item--rejected' : ''}`);
+              item.dataset.motionRussiaBenefit = String(hasPotentialRussiaBenefit(subvote));
               if (outcome === 'ADOPTED' || outcome === 'REJECTED') {
                 const status = make('span', `motion-subvote-status motion-subvote-status--${outcome.toLowerCase()}`);
                 status.setAttribute('role', 'img');
@@ -501,6 +506,7 @@
         if (window.EUMolesMotionCalendar && motionCalendar) {
           window.EUMolesMotionCalendar.bind(motionCalendar, {
             rows: table.querySelectorAll('[data-motion-date]'),
+            subvoteItems: table.querySelectorAll('[data-motion-russia-benefit]'),
             countElement: summary,
           });
         }
