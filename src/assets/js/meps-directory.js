@@ -33,7 +33,7 @@
   });
   const requestedPageSize = Number(query.get('pageSize'));
   if (pageSizeOptions.includes(requestedPageSize)) controls.pageSize.value = requestedPageSize;
-  controls.russia.checked = query.get('russia') === '1';
+  controls.russia.checked = query.get('russia') !== '0';
   page = Math.max(1, Number(query.get('page')) || 1);
 
   const updateUrl = () => {
@@ -41,7 +41,7 @@
     ['country', 'letter', 'group', 'party'].forEach((name) => {
       if (controls[name].value) params.set(name, controls[name].value);
     });
-    if (controls.russia.checked) params.set('russia', '1');
+    if (!controls.russia.checked) params.set('russia', '0');
     if (Number(controls.pageSize.value) !== 25) params.set('pageSize', controls.pageSize.value);
     if (page > 1) params.set('page', page);
     const suffix = params.toString();
