@@ -104,29 +104,9 @@
     badge.title = `This Member voted ${label}`;
     const marker = make('i', `fa-solid ${icon}`);
     marker.setAttribute('aria-hidden', 'true');
-    badge.append(marker);
+    const visibleLabel = position === 'notRecorded' ? 'MEP vote not recorded' : `MEP voted ${label}`;
+    badge.append(marker, document.createTextNode(visibleLabel));
     return badge;
-  };
-
-  const voteCounts = (motion) => {
-    const asNumber = (value) => Number.isFinite(Number(value)) ? Number(value) : 0;
-    const total = make('span', 'motion-vote-counts');
-    const counts = [
-      ['for', 'fa-thumbs-up', 'In favour', asNumber(motion.for)],
-      ['against', 'fa-thumbs-down', 'Against', asNumber(motion.against)],
-      ['abstentions', 'fa-circle-minus', 'Abstentions', asNumber(motion.abstentions)],
-      ['not-voted', 'fa-minus', 'Not voted', asNumber(motion.notRecorded)],
-    ];
-    total.setAttribute('aria-label', `Vote totals: ${counts[0][3]} in favour, ${counts[1][3]} against, ${counts[2][3]} abstentions, ${counts[3][3]} not voted`);
-    counts.forEach(([modifier, icon, label, value]) => {
-      const count = make('span', `motion-vote-count motion-vote-count--${modifier}`);
-      count.title = `${label}: ${value}`;
-      const marker = make('i', `fa-solid ${icon}`);
-      marker.setAttribute('aria-hidden', 'true');
-      count.append(marker, document.createTextNode(String(value)));
-      total.append(count);
-    });
-    return total;
   };
 
   const explainerText = (value) => String(value || '').replace(/\s*\[citation:[^\]]+\]/gi, '').trim();
@@ -424,8 +404,6 @@
             titleLine.append(
               inlineDivider(),
               voteBadge(position),
-              inlineDivider(),
-              voteCounts(motion),
             );
           }
           motionCell.append(titleLine);
@@ -508,8 +486,6 @@
               const voteSummary = make('span', 'motion-vote-summary');
               voteSummary.append(
                 voteBadge(positionFor(subvote)),
-                inlineDivider(),
-                voteCounts(subvote),
               );
               line.append(primary, inlineDivider(), voteSummary);
               item.append(line);
