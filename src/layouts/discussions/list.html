@@ -95,7 +95,6 @@
                       {{ end }}
                     </span>
                   </span>
-                  <button class="motion-discussion-link" type="button" data-motion-context-open="{{ .id }}" aria-haspopup="dialog" aria-controls="{{ .id }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
                   <dialog id="{{ .id }}" class="motion-context-modal" aria-labelledby="{{ .id }}-title">
                     <div class="motion-context-modal__shell">
                       <header class="motion-context-modal__header">
@@ -144,7 +143,7 @@
                   </dialog>
                 </td>
                 <td class="motion-documents-cell" data-label="Record">
-                  <div class="motion-documents"><a href="{{ .sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official debate transcript"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Transcript</span></a></div>
+                  <div class="motion-documents"><button class="motion-discussion-link" type="button" data-motion-context-open="{{ .id }}" aria-haspopup="dialog" aria-controls="{{ .id }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button></div>
                 </td>
               </tr>
             </tbody>
