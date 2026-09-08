@@ -170,8 +170,10 @@
                                   <img src="https://www.europarl.europa.eu/mepphoto/{{ . }}.jpg" alt="Portrait of {{ $turn.speaker }}" loading="lazy">
                                 </a>
                               {{ else }}
+                                {{- $speakerName := lower (strings.TrimSpace ($turn.speaker | default "")) -}}
+                                {{- $isInstitutionalSpeaker := in (slice "the president" "president" "chair" "the chair" "european commission" "the commission" "european council" "the council" "european parliament" "the parliament") $speakerName -}}
                                 <div class="motion-context-avatar" aria-hidden="true">
-                                  <i class="fa-solid fa-landmark"></i>
+                                  <i class="fa-solid {{ if $isInstitutionalSpeaker }}fa-landmark{{ else }}fa-user-tie{{ end }}"></i>
                                 </div>
                               {{ end }}
                               <div class="motion-context-turn__content">

@@ -4,6 +4,11 @@
   const contextParameter = "context";
   const translationEndpoint = "https://translate.googleapis.com/translate_a/single";
   const translationCharacterLimit = 15000;
+  const institutionalSpeakerNames = new Set([
+    "the president", "president", "chair", "the chair", "european commission",
+    "the commission", "european council", "the council", "european parliament", "the parliament"
+  ]);
+  const isInstitutionalSpeaker = (speaker) => institutionalSpeakerNames.has(String(speaker || "").trim().toLowerCase());
 
   const updateContext = (id) => {
     const url = new URL(window.location.href);
@@ -273,8 +278,8 @@
       } else {
         avatar = make("div", "motion-context-avatar");
         avatar.setAttribute("aria-hidden", "true");
-        const landmark = make("i", "fa-solid fa-landmark");
-        avatar.append(landmark);
+        const fallbackIcon = make("i", `fa-solid ${isInstitutionalSpeaker(turn.speaker) ? "fa-landmark" : "fa-user-tie"}`);
+        avatar.append(fallbackIcon);
       }
 
       const content = make("div", "motion-context-turn__content");
