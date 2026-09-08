@@ -266,6 +266,7 @@
     const transcript = make("div", "motion-context-transcript");
     motion.discussion.forEach((turn) => {
       const turnElement = make("article", `motion-context-turn${turn.isChair ? " motion-context-turn--chair" : ""}`);
+      turnElement.dataset.motionRussiaBenefit = String(Boolean(turn.russiaBenefit));
       let avatar;
       if (turn.mepID) {
         avatar = profileLink(profileURL, turn.mepID, turn.speaker, motion.contextID);

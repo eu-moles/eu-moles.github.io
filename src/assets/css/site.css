@@ -2590,6 +2590,21 @@ a.motion-context-avatar:focus-visible {
   transform: rotate(45deg);
 }
 
+/* A speech assessed as potentially benefiting Russia remains readable as part
+   of the record, while its stronger red frame makes the assessment evident. */
+.motion-context-turn[data-motion-russia-benefit="true"] .motion-context-bubble {
+  border: 2px solid #ad3030;
+  border-left-width: 0.4rem;
+  background: #fffafa;
+  box-shadow: 0 0.35rem 0.95rem rgb(133 32 32 / 14%);
+}
+
+.motion-context-turn[data-motion-russia-benefit="true"] .motion-context-bubble::before {
+  border-bottom-color: #ad3030;
+  border-left-color: #ad3030;
+  background: #fffafa;
+}
+
 .motion-context-bubble p {
   margin: 0 0 0.8rem;
 }
