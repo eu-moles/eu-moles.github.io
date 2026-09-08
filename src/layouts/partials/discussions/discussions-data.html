@@ -47,11 +47,16 @@
         {{- $contexts := partials.IncludeCached "motions/motions-transcript-contexts.html" $transcriptFile $transcriptFile -}}
         {{- range $index, $context := $contexts -}}
           {{- $hasRussiaAssessment := false -}}
+          {{- $hasParticipantSpeech := false -}}
           {{- range $context.turns -}}
             {{- if .russiaBenefit -}}
               {{- $hasRussiaAssessment = true -}}
             {{- end -}}
+            {{- if not .isChair -}}
+              {{- $hasParticipantSpeech = true -}}
+            {{- end -}}
           {{- end -}}
+          {{- if $hasParticipantSpeech -}}
           {{- $agendaNumber := $context.agendaNumber -}}
           {{- $title := index $titlesByAgendaNumber $agendaNumber | default "" -}}
           {{- if eq $title "" -}}
@@ -74,6 +79,7 @@
             "sourceURL" $sourceURL
             "hasRussiaAssessment" $hasRussiaAssessment
           ) -}}
+          {{- end -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

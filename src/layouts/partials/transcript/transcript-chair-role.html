@@ -3,7 +3,7 @@
 {{- $role := "" -}}
 {{- if gt (len (findRE `^(?:vice[-[:space:]]?president(?:e|a)?|vice-président(?:e)?|vizepräsident(?:in)?|vicepresident(?:e|a)?|vicepreșed(?:inte)?|podpredsed[a-záéíóúýčďěňřšťž]*|varapuhemies)$` $label)) 0 -}}
   {{- $role = "Chair" -}}
-{{- else if gt (len (findRE `^(?:president|präsident(?:in)?|président(?:e)?|presidente|presidenta|predsed[a-záéíóúýčďěňřšťž]*|przewodnicz[a-ząćęłńóśźż]*|puhemies|voorzitter|talman)$` $label)) 0 -}}
+{{- else if gt (len (findRE `^(?:president|präsident(?:in)?|président(?:e)?|presidente|presidenta|predsed[a-záéíóúýčďěňřšťž]*|przewodnicz[a-ząćęłńóśźż]*|puhemies|voorzitter|talman|priekšsēdētāj(?:s|a)?)$` $label)) 0 -}}
   {{- $role = "Chair" -}}
 {{- end -}}
 {{- return $role -}}
