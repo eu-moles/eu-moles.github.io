@@ -17,6 +17,22 @@ translate_to_english() {
     jq -er '[.[0][]? | .[0]?] | join("")'
 }
 
+translate_detected_language_to_english() {
+  local source_text="$1"
+
+  curl_with_error_url -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 \
+    -G 'https://translate.googleapis.com/translate_a/single' \
+    --data-urlencode 'client=gtx' \
+    --data-urlencode 'sl=auto' \
+    --data-urlencode 'tl=en' \
+    --data-urlencode 'dt=t' \
+    --data-urlencode "q=$source_text" |
+    jq -cer '{
+      englishText: ([.[0][]? | .[0]?] | join("")),
+      detectedLanguage: (.[2] | strings | ascii_downcase)
+    } | select(.englishText != "" and .detectedLanguage != "")'
+}
+
 split_translation_text() {
   local source_text="$1"
   local limit="$2"
@@ -129,16 +145,17 @@ generate_translation_candidates() {
     function trim(value) { sub(/^[ \t\r\n\f]+/, "", value); sub(/[ \t\r\n\f]+$/, "", value); return value }
     function clean(value) { gsub(/[ \t\r\n\f]+/, " ", value); while (match(value, /[ \t\r\n\f]+[,.;:!?]/)) value = substr(value, 1, RSTART - 1) substr(value, RSTART + RLENGTH - 1, 1) substr(value, RSTART + RLENGTH); return trim(value) }
     function json_escape(value) { gsub(/\\/, "\\\\", value); gsub(/"/, "\\\"", value); gsub(/\n/, "\\n", value); gsub(/\r/, "\\r", value); return value }
-    function flush_turn(    code) { if (!speaker || !speech_number || !buffer || !(speech_number in languages) || (speech_number in seen)) return; code = languages[speech_number]; printf "{\"speechNumber\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(code), json_escape(buffer); seen[speech_number] = 1 }
-    function process_paragraph(    i,line,text,bookmark,part,without_speaker) {
-      text = ""; bookmark = ""
-      for (i = 1; i <= paragraph_lines; i++) { line = paragraph[i]; if (line ~ /<w:bookmarkStart/) { bookmark = line; sub(/^.*w:name="/, "", bookmark); sub(/".*$/, "", bookmark) }; if (line ~ /<w:t([[:space:]][^>]*)?>/) { part = line; sub(/^.*<w:t([^>]*)>/, "", part); sub(/<\/w:t>.*$/, "", part); gsub(/&amp;/, "\\&", part); gsub(/&quot;/, "\\\"", part); gsub(/&apos;/, "\047", part); gsub(/&lt;/, "<", part); gsub(/&gt;/, ">", part); text = text part } else if (line ~ /<w:(tab|br|cr)\/>/) text = text " " }
+    function flush_turn(    code) { if (!speaker || !speech_number || !buffer || (speech_number in seen)) return; code = languages[speech_number]; if (!code && written_statement_section) code = "auto"; if (!code) return; printf "{\"speechNumber\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(code), json_escape(buffer); seen[speech_number] = 1 }
+    function process_paragraph(    i,line,text,bookmark,part,without_speaker,is_written_statement_heading) {
+      text = ""; bookmark = ""; is_written_statement_heading = 0
+      for (i = 1; i <= paragraph_lines; i++) { line = paragraph[i]; if (line ~ /<w:pStyle w:val="Normal12BoldItalicCentered"\/>/) is_written_statement_heading = 1; if (line ~ /<w:bookmarkStart/) { bookmark = line; sub(/^.*w:name="/, "", bookmark); sub(/".*$/, "", bookmark) }; if (line ~ /<w:t([[:space:]][^>]*)?>/) { part = line; sub(/^.*<w:t([^>]*)>/, "", part); sub(/<\/w:t>.*$/, "", part); gsub(/&amp;/, "\\&", part); gsub(/&quot;/, "\\\"", part); gsub(/&apos;/, "\047", part); gsub(/&lt;/, "<", part); gsub(/&gt;/, ">", part); text = text part } else if (line ~ /<w:(tab|br|cr)\/>/) text = text " " }
       text = clean(text)
-      if (text != "" && bookmark ~ /^_Toc/) { flush_turn(); speaker = ""; speech_number = ""; buffer = "" }
+      if (is_written_statement_heading) { flush_turn(); speaker = ""; speech_number = ""; buffer = ""; written_statement_section = 1 }
+      else if (text != "" && bookmark ~ /^_Toc/) { flush_turn(); speaker = ""; speech_number = ""; buffer = ""; written_statement_section = 0 }
       else if (text ~ /^[0-9]+-[0-9]+-[0-9]+$/ && bookmark != "") { flush_turn(); speaker = bookmark; sub(/^[0-9]+-[0-9]+-[0-9]+[ \t]*/, "", speaker); speech_number = text; buffer = "" }
       else if (speaker != "" && text != "") { if (buffer == "") { without_speaker = text; sub(speaker, "", without_speaker); if (without_speaker != text) sub(/^[^–]*–[ \t]*/, "", without_speaker); text = without_speaker }; if (text != "") buffer = (buffer == "" ? text : buffer "\n\n" text) }
     }
-    BEGIN { while ((getline line < language_map) > 0) { split(line, fields, "\t"); languages[fields[1]] = fields[2] }; close(language_map); in_paragraph = 0; paragraph_lines = 0 }
+    BEGIN { while ((getline line < language_map) > 0) { split(line, fields, "\t"); languages[fields[1]] = fields[2] }; close(language_map); in_paragraph = 0; paragraph_lines = 0; written_statement_section = 0 }
     /^[ \t]*<w:p>$/ { in_paragraph = 1; paragraph_lines = 0 }
     in_paragraph { paragraph[++paragraph_lines] = $0 }
     /^[ \t]*<\/w:p>$/ && in_paragraph { process_paragraph(); delete paragraph; in_paragraph = 0; paragraph_lines = 0 }
@@ -151,7 +168,7 @@ cache_transcript_translations() {
   local voting_date="$1"
   local directory="$2"
   local translations_file="$directory/translations.json"
-  local candidate speech_number source_language source_text translated_text translations_temporary candidates_file
+  local candidate speech_number source_language source_text translated_text detected_language translation_payload translations_temporary candidates_file
   if [[ ! -s "$translations_file" ]]; then
     translations_temporary=$(make_temporary_file "translations")
     jq -n '{version: 1, translations: {}}' > "$translations_temporary"
@@ -171,12 +188,24 @@ cache_transcript_translations() {
   fi
   while IFS= read -r candidate; do
     translation_current=$((translation_current + 1))
-    speech_number=$(jq -r '.speechNumber' <<< "$candidate"); source_language=$(jq -r '.sourceLanguage' <<< "$candidate"); source_text=$(jq -r '.sourceText' <<< "$candidate")
+    speech_number=$(jq -r '.speechNumber' <<< "$candidate"); source_language=$(jq -r '.sourceLanguage' <<< "$candidate"); source_text=$(jq -r '.sourceText' <<< "$candidate"); translated_text=""; detected_language=""
     progress_note "Translations: $translation_current/$translation_total — $speech_number ($source_language)"
-    if jq -e --arg speech_number "$speech_number" --arg source_language "$source_language" --arg source_text "$source_text" '.translations[$speech_number] | select(.sourceLanguage == $source_language and .sourceText == $source_text and (.englishText | type) == "string" and (.englishText | length) > 0)' "$translations_file" > /dev/null; then continue; fi
-    if translated_text=$(translate_speech_to_english "$source_language" "$source_text"); then
+    if jq -e --arg speech_number "$speech_number" --arg source_language "$source_language" --arg source_text "$source_text" '.translations[$speech_number] | select(.sourceLanguage == $source_language and .sourceText == $source_text and (.englishText | type) == "string" and (.englishText | length) > 0 and (if $source_language == "auto" then ((.detectedLanguage | type) == "string" and (.detectedLanguage | length) > 0) else true end))' "$translations_file" > /dev/null; then continue; fi
+    if [[ "$source_language" == "auto" ]]; then
+      if translation_payload=$(translate_detected_language_to_english "$source_text"); then
+        translated_text=$(jq -r '.englishText' <<< "$translation_payload")
+        detected_language=$(jq -r '.detectedLanguage' <<< "$translation_payload")
+      fi
+    else
+      translated_text=$(translate_speech_to_english "$source_language" "$source_text") || translated_text=""
+    fi
+    if [[ -n "$translated_text" ]]; then
       translations_temporary=$(make_temporary_file "translations")
-      jq --arg speech_number "$speech_number" --arg source_language "$source_language" --arg source_text "$source_text" --arg translated_text "$translated_text" '.translations[$speech_number] = {sourceLanguage: $source_language, sourceText: $source_text, englishText: $translated_text}' "$translations_file" > "$translations_temporary"
+      if [[ "$source_language" == "auto" ]]; then
+        jq --arg speech_number "$speech_number" --arg source_language "$source_language" --arg detected_language "$detected_language" --arg source_text "$source_text" --arg translated_text "$translated_text" '.translations[$speech_number] = {sourceLanguage: $source_language, detectedLanguage: $detected_language, sourceText: $source_text, englishText: $translated_text}' "$translations_file" > "$translations_temporary"
+      else
+        jq --arg speech_number "$speech_number" --arg source_language "$source_language" --arg source_text "$source_text" --arg translated_text "$translated_text" '.translations[$speech_number] = {sourceLanguage: $source_language, sourceText: $source_text, englishText: $translated_text}' "$translations_file" > "$translations_temporary"
+      fi
       mv "$translations_temporary" "$translations_file"
     else echo "Translation failed for $speech_number; it will be retried on the next update." >&2; fi
     sleep 0.5

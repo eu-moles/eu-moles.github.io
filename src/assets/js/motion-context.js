@@ -303,10 +303,18 @@
         appendProcedureText(bubbleText, paragraph, highlightText, motion.sourceURL || "");
       });
       bubble.append(bubbleText);
-      if (turn.language && turn.language.code) {
-        const language = createTranslationButton(turn.language, turn.text, turn.translation);
-        bubble.append(language);
-        bindTranslationButton(language);
+      const language = turn.language?.code
+        ? turn.language
+        : translatedText
+          ? (() => {
+              const detectedCode = String(turn.translation?.detectedLanguage || turn.translation?.sourceLanguage || "auto").toUpperCase();
+              return { code: detectedCode, name: `detected ${detectedCode}`, source: detectedCode.toLowerCase() };
+            })()
+          : null;
+      if (language) {
+        const languageButton = createTranslationButton(language, turn.text, turn.translation);
+        bubble.append(languageButton);
+        bindTranslationButton(languageButton);
       }
       content.append(speaker, bubble);
       turnElement.append(avatar, content);
