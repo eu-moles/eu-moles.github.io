@@ -1,0 +1,59 @@
+{{- $meps := partials.IncludeCached "data/meps-data.html" site -}}
+{{- $countries := slice -}}
+{{- $groups := slice -}}
+{{- $parties := slice -}}
+{{- range $meps -}}
+  {{- $countries = $countries | append .country -}}
+  {{- $groups = $groups | append .politicalGroup -}}
+  {{- $parties = $parties | append (printf "%s|%s" .country .nationalPoliticalGroup) -}}
+{{- end -}}
+
+{{- $motions := partials.IncludeCached "motions/motions-data.html" site -}}
+{{- $parentMotions := where $motions "isSubvote" false -}}
+{{- $voteDecisions := where $motions "isSubvote" true -}}
+{{- $flaggedMotions := 0 -}}
+{{- range $parentMotions -}}
+  {{- $parentMotion := . -}}
+  {{- $motionIsFlagged := hasPrefix (.explainerRussia | default "") "Potentially:" -}}
+  {{- range $voteDecisions -}}
+    {{- if and (eq .parentID $parentMotion.parentID) (hasPrefix (.explainerRussia | default "") "Potentially:") -}}
+      {{- $motionIsFlagged = true -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $motionIsFlagged -}}
+    {{- $flaggedMotions = add $flaggedMotions 1 -}}
+  {{- end -}}
+{{- end -}}
+{{- $discussions := partials.IncludeCached "discussions/discussions-data.html" site -}}
+
+{{- $assessedSpeeches := 0 -}}
+{{- $flaggedSpeeches := 0 -}}
+{{- $votesDirectory := "data/votes" -}}
+{{- if os.FileExists $votesDirectory -}}
+  {{- range os.ReadDir $votesDirectory -}}
+    {{- if .IsDir -}}
+      {{- $assessmentFile := path.Join $votesDirectory .Name "speech-russia-assessments.json" -}}
+      {{- if os.FileExists $assessmentFile -}}
+        {{- $assessmentData := transform.Unmarshal (os.ReadFile $assessmentFile) -}}
+        {{- range index $assessmentData "items" | default dict -}}
+          {{- $assessedSpeeches = add $assessedSpeeches 1 -}}
+          {{- if .benefitsRussia -}}
+            {{- $flaggedSpeeches = add $flaggedSpeeches 1 -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return (dict
+  "meps" (len $meps)
+  "countries" (len (collections.Uniq $countries))
+  "groups" (len (collections.Uniq $groups))
+  "parties" (len (collections.Uniq $parties))
+  "motions" (len $parentMotions)
+  "flaggedMotions" $flaggedMotions
+  "discussions" (len $discussions)
+  "assessedSpeeches" $assessedSpeeches
+  "flaggedSpeeches" $flaggedSpeeches
+) -}}

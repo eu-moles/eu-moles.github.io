@@ -2335,10 +2335,10 @@ body.is-home main > article > :not(.dataset-summary) {
 }
 
 .dataset-card--speeches {
-  --summary-accent: #7a4c94;
-  --summary-figure: #5b3474;
-  --summary-border: #d9c6e4;
-  --summary-background: #faf5fc;
+  --summary-accent: #b17818;
+  --summary-figure: #80520d;
+  --summary-border: #ead39d;
+  --summary-background: #fff9ed;
 }
 
 .dataset-card--countries {
@@ -2349,10 +2349,10 @@ body.is-home main > article > :not(.dataset-summary) {
 }
 
 .dataset-card--groups {
-  --summary-accent: #a22a2a;
-  --summary-figure: #7e1f1f;
-  --summary-border: #e9c5c5;
-  --summary-background: #fdf4f4;
+  --summary-accent: #4c6b8d;
+  --summary-figure: #294968;
+  --summary-border: #c7d7e7;
+  --summary-background: #f3f7fb;
 }
 
 .dataset-card--parties {
@@ -2369,9 +2369,37 @@ body.is-home main > article > :not(.dataset-summary) {
   --summary-background: #f1f8f4;
 }
 
+.dataset-card--decisions {
+  --summary-accent: #27679d;
+  --summary-figure: #174a76;
+  --summary-border: #c3d7e8;
+  --summary-background: #f2f7fb;
+}
+
+.dataset-card--discussions {
+  --summary-accent: #7a4c94;
+  --summary-figure: #5b3474;
+  --summary-border: #d9c6e4;
+  --summary-background: #faf5fc;
+}
+
+.dataset-card--flagged {
+  --summary-accent: #a22a2a;
+  --summary-figure: #7e1f1f;
+  --summary-border: #e9c5c5;
+  --summary-background: #fdf4f4;
+}
+
+.dataset-card--flagged-motions {
+  --summary-accent: #a22a2a;
+  --summary-figure: #7e1f1f;
+  --summary-border: #e9c5c5;
+  --summary-background: #fdf4f4;
+}
+
 @media screen and (min-width: 60em) {
   .dataset-summary-item {
-    width: 16.666667%;
+    width: 25%;
   }
 }
 
