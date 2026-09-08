@@ -212,6 +212,7 @@
 
   const appendSpeech = (container, speech) => {
     const article = make('article', 'mep-profile-speech');
+    article.dataset.motionRussiaBenefit = String(speech.russiaBenefit === true);
     const avatar = make('div', 'mep-profile-speech-avatar');
     const image = document.createElement('img');
     image.src = `https://www.europarl.europa.eu/mepphoto/${encodeURIComponent(speech.mepID)}.jpg`;
@@ -223,15 +224,33 @@
     const meta = make('header', 'mep-profile-speech-meta');
     const date = make('time', 'mep-profile-speech-date', String(speech.date || '').slice(0, 10));
     date.dateTime = String(speech.date || '').slice(0, 10);
-    const topic = speech.sourceURL
-      ? make('a', 'mep-profile-speech-topic')
-      : make('span', 'mep-profile-speech-topic');
-    if (speech.sourceURL) {
+    const hasDiscussion = Boolean(speech.contextID && Array.isArray(speech.discussion) && speech.discussion.length);
+    const topic = hasDiscussion
+      ? make('button', 'mep-profile-speech-topic')
+      : speech.sourceURL
+        ? make('a', 'mep-profile-speech-topic')
+        : make('span', 'mep-profile-speech-topic');
+    if (hasDiscussion) {
+      topic.type = 'button';
+      topic.setAttribute('aria-haspopup', 'dialog');
+      topic.title = 'Open discussion transcript';
+      topic.addEventListener('click', () => {
+        if (window.EUMolesMotionContext) {
+          window.EUMolesMotionContext.open(speech, topic, motions?.dataset.profileUrl || '');
+        }
+      });
+    } else if (speech.sourceURL) {
       topic.href = speech.sourceURL;
       topic.target = '_blank';
       topic.rel = 'external noopener noreferrer';
     }
-    topic.append(document.createTextNode(speech.topic || 'One-minute speech'));
+    if (hasDiscussion) {
+      const marker = make('i', 'fa-solid fa-book-open');
+      marker.setAttribute('aria-hidden', 'true');
+      topic.append(marker, document.createTextNode('Discussion transcript'));
+    } else {
+      topic.append(document.createTextNode(speech.topic || 'Plenary speech'));
+    }
     meta.append(date, topic);
 
     const bubble = make('div', 'motion-context-bubble');
@@ -255,7 +274,7 @@
     const summary = document.querySelector('#mep-profile-speeches-summary');
     const empty = document.querySelector('#mep-profile-speeches-empty');
 
-    fetch(speeches.dataset.speechesUrl, { credentials: 'same-origin' })
+    fetch(speeches.dataset.speechesUrl, { credentials: 'same-origin', cache: 'no-store' })
       .then((response) => {
         if (!response.ok) throw new Error('Speech data could not be loaded.');
         return response.json();

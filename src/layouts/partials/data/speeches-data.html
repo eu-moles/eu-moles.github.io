@@ -1,5 +1,14 @@
 {{- $speeches := slice -}}
 {{- $directory := "data/votes" -}}
+{{- $discussionsBySpeechNumber := dict -}}
+{{- range partials.IncludeCached "discussions/discussions-data.html" site -}}
+  {{- $discussion := . -}}
+  {{- range .turns -}}
+    {{- with .speechNumber -}}
+      {{- $discussionsBySpeechNumber = merge $discussionsBySpeechNumber (dict . $discussion) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 {{- if os.FileExists $directory -}}
   {{- range os.ReadDir $directory -}}
     {{- if .IsDir -}}
@@ -10,10 +19,14 @@
         {{- range $speechNumber, $assessment := index $assessmentData "items" | default dict -}}
           {{- $mepID := index $assessment "mepID" | default "" -}}
           {{- if and (index $assessment "benefitsRussia") $mepID -}}
+            {{- $discussion := index $discussionsBySpeechNumber $speechNumber | default dict -}}
             {{- $speeches = $speeches | append (dict
               "date" $date
-              "topic" "Plenary speech"
-              "sourceURL" (printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date)
+              "topic" ($discussion.title | default "Plenary speech")
+              "sourceURL" ($discussion.sourceURL | default (printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date))
+              "contextURL" ($discussion.sourceURL | default "")
+              "contextID" ($discussion.id | default "")
+              "discussion" ($discussion.turns | default slice)
               "mepID" $mepID
               "speaker" (index $assessment "speaker" | default "")
               "speechNumber" $speechNumber

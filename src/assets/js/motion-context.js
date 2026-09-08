@@ -246,7 +246,7 @@
     const heading = document.createElement("div");
     heading.append(make("p", "motion-context-modal__eyebrow", "Discussion transcript"));
     const title = make("h2");
-    appendHighlightedText(title, String(motion.title || ""));
+    appendHighlightedText(title, String(motion.title || motion.topic || ""));
     title.id = `${motion.contextID}-title`;
     heading.append(title);
     const close = make("button", "motion-context-modal__close");

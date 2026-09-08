@@ -2185,6 +2185,14 @@ body.motion-vote-explainer-open::before {
   text-decoration: none;
 }
 
+button.mep-profile-speech-topic {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+}
+
 .mep-profile-speech-date::after {
   margin-left: 0.55rem;
   color: #9aabbc;
@@ -2592,14 +2600,16 @@ a.motion-context-avatar:focus-visible {
 
 /* A speech assessed as potentially benefiting Russia remains readable as part
    of the record, while its stronger red frame makes the assessment evident. */
-.motion-context-turn[data-motion-russia-benefit="true"] .motion-context-bubble {
+.motion-context-turn[data-motion-russia-benefit="true"] .motion-context-bubble,
+.mep-profile-speech[data-motion-russia-benefit="true"] .motion-context-bubble {
   border: 2px solid #ad3030;
   border-left-width: 0.4rem;
   background: #fffafa;
   box-shadow: 0 0.35rem 0.95rem rgb(133 32 32 / 14%);
 }
 
-.motion-context-turn[data-motion-russia-benefit="true"] .motion-context-bubble::before {
+.motion-context-turn[data-motion-russia-benefit="true"] .motion-context-bubble::before,
+.mep-profile-speech[data-motion-russia-benefit="true"] .motion-context-bubble::before {
   border-bottom-color: #ad3030;
   border-left-color: #ad3030;
   background: #fffafa;
