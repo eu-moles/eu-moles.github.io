@@ -2172,7 +2172,8 @@ body.motion-vote-explainer-open::before {
 }
 
 .mep-profile-speech-topic,
-.mep-profile-speech-topic:visited {
+.mep-profile-speech-topic:visited,
+.mep-profile-speech-transcript {
   display: inline-flex;
   align-items: center;
   gap: 0.38rem;
@@ -2185,7 +2186,17 @@ body.motion-vote-explainer-open::before {
   text-decoration: none;
 }
 
-button.mep-profile-speech-topic {
+.mep-profile-speech-title {
+  min-width: 0;
+  color: #405c78;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+}
+
+button.mep-profile-speech-transcript {
   padding: 0;
   border: 0;
   background: transparent;
@@ -2199,8 +2210,15 @@ button.mep-profile-speech-topic {
   content: "·";
 }
 
+.mep-profile-speech-transcript::before {
+  color: #9aabbc;
+  content: "·";
+}
+
 .mep-profile-speech-topic:hover,
-.mep-profile-speech-topic:focus-visible {
+.mep-profile-speech-topic:focus-visible,
+.mep-profile-speech-transcript:hover,
+.mep-profile-speech-transcript:focus-visible {
   color: #0b376f;
   text-decoration: underline;
   text-underline-offset: 0.16em;

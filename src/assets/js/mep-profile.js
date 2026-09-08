@@ -225,33 +225,33 @@
     const date = make('time', 'mep-profile-speech-date', String(speech.date || '').slice(0, 10));
     date.dateTime = String(speech.date || '').slice(0, 10);
     const hasDiscussion = Boolean(speech.contextID && Array.isArray(speech.discussion) && speech.discussion.length);
-    const topic = hasDiscussion
-      ? make('button', 'mep-profile-speech-topic')
-      : speech.sourceURL
-        ? make('a', 'mep-profile-speech-topic')
-        : make('span', 'mep-profile-speech-topic');
     if (hasDiscussion) {
-      topic.type = 'button';
-      topic.setAttribute('aria-haspopup', 'dialog');
-      topic.title = 'Open discussion transcript';
-      topic.addEventListener('click', () => {
+      const discussionTitle = make('span', 'mep-profile-speech-title', speech.topic || 'Plenary discussion');
+      const transcript = make('button', 'mep-profile-speech-transcript');
+      transcript.type = 'button';
+      transcript.setAttribute('aria-haspopup', 'dialog');
+      transcript.title = 'Open discussion transcript';
+      transcript.addEventListener('click', () => {
         if (window.EUMolesMotionContext) {
-          window.EUMolesMotionContext.open(speech, topic, motions?.dataset.profileUrl || '');
+          window.EUMolesMotionContext.open(speech, transcript, motions?.dataset.profileUrl || '');
         }
       });
-    } else if (speech.sourceURL) {
-      topic.href = speech.sourceURL;
-      topic.target = '_blank';
-      topic.rel = 'external noopener noreferrer';
-    }
-    if (hasDiscussion) {
       const marker = make('i', 'fa-solid fa-book-open');
       marker.setAttribute('aria-hidden', 'true');
-      topic.append(marker, document.createTextNode('Discussion transcript'));
+      transcript.append(marker, document.createTextNode('Discussion transcript'));
+      meta.append(date, discussionTitle, transcript);
     } else {
+      const topic = speech.sourceURL
+        ? make('a', 'mep-profile-speech-topic')
+        : make('span', 'mep-profile-speech-topic');
+      if (speech.sourceURL) {
+        topic.href = speech.sourceURL;
+        topic.target = '_blank';
+        topic.rel = 'external noopener noreferrer';
+      }
       topic.append(document.createTextNode(speech.topic || 'Plenary speech'));
+      meta.append(date, topic);
     }
-    meta.append(date, topic);
 
     const bubble = make('div', 'motion-context-bubble');
     const text = make('div', 'motion-context-bubble__text');
