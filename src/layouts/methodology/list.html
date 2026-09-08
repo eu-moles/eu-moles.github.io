@@ -1,0 +1,109 @@
+{{ define "main" }}
+  <article class="methodology-page ph3 ph5-l pb5">
+    <header class="methodology-intro">
+      <p class="methodology-eyebrow"><i class="fa-solid fa-compass" aria-hidden="true"></i> Research approach</p>
+      <h2>Start with the record. Keep the judgement visible.</h2>
+      <p>EU Moles helps people examine parliamentary votes and speeches that may affect Russia’s interests. It connects every finding to the European Parliament’s public record, then adds plain-language context so the record is easier to understand.</p>
+    </header>
+
+    <section class="methodology-section" aria-labelledby="methodology-path-title">
+      <div class="methodology-section-heading">
+        <p class="methodology-eyebrow">The evidence path</p>
+        <h2 id="methodology-path-title">From a parliamentary sitting to a reviewable finding</h2>
+      </div>
+      <ol class="methodology-steps">
+        <li class="methodology-step">
+          <span class="methodology-step-number">1</span>
+          <div>
+            <h3>We collect official parliamentary material</h3>
+            <p>We use the European Parliament’s published voting records, agendas, documents and debate transcripts. The original record remains the starting point—not a news report or a social-media claim.</p>
+          </div>
+        </li>
+        <li class="methodology-step">
+          <span class="methodology-step-number">2</span>
+          <div>
+            <h3>We show the vote in context</h3>
+            <p>A vote title alone is often not enough. The site explains the practical change being proposed and what a Yes vote would approve, with links back to the relevant official material.</p>
+          </div>
+        </li>
+        <li class="methodology-step">
+          <span class="methodology-step-number">3</span>
+          <div>
+            <h3>We assess possible benefit to Russia</h3>
+            <p>An AI-assisted review looks for a direct, or reasonably supported indirect, benefit to Russian strategic interests—for example, measures that would materially weaken European defence, resilience or coordinated support for Ukraine.</p>
+          </div>
+        </li>
+        <li class="methodology-step">
+          <span class="methodology-step-number">4</span>
+          <div>
+            <h3>We keep the basis open to inspection</h3>
+            <p>Flags appear beside the individual vote or speech, not as a hidden score. You can open the explanation, read the surrounding discussion, and follow the links to the European Parliament’s own record.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="methodology-section methodology-section--reading" aria-labelledby="methodology-reading-title">
+      <div class="methodology-section-heading">
+        <p class="methodology-eyebrow">Reading the site</p>
+        <h2 id="methodology-reading-title">What the labels mean</h2>
+      </div>
+      <div class="methodology-legend">
+        <article class="methodology-legend-item methodology-legend-item--warning">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <div>
+            <h3>Potential benefit to Russia</h3>
+            <p>The record supports a plausible direct or indirect benefit to Russian interests. This is an assessment of the effect of the position, not a claim about a person’s motive or loyalty.</p>
+          </div>
+        </article>
+        <article class="methodology-legend-item methodology-legend-item--unknown">
+          <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+          <div>
+            <h3>Cannot be assessed</h3>
+            <p>The official wording needed to assess an amendment was unavailable. The item is not treated as a warning and is excluded from Russia-related filters.</p>
+          </div>
+        </article>
+        <article class="methodology-legend-item methodology-legend-item--clear">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <div>
+            <h3>No warning shown</h3>
+            <p>The available material did not support a Russia-related warning under this method. It does not mean the position is universally supported, harmless, or free from other political consequences.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="methodology-section methodology-section--limits" aria-labelledby="methodology-limits-title">
+      <div class="methodology-section-heading">
+        <p class="methodology-eyebrow">Important limits</p>
+        <h2 id="methodology-limits-title">What this directory can—and cannot—tell you</h2>
+      </div>
+      <div class="methodology-limits-grid">
+        <article>
+          <h3><i class="fa-solid fa-check" aria-hidden="true"></i> It can help you</h3>
+          <ul>
+            <li>Find a Member’s recorded votes and relevant plenary speeches.</li>
+            <li>See what a particular vote would have changed in plain English.</li>
+            <li>Compare a warning with its source material and wider debate.</li>
+          </ul>
+        </article>
+        <article>
+          <h3><i class="fa-solid fa-ban" aria-hidden="true"></i> It cannot prove</h3>
+          <ul>
+            <li>Why a Member voted or spoke in a particular way.</li>
+            <li>That a Member has a covert relationship, instruction, or affiliation.</li>
+            <li>That an unflagged item has no possible consequences for Russia.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <aside class="methodology-ai-note" aria-label="About AI-assisted analysis">
+      <i class="fa-solid fa-robot" aria-hidden="true"></i>
+      <div>
+        <h2>About AI-assisted analysis</h2>
+        <p>AI is used to produce plain-language summaries, translations where needed, and consistent first-pass assessments. It is not treated as an authority: the underlying parliamentary record and the visible explanation are there for people to review. The data is refreshed as new parliamentary material becomes available.</p>
+      </div>
+    </aside>
+  </article>
+{{ end }}

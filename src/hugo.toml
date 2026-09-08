@@ -46,6 +46,11 @@ enableRobotsTXT = true
   pageRef = '/discussions'
   weight = 40
 
+[[menus.main]]
+  name = 'Methodology'
+  pageRef = '/methodology'
+  weight = 50
+
 [module]
 
 [[module.imports]]

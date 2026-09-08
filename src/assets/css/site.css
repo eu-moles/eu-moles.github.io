@@ -2414,6 +2414,256 @@ h2#what-this-project-is-all-about::after {
   font-weight: 900;
 }
 
+/* Methodology is deliberately editorial rather than technical: a clear path
+   from public evidence to a visible, reviewable assessment. */
+.methodology-page {
+  width: min(100%, 82rem);
+  margin: 0 auto;
+  color: #283c50;
+}
+
+.methodology-intro {
+  max-width: 58rem;
+  padding: clamp(1.5rem, 4vw, 3.2rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.methodology-eyebrow {
+  margin: 0 0 0.6rem;
+  color: #59718c;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.methodology-eyebrow i {
+  margin-right: 0.4rem;
+  color: #1d5b99;
+}
+
+.methodology-intro h2,
+.methodology-section h2,
+.methodology-ai-note h2 {
+  margin: 0;
+  color: #163a61;
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.methodology-intro h2 {
+  max-width: 48rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.methodology-intro > p:last-child {
+  margin: 1.15rem 0 0;
+  color: #4b6279;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.methodology-section {
+  margin-top: clamp(2.2rem, 5vw, 4.5rem);
+}
+
+.methodology-intro + .methodology-section {
+  margin-top: 0;
+}
+
+.methodology-section-heading {
+  max-width: 50rem;
+  margin-bottom: 1.45rem;
+}
+
+.methodology-section h2 {
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+}
+
+.methodology-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: methodology-steps;
+}
+
+.methodology-step {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 0.9rem;
+  min-height: 12rem;
+  padding: 1.35rem;
+  border: 1px solid #d3e0eb;
+  border-top: 0.28rem solid #1d5b99;
+  background: #f8fbfe;
+  box-shadow: 0 0.35rem 1rem rgb(19 56 93 / 7%);
+}
+
+.methodology-step-number {
+  display: grid;
+  place-items: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 50%;
+  background: #e3eff9;
+  color: #145a96;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.methodology-step h3,
+.methodology-legend h3,
+.methodology-limits-grid h3 {
+  margin: 0;
+  color: #234a71;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.methodology-step p,
+.methodology-legend p,
+.methodology-ai-note p {
+  margin: 0.55rem 0 0;
+  line-height: 1.58;
+}
+
+.methodology-section--reading {
+  padding: clamp(1.35rem, 3vw, 2.4rem);
+  border-left: 0.35rem solid #d6a62e;
+  background: #fbfcfe;
+}
+
+.methodology-legend {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid #d6e0ea;
+  background: #fff;
+}
+
+.methodology-legend-item {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 1.25rem;
+  border-bottom: 1px solid #d6e0ea;
+}
+
+.methodology-legend-item:last-child {
+  border-bottom: 0;
+}
+
+.methodology-legend-item > i {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+.methodology-legend-item--warning > i {
+  background: #fde8e8;
+  color: #a22a2a;
+}
+
+.methodology-legend-item--unknown > i {
+  background: #fff2d8;
+  color: #9b690d;
+}
+
+.methodology-legend-item--clear > i {
+  background: #e5f1fb;
+  color: #1d5b99;
+}
+
+.methodology-limits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.methodology-limits-grid article {
+  padding: 1.4rem;
+  border: 1px solid #d7e2eb;
+  background: #fff;
+  box-shadow: 0 0.3rem 0.85rem rgb(19 56 93 / 6%);
+}
+
+.methodology-limits-grid article:first-child {
+  border-top: 0.28rem solid #267154;
+}
+
+.methodology-limits-grid article:last-child {
+  border-top: 0.28rem solid #8b4650;
+}
+
+.methodology-limits-grid h3 i {
+  margin-right: 0.4rem;
+}
+
+.methodology-limits-grid article:first-child h3 i {
+  color: #267154;
+}
+
+.methodology-limits-grid article:last-child h3 i {
+  color: #a22a2a;
+}
+
+.methodology-limits-grid ul {
+  margin: 0.85rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.55;
+}
+
+.methodology-limits-grid li + li {
+  margin-top: 0.48rem;
+}
+
+.methodology-ai-note {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: clamp(2.2rem, 5vw, 4.5rem);
+  padding: clamp(1.35rem, 3vw, 2.25rem);
+  border: 1px solid #bfd4e8;
+  border-top: 0.32rem solid #1d5b99;
+  background: #edf5fb;
+}
+
+.methodology-ai-note > i {
+  display: grid;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 50%;
+  background: #d7e9f7;
+  color: #175b9a;
+}
+
+.methodology-ai-note h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+}
+
+@media screen and (max-width: 42em) {
+  .methodology-steps,
+  .methodology-limits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .methodology-step {
+    min-height: 0;
+  }
+}
+
 /* Let hero descriptions use the available viewport width on every page. */
 header h2.measure-wide-l {
   max-width: min(90vw, 100rem);
