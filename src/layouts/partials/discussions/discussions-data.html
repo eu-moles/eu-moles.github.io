@@ -6,6 +6,12 @@
       {{- $date := .Name -}}
       {{- $transcriptFile := path.Join $directory $date "transcript.xml" -}}
       {{- if os.FileExists $transcriptFile -}}
+        {{- $anchorsByAgendaNumber := dict -}}
+        {{- $anchorsFile := path.Join $directory $date "discussion-anchors.json" -}}
+        {{- if os.FileExists $anchorsFile -}}
+          {{- $anchorsData := transform.Unmarshal (os.ReadFile $anchorsFile) -}}
+          {{- $anchorsByAgendaNumber = index $anchorsData "anchors" | default dict -}}
+        {{- end -}}
         {{- $titlesByAgendaNumber := dict -}}
         {{- $titlesByKey := dict -}}
         {{- $agendaNumbersByTitleKey := dict -}}
@@ -56,8 +62,8 @@
           {{- $title = strings.TrimSpace (replaceRE `^[0-9]+(?:\.[0-9]+)*[.[:space:]-]+` "" $title) -}}
           {{- $title = strings.TrimSpace (replaceRE `[[:space:]]*\((?i:debate|vote)\)[[:space:]]*$` "" $title) -}}
           {{- $sourceURL := printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date -}}
-          {{- if ne $agendaNumber "" -}}
-            {{- $sourceURL = printf "%s#title%s" $sourceURL (replace $agendaNumber "." "-") -}}
+          {{- with index $anchorsByAgendaNumber $agendaNumber -}}
+            {{- $sourceURL = printf "%s#%s" $sourceURL . -}}
           {{- end -}}
           {{- $discussions = $discussions | append (dict
             "id" (printf "discussion-%s-%d" $date (add $index 1))

@@ -76,6 +76,7 @@ for voting_date in $voting_dates; do
     transcript_docx_path=$(jq -er '.data[] | .is_realized_by[] | .is_embodied_by[] | select(.media_type == "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document") | .is_exemplified_by' "$dir/transcript.json")
     fetch_docx_document_xml "https://data.europarl.europa.eu/$transcript_docx_path" "$dir/transcript.xml"
   fi
+  "$repository_root/scripts/cache-discussion-anchors.sh" "$dir"
 
   progress 7 "$stage_total" "Individual roll-call decision records"
   if [[ ! -s "$dir/decisions.json" ]]; then
