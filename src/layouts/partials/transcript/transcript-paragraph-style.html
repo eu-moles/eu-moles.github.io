@@ -1,0 +1,12 @@
+{{- /* Return a paragraph's WordprocessingML style name, when present. */ -}}
+{{- $style := "" -}}
+{{- if reflect.IsMap . -}}
+  {{- with index . "pPr" -}}
+    {{- with index . "pStyle" -}}
+      {{- with index . "-val" -}}
+        {{- $style = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $style -}}

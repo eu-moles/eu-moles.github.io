@@ -39,6 +39,7 @@
     {{- $speakerMarker := "" -}}
     {{- $speakerID := "" -}}
     {{- $speakerIsChair := false -}}
+    {{- $speakerIsChairHandover := false -}}
     {{- $speechNumber := "" -}}
     {{- $chairName := "" -}}
     {{- $chairID := "" -}}
@@ -50,6 +51,7 @@
       {{- $text = replaceRE "\\s+([,.;:!?])" "$1" $text -}}
       {{- $text = strings.TrimSpace $text -}}
       {{- $bookmark := partials.Include "transcript/transcript-bookmark-name.html" . -}}
+      {{- $paragraphStyle := partials.Include "transcript/transcript-paragraph-style.html" . -}}
       {{- $isSpeakerMarker := and (findRE "^[0-9]+-[0-9]+-[0-9]+$" $text) (ne $bookmark "") -}}
       {{- $rawSpeaker := "" -}}
       {{- if $isSpeakerMarker -}}
@@ -71,7 +73,7 @@
 
       {{- if and $insideContext $isAgendaHeading -}}
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
-        {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+        {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
@@ -81,6 +83,7 @@
         {{- $insideContext = false -}}
         {{- $speaker = "" -}}
         {{- $speakerIsChair = false -}}
+        {{- $speakerIsChairHandover = false -}}
         {{- $turns = slice -}}
         {{- $paragraphBuffer = slice -}}
       {{- end -}}
@@ -127,6 +130,7 @@
           {{- $speakerMarker = $rawSpeaker -}}
           {{- $speakerID = "" -}}
           {{- $speakerIsChair = false -}}
+          {{- $speakerIsChairHandover = false -}}
           {{- with index $mepsByName (lower $speaker) -}}
             {{- $speaker = .name -}}
             {{- $speakerID = .id -}}
@@ -137,8 +141,20 @@
               {{- $speakerID = .id -}}
             {{- end -}}
           {{- end -}}
-          {{- $chairRole := partials.Include "transcript/transcript-chair-role.html" $rawSpeaker -}}
+          {{- $chairRoleInput := $rawSpeaker -}}
+          {{- $chairCandidate := "" -}}
+          {{- if strings.Contains $rawSpeaker ":" -}}
+            {{- $chairRoleInput = strings.TrimSpace (replaceRE `^.*:[[:space:]]*` "" $rawSpeaker) -}}
+            {{- $chairCandidate = strings.TrimSpace (replaceRE `:[^:]*$` "" $rawSpeaker) -}}
+          {{- end -}}
+          {{- $chairRole := partials.Include "transcript/transcript-chair-role.html" $chairRoleInput -}}
           {{- if ne $chairRole "" -}}
+            {{- with $chairCandidate -}}
+              {{- with index $mepsByName (lower .) -}}
+                {{- $speaker = .name -}}
+                {{- $speakerID = .id -}}
+              {{- end -}}
+            {{- end -}}
             {{- if ne $speakerID "" -}}
               {{- $speaker = printf "%s (%s)" $speaker $chairRole -}}
             {{- else if ne $chairName "" -}}
@@ -155,7 +171,7 @@
         {{- end -}}
       {{- else if and $insideContext (or $isAfterVoteMarker $isAfterVoteLabel) -}}
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
-        {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+        {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
@@ -165,11 +181,12 @@
         {{- $insideContext = false -}}
         {{- $speaker = "" -}}
         {{- $speakerIsChair = false -}}
+        {{- $speakerIsChairHandover = false -}}
         {{- $turns = slice -}}
         {{- $paragraphBuffer = slice -}}
       {{- else if and $insideContext $isSpeakerMarker -}}
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
-        {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+        {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
@@ -177,6 +194,7 @@
         {{- $speakerMarker = $rawSpeaker -}}
         {{- $speakerID = "" -}}
         {{- $speakerIsChair = false -}}
+        {{- $speakerIsChairHandover = false -}}
         {{- with index $mepsByName (lower $speaker) -}}
           {{- $speaker = .name -}}
           {{- $speakerID = .id -}}
@@ -187,8 +205,20 @@
             {{- $speakerID = .id -}}
           {{- end -}}
         {{- end -}}
-        {{- $chairRole := partials.Include "transcript/transcript-chair-role.html" $rawSpeaker -}}
+        {{- $chairRoleInput := $rawSpeaker -}}
+        {{- $chairCandidate := "" -}}
+        {{- if strings.Contains $rawSpeaker ":" -}}
+          {{- $chairRoleInput = strings.TrimSpace (replaceRE `^.*:[[:space:]]*` "" $rawSpeaker) -}}
+          {{- $chairCandidate = strings.TrimSpace (replaceRE `:[^:]*$` "" $rawSpeaker) -}}
+        {{- end -}}
+        {{- $chairRole := partials.Include "transcript/transcript-chair-role.html" $chairRoleInput -}}
         {{- if ne $chairRole "" -}}
+          {{- with $chairCandidate -}}
+            {{- with index $mepsByName (lower .) -}}
+              {{- $speaker = .name -}}
+              {{- $speakerID = .id -}}
+            {{- end -}}
+          {{- end -}}
           {{- if ne $speakerID "" -}}
             {{- $speaker = printf "%s (%s)" $speaker $chairRole -}}
           {{- else if ne $chairName "" -}}
@@ -202,6 +232,9 @@
         {{- $speechNumber = $text -}}
         {{- $paragraphBuffer = slice -}}
       {{- else if and $insideContext (ne $text "") -}}
+        {{- if and (eq (len $paragraphBuffer) 0) $speakerIsChair (in (slice "Normal1CenteredBold" "Normal1CenteredItalic") $paragraphStyle) -}}
+          {{- $speakerIsChairHandover = true -}}
+        {{- end -}}
         {{- if eq (len $paragraphBuffer) 0 -}}
           {{- $withoutSpeaker := strings.TrimSpace (replace $text $speakerMarker "") -}}
           {{- if ne $withoutSpeaker $text -}}
@@ -214,7 +247,7 @@
       {{- end -}}
     {{- end -}}
     {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
-    {{- $isChairChange := gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0 -}}
+    {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
     {{- if and $insideContext (ne $speaker "") (not $isChairChange) -}}
       {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
     {{- end -}}
