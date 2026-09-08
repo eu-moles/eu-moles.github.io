@@ -157,6 +157,8 @@
     const next = calendar.querySelector('[data-motion-calendar-next]');
     const count = options.countElement || document.querySelector('[data-motion-calendar-count]');
     const russiaFilter = options.russiaFilter || document.querySelector('[data-motion-russia-filter]');
+    const itemLabel = calendar.dataset.motionCalendarItemLabel || 'motion';
+    const itemName = (number) => `${itemLabel}${number === 1 ? '' : 's'}`;
     const firstMonth = monthKey(parseDate(dates[0]));
     const lastMonth = monthKey(parseDate(dates.at(-1)));
 
@@ -185,7 +187,7 @@
       const number = countForDate(selected);
       if (count) {
         const qualifier = russiaFilter?.checked ? ' with potential benefits for Russia' : '';
-        count.textContent = `${number} recorded ${number === 1 ? 'motion' : 'motions'}${qualifier} — ${displayDate.format(parseDate(selected))}`;
+        count.textContent = `${number} recorded ${itemName(number)}${qualifier} — ${displayDate.format(parseDate(selected))}`;
       }
       if (options.updateURL !== false) {
         const url = new URL(window.location.href);
@@ -231,7 +233,7 @@
         button.setAttribute('aria-selected', String(date === selected));
         const motionCount = russiaFilter?.checked ? countForDate(date) : dateCounts[date];
         button.title = isAvailable
-          ? `${displayDate.format(parseDate(date))}: ${motionCount} recorded ${motionCount === 1 ? 'motion' : 'motions'}`
+          ? `${displayDate.format(parseDate(date))}: ${motionCount} recorded ${itemName(motionCount)}`
           : displayDate.format(parseDate(date));
         if (isAvailable) button.addEventListener('click', () => selectDate(date));
         days.append(button);

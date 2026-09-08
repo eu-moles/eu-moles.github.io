@@ -21,6 +21,8 @@
                 <i class="fa-solid fa-users" aria-hidden="true"></i>
               {{ else if eq .Name "Motions" }}
                 <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+              {{ else if eq .Name "Discussions" }}
+                <i class="fa-solid fa-comments" aria-hidden="true"></i>
               {{ end }}
               {{ .Name }}
             </a>

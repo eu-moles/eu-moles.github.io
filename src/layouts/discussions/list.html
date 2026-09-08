@@ -1,0 +1,158 @@
+{{ define "main" }}
+  {{ with .Content }}
+    <article class="ph3 ph5-l pv3 f4 lh-copy nested-links mid-gray">
+      {{ . }}
+    </article>
+  {{ end }}
+
+  {{ $discussions := partials.IncludeCached "discussions/discussions-data.html" site }}
+  <section class="ph3 ph5-l pb5">
+    {{ if $discussions }}
+      {{- $discussionDates := slice -}}
+      {{- $latestDate := "" -}}
+      {{- range $discussions -}}
+        {{- $discussionDates = $discussionDates | append .date -}}
+        {{- if or (eq $latestDate "") (gt .date $latestDate) -}}
+          {{- $latestDate = .date -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $discussionDates = uniq $discussionDates -}}
+      {{- $latestDiscussions := where $discussions "date" $latestDate -}}
+      {{ partial "motions/motions-calendar.html" (dict
+        "id" "discussion-calendar-title"
+        "dates" $discussionDates
+        "defaultDate" $latestDate
+        "title" "Browse plenary discussions"
+        "description" "Select a marked sitting day to read the parliamentary discussions recorded that day."
+        "itemLabel" "discussion"
+        "showRussiaFilter" true
+        "russiaFilterLabel" "Only discussions with potential benefits for Russia"
+      ) }}
+      <p class="f5 gray mt0 mb3" data-motion-calendar-count>{{ len $latestDiscussions }} recorded discussions</p>
+      <div class="site-table-wrap motions-table-wrap">
+        <table class="site-table site-table--motion motions-table discussions-table" cellspacing="0">
+          <colgroup>
+            <col class="motion-column--date">
+            <col class="motion-column--classification">
+            <col class="motion-column--reference">
+            <col class="motion-column--title">
+            <col class="motion-column--documents">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Contributions</th>
+              <th>Discussion</th>
+              <th>Record</th>
+            </tr>
+          </thead>
+          {{ range $discussions }}
+            {{- $discussion := . -}}
+            {{- $discussionTypeIcon := "fa-comments" -}}
+            {{- $discussionTypeClass := "discussion-type-badge--debate" -}}
+            {{- if eq .type "Voting time" -}}
+              {{- $discussionTypeIcon = "fa-check-to-slot" -}}
+              {{- $discussionTypeClass = "discussion-type-badge--voting" -}}
+            {{- else if eq .type "Explanations of vote" -}}
+              {{- $discussionTypeIcon = "fa-comment-dots" -}}
+              {{- $discussionTypeClass = "discussion-type-badge--explanations" -}}
+            {{- else if eq .type "Question time" -}}
+              {{- $discussionTypeIcon = "fa-circle-question" -}}
+              {{- $discussionTypeClass = "discussion-type-badge--questions" -}}
+            {{- else if eq .type "Statements" -}}
+              {{- $discussionTypeIcon = "fa-bullhorn" -}}
+              {{- $discussionTypeClass = "discussion-type-badge--statements" -}}
+            {{- else if eq .type "Procedural item" -}}
+              {{- $discussionTypeIcon = "fa-list-check" -}}
+              {{- $discussionTypeClass = "discussion-type-badge--procedural" -}}
+            {{- else if eq .type "Vote" -}}
+              {{- $discussionTypeIcon = "fa-square-check" -}}
+              {{- $discussionTypeClass = "discussion-type-badge--vote" -}}
+            {{- end -}}
+            <tbody class="motion-grid-group" data-motion-date="{{ .date }}" data-motion-russia-assessment="{{ .hasRussiaAssessment }}"{{ if ne .date $latestDate }} hidden{{ end }}>
+              <tr class="motion-group-heading" data-motion-date="{{ .date }}"{{ if ne .date $latestDate }} hidden{{ end }} aria-hidden="true">
+                <th>Date</th>
+                <th>Type</th>
+                <th>Contributions</th>
+                <th>Discussion</th>
+                <th>Record</th>
+              </tr>
+              <tr class="motion-parent-row" data-motion-date="{{ .date }}" data-motion-voting-id="{{ .id }}" data-motion-context-id="{{ .id }}"{{ if ne .date $latestDate }} hidden{{ end }}>
+                <td class="site-table-date" data-label="Date">{{ strings.Substr .date 0 10 }}</td>
+                <td class="motion-type-cell" data-label="Type">
+                  <span class="discussion-type-badge {{ $discussionTypeClass }}"><i class="fa-solid {{ $discussionTypeIcon }}" aria-hidden="true"></i><span>{{ .type }}</span></span>
+                </td>
+                <td class="motion-reference-cell" data-label="Contributions">
+                  <span class="discussion-contribution-count"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span>{{ len .turns }} {{ if eq (len .turns) 1 }}contribution{{ else }}contributions{{ end }}</span></span>
+                </td>
+                <td data-label="Discussion">
+                  <span class="motion-title-line">
+                    <span class="motion-title-primary">
+                      <span class="motion-title-text">{{ partial "utilities/highlight-geopolitical-keywords.html" .title | safeHTML }}</span>
+                      {{ if .hasRussiaAssessment }}
+                        <span class="motion-subvote-russia-alert" role="img" aria-label="Contains a contribution assessed as potentially benefiting Russia" title="Contains a contribution assessed as potentially benefiting Russia"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+                      {{ end }}
+                    </span>
+                  </span>
+                  <button class="motion-discussion-link" type="button" data-motion-context-open="{{ .id }}" aria-haspopup="dialog" aria-controls="{{ .id }}"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Discussion transcript</span></button>
+                  <dialog id="{{ .id }}" class="motion-context-modal" aria-labelledby="{{ .id }}-title">
+                    <div class="motion-context-modal__shell">
+                      <header class="motion-context-modal__header">
+                        <div>
+                          <p class="motion-context-modal__eyebrow">Discussion transcript</p>
+                          <h2 id="{{ .id }}-title">{{ partial "utilities/highlight-geopolitical-keywords.html" .title | safeHTML }}</h2>
+                        </div>
+                        <button class="motion-context-modal__close" type="button" data-motion-context-close aria-label="Close discussion"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                      </header>
+                      <div class="motion-context-modal__note"><i class="fa-solid fa-language" aria-hidden="true"></i> Where available, remarks are machine-translated into English. Select the language badge to view the original.</div>
+                      <div class="motion-context-transcript">
+                        {{ range .turns }}
+                          {{- $turn := . -}}
+                          {{- $translation := .translation -}}
+                          {{- $displayText := $turn.text -}}
+                          {{- $isTranslated := and $translation (ne ($translation.englishText | default "") "") -}}
+                          {{- $highlightText := or $isTranslated (not $turn.language) -}}
+                          {{- if $isTranslated -}}
+                            {{- $displayText = $translation.englishText -}}
+                          {{- end -}}
+                          <article class="motion-context-turn{{ if .isChair }} motion-context-turn--chair{{ end }}" data-motion-russia-benefit="{{ .russiaBenefit }}">
+                            {{ with $turn.mepID }}
+                              {{- $returnURL := printf "%s?context=%s" ("discussions/" | relURL) $discussion.id -}}
+                              <a class="motion-context-avatar" href="{{ "mep/" | relURL }}?id={{ . }}&return={{ $returnURL | urlquery }}" aria-label="View profile for {{ $turn.speaker }}"><img src="https://www.europarl.europa.eu/mepphoto/{{ . }}.jpg" alt="Portrait of {{ $turn.speaker }}" loading="lazy"></a>
+                            {{ else }}
+                              <div class="motion-context-avatar" aria-hidden="true"><i class="fa-solid fa-landmark"></i></div>
+                            {{ end }}
+                            <div class="motion-context-turn__content">
+                              <p class="motion-context-turn__speaker">
+                                {{ with $turn.mepID }}
+                                  {{- $returnURL := printf "%s?context=%s" ("discussions/" | relURL) $discussion.id -}}
+                                  <a href="{{ "mep/" | relURL }}?id={{ . }}&return={{ $returnURL | urlquery }}">{{ $turn.speaker }}</a>
+                                {{ else }}
+                                  {{ $turn.speaker }}
+                                {{ end }}
+                              </p>
+                              <div class="motion-context-bubble"><div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript/transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText "minutesURL" $discussion.sourceURL) | safeHTML }}</div>{{ with .language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ .source }}" data-translation-text="{{ $turn.text }}"{{ if $isTranslated }} data-translation-cached="{{ $translation.englishText }}" data-translated="true"{{ end }} title="{{ if $isTranslated }}Machine-translated to English. Show original {{ .name }} text.{{ else }}Original language: {{ .name }}. Translate to English.{{ end }}" aria-label="{{ if $isTranslated }}Show original {{ .name }} text{{ else }}Translate {{ .name }} to English{{ end }}" aria-pressed="{{ if $isTranslated }}true{{ else }}false{{ end }}">{{ upper .code }}{{ if $isTranslated }} → EN{{ end }}</button>{{ end }}</div>
+                            </div>
+                          </article>
+                        {{ end }}
+                      </div>
+                      <footer class="motion-context-modal__footer"><a href="{{ .sourceURL }}" target="_blank" rel="external noopener noreferrer">European Parliament record</a></footer>
+                    </div>
+                  </dialog>
+                </td>
+                <td class="motion-documents-cell" data-label="Record">
+                  <div class="motion-documents"><a href="{{ .sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open official debate transcript"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Transcript</span></a></div>
+                </td>
+              </tr>
+            </tbody>
+          {{ end }}
+        </table>
+      </div>
+    {{ else }}
+      <p class="pa3 bg-washed-yellow">No plenary discussion transcripts were found in <code>data/votes/</code>.</p>
+    {{ end }}
+  </section>
+  {{ partial "assets/asset-script.html" "js/motion-context.js" }}
+  {{ partial "assets/asset-script.html" "js/motions-calendar.js" }}
+{{ end }}

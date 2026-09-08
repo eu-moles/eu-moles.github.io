@@ -41,6 +41,11 @@ enableRobotsTXT = true
   pageRef = '/motions'
   weight = 30
 
+[[menus.main]]
+  name = 'Discussions'
+  pageRef = '/discussions'
+  weight = 40
+
 [module]
 
 [[module.imports]]

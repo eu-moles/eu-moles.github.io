@@ -29,6 +29,7 @@
     {{- $waitingForMarker := false -}}
     {{- $insideContext := false -}}
     {{- $heading := "" -}}
+    {{- $contextType := "Plenary debate" -}}
     {{- $speaker := "" -}}
     {{- $speakerMarker := "" -}}
     {{- $speakerID := "" -}}
@@ -70,7 +71,7 @@
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
-          {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
+          {{- $contexts = $contexts | append (dict "heading" $heading "type" $contextType "turns" $turns) -}}
         {{- end -}}
         {{- $insideContext = false -}}
         {{- $speaker = "" -}}
@@ -80,6 +81,20 @@
       {{- end -}}
 
       {{- if $isAgendaHeading -}}
+        {{- $contextType = "Plenary debate" -}}
+        {{- if gt (len (findRE `(?i)(oral|written)[[:space:]]+explanations?[[:space:]]+of[[:space:]]+votes?` $text)) 0 -}}
+          {{- $contextType = "Explanations of vote" -}}
+        {{- else if gt (len (findRE `(?i)voting[[:space:]]+time` $text)) 0 -}}
+          {{- $contextType = "Voting time" -}}
+        {{- else if gt (len (findRE `(?i)question[[:space:]]+time` $text)) 0 -}}
+          {{- $contextType = "Question time" -}}
+        {{- else if gt (len (findRE `(?i)statements?[[:space:]]+by` $text)) 0 -}}
+          {{- $contextType = "Statements" -}}
+        {{- else if gt (len (findRE `(?i)(catch-the-eye|point[[:space:]]+of[[:space:]]+order|procedural[[:space:]]+matters?)` $text)) 0 -}}
+          {{- $contextType = "Procedural item" -}}
+        {{- else if gt (len (findRE `(?i)\([[:space:]]*vote[[:space:]]*\)` $text)) 0 -}}
+          {{- $contextType = "Vote" -}}
+        {{- end -}}
         {{- $heading = lower $text -}}
         {{- $heading = replaceRE "^[0-9]+(\\.[0-9]+)*[.[:space:]-]+" "" $heading -}}
         {{- $heading = replaceRE "[[:space:]]+\\*{3}I{1,3}[[:space:]]*$" "" $heading -}}
@@ -113,7 +128,7 @@
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
-          {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
+          {{- $contexts = $contexts | append (dict "heading" $heading "type" $contextType "turns" $turns) -}}
         {{- end -}}
         {{- $insideContext = false -}}
         {{- $speaker = "" -}}
@@ -159,7 +174,7 @@
       {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
     {{- end -}}
     {{- if gt (len $turns) 0 -}}
-      {{- $contexts = $contexts | append (dict "heading" $heading "turns" $turns) -}}
+      {{- $contexts = $contexts | append (dict "heading" $heading "type" $contextType "turns" $turns) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

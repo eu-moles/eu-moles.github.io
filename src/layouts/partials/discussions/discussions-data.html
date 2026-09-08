@@ -1,0 +1,31 @@
+{{- $discussions := slice -}}
+{{- $directory := "data/votes" -}}
+{{- if os.FileExists $directory -}}
+  {{- range os.ReadDir $directory -}}
+    {{- if .IsDir -}}
+      {{- $date := .Name -}}
+      {{- $transcriptFile := path.Join $directory $date "transcript.xml" -}}
+      {{- if os.FileExists $transcriptFile -}}
+        {{- $contexts := partials.IncludeCached "motions/motions-transcript-contexts.html" $transcriptFile $transcriptFile -}}
+        {{- range $index, $context := $contexts -}}
+          {{- $hasRussiaAssessment := false -}}
+          {{- range $context.turns -}}
+            {{- if .russiaBenefit -}}
+              {{- $hasRussiaAssessment = true -}}
+            {{- end -}}
+          {{- end -}}
+          {{- $discussions = $discussions | append (dict
+            "id" (printf "discussion-%s-%d" $date (add $index 1))
+            "date" $date
+            "title" $context.heading
+            "type" ($context.type | default "Plenary debate")
+            "turns" $context.turns
+            "sourceURL" (printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date)
+            "hasRussiaAssessment" $hasRussiaAssessment
+          ) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (sort $discussions "date" "desc") -}}
