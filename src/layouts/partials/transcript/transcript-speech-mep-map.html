@@ -1,0 +1,21 @@
+{{- $speechesByNumber := dict -}}
+{{- if os.FileExists . -}}
+  {{- $data := transform.Unmarshal (os.ReadFile .) -}}
+  {{- range index $data "data" | default slice -}}
+    {{- $mepID := "" -}}
+    {{- with index . "had_participation" -}}
+      {{- $participants := index . "had_participant_person" | default slice -}}
+      {{- if gt (len $participants) 0 -}}
+        {{- $mepID = path.Base (index $participants 0) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if ne $mepID "" -}}
+      {{- range index . "recorded_in_a_realization_of" | default slice -}}
+        {{- with index . "number" -}}
+          {{- $speechesByNumber = merge $speechesByNumber (dict . $mepID) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $speechesByNumber -}}

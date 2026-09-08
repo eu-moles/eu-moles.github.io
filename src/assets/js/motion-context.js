@@ -145,7 +145,7 @@
     }
 
     if (sourceText.length > translationCharacterLimit) {
-      button.title = "Translation unavailable: this contribution is too long.";
+      button.title = "Translation unavailable: this speech is too long.";
       return;
     }
 

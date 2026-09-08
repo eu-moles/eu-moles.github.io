@@ -3,6 +3,7 @@
 {{- if os.FileExists $file -}}
   {{- $speechFile := replace $file "transcript.xml" "speeches.json" -}}
   {{- $languages := partials.IncludeCached "transcript/transcript-language-map.html" $speechFile $speechFile -}}
+  {{- $speechMepIDs := partials.IncludeCached "transcript/transcript-speech-mep-map.html" $speechFile $speechFile -}}
   {{- $translationFile := replace $file "transcript.xml" "translations.json" -}}
   {{- $translations := partials.IncludeCached "transcript/transcript-translation-map.html" $translationFile $translationFile -}}
   {{- $assessmentFile := replace $file "transcript.xml" "speech-russia-assessments.json" -}}
@@ -23,13 +24,17 @@
       {{- $paragraphs = slice $paragraphs -}}
     {{- end -}}
     {{- $mepsByName := dict -}}
+    {{- $mepsByID := dict -}}
     {{- range partials.IncludeCached "data/meps-data.html" site -}}
       {{- $mepsByName = merge $mepsByName (dict (lower .fullName) (dict "id" .id "name" .fullName)) -}}
+      {{- $mepsByID = merge $mepsByID (dict .id (dict "id" .id "name" .fullName)) -}}
     {{- end -}}
     {{- $waitingForMarker := false -}}
     {{- $insideContext := false -}}
     {{- $heading := "" -}}
     {{- $contextType := "Plenary debate" -}}
+    {{- $agendaNumber := "" -}}
+    {{- $agendaSectionNumber := "" -}}
     {{- $speaker := "" -}}
     {{- $speakerMarker := "" -}}
     {{- $speakerID := "" -}}
@@ -71,7 +76,7 @@
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
-          {{- $contexts = $contexts | append (dict "heading" $heading "type" $contextType "turns" $turns) -}}
+          {{- $contexts = $contexts | append (dict "heading" $heading "agendaNumber" $agendaNumber "type" $contextType "turns" $turns) -}}
         {{- end -}}
         {{- $insideContext = false -}}
         {{- $speaker = "" -}}
@@ -82,6 +87,10 @@
 
       {{- if $isAgendaHeading -}}
         {{- $contextType = "Plenary debate" -}}
+        {{- $agendaNumber = "" -}}
+        {{- with findRE `^[0-9]+(?:\.[0-9]+)*` $text -}}
+          {{- $agendaNumber = index . 0 -}}
+        {{- end -}}
         {{- if gt (len (findRE `(?i)(oral|written)[[:space:]]+explanations?[[:space:]]+of[[:space:]]+votes?` $text)) 0 -}}
           {{- $contextType = "Explanations of vote" -}}
         {{- else if gt (len (findRE `(?i)voting[[:space:]]+time` $text)) 0 -}}
@@ -94,6 +103,16 @@
           {{- $contextType = "Procedural item" -}}
         {{- else if gt (len (findRE `(?i)\([[:space:]]*vote[[:space:]]*\)` $text)) 0 -}}
           {{- $contextType = "Vote" -}}
+        {{- end -}}
+        {{- if eq $contextType "Voting time" -}}
+          {{- $agendaSectionNumber = $agendaNumber -}}
+        {{- else if and (eq $contextType "Vote") (ne $agendaSectionNumber "") (not (strings.Contains $agendaNumber ".")) -}}
+          {{- /* The verbatim transcript numbers voting-time items locally
+                (1, 2, …), while the official English activity data uses the
+                parent agenda number (for example, 7.1, 7.2, …). */ -}}
+          {{- $agendaNumber = printf "%s.%s" $agendaSectionNumber $agendaNumber -}}
+        {{- else if ne $contextType "Vote" -}}
+          {{- $agendaSectionNumber = "" -}}
         {{- end -}}
         {{- $heading = lower $text -}}
         {{- $heading = replaceRE "^[0-9]+(\\.[0-9]+)*[.[:space:]-]+" "" $heading -}}
@@ -112,9 +131,22 @@
             {{- $speaker = .name -}}
             {{- $speakerID = .id -}}
           {{- end -}}
-          {{- if and (eq (lower $rawSpeaker) "president") (ne $chairName "") -}}
-            {{- $speaker = printf "%s (President)" $chairName -}}
-            {{- $speakerID = $chairID -}}
+          {{- with index $speechMepIDs $text -}}
+            {{- with index $mepsByID . -}}
+              {{- $speaker = .name -}}
+              {{- $speakerID = .id -}}
+            {{- end -}}
+          {{- end -}}
+          {{- $chairRole := partials.Include "transcript/transcript-chair-role.html" $rawSpeaker -}}
+          {{- if ne $chairRole "" -}}
+            {{- if ne $speakerID "" -}}
+              {{- $speaker = printf "%s (%s)" $speaker $chairRole -}}
+            {{- else if ne $chairName "" -}}
+              {{- $speaker = printf "%s (%s)" $chairName $chairRole -}}
+              {{- $speakerID = $chairID -}}
+            {{- else -}}
+              {{- $speaker = $chairRole -}}
+            {{- end -}}
             {{- $speakerIsChair = true -}}
           {{- end -}}
           {{- $speechNumber = $text -}}
@@ -128,7 +160,7 @@
           {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
-          {{- $contexts = $contexts | append (dict "heading" $heading "type" $contextType "turns" $turns) -}}
+          {{- $contexts = $contexts | append (dict "heading" $heading "agendaNumber" $agendaNumber "type" $contextType "turns" $turns) -}}
         {{- end -}}
         {{- $insideContext = false -}}
         {{- $speaker = "" -}}
@@ -149,9 +181,22 @@
           {{- $speaker = .name -}}
           {{- $speakerID = .id -}}
         {{- end -}}
-        {{- if and (eq (lower $rawSpeaker) "president") (ne $chairName "") -}}
-          {{- $speaker = printf "%s (President)" $chairName -}}
-          {{- $speakerID = $chairID -}}
+        {{- with index $speechMepIDs $text -}}
+          {{- with index $mepsByID . -}}
+            {{- $speaker = .name -}}
+            {{- $speakerID = .id -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $chairRole := partials.Include "transcript/transcript-chair-role.html" $rawSpeaker -}}
+        {{- if ne $chairRole "" -}}
+          {{- if ne $speakerID "" -}}
+            {{- $speaker = printf "%s (%s)" $speaker $chairRole -}}
+          {{- else if ne $chairName "" -}}
+            {{- $speaker = printf "%s (%s)" $chairName $chairRole -}}
+            {{- $speakerID = $chairID -}}
+          {{- else -}}
+            {{- $speaker = $chairRole -}}
+          {{- end -}}
           {{- $speakerIsChair = true -}}
         {{- end -}}
         {{- $speechNumber = $text -}}
@@ -174,7 +219,7 @@
       {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
     {{- end -}}
     {{- if gt (len $turns) 0 -}}
-      {{- $contexts = $contexts | append (dict "heading" $heading "type" $contextType "turns" $turns) -}}
+      {{- $contexts = $contexts | append (dict "heading" $heading "agendaNumber" $agendaNumber "type" $contextType "turns" $turns) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

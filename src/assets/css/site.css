@@ -1019,7 +1019,7 @@ main table tbody tr:last-child td {
 .discussions-table .motion-column--documents { width: 20%; }
 
 .discussion-type-badge,
-.discussion-contribution-count {
+.discussion-speech-count {
   display: inline-flex;
   align-items: center;
   gap: 0.32rem;
@@ -1075,7 +1075,7 @@ main table tbody tr:last-child td {
   color: #5b6c7b;
 }
 
-.discussion-contribution-count i {
+.discussion-speech-count i {
   color: #175b9a;
 }
 

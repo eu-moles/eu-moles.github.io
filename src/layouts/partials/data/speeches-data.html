@@ -12,7 +12,7 @@
           {{- if and (index $assessment "benefitsRussia") $mepID -}}
             {{- $speeches = $speeches | append (dict
               "date" $date
-              "topic" "Plenary debate contribution"
+              "topic" "Plenary speech"
               "sourceURL" (printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date)
               "mepID" $mepID
               "speaker" (index $assessment "speaker" | default "")

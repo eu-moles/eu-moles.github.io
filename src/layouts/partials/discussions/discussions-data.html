@@ -6,6 +6,38 @@
       {{- $date := .Name -}}
       {{- $transcriptFile := path.Join $directory $date "transcript.xml" -}}
       {{- if os.FileExists $transcriptFile -}}
+        {{- $titlesByAgendaNumber := dict -}}
+        {{- $titlesByKey := dict -}}
+        {{- $agendaNumbersByTitleKey := dict -}}
+        {{- $activitiesFile := path.Join $directory $date "activities.json" -}}
+        {{- if os.FileExists $activitiesFile -}}
+          {{- $activitiesData := transform.Unmarshal (os.ReadFile $activitiesFile) -}}
+          {{- range index $activitiesData "data" | default slice -}}
+            {{- $englishTitle := "" -}}
+            {{- $activityAgendaNumber := "" -}}
+            {{- with index . "activity_label" -}}
+              {{- $englishTitle = index . "en" | default "" -}}
+            {{- end -}}
+            {{- if ne $englishTitle "" -}}
+              {{- $displayTitle := strings.TrimSpace (replaceRE `^[0-9]+(?:\.[0-9]+)*[.[:space:]-]+` "" $englishTitle) -}}
+              {{- $displayTitle = strings.TrimSpace (replaceRE `[[:space:]]+\*{3}I{1,3}[[:space:]]*` " " $displayTitle) -}}
+              {{- $displayTitle = strings.TrimSpace (replaceRE `[[:space:]]*\((?i:debate|vote)\)[[:space:]]*$` "" $displayTitle) -}}
+              {{- with findRE `^[0-9]+(?:\.[0-9]+)*` $englishTitle -}}
+                {{- $activityAgendaNumber = index . 0 -}}
+                {{- $titlesByAgendaNumber = merge $titlesByAgendaNumber (dict $activityAgendaNumber $displayTitle) -}}
+              {{- end -}}
+              {{- range $languageTitle := index . "activity_label" -}}
+                {{- $titleKey := partials.Include "discussions/discussion-title-key.html" $languageTitle -}}
+                {{- if ne $titleKey "" -}}
+                  {{- $titlesByKey = merge $titlesByKey (dict $titleKey $displayTitle) -}}
+                  {{- if ne $activityAgendaNumber "" -}}
+                    {{- $agendaNumbersByTitleKey = merge $agendaNumbersByTitleKey (dict $titleKey $activityAgendaNumber) -}}
+                  {{- end -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
         {{- $contexts := partials.IncludeCached "motions/motions-transcript-contexts.html" $transcriptFile $transcriptFile -}}
         {{- range $index, $context := $contexts -}}
           {{- $hasRussiaAssessment := false -}}
@@ -14,13 +46,26 @@
               {{- $hasRussiaAssessment = true -}}
             {{- end -}}
           {{- end -}}
+          {{- $agendaNumber := $context.agendaNumber -}}
+          {{- $title := index $titlesByAgendaNumber $agendaNumber | default "" -}}
+          {{- if eq $title "" -}}
+            {{- $titleKey := partials.Include "discussions/discussion-title-key.html" $context.heading -}}
+            {{- $title = index $titlesByKey $titleKey | default $context.heading -}}
+            {{- $agendaNumber = index $agendaNumbersByTitleKey $titleKey | default $agendaNumber -}}
+          {{- end -}}
+          {{- $title = strings.TrimSpace (replaceRE `^[0-9]+(?:\.[0-9]+)*[.[:space:]-]+` "" $title) -}}
+          {{- $title = strings.TrimSpace (replaceRE `[[:space:]]*\((?i:debate|vote)\)[[:space:]]*$` "" $title) -}}
+          {{- $sourceURL := printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date -}}
+          {{- if ne $agendaNumber "" -}}
+            {{- $sourceURL = printf "%s#title%s" $sourceURL (replace $agendaNumber "." "-") -}}
+          {{- end -}}
           {{- $discussions = $discussions | append (dict
             "id" (printf "discussion-%s-%d" $date (add $index 1))
             "date" $date
-            "title" $context.heading
+            "title" $title
             "type" ($context.type | default "Plenary debate")
             "turns" $context.turns
-            "sourceURL" (printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date)
+            "sourceURL" $sourceURL
             "hasRussiaAssessment" $hasRussiaAssessment
           ) -}}
         {{- end -}}

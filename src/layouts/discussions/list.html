@@ -84,14 +84,14 @@
                   <span class="discussion-type-badge {{ $discussionTypeClass }}"><i class="fa-solid {{ $discussionTypeIcon }}" aria-hidden="true"></i><span>{{ .type }}</span></span>
                 </td>
                 <td class="motion-reference-cell" data-label="Speeches">
-                  <span class="discussion-contribution-count"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span>{{ len .turns }} {{ if eq (len .turns) 1 }}speech{{ else }}speeches{{ end }}</span></span>
+                  <span class="discussion-speech-count"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span>{{ len .turns }} {{ if eq (len .turns) 1 }}speech{{ else }}speeches{{ end }}</span></span>
                 </td>
                 <td data-label="Discussion">
                   <span class="motion-title-line">
                     <span class="motion-title-primary">
-                      <span class="motion-title-text">{{ partial "utilities/highlight-geopolitical-keywords.html" .title | safeHTML }}</span>
+                      <span class="motion-title-text"><a href="{{ .sourceURL }}" target="_blank" rel="external noopener noreferrer" title="Open this item in the official European Parliament transcript">{{ partial "utilities/highlight-geopolitical-keywords.html" .title | safeHTML }}</a></span>
                       {{ if .hasRussiaAssessment }}
-                        <span class="motion-subvote-russia-alert" role="img" aria-label="Contains a contribution assessed as potentially benefiting Russia" title="Contains a contribution assessed as potentially benefiting Russia"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+                        <span class="motion-subvote-russia-alert" role="img" aria-label="Contains a speech assessed as potentially benefiting Russia" title="Contains a speech assessed as potentially benefiting Russia"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
                       {{ end }}
                     </span>
                   </span>
