@@ -2,12 +2,14 @@
 set -euo pipefail
 
 # Build a small, reviewable AI context bundle for every child roll-call vote in
-# a sitting. The bundle is kept even if tgpt is unavailable, so the official
-# source links are always available to the site and generation can resume on a
-# later update without rebuilding the source catalogue.
+# a sitting. The bundle keeps the official source links alongside the generated
+# explainers, so every assessment remains reviewable in context.
+
+repository_root=$(cd "$(dirname "$0")/.." && pwd)
+source "$repository_root/scripts/lib/data-utils.sh"
 
 if (( $# != 1 )); then
-  echo "Usage: $0 data/votes/YYYY-MM-DD" >&2
+  progress_error "Usage: $0 data/votes/YYYY-MM-DD"
   exit 64
 fi
 
@@ -205,14 +207,14 @@ while IFS= read -r amendment_url; do
   [[ -n "$amendment_document" ]] || continue
 
   if jq -e --arg document "$amendment_document" '.documents[$document].text | strings | length > 0' "$amendment_texts_file" > /dev/null; then
-    printf 'Vote explainers: amendment text %d/%d cached (%s)\n' "$amendment_current" "$amendment_total" "$amendment_document" >&2
+    progress_note "Vote explainers: amendment text $amendment_current/$amendment_total cached ($amendment_document)"
     continue
   fi
 
-  printf 'Vote explainers: amendment text %d/%d downloading (%s)\n' "$amendment_current" "$amendment_total" "$amendment_document" >&2
+  progress_note "Vote explainers: amendment text $amendment_current/$amendment_total downloading ($amendment_document)"
   amendment_pdf=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-pdf.XXXXXX")
   amendment_text=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-text.XXXXXX")
-  if curl -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$amendment_pdf" "$amendment_url" &&
+  if curl_with_error_url -fsSL --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$amendment_pdf" "$amendment_url" &&
     pdftotext -layout "$amendment_pdf" "$amendment_text" &&
     [[ -s "$amendment_text" ]]; then
     jq \
@@ -224,7 +226,7 @@ while IFS= read -r amendment_url; do
     mv -f "$temporary_amendment_texts" "$amendment_texts_file"
     temporary_amendment_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-texts.XXXXXX")
   else
-    echo "Vote explainers: could not extract $amendment_url; it will be retried next update." >&2
+    progress_error "Vote explainers: could not extract $amendment_url; it will be retried next update."
   fi
   rm -f "$amendment_pdf" "$amendment_text"
 done < <(jq -r '[.[] | .sources[]? | select(.label == "Amendment text") | .url] | unique[]' "$temporary_candidates")
@@ -246,18 +248,18 @@ while IFS= read -r report_url; do
 
   if jq -e --arg document "$report_document" '.documents[$document] | (((.text // "") | length > 0) or (.unavailable == true))' "$report_texts_file" > /dev/null; then
     if jq -e --arg document "$report_document" '.documents[$document].unavailable == true' "$report_texts_file" > /dev/null; then
-      printf 'Vote explainers: report text %d/%d cached unavailable (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+      progress_note "Vote explainers: report text $report_current/$report_total cached unavailable ($report_document)"
     else
-      printf 'Vote explainers: report text %d/%d cached (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+      progress_note "Vote explainers: report text $report_current/$report_total cached ($report_document)"
     fi
     continue
   fi
 
-  printf 'Vote explainers: report text %d/%d downloading (%s)\n' "$report_current" "$report_total" "$report_document" >&2
+  progress_note "Vote explainers: report text $report_current/$report_total downloading ($report_document)"
   report_pdf=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-pdf.XXXXXX")
   report_text=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-text.XXXXXX")
   report_pdf_url="https://data.europarl.europa.eu/distribution/reds_iPlRp/$report_document/${report_document}_en.pdf"
-  report_status=$(curl -sS -L --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$report_pdf" --write-out '%{http_code}' "$report_pdf_url" || true)
+  report_status=$(curl_with_error_url -sS -L --connect-timeout 10 --max-time 60 --retry 2 --retry-delay 1 --output "$report_pdf" --write-out '%{http_code}' "$report_pdf_url" || true)
   if [[ "$report_status" == "200" ]] &&
     pdftotext -layout "$report_pdf" "$report_text" &&
     [[ -s "$report_text" ]]; then
@@ -277,14 +279,14 @@ while IFS= read -r report_url; do
       "$report_texts_file" > "$temporary_report_texts"
     mv -f "$temporary_report_texts" "$report_texts_file"
     temporary_report_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-texts.XXXXXX")
-    echo "Vote explainers: report text $report_document is unavailable (404); caching this result." >&2
+    progress_note "Vote explainers: report text $report_document is unavailable (404); caching this result."
   else
-    echo "Vote explainers: could not extract $report_pdf_url (HTTP ${report_status:-unknown}); the report link will still be supplied." >&2
+    progress_error "Vote explainers: could not extract $report_pdf_url (HTTP ${report_status:-unknown}); the report link will still be supplied."
   fi
   rm -f "$report_pdf" "$report_text"
 done < <(jq -r '[.[] | .sources[]? | select(.label == "Parliamentary report") | .url] | unique[]' "$temporary_candidates")
 
-printf 'Vote explainers: preparing %s response record(s) with official source text and URLs\n' "$(jq 'length' "$temporary_candidates")" >&2
+progress_note "Vote explainers: preparing $(jq 'length' "$temporary_candidates") response record(s) with official source text and URLs"
 if [[ -s "$output_file" ]]; then
   existing_file="$output_file"
 else
@@ -321,40 +323,8 @@ mv -f "$temporary_output" "$output_file"
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")
 [[ "$existing_file" == "$output_file" ]] || rm -f "$existing_file"
 
-tgpt_bin=${TGPT_BIN:-tgpt}
+tgpt_bin=tgpt
 tgpt_provider=${TGPT_PROVIDER:-}
-if ! command -v "$tgpt_bin" > /dev/null 2>&1; then
-  for candidate in /home/linuxbrew/.linuxbrew/opt/tgpt/bin/tgpt /opt/homebrew/opt/tgpt/bin/tgpt; do
-    if [[ -x "$candidate" ]]; then
-      tgpt_bin=$candidate
-      break
-    fi
-  done
-fi
-if ! command -v "$tgpt_bin" > /dev/null 2>&1; then
-  echo "Vote explainers: source bundle saved to $output_file; tgpt was not found, so no new explanations were generated." >&2
-  exit 0
-fi
-
-# update_data.sh runs non-interactively, so .bashrc's Homebrew shellenv is not
-# loaded. Reproduce it here: tgpt's DeepSeek Web proof-of-work needs the full
-# Homebrew environment, not just an absolute path to node.
-for brew_bin in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew; do
-  if [[ -x "$brew_bin" ]]; then
-    eval "$("$brew_bin" shellenv)"
-    break
-  fi
-done
-
-if ! command -v node > /dev/null 2>&1 && ! command -v bun > /dev/null 2>&1 && ! command -v deno > /dev/null 2>&1; then
-  for runtime in /home/linuxbrew/.linuxbrew/opt/node/bin/node /opt/homebrew/opt/node/bin/node; do
-    if [[ -x "$runtime" ]]; then
-      export PATH="$(dirname "$runtime"):$PATH"
-      export DEEPSEEK_WEB_RUNTIME="${DEEPSEEK_WEB_RUNTIME:-$runtime}"
-      break
-    fi
-  done
-fi
 
 compact_text() {
   tr '\r\n\t' '   ' | sed -E 's/[[:space:]]+/ /g; s/^[[:space:]]+//; s/[[:space:]]+$//'
@@ -397,7 +367,7 @@ add_amendment_context() {
   ' <<< "$candidate_value")
   amendment_text=$(jq -r --arg document "$amendment_document" '.documents[$document].text // empty' "$amendment_texts_file")
   [[ -n "$amendment_number" && -n "$amendment_text" ]] || {
-    echo "Vote explainers: no extracted text is available for $amendment_document" >&2
+    progress_error "Vote explainers: no extracted text is available for $amendment_document"
     return 1
   }
 
@@ -474,9 +444,9 @@ add_report_context() {
 pending_total=$(jq '[.items[] | select((.description // "") == "" or (.yesVote // "") == "" or (.russia // "") == "")] | length' "$output_file")
 explainer_total=$(jq '.items | length' "$output_file")
 retry_delay_seconds=${EXPLAINER_RETRY_DELAY_SECONDS:-2}
-printf 'Vote explainers: %d/%d response(s) need generating\n' "$pending_total" "$explainer_total" >&2
+progress_note "Vote explainers: $pending_total/$explainer_total response(s) need generating"
 if (( pending_total == 0 )); then
-  echo "Vote explainers: all $explainer_total cached explanations are current." >&2
+  progress_note "Vote explainers: all $explainer_total cached explanations are current."
 fi
 
 response_current=0
@@ -484,18 +454,18 @@ while IFS= read -r candidate; do
   response_current=$((response_current + 1))
   id=$(jq -r '.key' <<< "$candidate")
   if [[ $(jq -r '.value.description // empty' <<< "$candidate") != "" && $(jq -r '.value.yesVote // empty' <<< "$candidate") != "" && $(jq -r '.value.russia // empty' <<< "$candidate") != "" ]]; then
-    printf 'Vote explainers: response %d/%d cached (%s)\n' "$response_current" "$explainer_total" "$id" >&2
+    progress_note "Vote explainers: response $response_current/$explainer_total cached ($id)"
     continue
   fi
 
   prompt=$(jq -r '.value.prompt' <<< "$candidate")
   if ! prompt=$(add_amendment_context "$candidate" "$prompt"); then
-    printf 'Vote explainers: response %d/%d awaiting official amendment text (%s)\n' "$response_current" "$explainer_total" "$id" >&2
+    progress_note "Vote explainers: response $response_current/$explainer_total awaiting official amendment text ($id)"
     continue
   fi
   prompt=$(add_report_context "$candidate" "$prompt")
   answer=""
-  printf 'Vote explainers: response %d/%d generating (%s)\n' "$response_current" "$explainer_total" "$id" >&2
+  progress_note "Vote explainers: response $response_current/$explainer_total generating ($id)"
 
   attempt=0
   while :; do
@@ -514,13 +484,13 @@ while IFS= read -r candidate; do
 
     tgpt_error=$(compact_text < "$temporary_tgpt_error")
     if [[ -n "$tgpt_error" ]]; then
-      printf 'Vote explainers: attempt %d for %s error: %s\n' "$attempt" "$id" "${tgpt_error:0:600}" >&2
+      progress_error "Vote explainers: attempt $attempt for $id error: ${tgpt_error:0:600}"
     elif [[ -n "$answer" ]]; then
-      printf 'Vote explainers: attempt %d for %s returned invalid output: %s\n' "$attempt" "$id" "${answer:0:600}" >&2
+      progress_error "Vote explainers: attempt $attempt for $id returned invalid output: ${answer:0:600}"
     else
-      printf 'Vote explainers: attempt %d for %s returned no output\n' "$attempt" "$id" >&2
+      progress_error "Vote explainers: attempt $attempt for $id returned no output"
     fi
-    printf 'Vote explainers: attempt %d for %s was unusable; retrying in %ss\n' "$attempt" "$id" "$retry_delay_seconds" >&2
+    progress_note "Vote explainers: attempt $attempt for $id was unusable; retrying in ${retry_delay_seconds}s"
     sleep "$retry_delay_seconds"
   done
 
@@ -532,5 +502,5 @@ while IFS= read -r candidate; do
     "$output_file" > "$temporary_output"
   mv -f "$temporary_output" "$output_file"
   temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")
-  echo "Vote explainers: generated $id" >&2
+  progress_note "Vote explainers: generated $id"
 done < <(jq -c '.items | to_entries[]' "$output_file")

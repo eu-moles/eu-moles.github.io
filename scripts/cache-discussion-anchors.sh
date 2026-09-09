@@ -21,7 +21,7 @@ elif [[ ! -s "$toc_html" ]]; then
   toc_url="https://www.europarl.europa.eu/doceo/document/CRE-10-${date}_EN.html"
   if ! curl_with_error_url -fsSL --connect-timeout 15 --max-time 90 --retry 2 --retry-delay 2 "$toc_url" > "$temporary_html"; then
     rm -f "$temporary_html"
-    echo "Discussion anchors: could not download the official table of contents; links will open the record without an item anchor." >&2
+    progress_error "Discussion anchors: could not download the official table of contents; links will open the record without an item anchor."
     exit 0
   fi
   mv "$temporary_html" "$toc_html"
@@ -49,7 +49,7 @@ sed 's/></>\n</g' "$toc_html" |
 
 if [[ ! -s "$pairs_file" ]]; then
   rm -f "$pairs_file"
-  echo "Discussion anchors: no agenda-to-anchor mappings found; links will open the record without an item anchor." >&2
+  progress_error "Discussion anchors: no agenda-to-anchor mappings found; links will open the record without an item anchor."
   exit 0
 fi
 
@@ -60,4 +60,4 @@ jq -Rn '
 ' < "$pairs_file" > "$temporary_anchors"
 mv "$temporary_anchors" "$anchors_file"
 rm -f "$pairs_file"
-echo "Discussion anchors: cached $(jq '.anchors | length' "$anchors_file") official agenda link(s)."
+progress_note "Discussion anchors: cached $(jq '.anchors | length' "$anchors_file") official agenda link(s)."

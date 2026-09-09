@@ -19,6 +19,10 @@ progress_note() {
   printf '[%s]       %s\n' "$(date +%H:%M:%S)" "$1"
 }
 
+progress_error() {
+  printf '[%s]       %s\n' "$(date +%H:%M:%S)" "$1" >&2
+}
+
 make_temporary_file() {
   local purpose="$1"
 
@@ -67,9 +71,11 @@ curl_with_error_url() {
     status=$?
   fi
 
-  cat "$error_log" >&2
+  while IFS= read -r error_line || [[ -n "$error_line" ]]; do
+    progress_error "$error_line"
+  done < "$error_log"
   if grep -q '^curl: (' "$error_log"; then
-    printf 'curl request URL: %s\n' "$url" >&2
+    progress_error "curl request URL: $url"
   fi
   rm -f "$error_log"
   return "$status"

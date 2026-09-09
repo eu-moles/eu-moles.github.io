@@ -207,7 +207,7 @@ cache_transcript_translations() {
         jq --arg speech_number "$speech_number" --arg source_language "$source_language" --arg source_text "$source_text" --arg translated_text "$translated_text" '.translations[$speech_number] = {sourceLanguage: $source_language, sourceText: $source_text, englishText: $translated_text}' "$translations_file" > "$translations_temporary"
       fi
       mv "$translations_temporary" "$translations_file"
-    else echo "Translation failed for $speech_number; it will be retried on the next update." >&2; fi
+    else progress_error "Translations: failed for $speech_number; it will be retried on the next update."; fi
     sleep 0.5
   done < "$candidates_file"
   rm -f "$candidates_file"

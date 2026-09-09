@@ -34,7 +34,7 @@ for voting_date in $voting_dates; do
   while IFS= read -r procedure_id; do
     procedure_file="$procedures_dir/${procedure_id}.json"
     [[ -s "$procedure_file" ]] && continue
-    fetch_json "$api/procedures/$procedure_id" "$procedure_file" || { echo "Could not fetch procedure $procedure_id referenced by $sitting_id." >&2; exit 1; }
+    fetch_json "$api/procedures/$procedure_id" "$procedure_file" || { progress_error "Could not fetch procedure $procedure_id referenced by $sitting_id."; exit 1; }
     sleep 0.5
   done < <(jq -r '
     (.data[] | .inverse_consists_of[]? | objects | .id? // empty | capture("/proc/(?<id>[0-9]{4}-[0-9]{4})$").id),
@@ -48,8 +48,8 @@ for voting_date in $voting_dates; do
     procedure_id=${procedure_file##*/}; procedure_id=${procedure_id%.json}
     oeil_procedure_file="$oeil_procedures_dir/${procedure_id}.html"
     [[ -s "$oeil_procedure_file" ]] && continue
-    procedure_reference=$(jq -er '.data[0].label | select(test("^[0-9]{4}/[0-9]{4}\\([A-Z]+\\)$"))' "$procedure_file") || { echo "Could not determine the OEIL reference for procedure $procedure_id." >&2; exit 1; }
-    fetch_oeil_procedure "$procedure_reference" "$oeil_procedure_file" || { echo "Could not fetch OEIL procedure page for $procedure_reference." >&2; exit 1; }
+    procedure_reference=$(jq -er '.data[0].label | select(test("^[0-9]{4}/[0-9]{4}\\([A-Z]+\\)$"))' "$procedure_file") || { progress_error "Could not determine the OEIL reference for procedure $procedure_id."; exit 1; }
+    fetch_oeil_procedure "$procedure_reference" "$oeil_procedure_file" || { progress_error "Could not fetch OEIL procedure page for $procedure_reference."; exit 1; }
     sleep 0.5
   done < <(find "$procedures_dir" -maxdepth 1 -type f -name '*.json' -print0 | sort -z)
   extract_oeil_document_summaries "$oeil_procedures_dir" "$dir/oeil-document-summaries.json"
@@ -84,12 +84,12 @@ for voting_date in $voting_dates; do
     while IFS= read -r decision_id; do
       decision_file="$decisions_dir/${decision_id}.json"
       if [[ ! -s "$decision_file" ]]; then
-        fetch_json "$api/events/$decision_id" "$decision_file" || { echo "Could not fetch decision $decision_id for $sitting_id; no incomplete aggregate was saved." >&2; exit 1; }
+        fetch_json "$api/events/$decision_id" "$decision_file" || { progress_error "Could not fetch decision $decision_id for $sitting_id; no incomplete aggregate was saved."; exit 1; }
         sleep 0.1
       fi
       decision_files+=("$decision_file")
     done < <(jq -r '.data[] | .consists_of[]? | split("/") | last' "$dir/vote-results.json")
-    ((${#decision_files[@]})) || { echo "No decision IDs were supplied by $dir/vote-results.json." >&2; exit 1; }
+    ((${#decision_files[@]})) || { progress_error "No decision IDs were supplied by $dir/vote-results.json."; exit 1; }
     decisions_temporary=$(make_temporary_file "decisions")
     jq -s '{data: [.[].data[]]}' "${decision_files[@]}" > "$decisions_temporary"
     mv "$decisions_temporary" "$dir/decisions.json"

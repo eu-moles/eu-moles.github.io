@@ -7,8 +7,11 @@ set -euo pipefail
 # Bump prompt_version when screening rules change; harmless transcript-format
 # changes must not spend tokens regenerating an already screened contribution.
 
+repository_root=$(cd "$(dirname "$0")/.." && pwd)
+source "$repository_root/scripts/lib/data-utils.sh"
+
 if (( $# != 1 )); then
-  echo "Usage: $0 data/votes/YYYY-MM-DD" >&2
+  progress_error "Usage: $0 data/votes/YYYY-MM-DD"
   exit 64
 fi
 
@@ -118,7 +121,7 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
 # Unicode case-folding is important here: Parliament's directory capitalises
 # surnames, while CRE records usually use title case. Node handles names such
 # as ZAJĄCZKOWSKA-HERNIK correctly where jq's ASCII folding cannot.
-/home/linuxbrew/.linuxbrew/opt/node/bin/node -e '
+node -e '
   const fs = require("fs");
   const normalise = (value) => String(value || "").normalize("NFC").toLowerCase();
   const ids = new Map();
@@ -203,31 +206,12 @@ temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX"
 [[ "$existing_file" == "$output_file" ]] || rm -f "$existing_file"
 
 if [[ ${SPEECH_RUSSIA_SKIP_GENERATION:-false} == true ]]; then
-  echo "Speech Russia assessments: cache prepared; generation was skipped." >&2
+  progress_note "Speech Russia assessments: cache prepared; generation was skipped."
   exit 0
 fi
 
-tgpt_bin=${TGPT_BIN:-tgpt}
+tgpt_bin=tgpt
 tgpt_provider=${TGPT_PROVIDER:-}
-if ! command -v "$tgpt_bin" > /dev/null 2>&1; then
-  for candidate in /home/linuxbrew/.linuxbrew/opt/tgpt/bin/tgpt /opt/homebrew/opt/tgpt/bin/tgpt; do
-    if [[ -x "$candidate" ]]; then
-      tgpt_bin=$candidate
-      break
-    fi
-  done
-fi
-if ! command -v "$tgpt_bin" > /dev/null 2>&1; then
-  echo "Speech Russia assessments: cache prepared at $output_file; tgpt was not found, so no assessments were generated." >&2
-  exit 0
-fi
-
-for brew_bin in /home/linuxbrew/.linuxbrew/bin/brew /opt/homebrew/bin/brew; do
-  if [[ -x "$brew_bin" ]]; then
-    eval "$("$brew_bin" shellenv)"
-    break
-  fi
-done
 
 compact_text() {
   tr '\r\n\t' '   ' | sed -E 's/[[:space:]]+/ /g; s/^[[:space:]]+//; s/[[:space:]]+$//'
@@ -254,14 +238,14 @@ Always set benefitsRussia to false for an accession objection based on historica
 assessment_total=$(jq '.items | length' "$output_file")
 pending_total=$(jq '[.items[] | select((.benefitsRussia | type) != "boolean")] | length' "$output_file")
 retry_delay_seconds=${SPEECH_RUSSIA_RETRY_DELAY_SECONDS:-2}
-printf 'Speech Russia assessments: %d/%d response(s) need generating\n' "$pending_total" "$assessment_total" >&2
+progress_note "Speech Russia assessments: $pending_total/$assessment_total response(s) need generating"
 
 response_current=0
 while IFS= read -r candidate; do
   response_current=$((response_current + 1))
   speech_number=$(jq -r '.key' <<< "$candidate")
   if [[ $(jq -r '.value.benefitsRussia | type' <<< "$candidate") == "boolean" ]]; then
-    printf 'Speech Russia assessments: response %d/%d cached (%s)\n' "$response_current" "$assessment_total" "$speech_number" >&2
+    progress_note "Speech Russia assessments: response $response_current/$assessment_total cached ($speech_number)"
     continue
   fi
 
@@ -276,7 +260,7 @@ while IFS= read -r candidate; do
   prompt=$(printf '%s\n\nContribution number: %s\nEnglish text source: %s (%s)\n--- contribution ---\n%s\n--- end contribution ---' \
     "$assessment_instructions" "$speech_number" "$text_origin" "$source_language" "$english_text")
 
-  printf 'Speech Russia assessments: response %d/%d generating (%s)\n' "$response_current" "$assessment_total" "$speech_number" >&2
+  progress_note "Speech Russia assessments: response $response_current/$assessment_total generating ($speech_number)"
   attempt=0
   while :; do
     attempt=$((attempt + 1))
@@ -291,13 +275,13 @@ while IFS= read -r candidate; do
 
     tgpt_error=$(compact_text < "$temporary_tgpt_error")
     if [[ -n "$tgpt_error" ]]; then
-      printf 'Speech Russia assessments: attempt %d for %s error: %s\n' "$attempt" "$speech_number" "${tgpt_error:0:600}" >&2
+      progress_error "Speech Russia assessments: attempt $attempt for $speech_number error: ${tgpt_error:0:600}"
     elif [[ -n "$answer" ]]; then
-      printf 'Speech Russia assessments: attempt %d for %s returned invalid output: %s\n' "$attempt" "$speech_number" "${answer:0:600}" >&2
+      progress_error "Speech Russia assessments: attempt $attempt for $speech_number returned invalid output: ${answer:0:600}"
     else
-      printf 'Speech Russia assessments: attempt %d for %s returned no output\n' "$attempt" "$speech_number" >&2
+      progress_error "Speech Russia assessments: attempt $attempt for $speech_number returned no output"
     fi
-    printf 'Speech Russia assessments: attempt %d for %s was unusable; retrying in %ss\n' "$attempt" "$speech_number" "$retry_delay_seconds" >&2
+    progress_note "Speech Russia assessments: attempt $attempt for $speech_number was unusable; retrying in ${retry_delay_seconds}s"
     sleep "$retry_delay_seconds"
   done
 
@@ -309,5 +293,5 @@ while IFS= read -r candidate; do
     "$output_file" > "$temporary_output"
   mv -f "$temporary_output" "$output_file"
   temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
-  echo "Speech Russia assessments: generated $speech_number" >&2
+  progress_note "Speech Russia assessments: generated $speech_number"
 done < <(jq -c '.items | to_entries[]' "$output_file")

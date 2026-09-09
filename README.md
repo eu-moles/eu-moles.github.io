@@ -51,8 +51,8 @@ AI is used for plain-language summaries, translations where needed, and consiste
 ### Requirements
 
 - [Hugo Extended](https://gohugo.io/installation/)
-- Bash, `curl`, `jq`, `wget`, `xmllint`, `unzip`, and Node.js
-- Optional: [tgpt](https://github.com/aandrew-me/tgpt) configured with an AI provider for vote explainers and speech assessments
+- Bash, `curl`, `jq`, `wget`, `xmllint`, `unzip`, `pdftotext`, and Node.js
+- [tgpt](https://github.com/aandrew-me/tgpt) configured with an AI provider for vote explainers and speech assessments
 
 ### Preview the site
 
@@ -76,7 +76,7 @@ Hugo writes the generated static site to `docs/`.
 ./update_data.sh
 ```
 
-The updater reports its progress, caches official source data, refreshes translations, and generates any missing AI-assisted explainers or assessments. If `tgpt` is not available, the official-data cache can still be prepared, but AI-generated summaries and assessments will not be completed.
+The updater reports its progress, caches official source data, refreshes translations, and generates any missing AI-assisted explainers or assessments. It checks all required commands before starting; configure your `PATH` first if any are missing.
 
 ## Project structure
 
