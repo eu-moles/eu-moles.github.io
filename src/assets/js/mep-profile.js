@@ -261,7 +261,8 @@
     bubble.append(text);
     if (speech.language && speech.language.code && window.EUMolesMotionContext
       && typeof window.EUMolesMotionContext.createTranslationButton === 'function') {
-      bubble.append(window.EUMolesMotionContext.createTranslationButton(speech.language, speech.text, speech.translation));
+      const languageButton = window.EUMolesMotionContext.createTranslationButton(speech.language, speech.text, speech.translation);
+      if (languageButton) bubble.append(languageButton);
     }
     content.append(bubble, meta);
     article.append(avatar, content);

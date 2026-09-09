@@ -73,6 +73,7 @@
 
   const createTranslationButton = (language, text, translation) => {
     const code = String(language.code).toUpperCase();
+    if (code === "EN") return null;
     const button = make("button", "motion-context-language", code);
     button.type = "button";
     button.dataset.translationButton = "";
@@ -314,8 +315,10 @@
           : null;
       if (language) {
         const languageButton = createTranslationButton(language, turn.text, turn.translation);
-        bubble.append(languageButton);
-        bindTranslationButton(languageButton);
+        if (languageButton) {
+          bubble.append(languageButton);
+          bindTranslationButton(languageButton);
+        }
       }
       content.append(speaker, bubble);
       turnElement.append(avatar, content);
