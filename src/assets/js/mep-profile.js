@@ -382,12 +382,13 @@
           }
           if (motion.procedure) {
             const procedureClasses = {
+              Consent: 'motion-procedure-badge--consent',
               'First reading': 'motion-procedure-badge--first',
               'Second reading': 'motion-procedure-badge--second',
               Conciliation: 'motion-procedure-badge--conciliation',
             };
             const procedure = make('span', `motion-procedure-badge ${procedureClasses[motion.procedure] || 'motion-procedure-badge--first'}`);
-            procedure.title = 'Legislative procedure stage';
+            procedure.title = 'Parliamentary procedure';
             const icon = make('i', 'fa-solid fa-landmark');
             icon.setAttribute('aria-hidden', 'true');
             procedure.append(icon, document.createTextNode(motion.procedure));

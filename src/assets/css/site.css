@@ -369,6 +369,12 @@ a.mep-profile-motion-title-text:focus-visible {
   color: #65408b;
 }
 
+.motion-procedure-badge--consent {
+  border-color: #9ccbb7;
+  background: #eff9f3;
+  color: #176742;
+}
+
 .motion-procedure-badge--conciliation {
   border-color: #e1c36a;
   background: #fff8df;
