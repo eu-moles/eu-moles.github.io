@@ -1,0 +1,165 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2745",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-13",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-13",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-13",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-13"
+          ]
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0335-AM-001-002-DEPOT-2026-07-03",
+          "type": "Activity",
+          "activity_date": "2026-07-03",
+          "activity_id": "B-10-2026-0335-AM-001-002-DEPOT-2026-07-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0335-AM-001-002"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992927",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992927",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0335"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-013"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/B-10-2026-0335",
+        "eli/dl/doc/TA-10-2026-0263"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2745-NMCOR-96752-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/96752"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 1106
+        },
+        {
+          "id": "eli/dl/participation/2026-2745-NMCOR-40599-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/40599"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1101
+        },
+        {
+          "id": "eli/dl/participation/2026-2745-NMCOR-125023-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/125023"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 1107
+        },
+        {
+          "id": "eli/dl/participation/2026-2745-MAIN-ENVI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ENVI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2026-2745-NMCOR-112748-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/112748"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1102
+        }
+      ],
+      "process_id": "2026-2745",
+      "process_title": {
+        "sk": "Námietka podľa článku 115 ods. 2 a 3 rokovacieho poriadku týkajúca sa vykonávacieho rozhodnutia Komisie, ktorým sa podľa nariadenia Európskeho parlamentu a Rady (ES) č. 1829/2003 obnovuje povolenie umiestňovať na trh výrobky, ktoré obsahujú geneticky modifikovanú kukuricu NK603 × T25, sú z nej zložené alebo vyrobené (D115002)",
+        "nl": "Bezwaar op grond van artikel 115, leden 2 en 3, van het Reglement tegen het uitvoeringsbesluit van de Commissie\ntot verlenging van de vergunning voor het in de handel brengen van producten die geheel of gedeeltelijk bestaan uit of zijn geproduceerd met de genetisch gemodificeerde mais NK603 × T25 overeenkomstig Verordening (EG) nr. 1829/2003 van het Europees Parlement en de Raad (D115002)",
+        "et": "Vastuväide kodukorra artikli 115 lõigete 2 ja 3 alusel komisjoni rakendusotsusele, millega pikendatakse geneetiliselt muundatud maisi NK603 × T25 sisaldavate, sellest koosnevate või sellest valmistatud toodete turule laskmise loa kehtivust vastavalt Euroopa Parlamendi ja nõukogu määrusele (EÜ) nr 1829/2003 (D115002)",
+        "hr": "Prigovor u skladu s člankom 115. stavcima 2. i 3. Poslovnika na Provedbenu odluku Komisije o produljenju odobrenja za stavljanje na tržište proizvoda koji sadržavaju genetski modificirani kukuruz NK603 × T25, od njega se sastoje ili su od njega proizvedeni, u skladu s Uredbom (EZ) br. 1829/2003 Europskog parlamenta i Vijeća (D115002)",
+        "fi": "Työjärjestyksen 115 artiklan 2 ja 3 kohdan mukainen vastalause komission täytäntöönpanopäätökseen muuntogeenistä maissia NK603 × T25 sisältävien, siitä koostuvien tai siitä valmistettujen tuotteiden markkinoille saattamista koskevan luvan uusimisesta Euroopan parlamentin ja neuvoston asetuksen (EY) N:o 1829/2003 mukaisesti (D115002)",
+        "cs": "Námitka podle čl. 115 odst. 2 a 3 jednacího řádu k prováděcímu rozhodnutí Komise, kterým se obnovuje povolení uvedení produktů, které obsahují geneticky modifikovanou kukuřici NK603 × T25, sestávají z ní nebo jsou z ní vyrobeny, na trh podle nařízení Evropského parlamentu a Rady (ES) č. 1829/2003 (D115002)",
+        "it": "Obiezione a norma dell'articolo 115, paragrafi 2 e 3, del regolamento alla decisione di esecuzione della Commissione che rinnova l'autorizzazione all'immissione in commercio di prodotti contenenti, costituiti o derivati da granturco geneticamente modificato NK603 × T25 a norma del regolamento (CE) n. 1829/2003 del Parlamento europeo e del Consiglio (D115002)",
+        "mt": "Oġġezzjoni skont l-Artikolu 115(2) u (3) tar-Regoli ta’ Proċedura għad-Deċiżjoni ta’ Implimentazzjoni tal-Kummissjoni li ġġedded l-awtorizzazzjoni għat-tqegħid fis-suq ta’ prodotti li fihom il-qamħirrum ġenetikament modifikat NK603 × T25, li jikkonsistu minnu jew li huma prodotti minnu, skont ir-Regolament (KE) Nru 1829/2003 tal-Parlament Ewropew u tal-Kunsill (D115002)",
+        "ro": "Obiecție în temeiul articolului 115 alineatele (2) și (3) din Regulamentul de procedură referitoare la decizia de punere în aplicare a Comisiei de reînnoire a autorizației de introducere pe piață a produselor care conțin, sunt compuse sau fabricate din porumb modificat genetic NK603 × T25, în temeiul Regulamentului (CE) nr. 1829/2003 al Parlamentului European și al Consiliului (D115002)",
+        "lv": "Iebildumu izteikšana saskaņā ar Reglamenta 115. panta 2. un 3. punktu pret Komisijas īstenošanas lēmumu, ar kuru atbilstoši Eiropas Parlamenta un Padomes Regulai (EK) Nr. 1829/2003 atjauno atļauju laist tirgū produktus, kas satur ģenētiski modificētu kukurūzu NK603 × T25, sastāv vai ir ražoti no tās (D115002)",
+        "es": "Oposición con arreglo al artículo 115, apartados 2 y 3, del Reglamento interno: Decisión de Ejecución de la Comisión por la que se renueva la autorización de comercialización de productos que contengan o estén compuestos por maíz modificado genéticamente NK603 × T25 o hayan sido producidos a partir de él, con arreglo al Reglamento (CE) n.º 1829/2003 del Parlamento Europeo y del Consejo (D115002)\n\n",
+        "hu": "Kifogás az eljárási szabályzat 115. cikkének (2) és (3) bekezdése alapján a géntechnológiával módosított NK603 × T25 kukoricát tartalmazó, abból álló vagy abból előállított termékek forgalomba hozatalának az 1829/2003/EK  európai parlamenti és tanácsi rendelet szerinti engedélyezésének megújításáról szóló bizottsági végrehajtási határozattal szemben (D115002)",
+        "en": "Objection pursuant to Rule 115(2) and (3) of the Rules of Procedures on the Commission Implementing Decision renewing the authorisation for the placing on the market of products containing, consisting of or produced from genetically modified maize NK603 × T25 pursuant to Regulation (EC) No 1829/2003 of the European Parliament and of the Council (D115002)",
+        "el": "Διατύπωση αντίρρησης σύμφωνα με το άρθρο 115 παράγραφοι 2 και 3 του Κανονισμού στην εκτελεστική απόφασης της Επιτροπής για την ανανέωση της έγκρισης της διάθεσης στην αγορά προϊόντων που περιέχουν, αποτελούνται ή παράγονται από γενετικώς τροποποιημένο αραβόσιτο NK603 × T25 σύμφωνα με τον κανονισμό (ΕΚ) αριθ. 1829/2003 του Ευρωπαϊκού Κοινοβουλίου και του Συμβουλίου (D115002)",
+        "pl": "Sprzeciw na podstawie art. 115 ust. 2 i 3 Regulaminu wobec decyzji wykonawczej Komisji dotyczącej odnowienia zezwolenia na wprowadzenie do obrotu, na podstawie rozporządzenia (WE) nr 1829/2003 Parlamentu Europejskiego i Rady, produktów zawierających genetycznie zmodyfikowaną kukurydzę NK603 × T25, składających się z niej lub z niej wyprodukowanych (D115002)",
+        "ga": "Agóid de bhun Riail 115(2) agus (3) de na Rialacha Nós Imeachta maidir leis an gCinneadh Cur Chun Feidhme ón gCoimisiún lena n-athnuaitear an t-údarú chun táirgí ina bhfuil, arb é atá iontu nó a tháirgtear as arbhar Indiach géinmhodhnaithe NK603 × T25 a chur ar an margadh de bhun Rialachán (CE) Uimh. 1829/2003 ó Pharlaimint na hEorpa agus ón gComhairle (D115002)",
+        "fr": "Objection formulée conformément à l’article 115, paragraphes 2 et 3, du règlement intérieur à la décision d’exécution de la Commission renouvelant l’autorisation de mise sur le marché de produits contenant du maïs génétiquement modifié NK603 × T25, consistant en ce maïs ou produits à partir de celui-ci, en application du règlement (CE) nº 1829/2003 du Parlement européen et du Conseil (D115002)",
+        "lt": "Prieštaravimas pagal Darbo tvarkos taisyklių 115 straipsnio 2 ir 3 dalis dėl Komisijos įgyvendinimo sprendimo, kuriuo pagal Europos Parlamento ir Tarybos reglamentą (EB) Nr. 1829/2003 atnaujinamas leidimas pateikti rinkai produktus, kurių sudėtyje yra genetiškai modifikuotų kukurūzų NK603 × T25, kurie iš jų sudaryti arba kurie iš jų pagaminti, (D115002)",
+        "pt": "Objeção nos termos do artigo 115.º, n.ºs 2 e 3, do Regimento à Decisão de Execução da Comissão que renova a autorização de colocação no mercado de produtos que contenham, sejam constituídos por ou sejam produzidos a partir de milho geneticamente modificado NK603 × T25, nos termos do Regulamento (CE) n.º 1829/2003 do Parlamento Europeu e do Conselho (D115002)",
+        "da": "Indsigelse, jf. forretningsordenens artikel 115, stk. 2 og 3, mod udkast til Kommissionens gennemførelsesafgørelse om forlængelse af tilladelsen til markedsføring af produkter, der indeholder, består af eller er fremstillet af genetisk modificeret NK603 × T25-majs, i henhold til Europa-Parlamentets og Rådets forordning (EF) nr. 1829/2003 (D115002)",
+        "sl": "Nasprotovanje v skladu s členom 115(2) in (3) PoslovnikaIzvedbenemu sklepu Komisije o obnovitvi odobritve dajanja na trg proizvodov, ki vsebujejo gensko spremenjeno koruzo NK603 × T25, so iz nje sestavljeni ali proizvedeni, v skladu z Uredbo (ES) št. 1829/2003 Evropskega parlamenta in Sveta (D115002)",
+        "bg": "Възражение съгласно член 115, параграфи 2 и 3 от Правилника за дейността на Парламента във връзка с решението за изпълнение на Комисията относно подновяването на разрешението за пускането на пазара на продукти, съдържащи, състоящи се или произведени от генетично модифицирана царевица NK603 × T25 съгласно Регламент (ЕО) № 1829/2003 на Европейския парламент и на Съвета (D115002)",
+        "de": "Einwand gemäß Artikel 115 Absätze 2 und 3 der Geschäftsordnung gegen den Durchführungsbeschlusses der Kommission zur Erneuerung der Zulassung des Inverkehrbringens von Erzeugnissen, die genetisch veränderten Mais der Sorte NK603 × T25 enthalten, aus ihm bestehen oder aus ihm gewonnen werden, gemäß der Verordnung (EG) Nr. 1829/2003 des Europäischen Parlaments und des Rates (D115002) ",
+        "sv": "Invändning i enlighet med artikel 115.2 och 115.3 i arbetsordningen mot kommissionens genomförandebeslut om förlängning av godkännandet av utsläppande på marknaden av produkter som innehåller, består av eller har framställts av den genetiskt modifierade majsen NK603 × T25 i enlighet med Europaparlamentets och rådets förordning (EG) nr 1829/2003 (D115002)"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-87",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-87",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-87"
+        }
+      ],
+      "label": "2026/2745(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

@@ -299,8 +299,8 @@ jq \
   --slurpfile existing "$existing_file" '
   def usable_sections:
     type == "object"
-    and ((.description // "") | type == "string" and length > 0 and length <= 220)
-    and ((.yesVote // "") | type == "string" and length > 0 and length <= 150)
+    and ((.description // "") | type == "string" and length > 0 and length <= 300)
+    and ((.yesVote // "") | type == "string" and length > 0 and length <= 200)
     and ((.russia // "") | type == "string" and length > 0 and length <= 150)
     and ([.description, .yesVote, .russia] | join(" ") | length <= 500)
     and ([.description, .yesVote, .russia] | join(" ") | test("DeepSeek Web Error|MISSING_HEADER|Some error has occurred|failed to create chat session|^Error:|^Warning:"; "i") | not);
@@ -335,8 +335,8 @@ is_valid_explainer_sections() {
 
   jq -e '
     type == "object"
-    and ((.description // "") | type == "string" and length > 0 and length <= 220)
-    and ((.yesVote // "") | type == "string" and length > 0 and length <= 150)
+    and ((.description // "") | type == "string" and length > 0 and length <= 300)
+    and ((.yesVote // "") | type == "string" and length > 0 and length <= 200)
     and ((.russia // "") | type == "string" and length > 0 and length <= 150)
     and ([.description, .yesVote, .russia] | join(" ") | length <= 500)
   ' <<< "$value" > /dev/null 2>&1 || return 1

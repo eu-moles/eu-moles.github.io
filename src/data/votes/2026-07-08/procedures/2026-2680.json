@@ -1,0 +1,307 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2680",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/B-10-2026-0337-AM-001-007-DEPOT-2026-07-03",
+          "type": "Activity",
+          "activity_date": "2026-07-03",
+          "activity_id": "B-10-2026-0337-AM-001-007-DEPOT-2026-07-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0337-AM-001-007"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/2026-2680-ANPRO-2026-04-29",
+          "type": "Activity",
+          "activity_date": "2026-04-29",
+          "activity_id": "2026-2680-ANPRO-2026-04-29",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-1",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-1",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-01",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-01"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992944",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992944",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0337"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-001"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0252",
+        "eli/dl/doc/B-10-2026-0337"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-256977-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/256977"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-197652-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/197652"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-28226-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/28226"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-256814-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/256814"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-MAIN-ITRE",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ITRE"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-257143-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/257143"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1304
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-257151-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/257151"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-257107-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/257107"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-219652-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/219652"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-257095-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/257095"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1304
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-AVI-ENVI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ENVI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-197443-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/197443"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 1305
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-256985-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/256985"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-197820-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/197820"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1304
+        },
+        {
+          "id": "eli/dl/participation/2026-2680-NMCOR-4289-ITRE-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/4289"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        }
+      ],
+      "process_id": "2026-2680",
+      "process_title": {
+        "da": "Kommissionens delegerede forordning om ændring af Kommissionens delegerede forordning (EU) 2019/807 for at indføre et udviklingsforløb med henblik på gradvis at mindske bidraget til målene for vedvarende energi fra biobrændstoffer, flydende biobrændsler og biomassebrændsler med høj risiko for indirekte ændringer i arealanvendelsen",
+        "sv": "Kommissionens delegerade förordning om ändring av kommissionens delegerade förordning (EU) 2019/807 i syfte att införa en utvecklingsbana för att gradvis minska bidraget till målen för förnybar energi från biodrivmedel, flytande biobränslen och biomassabränslen med hög risk för indirekt ändring av markanvändning",
+        "lt": "Komisijos deleguotasis reglamentas, kuriuo iš dalies keičiamas Komisijos deleguotasis reglamentas (ES) 2019/807, kad būtų įtraukta trajektorija, pagal kurią laipsniškai mažinamas didelę netiesioginio žemės naudojimo keitimo riziką keliančių biodegalų, skystųjų bioproduktų ir biomasės kuro įnašas į atsinaujinančiųjų išteklių energijos tikslus",
+        "el": "Κατ’ εξουσιοδότηση κανονισμός της Επιτροπής για την τροποποίηση του κατ’ εξουσιοδότηση κανονισμού (ΕΕ) 2019/807 της Επιτροπής με σκοπό την καθιέρωση πορείας σταδιακής μείωσης της συμβολής των βιοκαυσίμων, βιορευστών και καυσίμων βιομάζας υψηλού κινδύνου έμμεσης αλλαγής της χρήσης γης στους στόχους για τις ανανεώσιμες πηγές ενέργειας",
+        "pt": "Regulamento Delegado da Comissão que altera o Regulamento Delegado (UE) 2019/807 da Comissão a fim de introduzir uma trajetória para reduzir gradualmente a contribuição para as metas de energia renovável dos biocombustíveis, biolíquidos e combustíveis biomássicos com elevado risco de alterações indiretas do uso do solo",
+        "sl": "Delegirana uredba Komisije o spremembi Delegirane uredbe Komisije (EU) 2019/807 zaradi vključitve začrtanega poteka za postopno zmanjšanje prispevka pogonskih biogoriv, drugih tekočih biogoriv in biomasnih goriv z visokim tveganjem za posredno spremembo rabe zemljišč k ciljem glede energije iz obnovljivih virov",
+        "ro": "Regulament delegat al Comisiei de modificare a Regulamentului delegat (UE) 2019/807 al Comisiei pentru a introduce o traiectorie de scădere treptată a contribuției biocombustibililor, a biolichidelor și a combustibililor din biomasă care prezintă riscuri ridicate din perspectiva schimbării indirecte a destinației terenurilor la obiectivele privind energia din surse regenerabile",
+        "en": "Commission Delegated Regulation amending Commission Delegated Regulation (EU) 2019/807 to introduce a trajectory to gradually decrease the contribution of high indirect land-use change-risk biofuels, bioliquids and biomass fuels to renewable energy targets",
+        "fr": "Règlement délégué de la Commission modifiant le règlement délégué (UE) 2019/807 de la Commission afin d’introduire une trajectoire visant à réduire progressivement la contribution aux objectifs en matière d’énergies renouvelables des biocarburants, bioliquides et combustibles issus de la biomasse présentant un risque élevé d’induire des changements indirects dans l’affectation des sols",
+        "de": "Delegierte Verordnung der Kommission zur Änderung der Delegierten Verordnung (EU) 2019/807 der Kommission zur Einführung eines Zielpfads für die schrittweise Senkung des Beitrags von Biokraftstoffen, flüssigen Biobrennstoffen und Biomasse-Brennstoffen mit hohem Risiko indirekter Landnutzungsänderungen zu den Zielen für erneuerbare Energie",
+        "es": "Reglamento Delegado de la Comisión por el que se modifica el Reglamento Delegado (UE) 2019/807 de la Comisión con el fin de introducir una trayectoria para reducir gradualmente la contribución de los biocarburantes, biolíquidos o combustibles de biomasa con riesgo elevado de provocar un cambio indirecto del uso de la tierra hasta alcanzar los objetivos en materia de energías renovables",
+        "bg": "Делегиран регламент на Комисията за изменение на Делегиран регламент (ЕС) 2019/807 на Комисията с цел въвеждане на траектория за постепенно намаляване на приноса на биогоривата, течните горива от биомаса и газообразните и твърдите горива от биомаса с висок риск от непреки промени в земеползването в съответствие с целите в областта на енергията от възобновяеми източници",
+        "nl": "Gedelegeerde verordening van de Commissie tot wijziging van Gedelegeerde Verordening (EU) 2019/807 van de Commissie met het oog op de invoering van een traject om de bijdrage van biobrandstoffen, vloeibare biomassa en biomassabrandstoffen met een hoog risico van indirecte veranderingen in landgebruik geleidelijk te verlagen tot de streefcijfers voor hernieuwbare energie",
+        "pl": "Rozporządzenie delegowane Komisji zmieniające rozporządzenie delegowane Komisji (UE) 2019/807 w celu wprowadzenia trajektorii stopniowego zmniejszania wkładu biopaliw, biopłynów i paliw z biomasy o wysokim ryzyku spowodowania pośredniej zmiany użytkowania gruntów na poczet celów w zakresie energii odnawialnej",
+        "ga": "Rialachán Tarmligthe ón gCoimisiún lena leasaítear Rialachán Tarmligthe (AE) 2019/807 ón gCoimisiún chun conair a thabhairt isteach chun tionchar bithbhreoslaí, bithleachtanna agus breoslaí bithmhaise lena ngabhann riosca ard maidir le hathrú indíreach ar thalamhúsáid a laghdú de réir a chéile go dtí go gcomhlíonfar spriocanna fuinnimh in-athnuaite",
+        "hr": "Delegirana uredba Komisije o izmjeni Delegirane uredbe Komisije (EU) 2019/807 radi uvođenja putanje za postupno smanjenje doprinosa biogoriva, tekućih biogoriva i goriva iz biomase s visokim rizikom od neizravnih promjena uporabe zemljišta prema ciljevima u pogledu energije iz obnovljivih izvora",
+        "mt": "Regolament Delegat tal-Kummissjoni li jemenda r-Regolament Delegat tal-Kummissjoni (UE) 2019/807 biex jintroduċi trajettorja biex jitnaqqas gradwalment il-kontribut ta’ bijokarburanti, bijolikwidi u karburanti mill-bijomassa b’riskju għoli ta’ tibdil indirett fl-użu tal-art lejn il-miri tal-enerġija rinnovabbli",
+        "et": "Komisjoni delegeeritud määrus, millega muudetakse komisjoni delegeeritud määrust (EL) 2019/807, et kehtestada trajektoor maakasutuse kaudse muutuse suure riskiga biokütuste, vedelate biokütuste ja biomasskütuste panuse järkjärguliseks vähendamiseks taastuvenergia eesmärkide saavutamisel",
+        "lv": "Komisijas deleģētā regula, ar ko groza Komisijas Deleģēto regulu (ES) 2019/807, nosakot līkni, saskaņā ar kuru pakāpeniski samazināms augsta netiešās zemes izmantošanas maiņas riska biodegvielu, bioloģisko šķidro kurināmo un biomasas kurināmo/degvielu devums atjaunīgās enerģijas mērķrādītāju sasniegšanā",
+        "cs": "Nařízení Komise v přenesené pravomoci, kterým se mění nařízení Komise v přenesené pravomoci (EU) 2019/807 za účelem zavedení trajektorie postupného snížení příspěvku biopaliv, biokapalin a paliv z biomasy s vysokým rizikem nepřímé změny ve využívání půdy k cílům v oblasti energie z obnovitelných zdrojů",
+        "fi": "Komission delegoitu asetus komission delegoidun asetuksen (EU) 2019/807 muuttamisesta sellaisen kehityspolun käyttöön ottamiseksi, jolla vähennetään asteittain suurta epäsuoran maankäytön muutoksen riskiä aiheuttavien biopolttoaineiden, bionesteiden ja biomassapolttoaineiden panosta uusiutuvan energian tavoitteiden saavuttamiseen",
+        "hu": "A Bizottság felhatalmazáson alapuló rendelete az (EU) 2019/807 felhatalmazáson alapuló bizottsági rendeletnek a közvetett földhasználat-változás szempontjából magas kockázatot jelentő bioüzemanyagok, folyékony bio-energiahordozók és biomasszából előállított üzemanyagok által a megújuló energiával kapcsolatos célértékek eléréséhez biztosított hozzájárulás fokozatos csökkentésére vonatkozó ütemterv bevezetése érdekében történő módosításáról",
+        "it": "Regolamento delegato della Commissione che modifica il regolamento delegato (UE) 2019/807 della Commissione per introdurre una traiettoria volta a ridurre gradualmente il contributo dei biocarburanti, bioliquidi e combustibili da biomassa a elevato rischio di cambiamento indiretto di destinazione d'uso dei terreni agli obiettivi di energia rinnovabile",
+        "sk": "Delegované nariadenie Komisie, ktorým sa mení delegované nariadenie Komisie (EÚ) 2019/807 s cieľom zaviesť trajektóriu postupného znižovania príspevku biopalív, biokvapalín a palív z biomasy s vysokým rizikom nepriamej zmeny využívania pôdy k cieľom v oblasti energie z obnoviteľných zdrojov"
+      },
+      "process_type": "def/ep-procedure-types/DEA",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-78",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-78",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-78"
+        }
+      ],
+      "label": "2026/2680(DEA)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

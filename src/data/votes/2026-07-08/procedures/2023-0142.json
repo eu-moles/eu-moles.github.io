@@ -1,0 +1,228 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2023-0142",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/2023-0142-DEC-DCPL-2026-07-08",
+          "type": "Decision",
+          "activity_date": "2026-07-08",
+          "activity_id": "2023-0142-DEC-DCPL-2026-07-08",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0257"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DECISION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-7",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-7",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-07",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-07"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992912",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992912",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0177"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-007"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2023-0142-DEPOT-2026-06-24",
+          "type": "Activity",
+          "activity_date": "2026-06-24",
+          "activity_id": "2023-0142-DEPOT-2026-06-24",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0177"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2023-0142-DEC-ADCP-2026-06-23",
+          "type": "Decision",
+          "activity_date": "2026-06-23",
+          "activity_id": "2023-0142-DEC-ADCP-2026-06-23",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2023-0142-ANPRO-2026-03-12",
+          "type": "Activity",
+          "activity_date": "2026-03-12",
+          "activity_id": "2023-0142-ANPRO-2026-03-12",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/TRAN-PR-786869-DEPOT-2026-04-14",
+          "type": "Activity",
+          "activity_date": "2026-04-14",
+          "activity_id": "TRAN-PR-786869-DEPOT-2026-04-14",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/TRAN-PR-786869"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TRAN-PR-786869",
+        "eli/dl/doc/TA-10-2026-0257",
+        "eli/dl/doc/A-10-2026-0177"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2023-0142-NMSR-124736-2026-06-24",
+          "type": "Participation",
+          "activity_date": "2026-06-24",
+          "had_participant_person": [
+            "person/124736"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 1507
+        },
+        {
+          "id": "eli/dl/participation/2023-0142-NMSR-124884-2026-03-12",
+          "type": "Participation",
+          "activity_date": "2026-03-12",
+          "had_participant_person": [
+            "person/124884"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1504
+        },
+        {
+          "id": "eli/dl/participation/2023-0142-MAIN-TRAN",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/TRAN"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2023-0142-NMSR-256965-2026-03-26",
+          "type": "Participation",
+          "activity_date": "2026-03-26",
+          "had_participant_person": [
+            "person/256965"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 1506
+        },
+        {
+          "id": "eli/dl/participation/2023-0142-NMSR-38542-2026-03-27",
+          "type": "Participation",
+          "activity_date": "2026-03-27",
+          "had_participant_person": [
+            "person/38542"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1502
+        },
+        {
+          "id": "eli/dl/participation/2023-0142-NMSR-256891-2026-03-20",
+          "type": "Participation",
+          "activity_date": "2026-03-20",
+          "had_participant_person": [
+            "person/256891"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 1505
+        },
+        {
+          "id": "eli/dl/participation/2023-0142-NMCP-197402-TRAN-2026-03-25",
+          "type": "Participation",
+          "activity_date": "2026-03-25",
+          "had_participant_person": [
+            "person/197402"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/TRAN",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1501
+        }
+      ],
+      "process_id": "2023-0142",
+      "process_title": {
+        "da": "Protokol om ændring af Euro-Middelhavs-aftalen om luftfart mellem Det Europæiske Fællesskab og dets medlemsstater på den ene side og Kongeriget Marokko på den anden side for at tage hensyn til Republikken Kroatiens tiltrædelse af Den Europæiske Union",
+        "lt": "Protokolas, kuriuo, atsižvelgiant į Kroatijos Respublikos įstojimą į Europos Sąjungą, iš dalies keičiamas Europos bendrijos bei jos valstybių narių ir Maroko Karalystės Europos ir Viduržemio jūros regiono šalių susitarimas dėl susisiekimo oru",
+        "bg": "Протокол за изменение на Евро-средиземноморското споразумение в областта на въздухоплаването между Европейската общност и нейните държави членки, от една страна, и Кралство Мароко, от друга страна, за да се вземе предвид присъединяването към Европейския съюз на Република Хърватия",
+        "ga": "Prótacal lena leasaítear an Comhaontú Eitlíochta Eora-Mheánmhara idir an Comhphobal Eorpach agus a Bhallstáit, de pháirt amháin, agus Ríocht Mharacó, den pháirt eile, chun aontachas Phoblacht na Cróite don Aontas Eorpach a chur san áireamh",
+        "pl": "Protokół zmieniający Eurośródziemnomorską umowę dotyczącą usług lotniczych między Wspólnotą Europejską i jej państwami członkowskimi, z jednej strony, a Królestwem Marokańskim, z drugiej strony, w celu uwzględnienia przystąpienia Republiki Chorwacji do Unii Europejskiej",
+        "fr": "Protocole modifiant l'accord euro-méditerranéen relatif aux services aériens entre la Communauté européenne et ses États membres, d'une part, et le Royaume du Maroc, d'autre part, pour tenir compte de l'adhésion à l'Union européenne de la République de Croatie",
+        "mt": "Protokoll li jemenda l-Ftehim Ewro-Mediterranju dwar l-avjazzjoni bejn il-Komunità Ewropea u l-Istati Membri tagħha, minn naħa waħda, u r-Renju tal-Marokk, min-naħa l-oħra, biex titqies l-adeżjoni tar-Repubblika tal-Kroazja mal-Unjoni Ewropea",
+        "ro": "Protocol de modificare a Acordului euro-mediteraneean privind serviciile aeriene între Comunitatea Europeană și statele membre ale acesteia, pe de o parte, și Regatul Maroc, pe de altă parte, pentru a lua în considerare aderarea Republicii Croația la Uniunea Europeană",
+        "nl": "Protocol tot wijziging van de Euro-mediterrane Luchtvaartovereenkomst tussen de Europese Gemeenschap en haar lidstaten, enerzijds, en het Koninkrijk Marokko, anderzijds, teneinde rekening te houden met de toetreding van de Republiek Kroatië tot de Europese Unie",
+        "fi": "Euroopan yhteisön ja sen jäsenvaltioiden sekä Marokon kuningaskunnan välisen Euro–Välimeri-lentoliikennesopimuksen muuttamisesta Kroatian tasavallan Euroopan unioniin liittymisen huomioon ottamiseksi tehty pöytäkirja",
+        "cs": "Protokol, kterým se mění Evropsko-středomořská letecká dohoda mezi Evropským společenstvím a jeho členskými státy na jedné straně a Marockým královstvím na straně druhé s ohledem na přistoupení Chorvatské republiky k Evropské unii, jménem Evropské unie a jejích členských států",
+        "en": "Protocol amending the Euro-Mediterranean Aviation Agreement between the European Community and its Member States, of the one part, and the Kingdom of Morocco, of the other part, to take account of the accession to the European Union of the Republic of Croatia",
+        "sk": "Protokol, ktorým sa mení Euro-stredomorská dohoda o leteckej doprave medzi Európskym spoločenstvom a jeho členskými štátmi na jednej strane a Marockým kráľovstvom na strane druhej na účely zohľadnenia pristúpenia Chorvátskej republiky k Európskej únii",
+        "pt": "Protocolo que altera o Acordo Euro-Mediterrânico relativo aos serviços aéreos entre a União Europeia e os seus Estados Membros, por um lado, e o Reino de Marrocos, por outro, a fim de ter em conta a adesão da República da Croácia à União Europeia",
+        "el": "Πρωτόκολλο τροποποίησης της ευρωμεσογειακής συμφωνίας αεροπορικών μεταφορών μεταξύ της Ευρωπαϊκής Κοινότητας και των κρατών μελών της, αφενός, και του Βασιλείου του Μαρόκου, αφετέρου, ώστε να ληφθεί υπόψη η προσχώρηση της Δημοκρατίας της Κροατίας στην Ευρωπαϊκή Ένωση",
+        "hu": "Az egyrészről az Európai Közösség és tagállamai, másrészről a Marokkói Királyság között létrejött euromediterrán légiközlekedési megállapodást a Horvát Köztársaság Európai Unióhoz történő csatlakozásának figyelembevétele céljából módosító jegyzőkönyv",
+        "sv": "Protokoll om ändring av Europa–Medelhavsavtalet om luftfart mellan Europeiska gemenskapen och dess medlemsstater, å ena sidan, och Konungariket Marocko, å andra sidan, med anledning av Republiken Kroatiens anslutning till Europeiska unionen",
+        "lv": "Protokols, ar ko groza Eiropas un Vidusjūras reģiona valstu aviācijas nolīgumu starp Eiropas Kopienu un tās dalībvalstīm, no vienas puses, un Marokas Karalisti, no otras puses, lai ņemtu vērā Horvātijas Republikas pievienošanos Eiropas Savienībai",
+        "es": "Protocolo por el que se modifica el Acuerdo euromediterráneo de aviación entre la Comunidad Europea y sus Estados miembros, por una parte, y el Reino de Marruecos, por otra, con el fin de tener en cuenta la adhesión a la Unión Europea de la República de Croacia",
+        "sl": "Protokol o spremembi Evro-sredozemskega letalskega sporazuma med Evropsko skupnostjo in njenimi državami članicami na eni strani ter Kraljevino Maroko na drugi strani zaradi upoštevanja pristopa Republike Hrvaške k Evropski uniji",
+        "et": "Protokoll, millega muudetakse ühelt poolt Euroopa Ühenduse ja selle liikmesriikide ning teiselt poolt Maroko Kuningriigi vahelist Euroopa ja Vahemere piirkonna lennunduslepingut, et võtta arvesse Horvaatia Vabariigi ühinemist Euroopa Liiduga",
+        "it": "Protocollo che modifica l'accordo euromediterraneo nel settore del trasporto aereo fra la Comunità europea e i suoi Stati membri, da un lato, e il Regno del Marocco, dall'altro lato, per tenere conto dell'adesione della Repubblica di Croazia all'Unione europea",
+        "hr": "Protokol o izmjeni Euro-mediteranskog sporazuma o zračnom prometu između Europske zajednice i njezinih država članica, s jedne strane, i Kraljevine Maroka, s druge strane, kako bi se uzelo u obzir pristupanje Republike Hrvatske Europskoj uniji",
+        "de": "Protokoll zur Änderung des Europa-Mittelmeer-Luftverkehrsabkommens zwischen der Europäischen Gemeinschaft und ihren Mitgliedstaaten einerseits und dem Königreich Marokko andererseits anlässlich des Beitritts der Republik Kroatien zur Europäischen Union"
+      },
+      "process_type": "def/ep-procedure-types/NLE",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-44",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-44",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-44"
+        }
+      ],
+      "label": "2023/0142(NLE)",
+      "identifierYear": "2023"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

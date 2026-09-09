@@ -1,0 +1,185 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2617",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/B-10-2026-0333-AM-002-011-DEPOT-2026-07-06",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "B-10-2026-0333-AM-002-011-DEPOT-2026-07-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0333-AM-002-011"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0333-AM-015-016-DEPOT-2026-07-06",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "B-10-2026-0333-AM-015-016-DEPOT-2026-07-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0333-AM-015-016"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-12",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-12",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-12",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-12"
+          ]
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0333-AM-013-014-DEPOT-2026-07-06",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "B-10-2026-0333-AM-013-014-DEPOT-2026-07-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0333-AM-013-014"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-10",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-10",
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-010",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-010"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992943",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992943",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0333"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-012"
+          ]
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0333-AM-012-012-DEPOT-2026-07-06",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "B-10-2026-0333-AM-012-012-DEPOT-2026-07-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0333-AM-012-012"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0333-AM-001-001-DEPOT-2026-07-03",
+          "type": "Activity",
+          "activity_date": "2026-07-03",
+          "activity_id": "B-10-2026-0333-AM-001-001-DEPOT-2026-07-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0333-AM-001-001"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0262",
+        "eli/dl/doc/B-10-2026-0333"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2617-MAIN-FEMM",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/FEMM"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2026-2617-NMCP-256943-FEMM-2025-09-03",
+          "type": "Participation",
+          "activity_date": "2025-09-03",
+          "had_participant_person": [
+            "person/256943"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/FEMM",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 2301
+        }
+      ],
+      "process_id": "2026-2617",
+      "process_title": {
+        "nl": "De gevolgen van de Turkse invasie van 1974 voor Cypriotische vrouwen en meisjes, en de misdaden die door Turkse troepen zijn begaan en de gevolgen daarvan voor de gendergelijkheid",
+        "lv": "Turcijas 1974. gada iebrukuma ietekme uz Kipras sievietēm un meitenēm, Turcijas spēku pastrādātie noziegumi un sekas dzimumu līdztiesībai",
+        "el": "Ο αντίκτυπος της τουρκικής εισβολής του 1974 στις γυναίκες και τα κορίτσια της Κύπρου, τα εγκλήματα που διαπράχθηκαν από τις τουρκικές δυνάμεις και οι συνέπειες για την ισότητα των φύλων",
+        "bg": "Въздействие на турската инвазия през 1974 г. върху кипърските жени и момичета, престъпления, извършени от турските сили, и последици за равенството между половете",
+        "it": "Impatto dell'invasione turca del 1974 sulle donne e le ragazze cipriote, crimini commessi dalle forze turche e conseguenze in termini di parità di genere ",
+        "sv": "Effekterna av den turkiska invasionen 1974 på cypriotiska kvinnor och flickor, de brott som begåtts av turkiska styrkor och konsekvenserna för jämställdheten",
+        "sl": "Vpliv turške invazije leta 1974 na ciprske ženske in deklice ter kazniva dejanja, ki so jih zagrešile turške sile, in posledice za enakost spolov",
+        "fi": "Turkin vuoden 1974 hyökkäyksen seuraukset kyproslaisille naisille ja tytöille, Turkin joukkojen tekemät rikokset ja seuraukset sukupuolten tasa-arvolle",
+        "hr": "Učinak turske invazije 1974. godine na ciparske žene i djevojčice te zločini koje su počinile turske snage i posljedice na rodnu ravnopravnost",
+        "pl": "Wpływ inwazji tureckiej z 1974 r. na kobiety i dziewczęta na Cyprze oraz zbrodnie popełnione przez siły tureckie i konsekwencje dla równości płci",
+        "cs": "Dopad turecké invaze z roku 1974 na kyperské ženy a dívky, zločiny spáchané tureckými silami a jejich důsledky pro genderovou rovnost",
+        "lt": "1974 m. Turkijos invazijos poveikis Kipro moterims ir mergaitėms, Turkijos pajėgų įvykdyti nusikaltimai ir pasekmės lyčių lygybei",
+        "da": "Konsekvenserne af Tyrkiets invasion i 1974 for de cypriotiske kvinder og piger og af de forbrydelser, som de tyrkiske tropper begik, samt følgevirkningerne heraf for ligestillingen mellem kønnene",
+        "sk": "Vplyv tureckej invázie z roku 1974 na cyperské ženy a dievčatá a zločiny spáchané tureckými silami a dôsledky pre rodovú rovnosť",
+        "fr": "Répercussions de l’invasion turque de 1974 sur les femmes et les filles chypriotes, crimes perpétrés par les forces turques et conséquences sur l’égalité des genres",
+        "es": "Repercusiones de la invasión turca de 1974 para las mujeres y las niñas chipriotas, crímenes cometidos por las fuerzas turcas y consecuencias para la igualdad de género",
+        "pt": "O impacto da invasão turca de 1974 nas mulheres e nas raparigas cipriotas, os crimes cometidos pelas forças turcas e as consequências para a igualdade de género",
+        "ro": "Impactul invaziei turce din 1974 asupra femeilor și fetelor din Cipru, crimele comise de forțele turce și consecințele asupra egalității de gen",
+        "et": "Türgi 1974. aasta sissetungi mõju Küprose naistele ja tütarlastele ning Türgi vägede toime pandud kuriteod ja tagajärjed soolisele võrdõiguslikkusele",
+        "de": "Die Folgen der türkischen Invasion von 1974 für zyprische Frauen und Mädchen, die von den türkischen Streitkräften verübten Verbrechen und die Konsequenzen für die Gleichstellung der Geschlechter",
+        "en": "The impact of the 1974 Turkish invasion on Cypriot women and girls, and the crimes committed by Turkish forces and consequences on gender equality",
+        "hu": "Az 1974-es török invázió ciprusi nőkre és lányokra gyakorolt hatása, a török erők által elkövetett bűncselekmények és a nemek közötti egyenlőségre gyakorolt következmények",
+        "ga": "Tionchar ionradh na Tuirce in 1974 ar mhná agus ar chailíní na Cipire, agus na coireanna a rinne fórsaí na Tuirce agus na hiarmhairtí ar chomhionannas inscne",
+        "mt": "L-impatt tal-invażjoni Torka tal-1974 fuq in-nisa u l-bniet Ċiprijotti, u d-delitti mwettqa mill-forzi Torok u l-konsegwenzi għall-ugwaljanza bejn il-ġeneri"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-102",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-102",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-102"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-102",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-D-102",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "notation_agendaPoint": "D-102"
+        }
+      ],
+      "label": "2026/2617(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

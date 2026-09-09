@@ -5,7 +5,10 @@
   {{- with index $data "translations" -}}
     {{- range $speechNumber, $translation := . -}}
       {{- if and $translation (ne (index $translation "englishText" | default "") "") -}}
-        {{- $translations = merge $translations (dict $speechNumber $translation) -}}
+        {{- $englishText := index $translation "englishText" -}}
+        {{- /* Display cleanup for translations cached before the parser fix. */ -}}
+        {{- $englishText = replaceRE `(?i)^[[:space:]]*,?[[:space:]]*on behalf of (the )?[^.\r\n]+\.[[:space:]]*[–—-][[:space:]]*` "" $englishText -}}
+        {{- $translations = merge $translations (dict $speechNumber (merge $translation (dict "englishText" $englishText))) -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

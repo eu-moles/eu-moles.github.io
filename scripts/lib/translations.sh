@@ -145,7 +145,15 @@ generate_translation_candidates() {
     function trim(value) { sub(/^[ \t\r\n\f]+/, "", value); sub(/[ \t\r\n\f]+$/, "", value); return value }
     function clean(value) { gsub(/[ \t\r\n\f]+/, " ", value); while (match(value, /[ \t\r\n\f]+[,.;:!?]/)) value = substr(value, 1, RSTART - 1) substr(value, RSTART + RLENGTH - 1, 1) substr(value, RSTART + RLENGTH); return trim(value) }
     function json_escape(value) { gsub(/\\/, "\\\\", value); gsub(/"/, "\\\"", value); gsub(/\n/, "\\n", value); gsub(/\r/, "\\r", value); return value }
-    function flush_turn(    code) { if (!speaker || !speech_number || !buffer || (speech_number in seen)) return; code = languages[speech_number]; if (!code && written_statement_section) code = "auto"; if (!code) return; printf "{\"speechNumber\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(code), json_escape(buffer); seen[speech_number] = 1 }
+    function strip_initial_attribution(value) {
+      # CRE can split a speaker/group lead-in and its dash over two paragraphs:
+      # “, on behalf of the Group.\n\n– Actual remarks”. Remove it before the
+      # text reaches the translation cache.
+      sub(/^[^(\r\n]*\([^)]*\)\.[[:space:]]*[–—-][[:space:]]*/, "", value)
+      sub(/^,[^.\r\n]*\.[[:space:]]*[–—-][[:space:]]*/, "", value)
+      return value
+    }
+    function flush_turn(    code,speech_text) { if (!speaker || !speech_number || !buffer || (speech_number in seen)) return; code = languages[speech_number]; if (!code && written_statement_section) code = "auto"; if (!code) return; speech_text = strip_initial_attribution(buffer); printf "{\"speechNumber\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(code), json_escape(speech_text); seen[speech_number] = 1 }
     function process_paragraph(    i,line,text,bookmark,part,without_speaker,is_written_statement_heading) {
       text = ""; bookmark = ""; is_written_statement_heading = 0
       for (i = 1; i <= paragraph_lines; i++) { line = paragraph[i]; if (line ~ /<w:pStyle w:val="Normal12BoldItalicCentered"\/>/) is_written_statement_heading = 1; if (line ~ /<w:bookmarkStart/) { bookmark = line; sub(/^.*w:name="/, "", bookmark); sub(/".*$/, "", bookmark) }; if (line ~ /<w:t([[:space:]][^>]*)?>/) { part = line; sub(/^.*<w:t([^>]*)>/, "", part); sub(/<\/w:t>.*$/, "", part); gsub(/&amp;/, "\\&", part); gsub(/&quot;/, "\\\"", part); gsub(/&apos;/, "\047", part); gsub(/&lt;/, "<", part); gsub(/&gt;/, ">", part); text = text part } else if (line ~ /<w:(tab|br|cr)\/>/) text = text " " }

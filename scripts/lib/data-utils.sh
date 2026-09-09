@@ -63,13 +63,27 @@ curl_with_error_url() {
   local error_log
   local status
   local url="${!#}"
+  local rate_limit_attempt=0
+  local max_rate_limit_retries=5
+  local rate_limit_delay_seconds=15
 
   error_log=$(make_temporary_file "curl-error")
-  if curl --stderr "$error_log" "$@"; then
-    status=0
-  else
-    status=$?
-  fi
+  while :; do
+    : > "$error_log"
+    if curl --stderr "$error_log" "$@"; then
+      status=0
+    else
+      status=$?
+    fi
+
+    if (( status != 0 )) && grep -Eq '(^|[^0-9])429([^0-9]|$)' "$error_log" && (( rate_limit_attempt < max_rate_limit_retries )); then
+      rate_limit_attempt=$((rate_limit_attempt + 1))
+      progress_error "curl request was rate-limited (HTTP 429); retry $rate_limit_attempt/$max_rate_limit_retries in ${rate_limit_delay_seconds}s: $url"
+      sleep "$rate_limit_delay_seconds"
+      continue
+    fi
+    break
+  done
 
   while IFS= read -r error_line || [[ -n "$error_line" ]]; do
     progress_error "$error_line"

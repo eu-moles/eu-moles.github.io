@@ -1,0 +1,301 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-2258",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/A-10-2026-0164-AM-005-012-DEPOT-2026-07-01",
+          "type": "Activity",
+          "activity_date": "2026-07-01",
+          "activity_id": "A-10-2026-0164-AM-005-012-DEPOT-2026-07-01",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0164-AM-005-012"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2258-DEPOT-2026-06-10",
+          "type": "Activity",
+          "activity_date": "2026-06-10",
+          "activity_id": "2025-2258-DEPOT-2026-06-10",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0164"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/AFET-PR-782290-DEPOT-2026-03-02",
+          "type": "Activity",
+          "activity_date": "2026-03-02",
+          "activity_id": "AFET-PR-782290-DEPOT-2026-03-02",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/AFET-PR-782290"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-PVCRE-ITM-16",
+          "type": "Activity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-PVCRE-ITM-16",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0164"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-07-ITM-016",
+            "eli/dl/doc/CRE-10-2026-07-07-ITM-016"
+          ]
+        },
+        {
+          "id": "eli/dl/event/A-10-2026-0164-AM-001-004-DEPOT-2026-06-30",
+          "type": "Activity",
+          "activity_date": "2026-06-30",
+          "activity_id": "A-10-2026-0164-AM-001-004-DEPOT-2026-06-30",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0164-AM-001-004"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/AFET-AM-786967-DEPOT-2026-04-10",
+          "type": "Activity",
+          "activity_date": "2026-04-10",
+          "activity_id": "AFET-AM-786967-DEPOT-2026-04-10",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/AFET-AM-786967"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_AMENDMENT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-2258-ANPRO-2025-12-18",
+          "type": "Activity",
+          "activity_date": "2025-12-18",
+          "activity_id": "2025-2258-ANPRO-2025-12-18",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-10",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-10",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-10",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-10"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992923",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992923",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0164"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-010"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2025-2258-DEC-ADCP-2026-06-03",
+          "type": "Decision",
+          "activity_date": "2026-06-03",
+          "activity_id": "2025-2258-DEC-ADCP-2026-06-03",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0164",
+        "eli/dl/doc/TA-10-2026-0260",
+        "eli/dl/doc/AFET-PR-782290"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-2258-NMSR-200345-2026-02-10",
+          "type": "Participation",
+          "activity_date": "2026-02-10",
+          "had_participant_person": [
+            "person/200345"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 103
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-NMCP-197497-AFET-2025-11-04",
+          "type": "Participation",
+          "activity_date": "2025-11-04",
+          "had_participant_person": [
+            "person/197497"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/AFET",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 102
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-MAIN-AFET",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/AFET"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-NMSR-257110-2026-02-03",
+          "type": "Participation",
+          "activity_date": "2026-02-03",
+          "had_participant_person": [
+            "person/257110"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 105
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-NMSR-111412-2026-02-03",
+          "type": "Participation",
+          "activity_date": "2026-02-03",
+          "had_participant_person": [
+            "person/111412"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 106
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-NMSR-2268-2026-02-05",
+          "type": "Participation",
+          "activity_date": "2026-02-05",
+          "had_participant_person": [
+            "person/2268"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 107
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-NMSR-197655-2026-02-09",
+          "type": "Participation",
+          "activity_date": "2026-02-09",
+          "had_participant_person": [
+            "person/197655"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 104
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-NMSR-197514-2024-12-03",
+          "type": "Participation",
+          "activity_date": "2024-12-03",
+          "had_participant_person": [
+            "person/197514"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 101
+        },
+        {
+          "id": "eli/dl/participation/2025-2258-NMSR-256959-2026-02-06",
+          "type": "Participation",
+          "activity_date": "2026-02-06",
+          "had_participant_person": [
+            "person/256959"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ESN",
+          "precedenceOrder": 108
+        }
+      ],
+      "process_id": "2025-2258",
+      "process_title": {
+        "en": "2025 Commission report on Moldova",
+        "el": "Έκθεση της Επιτροπής του 2025 για τη Μολδαβία",
+        "lt": "2025 m. Komisijos ataskaita dėl Moldovos",
+        "fr": "Rapport 2025 de la Commission concernant la Moldavie",
+        "lv": "Komisijas 2025. gada ziņojums par Moldovu",
+        "sl": "Poročilo Komisije o Moldaviji za leto 2025",
+        "fi": "Moldovaa koskeva komission vuoden 2025 kertomus",
+        "sv": "Kommissionens rapport för 2025 om Moldavien",
+        "ro": "Raportul Comisiei din 2025 privind Republica Moldova",
+        "it": "Relazione 2025 della Commissione sulla Moldova",
+        "da": "Kommissionens 2025-rapport om Moldova",
+        "sk": "Správa Komisie o Moldavsku za rok 2025",
+        "es": "Informe de 2025 de la Comisión sobre Moldavia",
+        "ga": "Tuarascáil 2025 ón gCoimisiún maidir leis an Moldóiv",
+        "pt": "Relatório de 2025 da Comissão relativo à Moldávia",
+        "hr": "Izvješće Komisije o Moldovi za 2025.",
+        "hu": "A Bizottság Moldováról szóló 2025. évi jelentése",
+        "de": "Bericht 2025 der Kommission über Moldau",
+        "bg": "Доклад на Комисията относно Молдова за 2025 г.",
+        "nl": "Commissieverslag 2025 over Moldavië",
+        "pl": "Sprawozdanie Komisji dotyczące Mołdawii – 2025 r.",
+        "mt": "Ir-rapport 2025 tal-Kummissjoni dwar il-Moldova",
+        "et": "Komisjoni 2025. aasta aruanne Moldova kohta",
+        "cs": "Zpráva Komise o Moldavsku za rok 2025"
+      },
+      "process_type": "def/ep-procedure-types/INI",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-73",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-73",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-73"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-07-OJ-ITM-D-73",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-07",
+          "activity_id": "MTG-PL-2026-07-07-OJ-ITM-D-73",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-07"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "notation_agendaPoint": "D-73"
+        }
+      ],
+      "label": "2025/2258(INI)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

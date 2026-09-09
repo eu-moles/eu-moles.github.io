@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-0244",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/2025-0244-DEPOT-2026-06-12",
+          "type": "Activity",
+          "activity_date": "2026-06-12",
+          "activity_id": "2025-0244-DEPOT-2026-06-12",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0156"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-6",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-6",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-06",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-06"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2025-0244-DEC-DCPL-2026-07-08",
+          "type": "Decision",
+          "activity_date": "2026-07-08",
+          "activity_id": "2025-0244-DEC-DCPL-2026-07-08",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0256"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DECISION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0244-DEC-ADCP-2026-06-03",
+          "type": "Decision",
+          "activity_date": "2026-06-03",
+          "activity_id": "2025-0244-DEC-ADCP-2026-06-03",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0244-ANPRO-2026-03-12",
+          "type": "Activity",
+          "activity_date": "2026-03-12",
+          "activity_id": "2025-0244-ANPRO-2026-03-12",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992922",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992922",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0156"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-006"
+          ]
+        },
+        {
+          "id": "eli/dl/event/JURI-PR-786991-DEPOT-2026-04-20",
+          "type": "Activity",
+          "activity_date": "2026-04-20",
+          "activity_id": "JURI-PR-786991-DEPOT-2026-04-20",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/JURI-PR-786991"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0256",
+        "eli/dl/doc/A-10-2026-0156",
+        "eli/dl/doc/JURI-PR-786991"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-0244-NMSR-257073-2026-06-04",
+          "type": "Participation",
+          "activity_date": "2026-06-04",
+          "had_participant_person": [
+            "person/257073"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 2004
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-AVI-LIBE",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/LIBE"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-NMSR-197795-2026-04-23",
+          "type": "Participation",
+          "activity_date": "2026-04-23",
+          "had_participant_person": [
+            "person/197795"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 2007
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-NMSR-197573-2026-05-04",
+          "type": "Participation",
+          "activity_date": "2026-05-04",
+          "had_participant_person": [
+            "person/197573"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 2006
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-MAIN-JURI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/JURI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-NMSR-125012-2026-04-25",
+          "type": "Participation",
+          "activity_date": "2026-04-25",
+          "had_participant_person": [
+            "person/125012"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 2001
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-NMSR-256993-2026-04-27",
+          "type": "Participation",
+          "activity_date": "2026-04-27",
+          "had_participant_person": [
+            "person/256993"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 2002
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-AVI-ENVI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ENVI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2025-0244-NMCP-124866-JURI-2026-04-07",
+          "type": "Participation",
+          "activity_date": "2026-04-07",
+          "had_participant_person": [
+            "person/124866"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/JURI",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 2005
+        }
+      ],
+      "process_id": "2025-0244",
+      "process_title": {
+        "en": "Conclusion, on behalf of the European Union, of the Council of Europe Convention on the protection of the environment through criminal law",
+        "bg": "Сключване от името на Европейския съюз на Конвенцията на Съвета на Европа за опазване на околната среда чрез наказателното право",
+        "nl": "Sluiting, namens de Europese Unie, van het Verdrag van de Raad van Europa inzake de bescherming van het milieu door middel van het strafrecht",
+        "fi": "Ympäristönsuojelua rikosoikeudellisin keinoin koskevan Euroopan neuvoston yleissopimuksen tekeminen Euroopan unionin puolesta",
+        "lt": "Europos Tarybos konvencijos dėl aplinkos apsaugos pagal baudžiamąją teisę sudarymas Europos Sąjungos vardu",
+        "hr": "Sklapanje, u ime Europske unije, Konvencije Vijeća Europe o zaštiti okoliša putem\nkaznenog prava",
+        "mt": "Il-konklużjoni, f’isem l-Unjoni Ewropea, tal-Konvenzjoni tal-Kunsill tal-Ewropa dwar il-ħarsien tal-ambjent permezz tal-liġi kriminali",
+        "sv": "Ingående på Europeiska unionens vägnar av Europarådets konvention om straffrättsliga sanktioner till skydd för miljön",
+        "cs": "Uzavření Úmluvy Rady Evropy jménem Evropské unie o trestněprávní ochraně životního prostředí ",
+        "pt": "Celebração, em nome da União Europeia, da Convenção do Conselho da Europa sobre a Proteção do Ambiente através do Direito Penal",
+        "lv": "Eiropas Padomes Konvencijas par vides krimināltiesisko aizsardzību noslēgšana Eiropas Savienības vārdā",
+        "fr": "Conclusion, au nom de l’Union européenne, de la convention du Conseil de l’Europe sur la protection de l’environnement par le droit pénal",
+        "ro": "Încheierea, în numele Uniunii Europene, a Convenției Consiliului Europei privind protecția mediului prin intermediul dreptului penal",
+        "et": "Kriminaalõiguse kaudu keskkonna kaitsmist käsitleva Euroopa Nõukogu konventsiooni Euroopa Liidu nimel sõlmimine",
+        "hu": "Az Európa Tanácsnak a környezet büntetőjog általi védelméről szóló egyezménye Európai Unió nevében történő megkötése",
+        "ga": "Tabhairt i gcrích, thar ceann an Aontais Eorpaigh, Choinbhinsiún Chomhairle na hEorpa maidir le cosaint an chomhshaoil tríd an dlí coiriúil",
+        "sk": "Uzavretie, v mene Európskej únie, Dohovoru Rady Európy na ochranu životného prostredia prostredníctvom trestného práva",
+        "it": "Conclusione, a nome dell'Unione europea, della convenzione del Consiglio d'Europa sulla protezione dell'ambiente attraverso il diritto penale",
+        "da": "Indgåelse på den Europæiske Unions vegne af Europarådets konvention om strafferetlig beskyttelse af miljøet",
+        "sl": "Sklenitev, v imenu Evropske unije, Konvencije Sveta Evrope o kazenskopravni zaščiti okolja",
+        "pl": "Zawarcie, w imieniu Unii Europejskiej, konwencji Rady Europy o ochronie środowiska poprzez prawo karne",
+        "de": "Abschluss – im Namen der Europäischen Union – des Übereinkommens des Europarates über den Schutz der Umwelt durch das Strafrecht",
+        "el": "Σύναψη, εξ ονόματος της Ευρωπαϊκής Ένωσης, της Σύμβασης του Συμβουλίου της Ευρώπης για την προστασία του περιβάλλοντος μέσω του ποινικού δικαίου",
+        "es": "Celebración, en nombre de la Unión Europea, del Convenio del Consejo de Europa sobre la protección del medio ambiente mediante el Derecho penal"
+      },
+      "process_type": "def/ep-procedure-types/NLE",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-43",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-43",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-43"
+        }
+      ],
+      "label": "2025/0244(NLE)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

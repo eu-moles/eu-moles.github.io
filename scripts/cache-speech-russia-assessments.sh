@@ -64,17 +64,13 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
   function trim(value) { sub(/^[ \t\r\n\f]+/, "", value); sub(/[ \t\r\n\f]+$/, "", value); return value }
   function clean(value) { gsub(/[ \t\r\n\f]+/, " ", value); while (match(value, /[ \t\r\n\f]+[,.;:!?]/)) value = substr(value, 1, RSTART - 1) substr(value, RSTART + RLENGTH - 1, 1) substr(value, RSTART + RLENGTH); return trim(value) }
   function json_escape(value) { gsub(/\\/, "\\\\", value); gsub(/"/, "\\\"", value); gsub(/\n/, "\\n", value); gsub(/\r/, "\\r", value); return value }
-  function strip_initial_attribution(value, opening) {
+  function strip_initial_attribution(value) {
     # CRE paragraphs can begin with editorial speaker/group metadata such as
     # “Name (Group). –”, or “, on behalf of Group. –”, in any language.
     # Those labels are not remarks and must never reach the translation or AI
     # assessment pipeline.
-    opening = value; sub(/\n\n.*/, "", opening)
-    if (opening ~ /^[^(]*\([^)]*\)\.[[:space:]]*[–—-][[:space:]]*/) {
-      sub(/^[^(]*\([^)]*\)\.[[:space:]]*[–—-][[:space:]]*/, "", value)
-    } else if (opening ~ /^,[^.]*\.[[:space:]]*[–—-][[:space:]]*/) {
-      sub(/^,[^.]*\.[[:space:]]*[–—-][[:space:]]*/, "", value)
-    }
+    sub(/^[^(\r\n]*\([^)]*\)\.[[:space:]]*[–—-][[:space:]]*/, "", value)
+    sub(/^,[^.\r\n]*\.[[:space:]]*[–—-][[:space:]]*/, "", value)
     return value
   }
   function flush_turn(    code,speaker_label,opening) {
@@ -183,11 +179,12 @@ jq \
   --slurpfile candidates "$temporary_candidates" \
   --slurpfile existing "$existing_file" '
   def usable: (.benefitsRussia | type) == "boolean";
+  def unavailable: .assessmentStatus == "unavailable";
   reduce $candidates[0][] as $candidate (
     {version: 1, items: {}};
     ($existing[0].items[$candidate.speechNumber] // {}) as $previous
     | ($previous.promptVersion == $prompt_version
-      and ($previous | usable)) as $cached
+      and ($previous | (usable or unavailable))) as $cached
     | .items[$candidate.speechNumber] = {
         sourceLanguage: $candidate.sourceLanguage,
         speaker: $candidate.speaker,
@@ -197,6 +194,7 @@ jq \
         textOrigin: $candidate.textOrigin,
         promptVersion: $prompt_version,
         benefitsRussia: (if $cached then $previous.benefitsRussia else null end),
+        assessmentStatus: (if $cached then ($previous.assessmentStatus // (if ($previous | usable) then "complete" else "unavailable" end)) else "pending" end),
         generatedAt: (if $cached then ($previous.generatedAt // null) else null end)
       }
   )
@@ -227,6 +225,21 @@ is_valid_assessment() {
   jq -e 'type == "object" and (keys | sort == ["benefitsRussia"]) and (.benefitsRussia | type == "boolean")' <<< "$1" > /dev/null 2>&1
 }
 
+redact_graphic_content_for_assessment() {
+  # Provider safety systems can suppress an otherwise ordinary policy-screening
+  # request when a speech quotes graphic sexual violence or slurs. Those details
+  # are irrelevant to this narrowly scoped Russia-benefit assessment.
+  awk 'BEGIN { RS = ""; ORS = "\n\n" }
+    {
+      normalised = tolower($0)
+      if (normalised ~ /(rape|raped|sexual abuse|sexual violence|vagina|anus|abortion|miscarriage|whore|slut|grooming gang)/) {
+        print "[Graphic sexual-violence details omitted. Assess only the policy positions in the remaining contribution.]"
+      } else {
+        print $0
+      }
+    }'
+}
+
 assessment_instructions='Screen this single European Parliament debate contribution for a data flag. Analyse the concrete policy position expressed, not the speaker, party, nationality, tone, factual accuracy or rhetorical hostility. Output only a one-line JSON object with exactly one boolean key: benefitsRussia.
 
 Set benefitsRussia to true only if the contribution advocates, endorses, or clearly argues for a concrete outcome that would reasonably benefit Russian strategic interests by weakening European security or support for Ukraine or Moldova. This includes ending, reducing or obstructing sanctions; military, financial or economic support for Ukraine; EU or NATO defence and security coordination; European defence investment; energy independence; or counter-disinformation.
@@ -236,15 +249,16 @@ In the context of Russia’s war against Ukraine, treat calls against weapons de
 Always set benefitsRussia to false for an accession objection based on historical memory, wartime atrocities, symbols, national identity, corruption, costs, minority rights, national interest or domestic politics—even when it says Ukraine should never join the EU—unless the contribution independently calls to reduce support or links the requested block to war, escalation, Russia or NATO. Also set it to false for factual reporting; criticism without a requested policy change; peace language that still supports Ukraine’s sovereignty and continuing assistance; and criticism of military spending unrelated to Russia’s war against Ukraine. Do not guess motives.'
 
 assessment_total=$(jq '.items | length' "$output_file")
-pending_total=$(jq '[.items[] | select((.benefitsRussia | type) != "boolean")] | length' "$output_file")
+pending_total=$(jq '[.items[] | select(.assessmentStatus == "pending")] | length' "$output_file")
 retry_delay_seconds=${SPEECH_RUSSIA_RETRY_DELAY_SECONDS:-2}
+max_empty_response_attempts=3
 progress_note "Speech Russia assessments: $pending_total/$assessment_total response(s) need generating"
 
 response_current=0
 while IFS= read -r candidate; do
   response_current=$((response_current + 1))
   speech_number=$(jq -r '.key' <<< "$candidate")
-  if [[ $(jq -r '.value.benefitsRussia | type' <<< "$candidate") == "boolean" ]]; then
+  if [[ $(jq -r '.value.assessmentStatus' <<< "$candidate") != "pending" ]]; then
     progress_note "Speech Russia assessments: response $response_current/$assessment_total cached ($speech_number)"
     continue
   fi
@@ -257,11 +271,17 @@ while IFS= read -r candidate; do
   if (( ${#english_text} > 12000 )); then
     english_text="${english_text:0:9000}"$'\n\n[Middle of contribution omitted for length]\n\n'"${english_text: -3000}"
   fi
+  assessment_text=$(printf '%s' "$english_text" | redact_graphic_content_for_assessment)
+  if [[ "$assessment_text" != "$english_text" ]]; then
+    progress_note "Speech Russia assessments: redacted graphic detail for provider safety ($speech_number)"
+  fi
   prompt=$(printf '%s\n\nContribution number: %s\nEnglish text source: %s (%s)\n--- contribution ---\n%s\n--- end contribution ---' \
-    "$assessment_instructions" "$speech_number" "$text_origin" "$source_language" "$english_text")
+    "$assessment_instructions" "$speech_number" "$text_origin" "$source_language" "$assessment_text")
 
   progress_note "Speech Russia assessments: response $response_current/$assessment_total generating ($speech_number)"
   attempt=0
+  empty_response_attempts=0
+  assessment_ready=false
   while :; do
     attempt=$((attempt + 1))
     answer=""
@@ -271,7 +291,10 @@ while IFS= read -r candidate; do
     else
       answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_tgpt_error" | normalise_json_response) || answer=""
     fi
-    if is_valid_assessment "$answer"; then break; fi
+    if is_valid_assessment "$answer"; then
+      assessment_ready=true
+      break
+    fi
 
     tgpt_error=$(compact_text < "$temporary_tgpt_error")
     if [[ -n "$tgpt_error" ]]; then
@@ -279,17 +302,31 @@ while IFS= read -r candidate; do
     elif [[ -n "$answer" ]]; then
       progress_error "Speech Russia assessments: attempt $attempt for $speech_number returned invalid output: ${answer:0:600}"
     else
+      empty_response_attempts=$((empty_response_attempts + 1))
       progress_error "Speech Russia assessments: attempt $attempt for $speech_number returned no output"
+      if (( empty_response_attempts >= max_empty_response_attempts )); then
+        progress_error "Speech Russia assessments: $speech_number returned no output $max_empty_response_attempts times; caching it as unavailable until the screening prompt changes."
+        jq \
+          --arg speech_number "$speech_number" \
+          --arg generated_at "$(date --iso-8601=seconds)" \
+          '.items[$speech_number].assessmentStatus = "unavailable" | .items[$speech_number].generatedAt = $generated_at' \
+          "$output_file" > "$temporary_output"
+        mv -f "$temporary_output" "$output_file"
+        temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
+        break
+      fi
     fi
     progress_note "Speech Russia assessments: attempt $attempt for $speech_number was unusable; retrying in ${retry_delay_seconds}s"
     sleep "$retry_delay_seconds"
   done
 
+  [[ "$assessment_ready" == true ]] || continue
+
   jq \
     --arg speech_number "$speech_number" \
     --argjson benefits_russia "$(jq -c '.benefitsRussia' <<< "$answer")" \
     --arg generated_at "$(date --iso-8601=seconds)" \
-    '.items[$speech_number].benefitsRussia = $benefits_russia | .items[$speech_number].generatedAt = $generated_at' \
+    '.items[$speech_number].benefitsRussia = $benefits_russia | .items[$speech_number].assessmentStatus = "complete" | .items[$speech_number].generatedAt = $generated_at' \
     "$output_file" > "$temporary_output"
   mv -f "$temporary_output" "$output_file"
   temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")

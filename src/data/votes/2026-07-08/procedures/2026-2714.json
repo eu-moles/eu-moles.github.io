@@ -1,0 +1,136 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2714",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-2",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-2",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-02",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-02"
+          ]
+        },
+        {
+          "id": "eli/dl/event/2026-2714-ANPRO-2026-05-20",
+          "type": "Activity",
+          "activity_date": "2026-05-20",
+          "activity_id": "2026-2714-ANPRO-2026-05-20",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992941",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992941",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0344"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-002"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/B-10-2026-0344"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2714-AVI-IMCO",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/IMCO"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2026-2714-MAIN-ENVI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ENVI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2026-2714-AVI-ITRE",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ITRE"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_OPINION"
+        },
+        {
+          "id": "eli/dl/participation/2026-2714-NMCP-197607-ENVI-2026-05-21",
+          "type": "Participation",
+          "activity_date": "2026-05-21",
+          "had_participant_person": [
+            "person/197607"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/ECR",
+          "precedenceOrder": 1104
+        }
+      ],
+      "process_id": "2026-2714",
+      "process_title": {
+        "hu": "A bizottság rendelete a vegyi anyagok regisztrálásáról, értékeléséről, engedélyezéséről és korlátozásáról (REACH) szóló 1907/2006/EK európai parlamenti és tanácsi rendelet XVII. mellékletének az egyes horgász-, illetve halászfelszerelésekben található ólom tekintetében történő módosításáról",
+        "bg": "Регламент на Комисията за изменение на приложение XVII към Регламент (ЕО) № 1907/2006 на Европейския парламент и на Съвета относно регистрацията, оценката, разрешаването и ограничаването на химикали („REACH“) по отношение на оловото в някои риболовни принадлежности",
+        "ga": "Rialachán ón gCoimisiún lena leasaítear Iarscríbhinn XVII a ghabhann le Rialachán (CE) Uimh. 1907/2006 ó Pharlaimint na hEorpa agus ón gComhairle maidir le Clárú, Meastóireacht, Údarú agus Srianadh Ceimiceán (REACH) a mhéid a bhaineann le luaidhe i dtácla iascaireachta áirithe",
+        "it": "Regolamento della Commissione recante modifica dell'allegato XVII del regolamento (CE) n. 1907/2006 del Parlamento europeo e del Consiglio concernente la registrazione, la valutazione, l'autorizzazione e la restrizione delle sostanze chimiche (REACH) per quanto riguarda il piombo contenuto in talune attrezzature da pesca",
+        "de": "Verordnung der Kommission zur Änderung des Anhangs XVII der Verordnung (EG) Nr. 1907/2006 des Europäischen Parlaments und des Rates zur Registrierung, Bewertung, Zulassung und Beschränkung chemischer Stoffe (REACH) in Bezug auf Blei in bestimmtem Angelgerät",
+        "fi": "Komission asetus kemikaalien rekisteröinnistä, arvioinnista, lupamenettelyistä ja rajoituksista annetun Euroopan parlamentin ja neuvoston asetuksen (EY) N:o 1907/2006 (REACH) liitteen XVII muuttamisesta siltä osin kuin on kyse lyijystä tietyissä kalastustarvikkeissa",
+        "mt": "Regolament tal-Kummissjoni li jemenda l-Anness XVII tar-Regolament (KE) Nru 1907/2006 tal-Parlament Ewropew u tal-Kunsill dwar ir-Reġistrazzjoni, il-Valutazzjoni, l-Awtorizzazzjoni u r-Restrizzjoni ta’ Sustanzi Kimiċi (REACH) fir-rigward taċ-ċomb f’ċertu tagħmir tas-sajd",
+        "ro": "Regulamentul Comisiei de modificare a anexei XVII la Regulamentul (CE) nr. 1907/2006 al Parlamentului European și al Consiliului privind înregistrarea, evaluarea, autorizarea și restricționarea substanțelor chimice (REACH) în ceea ce privește plumbul din anumite articole de pescuit",
+        "sv": "Kommissionens förordning om ändring av bilaga XVII till Europaparlamentets och rådets förordning (EG) nr 1907/2006 om registrering, utvärdering, godkännande och begränsning av kemikalier (Reach) vad gäller bly i vissa fiskeredskap",
+        "lt": "Komisijos reglamentas, kuriuo dėl švino tam tikruose žūklės reikmenyse iš dalies keičiamas Europos Parlamento ir Tarybos reglamento (EB) Nr. 1907/2006 dėl cheminių medžiagų registracijos, įvertinimo, autorizacijos ir apribojimų (REACH) XVII priedas",
+        "et": "Komisjoni määrus, millega muudetakse Euroopa Parlamendi ja nõukogu määruse (EÜ) nr 1907/2006 (mis käsitleb kemikaalide registreerimist, hindamist, autoriseerimist ja piiramist (REACH)) XVII lisa seoses teatavate pliid sisaldavate kalastustarvetega",
+        "en": "Commission Regulation amending Annex XVII to Regulation (EC) No 1907/2006 of the European Parliament and of the Council concerning the Registration, Evaluation, Authorisation and Restriction of Chemicals (REACH) as regards lead in certain fishing tackle",
+        "sl": "Uredba Komisije o spremembi Priloge XVII k Uredbi (ES) št. 1907/2006 Evropskega parlamenta in Sveta o registraciji, evalvaciji, avtorizaciji in omejevanju kemikalij (REACH) glede svinca v nekaterem priboru za ribolov",
+        "es": "Reglamento de la Comisión por el que se modifica, en lo que respecta al plomo en determinados aparejos de pesca, el anexo XVII del Reglamento (CE) n.º 1907/2006 del Parlamento Europeo y del Consejo, relativo al registro, la evaluación, la autorización y la restricción de las sustancias y mezclas químicas (REACH)",
+        "pl": "Rozporządzenie Komisji zmieniające załącznik XVII do rozporządzenia (WE) nr 1907/2006 Parlamentu Europejskiego i Rady w sprawie rejestracji, oceny, udzielania zezwoleń i stosowanych ograniczeń w zakresie chemikaliów (REACH) w odniesieniu do ołowiu w niektórych elementach sprzętu wędkarskiego",
+        "cs": "Nařízení Komise, kterým se mění příloha XVII nařízení Evropského parlamentu a Rady (ES) č. 1907/2006 o registraci, hodnocení, povolování a omezování chemických látek, pokud jde o olovo v některém rybářském náčiní",
+        "da": "Kommissionens forordning om ændring af bilag XVII til Europa-Parlamentets og Rådets forordning (EF) nr. 1907/2006 om registrering, vurdering og godkendelse af samt begrænsninger for kemikalier (REACH) for så vidt angår bly i visse fiskegrejer",
+        "sk": "Nariadenie Komisie, ktorým sa mení príloha XVII k nariadeniu Európskeho parlamentu a Rady (ES) č. 1907/2006 o registrácii, hodnotení, autorizácii a obmedzovaní chemikálií (REACH), pokiaľ ide o olovo v určitom rybárskom náčiní",
+        "hr": "Uredba Komisije o izmjeni Priloga XVII. Uredbi (EZ) br. 1907/2006 Europskog parlamenta i Vijeća o registraciji, evaluaciji, autorizaciji i ograničavanju kemikalija (REACH) u vezi s olovom u određenom priboru za ribolov",
+        "lv": "Komisijas regula, ar ko attiecībā uz svinu noteiktos makšķerēšanas piederumos groza XVII pielikumu Eiropas Parlamenta un Padomes Regulai (EK) Nr. 1907/2006, kas attiecas uz ķimikāliju reģistrēšanu, vērtēšanu, licencēšanu un ierobežošanu (REACH)",
+        "pt": "Regulamento da Comissão que altera o anexo XVII do Regulamento (CE) n.º 1907/2006 do Parlamento Europeu e do Conselho relativo ao registo, avaliação, autorização e restrição dos produtos químicos (REACH) no que respeita à presença de chumbo em certos artigos de pesca",
+        "el": "Κανονισμός της Επιτροπής για την τροποποίηση του παραρτήματος XVII του κανονισμού (ΕΚ) αριθ. 1907/2006 του Ευρωπαϊκού Κοινοβουλίου και του Συμβουλίου για την καταχώριση, την αξιολόγηση, την αδειοδότηση και τους περιορισμούς των χημικών προϊόντων (REACH) όσον αφορά τον μόλυβδο σε ορισμένα σύνεργα αλιείας",
+        "nl": "Verordening van de Commissie tot wijziging van bijlage XVII bij Verordening (EG) nr. 1907/2006 van het Europees Parlement en de Raad inzake de registratie en beoordeling van en de autorisatie en beperkingen ten aanzien van chemische stoffen (Reach) wat lood in bepaalde hengelbenodigdheden betreft",
+        "fr": "Règlement de la Commission modifiant l’annexe XVII du règlement (CE) nº 1907/2006 du Parlement européen et du Conseil concernant l’enregistrement, l’évaluation et l’autorisation des substances chimiques, ainsi que les restrictions applicables à ces substances (REACH), en ce qui concerne le plomb dans certains articles de pêche"
+      },
+      "process_type": "def/ep-procedure-types/RPS",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-86",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-86",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-86"
+        }
+      ],
+      "label": "2026/2714(RPS)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

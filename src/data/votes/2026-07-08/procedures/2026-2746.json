@@ -1,0 +1,165 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2746",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/B-10-2026-0336-AM-001-002-DEPOT-2026-07-03",
+          "type": "Activity",
+          "activity_date": "2026-07-03",
+          "activity_id": "B-10-2026-0336-AM-001-002-DEPOT-2026-07-03",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0336-AM-001-002"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-15",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-15",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-15",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-15"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992915",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992915",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0336"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-015"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0265",
+        "eli/dl/doc/B-10-2026-0336"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2746-NMCOR-96752-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/96752"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/VERTS-ALE",
+          "precedenceOrder": 1106
+        },
+        {
+          "id": "eli/dl/participation/2026-2746-NMCOR-40599-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/40599"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1101
+        },
+        {
+          "id": "eli/dl/participation/2026-2746-NMCOR-125023-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/125023"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/THE-LEFT",
+          "precedenceOrder": 1107
+        },
+        {
+          "id": "eli/dl/participation/2026-2746-NMCOR-112748-ENVI-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/112748"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ENVI",
+          "participation_role": "def/ep-roles/RAPPORTEUR_CO",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1102
+        },
+        {
+          "id": "eli/dl/participation/2026-2746-MAIN-ENVI",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ENVI"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        }
+      ],
+      "process_id": "2026-2746",
+      "process_title": {
+        "it": "Obiezione a norma dell'articolo 115, paragrafi 2 e 3, del regolamento alla decisione di esecuzione della Commissione che autorizza l'immissione in commercio di prodotti contenenti, costituiti o derivati da granturco geneticamente modificato DP202216 x NK603 x DAS-40278-9 e dalle relative sottocombinazioni DP202216 x NK603, DP202216 x DAS-40278-9, a norma del regolamento (CE) n. 1829/2003 del Parlamento europeo e del Consiglio (D114997)",
+        "pt": "Objeção nos termos do artigo 115.º, n.ºs 2 e 3, do Regimento à Decisão de Execução da Comissão que autoriza a colocação no mercado de produtos que contenham, sejam constituídos por ou sejam produzidos a partir de milho geneticamente modificado DP202216 x NK603 x DAS-40278-9 e das suas subcombinações DP202216 x NK603, DP202216 x DAS-40278-9, nos termos do Regulamento (CE) n.º 1829/2003 do Parlamento Europeu e do Conselho (D114997)",
+        "fr": "Objection formulée conformément à l’article 115, paragraphes 2 et 3, du règlement intérieur à la décision d’exécution de la Commission autorisant la mise sur le marché de produits contenant le maïs génétiquement modifié DP202216 x NK603 x DAS-40278-9 et ses sous-combinaisons DP202216 x NK603, DP202216 x DAS-40278-9, consistant en ce maïs et ses sous-combinaisons ou produits à partir de ceux-ci, conformément au règlement (CE) nº 1829/2003 du Parlement européen et du Conseil (D114997)",
+        "bg": "Възражение съгласно член 115, параграфи 2 и 3 от Правилника за дейността на Парламента във връзка с решението изпълнение на Комисията за разрешаване на пускането на пазара на продукти, съдържащи, състоящи се или произведени от генетично модифицирана царевица DP202216 x NK603 x DAS-40278-9 и нейните подкомбинации DP202216 x NK603, DP202216 x DAS-40278-9, съгласно Регламент (ЕО) № 1829/2003 на Европейския парламент и на Съвета (D114997)",
+        "sl": "Nasprotovanje v skladu s členom 115(2) in (3) Poslovnika Izvedbenemu sklepu Komisije o odobritvi dajanja na trg proizvodov, ki vsebujejo gensko spremenjeno koruzo DP202216 x NK603 x DAS-40278-9 in njeni podkombinaciji DP202216 x NK603, DP202216 x DAS-40278-9, so iz njih sestavljeni ali proizvedeni, v skladu z Uredbo (ES) št. 1829/2003 Evropskega parlamenta in Sveta (D114997)",
+        "en": "Objection pursuant to Rule 115(2) and (3) of the Rules of Procedures on the Commission Implementing Decision authorising the placing on the market of products containing, consisting of or produced from genetically modified maize DP202216 x NK603 x DAS-40278-9 and its sub-combinations DP202216 x NK603, DP202216 x DAS-40278-9, pursuant to Regulation (EC) No 1829/2003 of the European Parliament and of the Council (D114997)",
+        "et": "Vastuväide kodukorra artikli 115 lõigete 2 ja 3 alusel komisjoni rakendusotsusele, millega lubatakse lasta turule geneetiliselt muundatud maisi DP202216 x NK603 x DAS-40278-9 ja selle alakombinatsioone DP202216 x NK603 ja DP202216 x DAS-40278-9 sisaldavaid, sellest koosnevaid või sellest valmistatud tooteid vastavalt Euroopa Parlamendi ja nõukogu määrusele (EÜ) nr 1829/2003 (D114997)",
+        "lv": "Iebildumu izteikšana saskaņā ar Reglamenta 115. panta 2. un 3. punktu pret Komisijas īstenošanas lēmumu, ar ko atbilstoši Eiropas Parlamenta un Padomes Regulai (EK) Nr. 1829/2003 atļauj laist tirgū produktus, kas satur ģenētiski modificēto kukurūzu DP202216 x NK603 x DAS-40278-9 un tās apakškombinācijas DP202216 x NK603, DP202216 x DAS-40278-9, no tās sastāv vai ir no tās ražoti (D114997)",
+        "hr": " Prigovor u skladu s člankom 115. stavcima 2. i 3. Poslovnika na Provedbenu odluku Komisije o odobravanju stavljanja na tržište proizvoda koji sadržavaju genetski modificirani kukuruz DP202216 x NK603 x DAS-40278-9 i njegove potkombinacije DP202216 x NK603, DP202216 x DAS-40278-9, sastoje se od njega ili su od njega proizvedeni, na temelju Uredbe (EZ) br. 1829/2003 Europskog parlamenta i Vijeća (D114997)",
+        "sv": "Invändning i enlighet med artikel 115.2 och 115.3 i arbetsordningen mot kommissionens genomförandebeslut om godkännande av utsläppande på marknaden av produkter som innehåller, består av eller har framställts av den genetiskt modifierade majsen DP202216 x NK603 x DAS-40278-9 och dess klyvningsprodukter DP202216 x NK603, DP202216 x DAS-40278-9, i enlighet med Europaparlamentets och rådets förordning (EG) nr 1829/2003 (D114997)",
+        "fi": "Työjärjestyksen 115 artiklan 2 ja 3 kohdan mukainen vastalause komission täytäntöönpanopäätökseen muuntogeenistä maissia DP202216 x NK603 x DAS-40278-9 ja sen alayhdistelmiä DP202216 x NK603, DP202216 x DAS-40278-9 sisältävien, niistä koostuvien tai niistä valmistettujen tuotteiden markkinoille saattamista koskevan luvan uusimisesta Euroopan parlamentin ja neuvoston asetuksen (EY) N:o 1829/2003 mukaisesti (D114997)",
+        "ga": "Agóid de bhun Riail 115(2) agus (3) de na Rialacha Nós Imeachta maidir le Cinneadh Cur Chun Feidhme ón gCoimisiún lena n-údaraítear táirgí a chur ar an margadh, ar táirgí iad ina bhfuil, arb é atá iontu, nó a tháirgtear as arbhar Indiach géinmhodhnaithe DP202216 x NK603 x DAS-40278-9 agus a fho-chumaisc DP202216 x NK603, DP202216 x DAS-40278-9, de bhun Rialachán (CE) Uimh. 1829/2003 ó Pharlaimint na hEorpa agus ón gComhairle (D114997)",
+        "cs": "Námitka podle čl. 115 odst. 2 a 3 jednacího řádu k prováděcímu rozhodnutí Komise o povolení uvedení produktů, které obsahují geneticky modifikovanou kukuřici DP202216 x NK603 x DAS-40278-9 a její podkombinace DP202216 x NK603, DP202216 x DAS-40278-9, sestávají z nich nebo jsou z nich vyrobeny, na trh podle nařízení Evropského parlamentu a Rady (ES) č. 1829/2003 (D114997)",
+        "de": "Einwand gemäß Artikel 115 Absätze 2 und 3 der Geschäftsordnung gegen den Durchführungsbeschlusses der Kommission über die Zulassung des Inverkehrbringens von Erzeugnissen, die genetisch veränderten Mais der Sorte DP202216 x NK603 x DAS-40278-9 und der Unterkombinationen DP202216 x NK603, DP202216 x DAS-40278-9 enthalten, aus ihm bestehen oder aus ihm gewonnen werden, gemäß der Verordnung (EG) Nr. 1829/2003 des Europäischen Parlaments und des Rates (D114997) ",
+        "sk": "Námietka podľa článku 115 ods. 2 a 3 rokovacieho poriadku týkajúca sa vykonávacieho rozhodnutia Komisie, ktorým sa podľa nariadenia Európskeho parlamentu a Rady (ES) č. 1829/2003 povoľuje umiestňovať na trh výrobky, ktoré obsahujú geneticky modifikovanú kukuricu DP202216 x NK603 x DAS-40278-9 a jej čiastkové kombinácie DP202216 x NK603, DP202216 x DAS-40278-9, sú z nich zložené alebo vyrobené (D114997)",
+        "nl": "Bezwaar op grond van artikel 115, leden 2 en 3, van het Reglement tegen het uitvoeringsbesluit van de Commissie\ntot verlening van een vergunning voor het in de handel brengen van producten die geheel of gedeeltelijk bestaan uit of zijn geproduceerd met de genetisch gemodificeerde mais DP202216 x NK603 x DAS-40278-9 en de subcombinaties DP202216 x NK603, DP202216 x DAS-40278-9 daarvan overeenkomstig Verordening (EG) nr. 1829/2003 van het Europees Parlement en de Raad (D114997)",
+        "hu": "Kifogás az eljárási szabályzat 115. cikkének (2) és (3) bekezdése alapján a géntechnológiával módosított DP202216 x NK603 x DAS-40278-9 kukoricát és annak DP202216 x NK603 és DP202216 x DAS-40278-9 alkombinációit tartalmazó, abból álló vagy abból előállított termékek forgalomba hozatalának az 1829/2003/EK  európai parlamenti és tanácsi rendelet szerinti engedélyezésének megújításáról szóló bizottsági végrehajtási határozattal (D114997) szemben",
+        "pl": "Sprzeciw na podstawie art. 115 ust. 2 i 3 Regulaminu wobec decyzji wykonawczej Komisji zezwalającej na wprowadzenie do obrotu, na mocy rozporządzenia (WE) nr 1829/2003  Parlamentu Europejskiego i Rady, produktów zawierających genetycznie zmodyfikowaną kukurydzę DP202216 x NK603 x DAS-40278-9 i jej subkombinacje DP202216 x NK603, DP202216 x DAS-40278-9, składających się z nich lub z nich wyprodukowanych (D114997)",
+        "mt": "Oġġezzjoni skont l-Artikolu 115(2) u (3) tar-Regoli ta’ Proċedura għad-Deċiżjoni ta’ Implimentazzjoni tal-Kummissjoni li tawtorizza t-tqegħid fis-suq ta’ prodotti li fihom il-qamħirrum ġenetikament modifikat DP202216 x NK603 x DAS-40278-9 u s-subkombinazzjonijiet tiegħu DP202216 x NK603, DP202216 x DAS-40278-9, li jikkonsistu minnu jew li huma prodotti minnu, skont ir-Regolament (KE) Nru 1829/2003 tal-Parlament Ewropew u tal-Kunsill (D114997)",
+        "ro": "Obiecție în temeiul articolului 115 alineatele (2) și (3) din Regulamentul de procedură referitoare la decizia de punere în aplicare a Comisiei de autorizare a introducerii pe piață a produselor care conțin, sunt compuse sau fabricate din porumb modificat genetic DP202216 x NK603 x DAS-40278-9 și a subcombinațiilor acestuia DP202216 x NK603, DP202216 x DAS-40278-9, în temeiul Regulamentului (CE) nr. 1829/2003 al Parlamentului European și al Consiliului (D114997)",
+        "el": "Διατύπωση αντίρρησης σύμφωνα με το άρθρο 115 παράγραφοι 2 και 3 του Κανονισμού στην εκτελεστική απόφαση της Επιτροπής για την έγκριση της διάθεσης στην αγορά προϊόντων που περιέχουν, αποτελούνται ή παράγονται από γενετικώς τροποποιημένο αραβόσιτο DP202216 x NK603 x DAS-40278-9 και από τους επιμέρους συνδυασμούς του DP202216 x NK603, DP202216 x DAS-40278-9, σύμφωνα με τον κανονισμό (ΕΚ) αριθ. 1829/2003 του Ευρωπαϊκού Κοινοβουλίου και του Συμβουλίου (D114997)",
+        "lt": "Prieštaravimas pagal Darbo tvarkos taisyklių 115 straipsnio 2 ir 3 dalis dėl Komisijos įgyvendinimo sprendimo, kuriuo pagal Europos Parlamento ir Tarybos reglamentą (EB) Nr. 1829/2003 leidžiama pateikti rinkai produktus, kurių sudėtyje yra genetiškai modifikuotų kukurūzų DP202216 x NK603 x DAS-40278-9 ir jų subkombinacijų DP202216 x NK603, DP202216 x DAS-40278-9, kurie iš jų sudaryti arba kurie iš jų pagaminti, (D114997)",
+        "da": "Indsigelse, jf. forretningsordenens artikel 115, stk. 2 og 3, mod udkast til Kommissionens gennemførelsesafgørelse om forlængelse af tilladelsen til markedsføring af produkter, der indeholder, består af eller er fremstillet af genetisk modificeret DP202216 x NK603 x DAS-40278-9-majs og dens underkombinationer DP202216 x NK603, DP202216 x DAS-40278-9, i henhold til Europa-Parlamentets og Rådets forordning (EF) nr. 1829/2003 (D114997)",
+        "es": "Oposición con arreglo al artículo 115, apartados 2 y 3, del Reglamento interno: Decisión de Ejecución de la Comisión por la que se autoriza la comercialización de productos que contengan, se compongan o se hayan producido a partir de maíz modificado genéticamente DP202216 × NK603 × DAS-40278-9 y sus subcombinaciones DP202216 × NK603, DP202216 × DAS-40278-9, con arreglo al Reglamento (CE) n.º 1829/2003 del Parlamento Europeo y del Consejo (D114997)"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-90",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-90",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-90"
+        }
+      ],
+      "label": "2026/2746(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2025-0387",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/2025-0387-DEPOT-2026-06-05",
+          "type": "Activity",
+          "activity_date": "2026-06-05",
+          "activity_id": "2025-0387-DEPOT-2026-06-05",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0151"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0387-DEC-DCPL-2026-07-08",
+          "type": "Decision",
+          "activity_date": "2026-07-08",
+          "activity_id": "2025-0387-DEC-DCPL-2026-07-08",
+          "decided_on_a_realization_of": [
+            "eli/dl/doc/TA-10-2026-0258"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DECISION",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0387-ANPRO-2026-04-27",
+          "type": "Activity",
+          "activity_date": "2026-04-27",
+          "activity_id": "2025-0387-ANPRO-2026-04-27",
+          "had_activity_type": "def/ep-activities/REFERRAL",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-VOT-ITM-992911",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-VOT-ITM-992911",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/A-10-2026-0151"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-VOT-ITM-008"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-10-8",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-10-8",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-010-08",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-010-08"
+          ]
+        },
+        {
+          "id": "eli/dl/event/ITRE-PR-788796-DEPOT-2026-05-12",
+          "type": "Activity",
+          "activity_date": "2026-05-12",
+          "activity_id": "ITRE-PR-788796-DEPOT-2026-05-12",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/ITRE-PR-788796"
+          ],
+          "had_activity_type": "def/ep-activities/COMMITTEE_TABLING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        },
+        {
+          "id": "eli/dl/event/2025-0387-DEC-ADCP-2026-06-03",
+          "type": "Decision",
+          "activity_date": "2026-06-03",
+          "activity_id": "2025-0387-DEC-ADCP-2026-06-03",
+          "had_activity_type": "def/ep-activities/COMMITTEE_ADOPTING_REPORT",
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/A-10-2026-0151",
+        "eli/dl/doc/ITRE-PR-788796",
+        "eli/dl/doc/TA-10-2026-0258"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2025-0387-NMSR-275087-2026-05-12",
+          "type": "Participation",
+          "activity_date": "2026-05-12",
+          "had_participant_person": [
+            "person/275087"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/S-D",
+          "precedenceOrder": 1302
+        },
+        {
+          "id": "eli/dl/participation/2025-0387-MAIN-ITRE",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/ITRE"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        },
+        {
+          "id": "eli/dl/participation/2025-0387-NMSR-257030-2026-05-11",
+          "type": "Participation",
+          "activity_date": "2026-05-11",
+          "had_participant_person": [
+            "person/257030"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_role": "def/ep-roles/RAPPORTEUR_SHADOW",
+          "politicalGroup": "org/PPE",
+          "precedenceOrder": 1301
+        },
+        {
+          "id": "eli/dl/participation/2025-0387-NMCP-101039-ITRE-2026-04-23",
+          "type": "Participation",
+          "activity_date": "2026-04-23",
+          "had_participant_person": [
+            "person/101039"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/ITRE",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/PFE",
+          "precedenceOrder": 1303
+        }
+      ],
+      "process_id": "2025-0387",
+      "process_title": {
+        "bg": "Споразумение под формата на размяна на писма между Европейския съюз и Кралство Мароко за изменение и допълнение на Споразумението за научно и технологично сътрудничество между Европейския съюз и Кралство Мароко, в което се определят редът и условията за участието на Кралство Мароко в Партньорството за научни изследвания и иновации в Средиземноморския регион (PRIMA)",
+        "el": "Συμφωνία μεταξύ της Ευρωπαϊκής Ένωσης και του Βασιλείου του Μαρόκου, υπό μορφή ανταλλαγής επιστολών, η οποία τροποποιεί και συμπληρώνει τη συμφωνία επιστημονικής και τεχνολογικής συνεργασίας μεταξύ της Ευρωπαϊκής Ένωσης και του Βασιλείου του Μαρόκου για τον καθορισμό των όρων και των προϋποθέσεων συμμετοχής του Βασιλείου του Μαρόκου στην εταιρική σχέση στους τομείς της έρευνας και της καινοτομίας στην περιοχή της Μεσογείου (PRIMA)",
+        "sl": "Sporazum med Evropsko unijo in Kraljevino Maroko v obliki izmenjave pisem o spremembi in dopolnitvi Sporazuma o znanstvenem in tehnološkem sodelovanju med Evropsko unijo in Kraljevino Maroko, v katerem so določeni pogoji za sodelovanje Kraljevine Maroko v partnerstvu na področju raziskav in inovacij v Sredozemlju (PRIMA)",
+        "fr": "Accord sous forme d’échange de lettres entre l’Union européenne et le Royaume du Maroc modifiant et complétant l’accord de coopération scientifique et technologique entre l’Union européenne et le Royaume du Maroc fixant les conditions et modalités de la participation du Royaume du Maroc au partenariat en matière de recherche et d’innovation dans la zone méditerranéenne (PRIMA)",
+        "cs": "Dohoda ve formě výměny dopisů mezi Evropskou unií a Marockým královstvím, kterou se mění a doplňuje Dohoda o vědeckotechnické spolupráci mezi Evropskou unií a Marockým královstvím, kterou se stanoví podmínky pro účast Marockého království na Partnerství pro výzkum a inovace v oblasti Středomoří (PRIMA)",
+        "mt": "Ftehim, fil-forma ta’ skambju ta’ ittri, bejn l-Unjoni Ewropea u r-Renju tal-Marokk li jemenda u jissupplimenta l-Ftehim għal kooperazzjoni xjentifika u teknoloġika bejn l-Unjoni Ewropea u r-Renju tal-Marokk li jistabbilixxi t-termini u l-kundizzjonijiet għall-parteċipazzjoni tar-Renju tal-Marokk fis-Sħubija fir-Riċerka u l-Innovazzjoni fiż-Żona tal-Mediterran (PRIMA)",
+        "sk": "Dohoda vo forme výmeny listov medzi Európskou úniou a Marockým kráľovstvom, ktorou sa mení a dopĺňa Dohoda o vedeckej a technickej spolupráci medzi Európskou úniou a Marockým kráľovstvom, ktorou sa stanovujú podmienky účasti Marockého kráľovstva na Partnerstve pre výskum a inováciu v oblasti Stredozemia (PRIMA)\n",
+        "et": "Euroopa Liidu ja Maroko Kuningriigi vaheline kirjavahetuse vormis leping, millega muudetakse ja täiendatakse Euroopa Liidu ja Maroko Kuningriigi vahelist teadus- ja tehnoloogiakoostöö kokkulepet, milles sätestatakse Maroko Kuningriigi osalemise tingimused partnerluses Vahemere piirkonna riikidega teadusuuringute ja innovatsiooni valdkonnas (PRIMA)",
+        "en": "Agreement, in the form of an Exchange of Letters, between the European Union and the Kingdom of Morocco amending and supplementing the Agreement for scientific and technological cooperation between the European Union and the Kingdom of Morocco setting out the terms and conditions for the participation of the Kingdom of Morocco in the Partnership for Research and Innovation in the Mediterranean Area (PRIMA)",
+        "es": "Acuerdo en forma de Canje de Notas entre la Unión Europea y el Reino de Marruecos por el que se modifica y completa el Acuerdo de cooperación científica y tecnológica entre la Unión Europea y el Reino de Marruecos por el que se establecen las condiciones de la participación del Reino de Marruecos en la Asociación para la Investigación e Innovación en la Región del Mediterráneo (PRIMA)",
+        "de": "Abkommen in Form eines Briefwechsels zwischen der Europäischen Union und dem Königreich Marokko zur Änderung und Ergänzung des Abkommens über wissenschaftliche und technologische Zusammenarbeit zwischen der Europäischen Union und dem Königreich Marokko zur Festlegung der Modalitäten und Bedingungen der Beteiligung des Königreichs Marokko an der Partnerschaft für Forschung und Innovation im Mittelmeerraum (PRIMA)",
+        "lt": "Europos Sąjungos ir Maroko Karalystės susitarimas pasikeičiant laiškais, kuriuo iš dalies keičiamas ir papildomas Europos Sąjungos ir Maroko Karalystės mokslinio ir technologinio bendradarbiavimo susitarimas, kuriuo išdėstomos Maroko Karalystės dalyvavimo Partnerystėje mokslinių tyrimų ir inovacijų srityje Viduržemio jūros regione (PRIMA) sąlygos",
+        "it": "Accordo in forma di scambio di lettere tra l'Unione europea e il Regno del Marocco che modifica e integra l'accordo di cooperazione scientifica e tecnologica tra l'Unione europea e il Regno del Marocco volto a stabilire i termini e le condizioni della partecipazione del Regno del Marocco al partenariato per la ricerca e l'innovazione nell'area del Mediterraneo (PRIMA)",
+        "lv": "Nolīgums vēstuļu apmaiņas veidā starp Eiropas Savienību un Marokas Karalisti, ar ko groza un papildina Nolīgumu par zinātnisko un tehnoloģisko sadarbību starp Eiropas Savienību un Marokas Karalisti, kurā paredzēti noteikumi Marokas Karalistes dalībai partnerībā pētniecības un inovācijas jomā Vidusjūras reģionā (PRIMA) ",
+        "ga": "Comhaontú, i bhfoirm malartú litreacha, idir an tAontas Eorpach agus Ríocht Mharacó lena leasaítear agus lena bhforlíontar an Comhaontú le haghaidh comhar eolaíochta agus teicneolaíochta idir an tAontas Eorpach agus Ríocht Mharacó, lena leagtar amach na téarmaí agus na coinníollacha maidir le rannpháirtíocht Ríocht Mharacó sa Chomhpháirtíocht maidir le Taighde agus Nuálaíocht i Limistéar na Meánmhara (PRIMA)",
+        "sv": "Avtal genom skriftväxling mellan Europeiska unionen och Konungariket Marocko om ändring och komplettering av avtalet om vetenskapligt och tekniskt samarbete mellan Europeiska unionen och Konungariket Marocko som fastställer villkoren för Konungariket Marockos deltagande i partnerskapet för forskning och innovation i Medelhavsområdet (Prima)",
+        "da": "Aftale mellem Den Europæiske Union og Kongeriget Marokko i form af brevveksling om ændring og supplering af aftalen om videnskabeligt og teknologisk samarbejde mellem Den Europæiske Union og Kongeriget Marokko, som fastsætter vilkårene og betingelserne for Kongeriget Marokkos deltagelse i partnerskabet for forskning og innovation i Middelhavsområdet (PRIMA)",
+        "ro": "Acord sub forma unui schimb de scrisori dintre Uniunea Europeană și Regatul Maroc privind modificarea și completarea Acordului de cooperare științifică și tehnologică dintre Uniunea Europeană și Regatul Maroc și stabilirea clauzelor și condițiilor de participare a Regatului Maroc la Parteneriatul în domeniul cercetării și inovării în zona mediteraneeană (PRIMA)",
+        "nl": "De sluiting van de Overeenkomst, in de vorm van een briefwisseling, tussen de Europese Unie en het Koninkrijk Marokko tot wijziging en aanvulling van de Overeenkomst inzake wetenschappelijke en technologische samenwerking tussen de Europese Unie en het Koninkrijk Marokko, waarin de voorwaarden voor de deelname van het Koninkrijk Marokko aan het partnerschap voor onderzoek en innovatie in het Middellandse Zeegebied (het Prima-initiatief) worden vastgesteld",
+        "fi": "Euroopan unionin ja Marokon kuningaskunnan välinen kirjeenvaihtona tehty sopimus, jolla muutetaan ja täydennetään Euroopan unionin ja Marokon kuningaskunnan välillä tehtyä tieteellistä ja teknologista yhteistyötä koskevaa sopimusta ja vahvistetaan ehdot ja edellytykset Marokon kuningaskunnan osallistumiselle Välimeren alueen tutkimus- ja innovointikumppanuuteen (PRIMA)",
+        "hr": "Sporazum u obliku razmjene pisama između Europske unije i Kraljevine Maroka o izmjeni i dopuni Sporazuma o znanstvenoj i tehnološkoj suradnji između Europske unije i Kraljevine Maroka kojim se utvrđuju uvjeti za sudjelovanje Kraljevine Maroka u Partnerstvu za istraživanja i inovacije na mediteranskom području (PRIMA)",
+        "hu": "Az Európai Unió és a Marokkói Királyság közötti, a Marokkói Királyságnak a földközi-tengeri térségben folytatott kutatási és innovációs partnerség (PRIMA) programban való részvételére vonatkozó feltételeket rögzítő, tudományos és technológiai együttműködésről szóló megállapodásnak a Horizont Európa tekintetében történő módosításáról és kiegészítéséről szóló, levélváltás formájában létrejött, az Európai Unió és a Marokkói Királyság közötti megállapodás",
+        "pl": "Umowa między Unią Europejską a Królestwem Marokańskim, w formie wymiany listów, zmieniająca i uzupełniająca Umowę o współpracy naukowo-technicznej między Unią Europejską a Królestwem Marokańskim, określającą warunki uczestnictwa Królestwa Marokańskiego w partnerstwie w dziedzinie badań i innowacji w regionie Morza Śródziemnego (PRIMA)",
+        "pt": "Acordo sob forma de troca de cartas entre a União Europeia e o Reino de Marrocos, que altera e completa o Acordo de cooperação científica e tecnológica entre a União Europeia e o Reino de Marrocos, estabelecendo os termos e as condições da participação do Reino de Marrocos na Parceria para a Investigação e a Inovação na Região do Mediterrâneo (PRIMA)"
+      },
+      "process_type": "def/ep-procedure-types/NLE",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-V-50",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-V-50",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-50"
+        }
+      ],
+      "label": "2025/0387(NLE)",
+      "identifierYear": "2025"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}
