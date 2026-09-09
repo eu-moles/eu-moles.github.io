@@ -84,13 +84,15 @@ curl_with_error_url() {
 fetch_json() {
   local url="$1"
   local destination="$2"
+  local max_time="${3:-45}"
+  local retry_count="${4:-2}"
   local temporary
   local formatted
 
   temporary=$(make_temporary_file "fetch-json")
   formatted=$(make_temporary_file "format-json")
   progress_note "Downloading JSON: $destination"
-  if curl_with_error_url -fsSL --connect-timeout 10 --max-time 45 --retry 2 --retry-delay 1 \
+  if curl_with_error_url -fsSL --connect-timeout 10 --max-time "$max_time" --retry "$retry_count" --retry-delay 1 \
     -H 'Accept: application/ld+json' \
     -H 'User-Agent: EU-Moles-data-updater-1.0' \
     --output "$temporary" "$url" &&

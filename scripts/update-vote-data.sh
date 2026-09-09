@@ -7,15 +7,19 @@ source "$repository_root/scripts/lib/data-utils.sh"
 source "$repository_root/scripts/lib/oeil.sh"
 source "$repository_root/scripts/lib/translations.sh"
 
+# The public update_data.sh entry point validates this argument.
+oldest_sitting_date=$1
+
 api="https://data.europarl.europa.eu/api/v2"
 cutoff_date=$(date -d '1 month ago' +%F)
 voting_dates=$(curl_with_error_url -fsSL "https://data.europarl.europa.eu/distribution/meetings_$(date +%Y)_4_en.csv" |
   sed -nE 's/^MTG-PL-([0-9]{4}-[0-9]{2}-[0-9]{2}).*/\1/p' |
   sort -u)
 progress_note "Vote data: discovered $(wc -w <<< "$voting_dates") plenary date(s) in the current calendar"
+progress_note "Vote data: updating sittings from $oldest_sitting_date through the one-month cutoff before $cutoff_date"
 
 for voting_date in $voting_dates; do
-  [[ "$voting_date" == "2026-07-07" ]] || continue
+  [[ "$voting_date" < "$oldest_sitting_date" ]] && continue
   [[ "$voting_date" < "$cutoff_date" ]] || continue
   stage_total=11
   progress 0 "$stage_total" "Vote data for $voting_date: starting"
@@ -23,7 +27,14 @@ for voting_date in $voting_dates; do
   dir="data/votes/${voting_date}"
   mkdir -p "$dir"
   progress 1 "$stage_total" "Core meeting, vote, activity, and speech records"
-  [[ -s "$dir/vote-results.json" ]] || fetch_json "$api/meetings/$sitting_id/vote-results" "$dir/vote-results.json"
+  vote_record_available=true
+  if [[ ! -s "$dir/vote-results.json" ]]; then
+    progress_note "Vote data for $voting_date: checking official vote-record availability (up to 20s)"
+    if ! fetch_json "$api/meetings/$sitting_id/vote-results" "$dir/vote-results.json" 20 0; then
+      vote_record_available=false
+      progress_error "Vote data for $voting_date: official vote record is unavailable; continuing with the sitting's non-vote material."
+    fi
+  fi
   [[ -s "$dir/meeting.json" ]] || fetch_json "$api/meetings/$sitting_id" "$dir/meeting.json"
   [[ -s "$dir/activities.json" ]] || fetch_json "$api/meetings/$sitting_id/activities" "$dir/activities.json"
   [[ -s "$dir/speeches.json" ]] || fetch_json "$api/speeches?sitting-date=$voting_date&activity-type=PLENARY_DEBATE_SPEECH&limit=500&sort-by=video-start-time:asc" "$dir/speeches.json"
@@ -31,28 +42,36 @@ for voting_date in $voting_dates; do
   procedures_dir="$dir/procedures"
   mkdir -p "$procedures_dir"
   progress 2 "$stage_total" "Procedure records referenced by the votes"
-  while IFS= read -r procedure_id; do
-    procedure_file="$procedures_dir/${procedure_id}.json"
-    [[ -s "$procedure_file" ]] && continue
-    fetch_json "$api/procedures/$procedure_id" "$procedure_file" || { progress_error "Could not fetch procedure $procedure_id referenced by $sitting_id."; exit 1; }
-    sleep 0.5
-  done < <(jq -r '
-    (.data[] | .inverse_consists_of[]? | objects | .id? // empty | capture("/proc/(?<id>[0-9]{4}-[0-9]{4})$").id),
-    (.data[] | .structuredLabel.en? // empty | scan("[0-9]{4}/[0-9]{4}\\([A-Z]+\\)") | capture("(?<year>[0-9]{4})/(?<number>[0-9]{4})\\([A-Z]+\\)") | "\(.year)-\(.number)")
-  ' "$dir/vote-results.json" | sort -u)
+  if [[ "$vote_record_available" == true ]]; then
+    while IFS= read -r procedure_id; do
+      procedure_file="$procedures_dir/${procedure_id}.json"
+      [[ -s "$procedure_file" ]] && continue
+      fetch_json "$api/procedures/$procedure_id" "$procedure_file" || { progress_error "Could not fetch procedure $procedure_id referenced by $sitting_id."; exit 1; }
+      sleep 0.5
+    done < <(jq -r '
+      (.data[] | .inverse_consists_of[]? | objects | .id? // empty | capture("/proc/(?<id>[0-9]{4}-[0-9]{4})$").id),
+      (.data[] | .structuredLabel.en? // empty | scan("[0-9]{4}/[0-9]{4}\\([A-Z]+\\)") | capture("(?<year>[0-9]{4})/(?<number>[0-9]{4})\\([A-Z]+\\)") | "\(.year)-\(.number)")
+    ' "$dir/vote-results.json" | sort -u)
+  else
+    progress_note "Vote data for $voting_date: skipping vote-linked procedures because the official vote record is unavailable"
+  fi
 
   oeil_procedures_dir="$dir/oeil-procedures"
   mkdir -p "$oeil_procedures_dir"
   progress 3 "$stage_total" "OEIL procedure pages and document summaries"
-  while IFS= read -r -d '' procedure_file; do
-    procedure_id=${procedure_file##*/}; procedure_id=${procedure_id%.json}
-    oeil_procedure_file="$oeil_procedures_dir/${procedure_id}.html"
-    [[ -s "$oeil_procedure_file" ]] && continue
-    procedure_reference=$(jq -er '.data[0].label | select(test("^[0-9]{4}/[0-9]{4}\\([A-Z]+\\)$"))' "$procedure_file") || { progress_error "Could not determine the OEIL reference for procedure $procedure_id."; exit 1; }
-    fetch_oeil_procedure "$procedure_reference" "$oeil_procedure_file" || { progress_error "Could not fetch OEIL procedure page for $procedure_reference."; exit 1; }
-    sleep 0.5
-  done < <(find "$procedures_dir" -maxdepth 1 -type f -name '*.json' -print0 | sort -z)
-  extract_oeil_document_summaries "$oeil_procedures_dir" "$dir/oeil-document-summaries.json"
+  if [[ "$vote_record_available" == true ]]; then
+    while IFS= read -r -d '' procedure_file; do
+      procedure_id=${procedure_file##*/}; procedure_id=${procedure_id%.json}
+      oeil_procedure_file="$oeil_procedures_dir/${procedure_id}.html"
+      [[ -s "$oeil_procedure_file" ]] && continue
+      procedure_reference=$(jq -er '.data[0].label | select(test("^[0-9]{4}/[0-9]{4}\\([A-Z]+\\)$"))' "$procedure_file") || { progress_error "Could not determine the OEIL reference for procedure $procedure_id."; exit 1; }
+      fetch_oeil_procedure "$procedure_reference" "$oeil_procedure_file" || { progress_error "Could not fetch OEIL procedure page for $procedure_reference."; exit 1; }
+      sleep 0.5
+    done < <(find "$procedures_dir" -maxdepth 1 -type f -name '*.json' -print0 | sort -z)
+    extract_oeil_document_summaries "$oeil_procedures_dir" "$dir/oeil-document-summaries.json"
+  else
+    progress_note "Vote data for $voting_date: skipping OEIL vote-linked documents because the official vote record is unavailable"
+  fi
 
   mkdir -p data/languages
   progress 4 "$stage_total" "Language authority records for parliamentary speeches"
@@ -61,7 +80,7 @@ for voting_date in $voting_dates; do
     [[ -s "$language_file" ]] || fetch_language_xml "$language_uri" "$language_file"
   done < <(jq -r '.data[] | .recorded_in_a_realization_of[]? | .originalLanguage[]?' "$dir/speeches.json" | sort -u)
 
-  progress 5 "$stage_total" "Minutes metadata and English voting record"
+  progress 5 "$stage_total" "Minutes metadata and English minutes"
   minutes_document=$(jq -er '.data[0].recorded_in_a_realization_of[] | select(test("/PV-[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}$")) | split("/") | last' "$dir/meeting.json")
   [[ -s "$dir/minutes.json" ]] || fetch_json "$api/plenary-session-documents/$minutes_document" "$dir/minutes.json"
   if [[ ! -s "$dir/minutes_en.xml" ]]; then
@@ -79,7 +98,9 @@ for voting_date in $voting_dates; do
   "$repository_root/scripts/cache-discussion-anchors.sh" "$dir"
 
   progress 7 "$stage_total" "Individual roll-call decision records"
-  if [[ ! -s "$dir/decisions.json" ]]; then
+  if [[ "$vote_record_available" != true ]]; then
+    progress_note "Vote data for $voting_date: skipping roll-call decisions because the official vote record is unavailable"
+  elif [[ ! -s "$dir/decisions.json" ]]; then
     decisions_dir="$dir/decisions"; mkdir -p "$decisions_dir"; decision_files=()
     while IFS= read -r decision_id; do
       decision_file="$decisions_dir/${decision_id}.json"
@@ -96,7 +117,11 @@ for voting_date in $voting_dates; do
   fi
 
   progress 8 "$stage_total" "Plain-language vote explainers and official amendment text"
-  "$repository_root/scripts/cache-vote-explainers.sh" "$dir"
+  if [[ "$vote_record_available" == true ]]; then
+    "$repository_root/scripts/cache-vote-explainers.sh" "$dir"
+  else
+    progress_note "Vote explainers: skipped because the official vote record is unavailable for $voting_date"
+  fi
   progress 9 "$stage_total" "Cached English translations of debate contributions"
   cache_transcript_translations "$voting_date" "$dir"
   progress 10 "$stage_total" "Cached Russia-benefit assessments of debate contributions"
@@ -104,5 +129,4 @@ for voting_date in $voting_dates; do
   progress 11 "$stage_total" "Formatting cached vote data"
   format_data_sources "$dir"
   progress 11 "$stage_total" "Vote data for $voting_date: complete"
-  break
 done

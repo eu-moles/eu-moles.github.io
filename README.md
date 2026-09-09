@@ -73,10 +73,15 @@ Hugo writes the generated static site to `docs/`.
 ### Refresh parliamentary data
 
 ```bash
-./update_data.sh
+./update_data.sh 2026-07-07
 ```
 
-The updater reports its progress, caches official source data, refreshes translations, and generates any missing AI-assisted explainers or assessments. It checks all required commands before starting; configure your `PATH` first if any are missing.
+The date is the oldest sitting to include. The updater processes every available
+plenary sitting from that date up to (but not including) the one-month safety
+cutoff, then reports its progress, caches official source data, refreshes
+translations, and generates any missing AI-assisted explainers or assessments.
+It checks all required commands before starting; configure your `PATH` first if
+any are missing.
 
 ## Project structure
 

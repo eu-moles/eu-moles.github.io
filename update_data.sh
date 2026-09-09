@@ -29,8 +29,19 @@ if ((${#missing_commands[@]})); then
   exit 127
 fi
 
+if (( $# != 1 )); then
+  printf '[%s]       Usage: ./update_data.sh OLDEST_SITTING_DATE (YYYY-MM-DD)\n' "$(date +%H:%M:%S)" >&2
+  exit 64
+fi
+
+oldest_sitting_date=$1
+if ! parsed_date=$(date -d "$oldest_sitting_date" +%F 2>/dev/null) || [[ "$parsed_date" != "$oldest_sitting_date" ]]; then
+  printf '[%s]       Error: OLDEST_SITTING_DATE must use YYYY-MM-DD (received %q).\n' "$(date +%H:%M:%S)" "$oldest_sitting_date" >&2
+  exit 64
+fi
+
 printf '[%s]   0%% (0/2) Updating European Parliament data\n' "$(date +%H:%M:%S)"
 "$repository_root/scripts/update-meps.sh"
 printf '[%s]  50%% (1/2) Updating plenary vote data\n' "$(date +%H:%M:%S)"
-"$repository_root/scripts/update-vote-data.sh"
+"$repository_root/scripts/update-vote-data.sh" "$oldest_sitting_date"
 printf '[%s] 100%% (2/2) Update complete\n' "$(date +%H:%M:%S)"
