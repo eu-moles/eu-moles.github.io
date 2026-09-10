@@ -30,8 +30,8 @@ temporary_oeil_summaries=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainer-oeil-
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")
 temporary_amendment_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-amendment-texts.XXXXXX")
 temporary_report_texts=$(mktemp "${TMPDIR:-/tmp}/eu-moles-report-texts.XXXXXX")
-temporary_tgpt_error=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainer-error.XXXXXX")
-trap 'rm -f "$temporary_candidates" "$temporary_procedures" "$temporary_oeil_summaries" "$temporary_output" "$temporary_amendment_texts" "$temporary_report_texts" "$temporary_tgpt_error"' EXIT
+temporary_results_directory=$(mktemp -d "${TMPDIR:-/tmp}/eu-moles-vote-explainer-results.XXXXXX")
+trap 'rm -f "$temporary_candidates" "$temporary_procedures" "$temporary_oeil_summaries" "$temporary_output" "$temporary_amendment_texts" "$temporary_report_texts"; rm -rf "$temporary_results_directory"' EXIT
 
 procedure_files=()
 if [[ -d "$procedures_directory" ]]; then
@@ -444,45 +444,49 @@ add_report_context() {
 pending_total=$(jq '[.items[] | select((.description // "") == "" or (.yesVote // "") == "" or (.russia // "") == "")] | length' "$output_file")
 explainer_total=$(jq '.items | length' "$output_file")
 retry_delay_seconds=${EXPLAINER_RETRY_DELAY_SECONDS:-2}
+tgpt_concurrency=${TGPT_CONCURRENCY:-2}
+if ! [[ "$tgpt_concurrency" =~ ^[1-9][0-9]*$ ]]; then
+  progress_error "Vote explainers: TGPT_CONCURRENCY must be a positive integer (received $tgpt_concurrency)."
+  exit 64
+fi
 progress_note "Vote explainers: $pending_total/$explainer_total response(s) need generating"
+progress_note "Vote explainers: TGPT concurrency is $tgpt_concurrency request(s) at a time"
 if (( pending_total == 0 )); then
   progress_note "Vote explainers: all $explainer_total cached explanations are current."
 fi
 
-response_current=0
-while IFS= read -r candidate; do
-  response_current=$((response_current + 1))
-  id=$(jq -r '.key' <<< "$candidate")
-  if [[ $(jq -r '.value.description // empty' <<< "$candidate") != "" && $(jq -r '.value.yesVote // empty' <<< "$candidate") != "" && $(jq -r '.value.russia // empty' <<< "$candidate") != "" ]]; then
-    progress_note "Vote explainers: response $response_current/$explainer_total cached ($id)"
-    continue
-  fi
+generate_explainer() {
+  local candidate=$1
+  local response_number=$2
+  local result_file=$3
+  local id prompt answer attempt tgpt_error temporary_error
 
+  id=$(jq -r '.key' <<< "$candidate")
   prompt=$(jq -r '.value.prompt' <<< "$candidate")
   if ! prompt=$(add_amendment_context "$candidate" "$prompt"); then
-    progress_note "Vote explainers: response $response_current/$explainer_total awaiting official amendment text ($id)"
-    continue
+    progress_note "Vote explainers: response $response_number/$explainer_total awaiting official amendment text ($id)"
+    return 0
   fi
   prompt=$(add_report_context "$candidate" "$prompt")
-  answer=""
-  progress_note "Vote explainers: response $response_current/$explainer_total generating ($id)"
+  progress_note "Vote explainers: response $response_number/$explainer_total generating ($id)"
 
   attempt=0
+  temporary_error=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainer-error.XXXXXX")
   while :; do
     attempt=$((attempt + 1))
     answer=""
-    : > "$temporary_tgpt_error"
+    : > "$temporary_error"
     if [[ -n "$tgpt_provider" ]]; then
-      answer=$("$tgpt_bin" --provider "$tgpt_provider" -q "$prompt" </dev/null 2>"$temporary_tgpt_error" | compact_text) || answer=""
+      answer=$("$tgpt_bin" --provider "$tgpt_provider" -q "$prompt" </dev/null 2>"$temporary_error" | compact_text) || answer=""
     else
-      answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_tgpt_error" | compact_text) || answer=""
+      answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_error" | compact_text) || answer=""
     fi
 
     if is_valid_explainer_sections "$answer"; then
       break
     fi
 
-    tgpt_error=$(compact_text < "$temporary_tgpt_error")
+    tgpt_error=$(compact_text < "$temporary_error")
     if [[ -n "$tgpt_error" ]]; then
       progress_error "Vote explainers: attempt $attempt for $id error: ${tgpt_error:0:600}"
     elif [[ -n "$answer" ]]; then
@@ -494,13 +498,58 @@ while IFS= read -r candidate; do
     sleep "$retry_delay_seconds"
   done
 
+  jq -cn --arg id "$id" --argjson sections "$answer" '{id: $id, sections: $sections}' > "$result_file"
+  rm -f "$temporary_error"
+}
+
+apply_explainer_result() {
+  local result_file=$1
+  local id sections
+  [[ -s "$result_file" ]] || return 0
+  id=$(jq -r '.id' "$result_file")
+  sections=$(jq -c '.sections' "$result_file")
   jq \
     --arg id "$id" \
-    --argjson sections "$answer" \
+    --argjson sections "$sections" \
     --arg generated_at "$(date --iso-8601=seconds)" \
     '.items[$id].description = $sections.description | .items[$id].yesVote = $sections.yesVote | .items[$id].russia = $sections.russia | .items[$id].generatedAt = $generated_at' \
     "$output_file" > "$temporary_output"
   mv -f "$temporary_output" "$output_file"
   temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")
   progress_note "Vote explainers: generated $id"
+}
+
+pending_pids=()
+pending_results=()
+wait_for_explainer() {
+  local pid result_file
+  pid=${pending_pids[0]}
+  result_file=${pending_results[0]}
+  wait "$pid"
+  apply_explainer_result "$result_file"
+  rm -f "$result_file"
+  pending_pids=("${pending_pids[@]:1}")
+  pending_results=("${pending_results[@]:1}")
+}
+
+response_current=0
+while IFS= read -r candidate; do
+  response_current=$((response_current + 1))
+  id=$(jq -r '.key' <<< "$candidate")
+  if [[ $(jq -r '.value.description // empty' <<< "$candidate") != "" && $(jq -r '.value.yesVote // empty' <<< "$candidate") != "" && $(jq -r '.value.russia // empty' <<< "$candidate") != "" ]]; then
+    progress_note "Vote explainers: response $response_current/$explainer_total cached ($id)"
+    continue
+  fi
+
+  result_file="$temporary_results_directory/$response_current.json"
+  generate_explainer "$candidate" "$response_current" "$result_file" &
+  pending_pids+=("$!")
+  pending_results+=("$result_file")
+  if (( ${#pending_pids[@]} >= tgpt_concurrency )); then
+    wait_for_explainer
+  fi
 done < <(jq -c '.items | to_entries[]' "$output_file")
+
+while (( ${#pending_pids[@]} )); do
+  wait_for_explainer
+done

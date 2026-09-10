@@ -26,7 +26,7 @@
             {{- end -}}
             {{- if ne $englishTitle "" -}}
               {{- $displayTitle := strings.TrimSpace (replaceRE `^[0-9]+(?:\.[0-9]+)*[.[:space:]-]+` "" $englishTitle) -}}
-              {{- $displayTitle = strings.TrimSpace (replaceRE `[[:space:]]+\*{3}I{1,3}[[:space:]]*` " " $displayTitle) -}}
+              {{- $displayTitle = strings.TrimSpace (replaceRE `[[:space:]]+\*{3}I{0,3}[[:space:]]*` " " $displayTitle) -}}
               {{- $displayTitle = strings.TrimSpace (replaceRE `[[:space:]]*\((?i:debate|vote)\)[[:space:]]*$` "" $displayTitle) -}}
               {{- with findRE `^[0-9]+(?:\.[0-9]+)*` $englishTitle -}}
                 {{- $activityAgendaNumber = index . 0 -}}
@@ -66,6 +66,9 @@
           {{- end -}}
           {{- $title = strings.TrimSpace (replaceRE `^[0-9]+(?:\.[0-9]+)*[.[:space:]-]+` "" $title) -}}
           {{- $title = strings.TrimSpace (replaceRE `[[:space:]]*\((?i:debate|vote)\)[[:space:]]*$` "" $title) -}}
+          {{- if gt (len $title) 0 -}}
+            {{- $title = printf "%s%s" (upper (strings.Substr $title 0 1)) (strings.Substr $title 1) -}}
+          {{- end -}}
           {{- $sourceURL := printf "https://www.europarl.europa.eu/doceo/document/CRE-10-%s_EN.html" $date -}}
           {{- with index $anchorsByAgendaNumber $agendaNumber -}}
             {{- $sourceURL = printf "%s#%s" $sourceURL . -}}

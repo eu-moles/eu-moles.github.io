@@ -29,8 +29,8 @@ temporary_raw_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-raw.XX
 temporary_mapped_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-mapped.XXXXXX")
 temporary_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-candidates.XXXXXX")
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
-temporary_tgpt_error=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-error.XXXXXX")
-trap 'rm -f "$temporary_languages" "$temporary_mep_ids" "$temporary_raw_candidates" "$temporary_mapped_candidates" "$temporary_candidates" "$temporary_output" "$temporary_tgpt_error"' EXIT
+temporary_results_directory=$(mktemp -d "${TMPDIR:-/tmp}/eu-moles-speech-russia-results.XXXXXX")
+trap 'rm -f "$temporary_languages" "$temporary_mep_ids" "$temporary_raw_candidates" "$temporary_mapped_candidates" "$temporary_candidates" "$temporary_output"; rm -rf "$temporary_results_directory"' EXIT
 
 # Resolve the transcript's speaker label once, while building the cache. The
 # frontend must use Parliament's stable MEP ID rather than trying to match a
@@ -252,16 +252,21 @@ assessment_total=$(jq '.items | length' "$output_file")
 pending_total=$(jq '[.items[] | select(.assessmentStatus == "pending")] | length' "$output_file")
 retry_delay_seconds=${SPEECH_RUSSIA_RETRY_DELAY_SECONDS:-2}
 max_empty_response_attempts=3
+tgpt_concurrency=${TGPT_CONCURRENCY:-2}
+if ! [[ "$tgpt_concurrency" =~ ^[1-9][0-9]*$ ]]; then
+  progress_error "Speech Russia assessments: TGPT_CONCURRENCY must be a positive integer (received $tgpt_concurrency)."
+  exit 64
+fi
 progress_note "Speech Russia assessments: $pending_total/$assessment_total response(s) need generating"
+progress_note "Speech Russia assessments: TGPT concurrency is $tgpt_concurrency request(s) at a time"
 
-response_current=0
-while IFS= read -r candidate; do
-  response_current=$((response_current + 1))
+generate_speech_assessment() {
+  local candidate=$1
+  local response_number=$2
+  local result_file=$3
+  local speech_number source_language text_origin english_text assessment_text prompt answer attempt empty_response_attempts temporary_error tgpt_error
+
   speech_number=$(jq -r '.key' <<< "$candidate")
-  if [[ $(jq -r '.value.assessmentStatus' <<< "$candidate") != "pending" ]]; then
-    progress_note "Speech Russia assessments: response $response_current/$assessment_total cached ($speech_number)"
-    continue
-  fi
 
   source_language=$(jq -r '.value.sourceLanguage' <<< "$candidate")
   text_origin=$(jq -r '.value.textOrigin' <<< "$candidate")
@@ -278,25 +283,24 @@ while IFS= read -r candidate; do
   prompt=$(printf '%s\n\nContribution number: %s\nEnglish text source: %s (%s)\n--- contribution ---\n%s\n--- end contribution ---' \
     "$assessment_instructions" "$speech_number" "$text_origin" "$source_language" "$assessment_text")
 
-  progress_note "Speech Russia assessments: response $response_current/$assessment_total generating ($speech_number)"
+  progress_note "Speech Russia assessments: response $response_number/$assessment_total generating ($speech_number)"
   attempt=0
   empty_response_attempts=0
-  assessment_ready=false
+  temporary_error=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-error.XXXXXX")
   while :; do
     attempt=$((attempt + 1))
     answer=""
-    : > "$temporary_tgpt_error"
+    : > "$temporary_error"
     if [[ -n "$tgpt_provider" ]]; then
-      answer=$("$tgpt_bin" --provider "$tgpt_provider" -q "$prompt" </dev/null 2>"$temporary_tgpt_error" | normalise_json_response) || answer=""
+      answer=$("$tgpt_bin" --provider "$tgpt_provider" -q "$prompt" </dev/null 2>"$temporary_error" | normalise_json_response) || answer=""
     else
-      answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_tgpt_error" | normalise_json_response) || answer=""
+      answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_error" | normalise_json_response) || answer=""
     fi
     if is_valid_assessment "$answer"; then
-      assessment_ready=true
       break
     fi
 
-    tgpt_error=$(compact_text < "$temporary_tgpt_error")
+    tgpt_error=$(compact_text < "$temporary_error")
     if [[ -n "$tgpt_error" ]]; then
       progress_error "Speech Russia assessments: attempt $attempt for $speech_number error: ${tgpt_error:0:600}"
     elif [[ -n "$answer" ]]; then
@@ -306,29 +310,82 @@ while IFS= read -r candidate; do
       progress_error "Speech Russia assessments: attempt $attempt for $speech_number returned no output"
       if (( empty_response_attempts >= max_empty_response_attempts )); then
         progress_error "Speech Russia assessments: $speech_number returned no output $max_empty_response_attempts times; caching it as unavailable until the screening prompt changes."
-        jq \
-          --arg speech_number "$speech_number" \
-          --arg generated_at "$(date --iso-8601=seconds)" \
-          '.items[$speech_number].assessmentStatus = "unavailable" | .items[$speech_number].generatedAt = $generated_at' \
-          "$output_file" > "$temporary_output"
-        mv -f "$temporary_output" "$output_file"
-        temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
-        break
+        jq -cn --arg speech_number "$speech_number" '{speechNumber: $speech_number, status: "unavailable"}' > "$result_file"
+        rm -f "$temporary_error"
+        return 0
       fi
     fi
     progress_note "Speech Russia assessments: attempt $attempt for $speech_number was unusable; retrying in ${retry_delay_seconds}s"
     sleep "$retry_delay_seconds"
   done
 
-  [[ "$assessment_ready" == true ]] || continue
-
-  jq \
+  jq -cn \
     --arg speech_number "$speech_number" \
     --argjson benefits_russia "$(jq -c '.benefitsRussia' <<< "$answer")" \
+    '{speechNumber: $speech_number, status: "complete", benefitsRussia: $benefits_russia}' > "$result_file"
+  rm -f "$temporary_error"
+}
+
+apply_speech_assessment_result() {
+  local result_file=$1
+  local speech_number status benefits_russia
+  [[ -s "$result_file" ]] || return 0
+  speech_number=$(jq -r '.speechNumber' "$result_file")
+  status=$(jq -r '.status' "$result_file")
+  if [[ "$status" == "unavailable" ]]; then
+    jq \
+      --arg speech_number "$speech_number" \
+      --arg generated_at "$(date --iso-8601=seconds)" \
+      '.items[$speech_number].assessmentStatus = "unavailable" | .items[$speech_number].generatedAt = $generated_at' \
+      "$output_file" > "$temporary_output"
+    mv -f "$temporary_output" "$output_file"
+    temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
+    return 0
+  fi
+
+  benefits_russia=$(jq -c '.benefitsRussia' "$result_file")
+  jq \
+    --arg speech_number "$speech_number" \
+    --argjson benefits_russia "$benefits_russia" \
     --arg generated_at "$(date --iso-8601=seconds)" \
     '.items[$speech_number].benefitsRussia = $benefits_russia | .items[$speech_number].assessmentStatus = "complete" | .items[$speech_number].generatedAt = $generated_at' \
     "$output_file" > "$temporary_output"
   mv -f "$temporary_output" "$output_file"
   temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
   progress_note "Speech Russia assessments: generated $speech_number"
+}
+
+pending_pids=()
+pending_results=()
+wait_for_speech_assessment() {
+  local pid result_file
+  pid=${pending_pids[0]}
+  result_file=${pending_results[0]}
+  wait "$pid"
+  apply_speech_assessment_result "$result_file"
+  rm -f "$result_file"
+  pending_pids=("${pending_pids[@]:1}")
+  pending_results=("${pending_results[@]:1}")
+}
+
+response_current=0
+while IFS= read -r candidate; do
+  response_current=$((response_current + 1))
+  speech_number=$(jq -r '.key' <<< "$candidate")
+  if [[ $(jq -r '.value.assessmentStatus' <<< "$candidate") != "pending" ]]; then
+    progress_note "Speech Russia assessments: response $response_current/$assessment_total cached ($speech_number)"
+    continue
+  fi
+
+  result_file="$temporary_results_directory/$response_current.json"
+  generate_speech_assessment "$candidate" "$response_current" "$result_file" &
+  pending_pids+=("$!")
+  pending_results+=("$result_file")
+  if (( ${#pending_pids[@]} >= tgpt_concurrency )); then
+    wait_for_speech_assessment
+  fi
 done < <(jq -c '.items | to_entries[]' "$output_file")
+
+while (( ${#pending_pids[@]} )); do
+  wait_for_speech_assessment
+done
