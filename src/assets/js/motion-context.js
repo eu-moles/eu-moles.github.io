@@ -2,8 +2,6 @@
   "use strict";
 
   const contextParameter = "context";
-  const translationEndpoint = "https://translate.googleapis.com/translate_a/single";
-  const translationCharacterLimit = 15000;
   const institutionalSpeakerNames = new Set([
     "the president", "president", "chair", "the chair", "european commission",
     "the commission", "european council", "the council", "european parliament", "the parliament"
@@ -86,23 +84,16 @@
       button.dataset.translationCached = cachedText;
       button.dataset.translated = "true";
       button.textContent = `${code} → EN`;
-      button.title = `Machine-translated to English. Show original ${language.name || language.code} text.`;
+      button.title = `AI-translated to English. Show original ${language.name || language.code} text.`;
       button.setAttribute("aria-label", `Show original ${language.name || language.code} text`);
       button.setAttribute("aria-pressed", "true");
     } else {
-      button.title = `Original language: ${language.name || language.code}. Translate to English`;
-      button.setAttribute("aria-label", `Translate ${language.name || language.code} to English`);
+      button.title = `Original language: ${language.name || language.code}. English translation is unavailable.`;
+      button.setAttribute("aria-label", `Original ${language.name || language.code} text; English translation unavailable`);
       button.setAttribute("aria-pressed", "false");
+      button.disabled = true;
     }
     return button;
-  };
-
-  const translationText = (payload) => {
-    if (!Array.isArray(payload?.[0])) throw new Error("Unexpected translation response");
-    return payload[0]
-      .map((segment) => Array.isArray(segment) ? segment[0] : "")
-      .filter(Boolean)
-      .join("");
   };
 
   const replaceBubbleText = (content, text, highlight = false, minutesURL = "") => {
@@ -113,7 +104,7 @@
     });
   };
 
-  const translate = async (button) => {
+  const translate = (button) => {
     const bubble = button.closest(".motion-context-bubble");
     if (!bubble || button.dataset.translating === "true") return;
     const content = bubble.querySelector(".motion-context-bubble__text");
@@ -127,67 +118,25 @@
         replaceBubbleText(content, button.dataset.translationText || "", false, bubble.dataset.minutesUrl || "");
       }
       button.textContent = code;
-      button.title = `Original language: ${button.dataset.translationName || code}. Translate to English`;
-      button.setAttribute("aria-label", `Translate ${button.dataset.translationName || code} to English`);
+      button.title = `Original ${button.dataset.translationName || code} text. Show AI-translated English.`;
+      button.setAttribute("aria-label", `Show AI-translated English for ${button.dataset.translationName || code}`);
       button.setAttribute("aria-pressed", "false");
       delete button.dataset.translated;
       return;
     }
-
-    const source = button.dataset.translationSource;
-    const sourceText = button.dataset.translationText || "";
-    if (!source || !sourceText) return;
 
     const cachedText = button.dataset.translationCached || "";
     if (cachedText) {
       button._translationOriginalMarkup = content.innerHTML;
       replaceBubbleText(content, cachedText, true, bubble.dataset.minutesUrl || "");
       button.textContent = `${code} → EN`;
-      button.title = "Machine-translated to English. Show original text.";
+      button.title = "AI-translated to English. Show original text.";
       button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
       button.setAttribute("aria-pressed", "true");
       button.dataset.translated = "true";
       return;
     }
-
-    if (sourceText.length > translationCharacterLimit) {
-      button.title = "Translation unavailable: this speech is too long.";
-      return;
-    }
-
-    button.dataset.translating = "true";
-    button.disabled = true;
-    button.setAttribute("aria-busy", "true");
-    const originalLabel = button.textContent;
-    let translated = false;
-    button.textContent = "…";
-
-    try {
-      const url = new URL(translationEndpoint);
-      url.searchParams.set("client", "gtx");
-      url.searchParams.set("sl", source);
-      url.searchParams.set("tl", "en");
-      url.searchParams.set("dt", "t");
-      url.searchParams.set("q", sourceText);
-      const response = await fetch(url, { headers: { Accept: "application/json" } });
-      if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
-      button._translationOriginalMarkup = content.innerHTML;
-      replaceBubbleText(content, translationText(await response.json()), true, bubble.dataset.minutesUrl || "");
-      button.textContent = `${code} → EN`;
-      button.title = "Machine-translated to English by Google Translate. Show original text.";
-      button.setAttribute("aria-label", `Show original ${button.dataset.translationName || code} text`);
-      button.setAttribute("aria-pressed", "true");
-      button.dataset.translated = "true";
-      translated = true;
-    } catch (error) {
-      button.title = "English translation is currently unavailable. Please try again later.";
-      console.warn("Discussion translation failed", error);
-    } finally {
-      if (!translated) button.textContent = originalLabel;
-      button.disabled = false;
-      button.removeAttribute("aria-busy");
-      delete button.dataset.translating;
-    }
+    button.title = "English translation is unavailable.";
   };
 
   const bindTranslationButton = (button) => {
@@ -262,7 +211,7 @@
     const note = make("div", "motion-context-modal__note");
     const languageIcon = make("i", "fa-solid fa-language");
     languageIcon.setAttribute("aria-hidden", "true");
-    note.append(languageIcon, document.createTextNode("Where available, remarks are machine-translated into English. Select the language badge to view the original."));
+    note.append(languageIcon, document.createTextNode("Where available, remarks are AI-translated into English. Select the language badge to view the original."));
 
     const transcript = make("div", "motion-context-transcript");
     motion.discussion.forEach((turn) => {

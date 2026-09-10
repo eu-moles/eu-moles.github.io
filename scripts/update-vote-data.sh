@@ -7,20 +7,28 @@ source "$repository_root/scripts/lib/data-utils.sh"
 source "$repository_root/scripts/lib/oeil.sh"
 source "$repository_root/scripts/lib/translations.sh"
 
-# The public update_data.sh entry point validates this argument.
+# The public update_data.sh entry point validates these arguments.
 oldest_sitting_date=$1
+only_date=${2:-0}
 
 api="https://data.europarl.europa.eu/api/v2"
 cutoff_date=$(date -d '1 month ago' +%F)
-voting_dates=$(curl_with_error_url -fsSL "https://data.europarl.europa.eu/distribution/meetings_$(date +%Y)_4_en.csv" |
-  sed -nE 's/^MTG-PL-([0-9]{4}-[0-9]{2}-[0-9]{2}).*/\1/p' |
-  sort -u)
-progress_note "Vote data: discovered $(wc -w <<< "$voting_dates") plenary date(s) in the current calendar"
-progress_note "Vote data: updating sittings from $oldest_sitting_date through the one-month cutoff before $cutoff_date"
+if [[ "$only_date" == 1 ]]; then
+  voting_dates=$oldest_sitting_date
+  progress_note "Vote data: updating only sitting $oldest_sitting_date"
+else
+  voting_dates=$(curl_with_error_url -fsSL "https://data.europarl.europa.eu/distribution/meetings_$(date +%Y)_4_en.csv" |
+    sed -nE 's/^MTG-PL-([0-9]{4}-[0-9]{2}-[0-9]{2}).*/\1/p' |
+    sort -u)
+  progress_note "Vote data: discovered $(wc -w <<< "$voting_dates") plenary date(s) in the current calendar"
+  progress_note "Vote data: updating sittings from $oldest_sitting_date through the one-month cutoff before $cutoff_date"
+fi
 
 for voting_date in $voting_dates; do
-  [[ "$voting_date" < "$oldest_sitting_date" ]] && continue
-  [[ "$voting_date" < "$cutoff_date" ]] || continue
+  if [[ "$only_date" != 1 ]]; then
+    [[ "$voting_date" < "$oldest_sitting_date" ]] && continue
+    [[ "$voting_date" < "$cutoff_date" ]] || continue
+  fi
   stage_total=11
   progress 0 "$stage_total" "Vote data for $voting_date: starting"
   sitting_id="MTG-PL-${voting_date}"
@@ -122,9 +130,9 @@ for voting_date in $voting_dates; do
   else
     progress_note "Vote explainers: skipped because the official vote record is unavailable for $voting_date"
   fi
-  progress 9 "$stage_total" "Cached English translations of debate contributions"
-  cache_transcript_translations "$voting_date" "$dir"
-  progress 10 "$stage_total" "Cached Russia-benefit assessments of debate contributions"
+  progress 9 "$stage_total" "Gemini analysis of debate contributions and non-English translations"
+  cache_transcript_speech_analysis "$voting_date" "$dir"
+  progress 10 "$stage_total" "Preparing cached speech Russia assessments"
   "$repository_root/scripts/cache-speech-russia-assessments.sh" "$dir"
   progress 11 "$stage_total" "Formatting cached vote data"
   format_data_sources "$dir"

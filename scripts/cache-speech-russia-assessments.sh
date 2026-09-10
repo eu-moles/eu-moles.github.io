@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Screen each available English plenary contribution for an explicitly stated
-# position that could benefit Russian strategic interests. The assessment is a
-# cache beside the official transcript: raw source data remains untouched.
+# Cache Russia-benefit assessments for plenary contributions. Non-English
+# speeches reuse the flag returned by their Gemini translation request; only
+# original-English speeches need a separate screening request. Raw source data
+# remains untouched.
 # Bump prompt_version when screening rules change; harmless transcript-format
 # changes must not spend tokens regenerating an already screened contribution.
 
 repository_root=$(cd "$(dirname "$0")/.." && pwd)
 source "$repository_root/scripts/lib/data-utils.sh"
+source "$repository_root/scripts/lib/translations.sh"
 
 if (( $# != 1 )); then
   progress_error "Usage: $0 data/votes/YYYY-MM-DD"
@@ -29,8 +31,7 @@ temporary_raw_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-raw.XX
 temporary_mapped_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-mapped.XXXXXX")
 temporary_candidates=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-candidates.XXXXXX")
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
-temporary_results_directory=$(mktemp -d "${TMPDIR:-/tmp}/eu-moles-speech-russia-results.XXXXXX")
-trap 'rm -f "$temporary_languages" "$temporary_mep_ids" "$temporary_raw_candidates" "$temporary_mapped_candidates" "$temporary_candidates" "$temporary_output"; rm -rf "$temporary_results_directory"' EXIT
+trap 'rm -f "$temporary_languages" "$temporary_mep_ids" "$temporary_raw_candidates" "$temporary_mapped_candidates" "$temporary_candidates" "$temporary_output"' EXIT
 
 # Resolve the transcript's speaker label once, while building the cache. The
 # frontend must use Parliament's stable MEP ID rather than trying to match a
@@ -134,7 +135,7 @@ node -e '
 ' "$temporary_mep_ids" < "$temporary_raw_candidates" > "$temporary_mapped_candidates"
 
 if [[ -s "$translations_file" ]]; then
-  jq -n --slurpfile raw "$temporary_mapped_candidates" --slurpfile translations "$translations_file" '
+  jq -n --argjson assessment_prompt_version "$speech_assessment_prompt_version" --slurpfile raw "$temporary_mapped_candidates" --slurpfile translations "$translations_file" '
     def strip_initial_attribution:
       sub("^[^\\(\\r\\n]*\\([^\\)\\r\\n]*\\)\\.[[:space:]]*[–—-][[:space:]]*"; "")
       | sub("^,[^\\.\\r\\n]*\\.[[:space:]]*[–—-][[:space:]]*"; "");
@@ -143,8 +144,16 @@ if [[ -s "$translations_file" ]]; then
         $raw[]
         | . as $candidate
         | ($translations[$candidate.speechNumber] // {}) as $translation
-        | if $candidate.sourceLanguage == "en" then
-            $candidate + {englishText: $candidate.sourceText, textOrigin: "original English"}
+        | (
+            $translation.assessmentPromptVersion == $assessment_prompt_version
+            and ($translation.benefitsRussia | type) == "boolean"
+          ) as $has_analysis
+        | if $translation.detectedLanguage == "en" then
+            $candidate + {
+              englishText: $candidate.sourceText,
+              textOrigin: "original English",
+              combinedBenefitsRussia: (if $has_analysis then $translation.benefitsRussia else null end)
+            }
           # Transcript cleanup may remove a CRE lead-in (for example, “on
           # behalf of …”), while the translation cache still contains the
           # earlier source string. The official contribution is unchanged, so
@@ -152,21 +161,30 @@ if [[ -s "$translations_file" ]]; then
           elif (($translation.englishText // "") | type == "string" and length > 0) then
             $candidate + {
               englishText: ($translation.englishText | strip_initial_attribution),
-              textOrigin: "machine translation"
+              textOrigin: "AI translation",
+              combinedBenefitsRussia: (
+                if $has_analysis then $translation.benefitsRussia else null end
+              )
+            }
+          elif $candidate.sourceLanguage == "en" then
+            $candidate + {
+              englishText: $candidate.sourceText,
+              textOrigin: "original text; Gemini analysis unavailable",
+              combinedBenefitsRussia: null
             }
           else empty end
       ]
   ' > "$temporary_candidates"
 else
   jq -n --slurpfile raw "$temporary_mapped_candidates" \
-    '[$raw[] | select(.sourceLanguage == "en") | . + {englishText: .sourceText, textOrigin: "original English"}]' > "$temporary_candidates"
+    '[$raw[] | select(.sourceLanguage == "en") | . + {englishText: .sourceText, textOrigin: "original English", combinedBenefitsRussia: null}]' > "$temporary_candidates"
 fi
 
 if [[ ! -s "$output_file" ]]; then
   printf '{"version":1,"items":{}}\n' > "$output_file"
 fi
 
-prompt_version=5
+prompt_version=$speech_assessment_prompt_version
 if [[ -s "$output_file" ]]; then
   existing_file="$output_file"
 else
@@ -183,6 +201,7 @@ jq \
   reduce $candidates[0][] as $candidate (
     {version: 1, items: {}};
     ($existing[0].items[$candidate.speechNumber] // {}) as $previous
+    | (($candidate.combinedBenefitsRussia | type) == "boolean") as $combined
     | ($previous.promptVersion == $prompt_version
       and ($previous | (usable or unavailable))) as $cached
     | .items[$candidate.speechNumber] = {
@@ -193,8 +212,8 @@ jq \
         englishText: $candidate.englishText,
         textOrigin: $candidate.textOrigin,
         promptVersion: $prompt_version,
-        benefitsRussia: (if $cached then $previous.benefitsRussia else null end),
-        assessmentStatus: (if $cached then ($previous.assessmentStatus // (if ($previous | usable) then "complete" else "unavailable" end)) else "pending" end),
+        benefitsRussia: (if $cached then $previous.benefitsRussia elif $combined then $candidate.combinedBenefitsRussia else null end),
+        assessmentStatus: (if $cached then ($previous.assessmentStatus // (if ($previous | usable) then "complete" else "unavailable" end)) elif $combined then "complete" else "unavailable" end),
         generatedAt: (if $cached then ($previous.generatedAt // null) else null end)
       }
   )
@@ -203,189 +222,7 @@ mv -f "$temporary_output" "$output_file"
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
 [[ "$existing_file" == "$output_file" ]] || rm -f "$existing_file"
 
-if [[ ${SPEECH_RUSSIA_SKIP_GENERATION:-false} == true ]]; then
-  progress_note "Speech Russia assessments: cache prepared; generation was skipped."
-  exit 0
-fi
-
-tgpt_bin=tgpt
-tgpt_provider=${TGPT_PROVIDER:-}
-
-compact_text() {
-  tr '\r\n\t' '   ' | sed -E 's/[[:space:]]+/ /g; s/^[[:space:]]+//; s/[[:space:]]+$//'
-}
-
-normalise_json_response() {
-  # Gemini occasionally wraps an otherwise valid one-line object in a Markdown
-  # fence. It carries no useful information for this machine-readable cache.
-  compact_text | sed -E 's/^```[[:alnum:]_-]*[[:space:]]*//; s/[[:space:]]*```$//'
-}
-
-is_valid_assessment() {
-  jq -e 'type == "object" and (keys | sort == ["benefitsRussia"]) and (.benefitsRussia | type == "boolean")' <<< "$1" > /dev/null 2>&1
-}
-
-redact_graphic_content_for_assessment() {
-  # Provider safety systems can suppress an otherwise ordinary policy-screening
-  # request when a speech quotes graphic sexual violence or slurs. Those details
-  # are irrelevant to this narrowly scoped Russia-benefit assessment.
-  awk 'BEGIN { RS = ""; ORS = "\n\n" }
-    {
-      normalised = tolower($0)
-      if (normalised ~ /(rape|raped|sexual abuse|sexual violence|vagina|anus|abortion|miscarriage|whore|slut|grooming gang)/) {
-        print "[Graphic sexual-violence details omitted. Assess only the policy positions in the remaining contribution.]"
-      } else {
-        print $0
-      }
-    }'
-}
-
-assessment_instructions='Screen this single European Parliament debate contribution for a data flag. Analyse the concrete policy position expressed, not the speaker, party, nationality, tone, factual accuracy or rhetorical hostility. Output only a one-line JSON object with exactly one boolean key: benefitsRussia.
-
-Set benefitsRussia to true only if the contribution advocates, endorses, or clearly argues for a concrete outcome that would reasonably benefit Russian strategic interests by weakening European security or support for Ukraine or Moldova. This includes ending, reducing or obstructing sanctions; military, financial or economic support for Ukraine; EU or NATO defence and security coordination; European defence investment; energy independence; or counter-disinformation.
-
-In the context of Russia’s war against Ukraine, treat calls against weapons deliveries, rearmament, militarisation, NATO security, escalation or a “war against Russia” as true when they present less European military support or deterrence as the preferred outcome, even if framed as peace. Also treat it as true when the speaker explicitly calls to stop or reverse Ukraine or Moldova EU integration while arguing that support must be diverted from it, or that integration itself must be stopped to avoid war, escalation, confrontation with Russia, or NATO-driven conflict.
-
-Always set benefitsRussia to false for an accession objection based on historical memory, wartime atrocities, symbols, national identity, corruption, costs, minority rights, national interest or domestic politics—even when it says Ukraine should never join the EU—unless the contribution independently calls to reduce support or links the requested block to war, escalation, Russia or NATO. Also set it to false for factual reporting; criticism without a requested policy change; peace language that still supports Ukraine’s sovereignty and continuing assistance; and criticism of military spending unrelated to Russia’s war against Ukraine. Do not guess motives.'
-
 assessment_total=$(jq '.items | length' "$output_file")
-pending_total=$(jq '[.items[] | select(.assessmentStatus == "pending")] | length' "$output_file")
-retry_delay_seconds=${SPEECH_RUSSIA_RETRY_DELAY_SECONDS:-2}
-max_empty_response_attempts=3
-tgpt_concurrency=${TGPT_CONCURRENCY:-2}
-if ! [[ "$tgpt_concurrency" =~ ^[1-9][0-9]*$ ]]; then
-  progress_error "Speech Russia assessments: TGPT_CONCURRENCY must be a positive integer (received $tgpt_concurrency)."
-  exit 64
-fi
-progress_note "Speech Russia assessments: $pending_total/$assessment_total response(s) need generating"
-progress_note "Speech Russia assessments: TGPT concurrency is $tgpt_concurrency request(s) at a time"
-
-generate_speech_assessment() {
-  local candidate=$1
-  local response_number=$2
-  local result_file=$3
-  local speech_number source_language text_origin english_text assessment_text prompt answer attempt empty_response_attempts temporary_error tgpt_error
-
-  speech_number=$(jq -r '.key' <<< "$candidate")
-
-  source_language=$(jq -r '.value.sourceLanguage' <<< "$candidate")
-  text_origin=$(jq -r '.value.textOrigin' <<< "$candidate")
-  english_text=$(jq -r '.value.englishText' <<< "$candidate")
-  # Long contributions are rare. Preserve both their opening context and
-  # conclusion without turning one screening request into a very large prompt.
-  if (( ${#english_text} > 12000 )); then
-    english_text="${english_text:0:9000}"$'\n\n[Middle of contribution omitted for length]\n\n'"${english_text: -3000}"
-  fi
-  assessment_text=$(printf '%s' "$english_text" | redact_graphic_content_for_assessment)
-  if [[ "$assessment_text" != "$english_text" ]]; then
-    progress_note "Speech Russia assessments: redacted graphic detail for provider safety ($speech_number)"
-  fi
-  prompt=$(printf '%s\n\nContribution number: %s\nEnglish text source: %s (%s)\n--- contribution ---\n%s\n--- end contribution ---' \
-    "$assessment_instructions" "$speech_number" "$text_origin" "$source_language" "$assessment_text")
-
-  progress_note "Speech Russia assessments: response $response_number/$assessment_total generating ($speech_number)"
-  attempt=0
-  empty_response_attempts=0
-  temporary_error=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-error.XXXXXX")
-  while :; do
-    attempt=$((attempt + 1))
-    answer=""
-    : > "$temporary_error"
-    if [[ -n "$tgpt_provider" ]]; then
-      answer=$("$tgpt_bin" --provider "$tgpt_provider" -q "$prompt" </dev/null 2>"$temporary_error" | normalise_json_response) || answer=""
-    else
-      answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_error" | normalise_json_response) || answer=""
-    fi
-    if is_valid_assessment "$answer"; then
-      break
-    fi
-
-    tgpt_error=$(compact_text < "$temporary_error")
-    if [[ -n "$tgpt_error" ]]; then
-      progress_error "Speech Russia assessments: attempt $attempt for $speech_number error: ${tgpt_error:0:600}"
-    elif [[ -n "$answer" ]]; then
-      progress_error "Speech Russia assessments: attempt $attempt for $speech_number returned invalid output: ${answer:0:600}"
-    else
-      empty_response_attempts=$((empty_response_attempts + 1))
-      progress_error "Speech Russia assessments: attempt $attempt for $speech_number returned no output"
-      if (( empty_response_attempts >= max_empty_response_attempts )); then
-        progress_error "Speech Russia assessments: $speech_number returned no output $max_empty_response_attempts times; caching it as unavailable until the screening prompt changes."
-        jq -cn --arg speech_number "$speech_number" '{speechNumber: $speech_number, status: "unavailable"}' > "$result_file"
-        rm -f "$temporary_error"
-        return 0
-      fi
-    fi
-    progress_note "Speech Russia assessments: attempt $attempt for $speech_number was unusable; retrying in ${retry_delay_seconds}s"
-    sleep "$retry_delay_seconds"
-  done
-
-  jq -cn \
-    --arg speech_number "$speech_number" \
-    --argjson benefits_russia "$(jq -c '.benefitsRussia' <<< "$answer")" \
-    '{speechNumber: $speech_number, status: "complete", benefitsRussia: $benefits_russia}' > "$result_file"
-  rm -f "$temporary_error"
-}
-
-apply_speech_assessment_result() {
-  local result_file=$1
-  local speech_number status benefits_russia
-  [[ -s "$result_file" ]] || return 0
-  speech_number=$(jq -r '.speechNumber' "$result_file")
-  status=$(jq -r '.status' "$result_file")
-  if [[ "$status" == "unavailable" ]]; then
-    jq \
-      --arg speech_number "$speech_number" \
-      --arg generated_at "$(date --iso-8601=seconds)" \
-      '.items[$speech_number].assessmentStatus = "unavailable" | .items[$speech_number].generatedAt = $generated_at' \
-      "$output_file" > "$temporary_output"
-    mv -f "$temporary_output" "$output_file"
-    temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
-    return 0
-  fi
-
-  benefits_russia=$(jq -c '.benefitsRussia' "$result_file")
-  jq \
-    --arg speech_number "$speech_number" \
-    --argjson benefits_russia "$benefits_russia" \
-    --arg generated_at "$(date --iso-8601=seconds)" \
-    '.items[$speech_number].benefitsRussia = $benefits_russia | .items[$speech_number].assessmentStatus = "complete" | .items[$speech_number].generatedAt = $generated_at' \
-    "$output_file" > "$temporary_output"
-  mv -f "$temporary_output" "$output_file"
-  temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-speech-russia-output.XXXXXX")
-  progress_note "Speech Russia assessments: generated $speech_number"
-}
-
-pending_pids=()
-pending_results=()
-wait_for_speech_assessment() {
-  local pid result_file
-  pid=${pending_pids[0]}
-  result_file=${pending_results[0]}
-  wait "$pid"
-  apply_speech_assessment_result "$result_file"
-  rm -f "$result_file"
-  pending_pids=("${pending_pids[@]:1}")
-  pending_results=("${pending_results[@]:1}")
-}
-
-response_current=0
-while IFS= read -r candidate; do
-  response_current=$((response_current + 1))
-  speech_number=$(jq -r '.key' <<< "$candidate")
-  if [[ $(jq -r '.value.assessmentStatus' <<< "$candidate") != "pending" ]]; then
-    progress_note "Speech Russia assessments: response $response_current/$assessment_total cached ($speech_number)"
-    continue
-  fi
-
-  result_file="$temporary_results_directory/$response_current.json"
-  generate_speech_assessment "$candidate" "$response_current" "$result_file" &
-  pending_pids+=("$!")
-  pending_results+=("$result_file")
-  if (( ${#pending_pids[@]} >= tgpt_concurrency )); then
-    wait_for_speech_assessment
-  fi
-done < <(jq -c '.items | to_entries[]' "$output_file")
-
-while (( ${#pending_pids[@]} )); do
-  wait_for_speech_assessment
-done
+complete_total=$(jq '[.items[] | select(.assessmentStatus == "complete")] | length' "$output_file")
+unavailable_total=$(jq '[.items[] | select(.assessmentStatus == "unavailable")] | length' "$output_file")
+progress_note "Speech Russia assessments: reused $complete_total Gemini analysis result(s); $unavailable_total unavailable (out of $assessment_total)."

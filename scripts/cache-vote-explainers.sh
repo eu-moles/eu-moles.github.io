@@ -444,7 +444,7 @@ add_report_context() {
 pending_total=$(jq '[.items[] | select((.description // "") == "" or (.yesVote // "") == "" or (.russia // "") == "")] | length' "$output_file")
 explainer_total=$(jq '.items | length' "$output_file")
 retry_delay_seconds=${EXPLAINER_RETRY_DELAY_SECONDS:-2}
-tgpt_concurrency=${TGPT_CONCURRENCY:-2}
+tgpt_concurrency=${TGPT_CONCURRENCY:-8}
 if ! [[ "$tgpt_concurrency" =~ ^[1-9][0-9]*$ ]]; then
   progress_error "Vote explainers: TGPT_CONCURRENCY must be a positive integer (received $tgpt_concurrency)."
   exit 64

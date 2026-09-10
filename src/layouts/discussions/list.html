@@ -104,7 +104,7 @@
                         </div>
                         <button class="motion-context-modal__close" type="button" data-motion-context-close aria-label="Close discussion"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
                       </header>
-                      <div class="motion-context-modal__note"><i class="fa-solid fa-language" aria-hidden="true"></i> Where available, remarks are machine-translated into English. Select the language badge to view the original.</div>
+                      <div class="motion-context-modal__note"><i class="fa-solid fa-language" aria-hidden="true"></i> Where available, remarks are AI-translated into English. Select the language badge to view the original.</div>
                       <div class="motion-context-transcript">
                         {{ range .turns }}
                           {{- $turn := . -}}
@@ -139,7 +139,7 @@
                                   {{ $turn.speaker }}
                                 {{ end }}
                               </p>
-                              <div class="motion-context-bubble"><div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript/transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText "minutesURL" $discussion.sourceURL) | safeHTML }}</div>{{ if $showLanguageToggle }}{{ with $language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ .source }}" data-translation-text="{{ $turn.text }}"{{ if $isTranslated }} data-translation-cached="{{ $translation.englishText }}" data-translated="true"{{ end }} title="{{ if $isTranslated }}Machine-translated to English. Show original {{ .name }} text.{{ else }}Original language: {{ .name }}. Translate to English.{{ end }}" aria-label="{{ if $isTranslated }}Show original {{ .name }} text{{ else }}Translate {{ .name }} to English{{ end }}" aria-pressed="{{ if $isTranslated }}true{{ else }}false{{ end }}">{{ upper .code }}{{ if $isTranslated }} → EN{{ end }}</button>{{ end }}{{ end }}</div>
+                              <div class="motion-context-bubble"><div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript/transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText "minutesURL" $discussion.sourceURL) | safeHTML }}</div>{{ if $showLanguageToggle }}{{ with $language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ .source }}" data-translation-text="{{ $turn.text }}"{{ if $isTranslated }} data-translation-cached="{{ $translation.englishText }}" data-translated="true"{{ else }} disabled{{ end }} title="{{ if $isTranslated }}AI-translated to English. Show original {{ .name }} text.{{ else }}Original language: {{ .name }}. English translation is unavailable.{{ end }}" aria-label="{{ if $isTranslated }}Show original {{ .name }} text{{ else }}Original {{ .name }} text; English translation unavailable{{ end }}" aria-pressed="{{ if $isTranslated }}true{{ else }}false{{ end }}">{{ upper .code }}{{ if $isTranslated }} → EN{{ end }}</button>{{ end }}{{ end }}</div>
                             </div>
                           </article>
                         {{ end }}

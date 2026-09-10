@@ -80,6 +80,9 @@ The date is the oldest sitting to include. The updater processes every available
 plenary sitting from that date up to (but not including) the one-month safety
 cutoff, then reports its progress, caches official source data, refreshes
 translations, and generates any missing AI-assisted explainers or assessments.
+To refresh one sitting only—without updating the MEP directory or checking the
+calendar range—use `./update_data.sh 2026-07-08 1`. The optional second
+argument defaults to `0`.
 It checks all required commands before starting; configure your `PATH` first if
 any are missing.
 
