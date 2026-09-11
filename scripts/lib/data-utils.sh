@@ -23,6 +23,85 @@ progress_error() {
   printf '[%s]       %s\n' "$(date +%H:%M:%S)" "$1" >&2
 }
 
+load_gemini_environment() {
+  local environment_file="$1"
+
+  if [[ ! -r "$environment_file" ]]; then
+    progress_error "Gemini configuration is missing: expected $environment_file"
+    return 1
+  fi
+
+  # The project .env is user-owned and Git-ignored. Export its assignments so
+  # the background workers used by the caches inherit the same configuration.
+  set -a
+  # shellcheck disable=SC1090
+  source "$environment_file"
+  set +a
+
+  if [[ -z "${GEMINI_API_KEY:-}" ]]; then
+    progress_error "Gemini configuration is missing GEMINI_API_KEY in $environment_file"
+    return 1
+  fi
+  if [[ -z "${GEMINI_MODEL:-}" ]]; then
+    progress_error "Gemini configuration is missing GEMINI_MODEL in $environment_file"
+    return 1
+  fi
+}
+
+gemini_generate_json() {
+  local prompt="$1"
+  local max_output_tokens="$2"
+  local model payload response text error_message
+
+  if [[ -z "${GEMINI_API_KEY:-}" || -z "${GEMINI_MODEL:-}" ]]; then
+    progress_error "Gemini is not configured. Run the updater through ./update_data.sh so it loads .env."
+    return 64
+  fi
+  if ! [[ "$max_output_tokens" =~ ^[1-9][0-9]*$ ]]; then
+    progress_error "Gemini max output tokens must be a positive integer (received $max_output_tokens)."
+    return 64
+  fi
+
+  model=${GEMINI_MODEL#models/}
+  if ! [[ "$model" =~ ^[A-Za-z0-9._-]+$ ]]; then
+    progress_error "Gemini model name contains unsupported characters."
+    return 64
+  fi
+
+  payload=$(jq -cn \
+    --arg prompt "$prompt" \
+    --argjson max_output_tokens "$max_output_tokens" \
+    '{
+      contents: [{role: "user", parts: [{text: $prompt}]}],
+      generationConfig: {
+        temperature: 0,
+        responseMimeType: "application/json",
+        maxOutputTokens: $max_output_tokens
+      }
+    }')
+
+  if ! response=$(curl_with_error_url \
+    -fsSL \
+    --connect-timeout 15 \
+    --max-time 180 \
+    --retry 0 \
+    -H 'Content-Type: application/json' \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    --data-binary "$payload" \
+    "https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent"); then
+    return 1
+  fi
+
+  if text=$(jq -er '[.candidates[0].content.parts[]?.text // empty] | join("") | select(length > 0)' <<< "$response" 2>/dev/null); then
+    printf '%s' "$text"
+    return 0
+  fi
+
+  error_message=$(jq -r '.error.message // .promptFeedback.blockReason // .candidates[0].finishReason // "Gemini returned no candidate text"' <<< "$response" 2>/dev/null || true)
+  progress_error "Gemini response error: $error_message"
+  return 1
+}
+
 make_temporary_file() {
   local purpose="$1"
 

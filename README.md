@@ -52,7 +52,16 @@ AI is used for plain-language summaries, translations where needed, and consiste
 
 - [Hugo Extended](https://gohugo.io/installation/)
 - Bash, `curl`, `jq`, `wget`, `xmllint`, `unzip`, `pdftotext`, and Node.js
-- [tgpt](https://github.com/aandrew-me/tgpt) configured with an AI provider for vote explainers and speech assessments
+- A Gemini API key and model name in a Git-ignored `.env` file for vote explainers and speech assessments
+
+Create `.env` in the repository root before running the updater:
+
+```dotenv
+GEMINI_API_KEY=your-api-key
+GEMINI_MODEL=gemini-3.5-flash-lite
+# Optional: defaults to 8 parallel API requests.
+GEMINI_CONCURRENCY=8
+```
 
 ### Preview the site
 

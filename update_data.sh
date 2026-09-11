@@ -8,9 +8,11 @@ script_directory=${BASH_SOURCE[0]%/*}
 [[ "$script_directory" == "${BASH_SOURCE[0]}" ]] && script_directory=.
 repository_root=$(cd "$script_directory" && pwd)
 
+environment_file="$repository_root/.env"
+
 required_commands=(
   awk basename cat curl date dirname find grep head jq mkdir mktemp mv node
-  pdftotext rm sed sleep sort stat tgpt tr unzip wc wget xmllint
+  pdftotext rm sed sleep sort stat tr unzip wc wget xmllint
 )
 missing_commands=()
 for required_command in "${required_commands[@]}"; do
@@ -43,6 +45,12 @@ fi
 if [[ "$only_date" != 0 && "$only_date" != 1 ]]; then
   printf '[%s]       Error: ONLY_DATE must be 0 or 1 (received %q).\n' "$(date +%H:%M:%S)" "$only_date" >&2
   exit 64
+fi
+
+# shellcheck source=scripts/lib/data-utils.sh
+source "$repository_root/scripts/lib/data-utils.sh"
+if ! load_gemini_environment "$environment_file"; then
+  exit 78
 fi
 
 if [[ "$only_date" == 1 ]]; then

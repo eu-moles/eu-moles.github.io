@@ -323,9 +323,6 @@ mv -f "$temporary_output" "$output_file"
 temporary_output=$(mktemp "${TMPDIR:-/tmp}/eu-moles-vote-explainers.XXXXXX")
 [[ "$existing_file" == "$output_file" ]] || rm -f "$existing_file"
 
-tgpt_bin=tgpt
-tgpt_provider=${TGPT_PROVIDER:-}
-
 compact_text() {
   tr '\r\n\t' '   ' | sed -E 's/[[:space:]]+/ /g; s/^[[:space:]]+//; s/[[:space:]]+$//'
 }
@@ -444,13 +441,13 @@ add_report_context() {
 pending_total=$(jq '[.items[] | select((.description // "") == "" or (.yesVote // "") == "" or (.russia // "") == "")] | length' "$output_file")
 explainer_total=$(jq '.items | length' "$output_file")
 retry_delay_seconds=${EXPLAINER_RETRY_DELAY_SECONDS:-2}
-tgpt_concurrency=${TGPT_CONCURRENCY:-8}
-if ! [[ "$tgpt_concurrency" =~ ^[1-9][0-9]*$ ]]; then
-  progress_error "Vote explainers: TGPT_CONCURRENCY must be a positive integer (received $tgpt_concurrency)."
+gemini_concurrency=${GEMINI_CONCURRENCY:-8}
+if ! [[ "$gemini_concurrency" =~ ^[1-9][0-9]*$ ]]; then
+  progress_error "Vote explainers: GEMINI_CONCURRENCY must be a positive integer (received $gemini_concurrency)."
   exit 64
 fi
 progress_note "Vote explainers: $pending_total/$explainer_total response(s) need generating"
-progress_note "Vote explainers: TGPT concurrency is $tgpt_concurrency request(s) at a time"
+progress_note "Vote explainers: Gemini API concurrency is $gemini_concurrency request(s) at a time"
 if (( pending_total == 0 )); then
   progress_note "Vote explainers: all $explainer_total cached explanations are current."
 fi
@@ -459,7 +456,8 @@ generate_explainer() {
   local candidate=$1
   local response_number=$2
   local result_file=$3
-  local id prompt answer attempt tgpt_error temporary_error
+  local id prompt answer attempt gemini_error temporary_error
+  local max_output_tokens=${GEMINI_EXPLAINER_MAX_OUTPUT_TOKENS:-1024}
 
   id=$(jq -r '.key' <<< "$candidate")
   prompt=$(jq -r '.value.prompt' <<< "$candidate")
@@ -476,19 +474,15 @@ generate_explainer() {
     attempt=$((attempt + 1))
     answer=""
     : > "$temporary_error"
-    if [[ -n "$tgpt_provider" ]]; then
-      answer=$("$tgpt_bin" --provider "$tgpt_provider" -q "$prompt" </dev/null 2>"$temporary_error" | compact_text) || answer=""
-    else
-      answer=$("$tgpt_bin" -q "$prompt" </dev/null 2>"$temporary_error" | compact_text) || answer=""
-    fi
+    answer=$(gemini_generate_json "$prompt" "$max_output_tokens" </dev/null 2>"$temporary_error" | compact_text) || answer=""
 
     if is_valid_explainer_sections "$answer"; then
       break
     fi
 
-    tgpt_error=$(compact_text < "$temporary_error")
-    if [[ -n "$tgpt_error" ]]; then
-      progress_error "Vote explainers: attempt $attempt for $id error: ${tgpt_error:0:600}"
+    gemini_error=$(compact_text < "$temporary_error")
+    if [[ -n "$gemini_error" ]]; then
+      progress_error "Vote explainers: attempt $attempt for $id error: ${gemini_error:0:600}"
     elif [[ -n "$answer" ]]; then
       progress_error "Vote explainers: attempt $attempt for $id returned invalid output: ${answer:0:600}"
     else
@@ -545,7 +539,7 @@ while IFS= read -r candidate; do
   generate_explainer "$candidate" "$response_current" "$result_file" &
   pending_pids+=("$!")
   pending_results+=("$result_file")
-  if (( ${#pending_pids[@]} >= tgpt_concurrency )); then
+  if (( ${#pending_pids[@]} >= gemini_concurrency )); then
     wait_for_explainer
   fi
 done < <(jq -c '.items | to_entries[]' "$output_file")
