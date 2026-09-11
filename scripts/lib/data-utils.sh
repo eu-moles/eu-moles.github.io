@@ -51,6 +51,8 @@ load_gemini_environment() {
 gemini_generate_json() {
   local prompt="$1"
   local max_output_tokens="$2"
+  local requested_model="${3:-}"
+  local use_google_search="${4:-false}"
   local model payload response text error_message
 
   if [[ -z "${GEMINI_API_KEY:-}" || -z "${GEMINI_MODEL:-}" ]]; then
@@ -62,15 +64,21 @@ gemini_generate_json() {
     return 64
   fi
 
-  model=${GEMINI_MODEL#models/}
+  model=${requested_model:-$GEMINI_MODEL}
+  model=${model#models/}
   if ! [[ "$model" =~ ^[A-Za-z0-9._-]+$ ]]; then
     progress_error "Gemini model name contains unsupported characters."
+    return 64
+  fi
+  if [[ "$use_google_search" != true && "$use_google_search" != false ]]; then
+    progress_error "Gemini Google Search setting must be true or false (received $use_google_search)."
     return 64
   fi
 
   payload=$(jq -cn \
     --arg prompt "$prompt" \
     --argjson max_output_tokens "$max_output_tokens" \
+    --argjson use_google_search "$use_google_search" \
     '{
       contents: [{role: "user", parts: [{text: $prompt}]}],
       generationConfig: {
@@ -78,7 +86,8 @@ gemini_generate_json() {
         responseMimeType: "application/json",
         maxOutputTokens: $max_output_tokens
       }
-    }')
+    }
+    | if $use_google_search then .tools = [{google_search: {}}] else . end')
 
   if ! response=$(curl_with_error_url \
     -fsSL \
@@ -92,7 +101,10 @@ gemini_generate_json() {
     return 1
   fi
 
-  if text=$(jq -er '[.candidates[0].content.parts[]?.text // empty] | join("") | select(length > 0)' <<< "$response" 2>/dev/null); then
+  # Grounded Gemini responses may include a text-bearing thought/search-plan
+  # part before the actual answer. It is not model output for this pipeline
+  # and can otherwise make a valid JSON response look malformed.
+  if text=$(jq -er '[.candidates[0].content.parts[]? | select(.thought != true) | .text // empty] | join("") | select(length > 0)' <<< "$response" 2>/dev/null); then
     printf '%s' "$text"
     return 0
   fi

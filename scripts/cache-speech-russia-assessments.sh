@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Cache Russia-benefit assessments for plenary contributions. Non-English
-# speeches reuse the flag returned by their Gemini translation request; only
-# original-English speeches need a separate screening request. Raw source data
-# remains untouched.
+# Format the Gemini Russia-benefit and fact-check results for plenary
+# contributions. The unified Gemini request already translates non-English
+# speeches, screens the text, and performs any necessary web-grounded check.
 # Bump prompt_version when screening rules change; harmless transcript-format
 # changes must not spend tokens regenerating an already screened contribution.
 
@@ -70,9 +69,18 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
     # “Name (Group). –”, or “, on behalf of Group. –”, in any language.
     # Those labels are not remarks and must never reach the translation or AI
     # assessment pipeline.
-    sub(/^[^(\r\n]*\([^)]*\)\.[[:space:]]*[–—-][[:space:]]*/, "", value)
+    # Limit removal to known political-group labels so a report title or an
+    # ordinary parenthetical phrase can never be mistaken for a lead-in.
+    if (match(value, /\(/) && RSTART <= 49 && value ~ /^[^(\r\n]*\((PPE|EPP|S&D|Renew|ECR|PfE|ESN|Verts\/ALE|Greens\/EFA|The Left|GUE\/NGL|NI)[^)]*\)/) sub(/^[^(\r\n]*\([^)]*\)[,.;:]?[^–—\r\n]*[–—-][[:space:]]*/, "", value)
     sub(/^,[^.\r\n]*\.[[:space:]]*[–—-][[:space:]]*/, "", value)
     return value
+  }
+  function is_procedural_label(value, lower) {
+    # These CRE bookmark entries are chair labels, not interventions.
+    lower = tolower(value)
+    return length(value) <= 120 \
+      && lower ~ /^(presid|vorsitz|puhemies|voorzitter|przewodnicz|predsed|talman)/ \
+      && lower !~ /[.!?]/
   }
   function flush_turn(    code,speaker_label,opening) {
     if (!speaker || !speech_number || !buffer || (speech_number in seen)) return
@@ -89,6 +97,7 @@ LC_ALL=C awk -v language_map="$temporary_languages" '
       speaker_label = "Petar VOLGIN"
     }
     buffer = strip_initial_attribution(buffer)
+    if (is_procedural_label(buffer)) return
     printf "{\"speechNumber\":\"%s\",\"speaker\":\"%s\",\"sourceLanguage\":\"%s\",\"sourceText\":\"%s\"}\n", json_escape(speech_number), json_escape(speaker_label), json_escape(code), json_escape(buffer)
     seen[speech_number] = 1
   }
@@ -137,7 +146,7 @@ node -e '
 if [[ -s "$translations_file" ]]; then
   jq -n --argjson assessment_prompt_version "$speech_assessment_prompt_version" --slurpfile raw "$temporary_mapped_candidates" --slurpfile translations "$translations_file" '
     def strip_initial_attribution:
-      sub("^[^\\(\\r\\n]*\\([^\\)\\r\\n]*\\)\\.[[:space:]]*[–—-][[:space:]]*"; "")
+      sub("(?i)^[^\\(\\r\\n]{0,48}\\((PPE|EPP|S&D|Renew|ECR|PfE|ESN|Verts/ALE|Greens/EFA|The Left|GUE/NGL|NI)[^\\)\\r\\n]*\\)[,.;:]?[[:space:]]*[^–—\\r\\n]{0,140}[–—-][[:space:]]*"; "")
       | sub("^,[^\\.\\r\\n]*\\.[[:space:]]*[–—-][[:space:]]*"; "");
     ($translations[0].translations // {}) as $translations
     | [
@@ -147,12 +156,14 @@ if [[ -s "$translations_file" ]]; then
         | (
             $translation.assessmentPromptVersion == $assessment_prompt_version
             and ($translation.benefitsRussia | type) == "boolean"
+            and ($translation.factCheck == null or ($translation.factCheck | type) == "string")
           ) as $has_analysis
         | if $translation.detectedLanguage == "en" then
             $candidate + {
               englishText: $candidate.sourceText,
               textOrigin: "original English",
-              combinedBenefitsRussia: (if $has_analysis then $translation.benefitsRussia else null end)
+              combinedBenefitsRussia: (if $has_analysis then $translation.benefitsRussia else null end),
+              combinedFactCheck: (if $has_analysis then $translation.factCheck else null end)
             }
           # Transcript cleanup may remove a CRE lead-in (for example, “on
           # behalf of …”), while the translation cache still contains the
@@ -164,20 +175,22 @@ if [[ -s "$translations_file" ]]; then
               textOrigin: "AI translation",
               combinedBenefitsRussia: (
                 if $has_analysis then $translation.benefitsRussia else null end
-              )
+              ),
+              combinedFactCheck: (if $has_analysis then $translation.factCheck else null end)
             }
           elif $candidate.sourceLanguage == "en" then
             $candidate + {
               englishText: $candidate.sourceText,
               textOrigin: "original text; Gemini analysis unavailable",
-              combinedBenefitsRussia: null
+              combinedBenefitsRussia: null,
+              combinedFactCheck: null
             }
           else empty end
       ]
   ' > "$temporary_candidates"
 else
   jq -n --slurpfile raw "$temporary_mapped_candidates" \
-    '[$raw[] | select(.sourceLanguage == "en") | . + {englishText: .sourceText, textOrigin: "original English", combinedBenefitsRussia: null}]' > "$temporary_candidates"
+    '[$raw[] | select(.sourceLanguage == "en") | . + {englishText: .sourceText, textOrigin: "original English", combinedBenefitsRussia: null, combinedFactCheck: null}]' > "$temporary_candidates"
 fi
 
 if [[ ! -s "$output_file" ]]; then
@@ -196,14 +209,16 @@ jq \
   --argjson prompt_version "$prompt_version" \
   --slurpfile candidates "$temporary_candidates" \
   --slurpfile existing "$existing_file" '
-  def usable: (.benefitsRussia | type) == "boolean";
+  def usable: (.benefitsRussia | type) == "boolean" and (.factCheck == null or (.factCheck | type) == "string");
   def unavailable: .assessmentStatus == "unavailable";
   reduce $candidates[0][] as $candidate (
     {version: 1, items: {}};
     ($existing[0].items[$candidate.speechNumber] // {}) as $previous
     | (($candidate.combinedBenefitsRussia | type) == "boolean") as $combined
+    # A current translation/analysis result must replace an older unavailable
+    # placeholder. Only retain a previous fully usable result as the cache.
     | ($previous.promptVersion == $prompt_version
-      and ($previous | (usable or unavailable))) as $cached
+      and ($previous | usable)) as $cached
     | .items[$candidate.speechNumber] = {
         sourceLanguage: $candidate.sourceLanguage,
         speaker: $candidate.speaker,
@@ -213,6 +228,7 @@ jq \
         textOrigin: $candidate.textOrigin,
         promptVersion: $prompt_version,
         benefitsRussia: (if $cached then $previous.benefitsRussia elif $combined then $candidate.combinedBenefitsRussia else null end),
+        factCheck: (if $cached then ($previous.factCheck // null) elif $combined then ($candidate.combinedFactCheck // null) else null end),
         assessmentStatus: (if $cached then ($previous.assessmentStatus // (if ($previous | usable) then "complete" else "unavailable" end)) elif $combined then "complete" else "unavailable" end),
         generatedAt: (if $cached then ($previous.generatedAt // null) else null end)
       }

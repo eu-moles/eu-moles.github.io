@@ -29,7 +29,7 @@ for voting_date in $voting_dates; do
     [[ "$voting_date" < "$oldest_sitting_date" ]] && continue
     [[ "$voting_date" < "$cutoff_date" ]] || continue
   fi
-  stage_total=11
+  stage_total=12
   progress 0 "$stage_total" "Vote data for $voting_date: starting"
   sitting_id="MTG-PL-${voting_date}"
   dir="data/votes/${voting_date}"
@@ -132,9 +132,11 @@ for voting_date in $voting_dates; do
   fi
   progress 9 "$stage_total" "Gemini analysis of debate contributions and non-English translations"
   cache_transcript_speech_analysis "$voting_date" "$dir"
-  progress 10 "$stage_total" "Preparing cached speech Russia assessments"
+  progress 10 "$stage_total" "Web-grounded fact checks for flagged contributions"
+  cache_flagged_speech_fact_checks "$dir"
+  progress 11 "$stage_total" "Preparing cached speech Russia assessments"
   "$repository_root/scripts/cache-speech-russia-assessments.sh" "$dir"
-  progress 11 "$stage_total" "Formatting cached vote data"
+  progress 12 "$stage_total" "Formatting cached vote data"
   format_data_sources "$dir"
-  progress 11 "$stage_total" "Vote data for $voting_date: complete"
+  progress 12 "$stage_total" "Vote data for $voting_date: complete"
 done

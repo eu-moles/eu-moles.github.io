@@ -8,11 +8,17 @@
   {{- $translations := partials.IncludeCached "transcript/transcript-translation-map.html" $translationFile $translationFile -}}
   {{- $assessmentFile := replace $file "transcript.xml" "speech-russia-assessments.json" -}}
   {{- $russiaBenefits := dict -}}
+  {{- $factChecks := dict -}}
   {{- if os.FileExists $assessmentFile -}}
     {{- $assessmentData := transform.Unmarshal (os.ReadFile $assessmentFile) -}}
     {{- range $speechNumber, $assessment := index $assessmentData "items" | default dict -}}
       {{- if isset $assessment "benefitsRussia" -}}
         {{- $russiaBenefits = merge $russiaBenefits (dict $speechNumber (index $assessment "benefitsRussia")) -}}
+      {{- end -}}
+      {{- with index $assessment "factCheck" -}}
+        {{- if ne . "" -}}
+          {{- $factChecks = merge $factChecks (dict $speechNumber .) -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
@@ -73,9 +79,10 @@
 
       {{- if and $insideContext $isAgendaHeading -}}
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+        {{- $turnText = partials.Include "transcript/transcript-clean-speech-prefix.html" $turnText -}}
         {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false) "factCheck" (index $factChecks $speechNumber | default "")) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
           {{- $contexts = $contexts | append (dict "heading" $heading "agendaNumber" $agendaNumber "type" $contextType "turns" $turns) -}}
@@ -171,9 +178,10 @@
         {{- end -}}
       {{- else if and $insideContext (or $isAfterVoteMarker $isAfterVoteLabel) -}}
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+        {{- $turnText = partials.Include "transcript/transcript-clean-speech-prefix.html" $turnText -}}
         {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false) "factCheck" (index $factChecks $speechNumber | default "")) -}}
         {{- end -}}
         {{- if gt (len $turns) 0 -}}
           {{- $contexts = $contexts | append (dict "heading" $heading "agendaNumber" $agendaNumber "type" $contextType "turns" $turns) -}}
@@ -186,9 +194,10 @@
         {{- $paragraphBuffer = slice -}}
       {{- else if and $insideContext $isSpeakerMarker -}}
         {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+        {{- $turnText = partials.Include "transcript/transcript-clean-speech-prefix.html" $turnText -}}
         {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
         {{- if and (ne $speaker "") (not $isChairChange) -}}
-          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
+          {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false) "factCheck" (index $factChecks $speechNumber | default "")) -}}
         {{- end -}}
         {{- $speaker = $rawSpeaker -}}
         {{- $speakerMarker = $rawSpeaker -}}
@@ -247,9 +256,10 @@
       {{- end -}}
     {{- end -}}
     {{- $turnText := delimit $paragraphBuffer "\n\n" -}}
+    {{- $turnText = partials.Include "transcript/transcript-clean-speech-prefix.html" $turnText -}}
     {{- $isChairChange := or $speakerIsChairHandover (gt (len (findRE `(?i)^\s*IN THE CHAIR:` $turnText)) 0) -}}
     {{- if and $insideContext (ne $speaker "") (not $isChairChange) -}}
-      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false)) -}}
+      {{- $turns = $turns | append (dict "speaker" $speaker "mepID" $speakerID "isChair" $speakerIsChair "speechNumber" $speechNumber "text" $turnText "language" (index $languages $speechNumber) "translation" (index $translations $speechNumber) "russiaBenefit" (index $russiaBenefits $speechNumber | default false) "factCheck" (index $factChecks $speechNumber | default "")) -}}
     {{- end -}}
     {{- if gt (len $turns) 0 -}}
       {{- $contexts = $contexts | append (dict "heading" $heading "agendaNumber" $agendaNumber "type" $contextType "turns" $turns) -}}

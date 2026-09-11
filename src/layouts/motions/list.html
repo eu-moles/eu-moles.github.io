@@ -197,6 +197,17 @@
                                   <div class="motion-context-bubble__text" aria-live="polite">{{ partial "transcript/transcript-rich-text.html" (dict "text" $displayText "highlight" $highlightText "minutesURL" $motion.sourceURL) | safeHTML }}</div>
                                   {{ if $showLanguageToggle }}{{ with $language }}<button class="motion-context-language" type="button" data-translation-button data-translation-code="{{ upper .code }}" data-translation-name="{{ .name }}" data-translation-source="{{ .source }}" data-translation-text="{{ $turn.text }}"{{ if $isTranslated }} data-translation-cached="{{ $translation.englishText }}" data-translated="true"{{ else }} disabled{{ end }} title="{{ if $isTranslated }}AI-translated to English. Show original {{ .name }} text.{{ else }}Original language: {{ .name }}. English translation is unavailable.{{ end }}" aria-label="{{ if $isTranslated }}Show original {{ .name }} text{{ else }}Original {{ .name }} text; English translation unavailable{{ end }}" aria-pressed="{{ if $isTranslated }}true{{ else }}false{{ end }}">{{ upper .code }}{{ if $isTranslated }} → EN{{ end }}</button>{{ end }}{{ end }}
                                 </div>
+                                {{- with $turn.factCheck }}
+                                  {{- if $turn.russiaBenefit }}
+                                    <aside class="motion-context-fact-check" role="note">
+                                      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                                      <div class="motion-context-fact-check__body">
+                                        <p class="motion-context-fact-check__eyebrow">AI-assisted fact check</p>
+                                        <p class="motion-context-fact-check__text">{{ . }}</p>
+                                      </div>
+                                    </aside>
+                                  {{- end }}
+                                {{- end }}
                               </div>
                             </article>
                           {{ end }}

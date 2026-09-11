@@ -59,6 +59,13 @@ Create `.env` in the repository root before running the updater:
 ```dotenv
 GEMINI_API_KEY=your-api-key
 GEMINI_MODEL=gemini-3.5-flash-lite
+# Only flagged contributions are web-fact-checked. Flash is used here because
+# Flash-Lite can return no grounded candidate; this remains a small pass.
+GEMINI_FACTCHECK_MODEL=gemini-3.5-flash
+# Optional: default 4096. Raise only if a very long translated speech is cut off.
+GEMINI_SPEECH_MAX_OUTPUT_TOKENS=4096
+# Optional: default 2048; applies only to web-grounded checks of flagged speeches.
+GEMINI_FACTCHECK_MAX_OUTPUT_TOKENS=2048
 # Optional: defaults to 8 parallel API requests.
 GEMINI_CONCURRENCY=8
 ```

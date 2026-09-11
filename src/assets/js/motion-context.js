@@ -104,6 +104,20 @@
     });
   };
 
+  const createFactCheck = (factCheck) => {
+    const text = String(factCheck || "").trim();
+    if (!text) return null;
+    const panel = make("aside", "motion-context-fact-check");
+    panel.setAttribute("role", "note");
+    const icon = make("i", "fa-solid fa-magnifying-glass");
+    icon.setAttribute("aria-hidden", "true");
+    const body = make("div", "motion-context-fact-check__body");
+    body.append(make("p", "motion-context-fact-check__eyebrow", "AI-assisted fact check"));
+    body.append(make("p", "motion-context-fact-check__text", text));
+    panel.append(icon, body);
+    return panel;
+  };
+
   const translate = (button) => {
     const bubble = button.closest(".motion-context-bubble");
     if (!bubble || button.dataset.translating === "true") return;
@@ -270,6 +284,10 @@
         }
       }
       content.append(speaker, bubble);
+      if (turn.russiaBenefit === true) {
+        const factCheck = createFactCheck(turn.factCheck);
+        if (factCheck) content.append(factCheck);
+      }
       turnElement.append(avatar, content);
       transcript.append(turnElement);
     });

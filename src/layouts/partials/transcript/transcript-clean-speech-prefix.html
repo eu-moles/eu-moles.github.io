@@ -1,0 +1,12 @@
+{{- $text := . -}}
+{{- /*
+  CRE sometimes places editorial metadata before an intervention. A recognised
+  political-group label plus a dash is not spoken content, whatever procedural
+  role appears between them: blue-card question/reply, catch-the-eye, or a
+  written statement. Restricting this to group labels avoids stripping an
+  ordinary sentence that happens to contain brackets and a dash.
+*/ -}}
+{{- $text = replaceRE `(?i)^[^(\r\n]{0,48}\((PPE|EPP|S&D|Renew|ECR|PfE|ESN|Verts/ALE|Greens/EFA|The Left|GUE/NGL|NI)[^\)\r\n]*\)[,.;:]?\s*[^–—\r\n]{0,140}[–—-]\s*` "" $text -}}
+{{- $text = replaceRE `(?i)^\s*,?\s*on behalf of (the )?[^.\r\n]+\.\s*[–—-]\s*` "" $text -}}
+{{- $text = replaceRE `(?i)^\s*\((start|beginning) of (the )?(intervention|speech)[^\)\r\n]*(off[-\s]*microphone|microphone[-\s]*off)[^\)\r\n]*\)\s*(\.\.\.|…)\s*` "" $text -}}
+{{- return $text -}}
