@@ -8,5 +8,5 @@
 */ -}}
 {{- $text = replaceRE `(?i)^[^(\r\n]{0,48}\((PPE|EPP|S&D|Renew|ECR|PfE|ESN|Verts/ALE|Greens/EFA|The Left|GUE/NGL|NI)[^\)\r\n]*\)[,.;:]?\s*[^–—\r\n]{0,140}[–—-]\s*` "" $text -}}
 {{- $text = replaceRE `(?i)^\s*,?\s*on behalf of (the )?[^.\r\n]+\.\s*[–—-]\s*` "" $text -}}
-{{- $text = replaceRE `(?i)^\s*\((start|beginning) of (the )?(intervention|speech)[^\)\r\n]*(off[-\s]*microphone|microphone[-\s]*off)[^\)\r\n]*\)\s*(\.\.\.|…)\s*` "" $text -}}
+{{- $text = replaceRE `(?i)^\s*\((start|beginning) of (the )?(intervention|speech)[^\)\r\n]*(off[-\s]*microphone|microphone[-\s]*off)[^\)\r\n]*\)\s*((\.\.\.|…)\s*)?` "" $text -}}
 {{- return $text -}}

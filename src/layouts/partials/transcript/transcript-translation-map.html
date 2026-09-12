@@ -6,8 +6,6 @@
     {{- range $speechNumber, $translation := . -}}
       {{- if and $translation (ne (index $translation "englishText" | default "") "") -}}
         {{- $englishText := index $translation "englishText" -}}
-        {{- /* Display cleanup also covers translations cached before parser fixes. */ -}}
-        {{- $englishText = partials.Include "transcript/transcript-clean-speech-prefix.html" $englishText -}}
         {{- $translations = merge $translations (dict $speechNumber (merge $translation (dict "englishText" $englishText))) -}}
       {{- end -}}
     {{- end -}}

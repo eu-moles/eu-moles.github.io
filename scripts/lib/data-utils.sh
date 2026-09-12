@@ -53,6 +53,7 @@ gemini_generate_json() {
   local max_output_tokens="$2"
   local requested_model="${3:-}"
   local use_google_search="${4:-false}"
+  local response_json_schema="${5:-null}"
   local model payload response text error_message
 
   if [[ -z "${GEMINI_API_KEY:-}" || -z "${GEMINI_MODEL:-}" ]]; then
@@ -74,11 +75,19 @@ gemini_generate_json() {
     progress_error "Gemini Google Search setting must be true or false (received $use_google_search)."
     return 64
   fi
+  # `jq -e .` exits unsuccessfully for the perfectly valid JSON value `null`.
+  # A missing optional schema is represented by null, so accept either null or
+  # an object schema while still rejecting malformed JSON and scalar values.
+  if ! jq -e 'type == "object" or . == null' >/dev/null 2>&1 <<< "$response_json_schema"; then
+    progress_error "Gemini response schema is not valid JSON."
+    return 64
+  fi
 
   payload=$(jq -cn \
     --arg prompt "$prompt" \
     --argjson max_output_tokens "$max_output_tokens" \
     --argjson use_google_search "$use_google_search" \
+    --argjson response_json_schema "$response_json_schema" \
     '{
       contents: [{role: "user", parts: [{text: $prompt}]}],
       generationConfig: {
@@ -87,6 +96,7 @@ gemini_generate_json() {
         maxOutputTokens: $max_output_tokens
       }
     }
+    | if $response_json_schema == null then . else .generationConfig.responseJsonSchema = $response_json_schema end
     | if $use_google_search then .tools = [{google_search: {}}] else . end')
 
   if ! response=$(curl_with_error_url \
