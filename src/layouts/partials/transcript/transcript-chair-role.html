@@ -1,9 +1,18 @@
 {{- $label := lower (strings.TrimSpace .) -}}
-{{- $label = replaceRE `^(?:(?:the|die|der|le|la|el|il|o|a)[[:space:]]+)` "" $label -}}
+{{- $label = replaceRE `^(?:(?:the|die|der|den|dem|le|la|les|el|il|lo|i|gli|o|a|an|na|ο|η|το)[[:space:]]+)` "" $label -}}
 {{- $role := "" -}}
-{{- if gt (len (findRE `^(?:vice[-[:space:]]?president(?:e|a)?|vice-président(?:e)?|vizepräsident(?:in)?|vicepresident(?:e|a)?|vicepreșed(?:inte)?|podpredsed[a-záéíóúýčďěňřšťž]*|varapuhemies)$` $label)) 0 -}}
+{{- /*
+  The speaker bookmarks in CRE files use the language in which the intervention
+  was delivered, rather than the English UI language. Keep the complete set of
+  EU-language President / Vice-President labels here, including common gender
+  and inflection variants. These denote the person presiding over the sitting,
+  not an ordinary MEP intervention.
+*/ -}}
+{{- $viceChairPattern := `^(?:vice[-[:space:]]?preside(?:nt(?:e|a)?)?|vice-président(?:e)?|vicepre[șş]edint(?:e|ă)?|vizepräsident(?:in)?|stellvertretend(?:er|e|en)?[-[:space:]]+vorsitzend(?:er|e|en)?|místopředsed(?:a|kyně|u)|næstformand(?:en)?|aseesimees|αντιπρόεδρ(?:ος|ου)?|vice[-[:space:]]?chair(?:man|woman|person)?|potpredsjedni(?:k|ca)|priekšsēdētāja[[:space:]]+vietniek(?:s|e)|pirmininko[[:space:]]+pavaduotoj(?:as|a)|alelnök|viċi[[:space:][:punct:]]*(?:president|chair(?:man|woman))|ondervoorzitter|wiceprzewodnicząc(?:y|a|ego|ej)|podpredsed(?:a|níčka|u)|podpredsedni(?:k|ca)|varapuhemies|vice[-[:space:]]?puheenjohtaja|vice[-[:space:]]?ordförande|vice[-[:space:]]?talman|leas[-[:space:]]?chathaoirleach|заместник[-[:space:]]председател(?:ят|ката)?)$` -}}
+{{- $chairPattern := `^(?:president(?:e|a)?|présidence|presidenza|presidencia|presidência|präsident(?:in)?|président(?:e)?|pre[șş]edint(?:e|ă)?|předsed(?:a|kyně|u)|formand(?:en)?|vorsitzend(?:er|e|en)?|esimees|πρόεδρ(?:ος|ου)?|chair(?:man|woman|person)?|predsjedni(?:k|ca)|priekšsēdētāj(?:s|a|u)?|pirminink(?:as|ė|o)|elnök|voorzitter|przewodnicząc(?:y|a|ego|ej)|predsed(?:a|níčka|u)|predsedni(?:k|ca)|predsedajúc(?:i|a|e)|puhemies|puheenjohtaja|ordförande|talman|cathaoirleach|председател(?:ят|ката)?)$` -}}
+{{- if gt (len (findRE $viceChairPattern $label)) 0 -}}
   {{- $role = "Chair" -}}
-{{- else if gt (len (findRE `^(?:president|präsident(?:in)?|président(?:e)?|presidente|presidenta|predsed[a-záéíóúýčďěňřšťž]*|przewodnicz[a-ząćęłńóśźż]*|puhemies|voorzitter|talman|priekšsēdētāj(?:s|a)?)$` $label)) 0 -}}
+{{- else if gt (len (findRE $chairPattern $label)) 0 -}}
   {{- $role = "Chair" -}}
 {{- end -}}
 {{- return $role -}}
