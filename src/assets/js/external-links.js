@@ -17,7 +17,7 @@
   };
 
   const decorate = (link) => {
-    if (!isExternal(link) || link.querySelector(iconSelector)) return;
+    if (link.dataset.externalIcon === "false" || !isExternal(link) || link.querySelector(iconSelector)) return;
 
     const icon = document.createElement("i");
     icon.className = "fa-solid fa-arrow-up-right-from-square";
