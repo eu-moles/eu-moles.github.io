@@ -1,0 +1,160 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2800",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/RC-10-2026-0345-AM-007-007-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0345-AM-007-007-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0345-AM-007-007"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-21-2",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-21-2",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0355",
+            "eli/dl/doc/B-10-2026-0352",
+            "eli/dl/doc/B-10-2026-0354",
+            "eli/dl/doc/B-10-2026-0356",
+            "eli/dl/doc/B-10-2026-0345",
+            "eli/dl/doc/B-10-2026-0353"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-021-02",
+            "eli/dl/doc/PV-10-2026-07-08-ITM-021-02"
+          ]
+        },
+        {
+          "id": "eli/dl/event/RC-10-2026-0345-AM-001-003-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0345-AM-001-003-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0345-AM-001-003"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/RC-10-2026-0345-AM-004-006-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0345-AM-004-006-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0345-AM-004-006"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-6",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-PVCRE-ITM-9-6",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-09-ITM-009-06",
+            "eli/dl/doc/PV-10-2026-07-09-ITM-009-06"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-VOT-ITM-993016",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-VOT-ITM-993016",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0354",
+            "eli/dl/doc/B-10-2026-0353",
+            "eli/dl/doc/B-10-2026-0345",
+            "eli/dl/doc/B-10-2026-0356",
+            "eli/dl/doc/B-10-2026-0355",
+            "eli/dl/doc/B-10-2026-0352"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-006"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0268",
+        "eli/dl/doc/B-10-2026-0353",
+        "eli/dl/doc/B-10-2026-0355",
+        "eli/dl/doc/B-10-2026-0345",
+        "eli/dl/doc/RC-10-2026-0345",
+        "eli/dl/doc/B-10-2026-0352",
+        "eli/dl/doc/B-10-2026-0354",
+        "eli/dl/doc/B-10-2026-0356"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "process_id": "2026-2800",
+      "process_title": {
+        "pl": "Trwające prześladowania chrześcijan w Nigerii, w szczególności masakra w wiosce Kawel",
+        "sv": "Fortsatt förföljelse av kristna i Nigeria, särskilt massakern i byn Kawel",
+        "lt": "Nigerijoje tebesitęsiantis krikščionių persekiojimas, ypač žudynės Kawelo kaime",
+        "ro": "Persecutarea creștinilor care are loc în Nigeria, în special masacrul din satul Kawel",
+        "es": "Persecución actual de los cristianos en Nigeria, en particular la masacre en la aldea de Kawel",
+        "el": "Οι συνεχιζόμενοι διωγμοί των χριστιανών στη Νιγηρία, ιδίως η σφαγή στο χωριό Kawel",
+        "nl": "De aanhoudende vervolging van christenen in Nigeria, met name het bloedbad in het dorp Kawel",
+        "pt": "Perseguição contínua de cristãos na Nigéria, nomeadamente o massacre na aldeia de Kawel",
+        "sl": "Stalno preganjanje kristjanov v Nigeriji, zlasti pokol v vasi Kawel",
+        "en": "Ongoing persecution of Christians in Nigeria, notably the Kawel village massacre",
+        "it": "Le persecuzioni in atto contro i cristiani in Nigeria, in particolare il massacro nel villaggio di Kawel",
+        "mt": "Il-persekuzzjoni li għaddejja bħalissa tal-Insara fin-Niġerja, b’mod partikolari l-massakru fir-raħal ta’ Kawel",
+        "ga": "Géarleanúint leanúnach Críostaithe sa Nigéir, go háirithe an sléacht sa sráidbhaile Kawel",
+        "lv": "Pastāvīgā kristiešu vajāšana Nigērijā, īpaši slaktiņš Kavelas ciematā",
+        "bg": "Продължаващото преследване на християните в Нигерия, по-специално масовото убийство в село Кавел",
+        "sk": "Pokračujúce prenasledovanie kresťanov v Nigérii, najmä masaker v dedine Kawel",
+        "cs": "Neustálé pronásledování křesťanů v Nigérii, zejména masakr ve vesnici Kawel",
+        "fi": "Meneillään oleva kristittyjen vaino Nigeriassa ja etenkin Kawelin kylän joukkomurha",
+        "hu": "A nigériai keresztények folytatódó üldözése, különösen a Kawel nevű településen történt mészárlás",
+        "de": "Anhaltende Verfolgung von Christen in Nigeria, insbesondere das Massaker im Dorf Kawel",
+        "fr": "Persécutions en cours contre les chrétiens au Nigéria, notamment le massacre commis dans le village de Kawel",
+        "hr": "Kontinuirani progon kršćana u Nigeriji, posebice masakr u selu Kawelu",
+        "da": "Den fortsatte forfølgelse af kristne i Nigeria, navnlig massakren i landsbyen Kawel",
+        "et": "Kristlaste jätkuv tagakiusamine Nigeerias, eelkõige Kaweli külas toime pandud veresaun"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-D-94",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-D-94",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "notation_agendaPoint": "D-94"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-OJ-ITM-V-94",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-OJ-ITM-V-94",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-09"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-94"
+        }
+      ],
+      "label": "2026/2800(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

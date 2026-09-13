@@ -248,26 +248,50 @@
                     {{- $labelMep = index $mepsByName (lower $labelName) | default dict -}}
                     {{- /* A leading recognised MEP is the rapporteur named in the official vote label. The portrait already identifies them, so retain only the vote subject. */ -}}
                     {{- $plainTitle := $title -}}
+                    {{- $splitVotePart := "" -}}
                     {{- if $labelMep.id -}}
                       {{- $plainTitle = strings.TrimSpace (replaceRE `^[^–—]+[–—]\s*` "" $plainTitle) -}}
                     {{- else -}}
                       {{- $plainTitle = replaceRE `^[^–—]+[–—]\s*((?i:after|before|§|recital|motion for a resolution|provisional agreement|joint text|commission proposal).*)$` "$1" $plainTitle -}}
                     {{- end -}}
+                    {{- /* The vote API appends split-vote markers to bundled amendment
+                          numbers (for example, “Am 26 CP1= 31 CP1= 4 CP1=”).
+                          They identify matching parts in the official record, but
+                          are neither readable title text nor part of an amendment
+                          number. Retain the amendments as a comma-separated list. */ -}}
+                    {{- with findRE `(?i)CP[0-9]+=` $plainTitle -}}
+                      {{- $splitVotePart = replaceRE `(?i)^CP([0-9]+)=$` "$1" (index . 0) -}}
+                    {{- end -}}
+                    {{- $plainTitle = replaceRE `(?i)([0-9]+)(?:\s+CP[0-9]+)?=` "$1," $plainTitle -}}
+                    {{- $plainTitle = strings.TrimSpace (replaceRE `,\s*$` "" $plainTitle) -}}
                     {{- $plainTitle = replaceRE `^§\s*([0-9]+),\s*(before|after)\s+point\s+([[:alpha:]]+)$` "Paragraph $1, $2 point ($3)" $plainTitle -}}
                     {{- $plainTitle = replaceRE `^§\s*([0-9]+),\s*point\s+([[:alpha:]]+)$` "Paragraph $1, point ($2)" $plainTitle -}}
                     {{- $plainTitle = replaceRE `^(Before|After)\s+§\s*([0-9]+)$` "$1 paragraph $2" $plainTitle -}}
                     {{- $plainTitle = replaceRE `^§\s*([0-9]+)/([0-9]+)$` "Paragraph $1, part $2" $plainTitle -}}
                     {{- $plainTitle = replaceRE `^§\s*([0-9]+)$` "Paragraph $1" $plainTitle -}}
-                    {{- if findRE `(?i)[–—-]\s*Am\s+[0-9]+(?:/[0-9]+)?\s*$` $plainTitle -}}
-                      {{- $target := strings.TrimSpace (replaceRE `\s*[–—-]\s*(?i:Am)\s+[0-9]+(?:/[0-9]+)?\s*$` "" $plainTitle) -}}
-                      {{- $amendment := replaceRE `^.*[–—-]\s*(?i:Am)\s+([0-9]+(?:/[0-9]+)?)\s*$` "$1" $plainTitle -}}
+                    {{- $plainTitle = replaceRE `§§\s*` "paragraphs " $plainTitle -}}
+                    {{- $plainTitle = replaceRE `§\s*` "paragraph " $plainTitle -}}
+                    {{- if findRE `(?i)[–—-]\s*Am\s+[0-9]+(?:/[0-9]+|[[:alpha:]]+)?(?:,\s*[0-9]+(?:/[0-9]+|[[:alpha:]]+)?)*\s*$` $plainTitle -}}
+                      {{- $target := strings.TrimSpace (replaceRE `\s*[–—-]\s*(?i:Am)\s+[0-9]+(?:/[0-9]+|[[:alpha:]]+)?(?:,\s*[0-9]+(?:/[0-9]+|[[:alpha:]]+)?)*\s*$` "" $plainTitle) -}}
+                      {{- $amendment := replaceRE `^.*[–—-]\s*(?i:Am)\s+([0-9]+(?:/[0-9]+|[[:alpha:]]+)?(?:,\s*[0-9]+(?:/[0-9]+|[[:alpha:]]+)?)*)\s*$` "$1" $plainTitle -}}
                       {{- $amendmentNumber = int (replaceRE `^([0-9]+).*$` "$1" $amendment) -}}
                       {{- $target = replaceRE `^§\s*([0-9]+),\s*(before|after)\s+point\s+([[:alpha:]]+)$` "Paragraph $1, $2 point ($3)" $target -}}
                       {{- $target = replaceRE `^§\s*([0-9]+),\s*point\s+([[:alpha:]]+)$` "Paragraph $1, point ($2)" $target -}}
                       {{- $target = replaceRE `^(Before|After)\s+§\s*([0-9]+)$` "$1 paragraph $2" $target -}}
                       {{- $target = replaceRE `^§\s*([0-9]+)/([0-9]+)$` "Paragraph $1, part $2" $target -}}
                       {{- $target = replaceRE `^§\s*([0-9]+)$` "Paragraph $1" $target -}}
-                      {{- $displayTitle = printf "Amendment %s · %s" $amendment $target -}}
+                      {{- $target = replaceRE `§§\s*` "paragraphs " $target -}}
+                      {{- $target = replaceRE `§\s*` "paragraph " $target -}}
+                      {{- $amendmentLabel := "Amendment" -}}
+                      {{- $hasMultipleAmendments := gt (len (findRE `,` $amendment)) 0 -}}
+                      {{- if $hasMultipleAmendments -}}
+                        {{- $amendmentLabel = "Amendments" -}}
+                        {{- $amendment = replaceRE `,\s*([^,]+)$` " and $1" $amendment -}}
+                      {{- end -}}
+                      {{- $displayTitle = printf "%s %s · %s" $amendmentLabel $amendment $target -}}
+                      {{- if ne $splitVotePart "" -}}
+                        {{- $displayTitle = printf "%s %s (part %s) · %s" $amendmentLabel $amendment $splitVotePart $target -}}
+                      {{- end -}}
                     {{- else if eq $plainTitle "Motion for a resolution (as a whole)" -}}
                       {{- $displayTitle = "Final vote on the motion for a resolution" -}}
                     {{- else -}}

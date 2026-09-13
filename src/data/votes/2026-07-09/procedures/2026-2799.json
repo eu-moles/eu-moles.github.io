@@ -1,0 +1,153 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2799",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-21-1",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-21-1",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0361",
+            "eli/dl/doc/B-10-2026-0357",
+            "eli/dl/doc/B-10-2026-0362",
+            "eli/dl/doc/B-10-2026-0358",
+            "eli/dl/doc/B-10-2026-0359",
+            "eli/dl/doc/B-10-2026-0360",
+            "eli/dl/doc/B-10-2026-0363"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-ITM-021-01",
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-021-01"
+          ]
+        },
+        {
+          "id": "eli/dl/event/RC-10-2026-0357-AM-006-006-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0357-AM-006-006-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0357-AM-006-006"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-VOT-ITM-992997",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-VOT-ITM-992997",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0358",
+            "eli/dl/doc/B-10-2026-0362",
+            "eli/dl/doc/B-10-2026-0363",
+            "eli/dl/doc/B-10-2026-0357",
+            "eli/dl/doc/B-10-2026-0360",
+            "eli/dl/doc/B-10-2026-0359",
+            "eli/dl/doc/B-10-2026-0361"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-005"
+          ]
+        },
+        {
+          "id": "eli/dl/event/RC-10-2026-0357-AM-001-005-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0357-AM-001-005-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0357-AM-001-005"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-5",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-PVCRE-ITM-9-5",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-09-ITM-009-05",
+            "eli/dl/doc/PV-10-2026-07-09-ITM-009-05"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/B-10-2026-0361",
+        "eli/dl/doc/RC-10-2026-0357",
+        "eli/dl/doc/TA-10-2026-0267",
+        "eli/dl/doc/B-10-2026-0359",
+        "eli/dl/doc/B-10-2026-0360",
+        "eli/dl/doc/B-10-2026-0358",
+        "eli/dl/doc/B-10-2026-0363",
+        "eli/dl/doc/B-10-2026-0362",
+        "eli/dl/doc/B-10-2026-0357"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "process_id": "2026-2799",
+      "process_title": {
+        "da": "Truslen om krigsforbrydelser, de eskalerende krænkelser af den internationale menneskerettighedslovgivning og menneskerettighedssituationen i El-Obeid, Sudan",
+        "ga": "Bagairt coireanna cogaidh, na sáruithe géaraitheacha ar an dlí daonnúil idirnáisiúnta agus an staid maidir le cearta an duine in El-Obeid, an tSúdáin",
+        "bg": "Заплахата от военни престъпления, засилващите се нарушения на международното хуманитарно право и положението с правата на човека в Ел Обейд, Судан",
+        "en": "The threat of war crimes, the escalating violations of international humanitarian law and the human rights situation in El-Obeid, Sudan",
+        "sv": "Hotet om krigsförbrytelser, de tilltagande kränkningarna av internationell humanitär rätt och människorättssituationen i El-Obeid, Sudan",
+        "pt": "A ameaça de crimes de guerra, o aumento das violações do direito internacional humanitário e a situação dos direitos humanos em El-Obeid, no Sudão",
+        "cs": "Hrozba válečných zločinů, stupňující se porušování mezinárodního humanitárního práva a situace v oblasti lidských práv v súdánském El-Obeidu",
+        "fi": "Sotarikosten uhka, kansainvälisen humanitaarisen oikeuden lisääntyvät rikkomiset ja ihmisoikeustilanne El-Obeidissa Sudanissa",
+        "pl": "Zagrożenie zbrodniami wojennymi, nasilające się łamanie międzynarodowego prawa humanitarnego i sytuacja w zakresie praw człowieka w Al-Ubajjid (Sudan)",
+        "mt": "It-theddida ta’ delitti tal-gwerra, il-ksur li qed jiżdied tad-dritt umanitarju internazzjonali u s-sitwazzjoni tad-drittijiet tal-bniedem f’El-Obeid, is-Sudan",
+        "ro": "Amenințarea crimelor de război, escaladarea încălcărilor dreptului internațional umanitar și situația drepturilor omului în El-Obeid, Sudan",
+        "lt": "Karo nusikaltimų grėsmė, dažnėjantys tarptautinės humanitarinės teisės pažeidimai ir žmogaus teisių padėtis al Ubeide (Sudanas)",
+        "hu": "A háborús bűnök veszélye, a nemzetközi humanitárius jog egyre súlyosabb megsértései és az emberi jogok helyzete a szudáni el-Obeidben",
+        "es": "Amenaza de crímenes de guerra, aumento de las violaciones del Derecho internacional humanitario y situación de los derechos humanos en El Obeid (Sudán)",
+        "fr": "La menace de crimes de guerre, la multiplication des violations du droit international humanitaire et la situation des droits de l'homme à El-Obeid (Soudan)",
+        "lv": "Kara noziegumu draudi, aizvien plašākie starptautisko humanitāro tiesību pārkāpumi Obeidā, Sudānā",
+        "de": "Drohende Kriegsverbrechen, ausufernde Verstöße gegen das humanitäre Völkerrecht und die Menschenrechtslage in Al-Ubajjid (Sudan)",
+        "el": "Η απειλή εγκλημάτων πολέμου, η κλιμάκωση των παραβιάσεων του διεθνούς ανθρωπιστικού δικαίου και η κατάσταση των ανθρωπίνων δικαιωμάτων στην πόλη El-Obeid του Σουδάν",
+        "sk": "Hrozba vojnových zločinov, stupňujúce sa porušovanie medzinárodného humanitárneho práva a situácia v oblasti ľudských práv v sudánskom meste Al-Ubajjid",
+        "sl": "Grožnja vojnih hudodelstev, vse hujše kršitve mednarodnega humanitarnega prava in razmere na področju človekovih pravic v El Obeidu v Sudanu",
+        "it": "Minaccia dei crimini di guerra, crescenti violazioni del diritto internazionale umanitario e situazione dei diritti umani a El-Obeid, in Sudan ",
+        "et": "Sõjakuritegude oht, rahvusvahelise humanitaarõiguse üha sagedasem rikkumine ja inimõiguste olukord Sudaanis Al-Ubayyiḑis",
+        "hr": "Prijetnja u pogledu ratnih zločina, eskalacija kršenja međunarodnog humanitarnog prava i stanje ljudskih prava u El-Obeidu u Sudanu",
+        "nl": "De dreiging van oorlogsmisdaden, de toenemende schendingen van het internationaal humanitair recht en de mensenrechtensituatie in El-Obeid, Sudan"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-D-93",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-D-93",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "notation_agendaPoint": "D-93"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-OJ-ITM-V-93",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-OJ-ITM-V-93",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-09"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-93"
+        }
+      ],
+      "label": "2026/2799(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

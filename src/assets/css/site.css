@@ -514,7 +514,7 @@ a.mep-profile-motion-title-text:focus-visible {
   color: #a12b2b;
 }
 
-.mep-russia-filter {
+.mep-detection-sort {
   align-self: end;
   box-sizing: border-box;
   height: 2.45rem;
@@ -1003,6 +1003,11 @@ main table tbody tr:last-child td {
   font-size: 0.86rem;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+}
+
+.site-table--mep-directory td.mep-detection-count--flagged {
+  color: #a12b2b;
+  font-weight: 700;
 }
 
 .site-table--motion {

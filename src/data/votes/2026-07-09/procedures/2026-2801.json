@@ -1,0 +1,160 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2801",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/RC-10-2026-0346-AM-001-001-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0346-AM-001-001-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0346-AM-001-001"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-7",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-PVCRE-ITM-9-7",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-09-ITM-009-07",
+            "eli/dl/doc/PV-10-2026-07-09-ITM-009-07"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-VOT-ITM-992992",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-VOT-ITM-992992",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0349",
+            "eli/dl/doc/B-10-2026-0350",
+            "eli/dl/doc/B-10-2026-0351",
+            "eli/dl/doc/B-10-2026-0348",
+            "eli/dl/doc/B-10-2026-0346",
+            "eli/dl/doc/B-10-2026-0347"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-007"
+          ]
+        },
+        {
+          "id": "eli/dl/event/RC-10-2026-0346-AM-003-006-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0346-AM-003-006-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0346-AM-003-006"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-PVCRE-ITM-21-3",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-PVCRE-ITM-21-3",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0349",
+            "eli/dl/doc/B-10-2026-0347",
+            "eli/dl/doc/B-10-2026-0350",
+            "eli/dl/doc/B-10-2026-0346",
+            "eli/dl/doc/B-10-2026-0348",
+            "eli/dl/doc/B-10-2026-0351"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-08-ITM-021-03",
+            "eli/dl/doc/CRE-10-2026-07-08-ITM-021-03"
+          ]
+        },
+        {
+          "id": "eli/dl/event/RC-10-2026-0346-AM-002-002-DEPOT-2026-07-08",
+          "type": "Activity",
+          "activity_date": "2026-07-08",
+          "activity_id": "RC-10-2026-0346-AM-002-002-DEPOT-2026-07-08",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/RC-10-2026-0346-AM-002-002"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/RC-10-2026-0346",
+        "eli/dl/doc/B-10-2026-0347",
+        "eli/dl/doc/B-10-2026-0349",
+        "eli/dl/doc/B-10-2026-0346",
+        "eli/dl/doc/B-10-2026-0351",
+        "eli/dl/doc/TA-10-2026-0269",
+        "eli/dl/doc/B-10-2026-0348",
+        "eli/dl/doc/B-10-2026-0350"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "process_id": "2026-2801",
+      "process_title": {
+        "fr": "L’enlèvement, la conversion forcée et le mariage précoce de Maria Shahbaz, et la protection des filles au Pakistan",
+        "de": "Entführung, Zwangskonvertierung und Kinderehe von Maria Shahbaz und der Schutz von Mädchen in Pakistan",
+        "mt": "Is-sekwestru, il-konverżjoni furzata u ż-żwieġ prekoċi ta’ Maria Shahbaz, u l-protezzjoni tal-bniet fil-Pakistan",
+        "sl": "Ugrabitev, prisilna spreobrnitev in otroška poroka Marie Šahbaz ter zaščita deklic v Pakistanu",
+        "et": "Maria Shahbazi röövimine, sunniviisiline usuvahetus ja varajane abielu ning tüdrukute kaitsmine Pakistanis",
+        "ro": "Răpirea, convertirea forțată și căsătoria timpurie a Mariei Shahbaz, precum și protecția fetelor în Pakistan",
+        "pt": "O rapto, a conversão forçada e o casamento precoce de Maria Shahbaz, e a proteção das raparigas no Paquistão",
+        "pl": "Uprowadzenie, przymusowe nawrócenie i dziecięce małżeństwo Marii Shahbaz oraz kwestia ochrony dziewcząt w Pakistanie",
+        "es": "Secuestro, conversión forzosa y matrimonio infantil de Maria Shahbaz y protección de las niñas en Pakistán",
+        "sk": "Únos, nútená konverzia a detské manželstvo Marie Šahbázovej a ochrana dievčat v Pakistane",
+        "nl": "De ontvoering, gedwongen bekering en het kindhuwelijk van Maria Shahbaz en de bescherming van meisjes in Pakistan",
+        "bg": "Отвличането, принудителната смяна на религията и встъпването в детски брак на Мария Шахбаз и защитата на момичетата в Пакистан",
+        "it": "Il rapimento, la conversione forzata e il matrimonio precoce di Maria Shahbaz e la protezione delle ragazze in Pakistan",
+        "hr": "Otmica, prisilno preobraćenje i dječji brak Marije Šahbaz te zaštita djevojčica u Pakistanu",
+        "fi": "Maria Shahbazin sieppaus, pakkokäännytys ja lapsiavioliitto ja tyttöjen suojelu Pakistanissa",
+        "da": "Maria Shahbaz’ bortførelse, tvangskonvertering og børneægteskab og beskyttelsen af piger i Pakistan",
+        "hu": "Mária Sahbáz elrablása, erőszakos áttérítése és gyermekként házasságra való kényszerítése, valamint a pakisztáni lányok védelme",
+        "sv": "Bortförande, tvångskonvertering och barnäktenskap när det gäller Maria Shahbaz och skydd av flickor i Pakistan",
+        "cs": "Únos, nucená konverze a dětské sňatky Marie Shahbazové a ochrana dívek v Pákistánu",
+        "el": "Η απαγωγή, ο αναγκαστικός προσηλυτισμός και ο γάμος της αν΄ήλικης Maria Shahbaz και η προστασία των κοριτσιών στο Πακιστάν",
+        "lt": "Marios Shahbaz pagrobimas, priverstinis atvertimas ir ankstyva santuoka bei mergaičių apsauga Pakistane",
+        "ga": "Fuadach, iompú éigeantais agus pósadh leanaí Maria Shahbaz agus cosaint na gcailíní sa Phacastáin",
+        "lv": "Maria Shahbaz nolaupīšana, viņas piespiedu pāriešana citā reliģijā un agrīna laulība un meiteņu aizsardzība Pakistānā",
+        "en": "The abduction, forced conversion and child marriage of Maria Shahbaz and the protection of girls in Pakistan"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-08-OJ-ITM-D-95",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-08",
+          "activity_id": "MTG-PL-2026-07-08-OJ-ITM-D-95",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-08"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "notation_agendaPoint": "D-95"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-OJ-ITM-V-95",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-OJ-ITM-V-95",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-09"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-95"
+        }
+      ],
+      "label": "2026/2801(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

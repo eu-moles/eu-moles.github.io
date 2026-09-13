@@ -300,10 +300,16 @@ generate_translation_candidates() {
       else if (text ~ /^[0-9]+-[0-9]+-[0-9]+$/ && bookmark != "") { flush_turn(); speaker = bookmark; sub(/^[0-9]+-[0-9]+-[0-9]+[ \t]*/, "", speaker); speech_number = text; buffer = "" }
       else if (speaker != "" && text != "") { if (buffer == "") { without_speaker = text; sub(speaker, "", without_speaker); if (without_speaker != text) sub(/^[^–]*–[ \t]*/, "", without_speaker); text = without_speaker }; if (text != "") buffer = (buffer == "" ? text : buffer "\n\n" text) }
     }
-    BEGIN { while ((getline line < language_map) > 0) { split(line, fields, "\t"); languages[fields[1]] = fields[2] }; close(language_map); in_paragraph = 0; paragraph_lines = 0; written_statement_section = 0 }
-    /^[ \t]*<w:p>$/ { in_paragraph = 1; paragraph_lines = 0 }
-    in_paragraph { paragraph[++paragraph_lines] = $0 }
-    /^[ \t]*<\/w:p>$/ && in_paragraph { process_paragraph(); delete paragraph; in_paragraph = 0; paragraph_lines = 0 }
+    BEGIN { while ((getline line < language_map) > 0) { split(line, fields, "\t"); languages[fields[1]] = fields[2] }; close(language_map); in_paragraph = 0; paragraph_lines = 0; table_depth = 0; written_statement_section = 0 }
+    # The official transcript appends multilingual reference tables after the
+    # final intervention. They have no contribution bookmark, so without this
+    # guard their cells are appended to the final speaker’s buffer. Tables are
+    # structural metadata throughout these documents, never speech content.
+    /^[ \t]*<w:tbl>$/ { table_depth++; next }
+    /^[ \t]*<\/w:tbl>$/ { table_depth--; next }
+    table_depth == 0 && /^[ \t]*<w:p>$/ { in_paragraph = 1; paragraph_lines = 0 }
+    table_depth == 0 && in_paragraph { paragraph[++paragraph_lines] = $0 }
+    table_depth == 0 && /^[ \t]*<\/w:p>$/ && in_paragraph { process_paragraph(); delete paragraph; in_paragraph = 0; paragraph_lines = 0 }
     END { flush_turn() }
   ' "$directory/transcript.xml"
   rm -f "$language_map"

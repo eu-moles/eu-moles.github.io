@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "procedures": {
+    "2023-0211": {
+      "A-10-2026-0183": {
+        "id": "1906956",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1906956"
+      }
+    },
+    "2023-0212": {
+      "A-10-2026-0185": {
+        "id": "1906976",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1906976"
+      }
+    },
+    "2025-0385": {
+      "A-10-2026-0192": {
+        "id": "1907865",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1907865"
+      }
+    },
+    "2025-0429": {
+      "TA-10-2026-0070": {
+        "id": "1891790",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1891790"
+      },
+      "TA-10-2026-0095": {
+        "id": "1896266",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1896266"
+      },
+      "TA-10-2026-0266": {
+        "id": "1909091",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1909091"
+      }
+    },
+    "2025-2211": {
+      "TA-10-2026-0270": {
+        "id": "1909097",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1909097"
+      }
+    },
+    "2026-2734": {
+      "TA-10-2026-0271": {
+        "id": "1909099",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1909099"
+      }
+    },
+    "2026-2799": {
+      "TA-10-2026-0267": {
+        "id": "1909084",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1909084"
+      }
+    },
+    "2026-2800": {
+      "TA-10-2026-0268": {
+        "id": "1909108",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1909108"
+      }
+    },
+    "2026-2801": {
+      "TA-10-2026-0269": {
+        "id": "1909095",
+        "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1909095"
+      }
+    }
+  }
+}

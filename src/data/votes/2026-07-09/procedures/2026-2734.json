@@ -1,0 +1,169 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/proc/2026-2734",
+      "type": "Process",
+      "consists_of": [
+        {
+          "id": "eli/dl/event/B-10-2026-0339-AM-008-012-DEPOT-2026-07-06",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "B-10-2026-0339-AM-008-012-DEPOT-2026-07-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0339-AM-008-012"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0339-AM-013-017-DEPOT-2026-07-06",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "B-10-2026-0339-AM-013-017-DEPOT-2026-07-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0339-AM-013-017"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/B-10-2026-0339-AM-001-006-DEPOT-2026-07-06",
+          "type": "Activity",
+          "activity_date": "2026-07-06",
+          "activity_id": "B-10-2026-0339-AM-001-006-DEPOT-2026-07-06",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0339-AM-001-006"
+          ],
+          "had_activity_type": "def/ep-activities/TABLING_PLENARY"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-VOT-ITM-992948",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-VOT-ITM-992948",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0339"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE_RESULTS",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-009"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-9",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-PVCRE-ITM-9-9",
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-09-ITM-009-09",
+            "eli/dl/doc/PV-10-2026-07-09-ITM-009-09"
+          ]
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-3",
+          "type": "Activity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-PVCRE-ITM-3",
+          "based_on_a_realization_of": [
+            "eli/dl/doc/B-10-2026-0013",
+            "eli/dl/doc/O-10-2026-000026"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "recorded_in_a_realization_of": [
+            "eli/dl/doc/CRE-10-2026-07-09-ITM-003",
+            "eli/dl/doc/PV-10-2026-07-09-ITM-003"
+          ]
+        }
+      ],
+      "created_a_realization_of": [
+        "eli/dl/doc/TA-10-2026-0271",
+        "eli/dl/doc/B-10-2026-0339"
+      ],
+      "current_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+      "had_participation": [
+        {
+          "id": "eli/dl/participation/2026-2734-NMCP-204332-DEVE-2026-04-14",
+          "type": "Participation",
+          "activity_date": "2026-04-14",
+          "had_participant_person": [
+            "person/204332"
+          ],
+          "occured_at_stage": "http://publications.europa.eu/resource/authority/procedure-phase/RDG1",
+          "parliamentary_term": "org/ep-10",
+          "participation_in_name_of": "org/DEVE",
+          "participation_role": "def/ep-roles/RAPPORTEUR",
+          "politicalGroup": "org/RENEW",
+          "precedenceOrder": 405
+        },
+        {
+          "id": "eli/dl/participation/2026-2734-MAIN-DEVE",
+          "type": "Participation",
+          "had_participant_organization": [
+            "org/DEVE"
+          ],
+          "participation_role": "def/ep-roles/COMMITTEE_LEAD"
+        }
+      ],
+      "process_id": "2026-2734",
+      "process_title": {
+        "ga": "Teachtaireacht chomhpháirteach maidir le cabhair dhaonnúil",
+        "pt": "Comunicação conjunta sobre ajuda humanitária",
+        "sl": "Skupno sporočilo o humanitarni pomoči",
+        "sk": "Spoločné oznámenie o humanitárnej pomoci",
+        "lv": "Kopīgs paziņojums par humāno palīdzību",
+        "it": "Comunicazione comune sugli aiuti umanitari",
+        "de": "Gemeinsame Mitteilung über humanitäre Hilfe",
+        "lt": "Bendras komunikatas dėl humanitarinės pagalbos",
+        "es": "Comunicación conjunta sobre la ayuda humanitaria",
+        "et": "Ühisteatis humanitaarabi kohta",
+        "fr": "Communication conjointe sur l'aide humanitaire",
+        "ro": "Comunicare comună privind ajutorul umanitar",
+        "sv": "Det gemensamma meddelandet om humanitärt bistånd",
+        "pl": "Wspólny komunikat w sprawie pomocy humanitarnej",
+        "fi": "Yhteinen tiedonanto humanitaarisesta avusta",
+        "bg": "Съвместно съобщение относно хуманитарната помощ ",
+        "en": "Joint communication on humanitarian aid",
+        "mt": "Komunikazzjoni konġunta dwar l-għajnuna umanitarja",
+        "hr": "Zajednička komunikacija o humanitarnoj pomoći",
+        "nl": "Gezamenlijke mededeling over humanitaire hulp",
+        "cs": "Společné sdělení o humanitární pomoci",
+        "el": "Κοινή ανακοίνωση για την ανθρωπιστική βοήθεια",
+        "da": "Fælles meddelelse om humanitær bistand",
+        "hu": "Közös közlemény a humanitárius segítségnyújtásról"
+      },
+      "process_type": "def/ep-procedure-types/RSP",
+      "was_scheduled_in": [
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-OJ-ITM-V-63",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-OJ-ITM-V-63",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-09"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_VOTE",
+          "notation_agendaPoint": "V-63"
+        },
+        {
+          "id": "eli/dl/event/MTG-PL-2026-07-09-OJ-ITM-D-63",
+          "type": "ForeseenActivity",
+          "activity_date": "2026-07-09",
+          "activity_id": "MTG-PL-2026-07-09-OJ-ITM-D-63",
+          "documented_by_a_realization_of": [
+            "eli/dl/doc/OJQ-10-2026-07-09"
+          ],
+          "had_activity_type": "def/ep-activities/PLENARY_DEBATE",
+          "notation_agendaPoint": "D-63"
+        }
+      ],
+      "label": "2026/2734(RSP)",
+      "identifierYear": "2026"
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

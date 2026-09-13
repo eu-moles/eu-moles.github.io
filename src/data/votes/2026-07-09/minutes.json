@@ -1,0 +1,2406 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/doc/PV-10-2026-07-09",
+      "type": "Work",
+      "parliamentary_term": "org/ep-10",
+      "document_date": "2026-07-09",
+      "is_realized_by": [
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/pt",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/pt/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_pt.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:11:25+02:00",
+              "byteSize": "144761"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/pt/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_pt.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:11:25+02:00",
+              "byteSize": "278644"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/pt/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_pt.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:11:25+02:00",
+              "byteSize": "84703"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/POR",
+          "title": {
+            "pt": "Acta - Quinta-feira, 9 de Julho de 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/en",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/en/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_en.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:04:25+02:00",
+              "byteSize": "84414"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/en/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_en.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:04:25+02:00",
+              "byteSize": "276266"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/en/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_en.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:04:25+02:00",
+              "byteSize": "143642"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/ENG",
+          "title": {
+            "en": "Minutes - Plenary sitting - Thursday, 9 July 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/fr",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/fr/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_fr.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:06:26+02:00",
+              "byteSize": "148282"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/fr/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_fr.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:06:26+02:00",
+              "byteSize": "279169"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/fr/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_fr.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:06:25+02:00",
+              "byteSize": "83378"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/FRA",
+          "title": {
+            "fr": "Procès-verbal - Séance plénière - Jeudi 9 juillet 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/lt",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/lt/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_lt.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:09:25+02:00",
+              "byteSize": "278773"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/lt/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_lt.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:09:25+02:00",
+              "byteSize": "144216"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/lt/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_lt.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:09:25+02:00",
+              "byteSize": "85620"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/LIT",
+          "title": {
+            "lt": "Protokolas - Ketvirtadienis, 2026 m. liepos 9 d."
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/es",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/es/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_es.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:05:25+02:00",
+              "byteSize": "280015"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/es/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_es.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:05:25+02:00",
+              "byteSize": "146274"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/es/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_es.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:05:25+02:00",
+              "byteSize": "85098"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/SPA",
+          "title": {
+            "es": "Acta - Jueves 9 de julio de 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/bg",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/bg/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_bg.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:02:26+02:00",
+              "byteSize": "88295"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/bg/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_bg.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:02:25+02:00",
+              "byteSize": "305075"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/bg/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_bg.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:02:26+02:00",
+              "byteSize": "163783"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/BUL",
+          "title": {
+            "bg": "Протокол - Четвъртък, 9 юли 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/hu",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/hu/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_hu.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:08:29+02:00",
+              "byteSize": "148776"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/hu/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_hu.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:08:29+02:00",
+              "byteSize": "282180"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/hu/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_hu.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:08:29+02:00",
+              "byteSize": "84193"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/HUN",
+          "title": {
+            "hu": "Jegyzőkönyv - 2026. július 9., csütörtök"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/sk",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sk/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sk.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:12:28+02:00",
+              "byteSize": "142819"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sk/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sk.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:12:28+02:00",
+              "byteSize": "282645"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sk/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sk.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:12:28+02:00",
+              "byteSize": "85524"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/SLK",
+          "title": {
+            "sk": "Zápisnica - Štvrtok, 9. júla 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/lv",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/lv/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_lv.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:09:25+02:00",
+              "byteSize": "84723"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/lv/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_lv.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:09:25+02:00",
+              "byteSize": "143106"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/lv/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_lv.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:09:25+02:00",
+              "byteSize": "273782"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/LAV",
+          "title": {
+            "lv": "Protokols - Ceturtdiena, 2026. gada 9. jūlijs"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/ga",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/ga/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_ga.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:07:25+02:00",
+              "byteSize": "84129"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/ga/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_ga.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:07:25+02:00",
+              "byteSize": "145367"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/ga/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_ga.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:07:25+02:00",
+              "byteSize": "276945"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/GLE",
+          "title": {
+            "ga": "Plenary - Minutes - Sitting - Déardaoin, 9 Iúil 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/et",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/et/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_et.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:05:25+02:00",
+              "byteSize": "270214"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/et/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_et.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:05:25+02:00",
+              "byteSize": "144757"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/et/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_et.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:05:25+02:00",
+              "byteSize": "83996"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/EST",
+          "title": {
+            "et": "Protokoll - Neljapäev, 9. juuli 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/ro",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/ro/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_ro.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:12:27+02:00",
+              "byteSize": "148852"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/ro/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_ro.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:12:27+02:00",
+              "byteSize": "84704"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/ro/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_ro.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:12:27+02:00",
+              "byteSize": "282509"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/RON",
+          "title": {
+            "ro": "Proces-verbal - Joi, 9 iulie 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/nl",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/nl/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_nl.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:10:28+02:00",
+              "byteSize": "146854"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/nl/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_nl.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:10:28+02:00",
+              "byteSize": "84556"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/nl/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_nl.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:10:28+02:00",
+              "byteSize": "280425"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/NLD",
+          "title": {
+            "nl": "Notulen - Donderdag 9 juli 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/pl",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/pl/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_pl.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:11:25+02:00",
+              "byteSize": "283496"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/pl/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_pl.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:11:25+02:00",
+              "byteSize": "84979"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/pl/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_pl.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:11:25+02:00",
+              "byteSize": "144657"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/POL",
+          "title": {
+            "pl": "Protokół - Czwartek, 9 lipca 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/sl",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sl/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sl.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:13:25+02:00",
+              "byteSize": "271986"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sl/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sl.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:13:25+02:00",
+              "byteSize": "84762"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sl/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sl.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:13:25+02:00",
+              "byteSize": "141000"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/SLV",
+          "title": {
+            "sl": "Zapisnik - Četrtek, 9. julij 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/sv",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sv/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sv.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:13:25+02:00",
+              "byteSize": "146306"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sv/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sv.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:13:25+02:00",
+              "byteSize": "276450"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/sv/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_sv.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:13:25+02:00",
+              "byteSize": "83555"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/SWE",
+          "title": {
+            "sv": "Protokoll - Torsdagen den 9 juli 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/hr",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/hr/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_hr.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:07:25+02:00",
+              "byteSize": "275395"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/hr/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_hr.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:07:26+02:00",
+              "byteSize": "148874"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/hr/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_hr.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:07:26+02:00",
+              "byteSize": "84148"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/HRV",
+          "title": {
+            "hr": "Plenary - Minutes - Sitting - četvrtak, 9. srpnja 2026."
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/da",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/da/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_da.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:03:25+02:00",
+              "byteSize": "143952"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/da/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_da.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:03:25+02:00",
+              "byteSize": "278735"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/da/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_da.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:03:25+02:00",
+              "byteSize": "84139"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/DAN",
+          "title": {
+            "da": "Protokol - Torsdag den 9. juli 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/fi",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/fi/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_fi.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:06:26+02:00",
+              "byteSize": "271803"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/fi/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_fi.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:06:25+02:00",
+              "byteSize": "144235"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/fi/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_fi.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:06:25+02:00",
+              "byteSize": "84123"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/FIN",
+          "title": {
+            "fi": "Pöytäkirja - Torstai 9. heinäkuuta 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/el",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/el/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_el.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:04:26+02:00",
+              "byteSize": "295821"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/el/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_el.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:04:25+02:00",
+              "byteSize": "162003"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/el/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_el.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:04:25+02:00",
+              "byteSize": "91609"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/ELL",
+          "title": {
+            "el": "Συνοπτικά πρακτικά - Πέμπτη 9 Ιουλίου 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/de",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/de/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_de.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:03:25+02:00",
+              "byteSize": "143814"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/de/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_de.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:03:25+02:00",
+              "byteSize": "287479"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/de/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_de.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:03:25+02:00",
+              "byteSize": "86473"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/DEU",
+          "title": {
+            "de": "Protokoll - Donnerstag, 9. Juli 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/cs",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/cs/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_cs.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:02:25+02:00",
+              "byteSize": "278662"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/cs/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_cs.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:02:26+02:00",
+              "byteSize": "85193"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/cs/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_cs.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:02:26+02:00",
+              "byteSize": "144884"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/CES",
+          "title": {
+            "cs": "Zápis - Čtvrtek, 9. července 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/it",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/it/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_it.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:08:29+02:00",
+              "byteSize": "275773"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/it/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_it.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:08:29+02:00",
+              "byteSize": "84491"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/it/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_it.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:08:29+02:00",
+              "byteSize": "148347"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/ITA",
+          "title": {
+            "it": "Processo verbale - Giovedì 9 luglio 2026"
+          }
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09/mt",
+          "type": "Expression",
+          "is_embodied_by": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/mt/xml",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_mt.xml",
+              "media_type": "https://www.iana.org/assignments/media-types/application/xml",
+              "format": "http://publications.europa.eu/resource/authority/file-type/XML",
+              "issued": "2026-09-08T10:10:26+02:00",
+              "byteSize": "145596"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/mt/docx",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_mt.docx",
+              "media_type": "https://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+              "format": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+              "issued": "2026-09-08T10:10:26+02:00",
+              "byteSize": "85220"
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09/mt/pdf",
+              "type": "Manifestation",
+              "is_exemplified_by": "distribution/doc/PV-10-2026-07-09_mt.pdf",
+              "media_type": "https://www.iana.org/assignments/media-types/application/pdf",
+              "format": "http://publications.europa.eu/resource/authority/file-type/PDF",
+              "issued": "2026-09-08T10:10:26+02:00",
+              "byteSize": "287407"
+            }
+          ],
+          "language": "http://publications.europa.eu/resource/authority/language/MLT",
+          "title": {
+            "mt": "Minuti - Il-Ħamis, 9 ta' Lulju 2026"
+          }
+        }
+      ],
+      "work_type": "def/ep-document-types/MINUTES_PLENARY",
+      "identifier": "PV-10-2026-07-09",
+      "publisher": "org/EU_PARLIAMENT",
+      "title_dcterms": {
+        "hu": "Jegyzőkönyv - 2026. július 9., csütörtök",
+        "fi": "Pöytäkirja - Torstai 9. heinäkuuta 2026",
+        "it": "Processo verbale - Giovedì 9 luglio 2026",
+        "pt": "Acta - Quinta-feira, 9 de Julho de 2026",
+        "sv": "Protokoll - Torsdagen den 9 juli 2026",
+        "ga": "Plenary - Minutes - Sitting - Déardaoin, 9 Iúil 2026",
+        "es": "Acta - Jueves 9 de julio de 2026",
+        "lt": "Protokolas - Ketvirtadienis, 2026 m. liepos 9 d.",
+        "bg": "Протокол - Четвъртък, 9 юли 2026",
+        "lv": "Protokols - Ceturtdiena, 2026. gada 9. jūlijs",
+        "nl": "Notulen - Donderdag 9 juli 2026",
+        "mt": "Minuti - Il-Ħamis, 9 ta' Lulju 2026",
+        "en": "Minutes - Plenary sitting - Thursday, 9 July 2026",
+        "cs": "Zápis - Čtvrtek, 9. července 2026",
+        "hr": "Plenary - Minutes - Sitting - četvrtak, 9. srpnja 2026.",
+        "et": "Protokoll - Neljapäev, 9. juuli 2026",
+        "ro": "Proces-verbal - Joi, 9 iulie 2026",
+        "el": "Συνοπτικά πρακτικά - Πέμπτη 9 Ιουλίου 2026",
+        "fr": "Procès-verbal - Séance plénière - Jeudi 9 juillet 2026",
+        "sk": "Zápisnica - Štvrtok, 9. júla 2026",
+        "pl": "Protokół - Czwartek, 9 lipca 2026",
+        "da": "Protokol - Torsdag den 9. juli 2026",
+        "de": "Protokoll - Donnerstag, 9. Juli 2026",
+        "sl": "Zapisnik - Četrtek, 9. julij 2026"
+      },
+      "label": "P10_PV(2026)07-09",
+      "epNumber": "PE790.738",
+      "identifierYear": "2026",
+      "inverse_is_part_of": [
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-001",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "1",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-001",
+          "title_dcterms": {
+            "pl": "1. Otwarcie posiedzenia",
+            "es": "1. Apertura de la sesión",
+            "sl": "1. Otvoritev seje",
+            "el": "1. Έναρξη της συνεδρίασης",
+            "lv": "1. Sēdes atklāšana",
+            "et": "1. Istungi algus",
+            "sv": "1. Öppnande av sammanträdet",
+            "it": "1. Apertura della seduta",
+            "ro": "1. Deschiderea lucrărilor ședinței",
+            "da": "1. Åbning af mødet",
+            "de": "1. Eröffnung der Sitzung",
+            "fr": "1. Ouverture de la séance",
+            "nl": "1. Opening van de vergadering",
+            "fi": "1. Istunnon avaaminen",
+            "en": "1. Opening of the sitting",
+            "lt": "1. Posėdžio pradžia",
+            "hr": "1. Otvaranje dnevne sjednice",
+            "ga": "1. Oscailt an tsuí",
+            "mt": "1. Ftuħ tas-seduta",
+            "hu": "1. Az ülés megnyitása",
+            "pt": "1. Abertura da sessão",
+            "bg": "1. Откриване на заседанието",
+            "sk": "1. Otvorenie rokovania",
+            "cs": "1. Zahájení denního zasedání"
+          },
+          "numbering": 261,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-1"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-001D",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "1d",
+          "refers_to": [
+            "eli/dl/doc/B-10-2026-0350",
+            "eli/dl/proc/2026-2801",
+            "eli/dl/proc/2026-2799",
+            "eli/dl/doc/RC-10-2026-0345",
+            "eli/dl/doc/B-10-2026-0357",
+            "eli/dl/doc/B-10-2026-0346",
+            "eli/dl/doc/B-10-2026-0353",
+            "eli/dl/proc/2026-2800",
+            "eli/dl/doc/B-10-2026-0362",
+            "eli/dl/doc/B-10-2026-0356",
+            "eli/dl/doc/RC-10-2026-0357",
+            "eli/dl/doc/B-10-2026-0345",
+            "eli/dl/doc/B-10-2026-0359",
+            "eli/dl/doc/B-10-2026-0348",
+            "eli/dl/doc/B-10-2026-0361",
+            "eli/dl/doc/B-10-2026-0351",
+            "eli/dl/doc/B-10-2026-0339",
+            "eli/dl/doc/B-10-2026-0355",
+            "eli/dl/doc/RC-10-2026-0346",
+            "eli/dl/proc/2026-2734",
+            "eli/dl/doc/B-10-2026-0358"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-001D",
+          "title_dcterms": {
+            "el": "1d. Προτάσεις ψηφίσματος που κατατέθηκαν",
+            "fr": "1d. Propositions de résolution déposées",
+            "de": "1d. Eingereichte Entschließungsanträge",
+            "et": "1d. Esitatud resolutsiooni ettepanekud",
+            "lt": "1d. Pateikti pasiūlymai dėl rezoliucijų",
+            "hr": "1d. Podneseni prijedlozi rezolucije",
+            "da": "1d. Indgivne beslutningsforslag",
+            "pl": "1d. Złożone projekty rezolucji",
+            "sv": "1d. Ingivna resolutionsförslag",
+            "es": "1d. Propuestas de Resolución presentadas",
+            "nl": "1d. Ingediende ontwerpresoluties",
+            "sk": "1d. Predložené návrhy uznesení",
+            "it": "1d. Proposte di risoluzione presentate",
+            "fi": "1d. Käsiteltäväksi jätetyt päätöslauselmaesitykset",
+            "hu": "1d. Előterjesztett állásfoglalási indítványok",
+            "pt": "1d. Propostas de resolução apresentadas",
+            "lv": "1d. Iesniegtie rezolūciju priekšlikumi",
+            "ga": "1d. Tairiscintí i gcomhair rúin a cuireadh síos",
+            "cs": "1d. Předložené návrhy usnesení",
+            "en": "1d. Motions for resolutions tabled",
+            "bg": "1d. Внесени предложения за резолюция",
+            "sl": "1d. Vloženi predlogi resolucij",
+            "ro": "1d. Propuneri de rezoluție depuse",
+            "mt": "1d. Mozzjonijiet għal riżoluzzjoni mressqa"
+          },
+          "numbering": 933
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-002",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "2",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-002",
+          "title_dcterms": {
+            "lt": "2. Frakcijų sudėtis",
+            "et": "2. Fraktsioonide koosseis",
+            "hu": "2. A képviselőcsoportok tagjai",
+            "bg": "2. Състав на политическите групи",
+            "en": "2. Composition of political groups",
+            "es": "2. Composición de los grupos políticos",
+            "de": "2. Zusammensetzung der Fraktionen",
+            "hr": "2. Sastav klubova zastupnika",
+            "sl": "2. Članstvo v političnih skupinah",
+            "mt": "2. Kompożizzjoni tal-gruppi politiċi",
+            "it": "2. Composizione dei gruppi politici",
+            "sv": "2. De politiska gruppernas sammansättning",
+            "lv": "2. Politisko grupu sastāvs",
+            "fr": "2. Composition des groupes politiques",
+            "el": "2. Σύνθεση των πολιτικών ομάδων",
+            "ga": "2. Comhdhéanamh na ngrúpaí polaitiúla",
+            "da": "2. De politiske gruppers sammensætning",
+            "nl": "2. Samenstelling fracties",
+            "pl": "2. Skład grup politycznych",
+            "ro": "2. Componența grupurilor politice",
+            "cs": "2. Členství v politických skupinách",
+            "sk": "2. Zloženie politických skupín",
+            "pt": "2. Composição dos grupos políticos",
+            "fi": "2. Poliittisten ryhmien kokoonpano"
+          },
+          "numbering": 265,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-2"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-002D",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "2d",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-002D",
+          "title_dcterms": {
+            "lt": "2d. Peticijos",
+            "sv": "2d. Framställningar",
+            "fr": "2d. Pétitions",
+            "sl": "2d. Peticije",
+            "ga": "2d. Achainíocha",
+            "hu": "2d. Petíciók",
+            "et": "2d. Petitsioonid",
+            "el": "2d. Αναφορές",
+            "de": "2d. Petitionen",
+            "nl": "2d. Verzoekschriften",
+            "pt": "2d. Petições",
+            "hr": "2d. Predstavke",
+            "mt": "2d. Petizzjonijiet",
+            "bg": "2d. Петиции",
+            "en": "2d. Petitions",
+            "es": "2d. Peticiones",
+            "lv": "2d. Lūgumraksti",
+            "sk": "2d. Petície",
+            "fi": "2d. Vetoomukset",
+            "da": "2d. Andragender",
+            "pl": "2d. Petycje",
+            "cs": "2d. Petice",
+            "it": "2d. Petizioni",
+            "ro": "2d. Petiții"
+          },
+          "numbering": 1037
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-003",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "3",
+          "refers_to": [
+            "eli/dl/proc/2026-2734",
+            "eli/dl/doc/O-10-2026-000026",
+            "eli/dl/doc/B-10-2026-0013"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-003",
+          "title_dcterms": {
+            "en": "3. Joint communication on humanitarian aid (JOIN(2026)0025) (debate)",
+            "pt": "3. Comunicação conjunta sobre ajuda humanitária (debate)",
+            "pl": "3. Wspólny komunikat w sprawie pomocy humanitarnej (JOIN(2026)0025) (debata)",
+            "sl": "3. Skupno sporočilo o humanitarni pomoči (JOIN(2026)0025) (razprava)",
+            "lv": "3. Kopīgs paziņojums par humāno palīdzību (JOIN(2026)0025) (debates)",
+            "fr": "3. Communication conjointe sur l'aide humanitaire (JOIN(2026)0025) (débat)",
+            "et": "3. Ühisteatis humanitaarabi kohta (JOIN(2026)0025) (arutelu)",
+            "el": "3. Κοινή ανακοίνωση για την ανθρωπιστική βοήθεια (συζήτηση)",
+            "ro": "3. Comunicare comună privind ajutorul umanitar (JOIN(2026)0025) (dezbatere)",
+            "bg": "3. Съвместно съобщение относно хуманитарната помощ (JOIN(2026)0025) (разискване)",
+            "sv": "3. Det gemensamma meddelandet om humanitärt bistånd (JOIN(2026)0025) (debatt)",
+            "mt": "3. Komunikazzjoni konġunta dwar l-għajnuna umanitarja (JOIN(2026)0025) (dibattitu)",
+            "it": "3. Comunicazione comune sugli aiuti umanitari (JOIN(2026)0025) (discussione)",
+            "lt": "3. Bendras komunikatas dėl humanitarinės pagalbos (JOIN(2026)0025) (diskusijos)",
+            "hu": "3. Közös közlemény a humanitárius segítségnyújtásról (JOIN(2026)0025) (vita)",
+            "sk": "3. Spoločné oznámenie o humanitárnej pomoci (JOIN(2026)0025) (rozprava)",
+            "es": "3. Comunicación conjunta sobre la ayuda humanitaria (JOIN(2026)0025) (debate)",
+            "ga": "3. Teachtaireacht chomhpháirteach maidir le cabhair dhaonnúil (JOIN(2026)0025) (díospóireacht)",
+            "hr": "3. Zajednička komunikacija o humanitarnoj pomoći (JOIN(2026)0025) (rasprava)",
+            "nl": "3. Gezamenlijke mededeling over humanitaire hulp (JOIN(2026)0025) (debat)",
+            "de": "3. Gemeinsame Mitteilung über humanitäre Hilfe (JOIN(2026)0025) (Aussprache)",
+            "cs": "3. Společné sdělení o humanitární pomoci (JOIN(2026)0025) (rozprava)",
+            "da": "3. Fælles meddelelse om humanitær bistand (forhandling)",
+            "fi": "3. Yhteinen tiedonanto humanitaarisesta avusta (JOIN(2026)0025) (keskustelu)"
+          },
+          "numbering": 271,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-3"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-003D",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "3d",
+          "refers_to": [
+            "eli/dl/proc/2026-2101",
+            "eli/dl/proc/2026-2103",
+            "eli/dl/proc/2026-2100",
+            "eli/dl/proc/2026-2102"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-003D",
+          "title_dcterms": {
+            "sl": "3d. Sklepi o pripravi samoiniciativnih poročil",
+            "lt": "3d. Sprendimai rengti pranešimus savo iniciatyva",
+            "ga": "3d. Cinntí chun tuarascálacha féintionscnaimh a tharraingt suas",
+            "es": "3d. Decisiones de elaborar informes de propia iniciativa",
+            "de": "3d. Beschlüsse zur Ausarbeitung von Initiativberichten",
+            "mt": "3d. Deċiżjonijiet biex jitħejjew rapporti fuq inizjattiva proprja",
+            "hu": "3d. Határozat saját kezdeményezésű jelentés készítéséről",
+            "pt": "3d. Decisões de elaborar relatórios de iniciativa",
+            "fi": "3d. Päätökset laatia valiokunta-aloitteisia mietintöjä",
+            "el": "3d. Αποφάσεις για τη σύνταξη εκθέσεων πρωτοβουλίας",
+            "sk": "3d. Rozhodnutia o vypracovaní iniciatívnych správ",
+            "lv": "3d. Lēmumi sagatavot patstāvīgus ziņojumus",
+            "en": "3d. Decisions to draw up own-initiative reports",
+            "ro": "3d. Decizii de a întocmi rapoarte din proprie inițiativă",
+            "fr": "3d. Décisions d'établir des rapports d'initiative",
+            "hr": "3d. Odluke o sastavljanju izvješća o vlastitoj inicijativi",
+            "nl": "3d. Besluiten tot het opstellen van initiatiefverslagen",
+            "bg": "3d. Решения за изготвяне на доклади по собствена инициатива",
+            "et": "3d. Otsused algatusraportite koostamiseks",
+            "sv": "3d. Beslut om att utarbeta initiativbetänkanden",
+            "pl": "3d. Decyzje w sprawie sporządzenia sprawozdań z własnej inicjatywy",
+            "it": "3d. Decisioni di elaborare relazioni di iniziativa",
+            "da": "3d. Afgørelser om at udarbejde initiativbetænkninger",
+            "cs": "3d. Rozhodnutí o vypracování zpráv z vlastního podnětu"
+          },
+          "numbering": 1042
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-004",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "4",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-004",
+          "title_dcterms": {
+            "lv": "4. Sēdes atsākšana",
+            "et": "4. Istungi jätkamine",
+            "cs": "4. Pokračování denního zasedání",
+            "ro": "4. Reluarea ședinței",
+            "pt": "4. Reinício da sessão",
+            "hr": "4. Nastavak dnevne sjednice",
+            "sl": "4. Nadaljevanje seje",
+            "it": "4. Ripresa della seduta",
+            "sv": "4. Återupptagande av sammanträdet",
+            "da": "4. Genoptagelse af mødet",
+            "el": "4. Επανάληψη της συνεδρίασης",
+            "nl": "4. Hervatting van de vergadering",
+            "ga": "4. Athchromadh ar an suí",
+            "fi": "4. Istunnon jatkaminen",
+            "de": "4. Wiederaufnahme der Sitzung",
+            "lt": "4. Posėdžio pratęsimas",
+            "pl": "4. Wznowienie posiedzenia",
+            "bg": "4. Възобновяване на заседанието",
+            "en": "4. Resumption of the sitting",
+            "fr": "4. Reprise de la séance",
+            "sk": "4. Pokračovanie rokovania",
+            "es": "4. Reanudación de la sesión",
+            "mt": "4. Tkomplija tas-seduta",
+            "hu": "4. Az ülés folytatása"
+          },
+          "numbering": 334,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-4"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-004D",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "4d",
+          "refers_to": [
+            "eli/dl/proc/2026-2023",
+            "eli/dl/proc/2025-0177",
+            "eli/dl/doc/C-10-2025-0120"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-004D",
+          "title_dcterms": {
+            "it": "4d. Modifiche dei deferimenti in commissione",
+            "ro": "4d. Modificări ale sesizărilor către comisii",
+            "bg": "4d. Промени в сезирането на комисии",
+            "sl": "4d. Spremembe napotitev na odbore",
+            "nl": "4d. Wijzigingen aanwijzing commissies",
+            "pt": "4d. Modificações das consultas às comissões competentes",
+            "lt": "4d. Klausimų perdavimas komitetams (su pakeitimais)",
+            "sv": "4d. Ändrade hänvisningar till utskott",
+            "ga": "4d. Tarchuir mhodhnaithe chuig na coistí",
+            "sk": "4d. Zmeny v pridelení výborom",
+            "es": "4d. Modificaciones de la remisión de asuntos a las comisiones competentes",
+            "fi": "4d. Valiokuntaan lähettäminen (muutosten jälkeen)",
+            "cs": "4d. Změny v postoupení výborům",
+            "da": "4d. Ændringer i udvalgshenvisninger",
+            "fr": "4d. Modifications de saisine",
+            "el": "4d. Τροποποιήσεις των παραπομπών σε επιτροπές",
+            "et": "4d. Parlamendikomisjonile menetlemiseks esitamise muutmine",
+            "mt": "4d. Modifiki tal-konsultazzjonijiet mal-Kumitati",
+            "pl": "4d. Zmiany w przekazaniu spraw komisjom",
+            "hr": "4d. Izmjene upućivanja na odbore",
+            "lv": "4d. Nodošana citām komitejām",
+            "en": "4d. Modified referrals to committees",
+            "de": "4d. Änderungen von Ausschussbefassungen",
+            "hu": "4d. A bizottsági felkérések módosítása"
+          },
+          "numbering": 1064
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-005",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "5",
+          "refers_to": [
+            "eli/dl/proc/2026-2778"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-005",
+          "title_dcterms": {
+            "fi": "5. Yhteisen kalastuspolitiikan arviointi ja jatkotoimet (keskustelu)",
+            "en": "5. Evaluation of the common fisheries policy and follow-up (debate)",
+            "da": "5. Evaluering af den fælles fiskeripolitik og opfølgning (forhandling)",
+            "it": "5. Valutazione della politica comune della pesca e seguito dato (discussione)",
+            "et": "5. Ühise kalanduspoliitika hindamine ja järelmeetmed (arutelu)",
+            "sl": "5. Ocena skupne ribiške politike in nadaljnji ukrepi (razprava)",
+            "sk": "5. Hodnotenie spoločnej rybárskej politiky a následné opatrenia (rozprava)",
+            "mt": "5. Evalwazzjoni tal-Politika Komuni tas-Sajd u segwitu (dibattitu)",
+            "cs": "5. Hodnocení společné rybářské politiky a následná opatření (rozprava)",
+            "es": "5. Evaluación de la política pesquera común y seguimiento (debate)",
+            "pt": "5. Avaliação da política comum das pescas e seguimento (debate)",
+            "ro": "5. Evaluarea Politicii comune în domeniul pescuitului și măsurile ulterioare (dezbatere)",
+            "fr": "5. Évaluation de la politique commune de la pêche et suivi (débat)",
+            "hr": "5. Evaluacija zajedničke ribarstvene politike i daljnje mjere (rasprava)",
+            "lv": "5. Kopējās zivsaimniecības politikas izvērtējums un turpmākie pasākumi (debates)",
+            "bg": "5. Оценка на общата политика в областта на рибарството и последващи действия (разискване)",
+            "hu": "5. A közös halászati politika értékelése és nyomon követés (vita)",
+            "pl": "5. Ocena wspólnej polityki rybołówstwa i działania następcze (debata)",
+            "nl": "5. Evaluatie van het gemeenschappelijk visserijbeleid en follow-up (debat)",
+            "sv": "5. Utvärdering av den gemensamma fiskeripolitiken och uppföljning (debatt)",
+            "el": "5. Αξιολόγηση της Κοινής Αλιευτικής Πολιτικής και ακόλουθες ενέργειες (συζήτηση)",
+            "ga": "5. Meastóireacht ar an gComhbheartas Iascaigh agus obair leantach (díospóireacht)",
+            "lt": "5. Bendros žuvininkystės politikos vertinimas ir tolesni veiksmai (diskusijos)",
+            "de": "5. Bewertung der Gemeinsamen Fischereipolitik und Folgemaßnahmen (Aussprache)"
+          },
+          "numbering": 338,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-5"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-005D",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "5d",
+          "refers_to": [
+            "eli/dl/doc/B-10-2026-0284",
+            "eli/dl/proc/2026-0113",
+            "eli/dl/doc/C-10-2026-0117",
+            "eli/dl/doc/B-10-2026-0283",
+            "eli/dl/doc/C-10-2026-0118",
+            "eli/dl/proc/2026-0114"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-005D",
+          "title_dcterms": {
+            "hr": "5d. Podnošenje dokumenata",
+            "mt": "5d. Tressiq ta' dokumenti",
+            "lv": "5d. Dokumentu iesniegšana",
+            "sl": "5d. Predložitev dokumentov",
+            "en": "5d. Documents received",
+            "pl": "5d. Składanie dokumentów",
+            "da": "5d. Modtagne dokumenter",
+            "fi": "5d. Vastaanotetut asiakirjat",
+            "de": "5d. Vorlage von Dokumenten",
+            "bg": "5d. Внасяне на документи",
+            "lt": "5d. Gauti dokumentai",
+            "hu": "5d. Dokumentumok benyújtása",
+            "sv": "5d. Inkomna dokument",
+            "et": "5d. Esitatud dokumendid",
+            "pt": "5d. Entrega de documentos",
+            "fr": "5d. Dépôt de documents",
+            "cs": "5d. Předložení dokumentů",
+            "es": "5d. Presentación de documentos",
+            "sk": "5d. Predložené dokumenty",
+            "ro": "5d. Depunere de documente",
+            "el": "5d. Κατάθεση εγγράφων",
+            "ga": "5d. Doiciméid a fuarthas",
+            "it": "5d. Presentazione di documenti",
+            "nl": "5d. Ingekomen stukken"
+          },
+          "numbering": 1077
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-006",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "6",
+          "refers_to": [
+            "eli/dl/proc/2025-2211",
+            "eli/dl/doc/A-10-2026-0167"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-006",
+          "title_dcterms": {
+            "it": "6. Fattibilità di un 28° regime fiscale e relativo potenziale in termini di sostegno alla competitività dell'UE (discussione)",
+            "hr": "6. Izvedivost 28. poreznog režima i njegov potencijal za potporu konkurentnosti EU-a (rasprava)",
+            "mt": "6. Il-fattibbiltà tat-28 reġim tat-taxxa u l-potenzjal tiegħu li jappoġġja l-kompetittività tal-UE (dibattitu)",
+            "cs": "6. Proveditelnost 28. daňového režimu a jeho potenciál podpořit konkurenceschopnost EU (rozprava)",
+            "fr": "6. Faisabilité d’un 28e régime fiscal et potentiel de soutien de ce dernier à la compétitivité de l’Union (débat)",
+            "fi": "6. Nk. 28. verotusjärjestelmän toteutettavuus ja sen mahdollisuudet tukea EU:n kilpailukykyä (keskustelu)",
+            "nl": "6. Haalbaarheid van een 28e belastingregime en het potentieel ervan ter ondersteuning van het concurrentievermogen van de EU (debat)",
+            "et": "6. 28. maksusüsteemi teostatavus ja selle potentsiaal toetada ELi konkurentsivõimet (arutelu)",
+            "el": "6. Η σκοπιμότητα ενός 28ου φορολογικού καθεστώτος και οι δυνατότητες που προσφέρει για τη στήριξη της ανταγωνιστικότητας της ΕΕ (συζήτηση)",
+            "en": "6. Feasibility of a 28th tax regime and its potential to support EU competitiveness (debate)",
+            "pt": "6. Viabilidade de um 28.º regime fiscal e respetivo potencial para favorecer a competitividade da UE (debate)",
+            "pl": "6. Wykonalność 28. systemu opodatkowania i jego potencjał w zakresie wsparcia konkurencyjności UE (debata)",
+            "sl": "6. Uresničljivost 28. davčnega režima in njegov potencial za podpiranje konkurenčnosti EU (razprava)",
+            "es": "6. Viabilidad de un vigésimo octavo régimen fiscal y su potencial para favorecer la competitividad de la Unión (debate)",
+            "sv": "6. Genomförbarheten av ett 28:e skattesystem och dess potential att stödja EU:s konkurrenskraft (debatt)",
+            "da": "6. Gennemførligheden af en 28. skatteordning og dens potentiale til at støtte EU's konkurrenceevne (forhandling)",
+            "bg": "6. Осъществимост на 28-и данъчен режим и потенциалът му за поддържане на конкурентоспособността на ЕС (разискване)",
+            "sk": "6. Uskutočniteľnosť 28. daňového režimu a jeho potenciál na podporu konkurencieschopnosti EÚ (rozprava)",
+            "de": "6. Machbarkeit eines 28. Steuerregimes und sein Potenzial zur Förderung der Wettbewerbsfähigkeit der EU (Aussprache)",
+            "lv": "6. 28. nodokļu režīma realizējamība un tā potenciāls atbalstīt ES konkurētspēju (debates)",
+            "ro": "6. Fezabilitatea celui de-al 28-lea regim de impozitare și potențialul său de sprijinire a competitivității UE (dezbatere)",
+            "ga": "6. An fhéidearthacht an 28ú córas cánach a bheith ann agus an acmhainneacht atá ann tacú le hiomaíochas an Aontais (díospóireacht)",
+            "hu": "6. A 28. adórendszer megvalósíthatósága és az EU versenyképességének támogatásában rejlő potenciálja (vita)",
+            "lt": "6. 28-osios mokesčių sistemos įgyvendinamumas ir jos potencialas remti ES konkurencingumą (diskusijos)"
+          },
+          "numbering": 444,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-6"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-007",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "7",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-007",
+          "title_dcterms": {
+            "en": "7. Resumption of the sitting",
+            "nl": "7. Hervatting van de vergadering",
+            "bg": "7. Възобновяване на заседанието",
+            "es": "7. Reanudación de la sesión",
+            "fr": "7. Reprise de la séance",
+            "ro": "7. Reluarea ședinței",
+            "el": "7. Επανάληψη της συνεδρίασης",
+            "it": "7. Ripresa della seduta",
+            "lv": "7. Sēdes atsākšana",
+            "sv": "7. Återupptagande av sammanträdet",
+            "hu": "7. Az ülés folytatása",
+            "cs": "7. Pokračování denního zasedání",
+            "de": "7. Wiederaufnahme der Sitzung",
+            "lt": "7. Posėdžio pratęsimas",
+            "sl": "7. Nadaljevanje seje",
+            "et": "7. Istungi jätkamine",
+            "pl": "7. Wznowienie posiedzenia",
+            "pt": "7. Reinício da sessão",
+            "fi": "7. Istunnon jatkaminen",
+            "hr": "7. Nastavak dnevne sjednice",
+            "da": "7. Genoptagelse af mødet",
+            "sk": "7. Pokračovanie rokovania",
+            "mt": "7. Tkomplija tas-seduta",
+            "ga": "7. Athchromadh ar an suí"
+          },
+          "numbering": 526,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-7"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-008",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "8",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-008",
+          "title_dcterms": {
+            "sl": "8. Sestava odborov in delegacij",
+            "el": "8. Σύνθεση των επιτροπών και των αντιπροσωπειών",
+            "ro": "8. Componența comisiilor și a delegațiilor",
+            "lt": "8. Komitetų ir delegacijų sudėtis",
+            "sk": "8. Zloženie výborov a delegácií",
+            "ga": "8. Comhdhéanamh na gcoistí agus na dtoscaireachtaí",
+            "hr": "8. Sastav odbora i izaslanstava",
+            "da": "8. Udvalgenes og delegationernes sammensætning",
+            "en": "8. Composition of committees and delegations",
+            "lv": "8. Komiteju un delegāciju sastāvs",
+            "pt": "8. Composição das comissões e das delegações",
+            "cs": "8. Členství ve výborech a v delegacích",
+            "nl": "8. Samenstelling commissies en delegaties",
+            "sv": "8. Utskottens och delegationernas sammansättning",
+            "fr": "8. Composition des commissions et des délégations",
+            "es": "8. Composición de las comisiones y delegaciones",
+            "fi": "8. Valiokuntien ja valtuuskuntien kokoonpano",
+            "mt": "8. Kompożizzjoni tal-kumitati u tad-delegazzjonijiet",
+            "de": "8. Zusammensetzung der Ausschüsse und Delegationen",
+            "pl": "8. Skład komisji i delegacji",
+            "it": "8. Composizione delle commissioni e delle delegazioni",
+            "et": "8. Parlamendi komisjonide ja delegatsioonide koosseis",
+            "hu": "8. A bizottságok és a küldöttségek tagjai",
+            "bg": "8. Състав на комисиите и делегациите"
+          },
+          "numbering": 530,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-8"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "9",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-009",
+          "title_dcterms": {
+            "sv": "9. Omröstning",
+            "lt": "9. Balsuoti skirtas laikas",
+            "de": "9. Abstimmungsstunde",
+            "sl": "9. Čas glasovanja",
+            "it": "9. Turno di votazioni",
+            "fi": "9. Äänestykset",
+            "ga": "9. Am vótála",
+            "en": "9. Voting time",
+            "es": "9. Turno de votaciones",
+            "hr": "9. Glasovanje",
+            "fr": "9. Heure des votes",
+            "cs": "9. Hlasování",
+            "el": "9. Ώρα των ψηφοφοριών",
+            "et": "9. Hääletused",
+            "lv": "9. Balsošanas laiks",
+            "pt": "9. Período de votação",
+            "da": "9. Afstemningstid",
+            "hu": "9. Szavazások órája",
+            "ro": "9. Votare",
+            "nl": "9. Stemmingen",
+            "bg": "9. Време за гласуване",
+            "mt": "9. Ħin tal-votazzjonijiet",
+            "sk": "9. Hlasovanie",
+            "pl": "9. Głosowanie"
+          },
+          "numbering": 551,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9"
+          ],
+          "inverse_is_part_of": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-01",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.1",
+              "refers_to": [
+                "eli/dl/proc/2023-0211",
+                "eli/dl/doc/C-9-2023-0214",
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-001",
+                "eli/dl/doc/A-10-2026-0183"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-01",
+              "title_dcterms": {
+                "ro": "9.1. Furnizarea de servicii în euro digitali de către prestatorii de servicii de plată înregistrați într-un stat membru a cărui monedă nu este euro și modificarea Regulamentului (UE) 2021/1230 al Parlamentului European și al Consiliului ***I (vot)",
+                "sk": "9.1. Poskytovanie služieb v digitálnom eure poskytovateľmi platobných služieb zaregistrovanými v členských štátoch, ktorých menou nie je euro, a zmena nariadenia Európskeho parlamentu a Rady (EÚ) 2021/1230 ***I (hlasovanie)",
+                "el": "9.1. Παροχή υπηρεσιών ψηφιακού ευρώ από παρόχους υπηρεσιών πληρωμών που έχουν συσταθεί σε κράτη μέλη που δεν έχουν νόμισμα το ευρώ και τροποποίηση του κανονισμού (ΕΕ) 2021/1230 του Ευρωπαϊκού Κοινοβουλίου και του Συμβουλίου ***I (ψηφοφορία)",
+                "cs": "9.1. Poskytování služeb v digitálních eurech poskytovateli platebních služeb zřízenými podle práva členských států, a změna nařízení Evropského parlamentu a Rady (EU) 2021/1230 ***I (hlasování)",
+                "fi": "9.1. Jäsenvaltioihin, joiden rahayksikkö ei ole euro, sijoittautuneiden maksupalveluntarjoajien digitaaliseen euroon perustuvien palvelujen tarjoaminen sekä Euroopan parlamentin ja neuvoston asetuksen (EU) 2021/1230 muuttaminen ***I (äänestys)",
+                "it": "9.1. Prestazione di servizi in euro digitale da parte di prestatori di servizi di pagamento costituiti negli Stati membri la cui moneta non è l'euro e modifica del regolamento (UE) 2021/1230 del Parlamento europeo e del Consiglio ***I (votazione)",
+                "lv": "9.1. Digitālā euro pakalpojumu sniegšana, ko nodrošina maksājumu pakalpojumu sniedzēji, kas reģistrēti dalībvalstīs, kuru valūta nav euro, un grozījumi Eiropas Parlamenta un Padomes Regulā (ES) 2021/1230 ***I (balsošana)",
+                "mt": "9.1. Il-forniment ta’ servizzi tal-euro diġitali minn fornituri ta’ servizzi ta’ pagament inkorporati fi Stati Membri li l-munita tagħhom mhijiex l-euro u li jemenda r-Regolament (UE) 2021/1230 tal-Parlament Ewropew u tal-Kunsill ***I (votazzjoni)",
+                "sl": "9.1. Opravljanje storitev z digitalnim eurom s strani ponudnikov plačilnih storitev s sedežem v državi članici, katere valuta ni euro, in sprememba Uredbe (EU) 2021/1230 Evropskega parlamenta in Sveta ***I (glasovanje)",
+                "hu": "9.1. A digitáliseuro-szolgáltatásoknak az olyan tagállamokban bejegyzett pénzforgalmi szolgáltatók általi nyújtása, amelyek pénzneme nem az euro, és az (EU) 2021/1230 európai parlamenti és tanácsi rendelet módosítása ***I (szavazás)",
+                "ga": "9.1. Soláthar seirbhísí euro dhigitigh ag soláthraithe seirbhísí íocaíochta atá corpraithe i mBallstáit nach é an euro an t-airgeadra iontu agus lena leasaítear Rialachán (AE) 2021/1230 ó Pharlaimint na hEorpa agus ón gComhairle ***I (vótáil)",
+                "pt": "9.1. Prestação de serviços de euro digital por prestadores de serviços de pagamento constituídos em Estados-Membros cuja moeda não é o euro e alteração do Regulamento (UE) 2021/1230 do Parlamento Europeu e do Conselho ***I (votação)",
+                "sv": "9.1. Tillhandahållande av tjänster i digital euro av betaltjänstleverantörer registrerade i medlemsstater som inte har euron som valuta och om ändring av Europaparlamentets och rådets förordning (EU) 2021/1230 ***I (omröstning)",
+                "nl": "9.1. Verrichting van digitale-eurodiensten door betalingsdienstaanbieders die zijn opgericht in lidstaten die de euro niet als munt hebben en wijziging van Verordening (EU) 2021/1230 van het Europees Parlement en de Raad ***I (stemming)",
+                "fr": "9.1. Fourniture de services en euros numériques par des prestataires de services de paiement établis dans des États membres dont la monnaie n'est pas l'euro et modification du règlement (UE) 2021/1230 du Parlement européen et du Conseil ***I (vote)",
+                "bg": "9.1. Предоставяне на свързани с цифровото евро услуги от доставчици на платежни услуги, учредени в държави членки, чиято валута не е еврото, и изменение на Регламент (ЕС) 2021/1230 на Европейския парламент и на Съвета ***I (гласуване)",
+                "da": "9.1. Digitale eurotjenester udbudt af betalingstjenesteudbydere, som er etableret i en medlemsstat, der ikke har euroen som valuta, og om ændring af Europa-Parlamentets og Rådets forordning (EU) 2021/1230 ***I (afstemning)",
+                "en": "9.1. Provision of digital euro services by payment services providers incorporated in Member States whose currency is not the euro and amending Regulation (EU) 2021/1230 of the European Parliament and the Council ***I (vote)",
+                "lt": "9.1. Valstybėse narėse, kurių valiuta nėra euras, įsisteigusių mokėjimo paslaugų teikėjų teikiamos skaitmeninių eurų paslaugos ir Europos Parlamento ir Tarybos reglamento (ES) 2021/1230 dalinis keitimas ***I (balsavimas)",
+                "de": "9.1. Erbringung von Diensten im Zusammenhang mit dem digitalen Euro durch Zahlungsdienstleister mit Sitz in Mitgliedstaaten, deren Währung nicht der Euro ist, und Änderung der Verordnung (EU) 2021/1230 des Europäischen Parlaments und des Rates ***I (Abstimmung)",
+                "et": "9.1. Digieuroteenuste osutamine makseteenuse pakkujate poolt, kes on asutatud liikmesriikides, mille ametlik vääring ei ole euro, ning Euroopa Parlamendi ja nõukogu määruse (EL) 2021/1230 muutmine ***I (hääletus)",
+                "pl": "9.1. Świadczenie usług związanych z cyfrowym euro przez dostawców usług płatniczych zarejestrowanych w państwach członkowskich, których walutą nie jest euro, i zmiana rozporządzenia Parlamentu Europejskiego i Rady (UE) 2021/1230 ***I (głosowanie)",
+                "es": "9.1. Prestación de servicios en euros digitales por parte de los proveedores de servicios de pago constituidos en Estados miembros cuya moneda no es el euro y modificación del Reglamento (UE) 2021/1230 del Parlamento Europeo y del Consejo ***I (votación)",
+                "hr": "9.1. Usluge digitalnog eura koje pružaju pružatelji platnih usluga osnovani u državama članicama čija valuta nije euro i izmjena Uredbe (EU) 2021/1230 Europskog parlamenta i Vijeća ***I (glasovanje)"
+              },
+              "numbering": 554,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-1"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-02",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.2",
+              "refers_to": [
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-002",
+                "eli/dl/doc/A-10-2026-0185",
+                "eli/dl/proc/2023-0212",
+                "eli/dl/doc/C-9-2023-0219"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-02",
+              "title_dcterms": {
+                "el": "9.2. Θέσπιση του ψηφιακού ευρώ ***I (ψηφοφορία)",
+                "pl": "9.2. Ustanowienie cyfrowego euro ***I (głosowanie)",
+                "sv": "9.2. Inrättandet av den digitala euron ***I (omröstning)",
+                "hr": "9.2. Uvođenje digitalnog eura ***I (glasovanje)",
+                "es": "9.2. Instauración del euro digital ***I (votación)",
+                "da": "9.2. Indførelse af den digitale euro ***I (afstemning)",
+                "de": "9.2. Einführung des digitalen Euro ***I (Abstimmung)",
+                "et": "9.2. Digieuro kehtestamine ***I (hääletus)",
+                "hu": "9.2. A digitális euró létrehozása ***I (szavazás)",
+                "it": "9.2. Istituzione dell'euro digitale ***I (votazione)",
+                "mt": "9.2. L-istabbiliment tal-euro diġitali ***I (votazzjoni)",
+                "sl": "9.2. Uvedba digitalnega eura ***I (glasovanje)",
+                "cs": "9.2. Zavedení digitálního eura ***I (hlasování)",
+                "lt": "9.2. Skaitmeninio euro sukūrimas ***I (balsavimas)",
+                "pt": "9.2. Criação do euro digital ***I (votação)",
+                "lv": "9.2. Digitālā euro izveide ***I (balsošana)",
+                "sk": "9.2. Zavedenie digitálneho eura ***I (hlasovanie)",
+                "bg": "9.2. Създаване на цифровото евро ***I (гласуване)",
+                "fi": "9.2. Digitaalisen euron käyttöönotto ***I (äänestys)",
+                "fr": "9.2. Création d'un euro numérique ***I (vote)",
+                "ga": "9.2. Bunú an euro dhigitigh ***I (vótáil)",
+                "en": "9.2. Establishment of the digital euro ***I (vote)",
+                "ro": "9.2. Instituirea monedei euro digitale ***I (vot)",
+                "nl": "9.2. Vaststelling van de digitale euro ***I (stemming)"
+              },
+              "numbering": 567,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-2"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-03",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.3",
+              "refers_to": [
+                "eli/dl/proc/2025-0385",
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-003",
+                "eli/dl/doc/C-10-2025-0324",
+                "eli/dl/doc/A-10-2026-0192"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-03",
+              "title_dcterms": {
+                "hu": "9.3. Az (EU) 2024/1252 rendelet módosítása ***I (szavazás)",
+                "en": "9.3. Amendments to the Critical Raw Materials Act ***I (vote)",
+                "ga": "9.3. Leasú a dhéanamh ar an nGníomh Eorpach um Amhábhair Chriticiúla ***I (vótáil)",
+                "nl": "9.3. Wijziging van de verordening kritieke grondstoffen ***I (stemming)",
+                "fi": "9.3. Kriittisiä raaka-aineita koskevan säädöksen muuttaminen ***I (äänestys)",
+                "bg": "9.3. Изменение на Регламента за суровините от критично значение ***I (гласуване)",
+                "da": "9.3. Ændring af forordningen om kritiske råstoffer ***I (afstemning)",
+                "mt": "9.3. Emendi għall-Att dwar il-Materja Prima Kritika ***I (votazzjoni)",
+                "es": "9.3. Modificación del Reglamento de Materias Primas Fundamentales ***I (votación)",
+                "sl": "9.3. Sprememba akta o kritičnih surovinah ***I (glasovanje)",
+                "it": "9.3. Modifica del regolamento sulle materie prime critiche ***I (votazione)",
+                "pl": "9.3. Zmiana rozporządzenia (UE) 2024/1252 ***I (głosowanie)",
+                "cs": "9.3. Změna aktu o kritických surovinách ***I (hlasování)",
+                "hr": "9.3. Izmjena Akta o kritičnim sirovinama ***I (glasovanje)",
+                "de": "9.3. Änderung der Verordnung über kritische Rohstoffe ***I (Abstimmung)",
+                "lv": "9.3. Grozījumi Eiropas Kritiski svarīgo izejvielu aktā ***I (balsošana)",
+                "et": "9.3. Kriitiliste toormete määruse muutmine ***I (hääletus)",
+                "sk": "9.3. Zmeny aktu o kritických surovinách ***I (hlasovanie)",
+                "fr": "9.3. Amendements au règlement sur les matières premières critiques ***I (vote)",
+                "ro": "9.3. Modificările aduse Regulamentului privind materiile prime critice ***I (vot)",
+                "sv": "9.3. Ändringar av förordningen om kritiska råmaterial ***I (omröstning)",
+                "lt": "9.3. Ypatingos svarbos žaliavų akto dalinis keitimas ***I (balsavimas)",
+                "el": "9.3. Τροποποίηση της πράξης για τις κρίσιμες πρώτες ύλες ***I (ψηφοφορία)",
+                "pt": "9.3. Alteração do Regulamento Matérias-Primas Críticas ***I (votação)"
+              },
+              "numbering": 595,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-3"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-04",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.4",
+              "refers_to": [
+                "eli/dl/doc/C-10-2026-0178",
+                "eli/dl/proc/2025-0429",
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-004",
+                "eli/dl/doc/TA-10-2026-0266"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-04",
+              "title_dcterms": {
+                "nl": "9.4. Tijdelijke afwijking van de richtlijn betreffende privacy en elektronische communicatie ***II (stemming)",
+                "sv": "9.4. Tillfälligt undantag från ePrivacy-direktivet ***II (omröstning)",
+                "es": "9.4. Excepción temporal a la Directiva sobre la privacidad y las comunicaciones electrónicas ***II (votación)",
+                "it": "9.4. Deroga temporanea alla direttiva relativa alla vita privata e alle comunicazioni elettroniche ***II (votazione)",
+                "en": "9.4. Temporary derogation from certain provisions of the ePrivacy Directive to combat online child sexual abuse ***II (vote)",
+                "ga": "9.4. Maolú sealadach ar an Treoir maidir le ríomh-Phríobháideachas ***II (vótáil)",
+                "ro": "9.4. Derogare temporară de la Directiva asupra confidențialității și comunicațiilor electronice ***II (vot)",
+                "lt": "9.4. Laikina nuo E. privatumo direktyvos nukrypti leidžianti nuostata ***II (balsavimas)",
+                "cs": "9.4. Dočasná odchylka od směrnice o soukromí a elektronických komunikacích***II (hlasování)",
+                "el": "9.4. Προσωρινή παρέκκλιση από την οδηγία για την ιδιωτική ζωή και τις ηλεκτρονικές επικοινωνίες ***II (ψηφοφορία)",
+                "hu": "9.4. Az elektronikus hírközlési adatvédelmi irányelvtől való átmeneti eltérés ***II (szavazás)",
+                "mt": "9.4. Deroga temporanja mid-direttiva dwar l-e-Privatezza ***II (votazzjoni)",
+                "hr": "9.4. Privremeno odstupanje od Direktive o privatnosti i elektroničkim komunikacijama ***II (glasovanje)",
+                "sl": "9.4. Začasno odstopanje od Direktive o zasebnosti in elektronskih komunikacijah ***II (glasovanje)",
+                "et": "9.4. Ajutine erand e-privaatsuse direktiivist ***II (hääletus)",
+                "sk": "9.4. Dočasná výnimka zo smernice o súkromí a elektronických komunikáciách ***II (hlasovanie)",
+                "da": "9.4. Midlertidig undtagelse fra e-databeskyttelsesdirektivet ***II (afstemning)",
+                "fr": "9.4. Dérogation temporaire à la directive vie privée et communications électroniques ***II (vote)",
+                "lv": "9.4. Pagaidu atkāpe no Direktīvas par privāto dzīvi un elektronisko komunikāciju ***II (balsošana)",
+                "bg": "9.4. Временна дерогация от Директивата за правото на неприкосновеност на личния живот и електронни комуникации ***II (гласуване)",
+                "pl": "9.4. Tymczasowe odstępstwo od dyrektywy o prywatności i łączności elektronicznej ***II (głosowanie)",
+                "de": "9.4. Vorübergehende Ausnahme von der Datenschutzrichtlinie für elektronische Kommunikation ***II (Abstimmung)",
+                "fi": "9.4. Tilapäinen poikkeus sähköisen viestinnän tietosuojadirektiiviin ***II (äänestys)",
+                "pt": "9.4. Derrogação temporária da Diretiva Privacidade Eletrónica ***II (votação)"
+              },
+              "numbering": 612,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-4"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-05",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.5",
+              "refers_to": [
+                "eli/dl/doc/B-10-2026-0361",
+                "eli/dl/doc/RC-10-2026-0357",
+                "eli/dl/doc/B-10-2026-0360",
+                "eli/dl/proc/2026-2799",
+                "eli/dl/doc/B-10-2026-0359",
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-005",
+                "eli/dl/doc/B-10-2026-0363",
+                "eli/dl/doc/B-10-2026-0362",
+                "eli/dl/doc/B-10-2026-0358",
+                "eli/dl/doc/TA-10-2026-0267",
+                "eli/dl/doc/B-10-2026-0357"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-05",
+              "title_dcterms": {
+                "pl": "9.5. Zagrożenie zbrodniami wojennymi, nasilające się łamanie międzynarodowego prawa humanitarnego i sytuacja w zakresie praw człowieka w Al-Ubajjid (Sudan) (głosowanie)",
+                "et": "9.5. Sõjakuritegude oht, rahvusvahelise humanitaarõiguse üha sagedasem rikkumine ja inimõiguste olukord Sudaanis Al-Ubayyiḑis (hääletus)",
+                "hr": "9.5. Prijetnja u pogledu ratnih zločina, eskalacija kršenja međunarodnog humanitarnog prava i stanje ljudskih prava u El-Obeidu u Sudanu (glasovanje)",
+                "pt": "9.5. A ameaça de crimes de guerra, o aumento das violações do direito internacional humanitário e a situação dos direitos humanos em El-Obeid, no Sudão (votação)",
+                "el": "9.5. Η απειλή εγκλημάτων πολέμου, η κλιμάκωση των παραβιάσεων του διεθνούς ανθρωπιστικού δικαίου και η κατάσταση των ανθρωπίνων δικαιωμάτων στην πόλη Ελ Ομπέιντ του Σουδάν (ψηφοφορία)",
+                "it": "9.5. Minaccia di crimini di guerra, crescenti violazioni del diritto internazionale umanitario e situazione dei diritti umani a El Obeid, Sudan (votazione)",
+                "en": "9.5. The threat of war crimes, the escalating violations of international humanitarian law and the human rights situation in El-Obeid, Sudan (vote)",
+                "sv": "9.5. Hotet om krigsförbrytelser, de tilltagande kränkningarna av internationell humanitär rätt och människorättssituationen i El-Obeid, Sudan (omröstning)",
+                "hu": "9.5. A háborús bűnök veszélye, a nemzetközi humanitárius jog egyre súlyosabb megsértései és az emberi jogok helyzete a szudáni el-Obeidben (szavazás)",
+                "fi": "9.5. Sotarikosten uhka, kansainvälisen humanitaarisen oikeuden lisääntyvät rikkomiset ja ihmisoikeustilanne El-Obeidissa Sudanissa (äänestys)",
+                "lt": "9.5. Karo nusikaltimų grėsmė, dažnėjantys tarptautinės humanitarinės teisės pažeidimai ir žmogaus teisių padėtis al Ubeide (Sudanas) (balsavimas)",
+                "da": "9.5. Truslen om krigsforbrydelser, de eskalerende krænkelser af den internationale menneskerettighedslovgivning og menneskerettighedssituationen i El-Obeid, Sudan (afstemning)",
+                "fr": "9.5. La menace de crimes de guerre, la multiplication des violations du droit international humanitaire et la situation des droits de l'homme à El-Obeid (Soudan) (vote)",
+                "lv": "9.5. Kara noziegumu draudi, aizvien plašākie starptautisko humanitāro tiesību pārkāpumi Obeidā, Sudānā (balsošana)",
+                "ro": "9.5. Amenințarea crimelor de război, escaladarea încălcărilor dreptului internațional umanitar și situația drepturilor omului în El-Obeid, Sudan (vot)",
+                "ga": "9.5. Bagairt coireanna cogaidh, na sáruithe géaraitheacha ar an dlí daonnúil idirnáisiúnta agus an staid maidir le cearta an duine in El-Obeid, an tSúdáin (vótáil)",
+                "sk": "9.5. Hrozba vojnových zločinov, stupňujúce sa porušovanie medzinárodného humanitárneho práva a situácia v oblasti ľudských práv v sudánskom meste Al-Ubajjid (hlasovanie)",
+                "nl": "9.5. De dreiging van oorlogsmisdaden, de toenemende schendingen van het internationaal humanitair recht en de mensenrechtensituatie in El-Obeid, Sudan (stemming)",
+                "bg": "9.5. Заплахата от военни престъпления, засилващите се нарушения на международното хуманитарно право и положението с правата на човека в Ел Обейд, Судан (гласуване)",
+                "de": "9.5. Drohende Kriegsverbrechen, ausufernde Verstöße gegen das humanitäre Völkerrecht und die Menschenrechtslage in Al-Ubajjid (Sudan) (Abstimmung)",
+                "mt": "9.5. It-theddida ta’ delitti tal-gwerra, il-ksur li qed jiżdied tad-dritt umanitarju internazzjonali u s-sitwazzjoni tad-drittijiet tal-bniedem f’El-Obeid, is-Sudan (votazzjoni)",
+                "es": "9.5. Amenaza de crímenes de guerra, aumento de las violaciones del Derecho internacional humanitario y situación de los derechos humanos en El Obeid (Sudán) (votación)",
+                "sl": "9.5. Grožnja vojnih hudodelstev, vse hujše kršitve mednarodnega humanitarnega prava in razmere na področju človekovih pravic v El Obeidu v Sudanu (glasovanje)",
+                "cs": "9.5. Hrozba válečných zločinů, stupňující se porušování mezinárodního humanitárního práva a situace v oblasti lidských práv v súdánském al-Obeidu (hlasování)"
+              },
+              "numbering": 638,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-5"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-06",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.6",
+              "refers_to": [
+                "eli/dl/doc/B-10-2026-0345",
+                "eli/dl/doc/B-10-2026-0353",
+                "eli/dl/doc/B-10-2026-0354",
+                "eli/dl/proc/2026-2800",
+                "eli/dl/doc/RC-10-2026-0345",
+                "eli/dl/doc/TA-10-2026-0268",
+                "eli/dl/doc/B-10-2026-0352",
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-006",
+                "eli/dl/doc/B-10-2026-0355",
+                "eli/dl/doc/B-10-2026-0356"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-06",
+              "title_dcterms": {
+                "lv": "9.6. Pastāvīgā kristiešu vajāšana Nigērijā, īpaši slaktiņš Kavelas ciematā (balsošana)",
+                "lt": "9.6. Nigerijoje tebesitęsiantis krikščionių persekiojimas, ypač žudynės Kawelo kaime (balsavimas)",
+                "pt": "9.6. Perseguição contínua de cristãos na Nigéria, nomeadamente o massacre na aldeia de Kawel (votação)",
+                "sk": "9.6. Pokračujúce prenasledovanie kresťanov v Nigérii, najmä masaker v dedine Kawel (hlasovanie)",
+                "pl": "9.6. Trwające prześladowania chrześcijan w Nigerii, w szczególności masakra w wiosce Kawel (głosowanie)",
+                "es": "9.6. Persecución actual de los cristianos en Nigeria, en particular la masacre en la aldea de Kawel (votación)",
+                "sl": "9.6. Stalno preganjanje kristjanov v Nigeriji, zlasti pokol v vasi Kawel (glasovanje)",
+                "et": "9.6. Kristlaste jätkuv tagakiusamine Nigeerias, eelkõige Kaweli külas toime pandud veresaun (hääletus)",
+                "ro": "9.6. Persecutarea creștinilor care are loc în Nigeria, în special masacrul din satul Kawel (vot)",
+                "ga": "9.6. Géarleanúint leanúnach Críostaithe sa Nigéir, go háirithe an sléacht sa sráidbhaile Kawel (vótáil)",
+                "it": "9.6. Le persecuzioni in atto contro i cristiani in Nigeria, in particolare il massacro nel villaggio di Kawel (votazione)",
+                "fi": "9.6. Meneillään oleva kristittyjen vaino Nigeriassa ja etenkin Kawelin kylän joukkomurha (äänestys)",
+                "cs": "9.6. Neustálé pronásledování křesťanů v Nigérii, zejména masakr ve vesnici Kawel (hlasování)",
+                "el": "9.6. Οι συνεχιζόμενοι διωγμοί των χριστιανών στη Νιγηρία, ιδίως η σφαγή στο χωριό Kawel (ψηφοφορία)",
+                "hr": "9.6. Kontinuirani progon kršćana u Nigeriji, posebice masakr u selu Kawelu (glasovanje)",
+                "fr": "9.6. Persécutions en cours contre les chrétiens au Nigéria, notamment le massacre commis dans le village de Kawel (vote)",
+                "de": "9.6. Anhaltende Verfolgung von Christen in Nigeria, insbesondere das Massaker im Dorf Kawel (Abstimmung)",
+                "hu": "9.6. A nigériai keresztények folytatódó üldözése, különösen a Kawel településen történt mészárlás (szavazás)",
+                "en": "9.6. Ongoing persecution of Christians in Nigeria, notably the Kawel village massacre (vote)",
+                "sv": "9.6. Fortsatt förföljelse av kristna i Nigeria, särskilt massakern i byn Kawel (omröstning)",
+                "bg": "9.6. Продължаващото преследване на християните в Нигерия, по-специално масовото убийство в село Кавел (гласуване)",
+                "nl": "9.6. De aanhoudende vervolging van christenen in Nigeria, met name het bloedbad in het dorp Kawel (stemming)",
+                "mt": "9.6. Il-persekuzzjoni li għaddejja bħalissa tal-Insara fin-Niġerja, b’mod partikolari l-massakru fir-raħal ta’ Kawel (votazzjoni)",
+                "da": "9.6. Den fortsatte forfølgelse af kristne i Nigeria, navnlig massakren i landsbyen Kawel (afstemning)"
+              },
+              "numbering": 685,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-6"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-07",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.7",
+              "refers_to": [
+                "eli/dl/doc/B-10-2026-0350",
+                "eli/dl/proc/2026-2801",
+                "eli/dl/doc/B-10-2026-0349",
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-007",
+                "eli/dl/doc/B-10-2026-0348",
+                "eli/dl/doc/RC-10-2026-0346",
+                "eli/dl/doc/TA-10-2026-0269",
+                "eli/dl/doc/B-10-2026-0351",
+                "eli/dl/doc/B-10-2026-0346",
+                "eli/dl/doc/B-10-2026-0347"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-07",
+              "title_dcterms": {
+                "ro": "9.7. Răpirea, convertirea forțată și căsătoria minorei Maria Shahbaz, precum și protecția fetelor în Pakistan (vot)",
+                "en": "9.7. The abduction, forced conversion and child marriage of Maria Shahbaz and the protection of girls in Pakistan (vote)",
+                "da": "9.7. Maria Shahbaz’ bortførelse, tvangskonvertering og børneægteskab og beskyttelsen af piger i Pakistan (afstemning)",
+                "sv": "9.7. Bortförande, tvångskonvertering och barnäktenskap när det gäller Maria Shahbaz och skydd av flickor i Pakistan (omröstning)",
+                "pt": "9.7. O rapto, a conversão forçada e o casamento precoce de Maria Shahbaz, e a proteção das raparigas no Paquistão (votação)",
+                "mt": "9.7. Is-sekwestru, il-konverżjoni furzata u ż-żwieġ prekoċi ta’ Maria Shahbaz, u l-protezzjoni tal-bniet fil-Pakistan (votazzjoni)",
+                "et": "9.7. Maria Shahbazi röövimine, sunniviisiline usuvahetus ja varajane abielu ning tüdrukute kaitsmine Pakistanis (hääletus)",
+                "fi": "9.7. Maria Shahbazin sieppaus, pakkokäännytys ja lapsiavioliitto ja tyttöjen suojelu Pakistanissa (äänestys)",
+                "hu": "9.7. Mária Sahbáz elrablása, erőszakos áttérítése és gyermekként házasságra való kényszerítése, valamint a pakisztáni lányok védelme (szavazás)",
+                "it": "9.7. Il rapimento, la conversione forzata e il matrimonio precoce di Maria Shahbaz e la protezione delle ragazze in Pakistan (votazione)",
+                "sk": "9.7. Únos, nútená konverzia a detské manželstvo Marie Šahbázovej a ochrana dievčat v Pakistane (hlasovanie)",
+                "sl": "9.7. Ugrabitev, prisilna spreobrnitev in otroška poroka Marie Šahbaz ter zaščita deklic v Pakistanu (glasovanje)",
+                "cs": "9.7. Únos, nucená konverze a dětský sňatek Marie Šahbazové a ochrana dívek v Pákistánu (hlasování)",
+                "de": "9.7. Entführung, Zwangskonvertierung und Kinderehe von Maria Shahbaz und der Schutz von Mädchen in Pakistan (Abstimmung)",
+                "lt": "9.7. Marios Shahbaz pagrobimas, priverstinis atvertimas ir ankstyva santuoka bei mergaičių apsauga Pakistane (balsavimas)",
+                "fr": "9.7. L’enlèvement, la conversion forcée et le mariage précoce de Maria Shahbaz, et la protection des filles au Pakistan (vote)",
+                "nl": "9.7. De ontvoering, gedwongen bekering en het kindhuwelijk van Maria Shahbaz en de bescherming van meisjes in Pakistan (stemming)",
+                "el": "9.7. Η απαγωγή, ο αναγκαστικός προσηλυτισμός και ο γάμος της ανήλικης Μαρία Σαχμπάζ και η προστασία των κοριτσιών στο Πακιστάν (ψηφοφορία)",
+                "es": "9.7. Secuestro, conversión forzosa y matrimonio infantil de Maria Shahbaz y protección de las niñas en Pakistán (votación)",
+                "ga": "9.7. Fuadach, iompú éigeantais agus pósadh leanaí Maria Shahbaz agus cosaint na gcailíní sa Phacastáin (vótáil)",
+                "lv": "9.7. Maria Shahbaz nolaupīšana, viņas piespiedu pāriešana citā reliģijā un agrīna laulība un meiteņu aizsardzība Pakistānā (balsošana)",
+                "hr": "9.7. Otmica, prisilno preobraćenje i dječji brak Marije Šahbaz te zaštita djevojčica u Pakistanu (glasovanje)",
+                "bg": "9.7. Отвличането, принудителната смяна на религията и встъпването в детски брак на Мария Шахбаз и защитата на момичетата в Пакистан (гласуване)",
+                "pl": "9.7. Uprowadzenie, przymusowe nawrócenie i dziecięce małżeństwo Marii Shahbaz oraz kwestia ochrony dziewcząt w Pakistanie (głosowanie)"
+              },
+              "numbering": 731,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-7"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-08",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.8",
+              "refers_to": [
+                "eli/dl/doc/A-10-2026-0167",
+                "eli/dl/proc/2025-2211",
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-008",
+                "eli/dl/doc/TA-10-2026-0270"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-08",
+              "title_dcterms": {
+                "sl": "9.8. Uresničljivost 28. davčnega režima in njegov potencial za podpiranje konkurenčnosti EU (glasovanje)",
+                "mt": "9.8. Il-fattibbiltà tat-28 reġim tat-taxxa u l-potenzjal tiegħu li jappoġġja l-kompetittività tal-UE (votazzjoni)",
+                "et": "9.8. 28. maksusüsteemi teostatavus ja selle potentsiaal toetada ELi konkurentsivõimet (hääletus)",
+                "nl": "9.8. Haalbaarheid van een 28e belastingregime en het potentieel ervan ter ondersteuning van het concurrentievermogen van de EU (stemming)",
+                "sv": "9.8. Genomförbarheten av ett 28:e skattesystem och dess potential att stödja EU:s konkurrenskraft (omröstning)",
+                "ga": "9.8. An fhéidearthacht an 28ú córas cánach a bheith ann agus an acmhainneacht atá ann tacú le hiomaíochas an Aontais (vótáil)",
+                "bg": "9.8. Осъществимост на 28-и данъчен режим и потенциалът му за поддържане на конкурентоспособността на ЕС (гласуване)",
+                "cs": "9.8. Proveditelnost 28. daňového režimu a jeho potenciál podpořit konkurenceschopnost EU (hlasování)",
+                "sk": "9.8. Uskutočniteľnosť 28. daňového režimu a jeho potenciál na podporu konkurencieschopnosti EÚ (hlasovanie)",
+                "es": "9.8. Viabilidad de un vigésimo octavo régimen fiscal y su potencial para favorecer la competitividad de la Unión (votación)",
+                "pl": "9.8. Wykonalność 28. systemu opodatkowania i jego potencjał w zakresie wsparcia konkurencyjności UE (głosowanie)",
+                "el": "9.8. Η σκοπιμότητα ενός 28ου φορολογικού καθεστώτος και οι δυνατότητες που προσφέρει για τη στήριξη της ανταγωνιστικότητας της ΕΕ (ψηφοφορία)",
+                "ro": "9.8. Fezabilitatea celui de-al 28-lea regim de impozitare și potențialul său de sprijinire a competitivității UE (vot)",
+                "da": "9.8. Gennemførligheden af en 28. skatteordning og dens potentiale til at støtte EU's konkurrenceevne (afstemning)",
+                "fr": "9.8. Faisabilité d’un 28e régime fiscal et potentiel de soutien de ce dernier à la compétitivité de l’Union (vote)",
+                "hu": "9.8. A 28. adórendszer megvalósíthatósága és az EU versenyképességének támogatásában rejlő potenciálja (szavazás)",
+                "pt": "9.8. Viabilidade de um 28.º regime fiscal e respetivo potencial para favorecer a competitividade da UE (votação)",
+                "it": "9.8. Fattibilità di un 28° regime fiscale e relativo potenziale in termini di sostegno alla competitività dell'UE (votazione)",
+                "en": "9.8. Feasibility of a 28th tax regime and its potential to support EU competitiveness (vote)",
+                "de": "9.8. Machbarkeit eines 28. Steuerregimes und sein Potenzial zur Förderung der Wettbewerbsfähigkeit der EU (Abstimmung)",
+                "lt": "9.8. 28-osios mokesčių sistemos įgyvendinamumas ir jos potencialas remti ES konkurencingumą (balsavimas)",
+                "hr": "9.8. Izvedivost 28. poreznog režima i njegov potencijal za potporu konkurentnosti EU-a (glasovanje)",
+                "fi": "9.8. Nk. 28. verotusjärjestelmän toteutettavuus ja sen mahdollisuudet tukea EU:n kilpailukykyä (äänestys)",
+                "lv": "9.8. 28. nodokļu režīma realizējamība un tā potenciāls atbalstīt ES konkurētspēju (balsošana)"
+              },
+              "numbering": 777,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-8"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-009-09",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-009",
+              "number": "9.9",
+              "refers_to": [
+                "eli/dl/doc/PV-10-2026-07-09-VOT-ITM-009",
+                "eli/dl/doc/TA-10-2026-0271",
+                "eli/dl/doc/B-10-2026-0339",
+                "eli/dl/proc/2026-2734"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-009-09",
+              "title_dcterms": {
+                "hr": "9.9. Zajednička komunikacija o humanitarnoj pomoći (JOIN(2026)0025) (glasovanje)",
+                "ro": "9.9. Comunicare comună privind ajutorul umanitar (JOIN(2026)0025) (vot)",
+                "lv": "9.9. Kopīgs paziņojums par humāno palīdzību (JOIN(2026)0025) (balsošana)",
+                "sk": "9.9. Spoločné oznámenie o humanitárnej pomoci (JOIN(2026)0025) (hlasovanie)",
+                "fr": "9.9. Communication conjointe sur l'aide humanitaire (JOIN(2026)0025) (vote)",
+                "da": "9.9. Fælles meddelelse om humanitær bistand (afstemning)",
+                "bg": "9.9. Съвместно съобщение относно хуманитарната помощ (JOIN(2026)0025) (гласуване)",
+                "ga": "9.9. Teachtaireacht chomhpháirteach maidir le cabhair dhaonnúil (JOIN(2026)0025) (vótáil)",
+                "nl": "9.9. Gezamenlijke mededeling over humanitaire hulp (JOIN(2026)0025) (stemming)",
+                "sl": "9.9. Skupno sporočilo o humanitarni pomoči (JOIN(2026)0025) (glasovanje)",
+                "it": "9.9. Comunicazione comune sugli aiuti umanitari (JOIN(2026)0025) (votazione)",
+                "sv": "9.9. Det gemensamma meddelandet om humanitärt bistånd (JOIN(2026)0025) (omröstning)",
+                "es": "9.9. Comunicación conjunta sobre la ayuda humanitaria (JOIN(2026)0025) (votación)",
+                "cs": "9.9. Společné sdělení o humanitární pomoci (JOIN(2026)0025) (hlasování)",
+                "el": "9.9. Κοινή ανακοίνωση για την ανθρωπιστική βοήθεια (ψηφοφορία)",
+                "pt": "9.9. Comunicação conjunta sobre ajuda humanitária (votação)",
+                "hu": "9.9. Közös közlemény a humanitárius segítségnyújtásról (JOIN(2026)0025) (szavazás)",
+                "fi": "9.9. Yhteinen tiedonanto humanitaarisesta avusta (JOIN(2026)0025) (äänestys)",
+                "mt": "9.9. Komunikazzjoni konġunta dwar l-għajnuna umanitarja (JOIN(2026)0025) (votazzjoni)",
+                "lt": "9.9. Bendras komunikatas dėl humanitarinės pagalbos (JOIN(2026)0025) (balsavimas)",
+                "et": "9.9. Ühisteatis humanitaarabi kohta (JOIN(2026)0025) (hääletus)",
+                "pl": "9.9. Wspólny komunikat w sprawie pomocy humanitarnej (JOIN(2026)0025) (głosowanie)",
+                "de": "9.9. Gemeinsame Mitteilung über humanitäre Hilfe (JOIN(2026)0025) (Abstimmung)",
+                "en": "9.9. Joint communication on humanitarian aid (JOIN(2026)0025) (vote)"
+              },
+              "numbering": 794,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-9-9"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-010",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "10",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-010",
+          "title_dcterms": {
+            "fr": "10. Reprise de la séance",
+            "lv": "10. Sēdes atsākšana",
+            "en": "10. Resumption of the sitting",
+            "mt": "10. Tkomplija tas-seduta",
+            "sv": "10. Återupptagande av sammanträdet",
+            "hu": "10. Az ülés folytatása",
+            "es": "10. Reanudación de la sesión",
+            "pl": "10. Wznowienie posiedzenia",
+            "pt": "10. Reinício da sessão",
+            "sk": "10. Pokračovanie rokovania",
+            "hr": "10. Nastavak dnevne sjednice",
+            "it": "10. Ripresa della seduta",
+            "ga": "10. Athchromadh ar an suí",
+            "sl": "10. Nadaljevanje seje",
+            "lt": "10. Posėdžio pratęsimas",
+            "el": "10. Επανάληψη της συνεδρίασης",
+            "cs": "10. Pokračování denního zasedání",
+            "de": "10. Wiederaufnahme der Sitzung",
+            "bg": "10. Възобновяване на заседанието",
+            "nl": "10. Hervatting van de vergadering",
+            "fi": "10. Istunnon jatkaminen",
+            "da": "10. Genoptagelse af mødet",
+            "et": "10. Istungi jätkamine",
+            "ro": "10. Reluarea ședinței"
+          },
+          "numbering": 820,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-10"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-011",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "11",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-011",
+          "title_dcterms": {
+            "sl": "11. Sprejetje zapisnika predhodne seje",
+            "cs": "11. Schválení zápisu z předchozího denního zasedání",
+            "it": "11. Approvazione del processo verbale della seduta precedente",
+            "en": "11. Approval of the minutes of the previous sitting",
+            "mt": "11. Approvazzjoni tal-minuti tas-seduta preċedenti",
+            "pl": "11. Zatwierdzenie protokołu poprzedniego posiedzenia",
+            "fi": "11. Edellisen istunnon pöytäkirjan hyväksyminen",
+            "lv": "11. Iepriekšējās sēdes protokola apstiprināšana",
+            "pt": "11. Aprovação da ata da sessão anterior",
+            "el": "11. Έγκριση των Συνοπτικών Πρακτικών της προηγούμενης συνεδρίασης",
+            "de": "11. Genehmigung des Protokolls der vorangegangenen Sitzung",
+            "es": "11. Aprobación del acta de la sesión anterior",
+            "ro": "11. Aprobarea procesului-verbal al ședinței precedente",
+            "hu": "11. Az előző ülésnap jegyzőkönyvének elfogadása",
+            "nl": "11. Goedkeuring van de notulen van de vorige vergadering",
+            "sv": "11. Justering av protokollet från föregående sammanträde",
+            "sk": "11. Schválenie zápisnice z predchádzajúceho rokovania",
+            "hr": "11. Usvajanje zapisnika s prethodne dnevne sjednice",
+            "bg": "11. Одобряване на протокола от предишното заседание",
+            "lt": "11. Ankstesnio posėdžio protokolo tvirtinimas",
+            "ga": "11. Formheas mhiontuairiscí an tsuí roimhe seo",
+            "et": "11. Eelmise istungi protokolli kinnitamine",
+            "fr": "11. Approbation du procès-verbal de la séance précédente",
+            "da": "11. Godkendelse af protokollen fra foregående møde"
+          },
+          "numbering": 824,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-11"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-012",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "12",
+          "refers_to": [
+            "eli/dl/doc/B-10-2026-0014",
+            "eli/dl/proc/2026-2804",
+            "eli/dl/doc/O-10-2026-000030"
+          ],
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-012",
+          "title_dcterms": {
+            "fi": "12. Villaa koskevan sääntelykehyksen päivitys (keskustelu)",
+            "pl": "12. Zaktualizowane ramy regulacyjne dotyczące wełny (debata)",
+            "sl": "12. Posodobitev regulativnega okvira za volno (razprava)",
+            "cs": "12. Aktualizovaný regulační rámec pro vlnu (rozprava)",
+            "el": "12. Επικαιροποιημένο κανονιστικό πλαίσιο για το μαλλί (συζήτηση)",
+            "mt": "12. Qafas regolatorju aġġornat għas-suf (dibattitu)",
+            "en": "12. An updated regulatory framework for wool (debate)",
+            "pt": "12. Um quadro normativo atualizado para a lã (debate)",
+            "lv": "12. Atjaunināts tiesiskais regulējums attiecībā uz vilnu (debates)",
+            "bg": "12. Актуализирана регулаторна рамка за вълната (разискване)",
+            "sv": "12. Ett uppdaterat regelverk för ull (debatt)",
+            "ro": "12. Un cadru de reglementare actualizat pentru lână (dezbatere)",
+            "da": "12. En ajourført lovramme for uld (forhandling)",
+            "de": "12. Ein aktualisierter Rechtsrahmen für Wolle (Aussprache)",
+            "lt": "12. Atnaujinta vilnai skirta reglamentavimo sistema (diskusijos)",
+            "nl": "12. Geactualiseerd regelgevingskader voor wol (debat)",
+            "it": "12. Un quadro normativo aggiornato per la lana (discussione)",
+            "es": "12. Un marco regulador actualizado para la lana (debate)",
+            "hu": "12. A gyapjúra vonatkozó aktualizált szabályozási keret (vita)",
+            "et": "12. Villa käsitlev ajakohastatud õigusraamistik (arutelu)",
+            "hr": "12. Ažurirani regulatorni okvir za vunu (rasprava)",
+            "sk": "12. Aktualizovaný regulačný rámec pre vlnu (rozprava)",
+            "fr": "12. Un cadre réglementaire actualisé pour la laine (débat)",
+            "ga": "12. Creat rialála nuashonraithe le haghaidh olla (díospóireacht)"
+          },
+          "numbering": 828,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-12"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-013",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "13",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-013",
+          "title_dcterms": {
+            "it": "13. Dichiarazioni di voto orali (articolo 201 del regolamento)",
+            "hu": "13. Szóbeli szavazatindokolások (az eljárási szabályzat 201. cikke)",
+            "bg": "13. Устни обяснения на вот (член 201 от Правилника за дейността)",
+            "ro": "13. Explicații orale privind votul (articolul 201 din Regulamentul de procedură)",
+            "sv": "13. Muntliga röstförklaringar (artikel 201 i arbetsordningen)",
+            "cs": "13. Ústní vysvětlení hlasování (článek 201 jednacího řádu)",
+            "en": "13. Oral explanations of votes (Rule 201)",
+            "el": "13. Προφορικές αιτιολογήσεις ψήφων (άρθρο 201 του Κανονισμού)",
+            "hr": "13. Usmena obrazloženja glasovanja (članak 201. Poslovnika)",
+            "pt": "13. Declarações de voto orais (artigo 201.º do Regimento)",
+            "pl": "13. Oświadczenia ustne dotyczące stanowiska zajętego w głosowaniu (art. 201 Regulaminu)",
+            "nl": "13. Mondelinge stemverklaringen (artikel 201 van het Reglement)",
+            "lt": "13. Žodiniai paaiškinimai dėl balsavimo (Darbo tvarkos taisyklių 201 straipsnis)",
+            "fr": "13. Explications de vote orales (article 201 du règlement)",
+            "sl": "13. Ustne obrazložitve glasovanja (člen 201 Poslovnika)",
+            "fi": "13. Suulliset äänestysselitykset (työjärjestyksen 201 artikla)",
+            "mt": "13. Spjegazzjonijiet tal-vot orali (Artikolu 201 tar-Regoli ta' Proċedura)",
+            "lv": "13. Mutiski balsojumu skaidrojumi (Reglamenta 201. pants)",
+            "et": "13. Hääletuste kohta suuliste selgituste andmine (kodukorra artikkel 201)",
+            "da": "13. Mundtlige stemmeforklaringer (forretningsordenens artikel 201)",
+            "es": "13. Explicaciones de voto orales (artículo 201 del Reglamento interno)",
+            "ga": "13. Mínithe ó bhéal ar an vótáil (Riail 201)",
+            "de": "13. Mündliche Erklärungen zur Abstimmung (Artikel 201 GO)",
+            "sk": "13. Ústne vysvetlenia hlasovania (článok 201 rokovacieho poriadku)"
+          },
+          "numbering": 877,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-13"
+          ],
+          "inverse_is_part_of": [
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-013-01",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-013",
+              "number": "13.1",
+              "refers_to": [
+                "eli/dl/doc/A-10-2026-0167",
+                "eli/dl/proc/2025-2211"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-013-01",
+              "title_dcterms": {
+                "es": "13.1. Viabilidad de un vigésimo octavo régimen fiscal y su potencial para favorecer la competitividad de la Unión (A10-0167/2026)",
+                "pt": "13.1. Viabilidade de um 28.º regime fiscal e respetivo potencial para favorecer a competitividade da UE (A10-0167/2026)",
+                "lt": "13.1. 28-osios mokesčių sistemos įgyvendinamumas ir jos potencialas remti ES konkurencingumą (A10-0167/2026)",
+                "sk": "13.1. Uskutočniteľnosť 28. daňového režimu a jeho potenciál na podporu konkurencieschopnosti EÚ (A10-0167/2026)",
+                "sv": "13.1. Genomförbarheten av ett 28:e skattesystem och dess potential att stödja EU:s konkurrenskraft (A10-0167/2026)",
+                "sl": "13.1. Uresničljivost 28. davčnega režima in njegov potencial za podpiranje konkurenčnosti EU (A10-0167/2026)",
+                "fr": "13.1. Faisabilité d’un 28e régime fiscal et potentiel de soutien de ce dernier à la compétitivité de l’Union (A10-0167/2026)",
+                "en": "13.1. Feasibility of a 28th tax regime and its potential to support EU competitiveness (A10-0167/2026)",
+                "it": "13.1. Fattibilità di un 28° regime fiscale e relativo potenziale in termini di sostegno alla competitività dell'UE (A10-0167/2026)",
+                "el": "13.1. Η σκοπιμότητα ενός 28ου φορολογικού καθεστώτος και οι δυνατότητες που προσφέρει για τη στήριξη της ανταγωνιστικότητας της ΕΕ (A10-0167/2026)",
+                "de": "13.1. Machbarkeit eines 28. Steuerregimes und sein Potenzial zur Förderung der Wettbewerbsfähigkeit der EU (A10-0167/2026)",
+                "cs": "13.1. Proveditelnost 28. daňového režimu a jeho potenciál podpořit konkurenceschopnost EU (A10-0167/2026)",
+                "ga": "13.1. An fhéidearthacht an 28ú córas cánach a bheith ann agus an acmhainneacht atá ann tacú le hiomaíochas an Aontais (A10-0167/2026)",
+                "da": "13.1. Gennemførligheden af en 28. skatteordning og dens potentiale til at støtte EU's konkurrenceevne (A10-0167/2026)",
+                "pl": "13.1. Wykonalność 28. systemu opodatkowania i jego potencjał w zakresie wsparcia konkurencyjności UE (A10-0167/2026)",
+                "mt": "13.1. Il-fattibbiltà tat-28 reġim tat-taxxa u l-potenzjal tiegħu li jappoġġja l-kompetittività tal-UE (A10-0167/2026)",
+                "et": "13.1. 28. maksusüsteemi teostatavus ja selle potentsiaal toetada ELi konkurentsivõimet (A10-0167/2026)",
+                "fi": "13.1. Nk. 28. verotusjärjestelmän toteutettavuus ja sen mahdollisuudet tukea EU:n kilpailukykyä (A10-0167/2026)",
+                "hr": "13.1. Izvedivost 28. poreznog režima i njegov potencijal za potporu konkurentnosti EU-a (A10-0167/2026)",
+                "lv": "13.1. 28. nodokļu režīma realizējamība un tā potenciāls atbalstīt ES konkurētspēju (A10-0167/2026)",
+                "ro": "13.1. Fezabilitatea celui de-al 28-lea regim de impozitare și potențialul său de sprijinire a competitivității UE (A10-0167/2026)",
+                "nl": "13.1. Haalbaarheid van een 28e belastingregime en het potentieel ervan ter ondersteuning van het concurrentievermogen van de EU (A10-0167/2026)",
+                "bg": "13.1. Осъществимост на 28-и данъчен режим и потенциалът му за поддържане на конкурентоспособността на ЕС (A10-0167/2026)",
+                "hu": "13.1. A 28. adórendszer megvalósíthatósága és az EU versenyképességének támogatásában rejlő potenciálja (A10-0167/2026)"
+              },
+              "numbering": 880,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-13-1"
+              ]
+            },
+            {
+              "id": "eli/dl/doc/PV-10-2026-07-09-ITM-013-02",
+              "type": "WorkSubdivision",
+              "is_part_of": "eli/dl/doc/PV-10-2026-07-09-ITM-013",
+              "number": "13.2",
+              "refers_to": [
+                "eli/dl/doc/B-10-2026-0339",
+                "eli/dl/proc/2026-2734"
+              ],
+              "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+              "identifier": "PV-10-2026-07-09-ITM-013-02",
+              "title_dcterms": {
+                "de": "13.2. Gemeinsame Mitteilung über humanitäre Hilfe (JOIN(2026)0025) (B10-0339/2026)",
+                "it": "13.2. Comunicazione comune sugli aiuti umanitari (JOIN(2026)0025) (B10-0339/2026)",
+                "fi": "13.2. Yhteinen tiedonanto humanitaarisesta avusta (JOIN(2026)0025) (B10-0339/2026)",
+                "bg": "13.2. Съвместно съобщение относно хуманитарната помощ (JOIN(2026)0025) (B10-0339/2026)",
+                "ro": "13.2. Comunicare comună privind ajutorul umanitar (JOIN(2026)0025) (B10-0339/2026)",
+                "lt": "13.2. Bendras komunikatas dėl humanitarinės pagalbos (JOIN(2026)0025) (B10-0339/2026)",
+                "mt": "13.2. Komunikazzjoni konġunta dwar l-għajnuna umanitarja (JOIN(2026)0025) (B10-0339/2026)",
+                "sv": "13.2. Det gemensamma meddelandet om humanitärt bistånd (JOIN(2026)0025) (B10-0339/2026)",
+                "pt": "13.2. Comunicação conjunta sobre ajuda humanitária (B10-0339/2026)",
+                "nl": "13.2. Gezamenlijke mededeling over humanitaire hulp (JOIN(2026)0025) (B10-0339/2026)",
+                "cs": "13.2. Společné sdělení o humanitární pomoci (JOIN(2026)0025) (B10-0339/2026)",
+                "el": "13.2. Κοινή ανακοίνωση για την ανθρωπιστική βοήθεια (B10-0339/2026)",
+                "pl": "13.2. Wspólny komunikat w sprawie pomocy humanitarnej (JOIN(2026)0025) (B10-0339/2026)",
+                "es": "13.2. Comunicación conjunta sobre la ayuda humanitaria (JOIN(2026)0025) (B10-0339/2026)",
+                "et": "13.2. Ühisteatis humanitaarabi kohta (JOIN(2026)0025) (B10-0339/2026)",
+                "lv": "13.2. Kopīgs paziņojums par humāno palīdzību (JOIN(2026)0025) (B10-0339/2026)",
+                "hr": "13.2. Zajednička komunikacija o humanitarnoj pomoći (JOIN(2026)0025) (B10-0339/2026)",
+                "da": "13.2. Fælles meddelelse om humanitær bistand (B10-0339/2026)",
+                "ga": "13.2. Teachtaireacht chomhpháirteach maidir le cabhair dhaonnúil (JOIN(2026)0025) (B10-0339/2026)",
+                "hu": "13.2. Közös közlemény a humanitárius segítségnyújtásról (JOIN(2026)0025) (B10-0339/2026)",
+                "sk": "13.2. Spoločné oznámenie o humanitárnej pomoci (JOIN(2026)0025) (B10-0339/2026)",
+                "sl": "13.2. Skupno sporočilo o humanitarni pomoči (JOIN(2026)0025) (B10-0339/2026)",
+                "fr": "13.2. Communication conjointe sur l'aide humanitaire (JOIN(2026)0025) (B10-0339/2026)",
+                "en": "13.2. Joint communication on humanitarian aid (JOIN(2026)0025) (B10-0339/2026)"
+              },
+              "numbering": 886,
+              "inverse_recorded_in_a_realization_of": [
+                "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-13-2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-014",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "14",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-014",
+          "title_dcterms": {
+            "ga": "14. Mínithe i scríbhinn ar an vótáil (Riail 201)",
+            "bg": "14. Писмени обяснения на вот (член 201 от Правилника за дейността)",
+            "nl": "14. Schriftelijke stemverklaringen (artikel 201 van het Reglement)",
+            "ro": "14. Explicații privind votul prezentate în scris (articolul 201 din Regulamentul de procedură)",
+            "it": "14. Dichiarazioni di voto scritte (articolo 201 del regolamento)",
+            "el": "14. Γραπτές αιτιολογήσεις ψήφων (άρθρο 201 του Κανονισμού)",
+            "hu": "14. Írásbeli szavazatindokolások (az eljárási szabályzat 201. cikke)",
+            "pt": "14. Declarações de voto escritas (artigo 201.º do Regimento)",
+            "sk": "14. Písomné vysvetlenia hlasovania (článok 201 rokovacieho poriadku)",
+            "es": "14. Explicaciones de voto por escrito (artículo 201 del Reglamento interno)",
+            "sv": "14. Skriftliga röstförklaringar (artikel 201 i arbetsordningen)",
+            "en": "14. Written explanations of votes (Rule 201)",
+            "lv": "14. Rakstiski balsojumu skaidrojumi (Reglamenta 201. pants)",
+            "et": "14. Kirjalikud selgitused hääletuste kohta (kodukorra artikkel 201)",
+            "lt": "14. Rašytiniai paaiškinimai dėl balsavimo (Darbo tvarkos taisyklių 201 straipsnis)",
+            "fr": "14. Explications de vote écrites (article 201 du règlement)",
+            "fi": "14. Kirjalliset äänestysselitykset (työjärjestyksen 201 artikla)",
+            "de": "14. Schriftliche Erklärungen zur Abstimmung (Artikel 201 GO)",
+            "mt": "14. Spjegazzjonijiet tal-vot bil-miktub (Artikolu 201 tar-Regoli ta' Proċedura)",
+            "sl": "14. Pisne obrazložitve glasovanja (člen 201 Poslovnika)",
+            "cs": "14. Písemná vysvětlení hlasování (článek 201 jednacího řádu)",
+            "pl": "14. Oświadczenia pisemne dotyczące stanowiska zajętego w głosowaniu (art. 201 Regulaminu)",
+            "hr": "14. Pisana obrazloženja glasovanja (članak 201. Poslovnika)",
+            "da": "14. Skriftlige stemmeforklaringer (forretningsordenens artikel 201)"
+          },
+          "numbering": 895,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-14"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-015",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "15",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-015",
+          "title_dcterms": {
+            "fr": "15. Approbation du procès-verbal de la présente séance et transmission des textes adoptés",
+            "it": "15. Approvazione del processo verbale della presente seduta e trasmissione dei testi approvati",
+            "nl": "15. Goedkeuring van de notulen van deze vergadering en verzending van de aangenomen teksten",
+            "es": "15. Aprobación del acta de la presente sesión y transmisión de los textos aprobados",
+            "de": "15. Genehmigung des Protokolls der laufenden Sitzung und Übermittlung der angenommenen Texte",
+            "pt": "15. Aprovação da ata da presente sessão e transmissão dos textos aprovados",
+            "mt": "15. Approvazzjoni tal-minuti tas-seduta li għaddejja u trażmissjoni tat-testi adottati",
+            "en": "15. Approval of the minutes of the sitting and forwarding of texts adopted",
+            "sv": "15. Justering av protokollet från detta sammanträde och översändande av antagna texter",
+            "sl": "15. Sprejetje zapisnika seje in posredovanje sprejetih besedil",
+            "hu": "15. Az aktuális ülésnap jegyzőkönyvének elfogadása és az elfogadott szövegek továbbítása",
+            "lt": "15. Šio posėdžio protokolo tvirtinimas ir priimtų tekstų perdavimas",
+            "pl": "15. Zatwierdzenie protokołu bieżącego posiedzenia i przekazanie przyjętych tekstów",
+            "lv": "15. Šīs sēdes protokola apstiprināšana un pieņemto tekstu nosūtīšana",
+            "ga": "15. Formheas mhiontuairiscí an tsuí agus na téacsanna a glacadh a chur ar aghaidh",
+            "el": "15. Έγκριση των Συνοπτικών Πρακτικών της τρέχουσας συνεδρίασης και διαβίβαση των Κειμένων που Εγκρίθηκαν",
+            "fi": "15. Tämän istunnon pöytäkirjan hyväksyminen ja hyväksyttyjen tekstien edelleen välittäminen",
+            "bg": "15. Одобряване на протокола от настоящата сесия и предаване на приетите текстове",
+            "sk": "15. Schválenie zápisnice z dnešného rokovania a zaslanie prijatých textov",
+            "cs": "15. Schválení zápisu z tohoto denního zasedání a předání přijatých textů",
+            "da": "15. Godkendelse af protokollen fra dette møde og fremsendelse af vedtagne tekster",
+            "ro": "15. Aprobarea procesului-verbal al prezentei ședințe și transmiterea textelor adoptate",
+            "et": "15. Käesoleva istungi protokolli kinnitamine ja vastuvõetud tekstide edastamine",
+            "hr": "15. Usvajanje zapisnika s današnje dnevne sjednice i prosljeđivanje usvojenih tekstova"
+          },
+          "numbering": 900,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-15"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-016",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "16",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-016",
+          "title_dcterms": {
+            "ro": "16. Calendarul următoarei perioade de sesiune",
+            "mt": "16. Kalendarju tas-sessjoni parzjali li jmiss",
+            "fi": "16. Seuraavan istuntojakson aikataulu",
+            "da": "16. Kalender for den næste mødeperiode",
+            "pt": "16. Calendário do próximo período de sessões",
+            "sl": "16. Časovni razpored naslednjega delnega zasedanja",
+            "bg": "16. График на следващата месечна сесия",
+            "ga": "16. Dátaí an chéad pháirtseisiúin eile",
+            "cs": "16. Harmonogram příštího dílčího zasedání",
+            "fr": "16. Calendrier de la prochaine période de session",
+            "sv": "16. Datum för nästa sammanträdesperiod",
+            "et": "16. Järgmise osaistungjärgu ajakava",
+            "el": "16. Χρονοδιάγραμμα της επόμενης περιόδου συνόδου",
+            "en": "16. Dates of the next part-session",
+            "sk": "16. Harmonogram nasledujúcej plenárnej schôdze",
+            "pl": "16. Kalendarz następnej sesji miesięcznej",
+            "hu": "16. A következő ülés időpontja",
+            "it": "16. Calendario della prossima tornata",
+            "hr": "16. Kalendar sljedeće sjednice",
+            "de": "16. Zeitplan für die nächste Tagung",
+            "nl": "16. Rooster van de volgende vergaderperiode",
+            "es": "16. Calendario del próximo período parcial de sesiones",
+            "lv": "16. Nākamās sesijas grafiks",
+            "lt": "16. Kitos mėnesinės sesijos tvarkaraštis"
+          },
+          "numbering": 905,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-16"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-017",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "17",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-017",
+          "title_dcterms": {
+            "ga": "17. Críoch an tsuí",
+            "ro": "17. Ridicarea ședinței",
+            "da": "17. Hævelse af mødet",
+            "cs": "17. Ukončení denního zasedání",
+            "en": "17. Closure of the sitting",
+            "fi": "17. Istunnon päättäminen",
+            "nl": "17. Sluiting van de vergadering",
+            "es": "17. Cierre de la sesión",
+            "sl": "17. Zaključek seje",
+            "mt": "17. Għeluq tas-seduta",
+            "hr": "17. Zatvaranje dnevne sjednice",
+            "fr": "17. Levée de la séance",
+            "de": "17. Schluss der Sitzung",
+            "pl": "17. Zamknięcie posiedzenia",
+            "el": "17. Λήξη της συνεδρίασης",
+            "et": "17. Istungi lõpp",
+            "lt": "17. Posėdžio pabaiga",
+            "it": "17. Chiusura della seduta",
+            "sk": "17. Skončenie rokovania",
+            "pt": "17. Encerramento da sessão",
+            "lv": "17. Sēdes slēgšana",
+            "hu": "17. Az ülés berekesztése",
+            "bg": "17. Закриване на заседанието",
+            "sv": "17. Avslutande av sammanträdet"
+          },
+          "numbering": 909,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-17"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-ITM-018",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "18",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/ITM",
+          "identifier": "PV-10-2026-07-09-ITM-018",
+          "title_dcterms": {
+            "en": "18. Adjournment of the session",
+            "sk": "18. Prerušenie zasadania",
+            "pl": "18. Przerwa w obradach",
+            "lv": "18. Sesijas pārtraukšana",
+            "et": "18. Istungjärgu vaheaeg",
+            "hu": "18. Az ülésszak megszakítása",
+            "pt": "18. Interrupção da Sessão",
+            "lt": "18. Sesijos pertrauka",
+            "it": "18. Interruzione della sessione",
+            "mt": "18. Interruzzjoni tas-sessjoni",
+            "el": "18. Διακοπή της συνόδου",
+            "ga": "18. Atráth an tseisiúin",
+            "bg": "18. Прекъсване на сесията",
+            "sl": "18. Prekinitev zasedanja",
+            "da": "18. Afbrydelse af sessionen",
+            "sv": "18. Avbrytande av sessionen",
+            "nl": "18. Onderbreking van de zitting",
+            "es": "18. Interrupción del período de sesiones",
+            "cs": "18. Přerušení zasedání",
+            "ro": "18. Întreruperea sesiunii",
+            "fr": "18. Interruption de la session",
+            "hr": "18. Prekid zasjedanja",
+            "de": "18. Unterbrechung der Sitzungsperiode",
+            "fi": "18. Istuntokauden keskeyttäminen"
+          },
+          "numbering": 913,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-ITM-18"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-OTH-1",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "1",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/OTH",
+          "identifier": "PV-10-2026-07-09-OTH-1",
+          "numbering": 257,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-CHA-1"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-OTH-3",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "3",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/OTH",
+          "identifier": "PV-10-2026-07-09-OTH-3",
+          "numbering": 523,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-CHA-3"
+          ]
+        },
+        {
+          "id": "eli/dl/doc/PV-10-2026-07-09-OTH-4",
+          "type": "WorkSubdivision",
+          "is_part_of": "eli/dl/doc/PV-10-2026-07-09",
+          "number": "4",
+          "type_subdivision": "http://publications.europa.eu/resource/authority/subdivision/OTH",
+          "identifier": "PV-10-2026-07-09-OTH-4",
+          "numbering": 817,
+          "inverse_recorded_in_a_realization_of": [
+            "eli/dl/event/MTG-PL-2026-07-09-PVCRE-CHA-4"
+          ]
+        }
+      ],
+      "inverse_is_annex_of": [
+        "eli/dl/doc/PV-10-2026-07-09-ATT",
+        "eli/dl/doc/PV-10-2026-07-09-RCV",
+        "eli/dl/doc/PV-10-2026-07-09-VOT"
+      ],
+      "inverse_recorded_in_a_realization_of": [
+        "eli/dl/event/MTG-PL-2026-07-09"
+      ]
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

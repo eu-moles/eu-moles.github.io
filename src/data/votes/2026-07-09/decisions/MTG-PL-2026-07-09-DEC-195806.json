@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "id": "eli/dl/event/MTG-PL-2026-07-09-DEC-195806",
+      "type": "Vote",
+      "activity_date": "2026-07-09",
+      "activity_id": "MTG-PL-2026-07-09-DEC-195806",
+      "activity_order": "1.0",
+      "decision_method": "def/ep-decision-methods/VOTE_HAND",
+      "decision_outcome": "def/ep-statuses/ADOPTED",
+      "had_activity_type": "def/ep-activities/PLENARY_OUTCOME",
+      "notation_votingId": "195806",
+      "referenceText": {
+        "de": "Antrag auf Rücküberweisung an den Ausschuss (Artikel 204 Absatz 2 GO)",
+        "hu": "A bizottsághoz történő visszautalásra irányuló kérelem (az eljárási szabályzat 204. cikkének (2) bekezdése)",
+        "lt": "Prašymas grąžinti klausimą atsakingam komitetui (Darbo tvarkos taisyklių 204 straipsnio 2 dalis)",
+        "es": "Solicitud de devolución a comisión (artículo 204, apartado 2, del Reglamento interno)",
+        "sk": "žiadosť o vrátenie výboru (článok 204 ods. 2 rokovacieho poriadku)",
+        "hr": "Zahtjev za vraćanje predmeta odboru (članak 204. stavak 2. Poslovnika)",
+        "el": "Αίτημα αναπομπής στην επιτροπή (άρθρο 204 παράγραφος 2 του Κανονισμού)",
+        "sv": "Begäran om återförvisning till utskottet (artikel 204, punkt 2 i arbetsordningen)",
+        "ro": "Cerere de retrimitere la comisie [articolul 204 alineatul (2) din Regulamentul de procedură]",
+        "nl": "Verzoek om terugverwijzing naar de commissie (artikel 204, lid 2, van het Reglement)",
+        "mt": "Talba għal riferiment lill-kumitat (l-Artikolu 204(2) tar-Regoli ta’ Proċedura)",
+        "pl": "Wniosek o odesłanie do komisji (art. 204 ust. 2 Regulaminu)",
+        "ga": "Iarraidh ar tharchur ar ais chuig coiste (Riail 204(2))",
+        "da": "Anmodning om henvisning til fornyet udvalgsbehandling (forretningsordenens artikel 204, stk. 2)",
+        "sl": "Zahteva za vrnitev pristojnemu odboru (člen 204(2) Poslovnika)",
+        "et": "Komisjonile tagasisaatmise taotlus (kodukorra artikli 204 lõige 2)",
+        "lv": "Pieprasījums nodot atpakaļ komitejai (Reglamenta 204. panta 2. punkts)",
+        "it": "Richiesta di rinvio in commissione (articolo 204, paragrafo 2, del regolamento)",
+        "bg": "Искане за ново разглеждане (член 204, параграф 2 от Правилника за дейността)",
+        "fi": "valiokuntaan palauttamista koskeva pyyntö (työjärjestyksen 204 artiklan 2 kohta)",
+        "fr": "Demande de renvoi en commission (article 204, paragraphe 2, du règlement)",
+        "cs": "žádost o vrácení (čl. 204 odst. 2 jednacího řádu)",
+        "pt": "Pedido de devolução à comissão (artigo 204.º, n.º 2, do Regimento)",
+        "en": "Request for referral back to committee (Rule 204(2))"
+      }
+    }
+  ],
+  "@context": [
+    {
+      "data": "@graph",
+      "@base": "https://data.europarl.europa.eu/"
+    },
+    "https://data.europarl.europa.eu/api/v2/context.jsonld"
+  ]
+}

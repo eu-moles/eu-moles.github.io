@@ -3,13 +3,14 @@
   if (!form) return;
 
   const rows = Array.from(document.querySelectorAll('[data-mep-row]'));
+  const rowsContainer = document.querySelector('#mep-directory-rows');
   const controls = {
     country: document.querySelector('#mep-country'),
     letter: document.querySelector('#mep-letter'),
     group: document.querySelector('#mep-group'),
     party: document.querySelector('#mep-party'),
     pageSize: document.querySelector('#mep-page-size'),
-    russia: document.querySelector('#mep-russia-filter'),
+    detectionSort: document.querySelector('#mep-detection-sort'),
   };
   const summary = document.querySelector('#mep-results-summary');
   const pagination = document.querySelector('#mep-pagination');
@@ -33,7 +34,7 @@
   });
   const requestedPageSize = Number(query.get('pageSize'));
   if (pageSizeOptions.includes(requestedPageSize)) controls.pageSize.value = requestedPageSize;
-  controls.russia.checked = query.get('russia') !== '0';
+  controls.detectionSort.checked = query.get('detectionSort') !== '0';
   page = Math.max(1, Number(query.get('page')) || 1);
 
   const updateUrl = () => {
@@ -41,7 +42,7 @@
     ['country', 'letter', 'group', 'party'].forEach((name) => {
       if (controls[name].value) params.set(name, controls[name].value);
     });
-    if (!controls.russia.checked) params.set('russia', '0');
+    if (!controls.detectionSort.checked) params.set('detectionSort', '0');
     if (Number(controls.pageSize.value) !== 25) params.set('pageSize', controls.pageSize.value);
     if (page > 1) params.set('page', page);
     const suffix = params.toString();
@@ -92,22 +93,29 @@
       (!controls.country.value || row.dataset.country === controls.country.value) &&
       (!controls.letter.value || firstLetter(row) === controls.letter.value) &&
       (!controls.group.value || row.dataset.group === controls.group.value) &&
-      (!controls.party.value || row.dataset.party === controls.party.value) &&
-      (!controls.russia.checked || row.dataset.russiaBenefit === 'true')
+      (!controls.party.value || row.dataset.party === controls.party.value)
     ));
-    const pages = Math.max(1, Math.ceil(matchingRows.length / pageSize));
+    const orderedRows = matchingRows.sort((left, right) => {
+      if (controls.detectionSort.checked) {
+        const countDifference = Number(right.dataset.detectionCount) - Number(left.dataset.detectionCount);
+        if (countDifference) return countDifference;
+      }
+      return left.dataset.fullName.localeCompare(right.dataset.fullName);
+    });
+    const pages = Math.max(1, Math.ceil(orderedRows.length / pageSize));
     page = Math.min(page, pages);
     const start = (page - 1) * pageSize;
     const end = start + pageSize;
 
     rows.forEach((row) => { row.hidden = true; });
-    matchingRows.slice(start, end).forEach((row) => { row.hidden = false; });
+    orderedRows.forEach((row, index) => {
+      rowsContainer.append(row);
+      row.hidden = index < start || index >= end;
+    });
 
-    if (matchingRows.length) {
-      const description = controls.russia.checked
-        ? ' MEP record with potential Russia-benefit activity'
-        : ' MEP record';
-      summary.textContent = `${matchingRows.length}${description}${matchingRows.length === 1 ? '' : 's'} — showing ${start + 1}–${Math.min(end, matchingRows.length)}`;
+    if (orderedRows.length) {
+      const ordering = controls.detectionSort.checked ? ' — highest detections first' : '';
+      summary.textContent = `${orderedRows.length} MEP record${orderedRows.length === 1 ? '' : 's'}${ordering} — showing ${start + 1}–${Math.min(end, orderedRows.length)}`;
     } else {
       summary.textContent = 'No MEP records match these filters.';
     }
