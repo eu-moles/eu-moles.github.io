@@ -264,7 +264,13 @@
       const languageButton = window.EUMolesMotionContext.createTranslationButton(speech.language, speech.text, speech.translation);
       if (languageButton) bubble.append(languageButton);
     }
-    content.append(bubble, meta);
+    content.append(bubble);
+    if (speech.russiaBenefit === true && window.EUMolesMotionContext
+      && typeof window.EUMolesMotionContext.createFactCheck === 'function') {
+      const factCheck = window.EUMolesMotionContext.createFactCheck(speech.factCheck);
+      if (factCheck) content.append(factCheck);
+    }
+    content.append(meta);
     article.append(avatar, content);
     container.append(article);
   };

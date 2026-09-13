@@ -33,6 +33,7 @@
               "text" (index $assessment "sourceText" | default "")
               "translation" (dict "englishText" (index $assessment "englishText" | default ""))
               "russiaBenefit" true
+              "factCheck" (index $assessment "factCheck" | default "")
             ) -}}
           {{- end -}}
         {{- end -}}

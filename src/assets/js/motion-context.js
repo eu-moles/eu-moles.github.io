@@ -323,6 +323,9 @@
       bindTranslationButton(button);
       return button;
     },
+    createFactCheck(factCheck) {
+      return createFactCheck(factCheck);
+    },
     open(motion, opener, profileURL, writeURL = true) {
       if (!motion || !motion.contextID || !Array.isArray(motion.discussion) || !motion.discussion.length) return;
       const dialog = document.getElementById(motion.contextID) || createDiscussionDialog(motion, profileURL);
